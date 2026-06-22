@@ -1,0 +1,56 @@
+==========================================================
+  SERAVENA — Cómo reemplazar imágenes y videos
+==========================================================
+
+Cuando consigas tus PROPIAS fotos o videos, reemplaza estos
+archivos por los tuyos USANDO EL MISMO NOMBRE. El sitio los
+toma automáticamente, sin tocar código.
+
+----------------------------------------------------------
+ARCHIVOS EN USO Y DÓNDE APARECEN
+----------------------------------------------------------
+
+1) hero.mp4 (+ hero-poster.webp)
+   - Video grande del inicio. Horizontal, tranquilo, en bucle.
+   - Va en cámara lenta automáticamente.
+
+1b) fabric-flow.mp4
+   - Banda de video (entre "Salud vascular" y "Tu proceso").
+   - Horizontal, atmosférico. También en cámara lenta.
+
+2) skin-detail.webp
+   - Sección "Lipedema". (Foto de tu banco)
+
+3) band-veins.webp
+   - Banda con la cita (a sangre completa). Foto de várices.
+     (Foto de tu banco)
+
+4) vascular-veins.webp
+   - Sección "Salud vascular", imagen principal (vertical).
+     (Foto de tu banco)
+
+5) treatment.webp
+   - Sección "Salud vascular", imagen pequeña del collage
+     (tratamiento). (Foto de tu banco)
+
+6) professionals.webp
+   - Hero de la página "Profesionales" (bata blanca, manos).
+
+----------------------------------------------------------
+ARCHIVOS DISPONIBLES (de respaldo, no en uso ahora)
+----------------------------------------------------------
+- silk-flowers.webp, care-hands.webp, texture-camel.webp
+  (imágenes de banco gratuito; puedes usarlas si quieres).
+
+----------------------------------------------------------
+CONSEJOS
+----------------------------------------------------------
+- Formatos válidos: .jpg, .png o .webp. Si usas otro nombre,
+  avísame y ajusto 1 línea de código.
+- Carga rápida: máximo ~1500px de ancho.
+- Las fotos REALES de Seravena son las que más confían los
+  pacientes. ¡Estas ya son tuyas, perfecto!
+
+Datos de contacto del sitio:
+  WhatsApp: +57 305 208 8204
+  Correo:   info@seravena.com.co
