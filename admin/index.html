@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de administración | Seravena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/isotype-chocolate.png">
+<style>
+:root{
+  --chocolate:#4B412D; --camel:#9D8051; --arena:#EDE2D0; --piedra:#F9F9F8; --pardo:#1A1A1A;
+  --white:#fff; --muted:#6b6357; --arena-deep:#e0d4c0;
+  --radius:16px; --shadow:0 18px 50px rgba(75,65,45,.14); --ease:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--piedra);color:var(--pardo);min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px}
+.bg{position:fixed;inset:0;z-index:0;background:radial-gradient(1100px 560px at 72% -12%, var(--arena), var(--piedra) 62%)}
+.card,.dash{position:relative;z-index:1;width:100%;background:var(--white);border:1px solid var(--arena-deep);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card{max-width:420px;padding:40px 34px}
+.brand{text-align:center;margin-bottom:8px}
+.brand img{height:34px;width:auto}
+.subtitle{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:28px}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--chocolate);margin:0 0 7px 2px}
+.field{margin-bottom:18px}
+input{width:100%;padding:13px 15px;border:1px solid var(--arena-deep);border-radius:11px;font-family:inherit;font-size:1rem;background:var(--piedra);transition:border-color .2s,box-shadow .2s}
+input:focus{outline:none;border-color:var(--camel);box-shadow:0 0 0 3px rgba(157,128,81,.15);background:#fff}
+.btn{width:100%;padding:14px;border:none;border-radius:11px;background:var(--chocolate);color:#fff;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:background .25s,transform .1s;margin-top:6px}
+.btn:hover{background:#3a3322}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.msg{margin-top:16px;font-size:.88rem;text-align:center;min-height:1.2em}
+.msg.error{color:#b0341d}
+.msg.ok{color:#3f6b3f}
+.foot{text-align:center;margin-top:22px;font-size:.78rem;color:var(--muted)}
+.hidden{display:none!important}
+.dash{max-width:560px;padding:40px 36px;text-align:center}
+.dash h1{font-weight:600;font-size:1.5rem;color:var(--chocolate);margin-bottom:10px}
+.dash p{color:var(--muted);font-size:.98rem;line-height:1.6}
+.dash .who{font-weight:600;color:var(--chocolate)}
+.dash .soon{margin:24px 0;padding:18px;background:var(--arena);border-radius:12px;color:var(--chocolate);font-size:.92rem;line-height:1.55}
+.linkbtn{display:inline-block;margin-top:8px;padding:11px 22px;border-radius:10px;background:var(--chocolate);color:#fff;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer;font-family:inherit}
+.linkbtn.ghost{background:transparent;color:var(--muted);border:1px solid var(--arena-deep)}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<!-- ====== LOGIN ====== -->
+<div class="card" id="loginCard">
+  <div class="brand"><img src="../assets/wordmark-pardo.webp" alt="Seravena"></div>
+  <p class="subtitle">Panel de administración</p>
+  <form id="loginForm" novalidate>
+    <div class="field">
+      <label for="email">Correo</label>
+      <input type="email" id="email" autocomplete="username" placeholder="tu@correo.com" required>
+    </div>
+    <div class="field">
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" autocomplete="current-password" placeholder="••••••••" required>
+    </div>
+    <button type="submit" class="btn" id="loginBtn">Ingresar</button>
+    <p class="msg" id="msg"></p>
+  </form>
+  <p class="foot">Acceso solo para el equipo de Seravena 🔒</p>
+</div>
+
+<!-- ====== PANEL (oculto hasta iniciar sesión) ====== -->
+<div class="dash hidden" id="dash">
+  <div class="brand" style="margin-bottom:18px"><img src="../assets/wordmark-pardo.webp" alt="Seravena" style="height:30px"></div>
+  <h1>¡Bienvenida! 🎉</h1>
+  <p>Has iniciado sesión como <span class="who" id="whoami">—</span></p>
+  <div class="soon">🚧 Aquí pronto podrás <strong>editar los textos, fotos, preguntas y datos de contacto</strong> de tu web. Lo estamos construyendo por fases.</div>
+  <a href="../index.html" class="linkbtn">Ver mi sitio web</a>
+  <button class="linkbtn ghost" id="logoutBtn" style="margin-left:8px">Cerrar sesión</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* ================== CONFIGURACIÓN DE SUPABASE ==================
+   Reemplazar estos dos valores con los de tu proyecto Supabase
+   (Project Settings -> API). El "anon key" es PÚBLICO y seguro
+   de poner aquí: la seguridad real la dan las reglas de Supabase.
+   ============================================================== */
+const SUPABASE_URL = "https://ppxrwyzqtsvwhyfjwgjg.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc";
+/* ============================================================== */
+
+const { createClient } = window.supabase;
+const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const loginCard = document.getElementById('loginCard');
+const dash = document.getElementById('dash');
+const msg = document.getElementById('msg');
+const loginBtn = document.getElementById('loginBtn');
+
+function showDashboard(user){
+  loginCard.classList.add('hidden');
+  dash.classList.remove('hidden');
+  document.getElementById('whoami').textContent = user?.email || '';
+}
+function showLogin(){
+  dash.classList.add('hidden');
+  loginCard.classList.remove('hidden');
+}
+
+/* ¿Ya hay una sesión abierta? */
+(async () => {
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session) showDashboard(session.user);
+  } catch (e) { /* sin configurar todavía */ }
+})();
+
+/* Iniciar sesión */
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.className = 'msg'; msg.textContent = '';
+  loginBtn.disabled = true; loginBtn.textContent = 'Ingresando…';
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  try {
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) {
+      msg.className = 'msg error';
+      msg.textContent = 'Correo o contraseña incorrectos.';
+    } else {
+      showDashboard(data.user);
+    }
+  } catch (err) {
+    msg.className = 'msg error';
+    msg.textContent = 'El panel aún no está conectado. Avísame para terminar la configuración.';
+  }
+  loginBtn.disabled = false; loginBtn.textContent = 'Ingresar';
+});
+
+/* Cerrar sesión */
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  try { await sb.auth.signOut(); } catch (e) {}
+  showLogin();
+});
+</script>
+</body>
+</html>
