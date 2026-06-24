@@ -18,8 +18,10 @@ ARCHIVOS EN USO Y DÓNDE APARECEN
    - Banda de video (entre "Salud vascular" y "Tu proceso").
    - Horizontal, atmosférico. También en cámara lenta.
 
-2) skin-detail.webp
-   - Sección "Lipedema". (Foto de tu banco)
+2) piel-lipedema.webp
+   - Banner (cabecera) de la página "Lipedema". Primer plano de
+     piel/celulitis. (Foto de banco gratuito Pexels, licencia libre
+     para uso comercial, sin atribución.)
 
 3) band-veins.webp
    - Banda con la cita (a sangre completa). Foto de várices.
@@ -39,7 +41,8 @@ ARCHIVOS EN USO Y DÓNDE APARECEN
 ----------------------------------------------------------
 ARCHIVOS DISPONIBLES (de respaldo, no en uso ahora)
 ----------------------------------------------------------
-- silk-flowers.webp, care-hands.webp, texture-camel.webp
+- silk-flowers.webp, care-hands.webp, texture-camel.webp,
+  skin-detail.webp (esta era el banner anterior de Lipedema)
   (imágenes de banco gratuito; puedes usarlas si quieres).
 
 ----------------------------------------------------------
