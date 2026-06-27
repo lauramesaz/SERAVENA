@@ -1,56 +1,73 @@
-/* contenido.js — Lee los datos editables desde Supabase y los aplica a la web.
-   Si Supabase no responde, la página conserva los valores que ya trae en el
-   HTML (así nunca se rompe ni se ve vacía). */
+/* contenido.js — Aplica el contenido editable (Supabase) a la web pública.
+   - Textos: detecta los elementos de texto automáticamente y les pone una
+     "clave" estable según su posición (o su data-c si lo tienen).
+   - Contacto: WhatsApp y correo (aparecen en varios lugares).
+   Si Supabase no responde, la página conserva su contenido original. */
 (function () {
-  var URL = "https://ppxrwyzqtsvwhyfjwgjg.supabase.co";
-  var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc";
+  var SB_URL = "https://ppxrwyzqtsvwhyfjwgjg.supabase.co";
+  var SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc";
 
-  fetch(URL + "/rest/v1/contenido?select=clave,valor", {
-    headers: { apikey: KEY, Authorization: "Bearer " + KEY }
-  })
+  /* ===== Funciones compartidas con el panel (deben ser IDÉNTICAS) ===== */
+  function svEditable(doc) {
+    var sel = 'h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead';
+    return Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function (el) {
+      if (el.closest('header,nav,script,style,.marquee')) return false;     // no tocar menú/marquesina
+      if (el.classList.contains('hero-title')) return false;                 // título animado del banner
+      if (el.querySelector('h1,h2,h3,h4,h5,p,li,ul,ol,section,div,img,video,svg')) return false; // solo "hojas" de texto
+      return el.textContent.replace(/\s+/g, '').length > 0;
+    });
+  }
+  function svKey(page, el) {
+    var dc = el.getAttribute('data-c');
+    if (dc) return dc;
+    var parts = [], n = el;
+    while (n && n.nodeType === 1 && n.tagName !== 'BODY' && n.tagName !== 'HTML') {
+      var tag = n.tagName.toLowerCase(), i = 1, s = n;
+      while ((s = s.previousElementSibling)) { if (s.tagName === n.tagName) i++; }
+      parts.unshift(tag + i);
+      n = n.parentElement;
+    }
+    return page + '|' + parts.join('>');
+  }
+  function svPage() {
+    var f = (location.pathname.split('/').pop() || 'index.html');
+    if (!f) f = 'index.html';
+    return f.replace('.html', '');
+  }
+  // Exponer para que el panel reúse EXACTAMENTE la misma lógica (claves coincidentes)
+  window.svEditable = svEditable;
+  window.svKey = svKey;
+  window.svPage = svPage;
+
+  fetch(SB_URL + "/rest/v1/contenido?select=clave,valor", { headers: { apikey: SB_KEY, Authorization: "Bearer " + SB_KEY } })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (rows) {
       if (!rows) return;
       var c = {};
       rows.forEach(function (x) { c[x.clave] = x.valor; });
 
-      // ---- Textos editables: cualquier elemento con data-c="clave" ----
-      Object.keys(c).forEach(function (k) {
-        if (c[k] == null || c[k] === "") return;
-        document.querySelectorAll('[data-c="' + k + '"]').forEach(function (el) {
-          el.textContent = c[k];
+      // ---- Textos (clave por data-c o por posición) ----
+      try {
+        var page = svPage();
+        svEditable(document).forEach(function (el) {
+          var k = svKey(page, el);
+          if (c[k] != null && c[k] !== "") el.textContent = c[k];
         });
-      });
+      } catch (e) {}
 
       // ---- WhatsApp ----
       if (c.whatsapp) {
         var digits = c.whatsapp.replace(/\D/g, "");
-        // Todos los enlaces wa.me (conserva el ?text=...)
-        document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
-          a.href = a.href.replace(/wa\.me\/\d+/, "wa.me/" + digits);
-        });
-        // Texto visible en el footer
-        document.querySelectorAll('.footer-contact a[href*="wa.me"]').forEach(function (a) {
-          a.textContent = "WhatsApp · " + c.whatsapp;
-        });
-        // Texto visible en la tarjeta de contacto
-        document.querySelectorAll('.contact-method[href*="wa.me"] .contact-method-value').forEach(function (el) {
-          el.textContent = c.whatsapp;
-        });
+        document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) { a.href = a.href.replace(/wa\.me\/\d+/, "wa.me/" + digits); });
+        document.querySelectorAll('.footer-contact a[href*="wa.me"]').forEach(function (a) { a.textContent = "WhatsApp · " + c.whatsapp; });
+        document.querySelectorAll('.contact-method[href*="wa.me"] .contact-method-value').forEach(function (el) { el.textContent = c.whatsapp; });
       }
-
       // ---- Correo ----
       if (c.email) {
-        document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
-          a.href = "mailto:" + c.email;
-        });
-        document.querySelectorAll('.footer-contact a[href^="mailto:"]').forEach(function (a) {
-          a.textContent = c.email;
-        });
-        document.querySelectorAll('.contact-method[href^="mailto:"] .contact-method-value').forEach(function (el) {
-          el.textContent = c.email;
-        });
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) { a.href = "mailto:" + c.email; });
+        document.querySelectorAll('.footer-contact a[href^="mailto:"]').forEach(function (a) { a.textContent = c.email; });
+        document.querySelectorAll('.contact-method[href^="mailto:"] .contact-method-value').forEach(function (el) { el.textContent = c.email; });
       }
     })
-    .catch(function () { /* silencio: la web queda con sus valores actuales */ });
+    .catch(function () {});
 })();
