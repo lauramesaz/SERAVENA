@@ -39,10 +39,20 @@
     if (!f) f = 'index.html';
     return f.replace('.html', '');
   }
+  function svImages(doc) {
+    return Array.prototype.slice.call(doc.querySelectorAll('img')).filter(function (img) {
+      if (img.closest('header,nav,footer,.marquee')) return false;   // logos / footer
+      if (img.classList.contains('logo-img') || img.classList.contains('footer-logo')) return false;
+      var src = img.getAttribute('src') || '';
+      if (/isotype|wordmark|mark/i.test(src)) return false;          // marcas/íconos
+      return true;
+    });
+  }
   // Exponer para que el panel reúse EXACTAMENTE la misma lógica (claves coincidentes)
   window.svEditable = svEditable;
   window.svKey = svKey;
   window.svPage = svPage;
+  window.svImages = svImages;
 
   fetch(SB_URL + "/rest/v1/contenido?select=clave,valor", { headers: { apikey: SB_KEY, Authorization: "Bearer " + SB_KEY } })
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -57,6 +67,15 @@
         svEditable(document).forEach(function (el) {
           var k = svKey(page, el);
           if (c[k] != null && c[k] !== "") el.textContent = c[k];
+        });
+      } catch (e) {}
+
+      // ---- Imágenes ----
+      try {
+        var pageI = svPage();
+        svImages(document).forEach(function (img) {
+          var k = 'img::' + svKey(pageI, img);
+          if (c[k]) img.src = c[k];
         });
       } catch (e) {}
 

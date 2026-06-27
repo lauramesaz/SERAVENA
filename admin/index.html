@@ -101,7 +101,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
       </select>
       <button class="textbtn" id="reloadPreview">↻ Recargar</button>
     </div>
-    <div class="tip">✨ <strong>Haz clic en cualquier texto</strong> de la vista previa para editarlo. Pulsa <strong>Enter</strong> o haz clic afuera para guardar. (El título grande animado del inicio se cambia pidiéndomelo a mí.)</div>
+    <div class="tip">✨ <strong>Haz clic en cualquier texto</strong> para editarlo, o en <strong>cualquier foto</strong> para cambiarla. Pulsa <strong>Enter</strong> o haz clic afuera para guardar. (El título grande animado se cambia pidiéndomelo a mí.)</div>
     <div class="preview-frame"><iframe id="pf" src="../index.html" title="Vista previa editable"></iframe></div>
   </div>
 
@@ -115,7 +115,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
     <p class="msg" id="msgContacto"></p>
   </div>
 
-  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Aquí podrás cambiar las imágenes haciendo clic sobre ellas y subiendo la nueva.<br>🚧 Es la siguiente fase.</div></div>
+  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Las fotos se cambian en <b>📄 Editar páginas</b>: pasa el mouse sobre cualquier imagen, haz clic y sube la nueva. ✅</div></div>
   <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
 </div>
 
@@ -196,6 +196,44 @@ function svKey(page, el){
   }
   return page+'|'+parts.join('>');
 }
+function svImages(doc){
+  return Array.prototype.slice.call(doc.querySelectorAll('img')).filter(function(img){
+    if(img.closest('header,nav,footer,.marquee')) return false;
+    if(img.classList.contains('logo-img')||img.classList.contains('footer-logo')) return false;
+    var src=img.getAttribute('src')||''; if(/isotype|wordmark|mark/i.test(src)) return false;
+    return true;
+  });
+}
+function resizeImage(file, maxW){
+  return new Promise(function(resolve){
+    var im=new Image();
+    im.onload=function(){
+      var scale=Math.min(1, maxW/(im.width||maxW)), w=Math.round((im.width||maxW)*scale), h=Math.round((im.height||maxW)*scale);
+      var cv=document.createElement('canvas'); cv.width=w; cv.height=h;
+      cv.getContext('2d').drawImage(im,0,0,w,h);
+      cv.toBlob(function(b){ resolve(b||file); }, 'image/jpeg', 0.85);
+    };
+    im.onerror=function(){ resolve(file); };
+    im.src=URL.createObjectURL(file);
+  });
+}
+function pickImage(img, key){
+  var input=document.createElement('input'); input.type='file'; input.accept='image/*';
+  input.onchange=async function(){
+    var file=input.files&&input.files[0]; if(!file) return;
+    toast('Procesando foto…');
+    try{
+      var blob=await resizeImage(file, 1600);
+      var path=currentPageName()+'/'+Date.now()+'.jpg';
+      var up=await sb.storage.from('imagenes').upload(path, blob, {upsert:true, contentType:'image/jpeg'});
+      if(up.error){ toast('No se pudo subir ('+up.error.message+')', true); return; }
+      var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
+      await sb.from('contenido').upsert({clave:key, valor:url});
+      img.src=url; toast('✓ Foto actualizada');
+    }catch(e){ toast('No se pudo subir la foto', true); }
+  };
+  input.click();
+}
 function enableEdit(){
   let doc;
   try{ doc=pf.contentDocument; }catch(e){ return; }
@@ -204,7 +242,7 @@ function enableEdit(){
   doc.body.setAttribute('data-sv-ready','1');
   const page=currentPageName();
   const st=doc.createElement('style');
-  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.14)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 3px #4B412D!important;background:#fff!important;color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important;outline:none;padding:2px 8px;border-radius:6px}[data-sv][contenteditable="true"] *{color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important}';
+  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.14)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 3px #4B412D!important;background:#fff!important;color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important;outline:none;padding:2px 8px;border-radius:6px}[data-sv][contenteditable="true"] *{color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important}[data-sv-img]{cursor:pointer;transition:outline .12s,filter .12s}[data-sv-img]:hover{outline:3px solid #9D8051;outline-offset:2px;filter:brightness(.82)}';
   doc.head.appendChild(st);
   doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
   try{
@@ -215,6 +253,13 @@ function enableEdit(){
         if(el.getAttribute('contenteditable')==='true') return;
         startEdit(el, svKey(page, el));
       });
+    });
+  }catch(e){}
+  // imágenes: clic para cambiar
+  try{
+    svImages(doc).forEach(function(img){
+      img.setAttribute('data-sv-img','1');
+      img.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page, img)); });
     });
   }catch(e){}
 }
