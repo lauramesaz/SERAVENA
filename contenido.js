@@ -52,7 +52,9 @@
   window.svEditable = svEditable;
   window.svKey = svKey;
   window.svPage = svPage;
+  function svVideos(doc) { return Array.prototype.slice.call(doc.querySelectorAll('video')); }
   window.svImages = svImages;
+  window.svVideos = svVideos;
 
   fetch(SB_URL + "/rest/v1/contenido?select=clave,valor", { headers: { apikey: SB_KEY, Authorization: "Bearer " + SB_KEY } })
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -76,6 +78,15 @@
         svImages(document).forEach(function (img) {
           var k = 'img::' + svKey(pageI, img);
           if (c[k]) img.src = c[k];
+        });
+      } catch (e) {}
+
+      // ---- Videos ----
+      try {
+        var pageV = svPage();
+        svVideos(document).forEach(function (v) {
+          var k = 'vid::' + svKey(pageV, v);
+          if (c[k]) { v.src = c[k]; try { v.load(); } catch (e) {} }
         });
       } catch (e) {}
 

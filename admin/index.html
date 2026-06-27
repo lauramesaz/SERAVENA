@@ -138,7 +138,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
       </select>
       <button class="textbtn" id="reloadFotos">↻ Recargar</button>
     </div>
-    <div class="tip">🖼️ Sobre cada foto verás un botón <strong>📷 Cambiar foto</strong>. Haz clic ahí y sube la nueva — la optimizo sola para que tu web siga rápida.</div>
+    <div class="tip">🖼️ Sobre cada <strong>foto</strong> o <strong>video</strong> verás un botón para cambiarlo. Haz clic y sube el nuevo. (Las fotos las optimizo solas; los videos: máx 50MB, mejor cortos y livianos.)</div>
     <div class="preview-frame"><iframe id="pfFotos" src="../index.html" title="Vista previa de fotos"></iframe></div>
   </div>
   <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
@@ -229,6 +229,25 @@ function svImages(doc){
     var src=img.getAttribute('src')||''; if(/isotype|wordmark|mark/i.test(src)) return false;
     return true;
   });
+}
+function svVideos(doc){ return Array.prototype.slice.call(doc.querySelectorAll('video')); }
+function pickVideo(video, key){
+  var input=document.createElement('input'); input.type='file'; input.accept='video/*';
+  input.onchange=async function(){
+    var file=input.files&&input.files[0]; if(!file) return;
+    if(file.size > 50*1024*1024){ toast('Ese video pesa más de 50MB. Usa uno más corto o liviano.', true); return; }
+    toast('Subiendo video… (puede tardar un momento)');
+    try{
+      var ext=(file.name.split('.').pop()||'mp4').toLowerCase();
+      var path='videos/'+Date.now()+'.'+ext;
+      var up=await sb.storage.from('imagenes').upload(path, file, {upsert:true, contentType:file.type||'video/mp4'});
+      if(up.error){ toast('No se pudo subir ('+up.error.message+')', true); return; }
+      var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
+      await sb.from('contenido').upsert({clave:key, valor:url});
+      video.src=url; try{ video.load(); video.play(); }catch(e){} toast('✓ Video actualizado');
+    }catch(e){ toast('No se pudo subir el video', true); }
+  };
+  input.click();
 }
 function resizeImage(file, maxW){
   return new Promise(function(resolve){
@@ -329,6 +348,15 @@ function enableFotos(){
       btn.style.cssText='position:absolute;z-index:99999;background:#4B412D;color:#fff;border:none;border-radius:999px;padding:9px 15px;font-family:sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap';
       btn.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page,img)); });
       layer.appendChild(btn); pairs.push([img,btn]);
+    });
+  }catch(e){}
+  try{
+    svVideos(doc).forEach(function(v){
+      var btn=doc.createElement('button');
+      btn.textContent='🎬 Cambiar video';
+      btn.style.cssText='position:absolute;z-index:99999;background:#4B412D;color:#fff;border:none;border-radius:999px;padding:9px 15px;font-family:sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap';
+      btn.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickVideo(v, 'vid::'+svKey(page,v)); });
+      layer.appendChild(btn); pairs.push([v,btn]);
     });
   }catch(e){}
   function reposition(){
