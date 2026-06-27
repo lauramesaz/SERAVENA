@@ -133,10 +133,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
         <option value="preguntas.html">Preguntas</option>
         <option value="contacto.html">Contacto</option>
       </select>
+      <button class="textbtn" id="reloadFotos">↻ Recargar</button>
     </div>
-    <div class="tip">🖼️ Estas son las fotos de esta página. Haz clic en <strong>"Cambiar foto"</strong> y sube la nueva — la optimizo sola para que tu web siga rápida.</div>
-    <div id="fotoGrid" class="foto-grid"></div>
-    <iframe id="pfFotos" style="display:none" title="cargador de fotos"></iframe>
+    <div class="tip">🖼️ Pasa el mouse sobre cualquier <strong>foto</strong> de la vista previa y haz clic para cambiarla. La optimizo sola para que tu web siga rápida.</div>
+    <div class="preview-frame"><iframe id="pfFotos" src="../index.html" title="Vista previa de fotos"></iframe></div>
   </div>
   <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
 </div>
@@ -247,7 +247,7 @@ function pickImage(img, key){
     toast('Procesando foto…');
     try{
       var blob=await resizeImage(file, 1600);
-      var path=currentPageName()+'/'+Date.now()+'.jpg';
+      var path='fotos/'+Date.now()+'.jpg';
       var up=await sb.storage.from('imagenes').upload(path, blob, {upsert:true, contentType:'image/jpeg'});
       if(up.error){ toast('No se pudo subir ('+up.error.message+')', true); return; }
       var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
@@ -304,50 +304,31 @@ document.getElementById('saveContacto').addEventListener('click', async ()=>{
   btn.disabled=false; btn.textContent='Guardar cambios';
 });
 
-/* ===== Fotos: galería por página ===== */
+/* ===== Fotos: vista previa en vivo, clic en imagen para cambiar ===== */
 const fotoPageSelect=document.getElementById('fotoPageSelect');
-const fotoGrid=document.getElementById('fotoGrid');
 const pfFotos=document.getElementById('pfFotos');
-let fotoPage='index';
-function loadFotos(){
-  fotoGrid.innerHTML='<p class="foto-empty">Cargando fotos…</p>';
-  fotoPage=fotoPageSelect.value.replace('.html','');
-  pfFotos.src='../'+fotoPageSelect.value+'?t='+Date.now();
+function currentFotoPage(){ return fotoPageSelect.value.replace('.html',''); }
+function enableFotos(){
+  let doc; try{ doc=pfFotos.contentDocument; }catch(e){ return; }
+  if(!doc||!doc.body) return;
+  if(doc.body.getAttribute('data-sv-fotos')==='1') return;
+  doc.body.setAttribute('data-sv-fotos','1');
+  const page=currentFotoPage();
+  const st=doc.createElement('style');
+  st.textContent='[data-sv-img]{cursor:pointer;transition:outline .12s,filter .12s}[data-sv-img]:hover{outline:3px solid #9D8051;outline-offset:2px;filter:brightness(.82)}';
+  doc.head.appendChild(st);
+  doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
+  try{
+    svImages(doc).forEach(function(img){
+      img.setAttribute('data-sv-img','1');
+      img.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page, img)); });
+    });
+  }catch(e){}
 }
-pfFotos.addEventListener('load', function(){
-  let doc; try{ doc=pfFotos.contentDocument; }catch(e){ doc=null; }
-  if(!doc){ fotoGrid.innerHTML='<p class="foto-empty">No se pudieron cargar las fotos.</p>'; return; }
-  let imgs=[]; try{ imgs=svImages(doc); }catch(e){}
-  if(!imgs.length){ fotoGrid.innerHTML='<p class="foto-empty">Esta página no tiene fotos editables.</p>'; return; }
-  fotoGrid.innerHTML='';
-  imgs.forEach(function(img){
-    var key='img::'+svKey(fotoPage, img);
-    var card=document.createElement('div'); card.className='foto-card';
-    var thumb=document.createElement('img'); thumb.src=img.src; thumb.loading='lazy';
-    var fc=document.createElement('div'); fc.className='fc';
-    var btn=document.createElement('button'); btn.className='btn'; btn.textContent='Cambiar foto';
-    btn.addEventListener('click', function(){ pickImageInto(key, thumb); });
-    fc.appendChild(btn); card.appendChild(thumb); card.appendChild(fc); fotoGrid.appendChild(card);
-  });
-});
-fotoPageSelect.addEventListener('change', loadFotos);
-function pickImageInto(key, thumbEl){
-  var input=document.createElement('input'); input.type='file'; input.accept='image/*';
-  input.onchange=async function(){
-    var file=input.files&&input.files[0]; if(!file) return;
-    toast('Procesando foto…');
-    try{
-      var blob=await resizeImage(file,1600);
-      var path=fotoPage+'/'+Date.now()+'.jpg';
-      var up=await sb.storage.from('imagenes').upload(path, blob,{upsert:true,contentType:'image/jpeg'});
-      if(up.error){ toast('No se pudo subir ('+up.error.message+')',true); return; }
-      var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
-      await sb.from('contenido').upsert({clave:key,valor:url});
-      thumbEl.src=url; toast('✓ Foto actualizada');
-    }catch(e){ toast('No se pudo subir la foto',true); }
-  };
-  input.click();
-}
+pfFotos.addEventListener('load', enableFotos);
+fotoPageSelect.addEventListener('change', function(){ pfFotos.src='../'+fotoPageSelect.value; });
+document.getElementById('reloadFotos').addEventListener('click', function(){ pfFotos.src=pfFotos.src; });
+function loadFotos(){ try{ enableFotos(); }catch(e){} }
 
 document.getElementById('logoutBtn').addEventListener('click', async ()=>{ try{ await sb.auth.signOut(); }catch(e){} showLogin(); });
 </script>
