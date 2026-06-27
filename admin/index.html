@@ -24,33 +24,49 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--piedra);color:v
 .card{position:relative;z-index:1;width:100%;max-width:420px;background:var(--white);border:1px solid var(--arena-deep);border-radius:var(--radius);box-shadow:var(--shadow);padding:40px 34px}
 .brand{text-align:center;margin-bottom:8px}.brand img{height:34px}
 .subtitle{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:28px}
-label{display:block;font-size:.82rem;font-weight:600;color:var(--chocolate);margin:0 0 7px 2px}
-.hint{font-size:.76rem;color:var(--muted);font-weight:400;margin:-3px 0 7px 2px}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--chocolate);margin:0 0 6px 2px}
+.hint{font-size:.76rem;color:var(--muted);font-weight:400;margin:-2px 0 7px 2px}
 .field{margin-bottom:18px}
 input,textarea{width:100%;padding:13px 15px;border:1px solid var(--arena-deep);border-radius:11px;font-family:inherit;font-size:1rem;background:var(--piedra);transition:border-color .2s,box-shadow .2s}
-textarea{min-height:96px;resize:vertical;line-height:1.5}
+textarea{min-height:90px;resize:vertical;line-height:1.5}
 input:focus,textarea:focus{outline:none;border-color:var(--camel);box-shadow:0 0 0 3px rgba(157,128,81,.15);background:#fff}
-.btn{padding:13px 24px;border:none;border-radius:11px;background:var(--chocolate);color:#fff;font-family:inherit;font-size:.98rem;font-weight:600;cursor:pointer;transition:background .25s,transform .1s}
+.btn{padding:12px 22px;border:none;border-radius:11px;background:var(--chocolate);color:#fff;font-family:inherit;font-size:.96rem;font-weight:600;cursor:pointer;transition:background .25s,transform .1s}
 .btn:hover{background:#3a3322}.btn:active{transform:translateY(1px)}.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--arena-deep)}
+.btn.ghost:hover{background:var(--piedra);color:var(--chocolate)}
 .btn-full{width:100%;margin-top:6px}
-.msg{margin-top:14px;font-size:.88rem;min-height:1.2em}.msg.error{color:#b0341d}.msg.ok{color:#3f6b3f}
+.msg{margin-top:12px;font-size:.88rem;min-height:1.2em}.msg.error{color:#b0341d}.msg.ok{color:#3f6b3f}
 .foot{text-align:center;margin-top:22px;font-size:.78rem;color:var(--muted)}
-/* App (CMS) */
-#app{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:28px 22px 60px}
-.appbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+/* App */
+#app{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:26px 22px 70px}
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap}
 .appbar img{height:26px}
-.appbar .right{display:flex;align-items:center;gap:16px;font-size:.85rem;color:var(--muted)}
+.appbar .right{display:flex;align-items:center;gap:16px;font-size:.85rem;color:var(--muted);flex-wrap:wrap}
 .textbtn{background:none;border:none;color:var(--camel);font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none}
 .textbtn:hover{text-decoration:underline}
-.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;border-bottom:1px solid var(--arena-deep);margin-bottom:26px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;border-bottom:1px solid var(--arena-deep);margin-bottom:24px}
 .tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;border:1px solid var(--arena-deep);background:#fff;color:var(--muted);font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s}
-.tab:hover{border-color:var(--camel)}
-.tab.active{background:var(--chocolate);color:#fff;border-color:var(--chocolate)}
-.panel{background:#fff;border:1px solid var(--arena-deep);border-radius:14px;padding:28px 26px;box-shadow:var(--shadow)}
-.panel h2{font-size:1.15rem;color:var(--chocolate);font-weight:600;margin-bottom:6px}
-.panel .lead{color:var(--muted);font-size:.92rem;margin-bottom:22px}
-.soon{text-align:center;color:var(--muted);padding:36px 10px;font-size:.98rem}
-.soon b{color:var(--chocolate)}
+.tab:hover{border-color:var(--camel)}.tab.active{background:var(--chocolate);color:#fff;border-color:var(--chocolate)}
+.panel{background:#fff;border:1px solid var(--arena-deep);border-radius:14px;padding:26px;box-shadow:var(--shadow)}
+.panel h2{font-size:1.18rem;color:var(--chocolate);font-weight:600;margin-bottom:6px}
+.panel .lead{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+.soon{text-align:center;color:var(--muted);padding:40px 10px;font-size:1rem;line-height:1.7}.soon b{color:var(--chocolate)}
+.ed-actions{display:flex;gap:10px;align-items:center;margin-top:4px}
+/* Editor con vista previa */
+.editor-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:26px;align-items:start}
+.ed-preview{position:sticky;top:18px}
+.ed-preview-bar{display:flex;align-items:center;justify-content:space-between;font-size:.82rem;font-weight:600;color:var(--chocolate);margin-bottom:8px}
+.ed-preview-bar .live{display:inline-flex;align-items:center;gap:7px}
+.ed-preview-bar .dot{width:8px;height:8px;border-radius:50%;background:#3f9d54;box-shadow:0 0 0 4px rgba(63,157,84,.18);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.preview-frame{width:100%;height:560px;border:1px solid var(--arena-deep);border-radius:13px;background:#fff;overflow:hidden}
+.preview-frame iframe{width:100%;height:100%;border:0;display:block}
+.preview-note{font-size:.74rem;color:var(--muted);margin-top:8px;text-align:center}
+@media(max-width:860px){
+  .editor-grid{grid-template-columns:1fr}
+  .ed-preview{position:static}
+  .preview-frame{height:420px}
+}
 </style>
 </head>
 <body>
@@ -71,7 +87,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--camel);box-shadow:0 0
   </div>
 </div>
 
-<!-- ====== PANEL (CMS) ====== -->
+<!-- ====== PANEL ====== -->
 <div id="app" class="hidden">
   <div class="appbar">
     <img src="../assets/wordmark-pardo.webp" alt="Seravena">
@@ -86,42 +102,66 @@ input:focus,textarea:focus{outline:none;border-color:var(--camel);box-shadow:0 0
     <button class="tab" data-tab="usuarios">👥 Usuarios</button>
   </div>
 
-  <!-- Inicio -->
+  <!-- Inicio (con vista previa en vivo) -->
   <div class="panel tab-panel" data-panel="inicio">
     <h2>Textos del inicio</h2>
-    <p class="lead">Lo que cambies aquí se actualiza solo en tu página de inicio.</p>
-    <div class="field">
-      <label for="f_inicio_sub">Subtítulo principal</label>
-      <p class="hint">El texto bajo el título grande.</p>
-      <textarea id="f_inicio_sub"></textarea>
+    <p class="lead">Escribe en los campos y mira el cambio <strong>en vivo</strong> en la vista previa. Cuando te guste, dale <strong>Guardar</strong>.</p>
+    <div class="editor-grid">
+      <div class="ed-fields">
+        <div class="field">
+          <label for="f_inicio_sub">Subtítulo principal</label>
+          <p class="hint">El texto bajo el título grande del banner.</p>
+          <textarea id="f_inicio_sub"></textarea>
+        </div>
+        <div class="field">
+          <label for="f_inicio_intro">Texto de filosofía</label>
+          <p class="hint">El párrafo de "Nuestra filosofía".</p>
+          <textarea id="f_inicio_intro"></textarea>
+        </div>
+        <div class="ed-actions">
+          <button class="btn" data-save="inicio">Guardar cambios</button>
+          <button class="btn ghost" data-reset="inicio">Deshacer</button>
+        </div>
+        <p class="msg" data-msg="inicio"></p>
+      </div>
+      <div class="ed-preview">
+        <div class="ed-preview-bar"><span class="live"><span class="dot"></span> Vista previa en vivo</span><button class="textbtn" data-refresh="pf_inicio">↻ Recargar</button></div>
+        <div class="preview-frame"><iframe id="pf_inicio" src="../index.html" title="Vista previa del inicio"></iframe></div>
+        <p class="preview-note">Así se ve tu web. Los cambios aquí son una vista previa — se hacen reales al Guardar.</p>
+      </div>
     </div>
-    <div class="field">
-      <label for="f_inicio_intro">Texto de filosofía</label>
-      <p class="hint">El párrafo de "Nuestra filosofía".</p>
-      <textarea id="f_inicio_intro"></textarea>
-    </div>
-    <button class="btn" data-save="inicio">Guardar cambios</button>
-    <p class="msg" data-msg="inicio"></p>
   </div>
 
   <!-- Contacto -->
   <div class="panel tab-panel hidden" data-panel="contacto">
     <h2>Datos de contacto</h2>
-    <p class="lead">Se actualizan en toda tu web (footer, botón de WhatsApp, página de contacto).</p>
-    <div class="field">
-      <label for="f_whatsapp">WhatsApp</label>
-      <p class="hint">Tal cual quieres que se vea (ej. +57 305 208 8204).</p>
-      <input type="text" id="f_whatsapp">
+    <p class="lead">Se actualizan en toda tu web: footer, botón de WhatsApp y página de contacto.</p>
+    <div class="editor-grid">
+      <div class="ed-fields">
+        <div class="field">
+          <label for="f_whatsapp">WhatsApp</label>
+          <p class="hint">Tal cual quieres que se vea (ej. +57 305 208 8204).</p>
+          <input type="text" id="f_whatsapp">
+        </div>
+        <div class="field"><label for="f_email">Correo</label><input type="email" id="f_email"></div>
+        <div class="ed-actions">
+          <button class="btn" data-save="contacto">Guardar cambios</button>
+          <button class="btn ghost" data-reset="contacto">Deshacer</button>
+        </div>
+        <p class="msg" data-msg="contacto"></p>
+      </div>
+      <div class="ed-preview">
+        <div class="ed-preview-bar"><span class="live"><span class="dot"></span> Vista previa</span><button class="textbtn" data-refresh="pf_contacto">↻ Recargar</button></div>
+        <div class="preview-frame"><iframe id="pf_contacto" src="../contacto.html" title="Vista previa de contacto"></iframe></div>
+        <p class="preview-note">Recarga después de Guardar para ver los cambios aplicados.</p>
+      </div>
     </div>
-    <div class="field"><label for="f_email">Correo</label><input type="email" id="f_email"></div>
-    <button class="btn" data-save="contacto">Guardar cambios</button>
-    <p class="msg" data-msg="contacto"></p>
   </div>
 
   <!-- Próximamente -->
-  <div class="panel tab-panel hidden" data-panel="preguntas"><div class="soon">❓ <b>Preguntas frecuentes</b><br>Aquí podrás agregar, editar y quitar preguntas. <br>🚧 Lo estamos construyendo.</div></div>
-  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Aquí podrás cambiar las imágenes de tu web. <br>🚧 Lo estamos construyendo.</div></div>
-  <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo. <br>🚧 Lo estamos construyendo.</div></div>
+  <div class="panel tab-panel hidden" data-panel="preguntas"><div class="soon">❓ <b>Preguntas frecuentes</b><br>Aquí podrás agregar, editar y quitar preguntas, con vista previa.<br>🚧 Es la siguiente fase.</div></div>
+  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Aquí podrás cambiar las imágenes de tu web subiéndolas.<br>🚧 En construcción.</div></div>
+  <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -132,44 +172,35 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const { createClient } = window.supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-/* Valores actuales de la web (se muestran si aún no se han editado) */
 const DEFAULTS = {
   whatsapp: "+57 305 208 8204",
   email: "info@seravena.com.co",
   inicio_sub: "Diagnóstico preciso, tratamiento personalizado y un acompañamiento profundamente humano para el manejo del lipedema y la salud vascular.",
   inicio_intro: "Detrás de cada síntoma hay una historia. En Seravena escuchamos primero y tratamos después, con rigor clínico y una calidez que se nota desde la primera consulta."
 };
-/* Qué campos guarda cada pestaña */
 const SECCIONES = {
   inicio:   { inicio_sub: "f_inicio_sub", inicio_intro: "f_inicio_intro" },
   contacto: { whatsapp: "f_whatsapp", email: "f_email" }
 };
+/* Qué iframe y qué claves se previsualizan en vivo por sección */
+const PREVIEW = {
+  inicio: { frame: "pf_inicio", live: ["inicio_sub","inicio_intro"] }
+};
+let saved = {}; // últimos valores cargados
 
-const loginWrap = document.getElementById('loginWrap');
-const app = document.getElementById('app');
-const loginBtn = document.getElementById('loginBtn');
-const loginMsg = document.getElementById('loginMsg');
+const loginWrap=document.getElementById('loginWrap'), app=document.getElementById('app');
+const loginBtn=document.getElementById('loginBtn'), loginMsg=document.getElementById('loginMsg');
 
-function showApp(user){
-  loginWrap.classList.add('hidden');
-  app.classList.remove('hidden');
-  document.getElementById('whoami').textContent = user?.email || '';
-  loadAll();
-}
+function showApp(user){ loginWrap.classList.add('hidden'); app.classList.remove('hidden'); document.getElementById('whoami').textContent=user?.email||''; loadAll(); }
 function showLogin(){ app.classList.add('hidden'); loginWrap.classList.remove('hidden'); }
 
-/* Sesión activa */
 (async () => { try { const { data:{session} } = await sb.auth.getSession(); if (session) showApp(session.user); } catch(e){} })();
 
-/* Login */
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  loginMsg.className='msg'; loginMsg.textContent='';
+  e.preventDefault(); loginMsg.className='msg'; loginMsg.textContent='';
   loginBtn.disabled=true; loginBtn.textContent='Ingresando…';
-  const email=document.getElementById('email').value.trim();
-  const password=document.getElementById('password').value;
   try{
-    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    const { data, error } = await sb.auth.signInWithPassword({ email:document.getElementById('email').value.trim(), password:document.getElementById('password').value });
     if (error){ loginMsg.className='msg error'; loginMsg.textContent='Correo o contraseña incorrectos.'; }
     else showApp(data.user);
   }catch(err){ loginMsg.className='msg error'; loginMsg.textContent='El panel aún no está conectado.'; }
@@ -178,44 +209,70 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
 /* Pestañas */
 document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  t.classList.add('active');
-  const name=t.dataset.tab;
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==name));
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==t.dataset.tab));
 }));
 
-/* Cargar todo el contenido */
-async function loadAll(){
-  let map={};
-  try{
-    const { data } = await sb.from('contenido').select('clave,valor');
-    (data||[]).forEach(r=>map[r.clave]=r.valor);
-  }catch(e){}
-  Object.values(SECCIONES).forEach(campos=>{
-    Object.keys(campos).forEach(clave=>{
-      const el=document.getElementById(campos[clave]);
-      if(el) el.value = (map[clave]!=null && map[clave]!=="") ? map[clave] : (DEFAULTS[clave]||"");
-    });
+/* ---- Vista previa en vivo (mismo dominio = podemos tocar el iframe) ---- */
+function frameDoc(id){ try{ return document.getElementById(id).contentDocument; }catch(e){ return null; } }
+function livePreview(clave, valor){
+  Object.keys(PREVIEW).forEach(sec=>{
+    if(PREVIEW[sec].live.indexOf(clave)===-1) return;
+    const doc=frameDoc(PREVIEW[sec].frame); if(!doc) return;
+    doc.querySelectorAll('[data-c="'+clave+'"]').forEach(el=>{ el.textContent=valor; });
   });
 }
+function scrollPreviewTo(clave){
+  Object.keys(PREVIEW).forEach(sec=>{
+    if(PREVIEW[sec].live.indexOf(clave)===-1) return;
+    const doc=frameDoc(PREVIEW[sec].frame); if(!doc) return;
+    const el=doc.querySelector('[data-c="'+clave+'"]'); if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+}
+/* Conectar cada campo con la vista previa */
+Object.values(SECCIONES).forEach(campos=>{
+  Object.keys(campos).forEach(clave=>{
+    const el=document.getElementById(campos[clave]); if(!el) return;
+    el.addEventListener('input', ()=>livePreview(clave, el.value || DEFAULTS[clave] || ''));
+    el.addEventListener('focus', ()=>scrollPreviewTo(clave));
+  });
+});
+/* Botón recargar vista previa */
+document.querySelectorAll('[data-refresh]').forEach(b=>b.addEventListener('click',()=>{ const f=document.getElementById(b.dataset.refresh); if(f) f.src=f.src; }));
 
-/* Guardar una sección */
+/* ---- Cargar / Guardar / Deshacer ---- */
+async function loadAll(){
+  saved={};
+  try{ const { data } = await sb.from('contenido').select('clave,valor'); (data||[]).forEach(r=>saved[r.clave]=r.valor); }catch(e){}
+  fillFields();
+}
+function fillFields(){
+  Object.values(SECCIONES).forEach(campos=>Object.keys(campos).forEach(clave=>{
+    const el=document.getElementById(campos[clave]); if(!el) return;
+    el.value = (saved[clave]!=null && saved[clave]!=="") ? saved[clave] : (DEFAULTS[clave]||"");
+  }));
+}
 document.querySelectorAll('[data-save]').forEach(btn => btn.addEventListener('click', async () => {
-  const sec=btn.dataset.save;
-  const campos=SECCIONES[sec];
-  const msgEl=document.querySelector('[data-msg="'+sec+'"]');
-  msgEl.className='msg'; msgEl.textContent='';
-  btn.disabled=true; btn.textContent='Guardando…';
+  const sec=btn.dataset.save, campos=SECCIONES[sec], msgEl=document.querySelector('[data-msg="'+sec+'"]');
+  msgEl.className='msg'; msgEl.textContent=''; btn.disabled=true; btn.textContent='Guardando…';
   const filas=Object.keys(campos).map(clave=>({ clave, valor: document.getElementById(campos[clave]).value.trim() }));
   try{
     const { error } = await sb.from('contenido').upsert(filas);
     if(error){ msgEl.className='msg error'; msgEl.textContent='No se pudo guardar. Avísame.'; }
-    else { msgEl.className='msg ok'; msgEl.textContent='✓ Guardado. Tu web se actualizará en un momento.'; }
+    else { filas.forEach(f=>saved[f.clave]=f.valor); msgEl.className='msg ok'; msgEl.textContent='✓ ¡Guardado! Tu web ya quedó actualizada.'; }
   }catch(e){ msgEl.className='msg error'; msgEl.textContent='No se pudo guardar. Avísame.'; }
   btn.disabled=false; btn.textContent='Guardar cambios';
 }));
+document.querySelectorAll('[data-reset]').forEach(btn => btn.addEventListener('click', () => {
+  const sec=btn.dataset.reset, campos=SECCIONES[sec];
+  Object.keys(campos).forEach(clave=>{
+    const el=document.getElementById(campos[clave]);
+    el.value = (saved[clave]!=null && saved[clave]!=="") ? saved[clave] : (DEFAULTS[clave]||"");
+    livePreview(clave, el.value);
+  });
+  const msgEl=document.querySelector('[data-msg="'+sec+'"]'); msgEl.className='msg'; msgEl.textContent='Cambios deshechos.';
+}));
 
-/* Logout */
 document.getElementById('logoutBtn').addEventListener('click', async () => { try{ await sb.auth.signOut(); }catch(e){} showLogin(); });
 </script>
 </body>
