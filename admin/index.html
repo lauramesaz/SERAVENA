@@ -52,6 +52,12 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
 #toast.err{background:#b0341d}
 .ed-actions{display:flex;gap:10px;margin-top:4px}
 .btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--arena-deep)}.btn.ghost:hover{background:var(--piedra);color:var(--chocolate)}
+.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.foto-card{border:1px solid var(--arena-deep);border-radius:12px;overflow:hidden;background:var(--piedra)}
+.foto-card img{width:100%;height:150px;object-fit:cover;display:block;background:#ece6dc}
+.foto-card .fc{padding:12px;text-align:center}
+.foto-card .fc .btn{width:100%;font-size:.88rem;padding:10px}
+.foto-empty{color:var(--muted);padding:30px 6px;text-align:center}
 </style>
 </head>
 <body>
@@ -101,7 +107,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
       </select>
       <button class="textbtn" id="reloadPreview">↻ Recargar</button>
     </div>
-    <div class="tip">✨ <strong>Haz clic en cualquier texto</strong> para editarlo, o en <strong>cualquier foto</strong> para cambiarla. Pulsa <strong>Enter</strong> o haz clic afuera para guardar. (El título grande animado se cambia pidiéndomelo a mí.)</div>
+    <div class="tip">✨ <strong>Haz clic en cualquier texto</strong> para editarlo. Pulsa <strong>Enter</strong> o haz clic afuera para guardar. (Las <strong>fotos</strong> se cambian en la pestaña 🖼️ Fotos. El título grande animado se cambia pidiéndomelo a mí.)</div>
     <div class="preview-frame"><iframe id="pf" src="../index.html" title="Vista previa editable"></iframe></div>
   </div>
 
@@ -115,7 +121,23 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
     <p class="msg" id="msgContacto"></p>
   </div>
 
-  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Las fotos se cambian en <b>📄 Editar páginas</b>: pasa el mouse sobre cualquier imagen, haz clic y sube la nueva. ✅</div></div>
+  <div class="panel tab-panel hidden" data-panel="fotos">
+    <div class="pagebar">
+      <label for="fotoPageSelect" style="margin:0">Página:</label>
+      <select id="fotoPageSelect">
+        <option value="index.html">🏠 Inicio</option>
+        <option value="lipedema.html">Lipedema</option>
+        <option value="vascular.html">Salud vascular</option>
+        <option value="proceso.html">Tu proceso</option>
+        <option value="profesionales.html">Profesionales</option>
+        <option value="preguntas.html">Preguntas</option>
+        <option value="contacto.html">Contacto</option>
+      </select>
+    </div>
+    <div class="tip">🖼️ Estas son las fotos de esta página. Haz clic en <strong>"Cambiar foto"</strong> y sube la nueva — la optimizo sola para que tu web siga rápida.</div>
+    <div id="fotoGrid" class="foto-grid"></div>
+    <iframe id="pfFotos" style="display:none" title="cargador de fotos"></iframe>
+  </div>
   <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
 </div>
 
@@ -147,6 +169,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e)=>{
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==t.dataset.tab));
+  if(t.dataset.tab==='fotos') loadFotos();
 }));
 
 /* ===== Toast ===== */
@@ -255,13 +278,6 @@ function enableEdit(){
       });
     });
   }catch(e){}
-  // imágenes: clic para cambiar
-  try{
-    svImages(doc).forEach(function(img){
-      img.setAttribute('data-sv-img','1');
-      img.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page, img)); });
-    });
-  }catch(e){}
 }
 pf.addEventListener('load', enableEdit);
 /* Por si el iframe ya cargó antes de enganchar el evento */
@@ -287,6 +303,51 @@ document.getElementById('saveContacto').addEventListener('click', async ()=>{
   }catch(e){ msg.className='msg error'; msg.textContent='No se pudo guardar. Avísame.'; }
   btn.disabled=false; btn.textContent='Guardar cambios';
 });
+
+/* ===== Fotos: galería por página ===== */
+const fotoPageSelect=document.getElementById('fotoPageSelect');
+const fotoGrid=document.getElementById('fotoGrid');
+const pfFotos=document.getElementById('pfFotos');
+let fotoPage='index';
+function loadFotos(){
+  fotoGrid.innerHTML='<p class="foto-empty">Cargando fotos…</p>';
+  fotoPage=fotoPageSelect.value.replace('.html','');
+  pfFotos.src='../'+fotoPageSelect.value+'?t='+Date.now();
+}
+pfFotos.addEventListener('load', function(){
+  let doc; try{ doc=pfFotos.contentDocument; }catch(e){ doc=null; }
+  if(!doc){ fotoGrid.innerHTML='<p class="foto-empty">No se pudieron cargar las fotos.</p>'; return; }
+  let imgs=[]; try{ imgs=svImages(doc); }catch(e){}
+  if(!imgs.length){ fotoGrid.innerHTML='<p class="foto-empty">Esta página no tiene fotos editables.</p>'; return; }
+  fotoGrid.innerHTML='';
+  imgs.forEach(function(img){
+    var key='img::'+svKey(fotoPage, img);
+    var card=document.createElement('div'); card.className='foto-card';
+    var thumb=document.createElement('img'); thumb.src=img.src; thumb.loading='lazy';
+    var fc=document.createElement('div'); fc.className='fc';
+    var btn=document.createElement('button'); btn.className='btn'; btn.textContent='Cambiar foto';
+    btn.addEventListener('click', function(){ pickImageInto(key, thumb); });
+    fc.appendChild(btn); card.appendChild(thumb); card.appendChild(fc); fotoGrid.appendChild(card);
+  });
+});
+fotoPageSelect.addEventListener('change', loadFotos);
+function pickImageInto(key, thumbEl){
+  var input=document.createElement('input'); input.type='file'; input.accept='image/*';
+  input.onchange=async function(){
+    var file=input.files&&input.files[0]; if(!file) return;
+    toast('Procesando foto…');
+    try{
+      var blob=await resizeImage(file,1600);
+      var path=fotoPage+'/'+Date.now()+'.jpg';
+      var up=await sb.storage.from('imagenes').upload(path, blob,{upsert:true,contentType:'image/jpeg'});
+      if(up.error){ toast('No se pudo subir ('+up.error.message+')',true); return; }
+      var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
+      await sb.from('contenido').upsert({clave:key,valor:url});
+      thumbEl.src=url; toast('✓ Foto actualizada');
+    }catch(e){ toast('No se pudo subir la foto',true); }
+  };
+  input.click();
+}
 
 document.getElementById('logoutBtn').addEventListener('click', async ()=>{ try{ await sb.auth.signOut(); }catch(e){} showLogin(); });
 </script>
