@@ -409,7 +409,7 @@ document.getElementById('reloadFotos').addEventListener('click', function(){ pfF
 function loadFotos(){ try{ enableFotos(); }catch(e){} }
 
 /* ===== Usuarios ===== */
-const FN='admin-users';
+const FN='smart-responder';
 function usrMsg(el,txt,err){ el.className='msg '+(err?'error':'ok'); el.textContent=txt; }
 function fnErr(error,data){
   if(data&&data.error) return data.error;
