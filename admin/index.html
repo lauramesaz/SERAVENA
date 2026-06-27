@@ -172,30 +172,52 @@ function startEdit(el, key){
   function onKey(ev){ if(ev.key==='Enter'&&!ev.shiftKey){ ev.preventDefault(); el.blur(); } else if(ev.key==='Escape'){ el.blur(); } }
   el.addEventListener('blur', finish); el.addEventListener('keydown', onKey);
 }
+/* Detección de textos (idéntica a contenido.js, incluida aquí para no depender de caché) */
+function svEditable(doc){
+  var sel='h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead';
+  return Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function(el){
+    if(el.closest('header,nav,script,style,.marquee')) return false;
+    if(el.classList.contains('hero-title')) return false;
+    if(el.querySelector('h1,h2,h3,h4,h5,p,li,ul,ol,section,div,img,video,svg')) return false;
+    return el.textContent.replace(/\s+/g,'').length>0;
+  });
+}
+function svKey(page, el){
+  var dc=el.getAttribute('data-c'); if(dc) return dc;
+  var parts=[], n=el;
+  while(n && n.nodeType===1 && n.tagName!=='BODY' && n.tagName!=='HTML'){
+    var tag=n.tagName.toLowerCase(), i=1, s=n;
+    while((s=s.previousElementSibling)){ if(s.tagName===n.tagName) i++; }
+    parts.unshift(tag+i); n=n.parentElement;
+  }
+  return page+'|'+parts.join('>');
+}
 function enableEdit(){
-  let win, doc;
-  try{ win=pf.contentWindow; doc=pf.contentDocument; }catch(e){ return; }
-  if(!doc||!win||typeof win.svEditable!=='function'){ return; }
+  let doc;
+  try{ doc=pf.contentDocument; }catch(e){ return; }
+  if(!doc||!doc.body) return;
+  if(doc.body.getAttribute('data-sv-ready')==='1') return; // evitar enganchar dos veces
+  doc.body.setAttribute('data-sv-ready','1');
   const page=currentPageName();
-  // estilos de edición dentro de la vista previa
   const st=doc.createElement('style');
-  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.10)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 2px #4B412D;background:#fff;outline:none}';
+  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.12)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 2px #4B412D;background:#fff;outline:none}';
   doc.head.appendChild(st);
-  // evitar navegación al hacer clic en enlaces mientras editas
   doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
-  // enganchar editables
   try{
-    win.svEditable(doc).forEach(function(el){
+    svEditable(doc).forEach(function(el){
       el.setAttribute('data-sv','1');
       el.addEventListener('click', function(ev){
         ev.preventDefault(); ev.stopPropagation();
         if(el.getAttribute('contenteditable')==='true') return;
-        startEdit(el, win.svKey(page, el));
+        startEdit(el, svKey(page, el));
       });
     });
   }catch(e){}
 }
 pf.addEventListener('load', enableEdit);
+/* Por si el iframe ya cargó antes de enganchar el evento */
+try{ if(pf.contentDocument && pf.contentDocument.readyState==='complete') enableEdit(); }catch(e){}
+setTimeout(function(){ try{ enableEdit(); }catch(e){} }, 1200);
 pageSelect.addEventListener('change', ()=>{ pf.src='../'+pageSelect.value; });
 document.getElementById('reloadPreview').addEventListener('click', ()=>{ pf.src=pf.src; });
 
