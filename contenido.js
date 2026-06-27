@@ -9,7 +9,7 @@
 
   /* ===== Funciones compartidas con el panel (deben ser IDÉNTICAS) ===== */
   function svEditable(doc) {
-    var sel = 'h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead,.btn';
+    var sel = 'h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead,.btn,.quiz-chip span:not(.quiz-check),.area-link';
     var list = Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function (el) {
       if (el.closest('header,nav,script,style,.marquee')) return false;     // no tocar menú/marquesina
       if (el.classList.contains('hero-title')) return false;                 // el H1 completo no, pero sus líneas sí (abajo)
