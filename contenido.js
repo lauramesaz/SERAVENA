@@ -10,12 +10,17 @@
   /* ===== Funciones compartidas con el panel (deben ser IDÉNTICAS) ===== */
   function svEditable(doc) {
     var sel = 'h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead';
-    return Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function (el) {
+    var list = Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function (el) {
       if (el.closest('header,nav,script,style,.marquee')) return false;     // no tocar menú/marquesina
-      if (el.classList.contains('hero-title')) return false;                 // título animado del banner
+      if (el.classList.contains('hero-title')) return false;                 // el H1 completo no, pero sus líneas sí (abajo)
       if (el.querySelector('h1,h2,h3,h4,h5,p,li,ul,ol,section,div,img,video,svg')) return false; // solo "hojas" de texto
       return el.textContent.replace(/\s+/g, '').length > 0;
     });
+    // líneas internas del título animado del hero (editables sin romper la animación)
+    Array.prototype.slice.call(doc.querySelectorAll('.hero-title .line > span')).forEach(function (el) {
+      if (list.indexOf(el) === -1 && el.textContent.replace(/\s+/g, '').length > 0) list.push(el);
+    });
+    return list;
   }
   function svKey(page, el) {
     var dc = el.getAttribute('data-c');

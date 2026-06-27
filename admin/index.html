@@ -175,12 +175,16 @@ function startEdit(el, key){
 /* Detección de textos (idéntica a contenido.js, incluida aquí para no depender de caché) */
 function svEditable(doc){
   var sel='h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead';
-  return Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function(el){
+  var list=Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function(el){
     if(el.closest('header,nav,script,style,.marquee')) return false;
     if(el.classList.contains('hero-title')) return false;
     if(el.querySelector('h1,h2,h3,h4,h5,p,li,ul,ol,section,div,img,video,svg')) return false;
     return el.textContent.replace(/\s+/g,'').length>0;
   });
+  Array.prototype.slice.call(doc.querySelectorAll('.hero-title .line > span')).forEach(function(el){
+    if(list.indexOf(el)===-1 && el.textContent.replace(/\s+/g,'').length>0) list.push(el);
+  });
+  return list;
 }
 function svKey(page, el){
   var dc=el.getAttribute('data-c'); if(dc) return dc;
