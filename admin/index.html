@@ -61,6 +61,15 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
 .foto-card .fc{padding:12px;text-align:center}
 .foto-card .fc .btn{width:100%;font-size:.88rem;padding:10px}
 .foto-empty{color:var(--muted);padding:30px 6px;text-align:center}
+.usr-box{background:var(--piedra);border:1px solid var(--arena-deep);border-radius:12px;padding:20px 22px;margin-bottom:18px;max-width:540px}
+.usr-box h3{font-size:1rem;color:var(--chocolate);margin-bottom:14px}
+.user-list{display:flex;flex-direction:column;gap:10px}
+.user-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#fff;border:1px solid var(--arena-deep);border-radius:10px;flex-wrap:wrap}
+.user-row .em{font-size:.92rem;color:var(--chocolate);font-weight:600;word-break:break-all}
+.user-row .acts{display:flex;gap:8px}
+.user-row .mini{padding:7px 12px;font-size:.82rem;border-radius:8px;border:1px solid var(--arena-deep);background:#fff;cursor:pointer;font-family:inherit;font-weight:600;color:var(--muted)}
+.user-row .mini:hover{border-color:var(--camel)}
+.user-row .mini.danger{color:#b0341d;border-color:#e7c3bb}
 </style>
 </head>
 <body>
@@ -141,7 +150,27 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
     <div class="tip">🖼️ Sobre cada <strong>foto</strong> o <strong>video</strong> verás un botón para cambiarlo. Haz clic y sube el nuevo. (Las fotos las optimizo solas; los videos: máx 50MB, mejor cortos y livianos.)</div>
     <div class="preview-frame"><iframe id="pfFotos" src="../index.html" title="Vista previa de fotos"></iframe></div>
   </div>
-  <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
+  <div class="panel tab-panel hidden" data-panel="usuarios">
+    <h2>Usuarios del equipo</h2>
+    <p class="lead">Cambia tu contraseña, crea accesos para tu equipo y gestiona sus contraseñas.</p>
+    <div class="usr-box">
+      <h3>🔑 Mi contraseña</h3>
+      <div class="field"><label for="myPass">Nueva contraseña</label><input type="password" id="myPass" placeholder="mínimo 6 caracteres"></div>
+      <button class="btn" id="saveMyPass">Cambiar mi contraseña</button>
+      <p class="msg" id="msgMyPass"></p>
+    </div>
+    <div class="usr-box">
+      <h3>➕ Crear usuario del equipo</h3>
+      <div class="field"><label for="newEmail">Correo</label><input type="email" id="newEmail" placeholder="persona@correo.com"></div>
+      <div class="field"><label for="newPass">Contraseña</label><input type="text" id="newPass" placeholder="una contraseña (mín. 6)"></div>
+      <button class="btn" id="createUser">Crear usuario</button>
+      <p class="msg" id="msgCreate"></p>
+    </div>
+    <div class="usr-box">
+      <h3>👥 Equipo</h3>
+      <div id="userList" class="user-list"><p class="foto-empty">—</p></div>
+    </div>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -173,6 +202,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==t.dataset.tab));
   if(t.dataset.tab==='fotos') loadFotos();
+  if(t.dataset.tab==='usuarios') loadUsers();
 }));
 
 /* ===== Toast ===== */
@@ -377,6 +407,70 @@ pfFotos.addEventListener('load', enableFotos);
 fotoPageSelect.addEventListener('change', function(){ pfFotos.src='../'+fotoPageSelect.value; });
 document.getElementById('reloadFotos').addEventListener('click', function(){ pfFotos.src=pfFotos.src; });
 function loadFotos(){ try{ enableFotos(); }catch(e){} }
+
+/* ===== Usuarios ===== */
+const FN='admin-users';
+function usrMsg(el,txt,err){ el.className='msg '+(err?'error':'ok'); el.textContent=txt; }
+function fnErr(error,data){
+  if(data&&data.error) return data.error;
+  if(error){ if(/fetch|send|404|not found|network/i.test(error.message||'')) return 'Falta activar la función de equipo (sigue los pasos que te di).'; return error.message||'Error'; }
+  return 'Error';
+}
+/* Mi contraseña (no necesita función de servidor) */
+document.getElementById('saveMyPass').addEventListener('click', async ()=>{
+  const el=document.getElementById('msgMyPass'), p=document.getElementById('myPass').value;
+  if(p.length<6){ usrMsg(el,'La contraseña debe tener al menos 6 caracteres.',true); return; }
+  const btn=document.getElementById('saveMyPass'); btn.disabled=true; btn.textContent='Cambiando…';
+  try{ const {error}=await sb.auth.updateUser({password:p}); if(error) usrMsg(el,'No se pudo: '+error.message,true); else { usrMsg(el,'✓ Tu contraseña quedó cambiada.'); document.getElementById('myPass').value=''; } }
+  catch(e){ usrMsg(el,'No se pudo cambiar.',true); }
+  btn.disabled=false; btn.textContent='Cambiar mi contraseña';
+});
+/* Crear usuario (función de servidor) */
+document.getElementById('createUser').addEventListener('click', async ()=>{
+  const el=document.getElementById('msgCreate');
+  const email=document.getElementById('newEmail').value.trim(), password=document.getElementById('newPass').value;
+  if(!email||password.length<6){ usrMsg(el,'Pon un correo y una contraseña de mín. 6 caracteres.',true); return; }
+  const btn=document.getElementById('createUser'); btn.disabled=true; btn.textContent='Creando…';
+  try{
+    const {data,error}=await sb.functions.invoke(FN,{body:{action:'create',email,password}});
+    if(error||(data&&data.error)){ usrMsg(el,fnErr(error,data),true); }
+    else { usrMsg(el,'✓ Usuario creado.'); document.getElementById('newEmail').value=''; document.getElementById('newPass').value=''; loadUsers(); }
+  }catch(e){ usrMsg(el,'No se pudo. ¿Ya activaste la función de equipo?',true); }
+  btn.disabled=false; btn.textContent='Crear usuario';
+});
+/* Lista del equipo */
+async function loadUsers(){
+  const list=document.getElementById('userList'); if(!list) return;
+  list.innerHTML='<p class="foto-empty">Cargando…</p>';
+  try{
+    const {data,error}=await sb.functions.invoke(FN,{body:{action:'list'}});
+    if(error||(data&&data.error)){ list.innerHTML='<p class="foto-empty">⚠️ '+fnErr(error,data)+'</p>'; return; }
+    const users=(data&&data.users)||[];
+    if(!users.length){ list.innerHTML='<p class="foto-empty">Aún no hay usuarios.</p>'; return; }
+    list.innerHTML='';
+    users.forEach(u=>{
+      const row=document.createElement('div'); row.className='user-row';
+      const em=document.createElement('span'); em.className='em'; em.textContent=u.email;
+      const acts=document.createElement('div'); acts.className='acts';
+      const bp=document.createElement('button'); bp.className='mini'; bp.textContent='Cambiar contraseña'; bp.addEventListener('click',()=>changeUserPass(u));
+      const bd=document.createElement('button'); bd.className='mini danger'; bd.textContent='Eliminar'; bd.addEventListener('click',()=>deleteUser(u));
+      acts.appendChild(bp); acts.appendChild(bd); row.appendChild(em); row.appendChild(acts); list.appendChild(row);
+    });
+  }catch(e){ list.innerHTML='<p class="foto-empty">⚠️ Falta activar la función de equipo (sigue los pasos que te di).</p>'; }
+}
+async function changeUserPass(u){
+  const np=prompt('Nueva contraseña para '+u.email+' (mín. 6 caracteres):'); if(np===null) return;
+  if(np.length<6){ toast('Mínimo 6 caracteres',true); return; }
+  toast('Cambiando…');
+  try{ const {data,error}=await sb.functions.invoke(FN,{body:{action:'password',id:u.id,password:np}}); toast((error||(data&&data.error))?('Error: '+fnErr(error,data)):'✓ Contraseña cambiada', !!(error||(data&&data.error))); }
+  catch(e){ toast('No se pudo',true); }
+}
+async function deleteUser(u){
+  if(!confirm('¿Eliminar a '+u.email+'? No podrá volver a entrar.')) return;
+  toast('Eliminando…');
+  try{ const {data,error}=await sb.functions.invoke(FN,{body:{action:'delete',id:u.id}}); if(error||(data&&data.error)){ toast('Error: '+fnErr(error,data),true);} else { toast('✓ Eliminado'); loadUsers(); } }
+  catch(e){ toast('No se pudo',true); }
+}
 
 document.getElementById('logoutBtn').addEventListener('click', async ()=>{ try{ await sb.auth.signOut(); }catch(e){} showLogin(); });
 </script>
