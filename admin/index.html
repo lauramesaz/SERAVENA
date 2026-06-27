@@ -54,12 +54,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast.err{background:#b0341d}
 .ed-actions{display:flex;gap:10px;margin-top:4px}
-.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--arena-deep)}.btn.ghost:hover{background:var(--piedra);color:var(--chocolate)}
-.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
-.foto-card{border:1px solid var(--arena-deep);border-radius:12px;overflow:hidden;background:var(--piedra)}
-.foto-card img{width:100%;height:150px;object-fit:cover;display:block;background:#ece6dc}
-.foto-card .fc{padding:12px;text-align:center}
-.foto-card .fc .btn{width:100%;font-size:.88rem;padding:10px}
 .foto-empty{color:var(--muted);padding:30px 6px;text-align:center}
 .usr-box{background:var(--piedra);border:1px solid var(--arena-deep);border-radius:12px;padding:20px 22px;margin-bottom:18px;max-width:540px}
 .usr-box h3{font-size:1rem;color:var(--chocolate);margin-bottom:14px}
@@ -317,7 +311,7 @@ function enableEdit(){
   doc.body.setAttribute('data-sv-ready','1');
   const page=currentPageName();
   const st=doc.createElement('style');
-  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.14)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 3px #4B412D!important;background:#fff!important;color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important;outline:none;padding:2px 8px;border-radius:6px}[data-sv][contenteditable="true"] *{color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important}[data-sv-img]{cursor:pointer;transition:outline .12s,filter .12s}[data-sv-img]:hover{outline:3px solid #9D8051;outline-offset:2px;filter:brightness(.82)}';
+  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.14)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 3px #4B412D!important;background:#fff!important;color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important;outline:none;padding:2px 8px;border-radius:6px}[data-sv][contenteditable="true"] *{color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important}';
   doc.head.appendChild(st);
   doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
   try{
