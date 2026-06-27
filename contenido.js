@@ -14,6 +14,14 @@
       var c = {};
       rows.forEach(function (x) { c[x.clave] = x.valor; });
 
+      // ---- Textos editables: cualquier elemento con data-c="clave" ----
+      Object.keys(c).forEach(function (k) {
+        if (c[k] == null || c[k] === "") return;
+        document.querySelectorAll('[data-c="' + k + '"]').forEach(function (el) {
+          el.textContent = c[k];
+        });
+      });
+
       // ---- WhatsApp ----
       if (c.whatsapp) {
         var digits = c.whatsapp.replace(/\D/g, "");

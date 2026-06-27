@@ -16,171 +16,207 @@
   --radius:16px; --shadow:0 18px 50px rgba(75,65,45,.14);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--piedra);color:var(--pardo);min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--piedra);color:var(--pardo);min-height:100vh;min-height:100svh}
+.center{display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100svh;padding:24px}
 .bg{position:fixed;inset:0;z-index:0;background:radial-gradient(1100px 560px at 72% -12%, var(--arena), var(--piedra) 62%)}
-.card,.dash{position:relative;z-index:1;width:100%;background:var(--white);border:1px solid var(--arena-deep);border-radius:var(--radius);box-shadow:var(--shadow)}
-.card{max-width:420px;padding:40px 34px}
-.brand{text-align:center;margin-bottom:8px}
-.brand img{height:34px;width:auto}
+.hidden{display:none!important}
+/* Login */
+.card{position:relative;z-index:1;width:100%;max-width:420px;background:var(--white);border:1px solid var(--arena-deep);border-radius:var(--radius);box-shadow:var(--shadow);padding:40px 34px}
+.brand{text-align:center;margin-bottom:8px}.brand img{height:34px}
 .subtitle{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:28px}
 label{display:block;font-size:.82rem;font-weight:600;color:var(--chocolate);margin:0 0 7px 2px}
+.hint{font-size:.76rem;color:var(--muted);font-weight:400;margin:-3px 0 7px 2px}
 .field{margin-bottom:18px}
-input{width:100%;padding:13px 15px;border:1px solid var(--arena-deep);border-radius:11px;font-family:inherit;font-size:1rem;background:var(--piedra);transition:border-color .2s,box-shadow .2s}
-input:focus{outline:none;border-color:var(--camel);box-shadow:0 0 0 3px rgba(157,128,81,.15);background:#fff}
-.btn{width:100%;padding:14px;border:none;border-radius:11px;background:var(--chocolate);color:#fff;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:background .25s,transform .1s;margin-top:6px}
-.btn:hover{background:#3a3322}
-.btn:active{transform:translateY(1px)}
-.btn:disabled{opacity:.6;cursor:not-allowed}
-.msg{margin-top:14px;font-size:.88rem;text-align:center;min-height:1.2em}
-.msg.error{color:#b0341d}
-.msg.ok{color:#3f6b3f}
+input,textarea{width:100%;padding:13px 15px;border:1px solid var(--arena-deep);border-radius:11px;font-family:inherit;font-size:1rem;background:var(--piedra);transition:border-color .2s,box-shadow .2s}
+textarea{min-height:96px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus{outline:none;border-color:var(--camel);box-shadow:0 0 0 3px rgba(157,128,81,.15);background:#fff}
+.btn{padding:13px 24px;border:none;border-radius:11px;background:var(--chocolate);color:#fff;font-family:inherit;font-size:.98rem;font-weight:600;cursor:pointer;transition:background .25s,transform .1s}
+.btn:hover{background:#3a3322}.btn:active{transform:translateY(1px)}.btn:disabled{opacity:.6;cursor:not-allowed}
+.btn-full{width:100%;margin-top:6px}
+.msg{margin-top:14px;font-size:.88rem;min-height:1.2em}.msg.error{color:#b0341d}.msg.ok{color:#3f6b3f}
 .foot{text-align:center;margin-top:22px;font-size:.78rem;color:var(--muted)}
-.hidden{display:none!important}
-/* Panel */
-.dash{max-width:620px;padding:34px 36px 40px}
-.dash-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--arena-deep);margin-bottom:24px;flex-wrap:wrap}
-.dash-top img{height:26px}
-.dash-user{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:14px}
+/* App (CMS) */
+#app{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:28px 22px 60px}
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.appbar img{height:26px}
+.appbar .right{display:flex;align-items:center;gap:16px;font-size:.85rem;color:var(--muted)}
 .textbtn{background:none;border:none;color:var(--camel);font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none}
 .textbtn:hover{text-decoration:underline}
-.dash h1{font-weight:600;font-size:1.35rem;color:var(--chocolate)}
-.dash-sub{color:var(--muted);font-size:.95rem;margin:6px 0 26px}
-.editor{background:var(--piedra);border:1px solid var(--arena-deep);border-radius:13px;padding:24px 22px}
-.editor h2{font-size:1.05rem;color:var(--chocolate);font-weight:600;margin-bottom:18px}
-.editor .hint{font-size:.76rem;color:var(--muted);font-weight:400;margin:-4px 0 7px 2px}
-.dash-footlink{display:inline-block;margin-top:22px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;border-bottom:1px solid var(--arena-deep);margin-bottom:26px}
+.tab{flex:0 0 auto;padding:9px 16px;border-radius:999px;border:1px solid var(--arena-deep);background:#fff;color:var(--muted);font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s}
+.tab:hover{border-color:var(--camel)}
+.tab.active{background:var(--chocolate);color:#fff;border-color:var(--chocolate)}
+.panel{background:#fff;border:1px solid var(--arena-deep);border-radius:14px;padding:28px 26px;box-shadow:var(--shadow)}
+.panel h2{font-size:1.15rem;color:var(--chocolate);font-weight:600;margin-bottom:6px}
+.panel .lead{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.soon{text-align:center;color:var(--muted);padding:36px 10px;font-size:.98rem}
+.soon b{color:var(--chocolate)}
 </style>
 </head>
 <body>
 <div class="bg"></div>
 
 <!-- ====== LOGIN ====== -->
-<div class="card" id="loginCard">
-  <div class="brand"><img src="../assets/wordmark-pardo.webp" alt="Seravena"></div>
-  <p class="subtitle">Panel de administración</p>
-  <form id="loginForm" novalidate>
-    <div class="field">
-      <label for="email">Correo</label>
-      <input type="email" id="email" autocomplete="username" placeholder="tu@correo.com" required>
-    </div>
-    <div class="field">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" autocomplete="current-password" placeholder="••••••••" required>
-    </div>
-    <button type="submit" class="btn" id="loginBtn">Ingresar</button>
-    <p class="msg" id="msg"></p>
-  </form>
-  <p class="foot">Acceso solo para el equipo de Seravena 🔒</p>
+<div class="center" id="loginWrap">
+  <div class="card">
+    <div class="brand"><img src="../assets/wordmark-pardo.webp" alt="Seravena"></div>
+    <p class="subtitle">Panel de administración</p>
+    <form id="loginForm" novalidate>
+      <div class="field"><label for="email">Correo</label><input type="email" id="email" autocomplete="username" placeholder="tu@correo.com" required></div>
+      <div class="field"><label for="password">Contraseña</label><input type="password" id="password" autocomplete="current-password" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-full" id="loginBtn">Ingresar</button>
+      <p class="msg" id="loginMsg"></p>
+    </form>
+    <p class="foot">Acceso solo para el equipo de Seravena 🔒</p>
+  </div>
 </div>
 
-<!-- ====== PANEL ====== -->
-<div class="dash hidden" id="dash">
-  <div class="dash-top">
+<!-- ====== PANEL (CMS) ====== -->
+<div id="app" class="hidden">
+  <div class="appbar">
     <img src="../assets/wordmark-pardo.webp" alt="Seravena">
-    <div class="dash-user"><span id="whoami">—</span><button class="textbtn" id="logoutBtn">Cerrar sesión</button></div>
+    <div class="right"><span id="whoami">—</span><a href="../index.html" target="_blank" rel="noopener" class="textbtn">Ver sitio ↗</a><button class="textbtn" id="logoutBtn">Cerrar sesión</button></div>
   </div>
-  <h1>Hola 👋</h1>
-  <p class="dash-sub">Lo que cambies aquí se actualiza en tu web <strong>automáticamente</strong>. ✨</p>
 
-  <section class="editor">
-    <h2>📞 Datos de contacto</h2>
+  <div class="tabs">
+    <button class="tab active" data-tab="inicio">🏠 Inicio</button>
+    <button class="tab" data-tab="contacto">📞 Contacto</button>
+    <button class="tab" data-tab="preguntas">❓ Preguntas</button>
+    <button class="tab" data-tab="fotos">🖼️ Fotos</button>
+    <button class="tab" data-tab="usuarios">👥 Usuarios</button>
+  </div>
+
+  <!-- Inicio -->
+  <div class="panel tab-panel" data-panel="inicio">
+    <h2>Textos del inicio</h2>
+    <p class="lead">Lo que cambies aquí se actualiza solo en tu página de inicio.</p>
+    <div class="field">
+      <label for="f_inicio_sub">Subtítulo principal</label>
+      <p class="hint">El texto bajo el título grande.</p>
+      <textarea id="f_inicio_sub"></textarea>
+    </div>
+    <div class="field">
+      <label for="f_inicio_intro">Texto de filosofía</label>
+      <p class="hint">El párrafo de "Nuestra filosofía".</p>
+      <textarea id="f_inicio_intro"></textarea>
+    </div>
+    <button class="btn" data-save="inicio">Guardar cambios</button>
+    <p class="msg" data-msg="inicio"></p>
+  </div>
+
+  <!-- Contacto -->
+  <div class="panel tab-panel hidden" data-panel="contacto">
+    <h2>Datos de contacto</h2>
+    <p class="lead">Se actualizan en toda tu web (footer, botón de WhatsApp, página de contacto).</p>
     <div class="field">
       <label for="f_whatsapp">WhatsApp</label>
       <p class="hint">Tal cual quieres que se vea (ej. +57 305 208 8204).</p>
-      <input type="text" id="f_whatsapp" placeholder="+57 305 208 8204">
+      <input type="text" id="f_whatsapp">
     </div>
-    <div class="field">
-      <label for="f_email">Correo</label>
-      <input type="email" id="f_email" placeholder="info@seravena.com.co">
-    </div>
-    <button class="btn" id="saveBtn">Guardar cambios</button>
-    <p class="msg" id="saveMsg"></p>
-  </section>
+    <div class="field"><label for="f_email">Correo</label><input type="email" id="f_email"></div>
+    <button class="btn" data-save="contacto">Guardar cambios</button>
+    <p class="msg" data-msg="contacto"></p>
+  </div>
 
-  <a href="../index.html" target="_blank" rel="noopener" class="textbtn dash-footlink">Ver mi sitio web ↗</a>
+  <!-- Próximamente -->
+  <div class="panel tab-panel hidden" data-panel="preguntas"><div class="soon">❓ <b>Preguntas frecuentes</b><br>Aquí podrás agregar, editar y quitar preguntas. <br>🚧 Lo estamos construyendo.</div></div>
+  <div class="panel tab-panel hidden" data-panel="fotos"><div class="soon">🖼️ <b>Fotos</b><br>Aquí podrás cambiar las imágenes de tu web. <br>🚧 Lo estamos construyendo.</div></div>
+  <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo. <br>🚧 Lo estamos construyendo.</div></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-/* ===== Configuración de Supabase (anon key = pública/segura) ===== */
+/* ===== Supabase (anon key = pública/segura) ===== */
 const SUPABASE_URL = "https://ppxrwyzqtsvwhyfjwgjg.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc";
-
 const { createClient } = window.supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-const loginCard = document.getElementById('loginCard');
-const dash = document.getElementById('dash');
-const msg = document.getElementById('msg');
+/* Valores actuales de la web (se muestran si aún no se han editado) */
+const DEFAULTS = {
+  whatsapp: "+57 305 208 8204",
+  email: "info@seravena.com.co",
+  inicio_sub: "Diagnóstico preciso, tratamiento personalizado y un acompañamiento profundamente humano para el manejo del lipedema y la salud vascular.",
+  inicio_intro: "Detrás de cada síntoma hay una historia. En Seravena escuchamos primero y tratamos después, con rigor clínico y una calidez que se nota desde la primera consulta."
+};
+/* Qué campos guarda cada pestaña */
+const SECCIONES = {
+  inicio:   { inicio_sub: "f_inicio_sub", inicio_intro: "f_inicio_intro" },
+  contacto: { whatsapp: "f_whatsapp", email: "f_email" }
+};
+
+const loginWrap = document.getElementById('loginWrap');
+const app = document.getElementById('app');
 const loginBtn = document.getElementById('loginBtn');
-const saveMsg = document.getElementById('saveMsg');
-const saveBtn = document.getElementById('saveBtn');
+const loginMsg = document.getElementById('loginMsg');
 
-function showDashboard(user){
-  loginCard.classList.add('hidden');
-  dash.classList.remove('hidden');
+function showApp(user){
+  loginWrap.classList.add('hidden');
+  app.classList.remove('hidden');
   document.getElementById('whoami').textContent = user?.email || '';
-  loadContenido();
+  loadAll();
 }
-function showLogin(){
-  dash.classList.add('hidden');
-  loginCard.classList.remove('hidden');
-}
+function showLogin(){ app.classList.add('hidden'); loginWrap.classList.remove('hidden'); }
 
-/* ¿Sesión abierta? */
-(async () => {
-  try { const { data:{ session } } = await sb.auth.getSession(); if (session) showDashboard(session.user); }
-  catch (e) {}
-})();
+/* Sesión activa */
+(async () => { try { const { data:{session} } = await sb.auth.getSession(); if (session) showApp(session.user); } catch(e){} })();
 
 /* Login */
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
-  msg.className = 'msg'; msg.textContent = '';
-  loginBtn.disabled = true; loginBtn.textContent = 'Ingresando…';
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  try {
+  loginMsg.className='msg'; loginMsg.textContent='';
+  loginBtn.disabled=true; loginBtn.textContent='Ingresando…';
+  const email=document.getElementById('email').value.trim();
+  const password=document.getElementById('password').value;
+  try{
     const { data, error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) { msg.className = 'msg error'; msg.textContent = 'Correo o contraseña incorrectos.'; }
-    else { showDashboard(data.user); }
-  } catch (err) { msg.className = 'msg error'; msg.textContent = 'El panel aún no está conectado.'; }
-  loginBtn.disabled = false; loginBtn.textContent = 'Ingresar';
+    if (error){ loginMsg.className='msg error'; loginMsg.textContent='Correo o contraseña incorrectos.'; }
+    else showApp(data.user);
+  }catch(err){ loginMsg.className='msg error'; loginMsg.textContent='El panel aún no está conectado.'; }
+  loginBtn.disabled=false; loginBtn.textContent='Ingresar';
 });
 
-/* Cargar contenido actual */
-async function loadContenido(){
-  saveMsg.className = 'msg'; saveMsg.textContent = '';
-  try {
-    const { data, error } = await sb.from('contenido').select('clave,valor');
-    if (error) { saveMsg.className = 'msg error'; saveMsg.textContent = 'Aún no está lista la base de datos (avísame para terminarla).'; return; }
-    const map = {}; (data||[]).forEach(r => map[r.clave] = r.valor);
-    document.getElementById('f_whatsapp').value = map.whatsapp || '';
-    document.getElementById('f_email').value = map.email || '';
-  } catch (e) {}
+/* Pestañas */
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  const name=t.dataset.tab;
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==name));
+}));
+
+/* Cargar todo el contenido */
+async function loadAll(){
+  let map={};
+  try{
+    const { data } = await sb.from('contenido').select('clave,valor');
+    (data||[]).forEach(r=>map[r.clave]=r.valor);
+  }catch(e){}
+  Object.values(SECCIONES).forEach(campos=>{
+    Object.keys(campos).forEach(clave=>{
+      const el=document.getElementById(campos[clave]);
+      if(el) el.value = (map[clave]!=null && map[clave]!=="") ? map[clave] : (DEFAULTS[clave]||"");
+    });
+  });
 }
 
-/* Guardar contenido */
-saveBtn.addEventListener('click', async () => {
-  saveMsg.className = 'msg'; saveMsg.textContent = '';
-  saveBtn.disabled = true; saveBtn.textContent = 'Guardando…';
-  const filas = [
-    { clave:'whatsapp', valor: document.getElementById('f_whatsapp').value.trim() },
-    { clave:'email',    valor: document.getElementById('f_email').value.trim() },
-  ];
-  try {
+/* Guardar una sección */
+document.querySelectorAll('[data-save]').forEach(btn => btn.addEventListener('click', async () => {
+  const sec=btn.dataset.save;
+  const campos=SECCIONES[sec];
+  const msgEl=document.querySelector('[data-msg="'+sec+'"]');
+  msgEl.className='msg'; msgEl.textContent='';
+  btn.disabled=true; btn.textContent='Guardando…';
+  const filas=Object.keys(campos).map(clave=>({ clave, valor: document.getElementById(campos[clave]).value.trim() }));
+  try{
     const { error } = await sb.from('contenido').upsert(filas);
-    if (error) { saveMsg.className = 'msg error'; saveMsg.textContent = 'No se pudo guardar. Avísame.'; }
-    else { saveMsg.className = 'msg ok'; saveMsg.textContent = '✓ Guardado. Tu web se actualizará en un momento.'; }
-  } catch (e) { saveMsg.className = 'msg error'; saveMsg.textContent = 'No se pudo guardar. Avísame.'; }
-  saveBtn.disabled = false; saveBtn.textContent = 'Guardar cambios';
-});
+    if(error){ msgEl.className='msg error'; msgEl.textContent='No se pudo guardar. Avísame.'; }
+    else { msgEl.className='msg ok'; msgEl.textContent='✓ Guardado. Tu web se actualizará en un momento.'; }
+  }catch(e){ msgEl.className='msg error'; msgEl.textContent='No se pudo guardar. Avísame.'; }
+  btn.disabled=false; btn.textContent='Guardar cambios';
+}));
 
 /* Logout */
-document.getElementById('logoutBtn').addEventListener('click', async () => {
-  try { await sb.auth.signOut(); } catch (e) {}
-  showLogin();
-});
+document.getElementById('logoutBtn').addEventListener('click', async () => { try{ await sb.auth.signOut(); }catch(e){} showLogin(); });
 </script>
 </body>
 </html>
