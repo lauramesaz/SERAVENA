@@ -204,7 +204,7 @@ function enableEdit(){
   doc.body.setAttribute('data-sv-ready','1');
   const page=currentPageName();
   const st=doc.createElement('style');
-  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.12)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 2px #4B412D;background:#fff;outline:none}';
+  st.textContent='[data-sv]{cursor:text;border-radius:5px;transition:box-shadow .12s,background .12s}[data-sv]:hover{box-shadow:0 0 0 2px #9D8051;background:rgba(157,128,81,.14)}[data-sv][contenteditable="true"]{box-shadow:0 0 0 3px #4B412D!important;background:#fff!important;color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important;outline:none;padding:2px 8px;border-radius:6px}[data-sv][contenteditable="true"] *{color:#1A1A1A!important;-webkit-text-fill-color:#1A1A1A!important}';
   doc.head.appendChild(st);
   doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
   try{
