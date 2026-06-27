@@ -174,7 +174,7 @@ function startEdit(el, key){
 }
 /* Detección de textos (idéntica a contenido.js, incluida aquí para no depender de caché) */
 function svEditable(doc){
-  var sel='h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead';
+  var sel='h1,h2,h3,h4,h5,p,li,summary,blockquote,figcaption,.eyebrow,.stat-label,.lead,.btn';
   var list=Array.prototype.slice.call(doc.querySelectorAll(sel)).filter(function(el){
     if(el.closest('header,nav,script,style,.marquee')) return false;
     if(el.classList.contains('hero-title')) return false;
