@@ -135,7 +135,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--camel);b
       </select>
       <button class="textbtn" id="reloadFotos">↻ Recargar</button>
     </div>
-    <div class="tip">🖼️ Pasa el mouse sobre cualquier <strong>foto</strong> de la vista previa y haz clic para cambiarla. La optimizo sola para que tu web siga rápida.</div>
+    <div class="tip">🖼️ Sobre cada foto verás un botón <strong>📷 Cambiar foto</strong>. Haz clic ahí y sube la nueva — la optimizo sola para que tu web siga rápida.</div>
     <div class="preview-frame"><iframe id="pfFotos" src="../index.html" title="Vista previa de fotos"></iframe></div>
   </div>
   <div class="panel tab-panel hidden" data-panel="usuarios"><div class="soon">👥 <b>Usuarios del equipo</b><br>Aquí podrás crear accesos para tu equipo.<br>🚧 En construcción.</div></div>
@@ -309,21 +309,38 @@ const fotoPageSelect=document.getElementById('fotoPageSelect');
 const pfFotos=document.getElementById('pfFotos');
 function currentFotoPage(){ return fotoPageSelect.value.replace('.html',''); }
 function enableFotos(){
-  let doc; try{ doc=pfFotos.contentDocument; }catch(e){ return; }
-  if(!doc||!doc.body) return;
+  let doc, win; try{ doc=pfFotos.contentDocument; win=pfFotos.contentWindow; }catch(e){ return; }
+  if(!doc||!doc.body||!win) return;
   if(doc.body.getAttribute('data-sv-fotos')==='1') return;
   doc.body.setAttribute('data-sv-fotos','1');
-  const page=currentFotoPage();
-  const st=doc.createElement('style');
-  st.textContent='[data-sv-img]{cursor:pointer;transition:outline .12s,filter .12s}[data-sv-img]:hover{outline:3px solid #9D8051;outline-offset:2px;filter:brightness(.82)}';
-  doc.head.appendChild(st);
-  doc.addEventListener('click', function(e){ const a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
+  var page; try{ var f=(win.location.pathname.split('/').pop()||'index.html'); page=f.replace('.html',''); }catch(e){ page=currentFotoPage(); }
+  // evitar que los enlaces naveguen
+  doc.addEventListener('click', function(e){ var a=e.target.closest&&e.target.closest('a'); if(a) e.preventDefault(); }, true);
+  // un botón "Cambiar foto" encima de cada imagen
+  var layer=doc.createElement('div'); layer.id='sv-foto-layer'; doc.body.appendChild(layer);
+  var pairs=[];
   try{
     svImages(doc).forEach(function(img){
-      img.setAttribute('data-sv-img','1');
-      img.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page, img)); });
+      var btn=doc.createElement('button');
+      btn.textContent='📷 Cambiar foto';
+      btn.style.cssText='position:absolute;z-index:99999;background:#4B412D;color:#fff;border:none;border-radius:999px;padding:9px 15px;font-family:sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap';
+      btn.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); pickImage(img, 'img::'+svKey(page,img)); });
+      layer.appendChild(btn); pairs.push([img,btn]);
     });
   }catch(e){}
+  function reposition(){
+    pairs.forEach(function(p){
+      var r=p[0].getBoundingClientRect();
+      if(r.width<8||r.height<8){ p[1].style.display='none'; return; }
+      p[1].style.display='block';
+      p[1].style.top=(r.top+(win.scrollY||win.pageYOffset||0)+12)+'px';
+      p[1].style.left=(r.left+(win.scrollX||win.pageXOffset||0)+12)+'px';
+    });
+  }
+  reposition();
+  win.addEventListener('scroll', reposition, {passive:true});
+  win.addEventListener('resize', reposition);
+  setTimeout(reposition, 600); setTimeout(reposition, 1600);
 }
 pfFotos.addEventListener('load', enableFotos);
 fotoPageSelect.addEventListener('change', function(){ pfFotos.src='../'+fotoPageSelect.value; });
