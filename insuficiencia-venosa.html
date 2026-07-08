@@ -104,6 +104,11 @@
 .lp-header .logo-img{height:26px;display:block}
 .lp-header .btn{padding:11px 20px;font-size:.9rem}
 @media(max-width:600px){.lp-header .lp-head-cta-text{display:none}.lp-header{padding:11px 16px}.lp-header .btn{padding:10px 16px;font-size:.85rem}.lp-header .logo-img{height:22px}}
+.lp-head-right{display:flex;align-items:center;gap:12px}
+.lp-home{display:inline-flex;align-items:center;gap:6px;color:var(--chocolate);font-weight:600;font-size:.92rem;padding:8px 6px;transition:color .25s}
+.lp-home:hover{color:var(--camel)}
+.lp-home svg{width:17px;height:17px}
+@media(max-width:600px){.lp-home span{display:none}.lp-home{padding:8px}}
 
 /* HERO */
 .lp-hero{position:relative;min-height:92vh;display:flex;align-items:center;color:var(--white);overflow:hidden;padding:120px 0 70px}
@@ -204,9 +209,15 @@ body{--clay:#B85C38}                 /* acento de atención reservado: cálido p
   <a href="index.html" class="logo" aria-label="Seravena · Inicio">
     <img src="assets/wordmark-pardo.webp" alt="Seravena" class="logo-img">
   </a>
-  <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20insuficiencia%20venosa" target="_blank" rel="noopener" class="btn btn-primary">
-    <span class="lp-head-cta-text">Agendar </span>Valoración
-  </a>
+  <div class="lp-head-right">
+    <a href="index.html" class="lp-home" aria-label="Ir a la página principal de Seravena">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+      <span>Inicio</span>
+    </a>
+    <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20insuficiencia%20venosa" target="_blank" rel="noopener" class="btn btn-primary">
+    <span class="lp-head-cta-text">Agendar&nbsp;</span>Valoración
+    </a>
+  </div>
 </header>
 
 <!-- ===== HERO ===== -->
