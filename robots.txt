@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clinicaseravena.com/sitemap.xml
+Sitemap: https://www.clinicaseravena.com/sitemap.xml
