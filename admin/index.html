@@ -333,7 +333,7 @@ pageSelect.addEventListener('change', ()=>{ pf.src='../'+pageSelect.value; });
 document.getElementById('reloadPreview').addEventListener('click', ()=>{ pf.src=pf.src; });
 
 /* ===== Contacto (estructurado) ===== */
-const C_DEFAULTS={ whatsapp:"+57 305 208 8204", email:"info@seravena.com.co" };
+const C_DEFAULTS={ whatsapp:"+57 305 208 8204", email:"info@clinicaseravena.com" };
 async function loadContacto(){
   let map={};
   try{ const {data}=await sb.from('contenido').select('clave,valor').in('clave',['whatsapp','email']); (data||[]).forEach(r=>map[r.clave]=r.valor); }catch(e){}

@@ -305,6 +305,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 26px; font-size: 0.85rem; }
 .to-top { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
 .to-top:hover { color: var(--camel-soft); }
+.footer-bottom a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-bottom a:hover { color: var(--camel-soft); }
 .footer-contact { display: flex; flex-direction: column; gap: 8px; }
 .footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
 .footer-contact a:hover { color: var(--camel-soft); }

@@ -92,11 +92,7 @@
         document.querySelectorAll('.contact-method[href*="wa.me"] .contact-method-value').forEach(function (el) { el.textContent = c.whatsapp; });
       }
       // ---- Correo ----
-      if (c.email) {
-        document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) { a.href = "mailto:" + c.email; });
-        document.querySelectorAll('.footer-contact a[href^="mailto:"]').forEach(function (a) { a.textContent = c.email; });
-        document.querySelectorAll('.contact-method[href^="mailto:"] .contact-method-value').forEach(function (el) { el.textContent = c.email; });
-      }
+      // El correo es fijo en el código (info@clinicaseravena.com). No se sobrescribe desde el CMS.
     })
     .catch(function () {});
 })();

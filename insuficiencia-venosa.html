@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18314027421"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18314027421');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -49,7 +58,7 @@
     "url": "https://www.clinicaseravena.com",
     "medicalSpecialty": "Vascular",
     "telephone": "+57-305-208-8204",
-    "email": "info@seravena.com.co"
+    "email": "info@clinicaseravena.com"
   }
 }
 </script>
@@ -70,14 +79,23 @@
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   "name": "Seravena",
+  "legalName": "SERAVENA S.A.S.",
+  "taxID": "902033506-9",
   "url": "https://www.clinicaseravena.com",
   "logo": "https://www.clinicaseravena.com/assets/wordmark-pardo.png",
   "image": "https://www.clinicaseravena.com/assets/media/band-veins.webp",
   "description": "Manejo integral de lipedema y salud vascular. Tratamiento de la insuficiencia venosa y várices sin cirugía, de forma ambulatoria y con diagnóstico por eco doppler.",
   "medicalSpecialty": "Vascular",
   "telephone": "+57-305-208-8204",
-  "email": "info@seravena.com.co",
-  "address": { "@type": "PostalAddress", "addressCountry": "CO" },
+  "email": "info@clinicaseravena.com",
+  "areaServed": "Medellín, Antioquia, Colombia",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 2 Sur No. 46-55, Of. 1316",
+    "addressLocality": "Medellín",
+    "addressRegion": "Antioquia",
+    "addressCountry": "CO"
+  },
   "availableService": [
     { "@type": "MedicalProcedure", "name": "Tratamiento de insuficiencia venosa" },
     { "@type": "MedicalProcedure", "name": "Tratamiento de várices sin cirugía" },
@@ -360,15 +378,23 @@ body{--clay:#B85C38}                 /* acento de atención reservado: cálido p
     <div class="footer-brand">
       <img src="assets/wordmark-white.webp" alt="Seravena" class="footer-logo">
       <p>Manejo integral de lipedema y salud vascular.</p>
+      <p style="font-size:.86rem;opacity:.72;line-height:1.5;margin-top:10px">
+        SERAVENA S.A.S. · NIT 902.033.506-9<br>
+        Calle 2 Sur No. 46-55, Of. 1316 · Medellín, Antioquia, Colombia
+      </p>
     </div>
     <div class="footer-contact">
       <a href="https://wa.me/573052088204" target="_blank" rel="noopener">WhatsApp · +57 305 208 8204</a>
-      <a href="mailto:info@seravena.com.co">info@seravena.com.co</a>
+      <a href="mailto:info@clinicaseravena.com">info@clinicaseravena.com</a>
       <a href="index.html">Ir al sitio completo →</a>
     </div>
   </div>
+  <p class="container" style="font-size:.82rem;opacity:.6;line-height:1.55;max-width:900px;margin:0 auto 8px">
+    La información de esta página es de carácter general y no reemplaza una consulta médica. El diagnóstico y el tratamiento se definen en una valoración presencial con un profesional de la salud.
+  </p>
   <div class="container footer-bottom">
     <span>© <span id="year"></span> Seravena. Todos los derechos reservados.</span>
+    <a href="politica-privacidad.html">Política de privacidad</a>
   </div>
 </footer>
 
