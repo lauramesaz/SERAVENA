@@ -453,13 +453,16 @@ if (form) {
 if (!reduceMotion) updateParallax(window.scrollY);
 
 /* ============================================================
-   Medición de clics (Google Analytics GA4)
-   Registra cuándo alguien hace clic en WhatsApp, Llamar o Correo.
+   Medición de clics y conversiones (Google Analytics GA4 + Ads)
+   - clic_whatsapp / clic_llamar / clic_correo: eventos descriptivos.
+   - generate_lead: señal estándar de "contacto/lead" que Google Ads
+     puede usar como conversión para optimizar la pauta.
+   - interes_alto: la persona llegó al bloque final (alta intención).
    ============================================================ */
 (function () {
-  function track(name, extra) {
+  function track(name, params) {
     if (typeof window.gtag !== 'function') return;
-    try { window.gtag('event', name, extra || {}); } catch (e) {}
+    try { window.gtag('event', name, params || {}); } catch (e) {}
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
@@ -468,10 +471,30 @@ if (!reduceMotion) updateParallax(window.scrollY);
     var label = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
       track('clic_whatsapp', { boton: label, pagina: location.pathname });
+      track('generate_lead', { metodo: 'whatsapp', pagina: location.pathname });
     } else if (href.indexOf('tel:') === 0) {
       track('clic_llamar', { pagina: location.pathname });
+      track('generate_lead', { metodo: 'llamada', pagina: location.pathname });
     } else if (href.indexOf('mailto:') === 0) {
       track('clic_correo', { pagina: location.pathname });
     }
   }, true);
+
+  // Interés alto: la persona llegó al bloque final de contacto (una sola vez por visita)
+  try {
+    var target = document.querySelector('section.cta, .lp-rupture, .contact-page');
+    if (target && 'IntersectionObserver' in window) {
+      var fired = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting && !fired) {
+            fired = true;
+            track('interes_alto', { pagina: location.pathname });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      io.observe(target);
+    }
+  } catch (e) {}
 })();
