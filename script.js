@@ -451,3 +451,27 @@ if (form) {
 }
 
 if (!reduceMotion) updateParallax(window.scrollY);
+
+/* ============================================================
+   Medición de clics (Google Analytics GA4)
+   Registra cuándo alguien hace clic en WhatsApp, Llamar o Correo.
+   ============================================================ */
+(function () {
+  function track(name, extra) {
+    if (typeof window.gtag !== 'function') return;
+    try { window.gtag('event', name, extra || {}); } catch (e) {}
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    var label = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
+      track('clic_whatsapp', { boton: label, pagina: location.pathname });
+    } else if (href.indexOf('tel:') === 0) {
+      track('clic_llamar', { pagina: location.pathname });
+    } else if (href.indexOf('mailto:') === 0) {
+      track('clic_correo', { pagina: location.pathname });
+    }
+  }, true);
+})();
