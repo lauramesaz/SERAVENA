@@ -1,0 +1,29 @@
+{
+  "actualizado": "2026-07-14",
+  "articulos": [
+    {
+      "fecha": "2026-07-14",
+      "titulo": "Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan",
+      "slug": "varices-tratamiento-sin-cirugia",
+      "categoria": "Salud vascular",
+      "keyword": "tratamiento de várices sin cirugía",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-tratamiento-sin-cirugia.html",
+      "nota": "Creado por el equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
+    {
+      "fecha": "2026-07-14",
+      "titulo": "Piernas hinchadas al final del día: cuándo es normal y cuándo consultar",
+      "slug": "piernas-hinchadas-cuando-preocuparse",
+      "categoria": "Salud vascular",
+      "keyword": "piernas hinchadas",
+      "seo": null,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piernas-hinchadas-cuando-preocuparse.html",
+      "nota": "Artículo inicial de muestra."
+    }
+  ]
+}

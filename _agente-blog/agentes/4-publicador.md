@@ -19,6 +19,11 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
    (el más nuevo primero), con el formato de `../plantilla-post.html`.
 7. Añade el `<url>` al `sitemap.xml` y actualiza el `lastmod` de `/blog/` a hoy.
 8. Anota la fila en `../registro.md` y marca el tema como `publicado` en `../temas.md`.
+8b. **Alimenta el panel de actividad**: añade un objeto al array `articulos` de
+    `admin/blog-actividad.json` (fecha, titulo, slug, categoria, keyword, seo = nota del Juez SEO,
+    medico = "aprobado", estado = "publicado", url pública, nota breve). Actualiza el campo
+    `actualizado` a la fecha de hoy. Este JSON alimenta el panel privado `admin/blog.html` que
+    revisa Laura.
 
 ## Publicación
 
