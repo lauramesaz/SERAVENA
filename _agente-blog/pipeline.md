@@ -10,6 +10,7 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 | # | Agente | Archivo | Misión en una frase |
 |---|--------|---------|----------------------|
 | 1 | Investigador-Redactor | `agentes/1-investigador-redactor.md` | Investiga el tema con fuentes reales y escribe el borrador |
+| 1b | Editor de estilo | `agentes/1b-editor-estilo.md` | Pule la redacción para que lea natural, cálida y humana (solo forma) |
 | 2 | Verificador médico | `agentes/2-verificador-medico.md` | Comprueba que cada afirmación de salud sea real y prudente |
 | 3 | Juez SEO | `agentes/3-juez-seo.md` | Puntúa y corrige el SEO según lineamientos |
 | 4 | Publicador / indexación | `agentes/4-publicador.md` | Optimiza indexación, integra en la web y publica |
@@ -20,6 +21,10 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 ```
         ┌─────────────────────────────────────────────────────────┐
         │  1. INVESTIGADOR-REDACTOR  → borrador + fuentes          │
+        └─────────────────────────────────────────────────────────┘
+                              │
+        ┌─────────────────────────────────────────────────────────┐
+        │  1b. EDITOR DE ESTILO  → pule la redacción (solo forma)  │
         └─────────────────────────────────────────────────────────┘
                               │
              ┌────────────────┴────────────────┐
