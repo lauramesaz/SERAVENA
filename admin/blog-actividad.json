@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-07-14",
+  "actualizado": "2026-07-30",
   "articulos": [
+    {
+      "fecha": "2026-07-30",
+      "titulo": "Arañas vasculares en las piernas: causas y soluciones",
+      "slug": "aranitas-vasculares-piernas",
+      "categoria": "Salud vascular",
+      "keyword": "arañas vasculares",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/aranitas-vasculares-piernas.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
     {
       "fecha": "2026-07-14",
       "titulo": "Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan",
