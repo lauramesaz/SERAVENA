@@ -11,6 +11,7 @@ Formato:
 | 2026-07-14 | piernas-hinchadas-cuando-preocuparse | Piernas hinchadas al final del día: cuándo preocuparse | piernas hinchadas | publicado | — | — | — |
 | 2026-07-14 | varices-tratamiento-sin-cirugia | Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan | tratamiento de várices sin cirugía | publicado | — | — | — |
 | 2026-07-30 | aranitas-vasculares-piernas | Arañas vasculares en las piernas: causas y soluciones | arañas vasculares | publicado | — | — | — |
+| 2026-07-31 | eco-doppler-venoso-que-es | Eco doppler venoso: qué es y por qué es clave | eco doppler venoso | publicado | — | — | — |
 
 ---
 
@@ -19,3 +20,4 @@ Formato:
 - 2026-07-14 · Creado el blog y publicado el primer artículo de muestra.
 - 2026-07-14 · Publicado el artículo "Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan" (slug: varices-tratamiento-sin-cirugia). Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-07-30 · Publicado el artículo "Arañas vasculares en las piernas: causas y soluciones" (slug: aranitas-vasculares-piernas), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 99/100. Integrada tarjeta en el listado y entrada en sitemap.
+- 2026-07-31 · Publicado el artículo "Eco doppler venoso: qué es y por qué es clave" (slug: eco-doppler-venoso-que-es), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 99/100. Integrada tarjeta en el listado y entrada en sitemap.

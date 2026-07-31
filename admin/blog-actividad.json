@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-07-30",
+  "actualizado": "2026-07-31",
   "articulos": [
+    {
+      "fecha": "2026-07-31",
+      "titulo": "Eco doppler venoso: qué es y por qué es clave",
+      "slug": "eco-doppler-venoso-que-es",
+      "categoria": "Salud vascular",
+      "keyword": "eco doppler venoso",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/eco-doppler-venoso-que-es.html",
+      "nota": "Creado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
     {
       "fecha": "2026-07-30",
       "titulo": "Arañas vasculares en las piernas: causas y soluciones",

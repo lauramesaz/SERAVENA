@@ -13,7 +13,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Piernas hinchadas al final del día: cuándo preocuparse — piernas hinchadas — piernas-hinchadas-cuando-preocuparse
 - [publicado] Várices: por qué aparecen y cómo se tratan hoy sin cirugía — tratamiento de várices sin cirugía — varices-tratamiento-sin-cirugia
 - [publicado] Arañitas vasculares en las piernas: causas y soluciones — arañas vasculares — aranitas-vasculares-piernas
-- [pendiente] Qué es el eco doppler venoso y por qué es clave — eco doppler venoso — eco-doppler-venoso-que-es
+- [publicado] Qué es el eco doppler venoso y por qué es clave — eco doppler venoso — eco-doppler-venoso-que-es
 - [pendiente] Piernas cansadas y pesadas: causas frecuentes — piernas cansadas — piernas-cansadas-causas
 - [pendiente] Várices en el embarazo: por qué salen y qué hacer — várices en el embarazo — varices-en-el-embarazo
 - [pendiente] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
