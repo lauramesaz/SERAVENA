@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-07-31",
+  "actualizado": "2026-08-01",
   "articulos": [
+    {
+      "fecha": "2026-08-01",
+      "titulo": "Piernas cansadas y pesadas: causas frecuentes",
+      "slug": "piernas-cansadas-causas",
+      "categoria": "Salud vascular",
+      "keyword": "piernas cansadas",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piernas-cansadas-causas.html",
+      "nota": "Creado por el equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
     {
       "fecha": "2026-07-31",
       "titulo": "Eco doppler venoso: qué es y por qué es clave",
