@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-01",
+  "actualizado": "2026-08-02",
   "articulos": [
+    {
+      "fecha": "2026-08-02",
+      "titulo": "Várices en el embarazo: por qué salen y qué hacer",
+      "slug": "varices-en-el-embarazo",
+      "categoria": "Salud vascular",
+      "keyword": "várices en el embarazo",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-en-el-embarazo.html",
+      "nota": "Creado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 96/100."
+    },
     {
       "fecha": "2026-08-01",
       "titulo": "Piernas cansadas y pesadas: causas frecuentes",
