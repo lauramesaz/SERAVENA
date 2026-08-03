@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-02",
+  "actualizado": "2026-08-03",
   "articulos": [
+    {
+      "fecha": "2026-08-03",
+      "titulo": "Medias de compresión: para qué sirven y cómo elegirlas",
+      "slug": "medias-de-compresion-guia",
+      "categoria": "Salud vascular",
+      "keyword": "medias de compresión",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/medias-de-compresion-guia.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (afirmación sobre frenar la progresión de las várices, ajustada a un lenguaje más prudente); SEO 100/100."
+    },
     {
       "fecha": "2026-08-02",
       "titulo": "Várices en el embarazo: por qué salen y qué hacer",

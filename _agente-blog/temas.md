@@ -16,7 +16,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Qué es el eco doppler venoso y por qué es clave — eco doppler venoso — eco-doppler-venoso-que-es
 - [publicado] Piernas cansadas y pesadas: causas frecuentes — piernas cansadas — piernas-cansadas-causas
 - [publicado] Várices en el embarazo: por qué salen y qué hacer — várices en el embarazo — varices-en-el-embarazo
-- [pendiente] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
+- [publicado] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
 - [pendiente] Insuficiencia venosa crónica: síntomas que no debes ignorar — insuficiencia venosa síntomas — insuficiencia-venosa-sintomas
 - [pendiente] Calambres nocturnos en las piernas: posibles causas — calambres en las piernas — calambres-piernas-noche
 - [pendiente] Trombosis venosa: señales de alarma que debes conocer — trombosis venosa síntomas — trombosis-venosa-senales
