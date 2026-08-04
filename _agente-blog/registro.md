@@ -15,6 +15,7 @@ Formato:
 | 2026-08-01 | piernas-cansadas-causas | Piernas cansadas y pesadas: causas frecuentes | piernas cansadas | publicado | — | — | — |
 | 2026-08-02 | varices-en-el-embarazo | Várices en el embarazo: por qué salen y qué hacer | várices en el embarazo | publicado | — | — | — |
 | 2026-08-03 | medias-de-compresion-guia | Medias de compresión: para qué sirven y cómo elegirlas | medias de compresión | publicado | — | — | — |
+| 2026-08-04 | insuficiencia-venosa-sintomas | Insuficiencia venosa crónica: síntomas que no debes ignorar | insuficiencia venosa síntomas | publicado | — | — | — |
 
 ---
 
@@ -27,3 +28,4 @@ Formato:
 - 2026-08-01 · Publicado el artículo "Piernas cansadas y pesadas: causas frecuentes" (slug: piernas-cansadas-causas), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 99/100. Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-08-02 · Publicado el artículo "Várices en el embarazo: por qué salen y qué hacer" (slug: varices-en-el-embarazo), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 96/100. Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-08-03 · Publicado el artículo "Medias de compresión: para qué sirven y cómo elegirlas" (slug: medias-de-compresion-guia), generado por la rutina automática del equipo de agentes. Verificador médico: APROBADO CON CORRECCIONES (se ajustó la afirmación sobre "frenar la progresión de las várices" para no prometer un efecto no respaldado, dejando el texto en términos de alivio de síntomas). Juez SEO: 100/100, APTO. Integrada tarjeta en el listado y entrada en sitemap.
+- 2026-08-04 · Publicado el artículo "Insuficiencia venosa crónica: síntomas que no debes ignorar" (slug: insuficiencia-venosa-sintomas), generado por la rutina automática del equipo de agentes. Verificador médico: APROBADO CON CORRECCIONES (se retiró la mención a "flebotónicos" como clase farmacológica, dejando el texto en términos de "tu médico puede valorar"). Juez SEO: 99/100, APTO (corrigió título excedido y alineó metadatos OG/Twitter). Integrada tarjeta en el listado y entrada en sitemap.

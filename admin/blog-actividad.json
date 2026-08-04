@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-03",
+  "actualizado": "2026-08-04",
   "articulos": [
+    {
+      "fecha": "2026-08-04",
+      "titulo": "Insuficiencia venosa crónica: síntomas que no debes ignorar",
+      "slug": "insuficiencia-venosa-sintomas",
+      "categoria": "Salud vascular",
+      "keyword": "insuficiencia venosa síntomas",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/insuficiencia-venosa-sintomas.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se retiró la mención de 'flebotónicos' como clase farmacológica); SEO 99/100."
+    },
     {
       "fecha": "2026-08-03",
       "titulo": "Medias de compresión: para qué sirven y cómo elegirlas",
