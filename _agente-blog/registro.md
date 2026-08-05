@@ -16,6 +16,7 @@ Formato:
 | 2026-08-02 | varices-en-el-embarazo | Várices en el embarazo: por qué salen y qué hacer | várices en el embarazo | publicado | — | — | — |
 | 2026-08-03 | medias-de-compresion-guia | Medias de compresión: para qué sirven y cómo elegirlas | medias de compresión | publicado | — | — | — |
 | 2026-08-04 | insuficiencia-venosa-sintomas | Insuficiencia venosa crónica: síntomas que no debes ignorar | insuficiencia venosa síntomas | publicado | — | — | — |
+| 2026-08-05 | calambres-piernas-noche | Calambres en las piernas: por qué aparecen de noche | calambres en las piernas | publicado | — | — | — |
 
 ---
 
@@ -29,3 +30,4 @@ Formato:
 - 2026-08-02 · Publicado el artículo "Várices en el embarazo: por qué salen y qué hacer" (slug: varices-en-el-embarazo), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 96/100. Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-08-03 · Publicado el artículo "Medias de compresión: para qué sirven y cómo elegirlas" (slug: medias-de-compresion-guia), generado por la rutina automática del equipo de agentes. Verificador médico: APROBADO CON CORRECCIONES (se ajustó la afirmación sobre "frenar la progresión de las várices" para no prometer un efecto no respaldado, dejando el texto en términos de alivio de síntomas). Juez SEO: 100/100, APTO. Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-08-04 · Publicado el artículo "Insuficiencia venosa crónica: síntomas que no debes ignorar" (slug: insuficiencia-venosa-sintomas), generado por la rutina automática del equipo de agentes. Verificador médico: APROBADO CON CORRECCIONES (se retiró la mención a "flebotónicos" como clase farmacológica, dejando el texto en términos de "tu médico puede valorar"). Juez SEO: 99/100, APTO (corrigió título excedido y alineó metadatos OG/Twitter). Integrada tarjeta en el listado y entrada en sitemap.
+- 2026-08-05 · Publicado el artículo "Calambres en las piernas: por qué aparecen de noche" (slug: calambres-piernas-noche), generado por la rutina automática del equipo de agentes. Verificador médico: APROBADO CON CORRECCIONES (se suavizó la afirmación sobre frecuencia de consulta médica, dejándola en términos de "molestia muy frecuente" sin cifra clínica no verificada). Juez SEO: 100/100, APTO. Integrada tarjeta en el listado y entrada en sitemap.

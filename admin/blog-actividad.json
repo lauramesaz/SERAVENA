@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-04",
+  "actualizado": "2026-08-05",
   "articulos": [
+    {
+      "fecha": "2026-08-05",
+      "titulo": "Calambres en las piernas: por qué aparecen de noche",
+      "slug": "calambres-piernas-noche",
+      "categoria": "Salud vascular",
+      "keyword": "calambres en las piernas",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/calambres-piernas-noche.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se suavizó afirmación sobre frecuencia de consulta sin respaldo estadístico verificable); SEO 100/100."
+    },
     {
       "fecha": "2026-08-04",
       "titulo": "Insuficiencia venosa crónica: síntomas que no debes ignorar",
