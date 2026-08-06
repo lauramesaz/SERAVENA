@@ -78,7 +78,12 @@ Trabaja siempre dentro de `web/` (donde está el repositorio git).
    git commit -m "blog: <título del artículo>"
    git push
    ```
-7. **Avisa a Laura** (ver sección 6) con el título y el enlace
+7. **Verifica que quedó EN VIVO de verdad** (paso obligatorio, no opcional): espera 1–3 min y
+   comprueba que `https://www.clinicaseravena.com/blog/<slug>.html` responde **200**. Un push
+   correcto NO garantiza publicación: el build de GitHub Pages puede fallar (pasó el 6-ago-2026 y
+   el artículo estuvo invisible ~6 horas). Si da 404, sigue el procedimiento del Auditor
+   (`agentes/5-auditor.md`, sección "Publicación real") para relanzar el build.
+8. **Avisa a Laura** (ver sección 6) con el título y el enlace
    `https://www.clinicaseravena.com/blog/<slug>.html`.
 
 Si `temas.md` se queda con menos de 5 temas pendientes, **genera 10 temas nuevos** relevantes
