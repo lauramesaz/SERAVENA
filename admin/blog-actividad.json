@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-05",
+  "actualizado": "2026-08-06",
   "articulos": [
+    {
+      "fecha": "2026-08-06",
+      "titulo": "Trombosis venosa: síntomas y señales de alarma que no debes ignorar",
+      "slug": "trombosis-venosa-senales",
+      "categoria": "Salud vascular",
+      "keyword": "trombosis venosa síntomas",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/trombosis-venosa-senales.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se alineó el blockquote con el resto del artículo sobre acudir de inmediato a urgencias); SEO 99/100."
+    },
     {
       "fecha": "2026-08-05",
       "titulo": "Calambres en las piernas: por qué aparecen de noche",

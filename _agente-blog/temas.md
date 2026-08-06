@@ -19,7 +19,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
 - [publicado] Insuficiencia venosa crónica: síntomas que no debes ignorar — insuficiencia venosa síntomas — insuficiencia-venosa-sintomas
 - [publicado] Calambres nocturnos en las piernas: posibles causas — calambres en las piernas — calambres-piernas-noche
-- [pendiente] Trombosis venosa: señales de alarma que debes conocer — trombosis venosa síntomas — trombosis-venosa-senales
+- [publicado] Trombosis venosa: señales de alarma que debes conocer — trombosis venosa síntomas — trombosis-venosa-senales
 - [pendiente] Cómo cuidar tus piernas si trabajas muchas horas de pie — cuidado de piernas de pie — cuidar-piernas-trabajo-de-pie
 - [pendiente] Escleroterapia: en qué consiste el tratamiento de várices — escleroterapia — escleroterapia-que-es
 - [pendiente] Hormigueo y picor en las piernas: cuándo es circulatorio — picor en las piernas — picor-piernas-circulacion
