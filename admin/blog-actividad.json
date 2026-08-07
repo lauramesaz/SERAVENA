@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-06",
+  "actualizado": "2026-08-07",
   "articulos": [
+    {
+      "fecha": "2026-08-07",
+      "titulo": "Cuidado de piernas de pie: guía para tu jornada laboral",
+      "slug": "cuidar-piernas-trabajo-de-pie",
+      "categoria": "Salud vascular",
+      "keyword": "cuidado de piernas de pie",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/cuidar-piernas-trabajo-de-pie.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
     {
       "fecha": "2026-08-06",
       "titulo": "Trombosis venosa: síntomas y señales de alarma que no debes ignorar",
