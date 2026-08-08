@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-07",
+  "actualizado": "2026-08-08",
   "articulos": [
+    {
+      "fecha": "2026-08-08",
+      "titulo": "Escleroterapia: en qué consiste el tratamiento de várices",
+      "slug": "escleroterapia-que-es",
+      "categoria": "Salud vascular",
+      "keyword": "escleroterapia",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/escleroterapia-que-es.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se amplió el aviso médico con señales de embolia por coágulo desplazado); SEO 100/100."
+    },
     {
       "fecha": "2026-08-07",
       "titulo": "Cuidado de piernas de pie: guía para tu jornada laboral",
