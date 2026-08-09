@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-08",
+  "actualizado": "2026-08-09",
   "articulos": [
+    {
+      "fecha": "2026-08-09",
+      "titulo": "Hormigueo y picor en las piernas: cuándo puede ser circulatorio",
+      "slug": "picor-piernas-circulacion",
+      "categoria": "Salud vascular",
+      "keyword": "picor en las piernas",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/picor-piernas-circulacion.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 99/100."
+    },
     {
       "fecha": "2026-08-08",
       "titulo": "Escleroterapia: en qué consiste el tratamiento de várices",

@@ -22,7 +22,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Trombosis venosa: señales de alarma que debes conocer — trombosis venosa síntomas — trombosis-venosa-senales
 - [publicado] Cómo cuidar tus piernas si trabajas muchas horas de pie — cuidado de piernas de pie — cuidar-piernas-trabajo-de-pie
 - [publicado] Escleroterapia: en qué consiste el tratamiento de várices — escleroterapia — escleroterapia-que-es
-- [pendiente] Hormigueo y picor en las piernas: cuándo es circulatorio — picor en las piernas — picor-piernas-circulacion
+- [publicado] Hormigueo y picor en las piernas: cuándo es circulatorio — picor en las piernas — picor-piernas-circulacion
 - [pendiente] Manchas oscuras en tobillos: qué pueden indicar — manchas en los tobillos — manchas-tobillos-causas
 
 ## Lipedema
