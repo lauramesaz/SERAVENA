@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-09",
+  "actualizado": "2026-08-10",
   "articulos": [
+    {
+      "fecha": "2026-08-10",
+      "titulo": "Manchas en los tobillos: qué pueden indicar",
+      "slug": "manchas-tobillos-causas",
+      "categoria": "Salud vascular",
+      "keyword": "manchas en los tobillos",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/manchas-tobillos-causas.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se suavizó la afirmación sobre estimulación de melanocitos, dejándola en condicional y como factor secundario frente a la hemosiderina); SEO 99/100."
+    },
     {
       "fecha": "2026-08-09",
       "titulo": "Hormigueo y picor en las piernas: cuándo puede ser circulatorio",
