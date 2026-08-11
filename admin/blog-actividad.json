@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-10",
+  "actualizado": "2026-08-11",
   "articulos": [
+    {
+      "fecha": "2026-08-11",
+      "titulo": "Qué es el lipedema y en qué se diferencia de la obesidad",
+      "slug": "que-es-el-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "qué es el lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/que-es-el-lipedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Primer artículo de la sección Lipedema. Médico aprobado sin correcciones; SEO 98/100."
+    },
     {
       "fecha": "2026-08-10",
       "titulo": "Manchas en los tobillos: qué pueden indicar",

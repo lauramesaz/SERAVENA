@@ -27,7 +27,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 
 ## Lipedema
 
-- [pendiente] Qué es el lipedema y en qué se diferencia de la obesidad — qué es el lipedema — que-es-el-lipedema
+- [publicado] Qué es el lipedema y en qué se diferencia de la obesidad — qué es el lipedema — que-es-el-lipedema
 - [pendiente] Lipedema o retención de líquidos: cómo distinguirlos — lipedema o retención de líquidos — lipedema-o-retencion-liquidos
 - [pendiente] Etapas del lipedema: cómo evoluciona — etapas del lipedema — etapas-del-lipedema
 - [pendiente] Lipedema: por qué la dieta sola no basta — dieta y lipedema — dieta-y-lipedema
