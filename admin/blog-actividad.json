@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-11",
+  "actualizado": "2026-08-12",
   "articulos": [
+    {
+      "fecha": "2026-08-12",
+      "titulo": "Lipedema o retención de líquidos: cómo distinguirlos",
+      "slug": "lipedema-o-retencion-liquidos",
+      "categoria": "Lipedema",
+      "keyword": "lipedema o retención de líquidos",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-o-retencion-liquidos.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 99/100 (ajustó título y meta description para cumplir longitud)."
+    },
     {
       "fecha": "2026-08-11",
       "titulo": "Qué es el lipedema y en qué se diferencia de la obesidad",
