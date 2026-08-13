@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-12",
+  "actualizado": "2026-08-13",
   "articulos": [
+    {
+      "fecha": "2026-08-13",
+      "titulo": "Etapas del lipedema: cómo evoluciona",
+      "slug": "etapas-del-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "etapas del lipedema",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/etapas-del-lipedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 100/100 (dividió frases largas para mejorar legibilidad e integró 2 keywords secundarias en el cuerpo)."
+    },
     {
       "fecha": "2026-08-12",
       "titulo": "Lipedema o retención de líquidos: cómo distinguirlos",
