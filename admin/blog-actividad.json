@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-13",
+  "actualizado": "2026-08-14",
   "articulos": [
+    {
+      "fecha": "2026-08-14",
+      "titulo": "Dieta y lipedema: por qué la alimentación sola no basta",
+      "slug": "dieta-y-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "dieta y lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/dieta-y-lipedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones de fondo (1 ajuste menor de alineación de marca sobre la mención de liposucción/cirugía, para no contradecir la promesa 'sin cirugía' de Seravena); SEO 98/100 (reescribió meta description para incluir la keyword literal, dividió una frase larga)."
+    },
     {
       "fecha": "2026-08-13",
       "titulo": "Etapas del lipedema: cómo evoluciona",
