@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-14",
+  "actualizado": "2026-08-15",
   "articulos": [
+    {
+      "fecha": "2026-08-15",
+      "titulo": "Dolor por lipedema: causas y manejo conservador",
+      "slug": "dolor-lipedema-manejo",
+      "categoria": "Lipedema",
+      "keyword": "dolor por lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/dolor-lipedema-manejo.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con 1 corrección (se reforzó el post-note con la señal de alarma de embolia pulmonar); SEO 98/100."
+    },
     {
       "fecha": "2026-08-14",
       "titulo": "Dieta y lipedema: por qué la alimentación sola no basta",
