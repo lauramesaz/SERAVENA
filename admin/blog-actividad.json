@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-15",
+  "actualizado": "2026-08-16",
   "articulos": [
+    {
+      "fecha": "2026-08-16",
+      "titulo": "Lipedema vs linfedema: diferencias claras",
+      "slug": "lipedema-vs-linfedema",
+      "categoria": "Lipedema",
+      "keyword": "lipedema vs linfedema",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-vs-linfedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado con correcciones (se matizó que el linfedema también puede doler, y se reforzó que los signos diferenciales son orientativos, no absolutos, por el solapamiento en el lipo-linfedema); SEO 99/100 (meta description reescrita con la keyword al inicio, 3 frases largas divididas)."
+    },
     {
       "fecha": "2026-08-15",
       "titulo": "Dolor por lipedema: causas y manejo conservador",
