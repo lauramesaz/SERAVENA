@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-16",
+  "actualizado": "2026-08-17",
   "articulos": [
+    {
+      "fecha": "2026-08-17",
+      "titulo": "Ejercicio y lipedema: cómo moverte sin miedo y sin dolor",
+      "slug": "ejercicio-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "ejercicio y lipedema",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/ejercicio-lipedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones; SEO 96/100 (convirtió dos bloques de prosa en listas para mejorar escaneabilidad e integrar keywords secundarias)."
+    },
     {
       "fecha": "2026-08-16",
       "titulo": "Lipedema vs linfedema: diferencias claras",

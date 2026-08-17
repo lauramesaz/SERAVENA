@@ -33,7 +33,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Lipedema: por qué la dieta sola no basta — dieta y lipedema — dieta-y-lipedema
 - [publicado] Dolor en las piernas por lipedema: cómo se maneja — dolor por lipedema — dolor-lipedema-manejo
 - [publicado] Lipedema vs linfedema: diferencias claras — lipedema vs linfedema — lipedema-vs-linfedema
-- [pendiente] Ejercicio recomendado cuando tienes lipedema — ejercicio y lipedema — ejercicio-lipedema
+- [publicado] Ejercicio recomendado cuando tienes lipedema — ejercicio y lipedema — ejercicio-lipedema
 - [pendiente] Diagnóstico del lipedema: cómo se confirma — diagnóstico de lipedema — diagnostico-lipedema
 - [pendiente] Lipedema y menopausia: por qué se relaciona — lipedema y menopausia — lipedema-y-menopausia
 - [pendiente] Drenaje linfático en el lipedema: qué esperar — drenaje linfático lipedema — drenaje-linfatico-lipedema
