@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-17",
+  "actualizado": "2026-08-18",
   "articulos": [
+    {
+      "fecha": "2026-08-18",
+      "titulo": "Diagnóstico de lipedema: cómo se confirma",
+      "slug": "diagnostico-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "diagnóstico de lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/diagnostico-lipedema.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones (verificó diagnóstico clínico, signos físicos, papel de apoyo de imagen y rango de retraso diagnóstico contra fuentes especializadas); SEO 98/100 (integró keywords secundarias en el cuerpo, dividió frases largas)."
+    },
     {
       "fecha": "2026-08-17",
       "titulo": "Ejercicio y lipedema: cómo moverte sin miedo y sin dolor",
