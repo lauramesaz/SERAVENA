@@ -1,14 +1,46 @@
 # Plan de temas del blog · Seravena
 
-Cola de temas para el agente. Cada día se toma el primer tema `pendiente`.
-Formato: `- [estado] Título orientativo — keyword principal — slug sugerido`
+Cola de temas para el agente. Formato: `- [estado] Título orientativo — keyword principal — slug sugerido`
 Estados: `pendiente`, `publicado`.
 
-Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
+## ESTRATEGIA: racimos temáticos (leer antes de elegir tema)
+
+El blog NO es una lista suelta de artículos: es un conjunto de **racimos**. Un racimo es un grupo
+de artículos sobre lo mismo que se enlazan entre sí y apuntan a una **guía madre**. Google entiende
+mucho mejor "esta clínica sabe de várices" cuando ve 8 artículos conectados que 8 artículos sueltos.
+
+| Racimo | De qué va | Guía madre | Página de servicio |
+|--------|-----------|-----------|--------------------|
+| `sintomas` | Qué siente la paciente: pesadez, hinchazón, calambres, dolor | Guía completa de síntomas de mala circulación | `../vascular.html` |
+| `tratamiento` | Qué se puede hacer: escleroterapia, láser, compresión | Guía de tratamientos de várices sin cirugía | `../insuficiencia-venosa` |
+| `diagnostico` | Cómo se estudia: eco doppler, consulta, señales de alarma | Cómo se diagnostica un problema venoso | `../proceso.html` |
+| `situaciones` | Embarazo, trabajo de pie, viajes, calor, menopausia | Tus piernas según tu momento de vida | `../vascular.html` |
+| `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema.html` |
+
+### Regla de elección del tema (IMPORTANTE — cambió el 6-ago-2026)
+
+Antes se tomaba "el primer pendiente", y eso dejó **10 artículos de venas y CERO de lipedema**,
+aunque el lipedema es la mitad del negocio. A partir de ahora:
+
+1. **Rota entre racimos.** Mira `registro.md`: elige el racimo con menos artículos publicados.
+   Nunca publiques 3 días seguidos del mismo racimo.
+2. **Prioriza las guías madre.** Si al racimo elegido le faltan 3 o más artículos hijos, escribe
+   primero los hijos; cuando el racimo tenga 4+ artículos, escribe su guía madre (más larga,
+   1500–2000 palabras, enlazando a todos sus hijos).
+3. **Anticanibalización.** Antes de escribir, revisa en `registro.md` que ninguna keyword publicada
+   se parezca demasiado a la nueva. Si se parecen, NO escribas otro artículo: **actualiza el que
+   ya existe** y marca el tema como descartado explicando por qué.
 
 ---
 
-## Salud vascular / venas / várices
+## Guías madre (escribir cuando su racimo tenga 4+ artículos hijos)
+
+- [pendiente] Guía completa del lipedema: qué es, etapas, diagnóstico y tratamiento — lipedema — guia-completa-lipedema — racimo: lipedema
+- [pendiente] Mala circulación en las piernas: guía completa de síntomas — mala circulación piernas — guia-sintomas-mala-circulacion — racimo: sintomas
+- [pendiente] Tratamientos de várices sin cirugía: guía completa — tratamiento de várices — guia-tratamientos-varices — racimo: tratamiento
+
+
+## Salud vascular / venas / várices  ·  racimos: `sintomas`, `tratamiento`, `diagnostico`
 
 - [publicado] Piernas hinchadas al final del día: cuándo preocuparse — piernas hinchadas — piernas-hinchadas-cuando-preocuparse
 - [publicado] Várices: por qué aparecen y cómo se tratan hoy sin cirugía — tratamiento de várices sin cirugía — varices-tratamiento-sin-cirugia
@@ -25,7 +57,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Hormigueo y picor en las piernas: cuándo es circulatorio — picor en las piernas — picor-piernas-circulacion
 - [publicado] Manchas oscuras en tobillos: qué pueden indicar — manchas en los tobillos — manchas-tobillos-causas
 
-## Lipedema
+## Lipedema  ·  racimo: `lipedema`  ⚠️ PRIORIDAD: 0 artículos publicados
 
 - [publicado] Qué es el lipedema y en qué se diferencia de la obesidad — qué es el lipedema — que-es-el-lipedema
 - [publicado] Lipedema o retención de líquidos: cómo distinguirlos — lipedema o retención de líquidos — lipedema-o-retencion-liquidos
@@ -38,7 +70,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Lipedema y menopausia: por qué se relaciona — lipedema y menopausia — lipedema-y-menopausia
 - [pendiente] Drenaje linfático en el lipedema: qué esperar — drenaje linfático lipedema — drenaje-linfatico-lipedema
 
-## Bienestar / prevención / estilo de vida
+## Bienestar / prevención / estilo de vida  ·  racimo: `situaciones`
 
 - [pendiente] 7 hábitos diarios para mejorar la circulación de tus piernas — mejorar circulación piernas — habitos-mejorar-circulacion
 - [pendiente] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular

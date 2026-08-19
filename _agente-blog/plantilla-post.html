@@ -77,6 +77,23 @@
   ]
 }
 </script>
+
+<!-- OBLIGATORIO: las mismas 3–4 preguntas del bloque .post-faq, palabra por palabra.
+     Es lo que permite que Google muestre las preguntas desplegables en los resultados. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "{{PREGUNTA_1}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{RESPUESTA_1}}" } },
+    { "@type": "Question", "name": "{{PREGUNTA_2}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{RESPUESTA_2}}" } },
+    { "@type": "Question", "name": "{{PREGUNTA_3}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{RESPUESTA_3}}" } }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -134,6 +151,24 @@
         Este artículo es información general y no reemplaza una valoración médica individual.
       </div>
 
+      <!-- OBLIGATORIO: 3–4 preguntas frecuentes reales del tema.
+           Deben coincidir palabra por palabra con el bloque JSON-LD FAQPage de arriba. -->
+      <div class="post-faq">
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>{{PREGUNTA_1}}</summary>
+          <p>{{RESPUESTA_1}}</p>
+        </details>
+        <details>
+          <summary>{{PREGUNTA_2}}</summary>
+          <p>{{RESPUESTA_2}}</p>
+        </details>
+        <details>
+          <summary>{{PREGUNTA_3}}</summary>
+          <p>{{RESPUESTA_3}}</p>
+        </details>
+      </div>
+
     </div>
 
     <div class="post-author">
@@ -143,6 +178,17 @@
         Contenido informativo revisado por nuestro equipo de salud vascular. No sustituye una consulta médica personalizada.
       </div>
     </div>
+
+    <!-- OBLIGATORIO: 3 artículos del MISMO racimo temático (ver temas.md).
+         Y hay que añadir este artículo al bloque "Sigue leyendo" de esos 3 (enlace en los dos sentidos). -->
+    <nav class="post-related" aria-label="Artículos relacionados">
+      <h2>Sigue leyendo</h2>
+      <ul>
+        <li><a href="{{SLUG_RELACIONADO_1}}.html">{{TITULO_RELACIONADO_1}}</a></li>
+        <li><a href="{{SLUG_RELACIONADO_2}}.html">{{TITULO_RELACIONADO_2}}</a></li>
+        <li><a href="{{SLUG_RELACIONADO_3}}.html">{{TITULO_RELACIONADO_3}}</a></li>
+      </ul>
+    </nav>
 
   </div>
 </article>

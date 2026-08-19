@@ -15,6 +15,10 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 | 3 | Juez SEO | `agentes/3-juez-seo.md` | Puntúa y corrige el SEO según lineamientos |
 | 4 | Publicador / indexación | `agentes/4-publicador.md` | Optimiza indexación, integra en la web y publica |
 | 5 | Auditor de implementación | `agentes/5-auditor.md` | Verifica que todo quedó bien montado antes y después de publicar |
+| 6 | Analista de rendimiento | `agentes/6-analista-rendimiento.md` | **Semanal, no diario.** Audita el blog completo y mejora el artículo más flojo |
+
+> El agente 6 no forma parte de la cadena diaria: corre **una vez por semana**, sobre lo ya
+> publicado. Los agentes 1–5 producen; el 6 hace rendir lo producido.
 
 ## Orden de trabajo (cadena con controles de calidad)
 

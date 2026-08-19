@@ -186,3 +186,75 @@
   font-weight: 500;
 }
 .post-back:hover { color: var(--chocolate); }
+
+/* --- Sigue leyendo (artículos relacionados) --- */
+.post-related {
+  margin-top: 3.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--arena-deep);
+}
+.post-related h2 {
+  font-size: 1.15rem;
+  letter-spacing: .01em;
+  color: var(--chocolate);
+  margin-bottom: 1.25rem;
+}
+.post-related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .5rem;
+}
+.post-related a {
+  display: flex;
+  align-items: baseline;
+  gap: .7rem;
+  padding: .85rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--piedra);
+  color: var(--chocolate);
+  text-decoration: none;
+  font-size: .96rem;
+  line-height: 1.5;
+  transition: background .35s var(--ease), transform .35s var(--ease);
+}
+.post-related a::before {
+  content: "→";
+  color: var(--camel-on-light);
+  flex: none;
+}
+.post-related a:hover {
+  background: var(--arena);
+  transform: translateX(3px);
+}
+
+/* --- Preguntas frecuentes dentro del artículo --- */
+.post-faq { margin-top: 3rem; }
+.post-faq h2 { font-size: 1.3rem; color: var(--chocolate); margin-bottom: 1rem; }
+.post-faq details {
+  border-bottom: 1px solid var(--arena-deep);
+  padding: .95rem 0;
+}
+.post-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--chocolate);
+  font-size: 1rem;
+  line-height: 1.5;
+  list-style: none;
+}
+.post-faq summary::-webkit-details-marker { display: none; }
+.post-faq summary::after {
+  content: "+";
+  float: right;
+  color: var(--camel-on-light);
+  font-weight: 400;
+}
+.post-faq details[open] summary::after { content: "–"; }
+.post-faq details p {
+  margin: .7rem 0 0;
+  font-size: .96rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
