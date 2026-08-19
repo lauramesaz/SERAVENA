@@ -317,10 +317,10 @@ if (bmPanel) {
 const etSlider = document.getElementById('etSlider');
 if (etSlider) {
   const ET=[null,
-   {t:'Superficie lisa',d:'La grasa aumenta de forma pareja. La piel se ve normal, aunque ya hay desproporción.'},
-   {t:'Aparecen nódulos',d:'Se palpan bolitas de grasa y la superficie se vuelve irregular, tipo colchón.'},
-   {t:'Lóbulos grandes',d:'Se forman acumulaciones que deforman el contorno y la piel se endurece.'},
-   {t:'Lipo-linfedema',d:'Se suma retención de líquido (linfedema): aumentan el volumen y la pesadez.'}
+   {t:'Superficie lisa',d:'La piel se ve lisa y de aspecto normal, pero al palpar se sienten pequeños nódulos bajo la superficie. Ya puede haber dolor al tacto y facilidad para los moretones.'},
+   {t:'Aparecen nódulos',d:'La superficie se vuelve irregular, tipo colchón. Los nódulos se palpan con más claridad y la desproporción entre piernas y torso se hace evidente.'},
+   {t:'Lóbulos grandes',d:'Se forman acumulaciones que deforman el contorno, sobre todo en muslos y rodillas, y la piel se endurece. Puede empezar a dificultar el movimiento.'},
+   {t:'Lipo-linfedema',d:'Al componente de grasa se suma retención de líquido, porque el sistema linfático drena peor. Aumentan el volumen y la pesadez, y puede aparecer hinchazón en el pie.'}
   ];
   const etImgs=$$('.et-stage img');
   const etTicksEl=document.getElementById('etTicks');
