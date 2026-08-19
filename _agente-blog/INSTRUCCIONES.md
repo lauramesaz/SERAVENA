@@ -48,8 +48,20 @@ seguridad (se publica y se avisa, y todo queda registrado para poder revertir).
 - **Título SEO** (`<title>`): atractivo, con la keyword, **≤ 60 caracteres** + " | Seravena".
 - **Meta description:** 140–160 caracteres, con gancho + llamada a la acción.
 - **Estructura:** un solo `<h1>`, y `<h2>`/`<h3>` para las secciones. Usa listas `<ul>`.
-- **Enlaces internos:** enlaza 1–2 páginas relevantes del sitio (`../lipedema.html`,
-  `../vascular.html`, `../insuficiencia-venosa`, `../contacto.html`). Mejora mucho el SEO.
+- **Racimo temático:** todo artículo pertenece a un racimo (ver la tabla al inicio de `temas.md`).
+  El racimo decide a qué artículos enlaza y con qué guía madre se conecta.
+- **Enlaces internos (regla ampliada 6-ago-2026):** cada artículo debe llevar
+  **2–3 enlaces a artículos hermanos del mismo racimo** dentro del texto (con el título real como
+  texto del enlace, no "haz clic aquí") **+ 1 enlace a la página de servicio** del racimo
+  (`../lipedema.html`, `../vascular.html`, `../insuficiencia-venosa`) **+ 1 a `../contacto.html`**.
+  Un artículo suelto, sin nada que lo enlace, no posiciona: Google mide qué tan conectado está.
+- **Bloque "Sigue leyendo" obligatorio** (`<nav class="post-related">`, ya viene en la plantilla):
+  3 artículos del mismo racimo. Y **hay que editar esos 3 artículos** para que también enlacen al
+  nuevo: los enlaces valen en los dos sentidos y así ningún artículo queda huérfano.
+- **Preguntas frecuentes obligatorias:** 3–4 preguntas reales que la gente escribe en Google,
+  al final del artículo (`<div class="post-faq">`) **y repetidas palabra por palabra** en el bloque
+  JSON-LD `FAQPage` del `<head>`. Es lo que hace que Google muestre las preguntas desplegables
+  debajo de tu resultado: ocupas más pantalla y le quitas espacio a la competencia.
 - **Slug (nombre de archivo):** en minúsculas, con guiones, descriptivo y con la keyword.
   Ej: `varices-en-el-embarazo.html`. Sin acentos ni ñ en el nombre de archivo.
 - Rellena bien el `alt` de las imágenes (describe la imagen, con contexto).
