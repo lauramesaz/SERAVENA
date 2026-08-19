@@ -630,3 +630,6 @@ section[id], .section[id] { scroll-margin-top: 88px; }
 .artlinks-all a::after { content: "\2192"; color: var(--camel-on-light); }
 .artlinks-all a:hover, .artlinks-all a:focus-visible { color: var(--camel-on-light); border-color: var(--camel-soft); }
 @media (max-width: 640px) { .artlinks-item { padding-right: 0; } }
+
+/* Párrafos consecutivos dentro de una cabecera de sección */
+.section-head .lead + .lead { margin-top: 1.1rem; }
