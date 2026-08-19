@@ -44,8 +44,19 @@ if (preloader) {
 }
 
 /* ---------- Videos (hero + bandas, con cámara lenta y lazy) ---------- */
+/* En móvil (o con ahorro de datos activo) no descargamos los vídeos decorativos:
+   pesan varios MB y ahí solo se ve el poster, que es idéntico en la práctica.
+   Ahorra la descarga entera justo donde los datos cuestan y la conexión es peor. */
+const conexion = navigator.connection || {};
+const sinVideoDeFondo = window.matchMedia('(max-width: 767px)').matches
+  || conexion.saveData === true
+  || ['slow-2g', '2g'].includes(conexion.effectiveType);
+
 function setupVideo(v) {
   const rate = parseFloat(v.dataset.rate) || 1;
+  if (sinVideoDeFondo) { v.removeAttribute('autoplay'); return; }   // se queda el poster
+  const fuente = v.querySelector('source[data-src]');
+  if (fuente) { fuente.src = fuente.dataset.src; v.load(); }
   v.addEventListener('loadedmetadata', () => { v.playbackRate = rate; }, { once: true });
   if (reduceMotion) { v.removeAttribute('autoplay'); v.pause(); return; }
   const tryPlay = () => { v.playbackRate = rate; v.play().catch(() => {}); };
