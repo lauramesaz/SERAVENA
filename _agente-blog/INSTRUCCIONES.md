@@ -62,6 +62,9 @@ seguridad (se publica y se avisa, y todo queda registrado para poder revertir).
   al final del artículo (`<div class="post-faq">`) **y repetidas palabra por palabra** en el bloque
   JSON-LD `FAQPage` del `<head>`. Es lo que hace que Google muestre las preguntas desplegables
   debajo de tu resultado: ocupas más pantalla y le quitas espacio a la competencia.
+- **Sitemap:** al añadir el artículo pon su `<lastmod>` con la fecha real de publicación,
+  y **si editas un artículo antiguo, actualiza también su `<lastmod>`**. Google usa esa fecha
+  para decidir si vuelve a rastrear la página: si la dejas vieja, no vuelve.
 - **Slug (nombre de archivo):** en minúsculas, con guiones, descriptivo y con la keyword.
   Ej: `varices-en-el-embarazo.html`. Sin acentos ni ñ en el nombre de archivo.
 - Rellena bien el `alt` de las imágenes (describe la imagen, con contexto).
