@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-18",
+  "actualizado": "2026-08-19",
   "articulos": [
+    {
+      "fecha": "2026-08-19",
+      "titulo": "Lipedema y menopausia: por qué se relacionan",
+      "slug": "lipedema-y-menopausia",
+      "categoria": "Lipedema",
+      "keyword": "lipedema y menopausia",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-y-menopausia.html",
+      "nota": "Generado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones (verificó el vínculo hormonal —receptores de estrógeno, tejido conectivo, drenaje linfático— contra fuentes especializadas, con lenguaje prudente y sin afirmar causalidad establecida); SEO 97/100 (ajustó metadatos para incluir la keyword exacta, dividió párrafos largos)."
+    },
     {
       "fecha": "2026-08-18",
       "titulo": "Diagnóstico de lipedema: cómo se confirma",

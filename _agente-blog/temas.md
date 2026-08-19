@@ -35,7 +35,7 @@ Cuando queden menos de 5 pendientes, el agente añade 10 temas nuevos al final.
 - [publicado] Lipedema vs linfedema: diferencias claras — lipedema vs linfedema — lipedema-vs-linfedema
 - [publicado] Ejercicio recomendado cuando tienes lipedema — ejercicio y lipedema — ejercicio-lipedema
 - [publicado] Diagnóstico del lipedema: cómo se confirma — diagnóstico de lipedema — diagnostico-lipedema
-- [pendiente] Lipedema y menopausia: por qué se relaciona — lipedema y menopausia — lipedema-y-menopausia
+- [publicado] Lipedema y menopausia: por qué se relaciona — lipedema y menopausia — lipedema-y-menopausia
 - [pendiente] Drenaje linfático en el lipedema: qué esperar — drenaje linfático lipedema — drenaje-linfatico-lipedema
 
 ## Bienestar / prevención / estilo de vida
