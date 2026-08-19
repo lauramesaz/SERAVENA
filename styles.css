@@ -268,7 +268,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .contact { position: relative; background: var(--chocolate); color: var(--white); overflow: hidden; }
 .contact-mark { position: absolute; left: -8%; top: 8%; width: min(40vw, 460px); opacity: 0.05; pointer-events: none; }
 .contact .eyebrow { color: var(--camel-on-dark); }
-.contact h2 { color: var(--white); font-size: clamp(1.8rem, 4vw, 3rem); }
+.contact h1, .contact h2 { color: var(--white); font-size: clamp(1.8rem, 4vw, 3rem); }
 .contact .lead { color: rgba(255,255,255,0.75); margin-bottom: 48px; }
 .contact-inner { position: relative; z-index: 2; max-width: 720px; }
 .contact-methods { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
@@ -615,3 +615,18 @@ section[id], .section[id] { scroll-margin-top: 88px; }
 .qa-card h3 { font-size: 1.15rem; font-weight: 500; color: var(--chocolate); margin-bottom: 8px; }
 .qa-card p { color: var(--muted); font-size: .98rem; }
 @media(max-width:620px){ .qa-grid { grid-template-columns: 1fr; } }
+
+/* ---- Enlaces a artículos del blog desde páginas de servicio ---- */
+.artlinks { padding-top: 5rem; padding-bottom: 5rem; }
+.artlinks .artlinks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 1px solid var(--arena-deep); }
+.artlinks-item { display: flex; flex-direction: column; padding: 1.5rem 1.75rem 1.5rem 0; border-bottom: 1px solid var(--arena-deep); text-decoration: none; color: inherit; transition: opacity .3s var(--ease); }
+.artlinks-item:hover, .artlinks-item:focus-visible { opacity: .62; }
+.artlinks-item h3 { font-size: 1.05rem; line-height: 1.35; margin-bottom: .4rem; color: var(--pardo); }
+.artlinks-item p { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+.artlinks-item p { flex: 1 1 auto; }
+.artlinks-item .artlinks-more { display: inline-block; margin-top: 1rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--camel-on-light); }
+.artlinks-all { margin-top: 2.25rem; }
+.artlinks-all a { display: inline-flex; align-items: center; gap: .55rem; font-size: .95rem; color: var(--chocolate); text-decoration: none; border-bottom: 1px solid var(--arena-deep); padding-bottom: .35rem; transition: border-color .3s var(--ease), color .3s var(--ease); }
+.artlinks-all a::after { content: "\2192"; color: var(--camel-on-light); }
+.artlinks-all a:hover, .artlinks-all a:focus-visible { color: var(--camel-on-light); border-color: var(--camel-soft); }
+@media (max-width: 640px) { .artlinks-item { padding-right: 0; } }
