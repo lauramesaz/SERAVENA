@@ -330,10 +330,450 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--pard
 .alerta{background:var(--arena);border-radius:11px;padding:13px 16px;font-size:.87rem;color:var(--chocolate);margin-top:16px;line-height:1.55}
 .alerta b{font-weight:700}
 @media(max-width:560px){.pct{width:auto}.bar{min-width:60px}}
+
+/* ---------- optimizador de espacios ---------- */
+.optgrid{display:grid;grid-template-columns:1fr 272px;gap:16px;align-items:start}
+@media(max-width:880px){.optgrid{grid-template-columns:1fr}}
+.escen{border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin-bottom:9px}
+.escen.mejor{border-color:var(--camel);background:var(--acc-soft)}
+.escen.mejor .gantt{background:#fff}
+.escentop{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.escenq{flex:1;min-width:150px}
+.escentop b{display:block;font-size:.93rem;color:var(--pardo);font-weight:600}
+.escentop small{font-size:.75rem;color:var(--muted)}
+.escennum{text-align:right}
+.escennum b{font-size:1.28rem;letter-spacing:-.03em}
+.espbars{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}
+.espbar{display:flex;align-items:center;gap:10px;font-size:.77rem}
+.espbar span{width:110px;color:var(--muted);flex-shrink:0}
+.espbar i{flex:1;height:6px;background:#E7E1D8;border-radius:99px;overflow:hidden}
+.espbar u{display:block;height:100%;background:var(--camel);border-radius:99px;text-decoration:none}
+.espbar em{width:36px;text-align:right;font-style:normal;font-weight:600;color:var(--pardo)}
+.escen .gantt{margin-top:0}
+.rechead{margin:16px 0 9px;font-size:.85rem;color:var(--muted)}
+.rectab{border:1px solid var(--line);border-radius:11px;overflow:hidden;overflow-x:auto}
+.rectab table{width:100%;border-collapse:collapse;font-size:.83rem}
+.rectab th{text-align:left;font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:10px 12px;background:var(--piedra);border-bottom:1px solid var(--line);white-space:nowrap}
+.rectab td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.rectab tr:last-child td{border-bottom:none}
+.rectab tr.top td{background:var(--acc-soft)}
+.rectab td b{font-size:.95rem;color:var(--pardo)}
+.rectab .up{color:var(--ok);font-weight:700;font-size:.76rem}
+.rectab .esf{font-size:.72rem;color:var(--muted);white-space:nowrap}
+.rectab tr.top .esf{color:var(--acc-ink)}
+.optchat{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.optmsgs{padding:20px 22px;display:flex;flex-direction:column;gap:15px;max-height:62vh;overflow-y:auto}
+.msg{font-size:.9rem;line-height:1.62}
+.msg.user{align-self:flex-end;background:var(--chocolate);color:#fff;padding:11px 15px;border-radius:14px 14px 4px 14px;max-width:80%}
+.msg.bot{align-self:flex-start;background:var(--piedra);border:1px solid var(--arena-deep);padding:15px 17px;border-radius:14px 14px 14px 4px;width:100%}
+.msg.bot b{color:var(--chocolate);font-weight:600}
+.optkpis{display:flex;flex-wrap:wrap;gap:9px;margin:13px 0 2px}
+.okpi{flex:1;min-width:98px;background:#fff;border:1px solid var(--arena-deep);border-radius:11px;padding:10px 12px}
+.okpi .l{font-size:.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.okpi .v{font-size:1.16rem;font-weight:600;color:var(--chocolate);margin-top:3px;letter-spacing:-.01em}
+.okpi.warn{background:#FBF3EE;border-color:#F0D9CB}
+.okpi.warn .v{color:#A8552F}
+.gantt{margin-top:13px;border:1px solid var(--arena-deep);border-radius:12px;background:#fff;overflow-x:auto;padding:12px 14px}
+.gantt svg{display:block}
+.optnota{margin-top:11px;background:var(--arena);border-radius:10px;padding:11px 14px;font-size:.83rem;color:var(--chocolate);line-height:1.55}
+.optnota.ojo{background:#FBF3EE;color:#8A4326}
+.optsug{display:flex;gap:8px;flex-wrap:wrap;padding:2px 22px 14px}
+.sug{font-size:.77rem;padding:7px 12px;border-radius:999px;border:1px solid var(--arena-deep);background:#fff;color:var(--camel);font-family:inherit;font-weight:600;cursor:pointer}
+.sug:hover{border-color:var(--camel);background:var(--arena)}
+.optinput{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--arena-deep);background:#fff}
+.optinput input{flex:1;padding:12px 14px;border:1px solid var(--arena-deep);border-radius:10px;font-family:inherit;font-size:.92rem;background:var(--piedra);color:var(--pardo)}
+.optinput input:focus{outline:none;border-color:var(--camel);background:#fff;box-shadow:0 0 0 3px rgba(157,128,81,.15)}
+.optinput button{padding:12px 20px;border:none;border-radius:10px;background:var(--chocolate);color:#fff;font-family:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.optside{padding:18px 20px}
+.optside h4{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.ctl{margin-bottom:15px}
+.ctl>label{display:block;font-size:.69rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ctl input,.ctl select{width:100%;padding:9px 11px;border:1px solid var(--arena-deep);border-radius:9px;font-family:inherit;font-size:.9rem;background:var(--piedra);color:var(--pardo)}
+.ctl input:focus,.ctl select:focus{outline:none;border-color:var(--camel);background:#fff}
+.ctl .hint{font-size:.72rem;color:var(--muted);margin-top:5px;line-height:1.4}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;padding:9px 4px;border:1px solid var(--arena-deep);background:#fff;border-radius:9px;font-family:inherit;font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--chocolate);color:#fff;border-color:var(--chocolate)}
+.par{display:flex;gap:8px}
+.par>div{flex:1}
+.optside details{border-top:1px solid #f0e9dc;margin-top:16px;padding-top:14px}
+.optside details summary{font-size:.77rem;font-weight:700;color:var(--camel);cursor:pointer;margin-bottom:13px;list-style:none}
+.optside details summary::-webkit-details-marker{display:none}
+.optside details summary::before{content:"⚙️ "}
+
+/* =====================================================================
+   PIEL NUDE · rediseño completo (ago 2026)
+   Va al final a propósito: redefine los tokens y las piezas principales.
+   Un solo acento (arcilla), casi sin bordes, mucho aire.
+   ===================================================================== */
+:root{
+  --chocolate:#37312B; --camel:#A98A6B; --arena:#F1EAE1; --arena-deep:#E8E0D6;
+  --piedra:#FAF7F3;   --pardo:#23201C;  --muted:#8B8278;  --white:#fff;
+  --ok:#6F8C72;
+  --bg:#F7F3EF; --line:#EDE6DD; --acc-soft:#F3EBE2; --acc-ink:#7A5F45;
+  --radius:20px;
+  --shadow:0 1px 2px rgba(55,49,43,.04), 0 10px 28px rgba(55,49,43,.055);
+  --shadow-lift:0 2px 6px rgba(55,49,43,.06), 0 18px 44px rgba(55,49,43,.10);
+}
+body{background:var(--bg);color:var(--pardo);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.wrap{max-width:1140px;padding:24px 26px 96px}
+
+/* barra superior */
+.appbar{margin-bottom:0;padding-bottom:18px}
+.appbar img{height:24px;opacity:.9}
+.appbar .right{gap:6px}
+.textbtn{color:var(--muted);font-weight:600;font-size:.82rem;padding:8px 13px;border-radius:999px;transition:background .16s,color .16s}
+.textbtn:hover{text-decoration:none;background:var(--arena);color:var(--pardo)}
+
+/* encabezado de página */
+.pagehead{margin:14px 0 22px}
+.pagehead h1{font-size:2.15rem;font-weight:600;color:var(--pardo);letter-spacing:-.035em;line-height:1.1}
+.pagehead .fecha{color:var(--muted);font-size:1rem;margin-top:7px;font-weight:400}
+.demo-pill{background:var(--acc-soft);color:var(--acc-ink);font-size:.73rem;font-weight:600;padding:6px 13px;margin-top:14px;letter-spacing:0}
+
+/* pestañas → control segmentado */
+.tabs,.calswitch{display:inline-flex;gap:3px;padding:4px;background:var(--arena);border-radius:999px;margin:2px 0 26px}
+.calswitch{margin:0 0 0 auto}
+.tabs .tab,.calswitch .tab{padding:10px 17px;border:none;background:transparent;color:var(--muted);font-size:.86rem;font-weight:600;border-radius:999px;transition:color .16s,background .16s}
+.tabs .tab:hover,.calswitch .tab:hover{color:var(--pardo)}
+.tabs .tab.active,.calswitch .tab.active{background:#fff;color:var(--pardo);box-shadow:0 1px 3px rgba(55,49,43,.12)}
+.caltop>.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;color:var(--muted)}
+.caltop>.tab:hover{border-color:var(--camel);color:var(--pardo)}
+
+/* superficies */
+.panel,.kpi,.semanabox,.card,.calpanel,.tarea,.vacio,.gatecard,.pinbox,.diachip,.gantt,.okpi{
+  border-color:var(--line);box-shadow:none}
+.panel,.calpanel{border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px}
+.calpanel{padding:0}
+
+/* KPIs */
+.kpis{gap:12px;margin-bottom:12px}
+.kpi{border-radius:18px;padding:20px 22px;background:#fff;border:1px solid var(--line);transition:box-shadow .2s}
+.kpi .lab{font-size:.68rem;letter-spacing:.09em;color:var(--muted);margin-bottom:11px;font-weight:700}
+.kpi .num{font-size:2.35rem;font-weight:600;color:var(--pardo);letter-spacing:-.045em}
+.kpi .num small{color:var(--muted);font-weight:500}
+.kpi .sub{font-size:.82rem;margin-top:6px;color:var(--muted)}
+.kpi.destacado{background:var(--chocolate);border-color:var(--chocolate)}
+.kpi.destacado .num{color:#fff}
+.kpi.destacado .lab{color:rgba(255,255,255,.55)}
+.kpi.destacado .sub{color:rgba(255,255,255,.7)}
+.kpibar{height:5px;background:var(--arena);margin-top:13px}
+.kpi.destacado .kpibar{background:rgba(255,255,255,.16)}
+.kpibar i{background:var(--camel)}
+.kpibar i.full{background:var(--ok)}
+
+/* semana */
+.semanabox{border-radius:18px;padding:20px 22px;background:#fff;border:1px solid var(--line);margin-bottom:12px}
+.semanabox h4{font-size:.68rem;letter-spacing:.09em;color:var(--muted);margin-bottom:16px}
+.wbars{height:92px;gap:14px}
+.wbar .col{width:100%;max-width:46px;border-radius:7px;background:#DCD1C2}
+.wbar .col.hoy{background:var(--camel)}
+.wbar .col.baja{background:#E0C3AC}
+.wbar .pc{order:-1}
+.wbar .dia{font-size:.66rem;color:var(--muted)}
+.wbar .pc{font-size:.68rem;color:var(--muted);font-weight:600}
+
+/* aviso */
+.aviso{background:#FBF2EB;border-color:#F0DECE;border-radius:16px;padding:15px 18px;color:#8A5A38;margin-bottom:12px}
+
+/* títulos de sección */
+.seccion-tit{font-size:.68rem;letter-spacing:.09em;color:var(--muted);margin:30px 0 14px}
+
+/* tarjetas de persona */
+.grid{grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px}
+.card{border-radius:18px;padding:22px;background:#fff;border:1px solid var(--line);transition:transform .2s cubic-bezier(.2,.8,.3,1),box-shadow .2s,border-color .2s}
+.card::before{display:none}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--line)}
+.card .top{gap:13px;margin-bottom:18px}
+.avatar{width:44px;height:44px;font-size:.92rem;font-weight:600}
+.card h3{font-size:1.06rem;font-weight:600;letter-spacing:-.015em}
+.card .rol{font-size:.79rem;color:var(--muted);margin-top:2px}
+.pill{top:20px;right:20px;font-size:.64rem;padding:5px 10px;font-weight:700}
+.pill.completo{background:#EDF3ED;color:var(--ok)}
+.pill.enmarcha{background:var(--arena);color:var(--acc-ink)}
+.pill.atrasado{background:#FBF2EB;color:#A8623A}
+.card .prox{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);font-size:.78rem}
+.card .prox .hr{background:var(--arena);color:var(--acc-ink);font-size:.66rem;padding:3px 8px;border-radius:7px}
+.ring .bgc{stroke:var(--arena)}
+.ring .fgc{stroke:var(--camel)}
+.ringnum{font-size:.95rem;color:var(--pardo);font-weight:600}
+.ringlabel{font-size:.75rem;color:var(--muted)}
+.card.gerente-card{background:var(--chocolate);border-color:var(--chocolate)}
+.card.gerente-card:hover{border-color:var(--chocolate)}
+.card .perfilbtn{bottom:16px;right:16px;color:var(--muted);font-weight:600}
+.card .perfilbtn:hover{background:var(--arena);color:var(--pardo)}
+
+/* filas de gerencia / ajustes */
+.rowline,.perrow{border-bottom:1px solid var(--line);padding:15px 2px}
+.rowline .who b,.perrow .who b{font-size:.94rem;letter-spacing:-.01em}
+.bar{background:var(--arena);height:7px}
+.bar i{background:var(--camel)}
+.bar i.full{background:var(--ok)}
+.pct{color:var(--pardo);font-weight:600}
+.panel h2{font-size:1.22rem;color:var(--pardo);font-weight:600;letter-spacing:-.02em}
+.panel .lead{font-size:.87rem;margin-bottom:18px}
+.alerta{background:var(--arena);border-radius:14px;padding:15px 18px;color:var(--acc-ink)}
+
+/* tareas */
+.momento h4{font-size:.68rem;letter-spacing:.09em;color:var(--muted);margin-bottom:12px}
+.tarea{border-radius:15px;padding:16px 18px;margin-bottom:8px;background:#fff;border:1px solid var(--line);transition:border-color .16s,box-shadow .16s}
+.tarea:hover{border-color:var(--arena-deep);box-shadow:var(--shadow)}
+.tarea .chk{width:23px;height:23px;border-radius:8px;border-color:var(--arena-deep)}
+.tarea .nombre{font-size:.96rem;font-weight:500;letter-spacing:-.01em}
+.tag{font-size:.66rem;padding:4px 10px;font-weight:600}
+.tag.clinica{background:var(--arena);color:var(--acc-ink)}
+.tag.personal{background:#EDF3ED;color:var(--ok)}
+.tag.dias{background:var(--piedra);color:var(--muted)}
+.diachip{border-radius:15px;padding:12px 4px;border:1px solid var(--line);background:#fff}
+.diachip .dc{color:var(--pardo)}
+.diachip.hoy:not(.sel){border-color:var(--camel);background:var(--acc-soft)}
+.addbtn{border-radius:15px;padding:17px;border:1.5px dashed var(--arena-deep);color:var(--muted);font-weight:600}
+.addbtn:hover{border-color:var(--camel);background:var(--piedra);color:var(--acc-ink)}
+.vacio{border-radius:16px;padding:40px 16px;border:1px solid var(--line);background:#fff}
+.atajos .mini,.perrow .mini,.miperfil{border-radius:999px;border-color:var(--line);font-weight:600}
+.atajos .mini:hover,.perrow .mini:hover,.miperfil:hover{border-color:var(--camel);color:var(--acc-ink);background:#fff}
+
+/* formularios y botones */
+.inp,.evform input,.evform select,.evform textarea,.gatecard input,.ctl input,.ctl select,.optinput input{
+  border-radius:13px;border-color:var(--line);background:var(--piedra);padding:12px 14px}
+.inp:focus,.evform input:focus,.evform select:focus,.evform textarea:focus,.gatecard input:focus,.ctl input:focus,.optinput input:focus{
+  border-color:var(--camel);box-shadow:0 0 0 3px rgba(169,138,107,.16);background:#fff}
+.lbl,.evform label{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.btn,.optinput button{border-radius:13px;padding:13px 22px;background:var(--chocolate);font-weight:600;letter-spacing:-.005em;transition:background .16s,transform .12s}
+.btn:hover,.optinput button:hover{background:#221E1A}
+.btn:active,.optinput button:active{transform:scale(.985)}
+
+/* entrada */
+.gatecard{border-radius:24px;padding:44px 36px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.gatecard h2{font-size:1.3rem;color:var(--pardo);letter-spacing:-.02em}
+.pinbox{border-radius:24px;padding:36px 32px;box-shadow:var(--shadow-lift)}
+.pinbox h3{color:var(--pardo);font-size:1.12rem;letter-spacing:-.02em}
+.pinpad button{border-radius:14px;padding:15px 0;border-color:var(--line);color:var(--pardo)}
+.pinpad button:hover{border-color:var(--camel);background:var(--piedra)}
+.pindots span{border-color:var(--arena-deep)}
+.pindots span.full{background:var(--camel);border-color:var(--camel)}
+.overlay{background:rgba(35,32,28,.42);backdrop-filter:blur(6px)}
+
+/* calendario */
+.caltop h2{font-size:1.25rem;color:var(--pardo);letter-spacing:-.02em}
+.calnavbtn{border-color:var(--line);color:var(--pardo);width:38px;height:38px}
+.calnavbtn:hover{border-color:var(--camel);background:#fff}
+.calpanel{border:1px solid var(--line)}
+.mdow{padding:13px 6px;font-size:.67rem;letter-spacing:.08em;border-bottom:1px solid var(--line);color:var(--muted)}
+.mday{border-color:var(--line);min-height:104px;padding:7px}
+.mday:hover{background:var(--piedra)}
+.mday.today .num{background:var(--camel);color:#fff}
+.chip{border-radius:7px;font-size:.67rem;padding:3px 8px}
+.whead{border-bottom:1px solid var(--line)}
+.whead .wd.today b{background:var(--camel)}
+.daycol{border-left:1px solid var(--line)}
+.daycol .hline{border-bottom:1px solid #F5F0E8}
+.daycol .hline:hover{background:var(--piedra)}
+.evt{border-radius:9px;box-shadow:0 2px 8px rgba(55,49,43,.16)}
+.callab .calchk{border-radius:6px}
+
+/* perfil de cargo */
+.pchead{border-bottom:1px solid var(--line);padding-bottom:20px}
+.pcsec h5{font-size:.68rem;letter-spacing:.09em;color:var(--muted)}
+.pcsec li::before{color:var(--camel)}
+.pcsec.propos{background:var(--acc-soft);border-radius:14px;padding:17px 19px}
+.pcsec.propos p{color:var(--acc-ink)}
+
+/* modo pantalla */
+.tv{background:var(--chocolate)}
+.tvbig{border-radius:26px;background:rgba(255,255,255,.06)}
+.tvper{border-radius:18px;background:rgba(255,255,255,.05)}
+.tvbar i{background:var(--camel)}
+.tvtitulo{letter-spacing:-.035em}
+
+/* optimizador */
+.optchat,.optside{border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow)}
+.optchat{padding:0}
+.msg.user{background:var(--chocolate);border-radius:16px 16px 5px 16px;padding:12px 16px}
+.msg.bot{background:var(--piedra);border:1px solid var(--line);border-radius:16px 16px 16px 5px;padding:17px 19px}
+.okpi{border-radius:14px;border:1px solid var(--line);padding:12px 14px}
+.okpi .v{font-size:1.3rem;color:var(--pardo);letter-spacing:-.03em}
+.okpi.warn{background:#FBF2EB;border-color:#F0DECE}
+.okpi.warn .v{color:#A8623A}
+.gantt{border-radius:16px;border:1px solid var(--line);padding:14px 16px}
+.optnota{background:var(--arena);border-radius:14px;padding:13px 16px;color:var(--acc-ink)}
+.optnota.ojo{background:#FBF2EB;color:#8A5A38}
+.sug{border-radius:999px;border-color:var(--line);color:var(--muted);padding:8px 14px}
+.sug:hover{border-color:var(--camel);background:#fff;color:var(--acc-ink)}
+.optinput{border-top:1px solid var(--line);padding:15px 19px}
+.optside{padding:22px 22px}
+.optside h4{font-size:.68rem;letter-spacing:.09em;color:var(--muted);margin-bottom:16px}
+.ctl>label{font-size:.67rem;letter-spacing:.06em;color:var(--muted)}
+.seg{gap:4px;background:var(--arena);padding:4px;border-radius:999px}
+.seg button{border:none;background:transparent;border-radius:999px;padding:9px 4px;color:var(--muted)}
+.seg button:hover{color:var(--pardo)}
+.seg button.on{background:#fff;color:var(--pardo);box-shadow:0 1px 3px rgba(55,49,43,.12)}
+.optside details{border-top:1px solid var(--line)}
+.optmsgs{padding:22px 24px;gap:16px}
+
+@media(max-width:680px){
+  .wrap{padding:18px 16px 80px}
+  .pagehead h1{font-size:1.7rem}
+  .tabs{width:100%;overflow-x:auto;border-radius:16px}
+}
+
+/* =====================================================================
+   MODO TRABAJO · fondo blanco, menú fijo, densidad cómoda para todo el día
+   Va después de la piel nude: la calma, la aclara y la vuelve herramienta.
+   ===================================================================== */
+:root{
+  --bg:#FFFFFF; --line:#EDEAE4; --arena:#F5F2ED; --arena-deep:#E4DFD7;
+  --piedra:#FAF9F7; --acc-soft:#F3EDE4; --acc-ink:#7A5F45;
+  --camel:#A17F5F; --chocolate:#2A2622; --pardo:#1F1D1A; --muted:#837C73;
+  --radius:14px; --shadow:none; --shadow-lift:0 4px 16px rgba(31,29,26,.07);
+}
+body{background:#fff;letter-spacing:0}
+
+/* ---- menú lateral fijo ---- */
+.rail{position:fixed;left:0;top:0;bottom:0;width:230px;background:#FCFBFA;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;padding:22px 13px 15px;z-index:30}
+.raillogo{padding:3px 11px 22px}
+.raillogo img{height:21px;opacity:.85}
+.railnav{display:flex;flex-direction:column;gap:2px}
+.railitem{display:block;width:100%;text-align:left;padding:9px 12px;border:none;background:none;border-radius:9px;
+  font-family:inherit;font-size:.875rem;font-weight:500;color:var(--muted);cursor:pointer;transition:background .14s,color .14s}
+.railitem:hover{background:var(--arena);color:var(--pardo)}
+.railitem.on{background:var(--acc-soft);color:var(--pardo);font-weight:600}
+.railpie{margin-top:auto;display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line);padding-top:11px}
+.railitem.sm{font-size:.81rem}
+
+/* ---- lienzo ---- */
+.wrap{margin:0 0 0 230px;max-width:1210px;padding:26px 34px 80px}
+.appbar{display:none}
+.navtabs{display:none}
+.pagehead{margin:0 0 20px}
+.pagehead h1{font-size:1.5rem;font-weight:600;letter-spacing:-.022em}
+.pagehead .fecha{font-size:.88rem;margin-top:4px}
+.demo-pill{margin-top:11px;font-size:.71rem;padding:5px 11px;background:var(--arena);color:var(--muted);font-weight:500}
+.seccion-tit{font-size:.7rem;letter-spacing:.07em;margin:26px 0 11px;color:var(--muted)}
+
+/* ---- superficies planas, apoyadas en la línea y no en la sombra ---- */
+.panel,.calpanel,.kpi,.semanabox,.card,.tarea,.vacio,.gantt,.okpi,.optchat,.optside,.diachip{
+  border:1px solid var(--line);box-shadow:none;background:#fff}
+.panel,.calpanel,.optchat,.optside{border-radius:var(--radius)}
+.panel{padding:22px 24px}
+.optside{padding:19px 19px}
+
+/* KPIs compactos */
+.kpis{gap:10px;margin-bottom:10px;grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+.kpi{border-radius:12px;padding:15px 17px}
+.kpi .lab{font-size:.65rem;letter-spacing:.08em;margin-bottom:8px}
+.kpi .num{font-size:1.8rem;letter-spacing:-.035em}
+.kpi .sub{font-size:.78rem;margin-top:4px}
+.kpi.destacado{background:var(--chocolate);border-color:var(--chocolate)}
+.kpibar{height:4px;margin-top:10px}
+
+/* semana */
+.semanabox{border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.semanabox h4{font-size:.65rem;margin-bottom:13px}
+.wbars{height:76px;gap:10px}
+.wbar .col{max-width:40px;border-radius:5px;background:#E6DFD5}
+.wbar .col.hoy{background:var(--camel)}
+.wbar .col.baja{background:#DEC5AF}
+
+/* tarjetas de persona */
+.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.card{border-radius:12px;padding:17px 18px}
+.card:hover{transform:none;box-shadow:var(--shadow-lift);border-color:var(--arena-deep)}
+.card .top{margin-bottom:14px;gap:11px}
+.avatar{width:38px;height:38px;font-size:.83rem}
+.card h3{font-size:.98rem}
+.card .rol{font-size:.76rem}
+.pill{top:16px;right:16px;font-size:.62rem;padding:4px 9px}
+.card .prox{margin-top:13px;padding-top:12px;font-size:.76rem}
+.ring{width:46px;height:46px}
+.card .perfilbtn{bottom:13px;right:13px;font-size:.71rem}
+
+/* tareas: filas de trabajo, no tarjetas */
+.momento{margin-bottom:22px}
+.momento h4{font-size:.68rem;margin-bottom:9px}
+.tarea{border-radius:10px;padding:12px 14px;margin-bottom:6px}
+.tarea:hover{border-color:var(--arena-deep);box-shadow:none;background:var(--piedra)}
+.tarea .chk{width:20px;height:20px;border-radius:6px}
+.tarea .nombre{font-size:.92rem}
+.tarea .meta{margin-top:4px}
+.tag{font-size:.65rem;padding:3px 8px}
+.diachip{border-radius:10px;padding:9px 4px}
+.addbtn{border-radius:10px;padding:13px;font-size:.88rem}
+.vacio{border-radius:10px;padding:32px 14px;font-size:.9rem}
+.backrow{margin:0 0 14px}
+.persona-head{margin:6px 0 20px;gap:13px}
+.persona-head .avatar{width:48px;height:48px;font-size:1.05rem}
+.persona-head h2{font-size:1.32rem;letter-spacing:-.022em}
+.diasbar{margin-bottom:15px;gap:6px}
+.diaresumen{margin-bottom:15px;font-size:.85rem}
+
+/* controles */
+.tabs,.calswitch,.seg{background:var(--arena);padding:3px;border-radius:10px;gap:2px}
+.tabs .tab,.calswitch .tab,.seg button{border-radius:8px;padding:8px 6px;font-size:.83rem;white-space:nowrap}
+.tabs .tab.active,.calswitch .tab.active,.seg button.on{box-shadow:0 1px 2px rgba(31,29,26,.1)}
+.caltop>.tab{border-radius:9px;padding:8px 14px;font-size:.83rem}
+.calnavbtn{border-radius:9px;width:34px;height:34px}
+.btn,.optinput button{border-radius:10px;padding:11px 18px;font-size:.88rem}
+.inp,.evform input,.evform select,.evform textarea,.gatecard input,.ctl input,.ctl select,.optinput input{
+  border-radius:10px;padding:10px 12px;font-size:.89rem;background:#fff}
+.inp:focus,.evform input:focus,.evform select:focus,.evform textarea:focus,.gatecard input:focus,.ctl input:focus,.optinput input:focus{background:#fff}
+.atajos .mini,.perrow .mini,.miperfil{border-radius:9px}
+
+/* calendario */
+.caltop{margin-bottom:12px}
+.caltop h2{font-size:1.1rem}
+.mday{min-height:96px}
+.calpanel{border-radius:12px}
+
+/* entrada y modales */
+.gate{min-height:78vh}
+.gatecard{border-radius:16px;padding:36px 30px;border:1px solid var(--line);box-shadow:var(--shadow-lift)}
+.pinbox{border-radius:16px;padding:30px 28px}
+.pinpad button{border-radius:10px;padding:13px 0;background:#fff}
+.rowline,.perrow{padding:13px 2px}
+.alerta,.optnota{border-radius:11px}
+
+/* optimizador */
+.optmsgs{padding:19px 21px;gap:14px;max-height:60vh}
+.msg.user,.msg.bot{border-radius:12px}
+.msg.bot{background:#fff;border-color:var(--line)}
+.msg.user{background:var(--chocolate)}
+.okpi{border-radius:10px;padding:11px 13px}
+.okpi .v{font-size:1.22rem}
+.gantt{border-radius:11px;padding:12px 14px}
+.optnota{background:var(--piedra);border:1px solid var(--line);color:var(--pardo);font-size:.82rem}
+.optnota.ojo{background:#FCF5EF;border-color:#F1E1D2;color:#8A5A38}
+.sug{border-radius:9px;font-size:.76rem;padding:7px 12px}
+.optinput{padding:13px 17px}
+.optgrid{grid-template-columns:1fr 258px;gap:12px}
+
+@media(max-width:900px){
+  .rail{position:static;width:auto;flex-direction:row;align-items:center;gap:5px;border-right:none;
+    border-bottom:1px solid var(--line);padding:11px 14px;overflow-x:auto}
+  .raillogo{padding:0 12px 0 2px;flex-shrink:0}
+  .railnav{flex-direction:row;gap:3px}
+  .railpie{margin:0 0 0 auto;flex-direction:row;border-top:none;padding-top:0}
+  .railitem{white-space:nowrap}
+  .wrap{margin-left:0;padding:18px 16px 70px}
+}
 </style>
 </head>
 <body>
 <div class="bg"></div>
+<nav class="rail" id="rail">
+  <div class="raillogo"><img src="../assets/wordmark-pardo.webp" alt="Seravena"></div>
+  <div class="railnav">
+    <button class="railitem on" id="railHoy">Tareas de hoy</button>
+    <button class="railitem" id="railCal">Calendario</button>
+    <button class="railitem" id="railOpt">Optimizador de espacios</button>
+  </div>
+  <div class="railpie">
+    <button class="railitem sm" id="railTv">Modo pantalla</button>
+    <button class="railitem sm" id="railAjustes">Ajustes</button>
+    <button class="railitem sm" id="railReset">Reiniciar demo</button>
+  </div>
+</nav>
 <div class="wrap">
 
   <div class="appbar">
@@ -365,10 +805,11 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--pard
       <div class="fecha" id="fechaHoy"></div>
       <span class="demo-pill">Versión de prueba · datos de ejemplo</span>
     </div>
-    <div class="tabs">
+    <div class="tabs navtabs">
       <button class="tab active">Tareas de hoy</button>
-      <button class="tab" id="btnIrCalendario">📅 Calendario</button>
-      <button class="tab" id="btnPantalla">📺 Modo pantalla</button>
+      <button class="tab" id="btnIrCalendario">Calendario</button>
+      <button class="tab" id="btnPantalla">Modo pantalla</button>
+      <button class="tab" id="btnIrOptim">Optimizador de espacios</button>
     </div>
     <div class="kpis" id="kpis"></div>
     <div id="avisoZona"></div>
@@ -384,9 +825,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--pard
       <div class="fecha" id="fechaHoy3"></div>
       <span class="demo-pill">Versión de prueba · datos de ejemplo</span>
     </div>
-    <div class="tabs">
+    <div class="tabs navtabs">
       <button class="tab" id="btnIrTablero">Tareas de hoy</button>
-      <button class="tab active">📅 Calendario</button>
+      <button class="tab active">Calendario</button>
+      <button class="tab" id="btnIrOptim2">Optimizador de espacios</button>
     </div>
     <div class="caltop">
       <button class="calnavbtn" id="calPrev" title="Anterior">‹</button>
@@ -457,6 +899,82 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--pard
       <button class="tab" data-tab="mes">Mes</button>
     </div>
     <div class="panel" id="panelGerencia"></div>
+  </div>
+
+  <!-- ================= OPTIMIZADOR DE ESPACIOS ================= -->
+  <div id="vistaOptim" class="hidden">
+    <div class="pagehead">
+      <h1>Optimizador de espacios</h1>
+      <div class="fecha">Cuéntale cómo es el día y te arma la agenda de las cabinas</div>
+      <span class="demo-pill">Sesión completa: masaje 40′ + aparatología 50′ + presoterapia 40′</span>
+    </div>
+    <div class="tabs navtabs">
+      <button class="tab" id="btnOptTablero">Tareas de hoy</button>
+      <button class="tab" id="btnOptCalendario">Calendario</button>
+      <button class="tab active">Optimizador de espacios</button>
+    </div>
+
+    <div class="optgrid">
+      <div class="panel optchat">
+        <div class="optmsgs" id="optMsgs"></div>
+        <div class="optsug" id="optSug"></div>
+        <form class="optinput" id="optForm" autocomplete="off">
+          <input id="optIn" placeholder="Ej: mañana tengo 5 pacientes, abrimos a las 7 y sí tenemos consultorio">
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <aside class="panel optside">
+        <h4>El día de hoy</h4>
+
+        <div class="ctl">
+          <label>Consultorio principal</label>
+          <div class="seg" id="segCons">
+            <button type="button" data-v="0" class="on">Ocupado</button>
+            <button type="button" data-v="1">Libre</button>
+          </div>
+          <div class="par hidden" id="consHoras" style="margin-top:8px">
+            <div><label style="font-size:.66rem;color:var(--muted);font-weight:700">Desde</label><input type="time" id="optConsDesde" value="08:00"></div>
+            <div><label style="font-size:.66rem;color:var(--muted);font-weight:700">Hasta</label><input type="time" id="optConsHasta" value="13:00"></div>
+          </div>
+          <div class="hint">Cuando el especialista lo está usando, déjalo en “Ocupado”.</div>
+        </div>
+
+        <div class="ctl">
+          <label>Horario</label>
+          <div class="par">
+            <div><input type="time" id="optApertura" value="08:00"></div>
+            <div><input type="time" id="optCierre" value="13:10"></div>
+          </div>
+        </div>
+
+        <div class="ctl">
+          <label>Pacientes</label>
+          <input type="number" id="optPacientes" min="0" max="20" value="3">
+          <div class="hint">Déjalo en 0 para que calcule las que quepan.</div>
+        </div>
+
+        <div class="ctl">
+          <label>Cosmetólogas</label>
+          <input type="number" id="optCosm" min="1" max="4" value="1">
+        </div>
+
+
+        <button type="button" class="btn btn-full" id="btnRecomendar" style="margin-top:4px">¿Cómo mejoramos?</button>
+
+        <details>
+          <summary>Tiempos y reglas</summary>
+          <div class="ctl"><label>Masaje de drenaje (min)</label><input type="number" id="optMasaje" min="5" max="120" step="5" value="40"></div>
+          <div class="ctl"><label>Aparatología (min)</label><input type="number" id="optApar" min="5" max="120" step="5" value="50"></div>
+          <div class="ctl"><label>Presoterapia (min)</label><input type="number" id="optPreso" min="5" max="120" step="5" value="40"></div>
+          <div class="ctl"><label>Limpieza cabina pequeña (min)</label><input type="number" id="optLimpP" min="0" max="60" step="5" value="15"></div>
+          <div class="ctl"><label>Limpieza cabina grande (min)</label><input type="number" id="optLimpG" min="0" max="60" step="5" value="0">
+            <div class="hint">Pendiente de confirmar con el equipo. Súbelo y mira cómo cambia el día.</div></div>
+          <div class="ctl"><label>Espera máxima permitida (min)</label><input type="number" id="optEspera" min="0" max="60" step="5" value="15">
+            <div class="hint">Lo que dura una aromática.</div></div>
+        </details>
+      </aside>
+    </div>
   </div>
 
 </div>
@@ -723,7 +1241,7 @@ $('#fechaHoy').textContent = fechaLarga();
 $('#fechaHoy2').textContent = fechaLarga();
 
 function mostrar(vista){
-  ['vistaClave','vistaTablero','vistaPersona','vistaGerencia','vistaCalendario','vistaAjustes'].forEach(v=>$('#'+v).classList.add('hidden'));
+  ['vistaClave','vistaTablero','vistaPersona','vistaGerencia','vistaCalendario','vistaAjustes','vistaOptim'].forEach(v=>$('#'+v).classList.add('hidden'));
   $('#'+vista).classList.remove('hidden');
   window.scrollTo({top:0});
 }
@@ -1485,6 +2003,411 @@ if(localStorage.getItem(CLAVE_OK)){
 }else{
   mostrar('vistaClave');
 }
+
+/* ==================== OPTIMIZADOR DE ESPACIOS ====================
+   Motor determinista: las cuentas nunca las inventa, las calcula.
+   El chat solo traduce lo que escribes a parámetros.
+   Reglas base (acordadas con Laura, ago 2026):
+     - Cabina grande y consultorio: masaje + aparatología (bloque seguido, con cosmetóloga presente).
+     - Cabina pequeña: solo presoterapia. No necesita persona, pero exige limpieza entre pacientes.
+     - El ritmo de entrada lo marca la cabina más lenta, no la más rápida.
+================================================================= */
+const OPT = {
+  apertura:480, cierre:790, pacientes:3, cosmetologas:1,
+  consultorio:false, consDesde:480, consHasta:780,
+  masaje:40, aparatologia:50, preso:40,
+  limpiezaPreso:15, limpiezaGrande:0, esperaMax:15
+};
+const OCOL = {
+  grande :{bg:'#EDE3D1',br:'#B99A63',tx:'#4B412D'},
+  preso  :{bg:'#E3EBE4',br:'#7B9880',tx:'#2F4A35'},
+  limp   :{bg:'#F4EFE5',br:'#DCD3C1',tx:'#6b6357'},
+  espera :{bg:'#FBF0E8',br:'#EBCDB8',tx:'#8A4326'}
+};
+const oHM = m => { let h=Math.floor(m/60), x=m%60; const s=h>=12?'p. m.':'a. m.'; h=h%12; if(h===0)h=12; return h+':'+String(x).padStart(2,'0')+' '+s; };
+const oHc = m => { let h=Math.floor(m/60), x=m%60; h=h%12; if(h===0)h=12; return h+':'+String(x).padStart(2,'0'); };
+const oT2M = v => { const p=(v||'').split(':'); return (+p[0])*60+(+p[1]||0); };
+const oM2T = m => String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+
+/* ---------- el motor ---------- */
+function optPlanear(c){
+  const B = c.masaje + c.aparatologia;
+  const salas = [{id:'g',nom:'Cabina grande',desde:c.apertura,hasta:c.cierre,libre:c.apertura,uso:0}];
+  if(c.consultorio) salas.push({id:'c',nom:'Consultorio',desde:c.consDesde,hasta:Math.min(c.consHasta,c.cierre),libre:Math.max(c.apertura,c.consDesde),uso:0});
+  const cosm = Array.from({length:c.cosmetologas},()=>c.apertura);
+  let presoLibre = c.apertura, citas = [], desde = c.apertura;
+  const tope = c.pacientes && c.pacientes>0 ? c.pacientes : 40;
+  while(citas.length < tope){
+    let puesto = null, seAcabo = false;
+    for(let t=desde; t+B<=c.cierre; t+=5){
+      const sala = salas.find(s => s.libre<=t && t>=s.desde && t+B<=s.hasta);
+      if(!sala) continue;
+      const ci = cosm.findIndex(x => x<=t);
+      if(ci<0) continue;
+      const pIni = Math.max(t+B, presoLibre);
+      const espera = pIni-(t+B);
+      if(pIni+c.preso > c.cierre){ seAcabo = true; break; }
+      if(espera > c.esperaMax) continue;
+      puesto = {t,sala,ci,pIni,espera}; break;
+    }
+    if(!puesto) break;
+    const {t,sala,ci,pIni,espera} = puesto;
+    sala.libre = t+B+c.limpiezaGrande; sala.uso += B;
+    cosm[ci] = t+B;
+    presoLibre = pIni+c.preso+c.limpiezaPreso;
+    citas.push({n:citas.length+1, sala:sala.id, salaNom:sala.nom, ini:t, fin:t+B, presoIni:pIni, presoFin:pIni+c.preso, espera});
+    desde = t;
+  }
+  const fin = citas.length ? Math.max(...citas.map(k=>k.presoFin+c.limpiezaPreso), ...salas.map(s=>s.libre)) : c.apertura+60;
+  const salida = citas.length ? Math.max(...citas.map(k=>k.presoFin)) : c.apertura;
+  const span = Math.max(1, salida-c.apertura);
+  salas.forEach(s => s.pc = Math.round(100*s.uso/span));
+  return {
+    citas, salas, fin, salida, span,
+    presoPc: Math.round(100*citas.length*(c.preso+c.limpiezaPreso)/span),
+    cosmPc : Math.round(100*citas.length*B/(c.cosmetologas*span)),
+    esperaMax: citas.length ? Math.max(...citas.map(k=>k.espera)) : 0,
+    faltaron: (c.pacientes>0 ? c.pacientes : 0) - citas.length
+  };
+}
+
+/* ---------- el dibujo ---------- */
+function optSVG(plan,c){
+  if(!plan.citas.length) return '';
+  const filas = plan.salas.map(s=>({nom:s.nom,tipo:'g',id:s.id}));
+  filas.push({nom:'Cabina pequeña',tipo:'p',id:'p'});
+  const t0=c.apertura, t1=plan.fin, total=Math.max(90,t1-t0);
+  const LW=140, PADR=20, sc=Math.max(.45,Math.min(2.4,555/total));
+  const W=Math.round(LW+total*sc+PADR), TOP=54, RH=48, GAP=7;
+  const BOT=TOP+filas.length*(RH+GAP)-GAP, H=BOT+42;
+  const X=m=>LW+(m-t0)*sc;
+  let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" font-family="Plus Jakarta Sans,sans-serif">';
+  for(let m=Math.ceil(t0/60)*60; m<=t1; m+=60){
+    const x=X(m).toFixed(1);
+    s+='<line x1="'+x+'" y1="'+(TOP-12)+'" x2="'+x+'" y2="'+BOT+'" stroke="#EFE9DC" stroke-width="1"/>';
+    s+='<text x="'+x+'" y="'+(TOP-20)+'" text-anchor="middle" font-size="11" font-weight="600" fill="#6b6357">'+oHc(m)+'</text>';
+  }
+  const blk=(x,y,w,col,lab,sub)=>{
+    if(w<1.5) return '';
+    let o='<rect x="'+x.toFixed(1)+'" y="'+y+'" width="'+w.toFixed(1)+'" height="'+RH+'" rx="7" fill="'+col.bg+'" stroke="'+col.br+'" stroke-width="1"/>';
+    if(!lab || w<20) return o;
+    const cx=(x+w/2).toFixed(1);
+    if(sub && w>=88){
+      o+='<text x="'+cx+'" y="'+(y+21)+'" text-anchor="middle" font-size="12.5" font-weight="700" fill="'+col.tx+'">'+lab+'</text>';
+      o+='<text x="'+cx+'" y="'+(y+35)+'" text-anchor="middle" font-size="10.5" font-weight="500" fill="'+col.tx+'" opacity=".8">'+sub+'</text>';
+    } else o+='<text x="'+cx+'" y="'+(y+RH/2+4.5)+'" text-anchor="middle" font-size="12" font-weight="700" fill="'+col.tx+'">'+lab+'</text>';
+    return o;
+  };
+  filas.forEach((f,i)=>{
+    const y=TOP+i*(RH+GAP);
+    s+='<rect x="'+LW+'" y="'+y+'" width="'+(total*sc).toFixed(1)+'" height="'+RH+'" rx="7" fill="#FCFBF8" stroke="#EFE9DC" stroke-width="1" stroke-dasharray="4 4"/>';
+    s+='<text x="2" y="'+(y+RH/2+4.5)+'" font-size="12.5" font-weight="700" fill="#4B412D">'+f.nom+'</text>';
+    if(f.tipo==='g'){
+      plan.citas.filter(k=>k.sala===f.id).forEach(k=>{
+        const x=X(k.ini), w=(k.fin-k.ini)*sc;
+        s+=blk(x,y,w,OCOL.grande,'P'+k.n,'masaje + aparat.');
+        if(w>=118){ const xd=X(k.ini+c.masaje).toFixed(1);
+          s+='<line x1="'+xd+'" y1="'+(y+7)+'" x2="'+xd+'" y2="'+(y+RH-7)+'" stroke="'+OCOL.grande.br+'" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>'; }
+        if(c.limpiezaGrande>0) s+=blk(X(k.fin),y,c.limpiezaGrande*sc,OCOL.limp,'','');
+      });
+    } else {
+      plan.citas.forEach(k=>{
+        if(k.espera>0) s+=blk(X(k.fin),y,k.espera*sc,OCOL.espera,'P'+k.n,'');
+        s+=blk(X(k.presoIni),y,c.preso*sc,OCOL.preso,'P'+k.n,'preso');
+        if(c.limpiezaPreso>0) s+=blk(X(k.presoFin),y,c.limpiezaPreso*sc,OCOL.limp,'','');
+      });
+    }
+  });
+  let lx=LW;
+  [[OCOL.grande,'Masaje + aparatología'],[OCOL.preso,'Presoterapia'],[OCOL.limp,'Limpieza'],[OCOL.espera,'Espera']].forEach(([col,txt])=>{
+    s+='<rect x="'+lx+'" y="'+(BOT+18)+'" width="11" height="11" rx="3" fill="'+col.bg+'" stroke="'+col.br+'"/>';
+    s+='<text x="'+(lx+16)+'" y="'+(BOT+27.5)+'" font-size="10.5" fill="#6b6357">'+txt+'</text>';
+    lx += 16+txt.length*5.7+18;
+  });
+  return s+'</svg>';
+}
+
+/* ---------- la respuesta ---------- */
+function optResponder(){
+  const c = OPT, B = c.masaje+c.aparatologia, plan = optPlanear(c);
+  const n = plan.citas.length;
+  if(!n) return '<b>Con esas condiciones no cabe ni una paciente.</b><br>Una sesión completa necesita '+(B+c.preso)+
+    ' minutos seguidos y el horario que pusiste solo da '+(c.cierre-c.apertura)+'. Prueba abriendo antes o cerrando más tarde.';
+  const cuello = [
+    {q:plan.salas[0].pc, t:'la cabina grande'},
+    {q:plan.salas[1]?plan.salas[1].pc:0, t:'el consultorio'},
+    {q:plan.presoPc, t:'la presoterapia'},
+    {q:plan.cosmPc, t:'las cosmetólogas'}
+  ].sort((a,b)=>b.q-a.q)[0];
+  let h = '<b>'+n+' paciente'+(n>1?'s':'')+'</b> entre las '+oHM(c.apertura)+' y las '+oHM(plan.salida)+
+    ', con '+c.cosmetologas+' cosmetóloga'+(c.cosmetologas>1?'s':'')+
+    (c.consultorio?' y el consultorio disponible':' y solo las dos cabinas')+'.';
+  h += '<div class="optkpis">';
+  h += '<div class="okpi"><div class="l">Pacientes</div><div class="v">'+n+'</div></div>';
+  h += '<div class="okpi"><div class="l">Cierra</div><div class="v">'+oHc(plan.salida)+'</div></div>';
+  h += '<div class="okpi'+(plan.esperaMax>0?' warn':'')+'"><div class="l">Espera máx.</div><div class="v">'+plan.esperaMax+'′</div></div>';
+  h += '<div class="okpi"><div class="l">Uso cabina grande</div><div class="v">'+plan.salas[0].pc+'%</div></div>';
+  h += '</div>';
+  h += '<div class="gantt">'+optSVG(plan,c)+'</div>';
+  const notas = [];
+  notas.push('El cuello de botella es <b>'+cuello.t+'</b> ('+cuello.q+'% ocupada). Todo lo demás se acomoda a su ritmo.');
+  if(plan.esperaMax===0) notas.push('Ninguna paciente espera: las entradas están escalonadas para que la cabina pequeña nunca se cruce.');
+  else notas.push('Hay una espera de hasta <b>'+plan.esperaMax+' minutos</b>. Es el momento de la aromática.');
+  if(plan.salas[1] && c.consHasta < c.cierre) notas.push('El consultorio solo lo tienes hasta las <b>'+oHM(Math.min(c.consHasta,c.cierre))+'</b>; de ahí en adelante el día sigue con la cabina grande sola.');
+  else if(plan.salas[1] && plan.salas[1].pc < 40) notas.push('El consultorio queda usado solo al '+plan.salas[1].pc+'%: te sobra espacio, lo que falta es gente o pacientes.');
+  h += '<div class="optnota">'+notas.join('<br>')+'</div>';
+  if(plan.faltaron>0) h += '<div class="optnota ojo">Pediste '+c.pacientes+' pero solo caben <b>'+n+'</b>. Faltan '+plan.faltaron+
+    '. Para meterlas necesitarías unos '+(plan.faltaron*Math.max(B,c.preso+c.limpiezaPreso))+' minutos más de horario, o el consultorio, o una cosmetóloga más.';
+  if(c.limpiezaGrande===0) h += '<div class="optnota ojo">Ojo: está calculando con <b>0 minutos</b> de limpieza en la cabina grande. Súbelo en “Tiempos y reglas” cuando sepas el número real — es lo que hace que el día se corra.</div>';
+  return h;
+}
+
+
+/* ============ ANALIZADOR DE ESCENARIOS ============
+   No opina: simula cada movida con el mismo motor y compara.
+   Todas las simulaciones corren con pacientes=0 (maximizar) para medir capacidad real.
+================================================== */
+function optCapacidad(over){
+  const c = Object.assign({}, OPT, {pacientes:0}, over||{});
+  c.apertura = Math.max(300, c.apertura);
+  c.cierre   = Math.min(1330, Math.max(c.apertura+60, c.cierre));
+  if(c.consultorio){ c.consDesde=Math.max(c.consDesde,300); c.consHasta=Math.min(c.consHasta,c.cierre); }
+  const p = optPlanear(c);
+  return {n:p.citas.length, cierre:p.salida, plan:p, c};
+}
+function optPalancas(){
+  const A=OPT.apertura, C=OPT.cierre, mitad=A+Math.round((C-A)/2);
+  const L=[];
+  L.push({t:'Abrir 30 minutos antes', esf:'Gratis', o:{apertura:A-30}});
+  L.push({t:'Abrir 1 hora antes', esf:'Gratis', o:{apertura:A-60}});
+  L.push({t:'Cerrar 1 hora más tarde', esf:'Gratis', o:{cierre:C+60}});
+  L.push({t:'Abrir 1 h antes y cerrar 1 h después', esf:'Gratis', o:{apertura:A-60,cierre:C+60}});
+  if(!OPT.consultorio || OPT.consHasta<C){
+    L.push({t:'Tener el consultorio toda la jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:C}});
+    L.push({t:'Tener el consultorio media jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:mitad}});
+  }
+  L.push({t:'Una cosmetóloga más', esf:'Contratar', o:{cosmetologas:OPT.cosmetologas+1}});
+  if(OPT.limpiezaPreso>6) L.push({t:'Bajar la limpieza de la preso a 5 minutos', esf:'Fundas desechables', o:{limpiezaPreso:5}});
+  L.push({t:'Consultorio + una cosmetóloga más', esf:'Coordinar + contratar', o:{consultorio:true,consDesde:A,consHasta:C,cosmetologas:OPT.cosmetologas+1}});
+  L.push({t:'Todo junto: jornada larga + consultorio + cosmetóloga', esf:'El techo de todo', o:{apertura:A-60,cierre:C+60,consultorio:true,consDesde:A-60,consHasta:C+60,cosmetologas:OPT.cosmetologas+1}});
+  return L;
+}
+function optSobra(p,c){
+  const B=c.masaje+c.aparatologia, span=Math.max(1,p.salida-c.apertura), s=[];
+  p.salas.forEach(sa=>{ const libre=span-sa.uso; if(libre>=B) s.push(sa.nom+': le sobran '+libre+' minutos, alcanzarían para '+Math.floor(libre/B)+' paciente'+(Math.floor(libre/B)>1?'s':'')+' más'); });
+  const presoLibre = span - p.citas.length*(c.preso+c.limpiezaPreso);
+  if(presoLibre >= c.preso+c.limpiezaPreso) s.push('Cabina pequeña: le sobran '+presoLibre+' minutos');
+  const cosmLibre = c.cosmetologas*span - p.citas.length*B;
+  if(cosmLibre >= B) s.push('Cosmetólogas: les sobran '+cosmLibre+' minutos de manos');
+  return s;
+}
+function optEscenarioEspacio(tit, sub, r, mejor){
+  const c=r.c;
+  const filas=r.plan.salas.map(s=>({nom:s.nom,pc:s.pc}));
+  filas.push({nom:'Cabina pequeña',pc:r.plan.presoPc});
+  let h='<div class="escen'+(mejor?' mejor':'')+'">';
+  h+='<div class="escentop"><div class="escenq"><b>'+tit+'</b><small>'+sub+'</small></div>'+
+     '<div class="escennum"><b>'+r.n+'</b><small>pacientes</small></div>'+
+     '<div class="escennum"><b>'+oHc(r.plan.salida)+'</b><small>cierra</small></div></div>';
+  h+='<div class="espbars">';
+  filas.forEach(f=>{ h+='<div class="espbar"><span>'+f.nom+'</span><i><u style="width:'+Math.min(100,f.pc)+'%"></u></i><em>'+f.pc+'%</em></div>'; });
+  h+='</div>';
+  if(r.n) h+='<div class="gantt">'+optSVG(r.plan,c)+'</div>';
+  return h+'</div>';
+}
+function optRecomendar(){
+  const A=OPT.apertura, C=OPT.cierre;
+  const sin = optCapacidad({consultorio:false});
+  const con = optCapacidad({consultorio:true, consDesde:A, consHasta:C});
+  const base = OPT.consultorio ? con : sin;
+  if(!base.n) return '<b>Con las condiciones de ahora no cabe ni una paciente</b>, así que no hay nada que optimizar todavía. Amplía el horario y vuelve a preguntarme.';
+  const cuello = [
+    {q:base.plan.salas[0].pc, t:'la cabina grande'},
+    {q:base.plan.salas[1]?base.plan.salas[1].pc:0, t:'el consultorio'},
+    {q:base.plan.presoPc, t:'la cabina pequeña'},
+    {q:base.plan.cosmPc, t:'las cosmetólogas'}
+  ].sort((a,b)=>b.q-a.q)[0];
+
+  let h = '<b>Hoy tu techo son '+base.n+' paciente'+(base.n>1?'s':'')+'</b> por bloque, cerrando a las '+oHc(base.plan.salida)+
+          '. El espacio que se llena primero es <b>'+cuello.t+'</b>, ocupada al '+cuello.q+'%.';
+
+  h += '<div class="rechead">Los dos escenarios de espacio, lado a lado</div>';
+  h += optEscenarioEspacio('Sin el consultorio principal','Cabina grande + cabina pequeña', sin, con.n<=sin.n);
+  h += optEscenarioEspacio('Con el consultorio principal','Cabina grande + consultorio + cabina pequeña', con, con.n>sin.n);
+  const dif = con.n - sin.n;
+  h += '<div class="optnota">'+ (dif>0
+      ? 'Tener el consultorio te da <b>'+dif+' paciente'+(dif>1?'s':'')+' más</b> por bloque. Vale la pena pelearlo con el especialista, aunque sea unos días de la semana.'
+      : 'Con este horario el consultorio <b>no te suma nada</b>: el cuello de botella está en otro lado y ese espacio se quedaría vacío. Primero alarga la jornada, y ahí sí el consultorio empieza a rendir.') +'</div>';
+
+  const otras = optPalancas().filter(l=>!l.esp).map(l=>{ const r=optCapacidad(l.o); return {...l, n:r.n, cierre:r.plan.salida, gana:r.n-base.n}; })
+                             .filter(r=>r.gana>0).sort((a,b)=> b.gana-a.gana || a.cierre-b.cierre);
+  if(otras.length){
+    h += '<div class="rechead">Lo demás que probé y sí sube el techo</div>';
+    h += '<div class="rectab"><table><thead><tr><th>Movida</th><th>Pacientes</th><th>Cierra</th><th>Qué cuesta</th></tr></thead><tbody>';
+    otras.forEach((r,i)=>{ h += '<tr'+(i===0?' class="top"':'')+'><td>'+r.t+'</td><td><b>'+r.n+'</b> <span class="up">+'+r.gana+
+      '</span></td><td>'+oHc(r.cierre)+'</td><td><span class="esf">'+r.esf+'</span></td></tr>'; });
+    h += '</tbody></table></div>';
+    const gratis = otras.find(r=>r.esf==='Gratis');
+    if(gratis) h += '<div class="optnota"><b>Lo que yo haría primero:</b> “'+gratis.t+'” — te sube de '+base.n+' a '+gratis.n+
+      ' paciente'+(gratis.n>1?'s':'')+' sin invertir un peso ni pelear por el consultorio.</div>';
+  }
+
+  const sobra = optSobra(base.plan, base.c);
+  if(sobra.length) h += '<div class="optnota">Espacio que hoy tienes parado:<br>· '+sobra.join('<br>· ')+'</div>';
+  if(OPT.limpiezaGrande===0){
+    const riesgo = optCapacidad({limpiezaGrande:15});
+    if(riesgo.n < base.n) h += '<div class="optnota ojo"><b>El riesgo que no hemos medido:</b> si la cabina grande necesita 15 minutos '+
+      'de limpieza entre pacientes, tu techo baja de '+base.n+' a <b>'+riesgo.n+'</b>. Ese dato es el más importante que te falta.</div>';
+  }
+  return h;
+}
+
+/* ---------- entender lo que escribe ---------- */
+const ONUM = {un:1,una:1,uno:1,dos:2,tres:3,cuatro:4,cinco:5,seis:6,siete:7,ocho:8,nueve:9,diez:10,once:11,doce:12};
+const oVal = v => /^\d+$/.test(v) ? +v : (ONUM[v] ?? null);
+const OD = '(\\d{1,2}|un|una|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce)';
+function oHora(t, re, tarde){
+  const m = t.match(new RegExp(re+'\\s*'+OD+'(?::(\\d{2}))?(\\s*y\\s*(media|cuarto))?'));
+  if(!m) return null;
+  let h = oVal(m[1]); if(h==null) return null;
+  let mi = m[2] ? +m[2] : (m[4]==='media'?30:(m[4]==='cuarto'?15:0));
+  const cola = t.slice(m.index, m.index+(m[0].length)+16);
+  if(/tarde|noche|p\.?\s*m/.test(cola) && h<12) h+=12;
+  else if(tarde && h<=8) h+=12;
+  return Math.min(23*60+55, h*60+mi);
+}
+function optEntender(txt){
+  const t = ' '+txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')+' ';
+  const ok = [];
+  const rango = t.match(new RegExp('de\\s*(?:las?\\s*)?'+OD+'(?::(\\d{2}))?\\s*(?:a|hasta)\\s*(?:las?\\s*)?'+OD+'(?::(\\d{2}))?'));
+  if(rango && oVal(rango[1])!=null && oVal(rango[3])!=null){
+    let a=oVal(rango[1])*60+(rango[2]?+rango[2]:0), b=oVal(rango[3])*60+(rango[4]?+rango[4]:0);
+    if(b<=a) b+=720;
+    OPT.apertura=a; OPT.cierre=b; ok.push('horario de '+oHM(a)+' a '+oHM(b));
+  } else {
+    const a = oHora(t,'(?:abrimos|abrir|apertura|abre|empezamos|empieza|arrancamos|iniciamos|desde|a partir de)(?:\\s*a)?(?:\\s*las?)?',false);
+    if(a!=null){ OPT.apertura=a; ok.push('abre '+oHM(a)); }
+    const b = oHora(t,'(?:cerramos|cierre|cerrar|cierra|terminamos|termina|hasta)(?:\\s*a)?(?:\\s*las?)?',true);
+    if(b!=null){ OPT.cierre=b; ok.push('cierra '+oHM(b)); }
+  }
+  if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
+  const mp = t.match(new RegExp(OD+'\\s*(?:pacientes?|citas?|personas?|sesiones?|senoras?|mujeres?)'));
+  if(mp && oVal(mp[1])!=null){ OPT.pacientes=oVal(mp[1]); ok.push(OPT.pacientes+' paciente'+(OPT.pacientes>1?'s':'')); }
+  if(/cuantas caben|cuantos caben|maximo|las que quepan|lo que quepa|lo maximo|llenar|cuantas puedo|cuantas alcanzan/.test(t)){
+    OPT.pacientes=0; ok.push('las que quepan'); }
+  const mc = t.match(new RegExp(OD+'\\s*cosmetolog'));
+  if(mc && oVal(mc[1])!=null){ OPT.cosmetologas=Math.max(1,Math.min(4,oVal(mc[1]))); ok.push(OPT.cosmetologas+' cosmetóloga'+(OPT.cosmetologas>1?'s':'')); }
+  if(/consultorio/.test(t)){
+    if(/(sin|no hay|no tenemos|no tengo|no esta|no contamos|nada de|ocupado|esta el medico|hay medico|con medico)[^.]{0,24}consultorio|consultorio[^.]{0,24}(no |ocupado|con medico|del medico|esta el medico)/.test(t)){
+      OPT.consultorio=false; ok.push('sin consultorio');
+    } else {
+      OPT.consultorio=true;
+      const d=oHora(t,'consultorio[^.]{0,30}?(?:libre|disponible|desocupado)?[^.]{0,10}?desde(?:\\s*las?)?',false);
+      const h=oHora(t,'consultorio[^.]{0,40}?hasta(?:\\s*las?)?',true);
+      if(d!=null) OPT.consDesde=d;
+      if(h!=null) OPT.consHasta=h;
+      ok.push('con consultorio'+(d!=null||h!=null?' de '+oHM(OPT.consDesde)+' a '+oHM(OPT.consHasta):''));
+    }
+  }
+  const lg = t.match(/limpi\w*[^.]{0,26}grande[^\d]{0,12}(\d+)|(\d+)\s*min\w*[^.]{0,18}limpi\w*[^.]{0,18}grande/);
+  if(lg){ OPT.limpiezaGrande=+(lg[1]||lg[2]); ok.push('limpieza cabina grande '+OPT.limpiezaGrande+'′'); }
+  const lp = t.match(/limpi\w*[^.]{0,26}(?:preso|pequen)\w*[^\d]{0,12}(\d+)/);
+  if(lp){ OPT.limpiezaPreso=+lp[1]; ok.push('limpieza preso '+OPT.limpiezaPreso+'′'); }
+  const es = t.match(/esper\w*[^\d]{0,18}(\d+)/);
+  if(es){ OPT.esperaMax=+es[1]; ok.push('espera máx. '+OPT.esperaMax+'′'); }
+  if(/\b(?:no|sin|nadie|ninguna|cero)\b(?:\s+\w+){0,2}\s+esper/.test(t)){ OPT.esperaMax=0; ok.push('sin esperas'); }
+  return ok;
+}
+
+/* ---------- pantalla ---------- */
+function optPintarControles(){
+  $('#optApertura').value=oM2T(OPT.apertura); $('#optCierre').value=oM2T(OPT.cierre);
+  $('#optPacientes').value=OPT.pacientes; $('#optCosm').value=OPT.cosmetologas;
+  $('#optMasaje').value=OPT.masaje; $('#optApar').value=OPT.aparatologia; $('#optPreso').value=OPT.preso;
+  $('#optLimpP').value=OPT.limpiezaPreso; $('#optLimpG').value=OPT.limpiezaGrande; $('#optEspera').value=OPT.esperaMax;
+  $('#optConsDesde').value=oM2T(OPT.consDesde); $('#optConsHasta').value=oM2T(OPT.consHasta);
+  document.querySelectorAll('#segCons button').forEach(b=>b.classList.toggle('on', (b.dataset.v==='1')===OPT.consultorio));
+  $('#consHoras').classList.toggle('hidden', !OPT.consultorio);
+}
+function optLeerControles(){
+  OPT.apertura=oT2M($('#optApertura').value); OPT.cierre=oT2M($('#optCierre').value);
+  if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
+  OPT.pacientes=Math.max(0,+$('#optPacientes').value||0);
+  OPT.cosmetologas=Math.max(1,+$('#optCosm').value||1);
+  OPT.masaje=+$('#optMasaje').value||40; OPT.aparatologia=+$('#optApar').value||50; OPT.preso=+$('#optPreso').value||40;
+  OPT.limpiezaPreso=Math.max(0,+$('#optLimpP').value||0); OPT.limpiezaGrande=Math.max(0,+$('#optLimpG').value||0);
+  OPT.esperaMax=Math.max(0,+$('#optEspera').value||0);
+  OPT.consDesde=oT2M($('#optConsDesde').value); OPT.consHasta=oT2M($('#optConsHasta').value);
+}
+function optMsg(quien,html){
+  const d=document.createElement('div'); d.className='msg '+quien; d.innerHTML=html;
+  $('#optMsgs').appendChild(d); $('#optMsgs').scrollTop=$('#optMsgs').scrollHeight;
+}
+const OSUG = ['¿Cómo mejoramos?','¿Cuántas caben si abrimos a las 7?','Hoy sí tenemos el consultorio','Prueba con 2 cosmetólogas',
+              'De 8 a 5 con el consultorio libre','Con 15 minutos de limpieza en la cabina grande'];
+function optPintarSug(){
+  $('#optSug').innerHTML='';
+  OSUG.forEach(s=>{ const b=document.createElement('button'); b.className='sug'; b.type='button'; b.textContent=s;
+    b.onclick=()=>{ $('#optIn').value=s; $('#optForm').requestSubmit(); }; $('#optSug').appendChild(b); });
+}
+function optCorrer(){ optPintarControles(); optMsg('bot', optResponder()); }
+const RE_MEJORA=/como (?:mejor|optimiz|lo hacemos|le hacemos)|que (?:hago|hacemos|me recomiendas|deberia)|recomienda|recomiendas|aconseja|mas pacientes|atender mas|crecer|subir el techo|optimizar|mejorar/;
+function optEnviar(txt){
+  if(!txt.trim()) return;
+  optMsg('user', txt.replace(/[<>]/g,''));
+  const pideConsejo = RE_MEJORA.test(' '+txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')+' ');
+  if(pideConsejo){ optEntender(txt); optPintarControles(); setTimeout(()=>optMsg('bot', optRecomendar()), 200); return; }
+  const ok = optEntender(txt);
+  if(!ok.length){
+    optMsg('bot','No pillé qué cambiar. Puedes decirme cosas como <b>“mañana tengo 5 pacientes”</b>, <b>“abrimos a las 7”</b>, '+
+      '<b>“hoy no tenemos consultorio”</b>, <b>“¿cuántas caben de 8 a 5?”</b> o <b>“con dos cosmetólogas”</b>. '+
+      'También puedes moverlo a mano en el panel de la derecha.');
+    return;
+  }
+  optMsg('bot','Entendido: '+ok.join(' · ')+'.');
+  setTimeout(optCorrer, 260);
+}
+function optArrancar(){
+  if($('#optMsgs').dataset.listo) return;
+  $('#optMsgs').dataset.listo='1';
+  optPintarSug();
+  optMsg('bot','Hola 👋 Cuéntame cómo viene el día y te armo la agenda de las cabinas.<br><br>'+
+    'Tengo en cuenta que la <b>cabina grande</b> lleva el masaje y la aparatología seguidos (90 minutos con la cosmetóloga), '+
+    'que la <b>cabina pequeña</b> es solo presoterapia y necesita 15 minutos de limpieza entre paciente y paciente, '+
+    'y que el <b>consultorio</b> a veces lo tiene el especialista — eso lo prendes y lo apagas ahí a la derecha.');
+  optCorrer();
+}
+$('#btnRecomendar').onclick = ()=>{ optLeerControles(); optMsg('user','¿Cómo mejoramos?'); setTimeout(()=>optMsg('bot', optRecomendar()), 200); };
+$('#optForm').addEventListener('submit', e=>{ e.preventDefault(); const v=$('#optIn').value; $('#optIn').value=''; optEnviar(v); });
+document.querySelectorAll('#segCons button').forEach(b=>b.onclick=()=>{
+  OPT.consultorio = b.dataset.v==='1';
+  optPintarControles();
+  optMsg('user', OPT.consultorio?'Hoy sí tenemos el consultorio':'Hoy no tenemos el consultorio');
+  setTimeout(optCorrer,200);
+});
+['optApertura','optCierre','optPacientes','optCosm','optMasaje','optApar','optPreso','optLimpP','optLimpG','optEspera','optConsDesde','optConsHasta']
+  .forEach(id=>$('#'+id).addEventListener('change', ()=>{ optLeerControles(); optCorrer(); }));
+$('#btnOptTablero').onclick = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
+$('#btnOptCalendario').onclick = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
+$('#btnIrOptim').onclick = ()=>{ mostrar('vistaOptim'); optArrancar(); };
+$('#btnIrOptim2').onclick = ()=>{ mostrar('vistaOptim'); optArrancar(); };
+
+/* ---- menú lateral: navegación fija ---- */
+const RAIL={vistaTablero:'railHoy',vistaCalendario:'railCal',vistaOptim:'railOpt'};
+function railSync(v){ document.querySelectorAll('.railnav .railitem').forEach(b=>b.classList.remove('on'));
+  const id=RAIL[v]; if(id) $('#'+id).classList.add('on'); }
+const _mostrar = mostrar;
+mostrar = function(v){ _mostrar(v); railSync(v); };
+$('#railHoy').onclick   = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
+$('#railCal').onclick   = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
+$('#railOpt').onclick   = ()=>{ mostrar('vistaOptim'); optArrancar(); };
+$('#railTv').onclick    = ()=>$('#btnPantalla').click();
+$('#railAjustes').onclick = ()=>$('#btnAjustes').click();
+$('#railReset').onclick = ()=>$('#btnReset').click();
+$('#rail').classList.toggle('hidden', !$('#vistaClave').classList.contains('hidden'));
+const _mostrar2 = mostrar;
+mostrar = function(v){ _mostrar2(v); $('#rail').classList.toggle('hidden', v==='vistaClave'); };
+railSync('vistaTablero');
 </script>
 </body>
 </html>
