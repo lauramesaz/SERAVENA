@@ -62,7 +62,7 @@ propuestas son "escribir más contenido", estás fallando en tu misión.
 
 ## Formato obligatorio de cada propuesta
 
-Máximo **3 propuestas por semana**. Más que eso no se ejecuta y se convierte en ruido.
+Máximo **2 propuestas por semana**. Más que eso no se ejecuta y se convierte en ruido.
 Cada una, en `admin/propuestas.json`, con todos estos campos:
 
 ```json
@@ -103,28 +103,34 @@ probarla en pequeño"*. Eso es honesto; inventarse una justificación no.
 
 ## Cierre de tu semana
 
-1. Añade tus propuestas (máximo 3) al principio del array de `admin/propuestas.json`.
+1. Añade tus propuestas (máximo 2) al principio del array de `admin/propuestas.json`.
 2. Añade una línea a `_agente-blog/registro-innovacion.md`: fecha, qué propusiste y en qué
    te basaste.
 3. **Revisa las propuestas anteriores**: si alguna lleva más de un mes en `propuesta` sin que
    nadie la apruebe, no la repitas — anótala como `caducada` y explica en una frase si sigue
    teniendo sentido o si el momento ya pasó.
 4. `git push` **solo** de esos dos archivos. Nada más.
-5. **Avisa a Laura por correo.** Espera a que GitHub Pages publique el cambio (comprueba que
-   `https://www.clinicaseravena.com/admin/propuestas.json` ya devuelve tus propuestas nuevas) y
-   entonces llama a la función de envío:
+5. **Avisa a Laura abriendo una nota (issue) en GitHub.** Ella recibe el aviso por correo
+   automáticamente, con el texto completo dentro.
 
    ```bash
-   curl -s -X POST \
-     -H "x-clave: $CLAVE_ENVIO" \
-     "https://ppxrwyzqtsvwhyfjwgjg.supabase.co/functions/v1/enviar-propuestas"
+   gh api repos/lauramesaz/SERAVENA/issues -f title="..." -f body="..." -f labels[]=propuestas
    ```
 
-   La función lee las propuestas ya publicadas, se queda con las pendientes de los últimos
-   8 días y le manda el correo a `info@clinicaseravena.com`.
+   O con `curl` contra `https://api.github.com/repos/lauramesaz/SERAVENA/issues`.
 
-   - Si responde `{"ok":true,"enviado":true}`, listo.
-   - Si responde `enviado:false`, es que no había propuestas nuevas: **es correcto, no insistas.**
-     Un correo vacío cada lunes solo enseña a ignorar el remitente.
-   - Si responde error, **no lo reintentes en bucle**: anótalo en la bitácora para que Laura
-     lo vea, porque casi siempre significa que caducó la clave del servicio de envío.
+   - **Título:** `2 propuestas de innovación · <fecha>`
+   - **Cuerpo:** para cada propuesta, el título, el qué, el porqué, cómo se mide, el esfuerzo,
+     el impacto y quién lo hace. Al final, el enlace al panel:
+     https://www.clinicaseravena.com/admin/ideas.html
+   - Empieza el cuerpo con una línea en negrita: **nada de esto se ha hecho todavía, espera tu
+     visto bueno.**
+   - **Si esta semana no hay propuestas nuevas, NO abras ninguna nota.** Un aviso vacío cada
+     lunes solo enseña a ignorar el remitente.
+   - Etiqueta siempre con `propuestas`, para que Laura las encuentre juntas.
+   - **No cierres notas antiguas.** Las cierra ella cuando decide.
+
+> Existe además una función de correo con diseño propio en
+> `supabase/functions/enviar-propuestas/`, escrita pero **sin desplegar**. Es la opción para
+> más adelante, si algún día se quiere un informe con la piel de la marca en vez del aviso de
+> GitHub. Hoy NO se usa.

@@ -1,3 +1,8 @@
+// ⚠️ NO ESTÁ EN USO (20-ago-2026). Escrita y probada en diseño, pero sin desplegar.
+// Laura eligió el aviso por GitHub, que no necesita cuentas nuevas ni claves.
+// Se conserva por si algún día se quiere el informe con la piel de la marca:
+// en ese caso, desplegarla y configurar RESEND_API_KEY, CLAVE_ENVIO, DESTINO y REMITENTE.
+//
 // Función de servidor (Edge Function): envía por correo las propuestas nuevas
 // del agente estratega (agente 7).
 //
