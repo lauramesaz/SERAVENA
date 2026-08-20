@@ -110,3 +110,21 @@ probarla en pequeño"*. Eso es honesto; inventarse una justificación no.
    nadie la apruebe, no la repitas — anótala como `caducada` y explica en una frase si sigue
    teniendo sentido o si el momento ya pasó.
 4. `git push` **solo** de esos dos archivos. Nada más.
+5. **Avisa a Laura por correo.** Espera a que GitHub Pages publique el cambio (comprueba que
+   `https://www.clinicaseravena.com/admin/propuestas.json` ya devuelve tus propuestas nuevas) y
+   entonces llama a la función de envío:
+
+   ```bash
+   curl -s -X POST \
+     -H "x-clave: $CLAVE_ENVIO" \
+     "https://ppxrwyzqtsvwhyfjwgjg.supabase.co/functions/v1/enviar-propuestas"
+   ```
+
+   La función lee las propuestas ya publicadas, se queda con las pendientes de los últimos
+   8 días y le manda el correo a `info@clinicaseravena.com`.
+
+   - Si responde `{"ok":true,"enviado":true}`, listo.
+   - Si responde `enviado:false`, es que no había propuestas nuevas: **es correcto, no insistas.**
+     Un correo vacío cada lunes solo enseña a ignorar el remitente.
+   - Si responde error, **no lo reintentes en bucle**: anótalo en la bitácora para que Laura
+     lo vea, porque casi siempre significa que caducó la clave del servicio de envío.
