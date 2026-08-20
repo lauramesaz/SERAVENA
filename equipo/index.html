@@ -757,6 +757,64 @@ body{background:#fff;letter-spacing:0}
   .railitem{white-space:nowrap}
   .wrap{margin-left:0;padding:18px 16px 70px}
 }
+
+/* ---- optimizador: panel estable, nada que se corra ---- */
+.optmain{display:flex;flex-direction:column;gap:10px;min-width:0}
+.optbar{display:flex;gap:8px}
+.optbar input{flex:1;min-width:0}
+.optbar button{border-radius:10px;padding:11px 20px;border:none;background:var(--chocolate);color:#fff;
+  font-family:inherit;font-weight:600;font-size:.88rem;cursor:pointer;flex-shrink:0}
+.optbar button:hover{background:#181614}
+.optsug{display:flex;gap:6px;overflow-x:auto;padding:0;margin:0;scrollbar-width:none}
+.optsug::-webkit-scrollbar{display:none}
+.optsug .sug{flex-shrink:0}
+.optestado{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.ech{font-size:.73rem;background:var(--arena);color:var(--acc-ink);padding:5px 11px;border-radius:999px;font-weight:600;white-space:nowrap}
+.optaviso{background:#FCF5EF;border:1px solid #F1E1D2;color:#8A5A38;border-radius:10px;padding:11px 14px;font-size:.82rem;line-height:1.5}
+.opttabs{display:inline-flex;gap:2px;background:var(--arena);padding:3px;border-radius:10px;align-self:flex-start;margin-top:2px}
+.opttab{padding:8px 15px;border:none;background:none;border-radius:8px;font-family:inherit;font-size:.83rem;
+  font-weight:600;color:var(--muted);cursor:pointer;transition:background .14s,color .14s}
+.opttab:hover{color:var(--pardo)}
+.opttab.on{background:#fff;color:var(--pardo);box-shadow:0 1px 2px rgba(31,29,26,.1)}
+.optout{border:1px solid var(--line);border-radius:12px;padding:19px 21px;background:#fff;min-height:420px;font-size:.87rem;line-height:1.6}
+.optout>b:first-child{font-size:.95rem}
+.optout .gantt{overflow:visible}
+.optside{position:sticky;top:24px}
+@media(max-width:880px){.optside{position:static}.optout{min-height:0}}
+
+/* ---- que nada se desborde a lo ancho ---- */
+.optgrid{grid-template-columns:1fr 274px}
+.par{display:flex;gap:8px;min-width:0}
+.par>div{flex:1;min-width:0}
+.optside input,.optside select{min-width:0;max-width:100%}
+.optside input[type=time]{padding:9px 6px;font-size:.84rem}
+.optside .ctl>label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rectab table{min-width:420px}
+.optout,.optmain,.escen,.msg{min-width:0;max-width:100%}
+.optout img,.optout svg{max-width:100%}
+@media(max-width:880px){.optgrid{grid-template-columns:1fr}}
+
+/* ---- tira de tiempos + etiqueta de los chips (idea del mockup, en nuestra piel) ---- */
+.tiempos{display:inline-flex;flex-wrap:wrap;border:1px solid var(--linea,var(--line));border-radius:12px;
+  overflow:hidden;background:#fff;margin-top:12px}
+.tiempos>div{padding:9px 18px;border-right:1px solid var(--linea,var(--line))}
+.tiempos>div:last-child{border-right:none}
+.tiempos .l{font-size:.61rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gris,var(--muted))}
+.tiempos .v{font-size:1.3rem;font-weight:600;letter-spacing:-.032em;margin-top:1px;line-height:1.15}
+.estlab{font-size:.64rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--gris,var(--muted));margin-right:3px;flex-shrink:0}
+.optestado{padding:12px 0;border-top:1px solid var(--linea,var(--line));border-bottom:1px solid var(--linea,var(--line))}
+@media(max-width:560px){.tiempos>div{padding:8px 13px}.tiempos .v{font-size:1.1rem}}
+
+/* ---- encabezado del optimizador en dos columnas (idea del mockup, piel nuestra) ---- */
+.opthead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end;
+  padding-bottom:18px;border-bottom:1px solid var(--linea,var(--line));margin-bottom:20px}
+.opthead .tiempos{margin-top:0}
+.opthead h1{margin:0}
+@media(max-width:860px){.opthead{grid-template-columns:1fr;align-items:start;gap:16px}}
+
+.optresp{background:#F4EDE3;border:1px solid #E5D9C6;color:#6E5638;border-radius:10px;padding:12px 15px;font-size:.86rem;line-height:1.55}
+.optresp b{color:#4B3A24}
 </style>
 </head>
 <body>
@@ -903,10 +961,12 @@ body{background:#fff;letter-spacing:0}
 
   <!-- ================= OPTIMIZADOR DE ESPACIOS ================= -->
   <div id="vistaOptim" class="hidden">
-    <div class="pagehead">
-      <h1>Optimizador de espacios</h1>
-      <div class="fecha">Cuéntale cómo es el día y te arma la agenda de las cabinas</div>
-      <span class="demo-pill">Sesión completa: masaje 40′ + aparatología 50′ + presoterapia 40′</span>
+    <div class="pagehead opthead">
+      <div>
+        <h1>Optimizador de espacios</h1>
+        <div class="fecha">Cuéntale cómo es el día y te arma la agenda de las cabinas</div>
+      </div>
+      <div class="tiempos" id="optTiempos"></div>
     </div>
     <div class="tabs navtabs">
       <button class="tab" id="btnOptTablero">Tareas de hoy</button>
@@ -915,15 +975,21 @@ body{background:#fff;letter-spacing:0}
     </div>
 
     <div class="optgrid">
-      <div class="panel optchat">
-        <div class="optmsgs" id="optMsgs"></div>
-        <div class="optsug" id="optSug"></div>
-        <form class="optinput" id="optForm" autocomplete="off">
-          <input id="optIn" placeholder="Ej: mañana tengo 5 pacientes, abrimos a las 7 y sí tenemos consultorio">
-          <button type="submit">Enviar</button>
+      <div class="optmain">
+        <form class="optbar" id="optForm" autocomplete="off">
+          <input id="optIn" placeholder="Escríbele cómo viene el día: “5 pacientes, abrimos a las 7, hoy sí hay consultorio”">
+          <button type="submit">Calcular</button>
         </form>
+        <div class="optsug" id="optSug"></div>
+        <div class="optestado" id="optEstado"></div>
+        <div class="optaviso hidden" id="optAviso"></div>
+        <div class="optresp hidden" id="optResp"></div>
+        <div class="opttabs">
+          <button type="button" class="opttab on" data-v="agenda">Agenda del día</button>
+          <button type="button" class="opttab" data-v="mejorar">Cómo mejorar</button>
+        </div>
+        <div class="optout" id="optOut"></div>
       </div>
-
       <aside class="panel optside">
         <h4>El día de hoy</h4>
 
@@ -943,14 +1009,14 @@ body{background:#fff;letter-spacing:0}
         <div class="ctl">
           <label>Horario</label>
           <div class="par">
-            <div><input type="time" id="optApertura" value="08:00"></div>
-            <div><input type="time" id="optCierre" value="13:10"></div>
+            <div><input type="time" id="optApertura" value="06:00"></div>
+            <div><input type="time" id="optCierre" value="22:00"></div>
           </div>
         </div>
 
         <div class="ctl">
           <label>Pacientes</label>
-          <input type="number" id="optPacientes" min="0" max="20" value="3">
+          <input type="number" id="optPacientes" min="0" max="20" value="0">
           <div class="hint">Déjalo en 0 para que calcule las que quepan.</div>
         </div>
 
@@ -967,6 +1033,7 @@ body{background:#fff;letter-spacing:0}
           <div class="ctl"><label>Masaje de drenaje (min)</label><input type="number" id="optMasaje" min="5" max="120" step="5" value="40"></div>
           <div class="ctl"><label>Aparatología (min)</label><input type="number" id="optApar" min="5" max="120" step="5" value="50"></div>
           <div class="ctl"><label>Presoterapia (min)</label><input type="number" id="optPreso" min="5" max="120" step="5" value="40"></div>
+          <div class="ctl"><label>Activación antes de preso (min)</label><input type="number" id="optAct" min="0" max="30" step="5" value="5"></div>
           <div class="ctl"><label>Limpieza cabina pequeña (min)</label><input type="number" id="optLimpP" min="0" max="60" step="5" value="15"></div>
           <div class="ctl"><label>Limpieza cabina grande (min)</label><input type="number" id="optLimpG" min="0" max="60" step="5" value="0">
             <div class="hint">Pendiente de confirmar con el equipo. Súbelo y mira cómo cambia el día.</div></div>
@@ -2013,9 +2080,9 @@ if(localStorage.getItem(CLAVE_OK)){
      - El ritmo de entrada lo marca la cabina más lenta, no la más rápida.
 ================================================================= */
 const OPT = {
-  apertura:480, cierre:790, pacientes:3, cosmetologas:1,
+  apertura:360, cierre:1320, pacientes:0, cosmetologas:1,
   consultorio:false, consDesde:480, consHasta:780,
-  masaje:40, aparatologia:50, preso:40,
+  masaje:40, aparatologia:50, preso:40, activacion:5,
   limpiezaPreso:15, limpiezaGrande:0, esperaMax:15
 };
 const OCOL = {
@@ -2031,40 +2098,76 @@ const oM2T = m => String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padS
 
 /* ---------- el motor ---------- */
 function optPlanear(c){
-  const B = c.masaje + c.aparatologia;
-  const salas = [{id:'g',nom:'Cabina grande',desde:c.apertura,hasta:c.cierre,libre:c.apertura,uso:0}];
-  if(c.consultorio) salas.push({id:'c',nom:'Consultorio',desde:c.consDesde,hasta:Math.min(c.consHasta,c.cierre),libre:Math.max(c.apertura,c.consDesde),uso:0});
-  const cosm = Array.from({length:c.cosmetologas},()=>c.apertura);
-  let presoLibre = c.apertura, citas = [], desde = c.apertura;
+  const B = c.masaje + c.aparatologia, ACT = c.activacion||0;
+  const salas = [{id:'g',nom:'Cabina grande',desde:c.apertura,hasta:c.cierre,busy:[],uso:0}];
+  if(c.consultorio) salas.push({id:'c',nom:'Consultorio',desde:Math.max(c.apertura,c.consDesde),hasta:Math.min(c.consHasta,c.cierre),busy:[],uso:0});
+  const cosm = Array.from({length:c.cosmetologas},()=>({busy:[]}));
+  const peque = {busy:[]};
+  const cabe = (r,s,e)=>r.busy.every(iv=>e<=iv[0]||s>=iv[1]);
+  const toma = (r,s,e)=>r.busy.push([s,e]);
+  const citas = [];
   const tope = c.pacientes && c.pacientes>0 ? c.pacientes : 40;
+  let desde = c.apertura;
   while(citas.length < tope){
-    let puesto = null, seAcabo = false;
-    for(let t=desde; t+B<=c.cierre; t+=5){
-      const sala = salas.find(s => s.libre<=t && t>=s.desde && t+B<=s.hasta);
-      if(!sala) continue;
-      const ci = cosm.findIndex(x => x<=t);
-      if(ci<0) continue;
-      const pIni = Math.max(t+B, presoLibre);
-      const espera = pIni-(t+B);
-      if(pIni+c.preso > c.cierre){ seAcabo = true; break; }
-      if(espera > c.esperaMax) continue;
-      puesto = {t,sala,ci,pIni,espera}; break;
+    let el = null;
+    for(let t=desde; t<c.cierre && !el; t+=5){
+      /* Ruta A: masaje + aparatología en sala grande, y de ahí a la preso */
+      let a=null;
+      if(t+B<=c.cierre){
+        const sala = salas.find(s=>t>=s.desde && t+B<=s.hasta && cabe(s,t,t+B+c.limpiezaGrande));
+        const ci = sala ? cosm.findIndex(k=>cabe(k,t,t+B)) : -1;
+        if(sala && ci>=0){
+          for(let p=t+B; p<=t+B+c.esperaMax && p+c.preso<=c.cierre; p+=5){
+            if(cabe(peque,p,p+c.preso+c.limpiezaPreso)){
+              a={ruta:'A',sala,ci,ini:t,fin:t+B,actIni:t,presoIni:p,presoFin:p+c.preso,espera:p-(t+B),end:p+c.preso};
+              break;
+            }
+          }
+        }
+      }
+      /* Ruta B: activación + preso primero, y termina con aparatología + masaje */
+      let b=null;
+      const pf = t+ACT+c.preso;
+      if(pf<=c.cierre && cabe(peque,t,pf+c.limpiezaPreso)){
+        const ai = cosm.findIndex(k=>cabe(k,t,t+ACT));
+        if(ai>=0){
+          buscar:
+          for(let g=pf; g<=pf+c.esperaMax && g+B<=c.cierre; g+=5){
+            const sala = salas.find(s=>g>=s.desde && g+B<=s.hasta && cabe(s,g,g+B+c.limpiezaGrande));
+            if(!sala) continue;
+            for(let k=0;k<cosm.length;k++){
+              if(cabe(cosm[k],g,g+B)){
+                b={ruta:'B',sala,ci:k,ai,actIni:t,presoIni:t+ACT,presoFin:pf,ini:g,fin:g+B,espera:g-pf,end:g+B};
+                break buscar;
+              }
+            }
+          }
+        }
+      }
+      el = (a&&b) ? (a.end<=b.end?a:b) : (a||b);
     }
-    if(!puesto) break;
-    const {t,sala,ci,pIni,espera} = puesto;
-    sala.libre = t+B+c.limpiezaGrande; sala.uso += B;
-    cosm[ci] = t+B;
-    presoLibre = pIni+c.preso+c.limpiezaPreso;
-    citas.push({n:citas.length+1, sala:sala.id, salaNom:sala.nom, ini:t, fin:t+B, presoIni:pIni, presoFin:pIni+c.preso, espera});
-    desde = t;
+    if(!el) break;
+    toma(el.sala, el.ini, el.fin+c.limpiezaGrande); el.sala.uso += B;
+    if(el.ruta==='A'){
+      toma(cosm[el.ci], el.ini, el.fin);
+      toma(peque, el.presoIni, el.presoFin+c.limpiezaPreso);
+    }else{
+      if(ACT>0) toma(cosm[el.ai], el.actIni, el.actIni+ACT);
+      toma(cosm[el.ci], el.ini, el.fin);
+      toma(peque, el.actIni, el.presoFin+c.limpiezaPreso);
+    }
+    citas.push({n:citas.length+1, ruta:el.ruta, sala:el.sala.id, salaNom:el.sala.nom,
+      ini:el.ini, fin:el.fin, actIni:el.actIni, presoIni:el.presoIni, presoFin:el.presoFin,
+      espera:el.espera, end:el.end});
+    desde = el.actIni;
   }
-  const fin = citas.length ? Math.max(...citas.map(k=>k.presoFin+c.limpiezaPreso), ...salas.map(s=>s.libre)) : c.apertura+60;
-  const salida = citas.length ? Math.max(...citas.map(k=>k.presoFin)) : c.apertura;
+  const salida = citas.length ? Math.max(...citas.map(k=>k.end)) : c.apertura;
+  const fin = citas.length ? Math.max(salida, ...citas.map(k=>k.presoFin+c.limpiezaPreso)) : c.apertura+60;
   const span = Math.max(1, salida-c.apertura);
   salas.forEach(s => s.pc = Math.round(100*s.uso/span));
   return {
     citas, salas, fin, salida, span,
-    presoPc: Math.round(100*citas.length*(c.preso+c.limpiezaPreso)/span),
+    presoPc: Math.min(100,Math.round(100*citas.reduce((x,k)=>x+c.preso+c.limpiezaPreso+(k.ruta==='B'?ACT:0),0)/span)),
     cosmPc : Math.round(100*citas.length*B/(c.cosmetologas*span)),
     esperaMax: citas.length ? Math.max(...citas.map(k=>k.espera)) : 0,
     faltaron: (c.pacientes>0 ? c.pacientes : 0) - citas.length
@@ -2077,12 +2180,13 @@ function optSVG(plan,c){
   const filas = plan.salas.map(s=>({nom:s.nom,tipo:'g',id:s.id}));
   filas.push({nom:'Cabina pequeña',tipo:'p',id:'p'});
   const t0=c.apertura, t1=plan.fin, total=Math.max(90,t1-t0);
-  const LW=140, PADR=20, sc=Math.max(.45,Math.min(2.4,555/total));
+  const LW=140, PADR=20, sc=Math.max(.42,Math.min(2.4,555/total));
   const W=Math.round(LW+total*sc+PADR), TOP=54, RH=48, GAP=7;
   const BOT=TOP+filas.length*(RH+GAP)-GAP, H=BOT+42;
   const X=m=>LW+(m-t0)*sc;
-  let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" font-family="Plus Jakarta Sans,sans-serif">';
-  for(let m=Math.ceil(t0/60)*60; m<=t1; m+=60){
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="max-width:'+W+'px;height:auto;display:block" font-family="Plus Jakarta Sans,sans-serif">';
+  const paso = sc<0.75 ? 120 : 60;
+  for(let m=Math.ceil(t0/60)*60; m<=t1; m+=paso){
     const x=X(m).toFixed(1);
     s+='<line x1="'+x+'" y1="'+(TOP-12)+'" x2="'+x+'" y2="'+BOT+'" stroke="#EFE9DC" stroke-width="1"/>';
     s+='<text x="'+x+'" y="'+(TOP-20)+'" text-anchor="middle" font-size="11" font-weight="600" fill="#6b6357">'+oHc(m)+'</text>';
@@ -2104,22 +2208,29 @@ function optSVG(plan,c){
     s+='<text x="2" y="'+(y+RH/2+4.5)+'" font-size="12.5" font-weight="700" fill="#4B412D">'+f.nom+'</text>';
     if(f.tipo==='g'){
       plan.citas.filter(k=>k.sala===f.id).forEach(k=>{
-        const x=X(k.ini), w=(k.fin-k.ini)*sc;
-        s+=blk(x,y,w,OCOL.grande,'P'+k.n,'masaje + aparat.');
-        if(w>=118){ const xd=X(k.ini+c.masaje).toFixed(1);
-          s+='<line x1="'+xd+'" y1="'+(y+7)+'" x2="'+xd+'" y2="'+(y+RH-7)+'" stroke="'+OCOL.grande.br+'" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>'; }
+        if(k.ruta==='B' && k.espera>0) s+=blk(X(k.ini-k.espera),y,k.espera*sc,OCOL.espera,'','');
+        const w=(k.fin-k.ini)*sc;
+        s+=blk(X(k.ini),y,w,OCOL.grande,'P'+k.n, k.ruta==='A' ? 'masaje + aparat.' : 'aparat. + masaje');
+        if(w>=118){
+          const xd=X(k.ini+(k.ruta==='A'?c.masaje:c.aparatologia)).toFixed(1);
+          s+='<line x1="'+xd+'" y1="'+(y+7)+'" x2="'+xd+'" y2="'+(y+RH-7)+'" stroke="'+OCOL.grande.br+'" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>';
+        }
         if(c.limpiezaGrande>0) s+=blk(X(k.fin),y,c.limpiezaGrande*sc,OCOL.limp,'','');
       });
     } else {
       plan.citas.forEach(k=>{
-        if(k.espera>0) s+=blk(X(k.fin),y,k.espera*sc,OCOL.espera,'P'+k.n,'');
-        s+=blk(X(k.presoIni),y,c.preso*sc,OCOL.preso,'P'+k.n,'preso');
+        if(k.ruta==='A'){
+          if(k.espera>0) s+=blk(X(k.fin),y,k.espera*sc,OCOL.espera,'','');
+          s+=blk(X(k.presoIni),y,c.preso*sc,OCOL.preso,'P'+k.n,'preso');
+        }else{
+          s+=blk(X(k.actIni),y,(k.presoFin-k.actIni)*sc,OCOL.preso,'P'+k.n,(c.activacion>0?'act + preso':'preso'));
+        }
         if(c.limpiezaPreso>0) s+=blk(X(k.presoFin),y,c.limpiezaPreso*sc,OCOL.limp,'','');
       });
     }
   });
   let lx=LW;
-  [[OCOL.grande,'Masaje + aparatología'],[OCOL.preso,'Presoterapia'],[OCOL.limp,'Limpieza'],[OCOL.espera,'Espera']].forEach(([col,txt])=>{
+  [[OCOL.grande,'Masaje + aparatología'],[OCOL.preso,'Preso (act. incluida)'],[OCOL.limp,'Limpieza'],[OCOL.espera,'Espera']].forEach(([col,txt])=>{
     s+='<rect x="'+lx+'" y="'+(BOT+18)+'" width="11" height="11" rx="3" fill="'+col.bg+'" stroke="'+col.br+'"/>';
     s+='<text x="'+(lx+16)+'" y="'+(BOT+27.5)+'" font-size="10.5" fill="#6b6357">'+txt+'</text>';
     lx += 16+txt.length*5.7+18;
@@ -2149,6 +2260,11 @@ function optResponder(){
   h += '<div class="okpi"><div class="l">Uso cabina grande</div><div class="v">'+plan.salas[0].pc+'%</div></div>';
   h += '</div>';
   h += '<div class="gantt">'+optSVG(plan,c)+'</div>';
+  const lleg = plan.citas.map(k=>'<b>P'+k.n+'</b> '+oHc(k.actIni)+(k.ruta==='B'?' · preso primero':'')).join(' &nbsp;·&nbsp; ');
+  h += '<div class="optnota"><b>Llegadas:</b> '+lleg+'</div>';
+  const rutaB = plan.citas.filter(k=>k.ruta==='B');
+  if(rutaB.length) h += '<div class="optnota">'+(rutaB.length===1?'La paciente ':'Las pacientes ')+rutaB.map(k=>'P'+k.n).join(', ')+' entra'+(rutaB.length===1?'':'n')+' por presoterapia (con la activación de '+(c.activacion||0)+'\u2032) y termina'+(rutaB.length===1?'':'n')+' con el masaje. Intercalando las dos rutas, los espacios no se pisan.</div>';
+
   const notas = [];
   notas.push('El cuello de botella es <b>'+cuello.t+'</b> ('+cuello.q+'% ocupada). Todo lo demás se acomoda a su ritmo.');
   if(plan.esperaMax===0) notas.push('Ninguna paciente espera: las entradas están escalonadas para que la cabina pequeña nunca se cruce.');
@@ -2291,12 +2407,17 @@ function optEntender(txt){
     if(b!=null){ OPT.cierre=b; ok.push('cierra '+oHM(b)); }
   }
   if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
-  const mp = t.match(new RegExp(OD+'\\s*(?:pacientes?|citas?|personas?|sesiones?|senoras?|mujeres?)'));
+  const mp = t.match(new RegExp(OD+'\\s*(?:pacientes?|citas?|personas?|sesiones?|senoras?|mujeres?|clientas?|cupos?)'));
   if(mp && oVal(mp[1])!=null){ OPT.pacientes=oVal(mp[1]); ok.push(OPT.pacientes+' paciente'+(OPT.pacientes>1?'s':'')); }
-  if(/cuantas caben|cuantos caben|maximo|las que quepan|lo que quepa|lo maximo|llenar|cuantas puedo|cuantas alcanzan/.test(t)){
+  if(/cuant[ao]s (?:pacientes |citas |personas |clientas )?(?:caben|puedo|podemos|alcanzan|se pueden|entran)|maximo|las que quepan|lo que quepa|lo maximo|llenar/.test(t)){
     OPT.pacientes=0; ok.push('las que quepan'); }
   const mc = t.match(new RegExp(OD+'\\s*cosmetolog'));
   if(mc && oVal(mc[1])!=null){ OPT.cosmetologas=Math.max(1,Math.min(4,oVal(mc[1]))); ok.push(OPT.cosmetologas+' cosmetóloga'+(OPT.cosmetologas>1?'s':'')); }
+  if(/(?:medico|doctora?|especialista)[^.]{0,28}(?:no viene|no esta|no vino|no atiende|se fue|sale temprano)/.test(t)){
+    OPT.consultorio=true; ok.push('consultorio libre (no est\u00e1 el m\u00e9dico)');
+  } else if(/(?:viene|esta|llega|atiende)[^.]{0,14}(?:el |la )?(?:medico|doctora?|especialista)|(?:medico|doctora?|especialista)[^.]{0,16}(?:viene|esta hoy|atiende|todo el dia)/.test(t)){
+    OPT.consultorio=false; ok.push('consultorio ocupado (est\u00e1 el m\u00e9dico)');
+  }
   if(/consultorio/.test(t)){
     if(/(sin|no hay|no tenemos|no tengo|no esta|no contamos|nada de|ocupado|esta el medico|hay medico|con medico)[^.]{0,24}consultorio|consultorio[^.]{0,24}(no |ocupado|con medico|del medico|esta el medico)/.test(t)){
       OPT.consultorio=false; ok.push('sin consultorio');
@@ -2313,6 +2434,8 @@ function optEntender(txt){
   if(lg){ OPT.limpiezaGrande=+(lg[1]||lg[2]); ok.push('limpieza cabina grande '+OPT.limpiezaGrande+'′'); }
   const lp = t.match(/limpi\w*[^.]{0,26}(?:preso|pequen)\w*[^\d]{0,12}(\d+)/);
   if(lp){ OPT.limpiezaPreso=+lp[1]; ok.push('limpieza preso '+OPT.limpiezaPreso+'′'); }
+  const av = t.match(/activaci\w*[^\d]{0,14}(\d+)/);
+  if(av){ OPT.activacion=+av[1]; ok.push('activación '+OPT.activacion+'\u2032'); }
   const es = t.match(/esper\w*[^\d]{0,18}(\d+)/);
   if(es){ OPT.esperaMax=+es[1]; ok.push('espera máx. '+OPT.esperaMax+'′'); }
   if(/\b(?:no|sin|nadie|ninguna|cero)\b(?:\s+\w+){0,2}\s+esper/.test(t)){ OPT.esperaMax=0; ok.push('sin esperas'); }
@@ -2324,7 +2447,7 @@ function optPintarControles(){
   $('#optApertura').value=oM2T(OPT.apertura); $('#optCierre').value=oM2T(OPT.cierre);
   $('#optPacientes').value=OPT.pacientes; $('#optCosm').value=OPT.cosmetologas;
   $('#optMasaje').value=OPT.masaje; $('#optApar').value=OPT.aparatologia; $('#optPreso').value=OPT.preso;
-  $('#optLimpP').value=OPT.limpiezaPreso; $('#optLimpG').value=OPT.limpiezaGrande; $('#optEspera').value=OPT.esperaMax;
+  $('#optLimpP').value=OPT.limpiezaPreso; $('#optLimpG').value=OPT.limpiezaGrande; $('#optEspera').value=OPT.esperaMax; $('#optAct').value=OPT.activacion;
   $('#optConsDesde').value=oM2T(OPT.consDesde); $('#optConsHasta').value=oM2T(OPT.consHasta);
   document.querySelectorAll('#segCons button').forEach(b=>b.classList.toggle('on', (b.dataset.v==='1')===OPT.consultorio));
   $('#consHoras').classList.toggle('hidden', !OPT.consultorio);
@@ -2335,58 +2458,155 @@ function optLeerControles(){
   OPT.pacientes=Math.max(0,+$('#optPacientes').value||0);
   OPT.cosmetologas=Math.max(1,+$('#optCosm').value||1);
   OPT.masaje=+$('#optMasaje').value||40; OPT.aparatologia=+$('#optApar').value||50; OPT.preso=+$('#optPreso').value||40;
-  OPT.limpiezaPreso=Math.max(0,+$('#optLimpP').value||0); OPT.limpiezaGrande=Math.max(0,+$('#optLimpG').value||0);
+  OPT.limpiezaPreso=Math.max(0,+$('#optLimpP').value||0); OPT.limpiezaGrande=Math.max(0,+$('#optLimpG').value||0); OPT.activacion=Math.max(0,+$('#optAct').value||0);
   OPT.esperaMax=Math.max(0,+$('#optEspera').value||0);
   OPT.consDesde=oT2M($('#optConsDesde').value); OPT.consHasta=oT2M($('#optConsHasta').value);
 }
-function optMsg(quien,html){
-  const d=document.createElement('div'); d.className='msg '+quien; d.innerHTML=html;
-  $('#optMsgs').appendChild(d); $('#optMsgs').scrollTop=$('#optMsgs').scrollHeight;
+let optVista='agenda';
+function optTiempos(){
+  const t=$('#optTiempos'); if(!t) return;
+  t.innerHTML = [['Masaje',OPT.masaje],['Aparatología',OPT.aparatologia],['Presoterapia',OPT.preso],
+                 ['Activación',OPT.activacion],['Limpieza preso',OPT.limpiezaPreso]]
+    .map(([l,v])=>'<div><div class="l">'+l+'</div><div class="v">'+v+'\u2032</div></div>').join('');
 }
-const OSUG = ['¿Cómo mejoramos?','¿Cuántas caben si abrimos a las 7?','Hoy sí tenemos el consultorio','Prueba con 2 cosmetólogas',
-              'De 8 a 5 con el consultorio libre','Con 15 minutos de limpieza en la cabina grande'];
+function optChips(){
+  const c=OPT, ch=[];
+  ch.push(c.pacientes>0 ? c.pacientes+' paciente'+(c.pacientes>1?'s':'') : 'las que quepan');
+  ch.push(oHc(c.apertura)+' – '+oHc(c.cierre));
+  ch.push(c.cosmetologas+' cosmetóloga'+(c.cosmetologas>1?'s':''));
+  ch.push(c.consultorio ? 'con consultorio' : 'sin consultorio');
+  if(c.limpiezaGrande>0) ch.push('limpieza grande '+c.limpiezaGrande+'\u2032');
+  $('#optEstado').innerHTML = '<span class="estlab">Calculando con</span>' + ch.map(x=>'<span class="ech">'+x+'</span>').join('');
+  optTiempos();
+}
+function optRender(){
+  optChips();
+  document.querySelectorAll('.opttab').forEach(b=>b.classList.toggle('on', b.dataset.v===optVista));
+  $('#optOut').innerHTML = optVista==='mejorar' ? optRecomendar() : optResponder();
+}
+function optAviso(txt){
+  const a=$('#optAviso');
+  if(!txt){ a.classList.add('hidden'); return; }
+  a.textContent=txt; a.classList.remove('hidden');
+}
+const OSUG = ['¿Cómo mejoramos?','Abrimos a las 7','Con 2 cosmetólogas','Hoy sí hay consultorio','5 pacientes'];
 function optPintarSug(){
   $('#optSug').innerHTML='';
   OSUG.forEach(s=>{ const b=document.createElement('button'); b.className='sug'; b.type='button'; b.textContent=s;
     b.onclick=()=>{ $('#optIn').value=s; $('#optForm').requestSubmit(); }; $('#optSug').appendChild(b); });
 }
-function optCorrer(){ optPintarControles(); optMsg('bot', optResponder()); }
 const RE_MEJORA=/como (?:mejor|optimiz|lo hacemos|le hacemos)|que (?:hago|hacemos|me recomiendas|deberia)|recomienda|recomiendas|aconseja|mas pacientes|atender mas|crecer|subir el techo|optimizar|mejorar/;
+/* ---------- agente con IA (Claude vía Supabase) ---------- */
+const OPT_AGENTE_URL='https://ppxrwyzqtsvwhyfjwgjg.supabase.co/functions/v1/optimizador-agente';
+const OPT_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc';
+function optDatosParaAgente(){
+  const base=optCapacidad({});
+  const sin=optCapacidad({consultorio:false});
+  const con=optCapacidad({consultorio:true,consDesde:OPT.apertura,consHasta:OPT.cierre});
+  return {
+    capacidadHoy:base.n, ultimaSalida:oHM(base.plan.salida), esperaMaxima:base.plan.esperaMax+' min',
+    usoEspacios:base.plan.salas.map(s=>({espacio:s.nom,ocupacion:s.pc+'%'})).concat([{espacio:'Cabina pequeña',ocupacion:base.plan.presoPc+'%'}]),
+    llegadas:base.plan.citas.map(k=>({paciente:'P'+k.n,llega:oHc(k.actIni),ruta:k.ruta==='A'?'masaje primero':'preso primero',sala:k.salaNom})),
+    pacientesSinConsultorio:sin.n, pacientesConConsultorioTodoElDia:con.n,
+    movidasProbadas:optPalancas().map(l=>{const r=optCapacidad(l.o);return {movida:l.t,queCuesta:l.esf,pacientes:r.n,ultimaSalida:oHc(r.plan.salida)};})
+  };
+}
+async function optAgente(txt){
+  try{
+    const r=await fetch(OPT_AGENTE_URL,{method:'POST',
+      headers:{'content-type':'application/json','Authorization':'Bearer '+OPT_ANON,'apikey':OPT_ANON},
+      body:JSON.stringify({mensaje:txt,estado:OPT,datos:optDatosParaAgente()})});
+    const d=await r.json();
+    if(d.error==='sin_llave'){ optRespuesta(''); optAviso('El agente todavía no está conectado: falta guardar la llave de la IA en Supabase. Mientras tanto entiendo órdenes y preguntas sencillas.'); return; }
+    if(!d.respuesta) throw 0;
+    if(d.cambios && typeof d.cambios==='object'){
+      ['apertura','cierre','pacientes','cosmetologas','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
+        .forEach(k=>{ const v=d.cambios[k]; if(typeof v==='number' && isFinite(v) && v>=0) OPT[k]=Math.round(v); });
+      if(typeof d.cambios.consultorio==='boolean') OPT.consultorio=d.cambios.consultorio;
+      if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
+    }
+    const seguro=String(d.respuesta).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
+    optRespuesta(seguro);
+    optPintarControles(); optRender();
+  }catch(e){
+    optRespuesta('');
+    optAviso('No pude pensar esa (el agente no respondió). Prueba con una orden sencilla: “5 pacientes”, “abrimos a las 7”, “¿cuántas caben?”.');
+  }
+}
+function optRespuesta(html){
+  const r=$('#optResp');
+  if(!html){ r.classList.add('hidden'); r.innerHTML=''; return; }
+  r.innerHTML=html; r.classList.remove('hidden');
+}
 function optEnviar(txt){
   if(!txt.trim()) return;
-  optMsg('user', txt.replace(/[<>]/g,''));
-  const pideConsejo = RE_MEJORA.test(' '+txt.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')+' ');
-  if(pideConsejo){ optEntender(txt); optPintarControles(); setTimeout(()=>optMsg('bot', optRecomendar()), 200); return; }
+  const limpio=' '+txt.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')+' ';
+  const copia = Object.assign({}, OPT);
+  const antes = optPlanear(OPT);
   const ok = optEntender(txt);
-  if(!ok.length){
-    optMsg('bot','No pillé qué cambiar. Puedes decirme cosas como <b>“mañana tengo 5 pacientes”</b>, <b>“abrimos a las 7”</b>, '+
-      '<b>“hoy no tenemos consultorio”</b>, <b>“¿cuántas caben de 8 a 5?”</b> o <b>“con dos cosmetólogas”</b>. '+
-      'También puedes moverlo a mano en el panel de la derecha.');
+  const ahora = optPlanear(OPT);
+  const pideMejora = RE_MEJORA.test(limpio);
+  const abierta = txt.indexOf('?')>=0 || /que hago|que pasa|que me recomiendas|sera que|por que|deberia|y si |si una |si un |si el |si la |llega tarde|se enferma|se dana|se demora/.test(limpio);
+  optAviso('');
+  let resp='';
+  if(/cuant[ao]s (?:pacientes |citas |personas |clientas )?(?:caben|puedo|podemos|alcanzan|se pueden|entran|atiendo|atendemos)/.test(limpio)){
+    const cap=optCapacidad({});
+    resp='Caben <b>'+cap.n+' paciente'+(cap.n===1?'':'s')+'</b> entre las '+oHM(OPT.apertura)+' y las '+oHM(OPT.cierre)+', y la última sale a las '+oHM(cap.plan.salida)+'.';
+  } else if(/(?:a que hora|hasta que hora|cuando)[^.]{0,24}(?:terminamos|cerramos|acabamos|salimos|termina|cierra|sale)/.test(limpio)){
+    resp='La última paciente sale a las <b>'+oHM(ahora.salida)+'</b>'+(OPT.limpiezaPreso>0?', y la cabina pequeña queda limpia a las '+oHM(ahora.fin):'')+'.';
+  } else if(/consultorio/.test(limpio) && /sirve|vale la pena|ayuda|suma|conviene|necesito|rinde/.test(limpio)){
+    const sin=optCapacidad({consultorio:false});
+    const con=optCapacidad({consultorio:true, consDesde:OPT.apertura, consHasta:OPT.cierre});
+    const d=con.n-sin.n;
+    resp= d>0 ? 'Sí te sirve: sin consultorio caben <b>'+sin.n+'</b> y con él <b>'+con.n+'</b> — '+d+' más. Abajo está la comparación.'
+              : 'Con este horario y este equipo, el consultorio <b>no te suma pacientes</b> (con o sin él caben '+sin.n+'). El cuello de botella está en otro lado — míralo abajo.';
+    optVista='mejorar';
+  } else if(/cuantas cosmetologas/.test(limpio)){
+    const r1=optCapacidad({cosmetologas:1}).n, r2=optCapacidad({cosmetologas:2}).n, r3=optCapacidad({cosmetologas:3}).n;
+    resp='Con 1 cosmetóloga caben <b>'+r1+'</b>, con 2 caben <b>'+r2+'</b> y con 3 caben <b>'+r3+'</b>. '+(r2>r1?'La segunda sí se paga con este montaje.':'Con los espacios de hoy, la segunda no agrega — primero necesitas más cabina.');
+  }
+  const escenario = /y si |si una |si un |si el |si la |llega tarde|se enferma|se dana|se demora|que hago si|que pasa si|que hago cuando/.test(limpio);
+  if(!resp && escenario){
+    Object.assign(OPT, copia);
+    optPintarControles();
+    optRespuesta('<i>Déjame pensarla…</i>');
+    optAgente(txt);
     return;
   }
-  optMsg('bot','Entendido: '+ok.join(' · ')+'.');
-  setTimeout(optCorrer, 260);
+  if(pideMejora) optVista='mejorar';
+  if(!resp && abierta && !pideMejora){
+    Object.assign(OPT, copia);
+    optPintarControles();
+    optRespuesta('<i>Déjame pensarla…</i>');
+    optAgente(txt);
+    return;
+  }
+  if(!resp && ok.length){
+    const d = ahora.citas.length - antes.citas.length;
+    resp='Entendido: '+ok.join(' · ')+'. '+(d>0?'Pasas de '+antes.citas.length+' a <b>'+ahora.citas.length+'</b> pacientes':(d<0?'Bajas de '+antes.citas.length+' a <b>'+ahora.citas.length+'</b> pacientes':'Siguen cabiendo <b>'+ahora.citas.length+'</b> pacientes'))+', última salida '+oHM(ahora.salida)+'.';
+  }
+  if(!resp && !ok.length && !pideMejora){
+    optRespuesta('<i>Déjame pensarla…</i>');
+    optAgente(txt);
+    return;
+  }
+  optRespuesta(resp);
+  optPintarControles(); optRender();
 }
 function optArrancar(){
-  if($('#optMsgs').dataset.listo) return;
-  $('#optMsgs').dataset.listo='1';
-  optPintarSug();
-  optMsg('bot','Hola 👋 Cuéntame cómo viene el día y te armo la agenda de las cabinas.<br><br>'+
-    'Tengo en cuenta que la <b>cabina grande</b> lleva el masaje y la aparatología seguidos (90 minutos con la cosmetóloga), '+
-    'que la <b>cabina pequeña</b> es solo presoterapia y necesita 15 minutos de limpieza entre paciente y paciente, '+
-    'y que el <b>consultorio</b> a veces lo tiene el especialista — eso lo prendes y lo apagas ahí a la derecha.');
-  optCorrer();
+  if($('#optOut').dataset.listo) return;
+  $('#optOut').dataset.listo='1';
+  optPintarSug(); optPintarControles(); optRender();
 }
-$('#btnRecomendar').onclick = ()=>{ optLeerControles(); optMsg('user','¿Cómo mejoramos?'); setTimeout(()=>optMsg('bot', optRecomendar()), 200); };
+document.querySelectorAll('.opttab').forEach(b=>b.onclick=()=>{ optVista=b.dataset.v; optRender(); });
+$('#btnRecomendar').onclick = ()=>{ optLeerControles(); optVista='mejorar'; optRender(); };
 $('#optForm').addEventListener('submit', e=>{ e.preventDefault(); const v=$('#optIn').value; $('#optIn').value=''; optEnviar(v); });
 document.querySelectorAll('#segCons button').forEach(b=>b.onclick=()=>{
-  OPT.consultorio = b.dataset.v==='1';
-  optPintarControles();
-  optMsg('user', OPT.consultorio?'Hoy sí tenemos el consultorio':'Hoy no tenemos el consultorio');
-  setTimeout(optCorrer,200);
+  OPT.consultorio = b.dataset.v==='1'; optPintarControles(); optAviso(''); optRespuesta(''); optRender();
 });
-['optApertura','optCierre','optPacientes','optCosm','optMasaje','optApar','optPreso','optLimpP','optLimpG','optEspera','optConsDesde','optConsHasta']
-  .forEach(id=>$('#'+id).addEventListener('change', ()=>{ optLeerControles(); optCorrer(); }));
+['optApertura','optCierre','optPacientes','optCosm','optMasaje','optApar','optPreso','optLimpP','optLimpG','optEspera','optAct','optConsDesde','optConsHasta']
+  .forEach(id=>$('#'+id).addEventListener('change', ()=>{ optLeerControles(); optAviso(''); optRespuesta(''); optRender(); }));
 $('#btnOptTablero').onclick = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
 $('#btnOptCalendario').onclick = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
 $('#btnIrOptim').onclick = ()=>{ mostrar('vistaOptim'); optArrancar(); };
