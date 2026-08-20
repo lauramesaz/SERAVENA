@@ -1,0 +1,83 @@
+{
+  "actualizado": "2026-08-20",
+  "propuestas": [
+    {
+      "id": "2026-W34-1",
+      "fecha": "2026-08-20",
+      "titulo": "Crear el Perfil de Empresa en Google",
+      "categoria": "Local",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Laura",
+      "estado": "propuesta",
+      "que": "Registrar Seravena en google.com/business con la dirección de la Calle 2 Sur No. 46-55, verificar la dirección cuando Google lo pida y subir fotos reales de la clínica.",
+      "porque": "Seravena no aparece en el mapa de Google. En búsquedas locales, la ficha decide el primer puesto más que cualquier artículo: sin ella no se compite por 'flebólogo Medellín', se compite solo por búsquedas informativas.",
+      "como_se_mide": "Aparecer en el mapa al buscar 'flebólogo Medellín' desde un móvil en la ciudad. Primeras señales en 2-4 semanas tras la verificación."
+    },
+    {
+      "id": "2026-W34-2",
+      "fecha": "2026-08-20",
+      "titulo": "Pedir reseñas a las pacientes que ya trataste",
+      "categoria": "Local",
+      "esfuerzo": "medio",
+      "impacto": "alto",
+      "quien": "Laura",
+      "estado": "propuesta",
+      "que": "Una vez verificada la ficha, escribir a las pacientes satisfechas de los últimos meses con el enlace directo para dejar reseña. Nunca ofrecer nada a cambio.",
+      "porque": "Las reseñas son la señal que más pesa en el mapa local y es la única que no se puede construir desde la web. Las clínicas que hoy salen primero en Medellín las tienen; Seravena tiene cero.",
+      "como_se_mide": "Número de reseñas y nota media. Un objetivo realista es 15-20 reseñas reales en tres meses."
+    },
+    {
+      "id": "2026-W34-3",
+      "fecha": "2026-08-20",
+      "titulo": "Página del equipo médico con nombres y credenciales",
+      "categoria": "Contenido",
+      "esfuerzo": "medio",
+      "impacto": "alto",
+      "quien": "ambos",
+      "estado": "propuesta",
+      "que": "Crear una página que presente a los médicos reales: nombre, especialidad, registro profesional y foto. Después, firmar los artículos con la persona que los revisa en vez de 'Equipo médico de Seravena'.",
+      "porque": "Los 24 artículos van firmados por un anónimo. En contenido de salud, Google pondera de forma explícita quién escribe y qué credenciales tiene. La página 'Profesionales' que existe hoy no es esto: es el canal de referidos de otros médicos.",
+      "como_se_mide": "Evolución de la posición media de los artículos de blog en Search Console en los 2-3 meses siguientes."
+    },
+    {
+      "id": "2026-W34-4",
+      "fecha": "2026-08-20",
+      "titulo": "Registrar la clínica en directorios médicos de Colombia",
+      "categoria": "Enlaces",
+      "esfuerzo": "medio",
+      "impacto": "medio",
+      "quien": "Laura",
+      "estado": "propuesta",
+      "que": "Dar de alta a Seravena en Doctoralia y en los directorios médicos colombianos relevantes, siempre con el mismo nombre, dirección y teléfono que en la web y en la ficha de Google.",
+      "porque": "El diagnóstico del 6 de agosto fue claro: Google conoce las páginas pero no las rastrea, y no es un fallo técnico sino falta de autoridad. Nadie enlaza a Seravena desde fuera. Los directorios son la forma más limpia de empezar a corregirlo.",
+      "como_se_mide": "Enlaces detectados en el informe de enlaces de Search Console y páginas que pasan de 'descubierta' a 'indexada'."
+    },
+    {
+      "id": "2026-W34-5",
+      "fecha": "2026-08-20",
+      "titulo": "Una página propia por cada tratamiento",
+      "categoria": "Contenido",
+      "esfuerzo": "alto",
+      "impacto": "medio",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "Separar escleroterapia y eco doppler en sus propias páginas de servicio, además de la sección que ya tienen dentro de vascular.html.",
+      "porque": "'escleroterapia Medellín' y 'eco doppler venoso Medellín' son búsquedas con intención altísima y hoy compiten dentro de una página que habla de todo. Una página por tratamiento es lo que tienen las clínicas que salen primero.",
+      "como_se_mide": "Impresiones y posición de esas dos búsquedas concretas en Search Console."
+    },
+    {
+      "id": "2026-W34-6",
+      "fecha": "2026-08-20",
+      "titulo": "Bajar a 4 artículos por semana y dedicar el resto a mejorar",
+      "categoria": "Contenido",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "ambos",
+      "estado": "propuesta",
+      "que": "Cambiar la cadencia del robot de 7 a 4 artículos semanales y encender el analista para que mejore los ya publicados con el tiempo liberado.",
+      "porque": "En la última lectura Google tenía 2 de 11 páginas indexadas. El cuello de botella no es producir, es autoridad: el artículo número 25 rinde menos que hacer que los 24 existentes se enlacen, se actualicen y consigan enlaces.",
+      "como_se_mide": "Páginas indexadas en Search Console. Si a las 6 semanas no mejora, la hipótesis era errónea y se vuelve a subir la cadencia."
+    }
+  ]
+}

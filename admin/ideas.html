@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Propuestas de innovación | Seravena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/isotype-chocolate.png">
+<style>
+:root{
+  --chocolate:#4B412D;--chocolate-deep:#3a3222;--camel:#9D8051;--camel-light:#b89a6a;
+  --arena:#EDE2D0;--arena-deep:#e0d4c0;--piedra:#F9F9F8;--pardo:#1A1A1A;--white:#fff;
+  --muted:#6b6357;--verde:#4c7a53;--verde-bg:#e7f0e8;--ambar:#8a5a2b;--ambar-bg:#f6ece0;
+  --radius:16px;--shadow-sm:0 6px 20px rgba(75,65,45,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--piedra);color:var(--pardo);min-height:100vh}
+.bg{position:fixed;inset:0;z-index:0;background:radial-gradient(1100px 560px at 78% -14%,var(--arena),var(--piedra) 60%)}
+.wrap{position:relative;z-index:1;max-width:940px;margin:0 auto;padding:clamp(24px,5vw,52px) clamp(16px,4vw,32px)}
+
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.head-l img{height:30px;display:block;margin-bottom:12px}
+.head h1{font-size:clamp(1.5rem,4vw,2rem);color:var(--chocolate);font-weight:700;line-height:1.15}
+.head p{color:var(--muted);font-size:.92rem;margin-top:5px}
+.head-r{font-size:.8rem;color:var(--muted);text-align:right}
+.head-r a{color:var(--camel);text-decoration:none;font-weight:600}
+
+.mision{background:var(--chocolate);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-bottom:26px}
+.mision .l{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--camel-light);margin-bottom:7px}
+.mision .t{font-size:1.12rem;font-weight:600;line-height:1.4}
+.mision .s{font-size:.87rem;color:rgba(255,255,255,.72);margin-top:9px;line-height:1.55}
+
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filtro{font-size:.82rem;font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--arena-deep);
+  background:var(--white);color:var(--muted);cursor:pointer;font-family:inherit}
+.filtro.on{background:var(--chocolate);color:#fff;border-color:var(--chocolate)}
+
+.list{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--white);border:1px solid var(--arena-deep);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-sm)}
+.card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.cat{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--camel)}
+.fecha{font-size:.74rem;color:var(--muted);margin-left:auto}
+.card h2{font-size:1.13rem;font-weight:600;color:var(--chocolate);line-height:1.32;margin-bottom:12px}
+.campo{margin-bottom:12px}
+.campo .k{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--camel);margin-bottom:4px}
+.campo .v{font-size:.94rem;line-height:1.62;color:#3d382e}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:15px;border-top:1px solid var(--arena)}
+.chip{font-size:.75rem;font-weight:600;padding:5px 11px;border-radius:20px;white-space:nowrap;background:var(--arena);color:var(--chocolate-deep)}
+.chip.alto{background:var(--verde-bg);color:var(--verde)}
+.chip.bajo-esf{background:var(--verde-bg);color:var(--verde)}
+.chip.alto-esf{background:var(--ambar-bg);color:var(--ambar)}
+.chip.quien{background:#efe9df;color:var(--muted)}
+.estado{font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:20px;margin-left:auto}
+.e-propuesta{background:var(--ambar-bg);color:var(--ambar)}
+.e-aprobada{background:var(--verde-bg);color:var(--verde)}
+.e-hecha{background:var(--chocolate);color:#fff}
+.e-descartada{background:#f0ece4;color:var(--muted)}
+.e-caducada{background:#f0ece4;color:var(--muted)}
+
+.empty,.error{background:var(--white);border:1px dashed var(--arena-deep);border-radius:var(--radius);padding:40px;text-align:center;color:var(--muted)}
+.foot{margin-top:34px;font-size:.78rem;color:var(--muted);text-align:center;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="wrap">
+
+  <div class="head">
+    <div class="head-l">
+      <img src="../assets/wordmark-pardo.webp" alt="Seravena">
+      <h1>Propuestas de innovación</h1>
+      <p>Ideas del estratega para aprobar o descartar. Nada de esto se ha hecho todavía.</p>
+    </div>
+    <div class="head-r">
+      <div id="updated">—</div>
+      <a href="blog.html">Ver actividad del blog →</a>
+    </div>
+  </div>
+
+  <div class="mision">
+    <div class="l">Misión del agente</div>
+    <div class="t">Ser el primer resultado de Google en Medellín para salud vascular.</div>
+    <div class="s">Este agente propone; no toca la web. Nada se ejecuta hasta que Laura lo aprueba.</div>
+  </div>
+
+  <div class="filtros" id="filtros"></div>
+  <div class="list" id="list"></div>
+
+  <div class="foot">
+    Página privada, oculta para buscadores.<br>
+    Las propuestas las genera el agente 7 cada semana en <code>admin/propuestas.json</code>.
+  </div>
+</div>
+
+<script>
+function esc(s){ const d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
+function fmtFecha(iso){
+  if(!iso) return '';
+  const [a,m,d]=iso.split('-');
+  const meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  return parseInt(d,10)+' de '+meses[parseInt(m,10)-1]+' de '+a;
+}
+let TODAS=[], FILTRO='todas';
+
+function pinta(){
+  const list=document.getElementById('list');
+  const vis = FILTRO==='todas' ? TODAS : TODAS.filter(p=>(p.estado||'propuesta')===FILTRO);
+  if(!vis.length){ list.innerHTML='<div class="empty">No hay propuestas en este estado.</div>'; return; }
+  list.innerHTML = vis.map(p=>{
+    const est=(p.estado||'propuesta');
+    const impAlto = (p.impacto||'')==='alto' ? ' alto':'';
+    const esfClase = (p.esfuerzo||'')==='bajo' ? ' bajo-esf' : ((p.esfuerzo||'')==='alto' ? ' alto-esf':'');
+    return '<div class="card">'
+      + '<div class="card-top"><span class="cat">'+esc(p.categoria||'')+'</span>'
+      + '<span class="fecha">'+esc(fmtFecha(p.fecha))+'</span></div>'
+      + '<h2>'+esc(p.titulo||'')+'</h2>'
+      + '<div class="campo"><div class="k">Qué</div><div class="v">'+esc(p.que||'')+'</div></div>'
+      + '<div class="campo"><div class="k">Por qué</div><div class="v">'+esc(p.porque||'')+'</div></div>'
+      + '<div class="campo"><div class="k">Cómo sabremos si funcionó</div><div class="v">'+esc(p.como_se_mide||'')+'</div></div>'
+      + '<div class="meta">'
+      +   '<span class="chip'+impAlto+'">Impacto '+esc(p.impacto||'—')+'</span>'
+      +   '<span class="chip'+esfClase+'">Esfuerzo '+esc(p.esfuerzo||'—')+'</span>'
+      +   '<span class="chip quien">Lo hace: '+esc(p.quien||'—')+'</span>'
+      +   '<span class="estado e-'+esc(est)+'">'+esc(est)+'</span>'
+      + '</div></div>';
+  }).join('');
+}
+
+function pintaFiltros(){
+  const estados=['todas'].concat([...new Set(TODAS.map(p=>p.estado||'propuesta'))]);
+  document.getElementById('filtros').innerHTML = estados.map(e=>
+    '<button class="filtro'+(e===FILTRO?' on':'')+'" data-e="'+esc(e)+'">'+esc(e)+
+    (e==='todas'?' ('+TODAS.length+')':' ('+TODAS.filter(p=>(p.estado||'propuesta')===e).length+')')+'</button>').join('');
+  document.querySelectorAll('.filtro').forEach(b=>b.addEventListener('click',()=>{
+    FILTRO=b.dataset.e; pintaFiltros(); pinta();
+  }));
+}
+
+fetch('propuestas.json?t='+Date.now())
+  .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data=>{
+    TODAS = data.propuestas||[];
+    document.getElementById('updated').textContent = 'Actualizado: '+fmtFecha(data.actualizado);
+    pintaFiltros(); pinta();
+  })
+  .catch(()=>{
+    document.getElementById('list').innerHTML =
+      '<div class="error">No se pudo cargar la lista de propuestas.</div>';
+  });
+</script>
+</body>
+</html>
