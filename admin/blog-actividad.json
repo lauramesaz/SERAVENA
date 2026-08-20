@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-19",
+  "actualizado": "2026-08-20",
   "articulos": [
+    {
+      "fecha": "2026-08-20",
+      "titulo": "7 hábitos diarios para mejorar la circulación de tus piernas",
+      "slug": "habitos-mejorar-circulacion",
+      "categoria": "Bienestar",
+      "keyword": "mejorar circulación piernas",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/habitos-mejorar-circulacion.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — primer artículo del racimo 'situaciones' (bienestar/prevención). Médico aprobado con 1 corrección (se reforzó el post-note con la señal de alarma de embolia pulmonar); SEO 98/100 (dividió frases largas, sincronizó FAQ con JSON-LD, reescribió meta description con gancho y CTA)."
+    },
     {
       "fecha": "2026-08-19",
       "titulo": "Lipedema y menopausia: por qué se relacionan",
