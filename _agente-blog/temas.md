@@ -73,7 +73,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 ## Bienestar / prevención / estilo de vida  ·  racimo: `situaciones`
 
 - [publicado] 7 hábitos diarios para mejorar la circulación de tus piernas — mejorar circulación piernas — habitos-mejorar-circulacion
-- [pendiente] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular
+- [publicado] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular
 - [pendiente] Viajes largos: cómo cuidar tus piernas en avión o carro — piernas en viajes largos — cuidar-piernas-viajes-largos
 - [pendiente] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
 - [pendiente] Ejercicios sencillos para activar la circulación en casa — ejercicios circulación piernas — ejercicios-circulacion-casa

@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-20",
+  "actualizado": "2026-08-21",
   "articulos": [
+    {
+      "fecha": "2026-08-21",
+      "titulo": "Alimentación y circulación: qué comer para cuidar tus piernas",
+      "slug": "alimentacion-salud-vascular",
+      "categoria": "Bienestar",
+      "keyword": "alimentación y circulación",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/alimentacion-salud-vascular.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — segundo artículo del racimo 'situaciones' (bienestar/prevención). Médico aprobado sin correcciones (fibra, sodio, hidratación y sobrepeso como factor de riesgo verificados contra fuentes vasculares; flavonoides de alimentos bien diferenciados de venotónicos farmacológicos); SEO 98/100 (dividió una frase larga; descuento menor por tener solo 1 hermano publicado en el racimo)."
+    },
     {
       "fecha": "2026-08-20",
       "titulo": "7 hábitos diarios para mejorar la circulación de tus piernas",
