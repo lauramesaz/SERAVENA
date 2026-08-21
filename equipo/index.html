@@ -815,6 +815,15 @@ body{background:#fff;letter-spacing:0}
 
 .optresp{background:#F4EDE3;border:1px solid #E5D9C6;color:#6E5638;border-radius:10px;padding:12px 15px;font-size:.86rem;line-height:1.55}
 .optresp b{color:#4B3A24}
+
+/* ---- resultado en lenguaje de personas ---- */
+.hero{display:flex;align-items:center;gap:15px;margin-bottom:14px}
+.heron{font-size:2.7rem;font-weight:600;letter-spacing:-.045em;color:#1F1D1A;line-height:1}
+.hero b{font-size:1.02rem;color:#1F1D1A}
+.hero small{display:block;color:#837C73;font-size:.85rem;margin-top:4px}
+.itin{display:flex;flex-direction:column;gap:7px;margin-top:13px}
+.itrow{display:flex;gap:11px;align-items:flex-start;font-size:.85rem;line-height:1.55;border:1px solid #EDEAE4;border-radius:10px;padding:10px 14px;background:#fff}
+.itrow i{width:13px;height:13px;border-radius:4px;flex-shrink:0;margin-top:4px}
 </style>
 </head>
 <body>
@@ -2091,6 +2100,18 @@ const OCOL = {
   limp   :{bg:'#F4EFE5',br:'#DCD3C1',tx:'#6b6357'},
   espera :{bg:'#FBF0E8',br:'#EBCDB8',tx:'#8A4326'}
 };
+const PCOL=[
+  {bg:'#EDE3D1',br:'#B99A63',tx:'#4B412D'},
+  {bg:'#E3EBE4',br:'#7B9880',tx:'#2F4A35'},
+  {bg:'#E7E4F2',br:'#8F86B8',tx:'#3E3766'},
+  {bg:'#F5E3DC',br:'#C98F73',tx:'#6B3A24'},
+  {bg:'#E2ECF2',br:'#7FA3B8',tx:'#2E4A5A'},
+  {bg:'#F2E9DA',br:'#C0A868',tx:'#5C4A1E'},
+  {bg:'#ECE2E8',br:'#B085A3',tx:'#5A2F4B'},
+  {bg:'#E4EEDF',br:'#8FAF7E',tx:'#3A5230'},
+  {bg:'#F0E2E2',br:'#C08383',tx:'#5F2B2B'},
+  {bg:'#E6E8EC',br:'#8B93A3',tx:'#333A47'}
+];
 const oHM = m => { let h=Math.floor(m/60), x=m%60; const s=h>=12?'p. m.':'a. m.'; h=h%12; if(h===0)h=12; return h+':'+String(x).padStart(2,'0')+' '+s; };
 const oHc = m => { let h=Math.floor(m/60), x=m%60; h=h%12; if(h===0)h=12; return h+':'+String(x).padStart(2,'0'); };
 const oT2M = v => { const p=(v||'').split(':'); return (+p[0])*60+(+p[1]||0); };
@@ -2208,29 +2229,32 @@ function optSVG(plan,c){
     s+='<text x="2" y="'+(y+RH/2+4.5)+'" font-size="12.5" font-weight="700" fill="#4B412D">'+f.nom+'</text>';
     if(f.tipo==='g'){
       plan.citas.filter(k=>k.sala===f.id).forEach(k=>{
+        const col=PCOL[(k.n-1)%PCOL.length];
         if(k.ruta==='B' && k.espera>0) s+=blk(X(k.ini-k.espera),y,k.espera*sc,OCOL.espera,'','');
         const w=(k.fin-k.ini)*sc;
-        s+=blk(X(k.ini),y,w,OCOL.grande,'P'+k.n, k.ruta==='A' ? 'masaje + aparat.' : 'aparat. + masaje');
+        s+=blk(X(k.ini),y,w,col,'P'+k.n, k.ruta==='A' ? 'masaje + aparatos' : 'aparatos + masaje');
         if(w>=118){
           const xd=X(k.ini+(k.ruta==='A'?c.masaje:c.aparatologia)).toFixed(1);
-          s+='<line x1="'+xd+'" y1="'+(y+7)+'" x2="'+xd+'" y2="'+(y+RH-7)+'" stroke="'+OCOL.grande.br+'" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>';
+          s+='<line x1="'+xd+'" y1="'+(y+7)+'" x2="'+xd+'" y2="'+(y+RH-7)+'" stroke="'+col.br+'" stroke-width="1" opacity=".5" stroke-dasharray="3 3"/>';
         }
         if(c.limpiezaGrande>0) s+=blk(X(k.fin),y,c.limpiezaGrande*sc,OCOL.limp,'','');
       });
     } else {
       plan.citas.forEach(k=>{
+        const col=PCOL[(k.n-1)%PCOL.length];
         if(k.ruta==='A'){
           if(k.espera>0) s+=blk(X(k.fin),y,k.espera*sc,OCOL.espera,'','');
-          s+=blk(X(k.presoIni),y,c.preso*sc,OCOL.preso,'P'+k.n,'preso');
+          s+=blk(X(k.presoIni),y,c.preso*sc,col,'P'+k.n,'preso');
         }else{
-          s+=blk(X(k.actIni),y,(k.presoFin-k.actIni)*sc,OCOL.preso,'P'+k.n,(c.activacion>0?'act + preso':'preso'));
+          s+=blk(X(k.actIni),y,(k.presoFin-k.actIni)*sc,col,'P'+k.n,(c.activacion>0?'act + preso':'preso'));
         }
         if(c.limpiezaPreso>0) s+=blk(X(k.presoFin),y,c.limpiezaPreso*sc,OCOL.limp,'','');
       });
     }
   });
-  let lx=LW;
-  [[OCOL.grande,'Masaje + aparatología'],[OCOL.preso,'Preso (act. incluida)'],[OCOL.limp,'Limpieza'],[OCOL.espera,'Espera']].forEach(([col,txt])=>{
+  s+='<text x="'+LW+'" y="'+(BOT+27.5)+'" font-size="10.5" fill="#6b6357">Cada color es una paciente distinta</text>';
+  let lx=LW+200;
+  [[OCOL.limp,'Limpieza'],[OCOL.espera,'Espera (aromática)']].forEach(([col,txt])=>{
     s+='<rect x="'+lx+'" y="'+(BOT+18)+'" width="11" height="11" rx="3" fill="'+col.bg+'" stroke="'+col.br+'"/>';
     s+='<text x="'+(lx+16)+'" y="'+(BOT+27.5)+'" font-size="10.5" fill="#6b6357">'+txt+'</text>';
     lx += 16+txt.length*5.7+18;
@@ -2242,72 +2266,34 @@ function optSVG(plan,c){
 function optResponder(){
   const c = OPT, B = c.masaje+c.aparatologia, plan = optPlanear(c);
   const n = plan.citas.length;
-  if(!n) return '<b>Con esas condiciones no cabe ni una paciente.</b><br>Una sesión completa necesita '+(B+c.preso)+
-    ' minutos seguidos y el horario que pusiste solo da '+(c.cierre-c.apertura)+'. Prueba abriendo antes o cerrando más tarde.';
+  if(!n) return '<b>Con esas condiciones no cabe ni una paciente.</b><br>Una sesión completa necesita '+(B+c.preso)+' minutos seguidos y el horario que pusiste solo da '+(c.cierre-c.apertura)+'. Prueba abriendo antes o cerrando más tarde.';
+  let h = '<div class="hero"><span class="heron">'+n+'</span><div><b>paciente'+(n>1?'s':'')+' caben en el día</b>'+
+    '<small>La primera llega a las '+oHM(plan.citas[0].actIni)+' · la última sale a las '+oHM(plan.salida)+' · '+
+    (plan.esperaMax>0 ? 'esperas de hasta '+plan.esperaMax+'′ (momento aromática)' : 'ninguna espera')+'</small></div></div>';
+  h += '<div class="gantt">'+optSVG(plan,c)+'</div>';
+  h += '<div class="itin">'+plan.citas.map(k=>{
+    const col = PCOL[(k.n-1)%PCOL.length];
+    const s1 = k.ruta==='A'
+      ? 'masaje y aparatología en '+k.salaNom.toLowerCase()+' hasta las '+oHc(k.fin)
+      : 'activación y presoterapia en la cabina pequeña hasta las '+oHc(k.presoFin);
+    const esp = k.espera>0 ? ', espera '+k.espera+'′ con su aromática' : '';
+    const s2 = k.ruta==='A'
+      ? 'presoterapia hasta las '+oHc(k.presoFin)
+      : 'aparatología y masaje en '+k.salaNom.toLowerCase()+' hasta las '+oHc(k.fin);
+    return '<div class="itrow"><i style="background:'+col.br+'"></i><div><b>Paciente '+k.n+'</b> llega a las <b>'+oHc(k.actIni)+'</b>: '+s1+esp+', luego '+s2+'. Sale a las <b>'+oHc(k.end)+'</b>.</div></div>';
+  }).join('')+'</div>';
   const cuello = [
     {q:plan.salas[0].pc, t:'la cabina grande'},
     {q:plan.salas[1]?plan.salas[1].pc:0, t:'el consultorio'},
-    {q:plan.presoPc, t:'la presoterapia'},
+    {q:plan.presoPc, t:'la cabina pequeña'},
     {q:plan.cosmPc, t:'las cosmetólogas'}
   ].sort((a,b)=>b.q-a.q)[0];
-  let h = '<b>'+n+' paciente'+(n>1?'s':'')+'</b> entre las '+oHM(c.apertura)+' y las '+oHM(plan.salida)+
-    ', con '+c.cosmetologas+' cosmetóloga'+(c.cosmetologas>1?'s':'')+
-    (c.consultorio?' y el consultorio disponible':' y solo las dos cabinas')+'.';
-  h += '<div class="optkpis">';
-  h += '<div class="okpi"><div class="l">Pacientes</div><div class="v">'+n+'</div></div>';
-  h += '<div class="okpi"><div class="l">Cierra</div><div class="v">'+oHc(plan.salida)+'</div></div>';
-  h += '<div class="okpi'+(plan.esperaMax>0?' warn':'')+'"><div class="l">Espera máx.</div><div class="v">'+plan.esperaMax+'′</div></div>';
-  h += '<div class="okpi"><div class="l">Uso cabina grande</div><div class="v">'+plan.salas[0].pc+'%</div></div>';
-  h += '</div>';
-  h += '<div class="gantt">'+optSVG(plan,c)+'</div>';
-  const lleg = plan.citas.map(k=>'<b>P'+k.n+'</b> '+oHc(k.actIni)+(k.ruta==='B'?' · preso primero':'')).join(' &nbsp;·&nbsp; ');
-  h += '<div class="optnota"><b>Llegadas:</b> '+lleg+'</div>';
-  const rutaB = plan.citas.filter(k=>k.ruta==='B');
-  if(rutaB.length) h += '<div class="optnota">'+(rutaB.length===1?'La paciente ':'Las pacientes ')+rutaB.map(k=>'P'+k.n).join(', ')+' entra'+(rutaB.length===1?'':'n')+' por presoterapia (con la activación de '+(c.activacion||0)+'\u2032) y termina'+(rutaB.length===1?'':'n')+' con el masaje. Intercalando las dos rutas, los espacios no se pisan.</div>';
-
-  const notas = [];
-  notas.push('El cuello de botella es <b>'+cuello.t+'</b> ('+cuello.q+'% ocupada). Todo lo demás se acomoda a su ritmo.');
-  if(plan.esperaMax===0) notas.push('Ninguna paciente espera: las entradas están escalonadas para que la cabina pequeña nunca se cruce.');
-  else notas.push('Hay una espera de hasta <b>'+plan.esperaMax+' minutos</b>. Es el momento de la aromática.');
-  if(plan.salas[1] && c.consHasta < c.cierre) notas.push('El consultorio solo lo tienes hasta las <b>'+oHM(Math.min(c.consHasta,c.cierre))+'</b>; de ahí en adelante el día sigue con la cabina grande sola.');
-  else if(plan.salas[1] && plan.salas[1].pc < 40) notas.push('El consultorio queda usado solo al '+plan.salas[1].pc+'%: te sobra espacio, lo que falta es gente o pacientes.');
-  h += '<div class="optnota">'+notas.join('<br>')+'</div>';
-  if(plan.faltaron>0) h += '<div class="optnota ojo">Pediste '+c.pacientes+' pero solo caben <b>'+n+'</b>. Faltan '+plan.faltaron+
-    '. Para meterlas necesitarías unos '+(plan.faltaron*Math.max(B,c.preso+c.limpiezaPreso))+' minutos más de horario, o el consultorio, o una cosmetóloga más.';
-  if(c.limpiezaGrande===0) h += '<div class="optnota ojo">Ojo: está calculando con <b>0 minutos</b> de limpieza en la cabina grande. Súbelo en “Tiempos y reglas” cuando sepas el número real — es lo que hace que el día se corra.</div>';
+  h += '<div class="optnota">El espacio más apretado del día es <b>'+cuello.t+'</b>: está ocupado el '+cuello.q+'% del tiempo. Si quieres atender más gente, por ahí es la cosa — pregúntame «¿cómo mejoramos?».</div>';
+  if(plan.faltaron>0) h += '<div class="optnota ojo">Pediste '+c.pacientes+' pero solo caben <b>'+n+'</b>. Para las '+plan.faltaron+' que faltan necesitas más horario, el consultorio o más manos — mira «Cómo mejorar».</div>';
+  if(c.limpiezaGrande===0) h += '<div class="optnota ojo">Ojo: estoy contando <b>0 minutos</b> de limpieza en la cabina grande. Cuando sepas el número real, súbelo en “Tiempos y reglas”.</div>';
   return h;
 }
 
-
-/* ============ ANALIZADOR DE ESCENARIOS ============
-   No opina: simula cada movida con el mismo motor y compara.
-   Todas las simulaciones corren con pacientes=0 (maximizar) para medir capacidad real.
-================================================== */
-function optCapacidad(over){
-  const c = Object.assign({}, OPT, {pacientes:0}, over||{});
-  c.apertura = Math.max(300, c.apertura);
-  c.cierre   = Math.min(1330, Math.max(c.apertura+60, c.cierre));
-  if(c.consultorio){ c.consDesde=Math.max(c.consDesde,300); c.consHasta=Math.min(c.consHasta,c.cierre); }
-  const p = optPlanear(c);
-  return {n:p.citas.length, cierre:p.salida, plan:p, c};
-}
-function optPalancas(){
-  const A=OPT.apertura, C=OPT.cierre, mitad=A+Math.round((C-A)/2);
-  const L=[];
-  L.push({t:'Abrir 30 minutos antes', esf:'Gratis', o:{apertura:A-30}});
-  L.push({t:'Abrir 1 hora antes', esf:'Gratis', o:{apertura:A-60}});
-  L.push({t:'Cerrar 1 hora más tarde', esf:'Gratis', o:{cierre:C+60}});
-  L.push({t:'Abrir 1 h antes y cerrar 1 h después', esf:'Gratis', o:{apertura:A-60,cierre:C+60}});
-  if(!OPT.consultorio || OPT.consHasta<C){
-    L.push({t:'Tener el consultorio toda la jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:C}});
-    L.push({t:'Tener el consultorio media jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:mitad}});
-  }
-  L.push({t:'Una cosmetóloga más', esf:'Contratar', o:{cosmetologas:OPT.cosmetologas+1}});
-  if(OPT.limpiezaPreso>6) L.push({t:'Bajar la limpieza de la preso a 5 minutos', esf:'Fundas desechables', o:{limpiezaPreso:5}});
-  L.push({t:'Consultorio + una cosmetóloga más', esf:'Coordinar + contratar', o:{consultorio:true,consDesde:A,consHasta:C,cosmetologas:OPT.cosmetologas+1}});
-  L.push({t:'Todo junto: jornada larga + consultorio + cosmetóloga', esf:'El techo de todo', o:{apertura:A-60,cierre:C+60,consultorio:true,consDesde:A-60,consHasta:C+60,cosmetologas:OPT.cosmetologas+1}});
-  return L;
-}
 function optSobra(p,c){
   const B=c.masaje+c.aparatologia, span=Math.max(1,p.salida-c.apertura), s=[];
   p.salas.forEach(sa=>{ const libre=span-sa.uso; if(libre>=B) s.push(sa.nom+': le sobran '+libre+' minutos, alcanzarían para '+Math.floor(libre/B)+' paciente'+(Math.floor(libre/B)>1?'s':'')+' más'); });
