@@ -2512,27 +2512,31 @@ function optDatosParaAgente(){
   };
 }
 async function optAgente(txt){
-  try{
-    const r=await fetch(OPT_AGENTE_URL,{method:'POST',
-      headers:{'content-type':'application/json','Authorization':'Bearer '+OPT_ANON,'apikey':OPT_ANON},
-      body:JSON.stringify({mensaje:txt,estado:OPT,datos:optDatosParaAgente()})});
-    const d=await r.json();
-    if(d.error==='sin_llave'){ optRespuesta(''); optAviso('El agente todavía no está conectado: falta guardar la llave de la IA en Supabase. Mientras tanto entiendo órdenes y preguntas sencillas.'); return; }
-    if(!d.respuesta) throw 0;
-    if(d.cambios && typeof d.cambios==='object'){
-      ['apertura','cierre','pacientes','cosmetologas','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
-        .forEach(k=>{ const v=d.cambios[k]; if(typeof v==='number' && isFinite(v) && v>=0) OPT[k]=Math.round(v); });
-      if(typeof d.cambios.consultorio==='boolean') OPT.consultorio=d.cambios.consultorio;
-      if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
+  for(let intento=1; intento<=3; intento++){
+    try{
+      const r=await fetch(OPT_AGENTE_URL,{method:'POST',
+        headers:{'content-type':'application/json','Authorization':'Bearer '+OPT_ANON,'apikey':OPT_ANON},
+        body:JSON.stringify({mensaje:txt,estado:OPT,datos:optDatosParaAgente()})});
+      const d=await r.json();
+      if(d.error==='sin_llave'){ optRespuesta(''); optAviso('El agente todavía no está conectado: falta guardar la llave de la IA en Supabase. Mientras tanto entiendo órdenes y preguntas sencillas.'); return; }
+      if(!d.respuesta || /^No supe/.test(d.respuesta)) throw 0;
+      if(d.cambios && typeof d.cambios==='object'){
+        ['apertura','cierre','pacientes','cosmetologas','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
+          .forEach(k=>{ const v=d.cambios[k]; if(typeof v==='number' && isFinite(v) && v>=0) OPT[k]=Math.round(v); });
+        if(typeof d.cambios.consultorio==='boolean') OPT.consultorio=d.cambios.consultorio;
+        if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
+      }
+      const seguro=String(d.respuesta).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
+      optRespuesta(seguro);
+      optPintarControles(); optRender();
+      return;
+    }catch(e){
+      if(intento<3){ optRespuesta('<i>Déjame pensarla… (se congestionó, reintento '+intento+')</i>'); await new Promise(x=>setTimeout(x,2000)); }
     }
-    const seguro=String(d.respuesta).replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
-    optRespuesta(seguro);
-    optPintarControles(); optRender();
-  }catch(e){
-    optRespuesta('');
-    optAviso('No pude pensar esa (el agente no respondió). Prueba con una orden sencilla: “5 pacientes”, “abrimos a las 7”, “¿cuántas caben?”.');
   }
+  optRespuesta('');
+  optAviso('El agente está congestionado en este momento. Espera unos segundos y pregúntame otra vez.');
 }
 function optRespuesta(html){
   const r=$('#optResp');
