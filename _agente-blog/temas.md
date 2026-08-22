@@ -102,7 +102,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 **Guías prácticas / "cómo"**
 - [pendiente] Cómo saber si tienes lipedema: señales para autoevaluarte — cómo saber si tengo lipedema — como-saber-si-tengo-lipedema
-- [pendiente] Cómo prepararte para tu primera valoración vascular — primera valoración vascular — preparar-valoracion-vascular
+- [publicado] Cómo prepararte para tu primera valoración vascular — primera valoración vascular — preparar-valoracion-vascular
 - [pendiente] Qué esperar de un eco doppler venoso, paso a paso — eco doppler paso a paso — eco-doppler-paso-a-paso
 
 **Estacional / momento de vida**

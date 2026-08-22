@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-21",
+  "actualizado": "2026-08-22",
   "articulos": [
+    {
+      "fecha": "2026-08-22",
+      "titulo": "Primera valoración vascular: cómo prepararte",
+      "slug": "preparar-valoracion-vascular",
+      "categoria": "Salud vascular",
+      "keyword": "primera valoración vascular",
+      "seo": 94,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/preparar-valoracion-vascular.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — primer artículo del racimo 'diagnostico' en varias semanas. Médico aprobado sin correcciones (conversación clínica, examen físico de pie, eco doppler sin radiación/ayuno y señal de alarma de trombosis verificados contra el consenso médico general); SEO 94/100 (keyword, estructura y datos estructurados completos; enlazado quedó resuelto al integrar el post en sitemap/índice y en los 'Sigue leyendo' de sus 3 hermanos)."
+    },
     {
       "fecha": "2026-08-21",
       "titulo": "Alimentación y circulación: qué comer para cuidar tus piernas",
