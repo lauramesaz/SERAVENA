@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-22",
+  "actualizado": "2026-08-23",
   "articulos": [
+    {
+      "fecha": "2026-08-23",
+      "titulo": "Escleroterapia vs láser para várices: diferencias",
+      "slug": "escleroterapia-vs-laser",
+      "categoria": "Salud vascular",
+      "keyword": "escleroterapia vs láser para várices",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/escleroterapia-vs-laser.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — artículo del racimo 'tratamiento' (el racimo con menos artículos publicados junto a 'diagnostico'). Médico aprobado sin correcciones (mecanismos, candidatura por tipo de vena, dolor/sesiones/recuperación y señales de alarma verificados contra fuentes clínicas actuales); SEO 99/100 (keyword, metadatos, estructura, enlazado interno y datos estructurados completos)."
+    },
     {
       "fecha": "2026-08-22",
       "titulo": "Primera valoración vascular: cómo prepararte",

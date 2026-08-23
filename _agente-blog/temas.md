@@ -97,7 +97,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 **Comparativas (muy buscadas)**
 - [pendiente] Várices vs arañitas vasculares: ¿son lo mismo? — varices vs aranitas — varices-vs-aranitas
-- [pendiente] Escleroterapia vs láser para várices: diferencias — escleroterapia vs laser — escleroterapia-vs-laser
+- [publicado] Escleroterapia vs láser para várices: diferencias — escleroterapia vs laser — escleroterapia-vs-laser
 - [pendiente] Lipedema, obesidad y linfedema: cómo diferenciarlos — lipedema obesidad linfedema — lipedema-obesidad-linfedema
 
 **Guías prácticas / "cómo"**
