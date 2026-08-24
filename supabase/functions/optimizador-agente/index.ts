@@ -1,7 +1,7 @@
 // Agente del Optimizador de espacios (Seravena).
-// Recibe la pregunta de Laura + el estado del panel + los números ya calculados
+// Recibe la pregunta de Laura + el estado del panel + los numeros ya calculados
 // por el motor determinista del navegador, y piensa la respuesta con Claude.
-// La llave de la IA vive SOLO aquí (secreto ANTHROPIC_API_KEY), nunca en el navegador.
+// La llave de la IA vive SOLO aqui (secreto ANTHROPIC_API_KEY), nunca en el navegador.
 
 const cors = {
   'Access-Control-Allow-Origin': '*',
@@ -12,27 +12,27 @@ function json(obj: unknown, status = 200) {
   return new Response(JSON.stringify(obj), { status, headers: { ...cors, 'Content-Type': 'application/json' } })
 }
 
-const SISTEMA = `Eres el agente del "Optimizador de espacios" de Seravena, una clínica de lipedema en Medellín.
-Hablas con Laura, la dueña. Español colombiano cercano y claro, sin tecnicismos.
+const SISTEMA = `Eres el agente del "Optimizador de espacios" de Seravena, una cl\u00ednica de lipedema en Medell\u00edn.
+Hablas con Laura, la due\u00f1a. Espa\u00f1ol colombiano cercano y claro, sin tecnicismos.
 
-REGLAS FÍSICAS DE LA CLÍNICA (no las contradigas nunca):
-- Sesión completa por paciente: masaje de drenaje + aparatología + presoterapia.
-- Cabina grande (y el consultorio principal, cuando está libre): masaje + aparatología seguidos, con una cosmetóloga presente todo el tiempo.
-- Cabina pequeña: SOLO presoterapia. No necesita persona (solo montar/desmontar), pero exige limpieza entre pacientes.
-- Ruta A: masaje → aparatología → preso. Ruta B: activación de drenaje (5 min, la hace una cosmetóloga) → preso → aparatología → y SIEMPRE termina con masaje.
-- El consultorio principal muchas veces está ocupado por el médico especialista.
-- No debe haber pacientes esperando más del tope configurado (la espera se disimula con una aromática).
+REGLAS F\u00cdSICAS DE LA CL\u00cdNICA (no las contradigas nunca):
+- Sesi\u00f3n completa por paciente: masaje de drenaje + aparatolog\u00eda + presoterapia.
+- Cabina grande (y el consultorio principal, cuando est\u00e1 libre): masaje + aparatolog\u00eda seguidos, con una cosmet\u00f3loga presente todo el tiempo.
+- Cabina peque\u00f1a: SOLO presoterapia. No necesita persona (solo montar/desmontar), pero exige limpieza entre pacientes.
+- Ruta A: masaje \u2192 aparatolog\u00eda \u2192 preso. Ruta B: activaci\u00f3n de drenaje (5 min, la hace una cosmet\u00f3loga) \u2192 preso \u2192 aparatolog\u00eda \u2192 y SIEMPRE termina con masaje.
+- El consultorio principal muchas veces est\u00e1 ocupado por el m\u00e9dico especialista.
+- No debe haber pacientes esperando m\u00e1s del tope configurado (la espera se disimula con una arom\u00e1tica).
 
-CÓMO TRABAJAS:
-- En el mensaje te llegan "estado" (configuración del panel; horas en minutos desde medianoche) y "datos" (números YA CALCULADOS por el motor determinista: capacidad, llegadas, escenarios con/sin consultorio, y una tabla de movidas probadas). Los "datos" son la verdad — NUNCA inventes números que no estén ahí, ni hagas aritmética nueva de agenda.
-- Si la pregunta se responde con esos datos, respóndela directo y da la recomendación con criterio de negocio.
-- Si necesitaría un cálculo que no está en los datos, dilo honestamente y sugiere qué cambiar en el panel para verlo (puedes hacer ese cambio tú con "cambios").
-- Sé concreta: 2 a 6 frases. Negrilla con **doble asterisco** para las cifras clave. Nada de listas largas.
+C\u00d3MO TRABAJAS:
+- En el mensaje te llegan "estado" (configuraci\u00f3n del panel; horas en minutos desde medianoche) y "datos" (n\u00fameros YA CALCULADOS por el motor determinista: capacidad, llegadas, escenarios con/sin consultorio, y una tabla de movidas probadas). Los "datos" son la verdad \u2014 NUNCA inventes n\u00fameros que no est\u00e9n ah\u00ed, ni hagas aritm\u00e9tica nueva de agenda.
+- Si la pregunta se responde con esos datos, resp\u00f3ndela directo y da la recomendaci\u00f3n con criterio de negocio.
+- Si necesitar\u00eda un c\u00e1lculo que no est\u00e1 en los datos, dilo honestamente y sugiere qu\u00e9 cambiar en el panel para verlo (puedes hacer ese cambio t\u00fa con "cambios").
+- S\u00e9 concreta: 2 a 6 frases. Negrilla con **doble asterisco** para las cifras clave. Nada de listas largas.
 
-FORMATO DE RESPUESTA — SOLO este JSON, sin nada más:
+FORMATO DE RESPUESTA \u2014 SOLO este JSON, sin nada m\u00e1s:
 {"respuesta":"texto para Laura","cambios":null}
-Si conviene ajustar el panel para mostrar lo que ella pide, usa "cambios" con SOLO estos campos (los demás null):
-apertura, cierre, consDesde, consHasta (minutos desde medianoche), pacientes, cosmetologas, masaje, aparatologia, preso, activacion, limpiezaPreso, limpiezaGrande, esperaMax (números), consultorio (true/false).`
+Si conviene ajustar el panel para mostrar lo que ella pide, usa "cambios" con SOLO estos campos (los dem\u00e1s null):
+apertura, cierre, consDesde, consHasta (minutos desde medianoche), pacientes, cosmetologas, masaje, aparatologia, preso, activacion, limpiezaPreso, limpiezaGrande, esperaMax (n\u00fameros), consultorio (true/false).`
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: cors })
@@ -60,7 +60,7 @@ Deno.serve(async (req) => {
     const d = await r.json()
     const texto = d?.content?.[0]?.text || ''
     const m = texto.match(/\{[\s\S]*\}/)
-    if (!m) return json({ respuesta: texto.slice(0, 1200) || 'No supe qué responder.', cambios: null })
+    if (!m) return json({ respuesta: texto.slice(0, 1200) || 'No supe qu\u00e9 responder.', cambios: null })
     const out = JSON.parse(m[0])
     return json({ respuesta: String(out.respuesta || '').slice(0, 2000), cambios: out.cambios ?? null })
   } catch (e) {

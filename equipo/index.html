@@ -824,6 +824,19 @@ body{background:#fff;letter-spacing:0}
 .itin{display:flex;flex-direction:column;gap:7px;margin-top:13px}
 .itrow{display:flex;gap:11px;align-items:flex-start;font-size:.85rem;line-height:1.55;border:1px solid #EDEAE4;border-radius:10px;padding:10px 14px;background:#fff}
 .itrow i{width:13px;height:13px;border-radius:4px;flex-shrink:0;margin-top:4px}
+
+/* ---- modo chat ---- */
+.chatlog{border:1px solid #EDEAE4;border-radius:14px;background:#FAF9F7;padding:16px 16px 18px;
+  display:flex;flex-direction:column;gap:12px;height:calc(100vh - 300px);min-height:400px;overflow-y:auto;scroll-behavior:smooth}
+.cmsg{font-size:.87rem;line-height:1.6;animation:aparece .22s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.cmsg.user{align-self:flex-end;background:#2A2622;color:#fff;padding:10px 15px;border-radius:15px 15px 4px 15px;max-width:78%}
+.cmsg.bot{align-self:flex-start;background:#fff;border:1px solid #EDEAE4;border-radius:15px 15px 15px 4px;padding:13px 16px;max-width:92%}
+.cmsg.bot.agenda{max-width:100%;width:100%}
+.cmsg.bot.warn{background:#FCF5EF;border-color:#F1E1D2;color:#8A5A38}
+.cmsg .hero{margin-top:2px}
+.cmsg .gantt{background:#fff}
+@media(max-width:880px){.chatlog{height:52vh}}
 </style>
 </head>
 <body>
@@ -985,19 +998,13 @@ body{background:#fff;letter-spacing:0}
 
     <div class="optgrid">
       <div class="optmain">
-        <form class="optbar" id="optForm" autocomplete="off">
-          <input id="optIn" placeholder="Escríbele cómo viene el día: “5 pacientes, abrimos a las 7, hoy sí hay consultorio”">
-          <button type="submit">Calcular</button>
-        </form>
-        <div class="optsug" id="optSug"></div>
         <div class="optestado" id="optEstado"></div>
-        <div class="optaviso hidden" id="optAviso"></div>
-        <div class="optresp hidden" id="optResp"></div>
-        <div class="opttabs">
-          <button type="button" class="opttab on" data-v="agenda">Agenda del día</button>
-          <button type="button" class="opttab" data-v="mejorar">Cómo mejorar</button>
-        </div>
-        <div class="optout" id="optOut"></div>
+        <div class="chatlog" id="chatLog"></div>
+        <div class="optsug" id="optSug"></div>
+        <form class="optbar" id="optForm" autocomplete="off">
+          <input id="optIn" placeholder="Escríbeme cómo viene el día o pregúntame lo que sea…">
+          <button type="submit">Enviar</button>
+        </form>
       </div>
       <aside class="panel optside">
         <h4>El día de hoy</h4>
@@ -2294,6 +2301,31 @@ function optResponder(){
   return h;
 }
 
+function optCapacidad(over){
+  const c = Object.assign({}, OPT, {pacientes:0}, over||{});
+  c.apertura = Math.max(300, c.apertura);
+  c.cierre   = Math.min(1330, Math.max(c.apertura+60, c.cierre));
+  if(c.consultorio){ c.consDesde=Math.max(c.consDesde,300); c.consHasta=Math.min(c.consHasta,c.cierre); }
+  const p = optPlanear(c);
+  return {n:p.citas.length, cierre:p.salida, plan:p, c};
+}
+function optPalancas(){
+  const A=OPT.apertura, C=OPT.cierre, mitad=A+Math.round((C-A)/2);
+  const L=[];
+  L.push({t:'Abrir 30 minutos antes', esf:'Gratis', o:{apertura:A-30}});
+  L.push({t:'Abrir 1 hora antes', esf:'Gratis', o:{apertura:A-60}});
+  L.push({t:'Cerrar 1 hora más tarde', esf:'Gratis', o:{cierre:C+60}});
+  L.push({t:'Abrir 1 h antes y cerrar 1 h después', esf:'Gratis', o:{apertura:A-60,cierre:C+60}});
+  if(!OPT.consultorio || OPT.consHasta<C){
+    L.push({t:'Tener el consultorio toda la jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:C}});
+    L.push({t:'Tener el consultorio media jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:mitad}});
+  }
+  L.push({t:'Una cosmetóloga más', esf:'Contratar', o:{cosmetologas:OPT.cosmetologas+1}});
+  if(OPT.limpiezaPreso>6) L.push({t:'Bajar la limpieza de la preso a 5 minutos', esf:'Fundas desechables', o:{limpiezaPreso:5}});
+  L.push({t:'Consultorio + una cosmetóloga más', esf:'Coordinar + contratar', o:{consultorio:true,consDesde:A,consHasta:C,cosmetologas:OPT.cosmetologas+1}});
+  L.push({t:'Todo junto: jornada larga + consultorio + cosmetóloga', esf:'El techo de todo', o:{apertura:A-60,cierre:C+60,consultorio:true,consDesde:A-60,consHasta:C+60,cosmetologas:OPT.cosmetologas+1}});
+  return L;
+}
 function optSobra(p,c){
   const B=c.masaje+c.aparatologia, span=Math.max(1,p.salida-c.apertura), s=[];
   p.salas.forEach(sa=>{ const libre=span-sa.uso; if(libre>=B) s.push(sa.nom+': le sobran '+libre+' minutos, alcanzarían para '+Math.floor(libre/B)+' paciente'+(Math.floor(libre/B)>1?'s':'')+' más'); });
@@ -2465,16 +2497,28 @@ function optChips(){
   $('#optEstado').innerHTML = '<span class="estlab">Calculando con</span>' + ch.map(x=>'<span class="ech">'+x+'</span>').join('');
   optTiempos();
 }
+function chatMsg(quien, html, tipo){
+  const log=$('#chatLog');
+  const d=document.createElement('div');
+  d.className='cmsg '+quien+(tipo?' '+tipo:'');
+  d.innerHTML=html;
+  log.appendChild(d);
+  log.scrollTop=log.scrollHeight;
+  return d;
+}
 function optRender(){
   optChips();
-  document.querySelectorAll('.opttab').forEach(b=>b.classList.toggle('on', b.dataset.v===optVista));
-  $('#optOut').innerHTML = optVista==='mejorar' ? optRecomendar() : optResponder();
+  const log=$('#chatLog');
+  const html = optVista==='mejorar' ? optRecomendar() : optResponder();
+  const ultimo = log.lastElementChild;
+  if(ultimo && ultimo.classList.contains('agenda') && ultimo.dataset.vista===optVista){
+    ultimo.innerHTML=html;
+  } else {
+    chatMsg('bot', html, 'agenda').dataset.vista=optVista;
+  }
+  log.scrollTop=log.scrollHeight;
 }
-function optAviso(txt){
-  const a=$('#optAviso');
-  if(!txt){ a.classList.add('hidden'); return; }
-  a.textContent=txt; a.classList.remove('hidden');
-}
+function optAviso(txt){ if(txt) chatMsg('bot', txt, 'warn'); }
 const OSUG = ['¿Cómo mejoramos?','Abrimos a las 7','Con 2 cosmetólogas','Hoy sí hay consultorio','5 pacientes'];
 function optPintarSug(){
   $('#optSug').innerHTML='';
@@ -2498,13 +2542,14 @@ function optDatosParaAgente(){
   };
 }
 async function optAgente(txt){
+  const burb = chatMsg('bot','<i>Déjame pensarla…</i>');
   for(let intento=1; intento<=3; intento++){
     try{
       const r=await fetch(OPT_AGENTE_URL,{method:'POST',
         headers:{'content-type':'application/json','Authorization':'Bearer '+OPT_ANON,'apikey':OPT_ANON},
         body:JSON.stringify({mensaje:txt,estado:OPT,datos:optDatosParaAgente()})});
       const d=await r.json();
-      if(d.error==='sin_llave'){ optRespuesta(''); optAviso('El agente todavía no está conectado: falta guardar la llave de la IA en Supabase. Mientras tanto entiendo órdenes y preguntas sencillas.'); return; }
+      if(d.error==='sin_llave'){ burb.classList.add('warn'); burb.innerHTML='El agente todavía no está conectado: falta guardar la llave de la IA en Supabase.'; return; }
       if(!d.respuesta || /^No supe/.test(d.respuesta)) throw 0;
       if(d.cambios && typeof d.cambios==='object'){
         ['apertura','cierre','pacientes','cosmetologas','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
@@ -2512,25 +2557,23 @@ async function optAgente(txt){
         if(typeof d.cambios.consultorio==='boolean') OPT.consultorio=d.cambios.consultorio;
         if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
       }
-      const seguro=String(d.respuesta).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      burb.innerHTML=String(d.respuesta).replace(/&/g,'&amp;').replace(/</g,'&lt;')
         .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');
-      optRespuesta(seguro);
-      optPintarControles(); optRender();
+      optPintarControles();
+      if(d.cambios) optRender();
+      $('#chatLog').scrollTop=$('#chatLog').scrollHeight;
       return;
     }catch(e){
-      if(intento<3){ optRespuesta('<i>Déjame pensarla… (se congestionó, reintento '+intento+')</i>'); await new Promise(x=>setTimeout(x,2000)); }
+      if(intento<3){ burb.innerHTML='<i>Déjame pensarla… (se congestionó, reintento '+intento+')</i>'; await new Promise(x=>setTimeout(x,2000)); }
     }
   }
-  optRespuesta('');
-  optAviso('El agente está congestionado en este momento. Espera unos segundos y pregúntame otra vez.');
+  burb.classList.add('warn');
+  burb.innerHTML='El agente está congestionado en este momento. Espera unos segundos y pregúntame otra vez.';
 }
-function optRespuesta(html){
-  const r=$('#optResp');
-  if(!html){ r.classList.add('hidden'); r.innerHTML=''; return; }
-  r.innerHTML=html; r.classList.remove('hidden');
-}
+function optRespuesta(html){ if(html) chatMsg('bot', html); }
 function optEnviar(txt){
   if(!txt.trim()) return;
+  chatMsg('user', txt.replace(/[<>]/g,''));
   const limpio=' '+txt.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')+' ';
   const copia = Object.assign({}, OPT);
   const antes = optPlanear(OPT);
@@ -2560,7 +2603,6 @@ function optEnviar(txt){
   if(!resp && escenario){
     Object.assign(OPT, copia);
     optPintarControles();
-    optRespuesta('<i>Déjame pensarla…</i>');
     optAgente(txt);
     return;
   }
@@ -2577,7 +2619,6 @@ function optEnviar(txt){
     resp='Entendido: '+ok.join(' · ')+'. '+(d>0?'Pasas de '+antes.citas.length+' a <b>'+ahora.citas.length+'</b> pacientes':(d<0?'Bajas de '+antes.citas.length+' a <b>'+ahora.citas.length+'</b> pacientes':'Siguen cabiendo <b>'+ahora.citas.length+'</b> pacientes'))+', última salida '+oHM(ahora.salida)+'.';
   }
   if(!resp && !ok.length && !pideMejora){
-    optRespuesta('<i>Déjame pensarla…</i>');
     optAgente(txt);
     return;
   }
@@ -2585,12 +2626,13 @@ function optEnviar(txt){
   optPintarControles(); optRender();
 }
 function optArrancar(){
-  if($('#optOut').dataset.listo) return;
-  $('#optOut').dataset.listo='1';
-  optPintarSug(); optPintarControles(); optRender();
+  if($('#chatLog').dataset.listo) return;
+  $('#chatLog').dataset.listo='1';
+  optPintarSug(); optPintarControles();
+  chatMsg('bot','Hola 👋 Soy el optimizador de espacios. Cuéntame cómo viene el día (“mañana tengo 5 pacientes y sí hay consultorio”), pregúntame lo que quieras, o mueve el panel de la derecha. Así arranca el día de hoy:');
+  optRender();
 }
-document.querySelectorAll('.opttab').forEach(b=>b.onclick=()=>{ optVista=b.dataset.v; optRender(); });
-$('#btnRecomendar').onclick = ()=>{ optLeerControles(); optVista='mejorar'; optRender(); };
+$('#btnRecomendar').onclick = ()=>{ optLeerControles(); chatMsg('user','¿Cómo mejoramos?'); optVista='mejorar'; optRender(); };
 $('#optForm').addEventListener('submit', e=>{ e.preventDefault(); const v=$('#optIn').value; $('#optIn').value=''; optEnviar(v); });
 document.querySelectorAll('#segCons button').forEach(b=>b.onclick=()=>{
   OPT.consultorio = b.dataset.v==='1'; optPintarControles(); optAviso(''); optRespuesta(''); optRender();
