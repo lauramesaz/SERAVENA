@@ -58,7 +58,8 @@ Deno.serve(async (req) => {
       }),
     })
     const d = await r.json()
-    const texto = d?.content?.[0]?.text || ''
+    if (d?.type === 'error' || d?.error) return json({ error: String(d?.error?.message || 'api') })
+    const texto = (d?.content || []).filter((b: { type?: string }) => b.type === 'text').map((b: { text?: string }) => b.text || '').join('\n').trim()
     const m = texto.match(/\{[\s\S]*\}/)
     if (!m) return json({ respuesta: texto.slice(0, 1200) || 'No supe qu\u00e9 responder.', cambios: null })
     const out = JSON.parse(m[0])
