@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-23",
+  "actualizado": "2026-08-24",
   "articulos": [
+    {
+      "fecha": "2026-08-24",
+      "titulo": "Piernas en viajes largos: cómo cuidarlas en avión o carro",
+      "slug": "cuidar-piernas-viajes-largos",
+      "categoria": "Bienestar",
+      "keyword": "piernas en viajes largos",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/cuidar-piernas-viajes-largos.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — artículo del racimo 'situaciones' (bienestar/prevención), el racimo con menos artículos publicados. Médico aprobado sin correcciones (riesgo de TVP a partir de 4h de viaje, síndrome de la clase turista, factores de riesgo y evidencia Cochrane sobre medias de compresión verificados contra fuentes actuales: CDC, AHA, Sociedad Española de Cardiología, Cochrane, NIH); SEO 98/100 (title acortado a 60 caracteres, añadido enlace interno obligatorio a contacto)."
+    },
     {
       "fecha": "2026-08-23",
       "titulo": "Escleroterapia vs láser para várices: diferencias",

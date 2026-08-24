@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-08-24 | cuidar-piernas-viajes-largos | Piernas en viajes largos: cómo cuidarlas en avión o carro | piernas en viajes largos | publicado | — | — | — |
 | 2026-08-23 | escleroterapia-vs-laser | Escleroterapia vs láser para várices: diferencias | escleroterapia vs láser para várices | publicado | — | — | — |
 | 2026-08-22 | preparar-valoracion-vascular | Primera valoración vascular: cómo prepararte | primera valoración vascular | publicado | — | — | — |
 | 2026-08-21 | alimentacion-salud-vascular | Alimentación y circulación: qué comer para cuidar tus piernas | alimentación y circulación | publicado | — | — | — |
@@ -40,6 +41,7 @@ Formato:
 
 ## Historial de acciones SEO (actualizaciones, mejoras)
 
+- 2026-08-24 · Publicado el artículo "Piernas en viajes largos: cómo cuidarlas en avión o carro" (slug: cuidar-piernas-viajes-largos), generado por la rutina automática del equipo de agentes — artículo del racimo `situaciones` (bienestar/prevención), el racimo con menos artículos publicados (2, junto a `diagnostico` con 3), evitando repetir racimo tres días seguidos (23-ago tratamiento, 22-ago diagnostico, 21-ago situaciones). Verificador médico: APROBADO sin correcciones (verificó mecanismo de bomba muscular/hinchazón, umbral de riesgo de TVP a partir de 4h de viaje según el CDC, "síndrome de la clase turista", factores de riesgo individuales, medidas de prevención y la calificación de evidencia de la revisión Cochrane sobre medias de compresión —confirmó que el hallazgo real es de certeza aún mayor que la redactada, por lo que no exagera— contra fuentes actuales: AHA, Sociedad Española de Cardiología, Cochrane, NIH). Juez SEO: 98/100, APTO (acortó el `<title>` a 60 caracteres, sincronizó OG/Twitter, añadió el enlace interno obligatorio a `../contacto.html` que faltaba en el cuerpo). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y añadidos enlaces bidireccionales en "Sigue leyendo" de sus 3 artículos hermanos del racimo `situaciones` (habitos-mejorar-circulacion, alimentacion-salud-vascular, cuidar-piernas-trabajo-de-pie).
 - 2026-07-14 · Creado el blog y publicado el primer artículo de muestra.
 - 2026-07-14 · Publicado el artículo "Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan" (slug: varices-tratamiento-sin-cirugia). Integrada tarjeta en el listado y entrada en sitemap.
 - 2026-07-30 · Publicado el artículo "Arañas vasculares en las piernas: causas y soluciones" (slug: aranitas-vasculares-piernas), generado por la rutina automática del equipo de agentes. Verificador médico: aprobado sin correcciones. Juez SEO: 99/100. Integrada tarjeta en el listado y entrada en sitemap.
