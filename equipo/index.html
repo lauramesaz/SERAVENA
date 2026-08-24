@@ -1041,6 +1041,12 @@ body{background:#fff;letter-spacing:0}
           <input type="number" id="optCosm" min="1" max="4" value="1">
         </div>
 
+        <div class="ctl">
+          <label>Cabinas grandes</label>
+          <input type="number" id="optCabG" min="1" max="3" value="1">
+          <div class="hint">En cada una se hace masaje + aparatología. La presoterapia sigue siendo una sola.</div>
+        </div>
+
 
         <button type="button" class="btn btn-full" id="btnRecomendar" style="margin-top:4px">¿Cómo mejoramos?</button>
 
@@ -2096,7 +2102,7 @@ if(localStorage.getItem(CLAVE_OK)){
      - El ritmo de entrada lo marca la cabina más lenta, no la más rápida.
 ================================================================= */
 const OPT = {
-  apertura:360, cierre:1320, pacientes:0, cosmetologas:1,
+  apertura:360, cierre:1320, pacientes:0, cosmetologas:1, cabinasGrandes:1,
   consultorio:false, consDesde:480, consHasta:780,
   masaje:40, aparatologia:50, preso:40, activacion:5,
   limpiezaPreso:15, limpiezaGrande:0, esperaMax:15
@@ -2127,7 +2133,9 @@ const oM2T = m => String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padS
 /* ---------- el motor ---------- */
 function optPlanear(c){
   const B = c.masaje + c.aparatologia, ACT = c.activacion||0;
-  const salas = [{id:'g',nom:'Cabina grande',desde:c.apertura,hasta:c.cierre,busy:[],uso:0}];
+  const nG = Math.max(1, c.cabinasGrandes||1);
+  const salas = [];
+  for(let i=1;i<=nG;i++) salas.push({id:'g'+i, nom: nG>1 ? 'Cabina grande '+i : 'Cabina grande', desde:c.apertura, hasta:c.cierre, busy:[], uso:0});
   if(c.consultorio) salas.push({id:'c',nom:'Consultorio',desde:Math.max(c.apertura,c.consDesde),hasta:Math.min(c.consHasta,c.cierre),busy:[],uso:0});
   const cosm = Array.from({length:c.cosmetologas},()=>({busy:[]}));
   const peque = {busy:[]};
@@ -2289,12 +2297,9 @@ function optResponder(){
       : 'aparatología y masaje en '+k.salaNom.toLowerCase()+' hasta las '+oHc(k.fin);
     return '<div class="itrow"><i style="background:'+col.br+'"></i><div><b>Paciente '+k.n+'</b> llega a las <b>'+oHc(k.actIni)+'</b>: '+s1+esp+', luego '+s2+'. Sale a las <b>'+oHc(k.end)+'</b>.</div></div>';
   }).join('')+'</div>';
-  const cuello = [
-    {q:plan.salas[0].pc, t:'la cabina grande'},
-    {q:plan.salas[1]?plan.salas[1].pc:0, t:'el consultorio'},
-    {q:plan.presoPc, t:'la cabina pequeña'},
-    {q:plan.cosmPc, t:'las cosmetólogas'}
-  ].sort((a,b)=>b.q-a.q)[0];
+  const cuello = plan.salas.map(s=>({q:s.pc, t:(s.id==='c'?'el consultorio':'la '+s.nom.toLowerCase())}))
+    .concat([{q:plan.presoPc, t:'la cabina pequeña (presoterapia)'},{q:plan.cosmPc, t:'las cosmetólogas'}])
+    .sort((a,b)=>b.q-a.q)[0];
   h += '<div class="optnota">El espacio más apretado del día es <b>'+cuello.t+'</b>: está ocupado el '+cuello.q+'% del tiempo. Si quieres atender más gente, por ahí es la cosa — pregúntame «¿cómo mejoramos?».</div>';
   if(plan.faltaron>0) h += '<div class="optnota ojo">Pediste '+c.pacientes+' pero solo caben <b>'+n+'</b>. Para las '+plan.faltaron+' que faltan necesitas más horario, el consultorio o más manos — mira «Cómo mejorar».</div>';
   if(c.limpiezaGrande===0) h += '<div class="optnota ojo">Ojo: estoy contando <b>0 minutos</b> de limpieza en la cabina grande. Cuando sepas el número real, súbelo en “Tiempos y reglas”.</div>';
@@ -2321,6 +2326,10 @@ function optPalancas(){
     L.push({t:'Tener el consultorio media jornada', esf:'Coordinar con el médico', esp:true, o:{consultorio:true,consDesde:A,consHasta:mitad}});
   }
   L.push({t:'Una cosmetóloga más', esf:'Contratar', o:{cosmetologas:OPT.cosmetologas+1}});
+  if(OPT.cabinasGrandes<3){
+    L.push({t:'Montar una segunda cabina grande', esf:'Adecuar otro espacio', o:{cabinasGrandes:OPT.cabinasGrandes+1}});
+    L.push({t:'Segunda cabina grande + otra cosmetóloga', esf:'Adecuar + contratar', o:{cabinasGrandes:OPT.cabinasGrandes+1, cosmetologas:OPT.cosmetologas+1}});
+  }
   if(OPT.limpiezaPreso>6) L.push({t:'Bajar la limpieza de la preso a 5 minutos', esf:'Fundas desechables', o:{limpiezaPreso:5}});
   L.push({t:'Consultorio + una cosmetóloga más', esf:'Coordinar + contratar', o:{consultorio:true,consDesde:A,consHasta:C,cosmetologas:OPT.cosmetologas+1}});
   L.push({t:'Todo junto: jornada larga + consultorio + cosmetóloga', esf:'El techo de todo', o:{apertura:A-60,cierre:C+60,consultorio:true,consDesde:A-60,consHasta:C+60,cosmetologas:OPT.cosmetologas+1}});
@@ -2355,19 +2364,16 @@ function optRecomendar(){
   const con = optCapacidad({consultorio:true, consDesde:A, consHasta:C});
   const base = OPT.consultorio ? con : sin;
   if(!base.n) return '<b>Con las condiciones de ahora no cabe ni una paciente</b>, así que no hay nada que optimizar todavía. Amplía el horario y vuelve a preguntarme.';
-  const cuello = [
-    {q:base.plan.salas[0].pc, t:'la cabina grande'},
-    {q:base.plan.salas[1]?base.plan.salas[1].pc:0, t:'el consultorio'},
-    {q:base.plan.presoPc, t:'la cabina pequeña'},
-    {q:base.plan.cosmPc, t:'las cosmetólogas'}
-  ].sort((a,b)=>b.q-a.q)[0];
+  const cuello = base.plan.salas.map(s=>({q:s.pc, t:(s.id==='c'?'el consultorio':'la '+s.nom.toLowerCase())}))
+    .concat([{q:base.plan.presoPc, t:'la cabina pequeña (presoterapia)'},{q:base.plan.cosmPc, t:'las cosmetólogas'}])
+    .sort((a,b)=>b.q-a.q)[0];
 
   let h = '<b>Hoy tu techo son '+base.n+' paciente'+(base.n>1?'s':'')+'</b> por bloque, cerrando a las '+oHc(base.plan.salida)+
           '. El espacio que se llena primero es <b>'+cuello.t+'</b>, ocupada al '+cuello.q+'%.';
 
   h += '<div class="rechead">Los dos escenarios de espacio, lado a lado</div>';
-  h += optEscenarioEspacio('Sin el consultorio principal','Cabina grande + cabina pequeña', sin, con.n<=sin.n);
-  h += optEscenarioEspacio('Con el consultorio principal','Cabina grande + consultorio + cabina pequeña', con, con.n>sin.n);
+  h += optEscenarioEspacio('Sin el consultorio principal', sin.plan.salas.map(s=>s.nom).join(' + ')+' + cabina pequeña', sin, con.n<=sin.n);
+  h += optEscenarioEspacio('Con el consultorio principal', con.plan.salas.map(s=>s.nom).join(' + ')+' + cabina pequeña', con, con.n>sin.n);
   const dif = con.n - sin.n;
   h += '<div class="optnota">'+ (dif>0
       ? 'Tener el consultorio te da <b>'+dif+' paciente'+(dif>1?'s':'')+' más</b> por bloque. Vale la pena pelearlo con el especialista, aunque sea unos días de la semana.'
@@ -2429,6 +2435,10 @@ function optEntender(txt){
   if(mp && oVal(mp[1])!=null){ OPT.pacientes=oVal(mp[1]); ok.push(OPT.pacientes+' paciente'+(OPT.pacientes>1?'s':'')); }
   if(/cuant[ao]s (?:pacientes |citas |personas |clientas )?(?:caben|puedo|podemos|alcanzan|se pueden|entran)|maximo|las que quepan|lo que quepa|lo maximo|llenar/.test(t)){
     OPT.pacientes=0; ok.push('las que quepan'); }
+  const cg = t.match(new RegExp(OD+'\\s*cabinas?\\s*grandes?'));
+  if(cg && oVal(cg[1])!=null){ OPT.cabinasGrandes=Math.max(1,Math.min(3,oVal(cg[1]))); ok.push(OPT.cabinasGrandes+' cabina'+(OPT.cabinasGrandes>1?'s':'')+' grande'+(OPT.cabinasGrandes>1?'s':'')); }
+  else if(/otra cabina grande|segunda cabina grande|una cabina grande mas|cabina grande adicional/.test(t)){ OPT.cabinasGrandes=Math.min(3,Math.max(2,OPT.cabinasGrandes)); ok.push(OPT.cabinasGrandes+' cabinas grandes'); }
+  else if(/una sola cabina grande|solo una cabina grande/.test(t)){ OPT.cabinasGrandes=1; ok.push('1 cabina grande'); }
   const mc = t.match(new RegExp(OD+'\\s*cosmetolog'));
   if(mc && oVal(mc[1])!=null){ OPT.cosmetologas=Math.max(1,Math.min(4,oVal(mc[1]))); ok.push(OPT.cosmetologas+' cosmetóloga'+(OPT.cosmetologas>1?'s':'')); }
   if(/(?:medico|doctora?|especialista)[^.]{0,28}(?:no viene|no esta|no vino|no atiende|se fue|sale temprano)/.test(t)){
@@ -2463,7 +2473,7 @@ function optEntender(txt){
 /* ---------- pantalla ---------- */
 function optPintarControles(){
   $('#optApertura').value=oM2T(OPT.apertura); $('#optCierre').value=oM2T(OPT.cierre);
-  $('#optPacientes').value=OPT.pacientes; $('#optCosm').value=OPT.cosmetologas;
+  $('#optPacientes').value=OPT.pacientes; $('#optCosm').value=OPT.cosmetologas; $('#optCabG').value=OPT.cabinasGrandes;
   $('#optMasaje').value=OPT.masaje; $('#optApar').value=OPT.aparatologia; $('#optPreso').value=OPT.preso;
   $('#optLimpP').value=OPT.limpiezaPreso; $('#optLimpG').value=OPT.limpiezaGrande; $('#optEspera').value=OPT.esperaMax; $('#optAct').value=OPT.activacion;
   $('#optConsDesde').value=oM2T(OPT.consDesde); $('#optConsHasta').value=oM2T(OPT.consHasta);
@@ -2475,6 +2485,7 @@ function optLeerControles(){
   if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
   OPT.pacientes=Math.max(0,+$('#optPacientes').value||0);
   OPT.cosmetologas=Math.max(1,+$('#optCosm').value||1);
+  OPT.cabinasGrandes=Math.max(1,Math.min(3,+$('#optCabG').value||1));
   OPT.masaje=+$('#optMasaje').value||40; OPT.aparatologia=+$('#optApar').value||50; OPT.preso=+$('#optPreso').value||40;
   OPT.limpiezaPreso=Math.max(0,+$('#optLimpP').value||0); OPT.limpiezaGrande=Math.max(0,+$('#optLimpG').value||0); OPT.activacion=Math.max(0,+$('#optAct').value||0);
   OPT.esperaMax=Math.max(0,+$('#optEspera').value||0);
@@ -2492,6 +2503,7 @@ function optChips(){
   ch.push(c.pacientes>0 ? c.pacientes+' paciente'+(c.pacientes>1?'s':'') : 'las que quepan');
   ch.push(oHc(c.apertura)+' – '+oHc(c.cierre));
   ch.push(c.cosmetologas+' cosmetóloga'+(c.cosmetologas>1?'s':''));
+  if(c.cabinasGrandes>1) ch.push(c.cabinasGrandes+' cabinas grandes');
   ch.push(c.consultorio ? 'con consultorio' : 'sin consultorio');
   if(c.limpiezaGrande>0) ch.push('limpieza grande '+c.limpiezaGrande+'\u2032');
   $('#optEstado').innerHTML = '<span class="estlab">Calculando con</span>' + ch.map(x=>'<span class="ech">'+x+'</span>').join('');
@@ -2519,7 +2531,7 @@ function optRender(){
   log.scrollTop=log.scrollHeight;
 }
 function optAviso(txt){ if(txt) chatMsg('bot', txt, 'warn'); }
-const OSUG = ['¿Cómo mejoramos?','Abrimos a las 7','Con 2 cosmetólogas','Hoy sí hay consultorio','5 pacientes'];
+const OSUG = ['¿Cómo mejoramos?','Con 2 cabinas grandes','Con 2 cosmetólogas','Hoy sí hay consultorio','Abrimos a las 7'];
 function optPintarSug(){
   $('#optSug').innerHTML='';
   OSUG.forEach(s=>{ const b=document.createElement('button'); b.className='sug'; b.type='button'; b.textContent=s;
@@ -2552,7 +2564,7 @@ async function optAgente(txt){
       if(d.error==='sin_llave'){ burb.classList.add('warn'); burb.innerHTML='El agente todavía no está conectado: falta guardar la llave de la IA en Supabase.'; return; }
       if(!d.respuesta || /^No supe/.test(d.respuesta)) throw 0;
       if(d.cambios && typeof d.cambios==='object'){
-        ['apertura','cierre','pacientes','cosmetologas','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
+        ['apertura','cierre','pacientes','cosmetologas','cabinasGrandes','consDesde','consHasta','masaje','aparatologia','preso','activacion','limpiezaPreso','limpiezaGrande','esperaMax']
           .forEach(k=>{ const v=d.cambios[k]; if(typeof v==='number' && isFinite(v) && v>=0) OPT[k]=Math.round(v); });
         if(typeof d.cambios.consultorio==='boolean') OPT.consultorio=d.cambios.consultorio;
         if(OPT.cierre<=OPT.apertura) OPT.cierre=OPT.apertura+300;
@@ -2637,7 +2649,7 @@ $('#optForm').addEventListener('submit', e=>{ e.preventDefault(); const v=$('#op
 document.querySelectorAll('#segCons button').forEach(b=>b.onclick=()=>{
   OPT.consultorio = b.dataset.v==='1'; optPintarControles(); optAviso(''); optRespuesta(''); optRender();
 });
-['optApertura','optCierre','optPacientes','optCosm','optMasaje','optApar','optPreso','optLimpP','optLimpG','optEspera','optAct','optConsDesde','optConsHasta']
+['optApertura','optCierre','optPacientes','optCosm','optCabG','optMasaje','optApar','optPreso','optLimpP','optLimpG','optEspera','optAct','optConsDesde','optConsHasta']
   .forEach(id=>$('#'+id).addEventListener('change', ()=>{ optLeerControles(); optAviso(''); optRespuesta(''); optRender(); }));
 $('#btnOptTablero').onclick = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
 $('#btnOptCalendario').onclick = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
