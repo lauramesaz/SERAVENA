@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-08-20",
+  "actualizado": "2026-08-24",
   "propuestas": [
+    {
+      "id": "2026-W35-1",
+      "fecha": "2026-08-24",
+      "titulo": "Poner 'Medellín' en el título, el H1 y la meta description de la página de insuficiencia venosa",
+      "categoria": "Técnico",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "En `insuficiencia-venosa.html` — la página que debería competir por 'insuficiencia venosa Medellín', una de las 5 búsquedas objetivo de la misión — reescribir el `<title>` (hoy: 'Tratamiento de la Insuficiencia Venosa sin Cirugía | Seravena'), la meta description (hoy no menciona Medellín en ningún punto) y el `<h1>` (hoy: 'Piernas pesadas, hinchadas y cansadas no son \"algo normal\"', sin la palabra 'insuficiencia venosa' ni 'Medellín') para que los tres incluyan la keyword exacta 'insuficiencia venosa' + 'Medellín', sin tocar el resto del diseño ni el contenido médico.",
+      "porque": "Comprobado hoy en el propio código fuente: en toda `insuficiencia-venosa.html` la palabra 'Medellín' aparece solo 3 veces, y las 3 son técnicas (JSON-LD y el pie con la dirección) — ninguna en el título, el H1 o la meta description, que es justo donde Google decide si la página compite por una búsqueda con nombre de ciudad. Compárese con `vascular.html` y `lipedema.html`, que sí mencionan Medellín 10 veces cada una y sí lo llevan en el título. Es la página construida para ganar exactamente la búsqueda 'insuficiencia venosa Medellín' de la lista del propio manual, y hoy no la reclama.",
+      "como_se_mide": "Impresiones y posición de 'insuficiencia venosa Medellín' en Search Console para esa URL. Con la keyword ya en título/H1/meta, la primera señal debería verse en 2-4 semanas, en cuanto Google vuelva a rastrear la página."
+    },
+    {
+      "id": "2026-W35-2",
+      "fecha": "2026-08-24",
+      "titulo": "Añadir una sección 'Flebólogo en Medellín' a la página de várices",
+      "categoria": "Contenido",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "En `vascular.html`, añadir un bloque nuevo (H2 + 2-3 párrafos) que explique qué es un flebólogo, cuándo hay que consultarlo y que en Seravena se atiende con esa especialidad — usando la palabra 'flebólogo' de forma natural en el H2, en el primer párrafo del bloque y en un enlace interno hacia `contacto.html`. No hace falta crear una página nueva: es una sección dentro de la página de servicio que ya existe.",
+      "porque": "Es una de las 5 búsquedas objetivo del manual ('flebólogo Medellín'), y hoy la palabra 'flebólogo' aparece una sola vez en todo el sitio (un párrafo suelto de `insuficiencia-venosa.html`), nunca en un título, H1 o meta description de ninguna página. En los resultados de Google de hoy para esa búsqueda salen sobre todo directorios (Doctoralia, Top Doctors) y clínicas competidoras (Flebosalud, entre otras) que sí usan 'flebólogo' como su categoría principal; Seravena no compite por ese término en ningún sitio del site.",
+      "como_se_mide": "Que la página aparezca en los resultados de búsqueda de Search Console para la consulta 'flebólogo Medellín' (hoy no aparece para esa consulta) y su posición inicial, en 4-6 semanas tras publicarse."
+    },
     {
       "id": "2026-W34-1",
       "fecha": "2026-08-20",
