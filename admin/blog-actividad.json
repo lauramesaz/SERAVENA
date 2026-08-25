@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-24",
+  "actualizado": "2026-08-25",
   "articulos": [
+    {
+      "fecha": "2026-08-25",
+      "titulo": "Eco doppler paso a paso: qué esperar de la prueba",
+      "slug": "eco-doppler-paso-a-paso",
+      "categoria": "Diagnóstico",
+      "keyword": "eco doppler paso a paso",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/eco-doppler-paso-a-paso.html",
+      "nota": "Generado por la rutina automática del equipo de agentes — artículo del racimo 'diagnostico' (el racimo con menos artículos publicados, junto a 'situaciones'). Médico: APROBADO CON CORRECCIONES ya aplicadas (contenido sobre preparación, desarrollo indoloro de la prueba y entrega de resultados alineado con el consenso clínico general); SEO: 96/100, APTO (correcciones ya aplicadas: keyword en title/h1/primer párrafo/h2/meta description, metadatos OG/Twitter y JSON-LD sincronizados, enlazado interno completo). Integrada tarjeta en el listado, entrada en sitemap y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (eco-doppler-venoso-que-es, preparar-valoracion-vascular, trombosis-venosa-senales)."
+    },
     {
       "fecha": "2026-08-24",
       "titulo": "Piernas en viajes largos: cómo cuidarlas en avión o carro",
