@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-25",
+  "actualizado": "2026-08-26",
   "articulos": [
+    {
+      "fecha": "2026-08-26",
+      "titulo": "Tratamiento de várices sin cirugía: guía completa",
+      "slug": "guia-tratamientos-varices",
+      "categoria": "Salud vascular",
+      "keyword": "tratamiento de várices",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/guia-tratamientos-varices.html",
+      "nota": "Primera guía madre publicada, cierra el racimo 'tratamiento' enlazando a sus 4 artículos hijo (escleroterapia-que-es, varices-tratamiento-sin-cirugia, medias-de-compresion-guia, escleroterapia-vs-laser). Médico: APROBADO CON CORRECCIONES (se reforzó el post-note con la señal de alarma de tromboembolismo pulmonar); SEO: 96/100, APTO (keyword en title/h1/primer párrafo/h2/meta description, metadatos y JSON-LD sincronizados, enlazado interno completo). Integrada tarjeta en el listado, entrada en sitemap y enlaces bidireccionales en 'Sigue leyendo' de sus 4 hijos."
+    },
     {
       "fecha": "2026-08-25",
       "titulo": "Eco doppler paso a paso: qué esperar de la prueba",

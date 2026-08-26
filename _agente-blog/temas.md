@@ -37,7 +37,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 
 - [pendiente] Guía completa del lipedema: qué es, etapas, diagnóstico y tratamiento — lipedema — guia-completa-lipedema — racimo: lipedema
 - [pendiente] Mala circulación en las piernas: guía completa de síntomas — mala circulación piernas — guia-sintomas-mala-circulacion — racimo: sintomas
-- [pendiente] Tratamientos de várices sin cirugía: guía completa — tratamiento de várices — guia-tratamientos-varices — racimo: tratamiento
+- [publicado] Tratamientos de várices sin cirugía: guía completa — tratamiento de várices — guia-tratamientos-varices — racimo: tratamiento
 
 
 ## Salud vascular / venas / várices  ·  racimos: `sintomas`, `tratamiento`, `diagnostico`
