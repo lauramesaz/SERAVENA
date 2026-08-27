@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-26",
+  "actualizado": "2026-08-27",
   "articulos": [
+    {
+      "fecha": "2026-08-27",
+      "titulo": "Guía completa del lipedema: etapas y tratamiento",
+      "slug": "guia-completa-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/guia-completa-lipedema.html",
+      "nota": "Guía madre del racimo 'lipedema', el racimo con más artículos publicados (9 hijos), que hasta ahora no tenía guía madre. Enlaza a los 9 artículos del racimo (que-es-el-lipedema, lipedema-o-retencion-liquidos, etapas-del-lipedema, diagnostico-lipedema, dieta-y-lipedema, ejercicio-lipedema, dolor-lipedema-manejo, lipedema-vs-linfedema, lipedema-y-menopausia). Médico: APROBADO sin correcciones; SEO: 98/100, APTO. Integrada tarjeta en el listado, entrada en sitemap y enlaces bidireccionales en 'Sigue leyendo' de sus 9 hijos."
+    },
     {
       "fecha": "2026-08-26",
       "titulo": "Tratamiento de várices sin cirugía: guía completa",
