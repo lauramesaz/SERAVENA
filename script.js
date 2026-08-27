@@ -471,9 +471,16 @@ if (!reduceMotion) updateParallax(window.scrollY);
    - interes_alto: la persona llegó al bloque final (alta intención).
    ============================================================ */
 (function () {
+  // Etiqueta de la acción de conversión en Google Ads (cuenta AW-18314027421).
+  // Vacía = no se envía conversión a Ads (los eventos GA4 sí se envían siempre).
+  var ADS_CONVERSION = 'JdAhCKWLhOkcEJ3D55xE';
   function track(name, params) {
     if (typeof window.gtag !== 'function') return;
     try { window.gtag('event', name, params || {}); } catch (e) {}
+  }
+  function trackAdsConversion() {
+    if (!ADS_CONVERSION || typeof window.gtag !== 'function') return;
+    try { window.gtag('event', 'conversion', { send_to: 'AW-18314027421/' + ADS_CONVERSION }); } catch (e) {}
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
@@ -483,9 +490,11 @@ if (!reduceMotion) updateParallax(window.scrollY);
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
       track('clic_whatsapp', { boton: label, pagina: location.pathname });
       track('generate_lead', { metodo: 'whatsapp', pagina: location.pathname });
+      trackAdsConversion();
     } else if (href.indexOf('tel:') === 0) {
       track('clic_llamar', { pagina: location.pathname });
       track('generate_lead', { metodo: 'llamada', pagina: location.pathname });
+      trackAdsConversion();
     } else if (href.indexOf('mailto:') === 0) {
       track('clic_correo', { pagina: location.pathname });
     }
