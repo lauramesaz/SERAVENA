@@ -78,8 +78,16 @@ Trabaja siempre dentro de `web/` (donde está el repositorio git).
    que NO se repita con algo ya publicado (revisa `_agente-blog/registro.md`).
 2. **Crea el archivo** `blog/<slug>.html` copiando la estructura de
    `_agente-blog/plantilla-post.html` y rellenando TODOS los `{{...}}`.
-   - Elige una imagen de portada existente en `../assets/media/` (ej. `band-veins.webp`,
-     `care-hands.webp`, `hero-poster.webp`). No inventes rutas de imágenes que no existan.
+   - **Imagen de portada — regla nueva, sustituye a la anterior:** abre
+     `../_agente-blog/imagenes.json`, que lleva el registro de qué imagen usa cada artículo.
+     **Elige una que NO esté ya usada por otro artículo de tu mismo racimo.** Si todas las de
+     tu racimo están cogidas, usa una del fondo común antes que repetir una del racimo.
+     Añade tu artículo al registro con la imagen y su `alt`.
+     Si no queda ninguna libre razonable, **dilo en el aviso del día**: significa que hay que
+     ampliar el banco de imágenes, y es mejor avisar que repetir en silencio.
+     Nunca inventes rutas que no existan en `../assets/media/`.
+     (Durante meses el manual decía "elige una imagen existente" sin más, y el resultado fue
+     que una misma foto acabó en 9 artículos. Por eso ahora hay registro.)
 3. **Añade la tarjeta** al listado: en `blog/index.html`, justo **debajo** del comentario
    `<!-- INICIO_POSTS ... -->`, inserta el bloque `<a class="blog-card reveal" ...>` del nuevo post
    (para que el más nuevo quede primero). Usa el mismo formato que las tarjetas existentes.
