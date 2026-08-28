@@ -75,7 +75,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 - [publicado] 7 hábitos diarios para mejorar la circulación de tus piernas — mejorar circulación piernas — habitos-mejorar-circulacion
 - [publicado] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular
 - [publicado] Viajes largos: cómo cuidar tus piernas en avión o carro — piernas en viajes largos — cuidar-piernas-viajes-largos
-- [pendiente] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
+- [publicado] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
 - [pendiente] Ejercicios sencillos para activar la circulación en casa — ejercicios circulación piernas — ejercicios-circulacion-casa
 
 ## Para profesionales de la salud
@@ -106,7 +106,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Qué esperar de un eco doppler venoso, paso a paso — eco doppler paso a paso — eco-doppler-paso-a-paso
 
 **Estacional / momento de vida**
-- [pendiente] Cuidado de las piernas en época de calor — piernas calor — cuidado-piernas-calor
+- [descartado] Cuidado de las piernas en época de calor — piernas calor — cuidado-piernas-calor (anticanibalización: solapa casi por completo con "piernas-hinchadas-calor", publicado el 28-ago-2026 con la keyword "piernas hinchadas por calor")
 - [pendiente] Várices y embarazo: antes, durante y después — varices embarazo — varices-embarazo-guia
 - [pendiente] Lipedema en la menopausia: qué cambia — lipedema menopausia — lipedema-menopausia-cambios
 

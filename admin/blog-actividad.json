@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-27",
+  "actualizado": "2026-08-28",
   "articulos": [
+    {
+      "fecha": "2026-08-28",
+      "titulo": "Piernas hinchadas por calor: por qué pasa y cómo aliviarlas",
+      "slug": "piernas-hinchadas-calor",
+      "categoria": "Bienestar",
+      "keyword": "piernas hinchadas por calor",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piernas-hinchadas-calor.html",
+      "nota": "Artículo del racimo 'situaciones' (el racimo con menos artículos publicados). Médico: APROBADO sin correcciones (mecanismo de vasodilatación por calor y diferenciación con señales de alarma de trombosis/embolia verificado contra Cleveland Clinic y Johns Hopkins Medicine). SEO: 96/100, APTO. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (habitos-mejorar-circulacion, alimentacion-salud-vascular, cuidar-piernas-viajes-largos)."
+    },
     {
       "fecha": "2026-08-27",
       "titulo": "Guía completa del lipedema: etapas y tratamiento",
