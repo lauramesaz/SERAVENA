@@ -80,7 +80,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 
 ## Para profesionales de la salud
 
-- [pendiente] Cuándo derivar a un paciente al especialista vascular — derivación vascular — cuando-derivar-especialista-vascular
+- [publicado] Cuándo derivar a un paciente al especialista vascular — derivación vascular — cuando-derivar-especialista-vascular
 - [pendiente] Señales de lipedema que el médico de primer contacto debe reconocer — sospecha de lipedema — senales-lipedema-primer-contacto
 
 ---

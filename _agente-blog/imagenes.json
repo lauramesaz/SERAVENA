@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-27",
+  "actualizado": "2026-08-29",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -130,6 +130,10 @@
     "piernas-hinchadas-calor": {
       "imagen": "7479558.webp",
       "alt": "Piel de la pierna en primer plano bajo luz cálida de verano"
+    },
+    "cuando-derivar-especialista-vascular": {
+      "imagen": "care-hands.webp",
+      "alt": "Manos de un profesional de la salud sobre las de un paciente, en gesto de acompañamiento"
     }
   }
 }

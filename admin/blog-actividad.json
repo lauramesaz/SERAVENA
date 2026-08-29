@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-28",
+  "actualizado": "2026-08-29",
   "articulos": [
+    {
+      "fecha": "2026-08-29",
+      "titulo": "Derivación vascular: cuándo se recomienda",
+      "slug": "cuando-derivar-especialista-vascular",
+      "categoria": "Diagnóstico",
+      "keyword": "derivación vascular",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/cuando-derivar-especialista-vascular.html",
+      "nota": "Artículo del racimo 'diagnostico', empatado con 'situaciones' como racimo con menos publicados (4); elegido por no repetir el racimo de ayer. Tema de la sección 'para profesionales' de temas.md, con tono dual paciente/profesional y criterios presentados como información general, no protocolo cerrado. Médico: APROBADO CON CORRECCIONES (se retiró una condición de 'fallo de medidas conservadoras' no respaldada por NICE CG168/QS67 en el criterio de várices sintomáticas, y se reubicó donde sí corresponde; verificado también contra StatPearls/NCBI y Mayo Clinic/Cleveland Clinic). SEO: 99/100, APTO (title/meta ajustados, metadatos sincronizados, keywords secundarias corregidas). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (eco-doppler-venoso-que-es, preparar-valoracion-vascular, trombosis-venosa-senales)."
+    },
     {
       "fecha": "2026-08-28",
       "titulo": "Piernas hinchadas por calor: por qué pasa y cómo aliviarlas",
