@@ -36,7 +36,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 ## Guías madre (escribir cuando su racimo tenga 4+ artículos hijos)
 
 - [publicado] Guía completa del lipedema: qué es, etapas, diagnóstico y tratamiento — lipedema — guia-completa-lipedema — racimo: lipedema
-- [pendiente] Mala circulación en las piernas: guía completa de síntomas — mala circulación piernas — guia-sintomas-mala-circulacion — racimo: sintomas
+- [publicado] Mala circulación en las piernas: guía completa de síntomas — mala circulación piernas — guia-sintomas-mala-circulacion — racimo: sintomas
 - [publicado] Tratamientos de várices sin cirugía: guía completa — tratamiento de várices — guia-tratamientos-varices — racimo: tratamiento
 
 

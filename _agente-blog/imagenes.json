@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-29",
+  "actualizado": "2026-08-30",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -134,6 +134,10 @@
     "cuando-derivar-especialista-vascular": {
       "imagen": "care-hands.webp",
       "alt": "Manos de un profesional de la salud sobre las de un paciente, en gesto de acompañamiento"
+    },
+    "guia-sintomas-mala-circulacion": {
+      "imagen": "skin-detail.webp",
+      "alt": "Primer plano de la piel de dos piernas juntas, con distinta tonalidad"
     }
   }
 }

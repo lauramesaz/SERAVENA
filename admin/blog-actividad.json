@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-29",
+  "actualizado": "2026-08-30",
   "articulos": [
+    {
+      "fecha": "2026-08-30",
+      "titulo": "Mala circulación en las piernas: guía completa de síntomas",
+      "slug": "guia-sintomas-mala-circulacion",
+      "categoria": "Salud vascular",
+      "keyword": "mala circulación piernas",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/guia-sintomas-mala-circulacion.html",
+      "nota": "Guía madre del racimo 'sintomas', el racimo con más artículos hijo del blog vascular (7), que hasta ahora no tenía guía madre. Enlaza a los 7 hijos (piernas-hinchadas-cuando-preocuparse, piernas-cansadas-causas, calambres-piernas-noche, insuficiencia-venosa-sintomas, picor-piernas-circulacion, manchas-tobillos-causas, aranitas-vasculares-piernas), a ../vascular.html y a ../contacto.html. Médico: APROBADO sin correcciones (verificado contra Cleveland Clinic, Mayo Clinic, StatPearls/NCBI y womenshealth.gov; señales de alarma de trombosis venosa profunda y tromboembolismo pulmonar incluidas explícitamente en el post-note). SEO: 98/100, APTO (keyword en title/h1/primer párrafo/h2/meta; ajustó keywords secundarias de 6 a 5, dividió 3 frases largas). 1976 palabras. Integrada tarjeta, sitemap, temas.md y enlaces bidireccionales en los 7 hijos."
+    },
     {
       "fecha": "2026-08-29",
       "titulo": "Derivación vascular: cuándo se recomienda",
