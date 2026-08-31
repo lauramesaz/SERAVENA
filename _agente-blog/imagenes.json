@@ -3,6 +3,10 @@
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "ejercicios-circulacion-casa": {
+      "imagen": "3778973.webp",
+      "alt": "Pies descalzos sobre una sábana, en un ambiente cálido y hogareño, propicio para ejercicios de circulación en casa"
+    },
     "varices-tratamiento-sin-cirugia": {
       "imagen": "6643071.webp",
       "alt": "Venas finas y rojizas visibles bajo la piel de la pierna"

@@ -76,7 +76,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 - [publicado] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular
 - [publicado] Viajes largos: cómo cuidar tus piernas en avión o carro — piernas en viajes largos — cuidar-piernas-viajes-largos
 - [publicado] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
-- [pendiente] Ejercicios sencillos para activar la circulación en casa — ejercicios circulación piernas — ejercicios-circulacion-casa
+- [publicado] Ejercicios sencillos para activar la circulación en casa — ejercicios circulación piernas — ejercicios-circulacion-casa
 
 ## Para profesionales de la salud
 

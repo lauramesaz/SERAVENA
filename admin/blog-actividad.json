@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-30",
+  "actualizado": "2026-08-31",
   "articulos": [
+    {
+      "fecha": "2026-08-31",
+      "titulo": "Ejercicios sencillos para activar la circulación de las piernas en casa",
+      "slug": "ejercicios-circulacion-casa",
+      "categoria": "Bienestar",
+      "keyword": "ejercicios circulación piernas",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/ejercicios-circulacion-casa.html",
+      "nota": "Artículo del racimo 'situaciones', recomendado como prioridad #1 en la revisión semanal del 30-ago por ser el racimo más flojo (4 hijos, sin guía madre). Médico: APROBADO sin correcciones (mecanismo de bomba muscular de pantorrilla, tiempos de elevación de piernas, efecto de Valsalva y señales de alarma de trombosis venosa verificados contra Cleveland Clinic, una revisión PMC/NCBI, Mayo Clinic y Medanta). SEO: 96/100, APTO (añadió lista resumen de los 6 ejercicios, enriqueció el alt de portada). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (habitos-mejorar-circulacion, cuidar-piernas-viajes-largos, piernas-hinchadas-calor)."
+    },
     {
       "fecha": "2026-08-30",
       "titulo": "Mala circulación en las piernas: guía completa de síntomas",
