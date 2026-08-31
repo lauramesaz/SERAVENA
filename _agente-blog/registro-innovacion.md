@@ -24,3 +24,16 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   —una de las 5 búsquedas objetivo— aparece una sola vez en todo el sitio y nunca en un título,
   H1 o meta description. Las 6 propuestas del 20-ago siguen en `propuesta` (4 días, no caducan
   todavía). Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-08-31 · 2 propuestas nuevas (W36-1, W36-2).** Repetí las 5 búsquedas objetivo: Seravena
+  sigue sin aparecer en ninguna; misma competencia dominante que el 24-ago (Doctoralia, Top
+  Doctors, Franco Vascular, Flebosalud, Cardiovas IPS) más otras nuevas vistas hoy (Vasculab, CF
+  Medicina, Clínica Bedharma, y un sitio dedicado solo a "eco doppler venoso Medellín":
+  dopplervenosomedellin.com). Las dos propuestas de la semana pasada (W35-1 y W35-2) ya están
+  `hecha` desde el 27-ago. Revisando hoy el código fuente encontré dos huecos nuevos y
+  verificables, ninguno repetido con las 6 propuestas del 20-ago que siguen en `propuesta` (11
+  días, no caducan todavía): (1) ninguna de las 8 páginas del sitio raíz menciona un horario de
+  atención — ni en el texto visible ni en el JSON-LD `MedicalClinic`, que no tiene el campo
+  `openingHours` en ningún sitio — y `contacto.html` no tiene mapa embebido; (2) ninguna de las
+  páginas de la competencia revisadas hoy ofrece una autoevaluación interactiva de síntomas,
+  formato que el propio manual señala como no probado. Aviso a Laura: nota en GitHub con
+  etiqueta `propuestas`.

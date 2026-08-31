@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-08-27",
+  "actualizado": "2026-08-31",
   "propuestas": [
+    {
+      "id": "2026-W36-1",
+      "fecha": "2026-08-31",
+      "titulo": "Poner el horario de atención y un mapa en la página de contacto",
+      "categoria": "Local",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "ambos",
+      "estado": "propuesta",
+      "que": "En `contacto.html`, añadir un bloque visible con el horario real de atención (días y horas) junto a los datos de WhatsApp y correo que ya existen, y añadir un mapa de Google Maps embebido con la ubicación exacta (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316). Además, añadir el campo `openingHours` al bloque JSON-LD `MedicalClinic` que ya existe, repetido, en las 8 páginas del sitio raíz (index, vascular, insuficiencia-venosa, lipedema, proceso, preguntas, profesionales, contacto), con ese mismo horario. Laura tiene que decir primero cuál es el horario real: eso no se puede inventar.",
+      "porque": "Comprobado hoy en el código fuente: ninguna de las 8 páginas del sitio raíz menciona un horario de atención, ni en el texto visible ni en el JSON-LD (el campo `openingHours` no existe en ningún `MedicalClinic` del sitio), y `contacto.html` no tiene ningún mapa embebido. `openingHours` es uno de los campos de schema.org que Google usa para negocios locales, y es además el dato más básico que una paciente necesita antes de llamar o presentarse — hoy no aparece en ningún sitio de la web.",
+      "como_se_mide": "Que 'horario' aparezca en el resultado enriquecido de Google al buscar 'Seravena Medellín' (hoy no aparece). Primeras señales en 2-4 semanas tras el rastreo, en cuanto Google vuelva a indexar las páginas."
+    },
+    {
+      "id": "2026-W36-2",
+      "fecha": "2026-08-31",
+      "titulo": "Autoevaluación de signos de insuficiencia venosa en la web",
+      "categoria": "Formato nuevo",
+      "esfuerzo": "medio",
+      "impacto": "medio",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "Crear una página nueva (`autoevaluacion-piernas.html`) con 6-8 preguntas de sí/no sobre síntomas ya cubiertos y aprobados en el blog (pesadez, hinchazón al final del día, arañitas o várices visibles, calambres nocturnos, picor, muchas horas de pie o sentada). Al final, un resultado en dos niveles simples — 'vale la pena que te revise un especialista' o 'por ahora no hay señales de alarma, seguí cuidándote' — sin diagnosticar ni prometer nada, con enlace a agendar valoración y una mención del eco doppler como el examen que sí lo confirma. Enlazar la página nueva desde el menú, `vascular.html` e `insuficiencia-venosa.html`.",
+      "porque": "Hipótesis sin datos de posición: no hay forma de medir hoy si esto mejora el ranking. Es un hueco de formato, no de contenido: de las 9 páginas de la competencia que salieron hoy en los 5 resultados de búsqueda (Franco Vascular, Vasculab, Flebosalud, Cardiovas IPS, CF Medicina, Clínica Bedharma, Doctoralia, Top Doctors y el sitio dedicado dopplervenosomedellin.com), ninguna ofrece una autoevaluación interactiva: todas son páginas de servicio o listados estáticos. El propio manual del agente señala las autoevaluaciones, en la sección de formatos nuevos, como una vía que Seravena todavía no ha probado.",
+      "como_se_mide": "Tiempo medio en la página y clics hacia 'Agendar valoración' desde ella en Google Analytics, comparados con el promedio de las páginas de servicio. Primera lectura a las 4 semanas de publicada."
+    },
     {
       "id": "2026-W35-1",
       "fecha": "2026-08-24",
