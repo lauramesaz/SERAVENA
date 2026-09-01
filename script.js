@@ -455,6 +455,12 @@ if (form) {
      los enlaces wa.me al cargar la página. Lo leemos de ahí en vez de fijarlo,
      para que cambiar el número en el panel lo cambie TAMBIÉN en el formulario.
      El valor de reserva solo actúa si no hubiera ningún enlace en la página. */
+  function esc(t) {
+    const d = document.createElement('div');
+    d.textContent = t == null ? '' : t;
+    return d.innerHTML;
+  }
+
   function numeroWhatsApp() {
     const enlace = document.querySelector('a[href*="wa.me/"]');
     const m = enlace && enlace.getAttribute('href').match(/wa\.me\/(\d{8,15})/);
@@ -498,13 +504,24 @@ if (form) {
     const url = 'https://wa.me/' + numeroWhatsApp() + '?text=' + encodeURIComponent(texto);
     const ventana = window.open(url, '_blank', 'noopener');
 
+    /* Alternativa por correo: desde computador, WhatsApp abre su versión web y
+       quien no la tenga configurada se quedaría a medias. Se le deja siempre un
+       segundo camino con el mismo mensaje ya escrito. */
+    const correo = 'mailto:info@clinicaseravena.com'
+      + '?subject=' + encodeURIComponent('Consulta desde la web · ' + nombre)
+      + '&body=' + encodeURIComponent(texto);
+
     if (ventana) {
-      formNote.textContent = 'Listo, ' + nombre.split(' ')[0] + '. Se abrió WhatsApp con tu mensaje escrito: solo tienes que pulsar enviar.';
+      formNote.innerHTML = 'Listo, ' + esc(nombre.split(' ')[0]) +
+        '. Se abrió WhatsApp con tu mensaje escrito: solo tienes que pulsar enviar.' +
+        '<br><span class="form-note-alt">¿No se abrió o prefieres el correo? ' +
+        '<a href="' + correo + '">Envíanoslo por correo</a>.</span>';
       form.reset();
     } else {
-      // Si el navegador bloquea la ventana, no mentimos: damos el enlace.
+      // Si el navegador bloquea la ventana, no mentimos: damos los dos caminos.
       formNote.innerHTML = 'Tu navegador bloqueó la ventana. ' +
-        '<a href="' + url + '" target="_blank" rel="noopener">Abre WhatsApp aquí</a> para enviar tu mensaje.';
+        '<a href="' + url + '" target="_blank" rel="noopener">Abre WhatsApp aquí</a> ' +
+        'o <a href="' + correo + '">envíanoslo por correo</a>.';
     }
   });
 }
