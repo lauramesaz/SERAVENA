@@ -443,21 +443,60 @@ if (dotnav) {
 }
 
 /* ---------- Formulario ---------- */
+/* El formulario abre WhatsApp con el mensaje ya escrito.
+   La web es estática (no hay servidor que reciba nada), así que este es el
+   único camino por el que el mensaje llega de verdad a la clínica.
+   Antes se mostraba un "hemos recibido tu mensaje" y el envío se perdía. */
 const form = document.getElementById('contactForm');
 if (form) {
   const formNote = document.getElementById('formNote');
+  const WHATSAPP = '573052088204';
+  const PERFILES = {
+    paciente: 'Paciente',
+    medico: 'Profesional de la salud (referido)',
+    otro: 'Otro'
+  };
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const nombre = form.nombre.value.trim(), email = form.email.value.trim();
+    const telefono = form.telefono.value.trim();
     const perfil = form.perfil.value, mensaje = form.mensaje.value.trim();
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
     if (!nombre || !emailOk || !perfil || !mensaje) {
       formNote.textContent = 'Por favor completa los campos requeridos con datos válidos.';
-      formNote.classList.add('error'); return;
+      formNote.classList.add('error');
+      return;
     }
     formNote.classList.remove('error');
-    formNote.textContent = '¡Gracias, ' + nombre.split(' ')[0] + '! Hemos recibido tu mensaje. Te contactaremos muy pronto.';
-    form.reset();
+
+    const texto =
+      'Hola Seravena, escribo desde la página de contacto.\n\n' +
+      'Nombre: ' + nombre + '\n' +
+      'Correo: ' + email + '\n' +
+      (telefono ? 'Teléfono: ' + telefono + '\n' : '') +
+      'Soy: ' + (PERFILES[perfil] || perfil) + '\n\n' +
+      mensaje;
+
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', 'clic_whatsapp', { boton: 'Formulario de contacto', pagina: location.pathname });
+        window.gtag('event', 'generate_lead', { metodo: 'formulario', pagina: location.pathname });
+      } catch (err) {}
+    }
+
+    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
+    const ventana = window.open(url, '_blank', 'noopener');
+
+    if (ventana) {
+      formNote.textContent = 'Listo, ' + nombre.split(' ')[0] + '. Se abrió WhatsApp con tu mensaje escrito: solo tienes que pulsar enviar.';
+      form.reset();
+    } else {
+      // Si el navegador bloquea la ventana, no mentimos: damos el enlace.
+      formNote.innerHTML = 'Tu navegador bloqueó la ventana. ' +
+        '<a href="' + url + '" target="_blank" rel="noopener">Abre WhatsApp aquí</a> para enviar tu mensaje.';
+    }
   });
 }
 
