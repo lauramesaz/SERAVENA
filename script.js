@@ -450,7 +450,16 @@ if (dotnav) {
 const form = document.getElementById('contactForm');
 if (form) {
   const formNote = document.getElementById('formNote');
-  const WHATSAPP = '573052088204';
+
+  /* El número lo manda el panel de administración: contenido.js reescribe todos
+     los enlaces wa.me al cargar la página. Lo leemos de ahí en vez de fijarlo,
+     para que cambiar el número en el panel lo cambie TAMBIÉN en el formulario.
+     El valor de reserva solo actúa si no hubiera ningún enlace en la página. */
+  function numeroWhatsApp() {
+    const enlace = document.querySelector('a[href*="wa.me/"]');
+    const m = enlace && enlace.getAttribute('href').match(/wa\.me\/(\d{8,15})/);
+    return (m && m[1]) || '573052088204';
+  }
   const PERFILES = {
     paciente: 'Paciente',
     medico: 'Profesional de la salud (referido)',
@@ -486,7 +495,7 @@ if (form) {
       } catch (err) {}
     }
 
-    const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
+    const url = 'https://wa.me/' + numeroWhatsApp() + '?text=' + encodeURIComponent(texto);
     const ventana = window.open(url, '_blank', 'noopener');
 
     if (ventana) {
