@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-08-30",
+  "actualizado": "2026-09-01",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "guia-diagnostico-problema-venoso": {
+      "imagen": "professionals.webp",
+      "alt": "Manos de una profesional de la salud con bata blanca examinando la piel de la muñeca de una paciente junto a un estetoscopio, en un consultorio"
+    },
     "ejercicios-circulacion-casa": {
       "imagen": "3778973.webp",
       "alt": "Pies descalzos sobre una sábana, en un ambiente cálido y hogareño, propicio para ejercicios de circulación en casa"

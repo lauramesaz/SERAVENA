@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-08-31",
+  "actualizado": "2026-09-01",
   "articulos": [
+    {
+      "fecha": "2026-09-01",
+      "titulo": "Cómo se diagnostica un problema venoso: guía completa",
+      "slug": "guia-diagnostico-problema-venoso",
+      "categoria": "diagnostico",
+      "keyword": "cómo se diagnostica un problema venoso",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/guia-diagnostico-problema-venoso.html",
+      "nota": "Guía madre del racimo 'diagnostico' (5 hijos: eco-doppler-venoso-que-es, preparar-valoracion-vascular, trombosis-venosa-senales, eco-doppler-paso-a-paso, cuando-derivar-especialista-vascular), prioridad #1 de la revisión semanal del 30-ago. Médico: APROBADO sin correcciones (verificado contra SVS/AVF, Cleveland Clinic, Mayo Clinic y NICE QS67/NCBI). SEO: 98/100, APTO (integró 2 keywords secundarias que solo estaban en meta, dividió 7 frases largas). 1682 palabras. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 5 hijos."
+    },
     {
       "fecha": "2026-08-31",
       "titulo": "Ejercicios sencillos para activar la circulación de las piernas en casa",
