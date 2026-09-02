@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-01",
+  "actualizado": "2026-09-02",
   "articulos": [
+    {
+      "fecha": "2026-09-02",
+      "titulo": "Drenaje linfático en el lipedema: qué esperar",
+      "slug": "drenaje-linfatico-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "drenaje linfático lipedema",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/drenaje-linfatico-lipedema.html",
+      "nota": "Artículo del racimo 'lipedema', que no publicaba desde el 19-ago; explica qué es el drenaje linfático manual, en qué se diferencia de un masaje relajante, qué esperar de una sesión y sus contraindicaciones generales, sin prometer reducción del tejido graso. Médico: APROBADO sin correcciones (confirmó la ausencia de promesas sobre grasa, la falta de indicaciones personalizadas y que las 3 contraindicaciones citadas están respaldadas). SEO: 99/100, APTO (añadió enlace a contacto en el cuerpo y dividió una frase larga). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (dolor-lipedema-manejo, ejercicio-lipedema, etapas-del-lipedema)."
+    },
     {
       "fecha": "2026-09-01",
       "titulo": "Cómo se diagnostica un problema venoso: guía completa",

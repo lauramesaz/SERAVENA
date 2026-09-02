@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-01",
+  "actualizado": "2026-09-02",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "drenaje-linfatico-lipedema": {
+      "imagen": "piel-lipedema.webp",
+      "alt": "Mano tocando con suavidad la piel de una pierna con lipedema"
+    },
     "guia-diagnostico-problema-venoso": {
       "imagen": "professionals.webp",
       "alt": "Manos de una profesional de la salud con bata blanca examinando la piel de la muñeca de una paciente junto a un estetoscopio, en un consultorio"

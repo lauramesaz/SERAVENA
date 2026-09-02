@@ -69,7 +69,7 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 - [publicado] Ejercicio recomendado cuando tienes lipedema — ejercicio y lipedema — ejercicio-lipedema
 - [publicado] Diagnóstico del lipedema: cómo se confirma — diagnóstico de lipedema — diagnostico-lipedema
 - [publicado] Lipedema y menopausia: por qué se relaciona — lipedema y menopausia — lipedema-y-menopausia
-- [pendiente] Drenaje linfático en el lipedema: qué esperar — drenaje linfático lipedema — drenaje-linfatico-lipedema
+- [publicado] Drenaje linfático en el lipedema: qué esperar — drenaje linfático lipedema — drenaje-linfatico-lipedema
 
 ## Bienestar / prevención / estilo de vida  ·  racimo: `situaciones`
 
