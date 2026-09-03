@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-03",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "guia-piernas-cada-etapa-de-vida": {
+      "imagen": "vascular-veins.webp",
+      "alt": "Mano tocando con suavidad la pierna, con venas visibles, en distintos momentos de la vida"
+    },
     "drenaje-linfatico-lipedema": {
       "imagen": "piel-lipedema.webp",
       "alt": "Mano tocando con suavidad la piel de una pierna con lipedema"

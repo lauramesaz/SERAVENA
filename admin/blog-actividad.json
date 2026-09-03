@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-02",
+  "actualizado": "2026-09-03",
   "articulos": [
+    {
+      "fecha": "2026-09-03",
+      "titulo": "Cuidar las piernas en cada etapa de la vida",
+      "slug": "guia-piernas-cada-etapa-de-vida",
+      "categoria": "Bienestar",
+      "keyword": "cuidar las piernas en cada etapa de la vida",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/guia-piernas-cada-etapa-de-vida.html",
+      "nota": "Guía madre del racimo 'situaciones' (5 hijos: habitos-mejorar-circulacion, alimentacion-salud-vascular, cuidar-piernas-viajes-largos, piernas-hinchadas-calor, ejercicios-circulacion-casa), único racimo sin guía madre pese a superar el umbral de 4 hijos; no repite racimo con el día anterior (lipedema, 2-sep). Explica cómo cambia la circulación en el embarazo, el trabajo de pie, los viajes largos, el calor y la menopausia. Médico: APROBADO CON CORRECCIONES (se reescribió el párrafo sobre un estudio de estradiol y menopausia para no sobre-representar un hallazgo de un solo estudio pequeño, antiguo y sin grupo control). SEO: 97/100, APTO (dividió una frase larga; keyword en title/h1/primer párrafo/h2/meta, JSON-LD válido y FAQ sincronizado palabra por palabra). 1682 palabras de cuerpo principal. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 5 hijos."
+    },
     {
       "fecha": "2026-09-02",
       "titulo": "Drenaje linfático en el lipedema: qué esperar",
