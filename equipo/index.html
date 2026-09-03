@@ -837,6 +837,230 @@ body{background:#fff;letter-spacing:0}
 .cmsg .hero{margin-top:2px}
 .cmsg .gantt{background:#fff}
 @media(max-width:880px){.chatlog{height:52vh}}
+/* =====================================================================
+   FINANZAS · panel mensual (sep 2026) — cuatro preguntas, cero jerga
+   ===================================================================== */
+.finhead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mesnav{display:flex;align-items:center;gap:6px}
+.mesnav .calnavbtn{border:1px solid var(--line);background:#fff;border-radius:9px;width:34px;height:34px;cursor:pointer;font-size:1rem;color:var(--pardo);font-family:inherit}
+.mesnav .calnavbtn:disabled{opacity:.35;cursor:default}
+.mesnav .mesnom{min-width:150px;text-align:center;font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+.finq{font-size:1.05rem;font-weight:600;letter-spacing:-.018em;margin:28px 0 12px;color:var(--pardo)}
+.finq:first-of-type{margin-top:6px}
+.finq small{display:block;font-size:.8rem;font-weight:400;color:var(--muted);margin-top:2px}
+
+/* pregunta 1 · semáforo */
+.semaforo{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:10px}
+.semaforo .luz{border-radius:12px;padding:20px 22px;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.semaforo .luz .dot{width:14px;height:14px;border-radius:50%;background:#fff;opacity:.9;display:inline-block;margin-right:8px;vertical-align:-1px}
+.semaforo .luz .titulo{font-size:1.45rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.semaforo .luz .frase{font-size:.86rem;opacity:.92;line-height:1.45}
+.luz.verde{background:#2F5238}
+.luz.amarillo{background:#9A6B1E}
+.luz.rojo{background:#9B3F2E}
+.luz.gris{background:#5B554D}
+.finmetodos{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);line-height:1.6}
+.finmetodos b{color:var(--pardo);font-weight:600}
+.finnum{border:1px solid var(--line);border-radius:12px;padding:17px 18px;background:#fff}
+.finnum .lab{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.finnum .num{font-size:1.6rem;font-weight:700;letter-spacing:-.035em;margin-top:8px;white-space:nowrap}
+.finnum .sub{font-size:.78rem;color:var(--muted);margin-top:5px}
+.finnum .sub.up{color:#2F5238}
+.finnum .sub.down{color:#9B3F2E}
+.finnum.neg .num{color:#9B3F2E}
+
+/* preguntas 2 y 3 · listas con barras */
+.fincols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.barlist{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:#fff}
+.barlist h3{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:12px}
+.brow{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.brow:first-of-type{border-top:none;padding-top:0}
+.brow .n{font-size:.9rem;font-weight:500;min-width:0}
+.brow .n small{color:var(--muted);font-weight:400;margin-left:6px;font-size:.76rem}
+.brow .v{font-size:.9rem;font-weight:600;white-space:nowrap;text-align:right}
+.brow .track{grid-column:1/-1;height:6px;border-radius:3px;background:var(--arena);overflow:hidden}
+.brow .track i{display:block;height:100%;border-radius:3px;background:var(--camel)}
+.brow.ojo .track i{background:#B8862B}
+.brow .pct{font-size:.74rem;color:var(--muted);margin-left:6px;font-weight:500}
+.finaviso{margin-top:12px;background:#FCF5EF;border:1px solid #F1E1D2;color:#8A5A38;border-radius:10px;padding:10px 13px;font-size:.83rem;line-height:1.45}
+.finaviso b{font-weight:600}
+
+/* pregunta 4 · qué hago */
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.insight{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:#fff;display:flex;flex-direction:column;gap:9px}
+.insight .ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:1rem;background:var(--acc-soft)}
+.insight.bien .ico{background:#E8F0E8}
+.insight.ojo .ico{background:#FCF5EF}
+.insight.mal .ico{background:#F8E7E3}
+.insight .txt{font-size:.93rem;line-height:1.5}
+.insight .accion{font-size:.82rem;color:var(--muted);line-height:1.45;padding-top:8px;border-top:1px solid var(--line)}
+.insight .accion b{color:var(--pardo);font-weight:600}
+
+/* tendencia · lo que te quedó mes a mes */
+.tend{border:1px solid var(--line);border-radius:12px;padding:18px 20px 14px;background:#fff}
+.tend h3{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+.tend svg{width:100%;height:auto;max-width:760px;display:block}
+.tend .barp{fill:var(--camel)}
+.tend .barp.hoy{fill:var(--chocolate)}
+.tend .barp.neg{fill:#B4513A}
+.tend text{font-family:inherit;font-size:11px;fill:var(--muted)}
+.tend text.val{fill:var(--pardo);font-weight:600}
+.tend line.base{stroke:var(--line);stroke-width:1}
+.finfoot{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+@media(max-width:900px){
+  .semaforo{grid-template-columns:1fr 1fr}
+  .semaforo .luz{grid-column:1/-1}
+  .fincols{grid-template-columns:1fr}
+  .finnum .num{font-size:1.25rem;white-space:normal}
+  .finnum{padding:14px 14px;min-width:0}
+  .semaforo>*{min-width:0}
+  .finhead{align-items:flex-start}
+  .brow .v{font-size:.84rem}
+}
+@media(max-width:480px){ .semaforo{grid-template-columns:1fr} }
+
+/* =====================================================================
+   PIEL APPLE + BEIGE (3 sep 2026) — la que Laura aprobó en finanzas.html.
+   Va de última: pisa a "PIEL NUDE" y "MODO TRABAJO". Blanco, aire, tipografía
+   grande, paneles gris #F5F5F7 / beige #F6F1EA alternados, sin sombras.
+   ===================================================================== */
+:root{
+  --bg:#FFFFFF; --line:#E8E8ED; --arena:#F5F5F7; --arena-deep:#E5E5EA; --piedra:#F6F1EA;
+  --acc-soft:#F6F1EA; --acc-ink:#8A6A48; --camel:#9A6B3F; --chocolate:#1D1D1F; --pardo:#1D1D1F;
+  --muted:#6E6E73; --ok:#34A853; --radius:20px; --shadow:none; --shadow-lift:none;
+  --beige:#F6F1EA; --beige2:#EFE6DA; --beige-ink:#8A6A48;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif;letter-spacing:-.01em;background:#fff}
+
+/* ---- barra superior (reemplaza el menú lateral) ---- */
+.rail{position:sticky;top:0;left:auto;right:auto;bottom:auto;width:auto;height:52px;flex-direction:row;align-items:center;gap:4px;
+  padding:0 max(24px,calc((100% - 1060px)/2));background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);border-right:none;border-bottom:1px solid var(--line);z-index:30;overflow-x:auto}
+.raillogo{padding:0;margin-right:auto;display:flex;align-items:center}.raillogo img{height:18px;opacity:.9}
+.railnav{flex-direction:row;gap:2px}
+.railitem{width:auto;padding:7px 12px;border-radius:999px;font-size:.86rem;font-weight:500;color:var(--muted);white-space:nowrap}
+.railitem:hover{background:var(--arena);color:var(--pardo)}
+.railitem.on{background:var(--beige);color:var(--beige-ink);font-weight:600}
+.railpie{margin:0 0 0 10px;flex-direction:row;border-top:none;padding:0 0 0 10px;border-left:1px solid var(--line);gap:2px}
+.railitem.sm{font-size:.8rem;color:#AEAEB2}
+
+/* ---- lienzo ---- */
+.wrap{margin:0 auto;max-width:1060px;padding:44px 24px 110px}
+.pagehead{margin:0 0 28px}
+.pagehead h1{font-size:2.4rem;font-weight:700;letter-spacing:-.035em;line-height:1.05;color:var(--pardo)}
+.pagehead .fecha{font-size:1rem;color:var(--muted);margin-top:8px}
+.demo-pill{background:var(--beige);color:var(--beige-ink);border-radius:999px;font-size:.78rem;font-weight:500;padding:7px 13px;margin-top:14px;letter-spacing:0}
+.seccion-tit{font-size:1.4rem;font-weight:700;letter-spacing:-.03em;text-transform:none;color:var(--pardo);margin:48px 0 16px}
+
+/* ---- superficies: paneles planos gris / beige, sin borde ni sombra ---- */
+.panel,.calpanel,.kpi,.semanabox,.card,.vacio,.gantt,.okpi,.optchat,.optside,.diachip,.gatecard{
+  border:none;box-shadow:none;background:var(--arena);border-radius:20px}
+.panel{padding:28px 30px}
+.kpis{gap:14px;margin-bottom:14px}
+.kpi{padding:22px 24px;border-radius:20px}
+.kpi:nth-child(even){background:var(--beige)}
+.kpi .lab{font-size:.85rem;letter-spacing:0;text-transform:none;font-weight:500;color:var(--muted);margin-bottom:10px}
+.kpi .num{font-size:2.1rem;font-weight:700;letter-spacing:-.045em}
+.kpi .sub{font-size:.85rem;color:var(--muted)}
+.kpi.destacado{background:var(--pardo);color:#fff}
+.kpi.destacado .lab,.kpi.destacado .sub{color:rgba(255,255,255,.75)}
+.kpibar{background:rgba(0,0,0,.08)}.kpibar i{background:var(--camel)}
+.semanabox{padding:22px 24px;background:var(--beige)}
+.semanabox h4{font-size:.85rem;letter-spacing:0;text-transform:none;font-weight:600;color:var(--beige-ink);margin-bottom:14px}
+.wbar .col{background:#E3D5C2;border-radius:6px}.wbar .col.hoy{background:var(--pardo)}.wbar .col.baja{background:#F59E0B}
+
+/* tarjetas de persona */
+.grid{gap:14px}
+.card{padding:22px 24px;border-radius:20px}
+.card:nth-child(even){background:var(--beige)}
+.card:hover{transform:none;box-shadow:none;background:var(--arena-deep)}
+.card:nth-child(even):hover{background:var(--beige2)}
+.card h3{font-size:1.05rem;font-weight:600}
+.card .rol,.card .prox{color:var(--muted)}
+.pill{font-size:.7rem;font-weight:600;padding:5px 10px;letter-spacing:0}
+.pill.completo{background:#E8F5EC;color:#1E7A3C}.pill.enmarcha{background:#fff;color:var(--muted)}.pill.atrasado{background:#FDE8E9;color:#B4262E}
+.ring .bgc{stroke:rgba(0,0,0,.06)}
+.card.gerente-card{background:var(--pardo);color:#fff}
+.card .perfilbtn{background:#fff;border:none;border-radius:999px;color:var(--beige-ink);font-weight:600}
+
+/* tareas */
+.momento h4{font-size:.85rem;letter-spacing:0;text-transform:none;font-weight:600;color:var(--beige-ink);margin-bottom:10px}
+.tarea{background:var(--arena);border:none;border-radius:14px;padding:13px 16px;margin-bottom:8px}
+.tarea:hover{background:var(--arena-deep);border:none;box-shadow:none}
+.tarea .chk{border-radius:50%;border:1.5px solid #C7C7CC;background:#fff}
+.tarea.hecha .chk,.tarea .chk.on{background:var(--ok);border-color:var(--ok)}
+.tag{border-radius:999px;font-weight:500}
+.diachip{border-radius:14px;background:var(--arena)}.diachip.on,.diachip.hoy{background:var(--pardo);color:#fff}
+.addbtn{border:none;background:var(--beige);color:var(--beige-ink);border-radius:999px;font-weight:600}
+.addbtn:hover{background:var(--beige2)}
+.vacio{background:var(--beige);color:var(--muted)}
+.persona-head h2{font-size:1.8rem;font-weight:700;letter-spacing:-.03em}
+
+/* controles */
+.tabs,.calswitch,.seg{background:var(--beige);border-radius:999px;padding:3px;gap:2px}
+.tabs .tab,.calswitch .tab,.seg button{border-radius:999px;padding:8px 14px;font-weight:500;color:var(--muted)}
+.tabs .tab.active,.calswitch .tab.active,.seg button.on{background:#fff;color:var(--pardo);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.caltop>.tab{border:none;background:var(--arena);border-radius:999px;color:var(--pardo);font-weight:500}
+.calnavbtn{border:none;background:var(--arena);border-radius:999px}
+.btn,.optinput button{border-radius:999px;background:var(--pardo);color:#fff;font-weight:600;border:none}
+.btn.sec,.btn.ghost{background:var(--beige);color:var(--beige-ink)}
+.textbtn{color:var(--camel)}
+.inp,.evform input,.evform select,.evform textarea,.gatecard input,.ctl input,.ctl select,.optinput input{
+  border:none;background:var(--arena);border-radius:12px;padding:11px 13px}
+.inp:focus,.evform input:focus,.evform select:focus,.evform textarea:focus,.gatecard input:focus,.ctl input:focus,.optinput input:focus{
+  background:var(--arena);box-shadow:0 0 0 3px rgba(154,107,63,.22);border:none}
+.lbl{color:var(--muted);font-weight:500}
+.mini{border:none;background:var(--beige);color:var(--beige-ink);border-radius:999px;font-weight:600}
+.alerta{background:#FEF3DC;color:#8A5A00;border:none;border-radius:14px}
+
+/* calendario */
+.caltop h2{font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
+.calpanel{border-radius:20px;background:#fff;border:1px solid var(--line)}
+.mday{border-color:var(--line)}
+.mday:hover{background:var(--beige)}
+.mday.today .num{background:var(--pardo)}
+.calleg,.callist{background:var(--beige);border-radius:16px}
+
+/* entrada y modales */
+.gate{min-height:78vh}
+.gatecard{background:none;padding:0;max-width:360px}
+.gatecard h2,.gatecard h3{font-size:1.7rem;font-weight:700;letter-spacing:-.03em}
+.gatecard p{color:var(--muted);font-size:1rem}
+.gatecard input{font-size:1.1rem;padding:14px;border-radius:14px;text-align:center}
+.gatecard .btn{border-radius:999px;padding:14px}
+.overlay{background:rgba(29,29,31,.35);backdrop-filter:blur(6px)}
+.pinbox{background:#fff;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.18);border:none}
+.pinbox h3{font-size:1.3rem;font-weight:700;letter-spacing:-.02em}
+.pinpad button{border:none;background:var(--arena);border-radius:14px;font-weight:600}
+.pinpad button.aux{background:none;color:var(--muted)}
+.pindot{border-color:#C7C7CC}.pindot.full{background:var(--pardo);border-color:var(--pardo)}
+.rowline,.perrow{border-color:var(--line)}
+
+/* optimizador */
+.optchat{background:var(--arena);border-radius:20px}
+.optside{background:var(--beige);border-radius:20px}
+.optmsgs{background:none}
+.msg.bot{background:#fff;border:none;border-radius:16px}
+.msg.user{background:var(--pardo);border-radius:16px}
+.okpi{background:#fff;border:none;border-radius:14px}
+.okpi .v{font-weight:700;letter-spacing:-.03em}
+.gantt{background:#fff;border:none;border-radius:16px}
+.optnota{background:#fff;border:none;border-radius:14px}
+.optnota.ojo{background:#FEF3DC;color:#8A5A00}
+.sug{border:none;background:#fff;border-radius:999px;color:var(--pardo);font-weight:500}
+.optinput{background:#fff;border-top:1px solid var(--line)}
+.optinput input{background:var(--arena)}
+.ctl label{color:var(--muted);font-weight:500}
+
+@media(max-width:900px){
+  .rail{position:sticky;top:0;width:auto;flex-direction:row;padding:0 12px;border-right:none;border-bottom:1px solid var(--line)}
+  .raillogo{padding:0 8px 0 0}
+  .railpie{margin-left:auto}
+  .wrap{margin-left:0;padding:24px 16px 90px}
+  .pagehead h1{font-size:1.9rem}
+  .seccion-tit{font-size:1.2rem;margin-top:36px}
+}
+
 </style>
 </head>
 <body>
@@ -847,6 +1071,7 @@ body{background:#fff;letter-spacing:0}
     <button class="railitem on" id="railHoy">Tareas de hoy</button>
     <button class="railitem" id="railCal">Calendario</button>
     <button class="railitem" id="railOpt">Optimizador de espacios</button>
+    <button class="railitem" id="railFin">Finanzas</button>
   </div>
   <div class="railpie">
     <button class="railitem sm" id="railTv">Modo pantalla</button>
@@ -1066,6 +1291,43 @@ body{background:#fff;letter-spacing:0}
     </div>
   </div>
 
+  <!-- ================= FINANZAS ================= -->
+  <div id="vistaFinanzas" class="hidden">
+    <div class="pagehead finhead">
+      <div>
+        <h1>Finanzas</h1>
+        <div class="fecha">Cómo le fue a la clínica, en cuatro preguntas</div>
+        <span class="demo-pill" id="finDemoPill">Versión de prueba · datos de ejemplo</span>
+      </div>
+      <div class="mesnav">
+        <button class="calnavbtn" id="finPrev" title="Mes anterior">‹</button>
+        <div class="mesnom" id="finMesNom"></div>
+        <button class="calnavbtn" id="finNext" title="Mes siguiente">›</button>
+      </div>
+    </div>
+
+    <div class="finq">1. ¿Cómo me fue este mes?</div>
+    <div class="semaforo" id="finSemaforo"></div>
+
+    <div class="fincols" style="margin-top:6px">
+      <div>
+        <div class="finq">2. ¿De dónde vino la plata?</div>
+        <div class="barlist" id="finIngresos"></div>
+      </div>
+      <div>
+        <div class="finq">3. ¿En qué se fue?</div>
+        <div class="barlist" id="finEgresos"></div>
+      </div>
+    </div>
+
+    <div class="finq">4. ¿Qué hago?<small>Tres cosas concretas para este mes, sin palabras de contador.</small></div>
+    <div class="insights" id="finInsights"></div>
+
+    <div class="finq">Cómo va el año<small>Lo que te quedó cada mes.</small></div>
+    <div class="tend" id="finTend"></div>
+    <div class="finfoot" id="finFoot"></div>
+  </div>
+
 </div>
 
 <!-- ================= MODO PANTALLA (TV de la clínica) ================= -->
@@ -1209,6 +1471,7 @@ body{background:#fff;letter-spacing:0}
   </div>
 </div>
 
+<script src="finanzas-datos.js?v=1"></script>
 <script>
 /* ============================================================
    DASHBOARD DE EQUIPO — VERSIÓN DEMO
@@ -1330,7 +1593,7 @@ $('#fechaHoy').textContent = fechaLarga();
 $('#fechaHoy2').textContent = fechaLarga();
 
 function mostrar(vista){
-  ['vistaClave','vistaTablero','vistaPersona','vistaGerencia','vistaCalendario','vistaAjustes','vistaOptim'].forEach(v=>$('#'+v).classList.add('hidden'));
+  ['vistaClave','vistaTablero','vistaPersona','vistaGerencia','vistaCalendario','vistaAjustes','vistaOptim','vistaFinanzas'].forEach(v=>$('#'+v).classList.add('hidden'));
   $('#'+vista).classList.remove('hidden');
   window.scrollTo({top:0});
 }
@@ -2656,8 +2919,221 @@ $('#btnOptCalendario').onclick = ()=>{ $('#fechaHoy3').textContent=fechaLarga();
 $('#btnIrOptim').onclick = ()=>{ mostrar('vistaOptim'); optArrancar(); };
 $('#btnIrOptim2').onclick = ()=>{ mostrar('vistaOptim'); optArrancar(); };
 
+/* =====================================================================
+   FINANZAS · cuatro preguntas. Todo se calcula de window.FINANZAS
+   (finanzas-datos.js). Cero jerga: "entró", "salió", "te quedó".
+   ===================================================================== */
+const MESES_ES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const finMeses = Object.keys((window.FINANZAS||{meses:{}}).meses).sort();
+let finMes = finMeses[finMeses.length-1] || null;
+let finDesbloqueado = false;
+
+const cop = v => (v<0?'-':'')+'$ '+Math.round(Math.abs(v)).toLocaleString('es-CO');
+const copCorto = v => { const a=Math.abs(v); const s=v<0?'-':''; if(a>=1e6) return s+'$'+(a/1e6).toLocaleString('es-CO',{maximumFractionDigits:1})+' M'; if(a>=1e3) return s+'$'+Math.round(a/1e3)+' mil'; return s+'$'+a; };
+const mesNombre = k => { const [y,m]=k.split('-'); return MESES_ES[+m-1][0].toUpperCase()+MESES_ES[+m-1].slice(1)+' '+y; };
+const mesMin = k => mesNombre(k).split(' ')[0].toLowerCase();
+const copR = v => cop(Math.round(v/10000)*10000);
+const mesCorto = k => { const [y,m]=k.split('-'); return MESES_ES[+m-1].slice(0,3); };
+const suma = arr => arr.reduce((s,x)=>s+x.valor,0);
+const pctTxt = (a,b) => b? Math.round((a-b)/b*100) : null;
+
+function finResumen(k){
+  const m = FINANZAS.meses[k]; if(!m) return null;
+  const entro=suma(m.ingresos), sinGastos=!m.egresos, salio=sinGastos?null:suma(m.egresos);
+  return { k, m, entro, salio, sinGastos, quedo:sinGastos?null:entro-salio, fijos:sinGastos?0:suma(m.egresos.filter(e=>e.tipo==='fijo')) };
+}
+function finAnterior(k){ const i=finMeses.indexOf(k); return i>0? finResumen(finMeses[i-1]) : null; }
+
+function finLuz(r){
+  if(r.sinGastos) return ['gris','Entró plata, falta lo que salió'];
+  const p = r.entro? r.quedo/r.entro : 0;
+  if(r.quedo<0) return ['rojo','Perdiste plata'];
+  if(p<0.08)   return ['amarillo','Quedaste casi en cero'];
+  return ['verde','Ganaste plata'];
+}
+
+function finFraseMes(r, ant){
+  if(r.sinGastos) return `Entraron ${cop(r.entro)}. Cuando me pases la lista de gastos te digo cuánto te quedó.`;
+  if(!ant) return `Te ${r.quedo<0?'faltaron':'quedaron'} ${cop(Math.abs(r.quedo))} este mes.`;
+  const d = r.quedo-ant.quedo;
+  const cmp = Math.abs(d)<100000 ? `casi igual que en ${mesMin(ant.k)}`
+            : (d>0? `${cop(d)} más que en ${mesMin(ant.k)}` : `${cop(-d)} menos que en ${mesMin(ant.k)}`);
+  if(r.quedo<0) return `Te faltaron ${cop(-r.quedo)} para cubrir los gastos, ${cmp}.`;
+  return `Te quedaron ${cop(r.quedo)}, ${cmp}.`;
+}
+
+function finPintarSemaforo(r, ant){
+  const [luz,titulo]=finLuz(r);
+  const sub = (v, va, invertir) => {
+    if(!ant) return '<div class="sub">primer mes registrado</div>';
+    if(va===null||va===undefined) return '';
+    const p=pctTxt(v,va); if(p===null) return '';
+    const bueno = invertir? p<=0 : p>=0;
+    const flecha = p>0?'↑':(p<0?'↓':'=');
+    return `<div class="sub ${p===0?'':(bueno?'up':'down')}">${flecha} ${Math.abs(p)}% vs ${mesCorto(ant.k)}</div>`;
+  };
+  $('#finSemaforo').innerHTML = `
+    <div class="luz ${luz}">
+      <div class="titulo"><span class="dot"></span>${titulo}</div>
+      <div class="frase">${finFraseMes(r,ant)}</div>
+    </div>
+    <div class="finnum"><div class="lab">Plata que entró</div><div class="num">${cop(r.entro)}</div>${sub(r.entro, ant&&ant.entro, false)}</div>
+    <div class="finnum"><div class="lab">Plata que salió</div><div class="num">${r.sinGastos?'—':cop(r.salio)}</div>${r.sinGastos?'<div class="sub">falta la lista de gastos</div>':sub(r.salio, ant&&ant.salio, true)}</div>
+    <div class="finnum ${r.quedo<0?'neg':''}"><div class="lab">Lo que te quedó</div><div class="num">${r.sinGastos?'—':cop(r.quedo)}</div>${r.sinGastos?'<div class="sub">se calcula con los gastos</div>':sub(r.quedo, ant&&ant.quedo, false)}</div>`;
+}
+
+function finBarras(el, items, total, opts={}){
+  const arr=[...items].sort((a,b)=>b.valor-a.valor);
+  const max=arr[0]? arr[0].valor : 1;
+  const top = opts.top? arr.slice(0,opts.top) : arr;
+  const resto = arr.slice(top.length);
+  let html = `<h3>${opts.titulo}</h3>`;
+  top.forEach(it=>{
+    const p=total? Math.round(it.valor/total*100):0;
+    const ojo = opts.ojo && opts.ojo.has(it.nombre);
+    html += `<div class="brow ${ojo?'ojo':''}">
+      <div class="n">${esc(it.nombre)}${it.tipo?`<small>${it.tipo==='fijo'?'se paga siempre':'depende del mes'}</small>`:''}</div>
+      <div class="v">${cop(it.valor)}<span class="pct">${p}%</span></div>
+      <div class="track"><i style="width:${Math.max(3,it.valor/max*100)}%"></i></div></div>`;
+  });
+  if(resto.length){
+    const v=suma(resto), p=total?Math.round(v/total*100):0;
+    html += `<div class="brow"><div class="n">Otros ${resto.length} gastos</div><div class="v">${cop(v)}<span class="pct">${p}%</span></div>
+      <div class="track"><i style="width:${Math.max(3,v/max*100)}%;opacity:.45"></i></div></div>`;
+  }
+  if(opts.aviso) html += `<div class="finaviso">${opts.aviso}</div>`;
+  el.innerHTML = html;
+}
+
+/* gastos que se dispararon frente al mes anterior */
+function finDisparados(r, ant){
+  if(!ant) return [];
+  return r.m.egresos.map(e=>{
+    const a=ant.m.egresos.find(x=>x.nombre===e.nombre); if(!a||!a.valor) return null;
+    const p=pctTxt(e.valor,a.valor);
+    return (p>=25 && e.valor/r.salio>=0.03) ? {nombre:e.nombre, p, dif:e.valor-a.valor} : null;
+  }).filter(Boolean).sort((a,b)=>b.dif-a.dif);
+}
+
+/* frases automáticas: cada una dice UNA cosa y sugiere UNA acción */
+function finInsights(r, ant){
+  const out=[]; const m=r.m;
+  (m.insights||[]).forEach(t=>out.push(typeof t==='string'?{tono:'ojo',txt:t,accion:''}:t));
+
+  if(r.sinGastos) return out.slice(0,3);
+  const porPaciente = m.pacientes? r.entro/m.pacientes : 0;
+  const disp = (ant&&!ant.sinGastos)? finDisparados(r, ant) : [];
+
+  if(r.quedo<0){
+    const faltan = porPaciente? Math.ceil(-r.quedo/porPaciente):0;
+    out.push({tono:'mal', txt:`Este mes los gastos fueron más grandes que lo que entró.`,
+      accion: faltan? `Con <b>${faltan} paciente${faltan>1?'s':''} más</b> al mes habrías cerrado en positivo. Esa es la meta para el próximo.` : 'Revisa los gastos grandes de la lista de arriba.'});
+  }
+
+  if(disp.length){
+    const d=disp[0];
+    out.push({tono:'ojo', txt:`<b>${esc(d.nombre)}</b> subió un ${d.p}% frente al mes pasado: ${cop(d.dif)} más.`,
+      accion:`Pregunta <b>por qué</b> antes de que se repita en el próximo mes. Si fue algo de una sola vez, tranquila.`});
+  }
+
+  if(m.pacientesNuevos && porPaciente){
+    const ads=m.egresos.find(e=>/ads|publicidad|meta|instagram|facebook/i.test(e.nombre));
+    if(ads&&ads.valor){
+      const costo=ads.valor/m.pacientesNuevos;
+      const vale = costo < porPaciente*0.5;
+      out.push({tono: vale?'bien':'ojo',
+        txt:`Cada paciente nuevo te costó <b>${copR(costo)}</b> en publicidad, y un paciente te deja en promedio <b>${copR(porPaciente)}</b> al mes.`,
+        accion: vale? `<b>Vale la pena seguir</b> con la pauta. Si puedes, sube un poco el presupuesto.` : `La publicidad está saliendo cara. <b>Revisa los anuncios</b> o baja el presupuesto un mes para comparar.`});
+    }
+  }
+
+  if(porPaciente && r.fijos && r.quedo>=0){
+    const necesarios=Math.ceil(r.fijos/porPaciente);
+    const sobran=m.pacientes-necesarios;
+    out.push({tono: sobran>=5?'bien':(sobran>=0?'ojo':'mal'),
+      txt:`Necesitas <b>${necesarios} pacientes al mes</b> solo para pagar lo fijo (nómina, arriendo, servicios). Este mes tuviste <b>${m.pacientes}</b>.`,
+      accion: sobran>=5? `Vas con colchón: cada paciente por encima de ${necesarios} es ganancia. <b>Cuida que no se te vayan</b> los que ya tienes.`
+            : (sobran>=0? `Vas justo. <b>Confirma las citas de la semana</b> para que ninguna se pierda.` : `Te faltan ${-sobran}. <b>Llama a los pacientes que dejaron de venir.</b>`)});
+  }
+
+  if(ant && !ant.sinGastos && r.entro>ant.entro*1.05 && r.quedo>ant.quedo){
+    out.push({tono:'bien', txt:`Entró más plata que el mes pasado (<b>+${pctTxt(r.entro,ant.entro)}%</b>) y también te quedó más.`,
+      accion:`Lo que hiciste este mes <b>funciona</b>. Anota qué cambió (pauta, horarios, referidos) para repetirlo.`});
+  }
+  if(ant && r.entro<ant.entro*0.95){
+    out.push({tono:'ojo', txt:`Entró <b>${pctTxt(r.entro,ant.entro)}%</b> menos plata que el mes pasado.`,
+      accion:`Mira si fue por menos pacientes o por menos sesiones por paciente. <b>Eso decide si es un tema de atraer o de retener.</b>`});
+  }
+
+  /* orden: primero lo malo, luego lo de ojo, luego lo bueno. Máximo 3. */
+  const peso={mal:0,ojo:1,bien:2};
+  return out.sort((a,b)=>peso[a.tono]-peso[b.tono]).slice(0,3);
+}
+
+function finPintarInsights(r, ant){
+  const ic={bien:'✓',ojo:'!',mal:'✕'};
+  const list=finInsights(r,ant);
+  $('#finInsights').innerHTML = list.length? list.map(i=>`
+    <div class="insight ${i.tono}"><div class="ico">${ic[i.tono]}</div>
+      <div class="txt">${i.txt}</div>${i.accion?`<div class="accion">${i.accion}</div>`:''}</div>`).join('')
+    : '<div class="vacio">Con un mes más de datos empiezan las recomendaciones.</div>';
+}
+
+function finPintarTendencia(k){
+  const ks=finMeses.slice(Math.max(0,finMeses.indexOf(k)-5), finMeses.indexOf(k)+1);
+  const rs=ks.map(finResumen).filter(r=>!r.sinGastos);
+  if(!rs.length){ $('#finTend').innerHTML='<h3>Lo que te quedó, mes a mes</h3><div class="vacio" style="border:none;padding:22px 8px">Se dibuja cuando haya al menos un mes con ingresos y gastos.</div>'; return; }
+  const W=720,H=150,padT=22,padB=24,gap=14;
+  const n=rs.length, bw=Math.min(64,(W-gap*(n+1))/n);
+  const maxPos=Math.max(0,...rs.map(r=>r.quedo)), maxNeg=Math.max(0,...rs.map(r=>-r.quedo));
+  const escala=(H-padT-padB)/Math.max(1,maxPos+maxNeg);
+  const zero=padT+maxPos*escala;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Lo que te quedó cada mes">`;
+  svg+=`<line class="base" x1="0" x2="${W}" y1="${zero}" y2="${zero}"/>`;
+  rs.forEach((r,i)=>{
+    const x = gap + i*((W-gap*(n+1))/n) + ((W-gap*(n+1))/n - bw)/2;
+    const h = Math.max(2, Math.abs(r.quedo)*escala);
+    const y = r.quedo>=0 ? zero-h : zero;
+    svg+=`<rect class="barp ${r.k===k?'hoy':''} ${r.quedo<0?'neg':''}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="4"><title>${mesNombre(r.k)}: ${cop(r.quedo)}</title></rect>`;
+    svg+=`<text class="val" x="${x+bw/2}" y="${r.quedo>=0? y-6 : zero-6}" text-anchor="middle">${copCorto(r.quedo)}</text>`;
+    svg+=`<text x="${x+bw/2}" y="${H-6}" text-anchor="middle">${mesCorto(r.k)}</text>`;
+  });
+  svg+='</svg>';
+  $('#finTend').innerHTML = `<h3>Lo que te quedó, mes a mes</h3>${svg}`;
+}
+
+function finPintar(){
+  if(!finMes){ $('#finSemaforo').innerHTML='<div class="vacio" style="grid-column:1/-1">Todavía no hay meses cargados.</div>'; return; }
+  const r=finResumen(finMes), ant=finAnterior(finMes);
+  const i=finMeses.indexOf(finMes);
+  $('#finMesNom').textContent = mesNombre(finMes);
+  $('#finPrev').disabled = i<=0; $('#finNext').disabled = i>=finMeses.length-1;
+  $('#finDemoPill').classList.toggle('hidden', !FINANZAS.demo);
+  finPintarSemaforo(r,ant);
+  finBarras($('#finIngresos'), r.m.ingresos, r.entro, {titulo:'Ordenado de mayor a menor'});
+  if(r.m.metodos){ const tot=suma(r.m.metodos); $('#finIngresos').insertAdjacentHTML('beforeend',
+    `<div class="finmetodos">Cómo pagaron: ${[...r.m.metodos].sort((a,b)=>b.valor-a.valor).map(x=>`${esc(x.nombre)} <b>${Math.round(x.valor/tot*100)}%</b>`).join(' · ')}</div>`); }
+  const disp=(ant&&!ant.sinGastos)?finDisparados(r,ant):[];
+  if(r.sinGastos){ $('#finEgresos').innerHTML=`<h3>Los 5 gastos más grandes</h3><div class="vacio" style="border:none;padding:26px 8px">Todavía no tengo los gastos de ${mesMin(r.k)}. Pásame la lista (arriendo, nómina, insumos, publicidad…) como la tengas y la organizo aquí.</div>`; }
+  else finBarras($('#finEgresos'), r.m.egresos, r.salio, {titulo:'Los 5 gastos más grandes', top:5, ojo:new Set(disp.map(d=>d.nombre)),
+    aviso: disp.length? `<b>Ojo:</b> ${disp.map(d=>`${esc(d.nombre)} subió ${d.p}%`).join(' · ')} frente a ${mesMin(ant.k)}.` : ''});
+  finPintarInsights(r,ant);
+  finPintarTendencia(finMes);
+  const partes=[]; if(r.m.pacientes) partes.push(`<b>${r.m.pacientes} personas pagaron</b> algo este mes`); if(r.m.valoraciones) partes.push(`${r.m.valoraciones} citas de valoración`); if(r.m.pacientesTratamiento) partes.push(`${r.m.pacientesTratamiento} personas en tratamiento`); if(r.m.sesiones) partes.push(`${r.m.sesiones} sesiones`);
+  $('#finFoot').innerHTML = `${partes.length? partes.join(' · ')+'. ':''}Los datos los organiza Claude a partir de los documentos que entregas cada mes.`;
+}
+$('#finPrev').onclick=()=>{ const i=finMeses.indexOf(finMes); if(i>0){ finMes=finMeses[i-1]; finPintar(); } };
+$('#finNext').onclick=()=>{ const i=finMeses.indexOf(finMes); if(i<finMeses.length-1){ finMes=finMeses[i+1]; finPintar(); } };
+function abrirFinanzas(){
+  if(finDesbloqueado){ finPintar(); mostrar('vistaFinanzas'); return; }
+  pedirPin('Finanzas · solo coordinación', pin=>{
+    if(pin===data.gerentePin){ finDesbloqueado=true; finPintar(); mostrar('vistaFinanzas'); return true; }
+    return false;
+  });
+}
+
 /* ---- menú lateral: navegación fija ---- */
-const RAIL={vistaTablero:'railHoy',vistaCalendario:'railCal',vistaOptim:'railOpt'};
+const RAIL={vistaTablero:'railHoy',vistaCalendario:'railCal',vistaOptim:'railOpt',vistaFinanzas:'railFin'};
 function railSync(v){ document.querySelectorAll('.railnav .railitem').forEach(b=>b.classList.remove('on'));
   const id=RAIL[v]; if(id) $('#'+id).classList.add('on'); }
 const _mostrar = mostrar;
@@ -2665,6 +3141,7 @@ mostrar = function(v){ _mostrar(v); railSync(v); };
 $('#railHoy').onclick   = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
 $('#railCal').onclick   = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
 $('#railOpt').onclick   = ()=>{ mostrar('vistaOptim'); optArrancar(); };
+$('#railFin').onclick   = ()=>{ location.href='finanzas.html'; };  /* Finanzas vive en su propia página (piel nude) */
 $('#railTv').onclick    = ()=>$('#btnPantalla').click();
 $('#railAjustes').onclick = ()=>$('#btnAjustes').click();
 $('#railReset').onclick = ()=>$('#btnReset').click();
