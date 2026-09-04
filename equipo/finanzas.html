@@ -488,7 +488,7 @@ function pintarTend(k){
   let svg=`<svg viewBox="0 0 ${W} ${H}" role="img"><line class="base" x1="0" x2="${W}" y1="${zero}" y2="${zero}"/>`;
   rs.forEach((r,i)=>{const x=gap+i*((W-gap*(n+1))/n)+((W-gap*(n+1))/n-bw)/2,h=Math.max(2,Math.abs(r.quedo)*esc_),y=r.quedo>=0?zero-h:zero;
     svg+=`<rect class="barp ${r.k===k?'hoy':''} ${r.quedo<0?'neg':''}" x="${x}" y="${y}" width="${bw}" height="${h}" rx="4"><title>${mesNombre(r.k)}: ${cop(r.quedo)}</title></rect><text class="val" x="${x+bw/2}" y="${r.quedo>=0?y-6:zero-6}" text-anchor="middle">${copCorto(r.quedo)}</text><text x="${x+bw/2}" y="${H-6}" text-anchor="middle">${mesCorto(r.k)}</text>`;});
-  $('#tend').innerHTML=`<h3>Lo que te quedó, mes a mes</h3><div class="sub">Últimos ${rs.length} meses</div>${svg}</svg>`;
+  $('#tend').innerHTML=`<h3>Lo que te quedó, mes a mes</h3><div class="sub">${rs.length===1?"Primer mes con ingresos y gastos":"Últimos "+rs.length+" meses"}</div>${svg}</svg>`;
 }
 
 /* ---------- pintar todo ---------- */
