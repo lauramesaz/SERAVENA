@@ -117,7 +117,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [pendiente] Cuando te dicen "es solo estético": por qué tus piernas importan — piernas no es estético — piernas-no-solo-estetico
 
 **Preguntas frecuentes reales de pacientes**
-- [pendiente] ¿Las várices se pueden quitar para siempre? — quitar varices para siempre — quitar-varices-para-siempre
+- [publicado] ¿Las várices se pueden quitar para siempre? — quitar varices para siempre — quitar-varices-para-siempre
 - [pendiente] ¿El lipedema se puede curar? Lo que sí se puede hacer — lipedema tiene cura — lipedema-tiene-cura
 
 > Nota para el equipo: mantener equilibrio entre los dos pilares (vascular y lipedema) y

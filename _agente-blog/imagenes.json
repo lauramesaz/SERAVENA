@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-03",
+  "actualizado": "2026-09-04",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "quitar-varices-para-siempre": {
+      "imagen": "treatment.webp",
+      "alt": "Profesional de la salud con guantes aplicando una inyección de escleroterapia en una pierna con várices visibles"
+    },
     "guia-piernas-cada-etapa-de-vida": {
       "imagen": "vascular-veins.webp",
       "alt": "Mano tocando con suavidad la pierna, con venas visibles, en distintos momentos de la vida"

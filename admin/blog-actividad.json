@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-03",
+  "actualizado": "2026-09-04",
   "articulos": [
+    {
+      "fecha": "2026-09-04",
+      "titulo": "¿Se puede quitar várices para siempre?",
+      "slug": "quitar-varices-para-siempre",
+      "categoria": "Salud vascular",
+      "keyword": "quitar várices para siempre",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/quitar-varices-para-siempre.html",
+      "nota": "Artículo del racimo 'tratamiento', el racimo con menos artículos publicados; tomado del banco de preguntas frecuentes porque los 5 racimos ya tienen guía madre. Responde con honestidad que ningún tratamiento (ni la cirugía) elimina el riesgo de várices nuevas, distinguiendo recurrencia de la vena tratada vs. várices nuevas en otras venas. Médico: APROBADO CON CORRECCIONES (se amplió el post-note con la señal de alarma de embolia pulmonar; el dato de recurrencia a 5 años y la cita de Mayo Clinic se verificaron de forma independiente con búsqueda web). SEO: primera pasada 80/100 DEVUELTO (enlace de servicio roto, keyword ausente de meta/h2, exceso de enlaces); corregido a 98/100, APTO. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (escleroterapia-que-es, escleroterapia-vs-laser, guia-tratamientos-varices)."
+    },
     {
       "fecha": "2026-09-03",
       "titulo": "Cuidar las piernas en cada etapa de la vida",
