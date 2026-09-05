@@ -114,7 +114,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 **Emocional / calidad de vida (conecta con la marca)**
 - [pendiente] Vivir con lipedema: cómo cuidar también la salud emocional — lipedema salud emocional — lipedema-salud-emocional
-- [pendiente] Cuando te dicen "es solo estético": por qué tus piernas importan — piernas no es estético — piernas-no-solo-estetico
+- [publicado] Cuando te dicen "es solo estético": por qué tus piernas importan — piernas no es estético — piernas-no-solo-estetico
 
 **Preguntas frecuentes reales de pacientes**
 - [publicado] ¿Las várices se pueden quitar para siempre? — quitar varices para siempre — quitar-varices-para-siempre

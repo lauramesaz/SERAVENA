@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-04",
+  "actualizado": "2026-09-05",
   "articulos": [
+    {
+      "fecha": "2026-09-05",
+      "titulo": "Cuando te dicen que lo de tus piernas no es estético: por qué sí importa",
+      "slug": "piernas-no-solo-estetico",
+      "categoria": "Bienestar",
+      "keyword": "piernas no es estético",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piernas-no-solo-estetico.html",
+      "nota": "Artículo del racimo 'situaciones', empatado con 'tratamiento' y 'diagnostico' como racimos con menos publicados; se eligió por no repetir racimo con el día anterior y porque 'diagnostico' ya no tenía tema propio pendiente. Ángulo emocional/calidad de vida: explica que várices, insuficiencia venosa y lipedema son condiciones médicas reales, no 'solo estéticas'. Médico: APROBADO CON CORRECCIONES (se reforzó el post-note para pedir atención médica inmediata, no solo 'pronto', ante hinchazón súbita unilateral + dolor + calor, por sospecha de trombosis). SEO: 96/100, APTO (añadió keyword secundaria 'autoestima' que faltaba en el texto). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (habitos-mejorar-circulacion, piernas-hinchadas-calor, cuidar-piernas-viajes-largos)."
+    },
     {
       "fecha": "2026-09-04",
       "titulo": "¿Se puede quitar várices para siempre?",
