@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-05",
+  "actualizado": "2026-09-06",
   "articulos": [
+    {
+      "fecha": "2026-09-06",
+      "titulo": "\"Las medias de compresión curan las várices\" y otros mitos",
+      "slug": "mitos-medias-compresion",
+      "categoria": "Salud vascular",
+      "keyword": "mitos medias de compresión",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/mitos-medias-compresion.html",
+      "nota": "Artículo del racimo 'tratamiento', empatado con 'diagnostico' en menos publicados (5 cada uno); desmonta los mitos más comunes sobre las medias de compresión (que curan várices, que cualquier talla/mmHg sirve, que son solo para mayores, que solo hacen falta si duele, que se usan sin control). Médico: APROBADO CON CORRECCIONES (se corrigió una atribución imprecisa a Mayo Clinic en el Mito 1, redactada de forma más general). SEO: 98/100, APTO. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (medias-de-compresion-guia, escleroterapia-que-es, quitar-varices-para-siempre)."
+    },
     {
       "fecha": "2026-09-05",
       "titulo": "Cuando te dicen que lo de tus piernas no es estético: por qué sí importa",

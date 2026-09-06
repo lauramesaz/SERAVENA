@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-04",
+  "actualizado": "2026-09-06",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "mitos-medias-compresion": {
+      "imagen": "band-veins.webp",
+      "alt": "Piernas con várices visibles apoyadas sobre una tela satinada clara, mientras una mano las sostiene con suavidad"
+    },
     "quitar-varices-para-siempre": {
       "imagen": "treatment.webp",
       "alt": "Profesional de la salud con guantes aplicando una inyección de escleroterapia en una pierna con várices visibles"
