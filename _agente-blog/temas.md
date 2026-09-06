@@ -110,7 +110,7 @@ distintos tipos de búsqueda. Ideas por formato:
 **Estacional / momento de vida**
 - [descartado] Cuidado de las piernas en época de calor — piernas calor — cuidado-piernas-calor (anticanibalización: solapa casi por completo con "piernas-hinchadas-calor", publicado el 28-ago-2026 con la keyword "piernas hinchadas por calor")
 - [descartado] Várices y embarazo: antes, durante y después — varices embarazo — varices-embarazo-guia (anticanibalización: solapa casi por completo con "varices-en-el-embarazo", publicado el 2-ago-2026 con la keyword "várices en el embarazo" y la misma intención de búsqueda)
-- [pendiente] Lipedema en la menopausia: qué cambia — lipedema menopausia — lipedema-menopausia-cambios
+- [descartado] Lipedema en la menopausia: qué cambia — lipedema menopausia — lipedema-menopausia-cambios (anticanibalización, hallada en la revisión semanal del 6-sep-2026: solapa casi por completo con "lipedema-y-menopausia.html", publicado el 19-ago-2026 con la keyword "lipedema y menopausia" y la misma intención de búsqueda; esta semana se amplió y mejoró ese mismo artículo en vez de crear uno nuevo)
 
 **Emocional / calidad de vida (conecta con la marca)**
 - [pendiente] Vivir con lipedema: cómo cuidar también la salud emocional — lipedema salud emocional — lipedema-salud-emocional
