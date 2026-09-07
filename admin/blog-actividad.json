@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-06",
+  "actualizado": "2026-09-07",
   "articulos": [
+    {
+      "fecha": "2026-09-07",
+      "titulo": "Sospecha de lipedema: señales que el médico de primer contacto debe reconocer",
+      "slug": "senales-lipedema-primer-contacto",
+      "categoria": "Diagnóstico",
+      "keyword": "sospecha de lipedema",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/senales-lipedema-primer-contacto.html",
+      "nota": "Artículo del racimo 'diagnostico' (el racimo con menos publicados, sin repetir el racimo del día anterior, 'tratamiento'); primer artículo dirigido también a profesionales de atención primaria sobre cómo reconocer señales clínicas de lipedema y cuándo derivar. Médico: APROBADO sin correcciones. SEO: 97/100, APTO (dividió frases largas y corrigió el bloque 'Sigue leyendo' a los 3 hermanos correctos del racimo). Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (cuando-derivar-especialista-vascular, guia-diagnostico-problema-venoso, preparar-valoracion-vascular)."
+    },
     {
       "fecha": "2026-09-06",
       "titulo": "\"Las medias de compresión curan las várices\" y otros mitos",
