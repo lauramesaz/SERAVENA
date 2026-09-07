@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-08-31",
+  "actualizado": "2026-09-07",
   "propuestas": [
+    {
+      "id": "2026-W37-1",
+      "fecha": "2026-09-07",
+      "titulo": "Corregir la URL rota de la página de insuficiencia venosa (canonical, JSON-LD, sitemap y 3 enlaces internos)",
+      "categoria": "Técnico",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "En `insuficiencia-venosa.html`, cambiar el `<link rel=\"canonical\">` (línea 25) y el campo `\"url\"` del JSON-LD `MedicalWebPage` (línea 54) de `https://www.clinicaseravena.com/insuficiencia-venosa` a `.../insuficiencia-venosa.html`, que es la ruta real del archivo. Corregir la misma URL en `sitemap.xml` (hoy sin extensión, la única de las 8 páginas raíz así) y en los 3 enlaces internos que también apuntan a la versión sin extensión: `blog/eco-doppler-venoso-que-es.html`, `blog/piernas-hinchadas-cuando-preocuparse.html` y `blog/varices-tratamiento-sin-cirugia.html`.",
+      "porque": "Comprobado hoy en el código: de las 8 páginas raíz del sitio, `insuficiencia-venosa.html` es la única cuyo `<link rel=\"canonical\">` no coincide con su propio nombre de archivo (apunta a '/insuficiencia-venosa', sin '.html'); el mismo error se repite en el campo `\"url\"` de su JSON-LD y en su entrada del `sitemap.xml`, y 3 enlaces internos del blog apuntan también a esa versión rota. El repositorio no tiene `_config.yml`, `.nojekyll` ni ningún redirect que haga válida esa URL sin extensión, así que con GitHub Pages sirviendo archivos estáticos esa dirección probablemente da 404 — es decir, la página declara como canónica una URL rota. Es justo la página que el 24-ago (W35-1, ya hecha) se optimizó para competir por 'insuficiencia venosa Medellín', una de las 5 búsquedas objetivo de la misión. No pude confirmar el 404 en vivo con curl porque la política de red de este entorno bloquea la salida hacia clinicaseravena.com (mismo bloqueo que ya registró el analista el 30-ago y el 6-sep); recomiendo verificar con el navegador antes y después del cambio.",
+      "como_se_mide": "Que `https://www.clinicaseravena.com/insuficiencia-venosa.html` aparezca con el canonical correcto en la Inspección de URLs de Search Console. Señal inmediata y más simple: abrir hoy la URL sin extensión en el navegador (debería fallar) y, tras el cambio, comprobar que ya nada del sitio enlaza ni declara esa versión rota."
+    },
+    {
+      "id": "2026-W37-2",
+      "fecha": "2026-09-07",
+      "titulo": "Añadir botón de llamada directa (tel:) en contacto.html y el resto de páginas raíz",
+      "categoria": "Local",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "Añadir un tercer método en el bloque `contact-methods` de `contacto.html`: un enlace `<a href=\"tel:+573052088204\">` con la etiqueta 'Llamar', junto a los que ya existen (WhatsApp y Correo). Replicar el mismo enlace `tel:` en las otras 6 páginas raíz que hoy no lo tienen (`index.html`, `vascular.html`, `lipedema.html`, `proceso.html`, `preguntas.html`, `profesionales.html`), con el mismo patrón de botón que ya existe en `insuficiencia-venosa.html` (líneas 383 y 416).",
+      "porque": "Comprobado hoy en el código: de las 8 páginas raíz, solo `insuficiencia-venosa.html` tiene enlaces `href=\"tel:+573052088204\"` (2, ya funcionan). Ninguna otra página los tiene, ni siquiera `contacto.html` — la página construida específicamente para que alguien contacte a la clínica — que hoy solo ofrece WhatsApp y correo. El clic-para-llamar usa el mismo teléfono que ya está declarado en el JSON-LD `MedicalClinic` de cada página, así que no añade ningún dato nuevo, solo reduce fricción para quien prefiere llamar en vez de escribir, sobre todo desde el celular.",
+      "como_se_mide": "Clics en el botón 'Llamar' como evento en Google Analytics/Tag Manager (el gtag ya está instalado en todas las páginas), comparados contra los clics a WhatsApp. Primera lectura a las 2-3 semanas de publicado."
+    },
     {
       "id": "2026-W36-1",
       "fecha": "2026-08-31",
