@@ -37,3 +37,24 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   páginas de la competencia revisadas hoy ofrece una autoevaluación interactiva de síntomas,
   formato que el propio manual señala como no probado. Aviso a Laura: nota en GitHub con
   etiqueta `propuestas`.
+- **2026-09-07 · 2 propuestas nuevas (W37-1, W37-2).** Repetí las 5 búsquedas objetivo: Seravena
+  sigue sin aparecer en ninguna; misma competencia dominante que semanas anteriores (Doctoralia,
+  Top Doctors, Franco Vascular, Flebosalud, Cardiovas IPS) más otras vistas hoy por primera vez
+  (Vasculab, Centrolab, CFMEDICINA, Centro de Medicina Integrativa, dopplervenosomedellin.com,
+  y AgendaPro Colombia como plataforma de reservas con página propia para 'escleroterapia
+  Medellín'). Las propuestas del 20-ago (W34, 6) y del 31-ago (W36-1, W36-2) siguen en
+  `propuesta`: ninguna lleva más de un mes, así que no marqué caducada ninguna. Antes de proponer
+  comprobé que la 'Autoevaluación' que ya existe en `index.html` y `lipedema.html` es solo sobre
+  lipedema, no sobre insuficiencia venosa/várices — así que W36-2 (autoevaluación venosa) sigue
+  siendo un hueco real, no una propuesta ya cumplida por otro cambio. Revisando hoy el código
+  encontré dos huecos nuevos y verificables, ninguno repetido: (1) de las 8 páginas raíz,
+  `insuficiencia-venosa.html` es la única cuyo `<link rel="canonical">`, el `"url"` de su JSON-LD
+  y su entrada en `sitemap.xml` apuntan a `/insuficiencia-venosa` sin extensión — y 3 enlaces
+  internos del blog repiten el mismo error —, mientras el archivo real es `insuficiencia-venosa.html`;
+  sin `_config.yml`, `.nojekyll` ni redirect en el repositorio, esa URL probablemente da 404 en
+  GitHub Pages, justo en la página que se optimizó el 24-ago para 'insuficiencia venosa Medellín'.
+  No pude confirmar el 404 en vivo (mismo bloqueo de red hacia clinicaseravena.com que ya
+  registró el analista semanas anteriores), lo dejé anotado en la propuesta; (2) de las 8 páginas
+  raíz, solo `insuficiencia-venosa.html` tiene enlaces `tel:+573052088204` — ni siquiera
+  `contacto.html`, la página hecha para que te contacten, tiene botón de llamada directa, solo
+  WhatsApp y correo. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
