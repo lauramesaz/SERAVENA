@@ -98,7 +98,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] "Las medias de compresión curan las várices" y otros mitos — mitos medias compresion — mitos-medias-compresion
 
 **Comparativas (muy buscadas)**
-- [pendiente] Várices vs arañitas vasculares: ¿son lo mismo? — varices vs aranitas — varices-vs-aranitas
+- [publicado] Várices vs arañitas vasculares: ¿son lo mismo? — varices vs aranitas — varices-vs-aranitas
 - [publicado] Escleroterapia vs láser para várices: diferencias — escleroterapia vs laser — escleroterapia-vs-laser
 - [pendiente] Lipedema, obesidad y linfedema: cómo diferenciarlos — lipedema obesidad linfedema — lipedema-obesidad-linfedema
 

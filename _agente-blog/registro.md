@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-09-08 | varices-vs-aranitas | Várices vs. arañitas vasculares: ¿son lo mismo? | várices y arañitas vasculares | publicado | — | — | — |
 | 2026-09-07 | senales-lipedema-primer-contacto | Sospecha de lipedema: señales que el médico de primer contacto debe reconocer | sospecha de lipedema | publicado | — | — | — |
 | 2026-09-06 | mitos-medias-compresion | "Las medias de compresión curan las várices" y otros mitos | mitos medias de compresión | publicado | — | — | — |
 | 2026-09-05 | piernas-no-solo-estetico | Cuando te dicen que lo de tus piernas no es estético: por qué sí importa | piernas no es estético | publicado | — | — | — |

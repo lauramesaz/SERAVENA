@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-07",
+  "actualizado": "2026-09-08",
   "articulos": [
+    {
+      "fecha": "2026-09-08",
+      "titulo": "Várices vs. arañitas vasculares: ¿son lo mismo?",
+      "slug": "varices-vs-aranitas",
+      "categoria": "Salud vascular",
+      "keyword": "várices y arañitas vasculares",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-vs-aranitas.html",
+      "nota": "Creado por la rutina automática del equipo de agentes. Racimo 'sintomas/diagnóstico' (comparativa que refuerza el racimo diagnostico, sin temas hijo pendientes propios, según la recomendación de la revisión semanal del 6-sep-2026). Médico: APROBADO CON CORRECCIONES (se reformuló una frase sobre la profundidad de las várices para evitar que se leyera como referida al sistema venoso profundo). SEO: 98/100, APTO. Integrada tarjeta en el listado, entrada en sitemap, marcado como publicado en temas.md y enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos (aranitas-vasculares-piernas, insuficiencia-venosa-sintomas, trombosis-venosa-senales)."
+    },
     {
       "fecha": "2026-09-07",
       "titulo": "Sospecha de lipedema: señales que el médico de primer contacto debe reconocer",
