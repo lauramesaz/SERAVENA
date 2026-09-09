@@ -146,3 +146,129 @@ encontramos un correo editorial directo de la sección, así que el asunto deja 
 > Seravena · SERAVENA S.A.S.
 > Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, Medellín, Antioquia, Colombia
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-09-09
+
+· Sitios revisados: 15 (Doctoralia.co, Top Doctors, Facebook, Instagram, Colegio Médico de
+Antioquia/Federación Médica Colombiana, Directorio de IPS – Consultorsalud, Clúster Medellín Health
+City, Clínica Las Vegas / Torre Médica Salud Vegas y su Directorio Institucional, Unidad Médica Las
+Vegas, Lipedema Colombia, Asovascular, Escuela Colombiana de Linfología, Fundación Colombiana de
+Angiodisplasias y Linfedema, Vivir en El Poblado, El Colombiano) + las 3 búsquedas objetivo en Google
+("várices Medellín", "flebólogo Medellín", "eco doppler venoso Medellín")
+· Seravena aparece en: 0
+
+### La dirección de la web ya está resuelta — pero aparece un problema nuevo, en sitios de terceros
+
+La incoherencia que dejé abierta la semana pasada (46-55 frente a 46-159) ya no existe: el 28 de
+agosto Laura corrigió las 17 apariciones del sitio y hoy las 9 páginas raíz + política de privacidad
+usan, sin excepción, **Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316** — la misma
+dirección que confirman mis instrucciones de esta semana contra la ficha del edificio en Google.
+Nada que corregir en la web.
+
+Pero al buscar quién más menciona la Torre Médica Salud Vegas (el edificio, no Seravena — Seravena
+sigue sin ninguna mención en ningún sitio, ver más abajo) encontré que **tres direcciones distintas
+circulan hoy por sitios de terceros para el mismo edificio**: `directoriomedellin.com.co` y otros la
+dan como #46-159 (la correcta), pero la propia Unidad Médica Las Vegas (unidadmedicalasvegas.com) usa
+**Cl 2 Sur #46-55** en su ficha de contacto general, y el commit del 28-ago de Laura registra que la
+ficha de Google de la clínica decía en ese momento **Cl. 2 Sur #46-116** — una tercera variante que no
+aparece en ningún sitio de los que revisé, así que probablemente esté solo en Google Maps/Perfil de
+Empresa, algo que no puedo consultar desde aquí. No sé si esas dos correcciones (Google y
+`unidadmedicalasvegas.com`) ya quedaron alineadas o siguen pendientes — es la clase de dato que solo
+Laura puede confirmar mirando la ficha real. Lo dejo anotado porque es exactamente el tipo de ruido
+que hace dudar a Google de que todas las menciones sean del mismo sitio, y porque explica por qué no
+conviene registrar a Seravena en más directorios sin primero fijar bien cuál dirección circula fuera
+de la web.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Igual que la semana pasada: 0 apariciones en Doctoralia, Top Doctors, Facebook, Instagram, prensa o
+directorios de salud colombianos, y 0 apariciones en las 3 búsquedas objetivo (las dominan las mismas
+clínicas de siempre — Franco Vascular, Vasculab, Variclinic, Flebosalud, Centrolab, Cardiovas IPS —
+más dos que no había visto antes: Derma Skin Care y Clínica Medellín/QuirónSalud). No repito la
+propuesta del estratega de registrar la clínica en Doctoralia y directorios (2026-W34-4, sigue
+"propuesta"): sigue sin ser un mensaje mío, es autorregistro con cuenta propia de Laura.
+
+### Oportunidades nuevas (distintas a las de la semana pasada)
+
+- **Clínica Las Vegas / Directorio Institucional** (`clinicalasvegas.com/directorio-institucional`) —
+  es la operadora del edificio donde Seravena tiene su consultorio (Torre Médica Salud Vegas), del
+  grupo QuirónSalud, y ya lista otros servicios de la torre. Es el encaje más directo que encontré:
+  no es "pedir un favor a un desconocido", es preguntar si el consultorio de un inquilino del propio
+  edificio puede figurar en su directorio. Mensaje 1, abajo.
+- **Escuela Colombiana de Linfología** (escuelacolombianadelinfologia.com) — institución educativa
+  colombiana dedicada a la formación en linfedema, con su propia clínica (LINFOCAL) dirigida por un
+  cirujano vascular. No encontré si mantienen un directorio público de egresados o profesionales
+  certificados por ciudad, así que el mensaje pregunta primero, no asume. Mensaje 2, abajo.
+- **Clúster Medellín Health City** (Cámara de Comercio de Medellín) — agrupa clínicas y hospitales de
+  Medellín para posicionar la ciudad como destino de salud. Lo dejo anotado, no como mensaje: es una
+  afiliación formal a través de la Cámara de Comercio (probablemente con matrícula mercantil y cuota
+  de por medio), no algo que se resuelva con un correo, y no tengo forma de confirmar desde aquí los
+  requisitos ni el costo. Es una decisión de negocio para Laura, no una solicitud de enlace.
+- **Directorio de IPS (Consultorsalud)** — existe y tiene un botón "Registrarse", pero es
+  autorregistro con cuenta propia, igual que Doctoralia: no me corresponde a mí.
+- **Vivir en El Poblado** — periódico local del barrio donde está Seravena, en principio un encaje
+  perfecto. No encontré un correo editorial verificado (solo uno de publicidad,
+  publicidad@vivirenelpoblado.com.co, que no es el canal correcto para ofrecer una fuente médica sin
+  pagar). No redacto mensaje esta semana por no tener el contacto correcto; queda para revisar cuando
+  aparezca un correo editorial.
+- Revisé también Fundación Colombiana de Angiodisplasias y Linfedema y una asociación llamada AGCVFL:
+  la primera no tiene presencia web verificable con los datos que hay, y la segunda resultó ser
+  guatemalteca, no colombiana. Ninguna de las dos da para un mensaje.
+
+· Mensajes listos para enviar: 2
+
+---
+
+#### Mensaje 1
+
+**Destinatario:** Clínica Las Vegas (Grupo QuirónSalud) — administración de la Torre Médica Salud Vegas
+**Dirección de contacto:** info@clinicalasvegas.com
+**Asunto:** Consulta sobre el Directorio Institucional — Seravena, consultorio 1316
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, clínica de lipedema y salud vascular que atiende en el consultorio 1316
+> de la Torre Médica Salud Vegas, en la Calle 2 Sur #46-159.
+>
+> Vimos que en clinicalasvegas.com tienen un Directorio Institucional. Queríamos preguntar si incluye
+> a los consultorios y especialistas que atendemos en la torre, y si es el caso, qué necesitan de
+> nuestra parte para que Seravena aparezca allí.
+>
+> Aprovechamos también para comentarles algo que notamos revisando varios sitios sobre la torre: la
+> dirección aparece escrita de formas distintas según el sitio (46-159, 46-55, 46-116). No sabemos si
+> ya lo tienen identificado, pero por si es útil: la dirección correcta, confirmada contra la ficha
+> del edificio, es Calle 2 Sur #46-159.
+>
+> Quedamos atentos a lo que nos puedan indicar.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+#### Mensaje 2
+
+**Destinatario:** Escuela Colombiana de Linfología
+**Dirección de contacto:** contacto@escuelacolombianadelinfologia.com
+**Asunto:** Consulta sobre directorio de profesionales/clínicas por ciudad — Seravena, Medellín
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, una clínica de Medellín dedicada al lipedema y la salud vascular
+> (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316).
+>
+> Queríamos preguntarles si la Escuela mantiene algún directorio público de egresados, profesionales
+> certificados o clínicas afiliadas, organizado por ciudad, donde los pacientes puedan encontrar
+> atención en linfedema o lipedema en Antioquia. Si existe, nos gustaría saber qué pasos hay que
+> seguir para que se considere a Seravena.
+>
+> Quedamos atentos a lo que nos puedan indicar.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
