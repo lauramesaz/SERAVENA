@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-08",
+  "actualizado": "2026-09-09",
   "articulos": [
+    {
+      "fecha": "2026-09-09",
+      "titulo": "Mitos sobre las várices que conviene desmentir",
+      "slug": "mitos-varices",
+      "categoria": "Salud vascular",
+      "keyword": "mitos sobre las várices",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/mitos-varices.html",
+      "nota": "Artículo del racimo 'tratamiento' (primer tema pendiente de temas.md); desmiente 6 mitos comunes sobre várices en general (solo estético, solo mayores, si no se ven no hay problema, el ejercicio las empeora, solo se arregla con cirugía, solo les pasa a mujeres), sin repetir el mito de medias de compresión ya cubierto en 'mitos-medias-compresion'. Médico: APROBADO CON CORRECCIONES (se amplió el post-note para explicar el riesgo de embolia pulmonar tras síntomas de alarma, igual que en sus hermanos del racimo). SEO: 97/100, APTO (integró 2 keywords secundarias que faltaban en el cuerpo, dividió párrafos y oraciones largas, convirtió el resumen final en lista). Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'tratamiento' (mitos-medias-compresion, guia-tratamientos-varices, quitar-varices-para-siempre). Imagen vascular-veins.webp (ya usada en 'guia-piernas-cada-etapa-de-vida', racimo distinto; sin repetir dentro del racimo 'tratamiento') registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-08",
       "titulo": "Várices vs. arañitas vasculares: ¿son lo mismo?",

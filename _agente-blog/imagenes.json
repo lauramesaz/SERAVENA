@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-07",
+  "actualizado": "2026-09-09",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "mitos-varices": {
+      "imagen": "vascular-veins.webp",
+      "alt": "Mano tocando con suavidad una pierna con venas y várices visibles"
+    },
     "senales-lipedema-primer-contacto": {
       "imagen": "texture-camel.webp",
       "alt": "Tela satinada en tono camel con pliegues suaves, en un ambiente cálido y neutro"
