@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-09",
+  "actualizado": "2026-09-10",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "mitos-lipedema": {
+      "imagen": "6663561.webp",
+      "alt": "Mujer sentada inclinada hacia adelante, mirándose las manos y los pies con gesto pensativo, reflexionando sobre los mitos del lipedema"
+    },
     "mitos-varices": {
       "imagen": "vascular-veins.webp",
       "alt": "Mano tocando con suavidad una pierna con venas y várices visibles"

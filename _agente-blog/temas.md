@@ -94,7 +94,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 **Mitos y verdades**
 - [publicado] Mitos sobre las várices que conviene desmentir — mitos varices — mitos-varices
-- [pendiente] Lipedema: 5 mitos que retrasan el diagnóstico — mitos lipedema — mitos-lipedema
+- [publicado] Lipedema: 5 mitos que retrasan el diagnóstico — mitos lipedema — mitos-lipedema
 - [publicado] "Las medias de compresión curan las várices" y otros mitos — mitos medias compresion — mitos-medias-compresion
 
 **Comparativas (muy buscadas)**

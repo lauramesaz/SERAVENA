@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-09",
+  "actualizado": "2026-09-10",
   "articulos": [
+    {
+      "fecha": "2026-09-10",
+      "titulo": "5 mitos del lipedema que retrasan el diagnóstico",
+      "slug": "mitos-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "mitos sobre el lipedema",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/mitos-lipedema.html",
+      "nota": "Artículo del racimo 'lipedema', elegido por no repetir racimo con el día anterior (9-sep, 'tratamiento') y porque todos los temas pendientes en esta fecha eran de este racimo; era además la prioridad #3 recomendada explícitamente en la revisión semanal del 6-sep-2026. Desmiente 5 mitos comunes que retrasan el diagnóstico (que es solo estar gorda o falta de voluntad, que se cura con dieta o ejercicio, que es lo mismo que la obesidad, que es lo mismo que el linfedema, y que es solo un problema estético). Médico: APROBADO sin correcciones. SEO: 100/100, APTO (corrigió el título/H1 para integrar mejor la keyword y dividió frases largas del cuerpo). Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'lipedema' (que-es-el-lipedema, diagnostico-lipedema, lipedema-o-retencion-liquidos). Imagen 6663561.webp registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-09",
       "titulo": "Mitos sobre las várices que conviene desmentir",
