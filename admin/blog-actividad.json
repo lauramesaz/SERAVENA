@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-10",
+  "actualizado": "2026-09-11",
   "articulos": [
+    {
+      "fecha": "2026-09-11",
+      "titulo": "Cómo saber si tengo lipedema: señales para autoevaluarte",
+      "slug": "como-saber-si-tengo-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "cómo saber si tengo lipedema",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/como-saber-si-tengo-lipedema.html",
+      "nota": "Artículo del racimo 'lipedema', elegido porque todos los temas pendientes de temas.md en esta fecha eran de este racimo (el otro tema pendiente del racimo, sobre lipedema/obesidad/linfedema, se descartó por canibalización con mitos-lipedema, que-es-el-lipedema y lipedema-vs-linfedema). Ángulo de checklist de autoevaluación para la paciente, distinto del ya publicado 'senales-lipedema-primer-contacto' (dirigido a profesionales). Médico: APROBADO sin correcciones. SEO: 97/100, APTO (corrigió un desajuste de la keyword exacta 'tengo' vs 'tienes' en h1/headline/breadcrumb y dividió una frase larga, sin tocar contenido médico). 1026 palabras de cuerpo. Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'lipedema' (diagnostico-lipedema, lipedema-vs-linfedema, lipedema-o-retencion-liquidos). Imagen skin-detail.webp (ya usada antes fuera del racimo lipedema, en guia-sintomas-mala-circulacion; primer uso dentro del racimo lipedema) registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-10",
       "titulo": "5 mitos del lipedema que retrasan el diagnóstico",
