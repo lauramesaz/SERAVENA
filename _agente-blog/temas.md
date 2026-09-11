@@ -100,7 +100,7 @@ distintos tipos de búsqueda. Ideas por formato:
 **Comparativas (muy buscadas)**
 - [publicado] Várices vs arañitas vasculares: ¿son lo mismo? — varices vs aranitas — varices-vs-aranitas
 - [publicado] Escleroterapia vs láser para várices: diferencias — escleroterapia vs laser — escleroterapia-vs-laser
-- [pendiente] Lipedema, obesidad y linfedema: cómo diferenciarlos — lipedema obesidad linfedema — lipedema-obesidad-linfedema
+- [descartado] Lipedema, obesidad y linfedema: cómo diferenciarlos — lipedema obesidad linfedema — lipedema-obesidad-linfedema (anticanibalización, hallada por el orquestador el 11-sep-2026 antes de escribir: dos de los tres ejes que proponía este tema ya están cubiertos con la misma intención de búsqueda por artículos existentes — la diferencia con la obesidad la explica a fondo "que-es-el-lipedema.html" y la diferencia con el linfedema la explica a fondo "lipedema-vs-linfedema.html" — y además "mitos-lipedema.html", publicado el 10-sep-2026 (el día anterior), desmiente explícitamente como mitos "que es lo mismo que la obesidad" y "que es lo mismo que el linfedema"; un tercer artículo sobre las tres diferenciaciones juntas no aportaría intención de búsqueda nueva y competiría por posicionamiento con sus propios hermanos. Se elige en su lugar el siguiente tema pendiente de temas.md.)
 
 **Guías prácticas / "cómo"**
 - [pendiente] Cómo saber si tienes lipedema: señales para autoevaluarte — cómo saber si tengo lipedema — como-saber-si-tengo-lipedema
