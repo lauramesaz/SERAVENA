@@ -113,7 +113,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [descartado] Lipedema en la menopausia: qué cambia — lipedema menopausia — lipedema-menopausia-cambios (anticanibalización, hallada en la revisión semanal del 6-sep-2026: solapa casi por completo con "lipedema-y-menopausia.html", publicado el 19-ago-2026 con la keyword "lipedema y menopausia" y la misma intención de búsqueda; esta semana se amplió y mejoró ese mismo artículo en vez de crear uno nuevo)
 
 **Emocional / calidad de vida (conecta con la marca)**
-- [pendiente] Vivir con lipedema: cómo cuidar también la salud emocional — lipedema salud emocional — lipedema-salud-emocional
+- [publicado] Vivir con lipedema: cómo cuidar también la salud emocional — lipedema salud emocional — lipedema-salud-emocional
 - [publicado] Cuando te dicen "es solo estético": por qué tus piernas importan — piernas no es estético — piernas-no-solo-estetico
 
 **Preguntas frecuentes reales de pacientes**

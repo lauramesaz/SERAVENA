@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-11",
+  "actualizado": "2026-09-12",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -182,6 +182,10 @@
     "piernas-no-solo-estetico": {
       "imagen": "silk-flowers.webp",
       "alt": "Flores delicadas en tonos suaves, como metáfora del cuidado propio y la calma"
+    },
+    "lipedema-salud-emocional": {
+      "imagen": "silk-flowers.webp",
+      "alt": "Ramo de flores de tela en tonos suaves sobre una mesa clara, evocando un momento de calma y autocuidado emocional"
     }
   }
 }

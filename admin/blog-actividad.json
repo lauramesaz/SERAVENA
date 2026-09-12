@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-11",
+  "actualizado": "2026-09-12",
   "articulos": [
+    {
+      "fecha": "2026-09-12",
+      "titulo": "Vivir con lipedema: cómo cuidar también la salud emocional",
+      "slug": "lipedema-salud-emocional",
+      "categoria": "Lipedema",
+      "keyword": "salud emocional y lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-salud-emocional.html",
+      "nota": "Ángulo emocional del racimo lipedema: ansiedad, autoestima, estigma ('es solo estar gorda') e imagen corporal, con el apoyo psicológico y los grupos de pacientes como parte del manejo integral junto al cuidado físico y vascular."
+    },
     {
       "fecha": "2026-09-11",
       "titulo": "Cómo saber si tengo lipedema: señales para autoevaluarte",
