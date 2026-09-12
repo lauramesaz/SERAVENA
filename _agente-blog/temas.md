@@ -123,3 +123,18 @@ distintos tipos de búsqueda. Ideas por formato:
 > Nota para el equipo: mantener equilibrio entre los dos pilares (vascular y lipedema) y
 > alternar formatos. Confirmar siempre con la clínica qué tratamientos ofrece Seravena antes de
 > describirlos como disponibles.
+
+---
+
+## Temas nuevos (añadidos por el orquestador el 12-sep-2026 — quedaba solo 1 pendiente)
+
+- [pendiente] Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan — úlceras venosas piernas — ulceras-venosas-piernas
+- [pendiente] Flebitis superficial: síntomas y qué hacer — flebitis superficial síntomas — flebitis-superficial-sintomas
+- [pendiente] Cómo elegir un buen especialista vascular — elegir especialista vascular — como-elegir-especialista-vascular
+- [pendiente] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices
+- [pendiente] ¿Las várices se heredan? Lo que influye la genética — várices hereditarias — varices-hereditarias-genetica
+- [pendiente] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
+- [pendiente] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
+- [pendiente] Compresión para lipedema: en qué se diferencia de la de várices — compresión para lipedema — compresion-para-lipedema
+- [pendiente] Piel y lipedema: cuidados básicos que ayudan — piel y lipedema — piel-y-cuidados-lipedema
+- [pendiente] Lipedema y vida laboral: adaptaciones que marcan la diferencia — lipedema y trabajo — lipedema-y-trabajo
