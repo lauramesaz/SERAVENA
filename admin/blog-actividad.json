@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-12",
+  "actualizado": "2026-09-13",
   "articulos": [
+    {
+      "fecha": "2026-09-13",
+      "titulo": "¿El lipedema tiene cura? Lo que sí se puede hacer",
+      "slug": "lipedema-tiene-cura",
+      "categoria": "Lipedema",
+      "keyword": "lipedema tiene cura",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-tiene-cura.html",
+      "nota": "Responde con honestidad a la pregunta más buscada sobre el lipedema y la cura: qué significa 'no tiene cura, pero sí manejo', qué logra el manejo conservador (compresión, movimiento de bajo impacto, drenaje linfático, alimentación antiinflamatoria) y qué papel juega realmente la liposucción, sin prometer resultados garantizados."
+    },
     {
       "fecha": "2026-09-12",
       "titulo": "Vivir con lipedema: cómo cuidar también la salud emocional",
