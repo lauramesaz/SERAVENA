@@ -128,7 +128,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 ## Temas nuevos (añadidos por el orquestador el 12-sep-2026 — quedaba solo 1 pendiente)
 
-- [pendiente] Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan — úlceras venosas piernas — ulceras-venosas-piernas
+- [publicado] Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan — úlceras venosas piernas — ulceras-venosas-piernas
 - [pendiente] Flebitis superficial: síntomas y qué hacer — flebitis superficial síntomas — flebitis-superficial-sintomas
 - [pendiente] Cómo elegir un buen especialista vascular — elegir especialista vascular — como-elegir-especialista-vascular
 - [pendiente] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices

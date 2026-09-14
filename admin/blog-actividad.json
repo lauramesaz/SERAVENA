@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-13",
+  "actualizado": "2026-09-14",
   "articulos": [
+    {
+      "fecha": "2026-09-14",
+      "titulo": "Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan",
+      "slug": "ulceras-venosas-piernas",
+      "categoria": "Salud vascular",
+      "keyword": "úlceras venosas piernas",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/ulceras-venosas-piernas.html",
+      "nota": "Artículo del racimo 'sintomas', primer tema pendiente de temas.md en esta fecha. Explica por qué aparecen las úlceras venosas (insuficiencia venosa crónica e hipertensión venosa), factores de riesgo, cómo diferenciarlas de úlceras arteriales y diabéticas, y medidas generales mientras se busca valoración, sin dar indicaciones de tratamiento de heridas personalizadas. Médico: APROBADO sin correcciones (verificado de forma independiente contra Cleveland Clinic, StatPearls, AAFP y otras fuentes). SEO: 100/100, APTO. 905 palabras de cuerpo. Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'sintomas' (insuficiencia-venosa-sintomas, manchas-tobillos-causas, guia-sintomas-mala-circulacion). Imagen care-hands.webp registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-13",
       "titulo": "¿El lipedema tiene cura? Lo que sí se puede hacer",
