@@ -58,3 +58,23 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   raíz, solo `insuficiencia-venosa.html` tiene enlaces `tel:+573052088204` — ni siquiera
   `contacto.html`, la página hecha para que te contacten, tiene botón de llamada directa, solo
   WhatsApp y correo. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-09-14 · 2 propuestas nuevas (W38-1, W38-2).** Repetí las 5 búsquedas objetivo: Seravena
+  sigue sin aparecer en ninguna; misma competencia dominante de semanas anteriores (Doctoralia,
+  Top Doctors, Franco Vascular, Flebosalud, Cardiovas IPS, Vasculab, Centrolab, CFMEDICINA,
+  dopplervenosomedellin.com) más otras vistas hoy por primera vez (Clínica Medellín/QuirónSalud,
+  doctoramontenegro.com —con página propia 'Escleroterapia Medellín' a nombre de una médica—,
+  Clínica Somos, MDE Care, Clínica CIC, Centro de Medicina Integrativa). Antes de proponer
+  comprobé el estado de las 6 propuestas pendientes de W36 y W37 en el código (canonical de
+  insuficiencia-venosa.html, enlaces `tel:` fuera de esa página, `openingHours`/mapa en
+  contacto.html, autoevaluación venosa): ninguna se ha implementado todavía, así que no las
+  repetí. La más antigua (W34, 20-ago) lleva 25 días en `propuesta` — no caduca hasta pasar el
+  mes, así que no marqué ninguna caducada esta semana. Encontré dos huecos nuevos y verificables
+  en el código, ninguno repetido: (1) los dos artículos del blog construidos para 'eco doppler
+  venoso Medellín' y 'escleroterapia Medellín' (2 de las 5 búsquedas objetivo) no mencionan
+  'Medellín' ni una sola vez en todo el archivo — ni en title, h1, meta description, cuerpo o
+  JSON-LD —, un hueco más grave que el que tenía insuficiencia-venosa.html antes de corregirse
+  el 24-ago; (2) el bloque JSON-LD `MedicalClinic`, repetido en las 8 páginas raíz, no tiene
+  campo `geo` (latitud/longitud) en ninguna de ellas, pese a sí declarar dirección y teléfono.
+  Sobre esta segunda la marqué con impacto bajo y dejé por escrito que es higiene técnica, no
+  algo que por sí solo mueva el ranking local. Aviso a Laura: nota en GitHub con etiqueta
+  `propuestas`.

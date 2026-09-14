@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-09-07",
+  "actualizado": "2026-09-14",
   "propuestas": [
+    {
+      "id": "2026-W38-1",
+      "fecha": "2026-09-14",
+      "titulo": "Poner 'Medellín' en el título, el H1 y la meta description de los dos artículos del blog hechos para 'eco doppler venoso Medellín' y 'escleroterapia Medellín'",
+      "categoria": "Técnico",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "En `blog/eco-doppler-venoso-que-es.html` (hoy `<title>`: 'Eco doppler venoso: qué es y por qué es clave | Seravena') y `blog/escleroterapia-que-es.html` (hoy `<title>`: 'Escleroterapia: qué es y cómo funciona | Seravena'), reescribir el `<title>`, el `<h1>` y la meta description de cada uno para que incluyan la palabra 'Medellín' junto a la keyword que ya llevan, respetando los límites del manual (title ≤ 60 caracteres + ' | Seravena', meta description 140-160 caracteres). Sincronizar el mismo cambio en `og:title`/`og:description`/`twitter:title`/`twitter:description` y en el `headline` del JSON-LD `MedicalWebPage` de cada artículo, sin tocar el resto del contenido médico ni el diseño — el mismo patrón que ya se aplicó en `insuficiencia-venosa.html` el 24-ago (propuesta W35-1, ya hecha).",
+      "porque": "Comprobado hoy con una búsqueda de texto en el propio código: la palabra 'Medellín' aparece 0 veces en todo `blog/eco-doppler-venoso-que-es.html` y 0 veces en todo `blog/escleroterapia-que-es.html` — ni en title, h1, meta description, cuerpo o JSON-LD. Es un hueco más grave que el que tenía `insuficiencia-venosa.html` antes del 24-ago (esa página sí tenía 3 menciones técnicas de Medellín; estas dos tienen cero). Son justo los dos artículos construidos para 2 de las 5 búsquedas objetivo de la misión: 'eco doppler venoso Medellín' y 'escleroterapia Medellín'. Repetí hoy esas dos búsquedas en Google: Seravena no aparece en ninguna, mientras sí aparecen sitios que llevan el nombre de la ciudad en su propio título — dopplervenosomedellin.com y Centrolab ('Doppler Venoso Miembros Inferiores en Medellín') para la primera, y doctoramontenegro.com ('Escleroterapia Medellín') y CFMEDICINA para la segunda.",
+      "como_se_mide": "Que las URLs de esos dos artículos empiecen a recibir impresiones para 'eco doppler venoso Medellín' y 'escleroterapia Medellín' en Search Console (hoy ninguna de las dos aparece para esas consultas). Primera señal esperable en 2-4 semanas, en cuanto Google vuelva a rastrear las páginas."
+    },
+    {
+      "id": "2026-W38-2",
+      "fecha": "2026-09-14",
+      "titulo": "Añadir coordenadas geográficas (geo) al JSON-LD MedicalClinic de las 8 páginas raíz",
+      "categoria": "Local",
+      "esfuerzo": "bajo",
+      "impacto": "bajo",
+      "quien": "Claude",
+      "estado": "propuesta",
+      "que": "Añadir el campo `geo` (tipo `GeoCoordinates`, con `latitude` y `longitude`) dentro del bloque JSON-LD `MedicalClinic` que hoy se repite, idéntico, en las 8 páginas raíz (index, vascular, insuficiencia-venosa, lipedema, proceso, preguntas, profesionales, contacto), usando las coordenadas reales de la dirección ya declarada en ese mismo bloque (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, Medellín) — se consiguen buscando la dirección en Google Maps y copiando la latitud/longitud del pin exacto del consultorio, o pidiéndoselas directamente a Laura si ya las tiene. No se toca ningún otro campo del bloque.",
+      "porque": "Comprobado hoy en el código: ninguna de las 8 páginas raíz tiene un campo `geo`, `GeoCoordinates`, `latitude` ni `longitude` en su JSON-LD `MedicalClinic` — el bloque da nombre, dirección postal y teléfono, pero no confirma el punto exacto en el mapa. `geo` es uno de los campos de negocio local que la documentación de Google recomienda junto a `openingHours` (ya propuesto en W36-1, todavía sin implementar) para que un negocio quede bien situado en resultados locales. Aviso honesto: no tengo forma de medir cuánto pesa por sí solo este campo frente a señales mucho más fuertes como el Perfil de Empresa de Google (W34-1, todavía sin crear) — es una corrección de higiene técnica barata y verificable, no algo que vaya a mover el primer puesto por sí sola.",
+      "como_se_mide": "Que el bloque `MedicalClinic` con `geo` pase la validación de Google Rich Results Test sin errores tras publicarse. No se puede aislar un efecto propio en el ranking local: es una pieza más, junto con el Perfil de Empresa (W34-1) y el horario (W36-1), de la misma corrección de señales locales."
+    },
     {
       "id": "2026-W37-1",
       "fecha": "2026-09-07",
