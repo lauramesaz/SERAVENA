@@ -60,6 +60,45 @@ Semana del <fecha>
 · Lo que recomiendo escribir esta semana: <2-3 temas del racimo más flojo>
 ```
 
+## Parte 4 · Novedad para el Perfil de Empresa de Google (OBLIGATORIA cada semana)
+
+Seravena tiene Perfil de Empresa en Google. Para que Google asocie ese perfil con el blog,
+Laura publica **una "Novedad" por semana** en el perfil con enlace a un artículo. Tú se la dejas
+**lista para copiar y pegar** al final del aviso (issue), en un bloque aparte con este formato:
+
+```
+### 📣 Novedad para el Perfil de Empresa (copiar y pegar)
+**Artículo elegido:** <título> — <URL completa>
+**Por qué este:** <1 línea: el mejor de la semana, o el que más ayuda a la misión "Medellín">
+**Texto de la Novedad (máx. 1.500 caracteres, ideal 300–600):**
+<texto>
+**Botón:** "Más información" → <URL del artículo>
+**Foto sugerida:** <ruta de la imagen de portada del artículo, en assets/media o blog/>
+```
+
+Reglas del texto de la Novedad:
+- Habla en la voz de Seravena (cálida, cercana, sin jerga), en 2–4 frases cortas + el enlace.
+- Menciona "Medellín" de forma natural una vez.
+- Cero promesas de curación, cero cifras que no estén en el artículo, cero urgencia artificial.
+  Aplican las mismas salvaguardas médicas de `../INSTRUCCIONES.md`.
+- Termina con una invitación suave ("Si quieres una valoración, escríbenos por WhatsApp").
+- No repitas un artículo ya usado en una Novedad anterior: anótalos en `../registro.md` bajo
+  `## Novedades del Perfil de Empresa` (fecha + slug).
+
+## Parte 5 · URLs para pedir indexación (OBLIGATORIA cada semana)
+
+Google conoce los artículos por el sitemap pero tarda en rastrearlos. Deja en el aviso, en un
+bloque aparte, la lista de URLs publicadas en los últimos 7 días (según `admin/blog-actividad.json`)
+para que Laura (o Claude con su sesión) las pida en Search Console → Inspección de URLs →
+"Solicitar indexación":
+
+```
+### 🔎 URLs para pedir indexación esta semana
+- <URL 1>
+- <URL 2>
+...
+```
+
 ## Cuando haya datos de Google Search Console
 
 Hoy trabajas **a ciegas**: juzgas por la calidad del contenido, no por su rendimiento real.

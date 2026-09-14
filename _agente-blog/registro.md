@@ -166,3 +166,9 @@ Semana del 13-sep-2026
   - Ningún artículo por debajo de 1150 palabras. El artículo vivo con más tiempo sin ninguna actualización desde su publicación es ahora "Tratamiento de várices sin cirugía: por qué aparecen y cómo se tratan hoy" (varices-tratamiento-sin-cirugia, publicado 14-jul-2026, 2 meses sin tocarse); todavía no llega al umbral de 6 meses del manual, pero es el más antiguo sin revisar y candidato natural si sigue sin actualizarse en unas semanas.
   - No se encontró canibalización activa entre artículos ya publicados.
   - Nota técnica sobre verificación de publicación: igual que en revisiones anteriores, no pude comprobar con `curl` que `https://www.clinicaseravena.com/blog/que-es-el-lipedema.html` responda 200 en esta sesión: la política de red de este entorno bloquea la salida hacia ese dominio (confirmado con `__agentproxy/status`: 403 "policy denial" en el CONNECT). En su lugar comprobé el run de GitHub Actions "pages build and deployment" del commit publicado (run #168, id 34765026722): terminó con `conclusion: success` en 52 segundos. Es una señal indirecta razonable, no un 200 real; recomiendo a Laura abrir el enlace para confirmarlo a simple vista. Nota aparte: al empezar la revisión encontré el repositorio local en HEAD separado, con una rama de trabajo (borradores + publicación de "lipedema-tiene-cura" de otra sesión) que aún no estaba fusionada a `main`; mientras yo trabajaba, esa rama se fusionó a `origin/main` de forma independiente. Guardé mi propio trabajo en una rama temporal, actualicé mi copia de `main` al `origin/main` ya fusionado, y luego adjunté mi commit encima sin perder nada de ninguna de las dos partes.
+
+
+## Novedades del Perfil de Empresa
+
+| Fecha | Artículo (slug) | Publicada por |
+|---|---|---|
