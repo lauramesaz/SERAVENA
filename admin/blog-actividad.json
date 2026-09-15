@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-14",
+  "actualizado": "2026-09-15",
   "articulos": [
+    {
+      "fecha": "2026-09-15",
+      "titulo": "Flebitis superficial: síntomas y qué hacer",
+      "slug": "flebitis-superficial-sintomas",
+      "categoria": "Salud vascular",
+      "keyword": "flebitis superficial síntomas",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/flebitis-superficial-sintomas.html",
+      "nota": "Artículo del racimo 'sintomas', primer tema pendiente de temas.md en esta fecha. Explica qué es la flebitis superficial, sus síntomas (cordón duro, enrojecimiento, calor y dolor localizado), causas y factores de riesgo, cómo diferenciarla de la trombosis venosa profunda y cuándo buscar atención pronto, sin dar indicaciones de tratamiento personalizadas. Médico: APROBADO CON CORRECCIONES (se añadió la señal de alarma de tromboembolismo pulmonar, poco frecuente en la flebitis superficial pero relevante). SEO: 100/100, APTO. Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'sintomas' (trombosis-venosa-senales, insuficiencia-venosa-sintomas, piernas-hinchadas-cuando-preocuparse). Imagen band-veins.webp registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-14",
       "titulo": "Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan",

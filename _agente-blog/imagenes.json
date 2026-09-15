@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-14",
+  "actualizado": "2026-09-15",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "flebitis-superficial-sintomas": {
+      "imagen": "band-veins.webp",
+      "alt": "Piernas con venas visibles apoyadas sobre una tela satinada clara, en un gesto de cuidado y atención hacia la piel"
+    },
     "ulceras-venosas-piernas": {
       "imagen": "care-hands.webp",
       "alt": "Manos de un profesional de la salud cuidando con delicadeza la piel de la pierna de un paciente con una úlcera venosa"
