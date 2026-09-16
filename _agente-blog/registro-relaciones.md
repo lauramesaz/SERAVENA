@@ -272,3 +272,143 @@ propuesta del estratega de registrar la clínica en Doctoralia y directorios (20
 >
 > Seravena · SERAVENA S.A.S.
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-09-16
+
+· Sitios revisados: 16 (Doctoralia.co, Top Doctors, Facebook, Instagram, Lipedema Colombia,
+Asociación Colombiana de Medicina Vascular / ACMV, ACHC — Asociación Colombiana de Hospitales y
+Clínicas, REPS/Minsalud — Registro Especial de Prestadores, directoriomedellin.com.co,
+Consultorios Salud Vegas, Clínica Las Vegas, Unidad Médica Las Vegas, Vivir en El Poblado, Colegio
+Médico de Antioquia / Federación Médica Colombiana, Asovascular / registro de Sociedades
+Científicas, panorama de periodismo de salud colombiano) + las 3 búsquedas objetivo en Google
+("várices Medellín", "flebólogo Medellín", "eco doppler venoso Medellín")
+· Seravena aparece en: 0
+
+### Nombre/dirección/teléfono de Seravena: sin incoherencias nuevas
+
+La propia web sigue siendo internamente consistente con **Calle 2 Sur #46-159, Torre Médica Salud
+Vegas, consultorio 1316** (la misma que confirman las instrucciones de esta semana contra la ficha
+del edificio en Google). No encontré ninguna mención de Seravena en ningún sitio nuevo esta semana
+— sigue en cero, así que no hay nada que corregir a nombre de Seravena. Sí encontré algo que afecta
+a un mensaje que quedó redactado la semana pasada; va en la siguiente sección.
+
+### ⚠️ Revisar antes de enviar: el mensaje a Clínica Las Vegas de la semana pasada
+
+Al buscar más a fondo quién administra la Torre Médica Salud Vegas encontré dos cosas nuevas:
+
+1. La propia página de contacto oficial de **clinicalasvegas.com** (la clínica de QuirónSalud que
+   ocupa el piso 10 del edificio) da hoy su dirección como **Calle 2 Sur #46-55** — exactamente la
+   variante que la semana del 2-sep señalé como "la que trae mi manual pero no la web". No es un
+   error mío ni de Seravena: es la propia Clínica Las Vegas la que usa esa variante en su web
+   oficial. El mensaje que quedó listo la semana pasada para esa clínica incluye un párrafo
+   "aprovechamos para comentarles que la dirección del edificio aparece de formas distintas... la
+   correcta es 46-159", y con este dato nuevo ese párrafo puede sonar mal: le estaríamos diciendo a
+   QuirónSalud que su propia página está mal en un primer correo de presentación, cuando en realidad
+   no hay forma de saber desde aquí cuál de las dos direcciones es la que ese edificio considera
+   vigente para esa clínica en concreto. Recomiendo a Laura quitar o suavizar ese párrafo antes de
+   mandarlo, o simplemente no incluirlo.
+2. Clínica Las Vegas (el piso 10, una clínica más dentro del edificio) puede no ser el destinatario
+   correcto para pedir aparecer en un directorio de consultorios. Encontré una empresa distinta,
+   **Inversiones En Salud Vegas S.A.S.** (Calle 2 Sur #46-116, piso 12, tel. 604 460 9940), que por
+   el nombre y la dirección parece ser la que está detrás de **Consultorios Salud Vegas**
+   (consultoriossaludvegas.com), el servicio de alquiler de consultorios amoblados del propio
+   edificio — es decir, probablemente la administradora real de los consultorios individuales como
+   el 1316, no solo de la clínica del piso 10. No encontré un correo verificado de esta empresa (solo
+   el teléfono), así que no redacto un mensaje nuevo por no tener un canal de contacto seguro; lo
+   dejo anotado para que Laura, si quiere, llame a ese número y pregunte si administran un directorio
+   de consultorios del edificio, en paralelo o en vez del mensaje a Clínica Las Vegas.
+
+También confirmé que el edificio tiene una tercera forma de dirección circulando por terceros, sin
+relación con Seravena: Top Doctors ubica a otro especialista de la misma torre en "Carrera 48 # 1
+Sur-126" (probablemente la fachada del edificio sobre la Avenida Las Vegas, que es la Carrera 48, no
+un error). Es solo información de contexto sobre el edificio — ninguna página de Seravena usa esa
+forma, así que no requiere ninguna acción.
+
+### Oportunidad para que Laura verifique en dos minutos: REPS (Minsalud)
+
+El **Registro Especial de Prestadores de Servicios de Salud** (REPS, prestadores.minsalud.gov.co) es
+el registro oficial y público del Ministerio de Salud: toda IPS que opera legalmente en Colombia
+debe estar ahí. Se consulta gratis con usuario y clave de invitado ("invitado"/"invitado") en
+`prestadores.minsalud.gov.co/directorio/consultaips.aspx`, buscando por nombre o NIT. No pude
+consultarlo yo mismo: la política de red de este entorno bloquea la salida hacia ese dominio (el
+mismo bloqueo que ya viene registrando el analista desde el 30-ago). Como es casi seguro que Seravena
+ya está registrada (es obligatorio para operar), esto no es una oportunidad de enlace que yo deba
+gestionar — es solo una verificación de dos minutos que le recomiendo a Laura: entrar y comprobar que
+el nombre, la dirección y el teléfono que aparecen ahí coinciden exactamente con los de la web. Si no
+coinciden, es un dato más autorizado que cualquier directorio privado y vale la pena corregirlo ahí
+primero.
+
+### Oportunidades nuevas (mensajes)
+
+- **ACMV — Asociación Colombiana de Medicina Vascular** (acmv.com.co) — tiene un "Directorio Médico"
+  público y ahora sí tengo un correo de contacto verificado. La afiliación es por especialista
+  (miembro de número, para internistas con subespecialidad en medicina vascular) o "miembro
+  asociado" para especialistas de otras disciplinas relacionadas — no puedo saber desde aquí si algún
+  médico de Seravena encaja en esa segunda categoría, así que el mensaje pregunta, no asume. Mensaje
+  1, abajo.
+- **ACHC — Asociación Colombiana de Hospitales y Clínicas** (achc.org.co) — gremio real de
+  instituciones de salud (no de médicos individuales), con una categoría de afiliación específica
+  para personas jurídicas de sede única — que es exactamente el caso de Seravena. Tiene correo de
+  contacto verificado para afiliación. No sé si tiene cuota y de cuánto, así que el mensaje pregunta
+  por los requisitos y el costo antes de proponer nada, y es una decisión de negocio que le
+  corresponde a Laura, no algo que yo deba recomendar. Mensaje 2, abajo.
+
+No repito esta semana Lipedema Colombia, Asovascular, El Colombiano ni Escuela Colombiana de
+Linfología: sus mensajes ya quedaron redactados la semana pasada y siguen sin enviarse, así que
+insistir sería duplicar trabajo. Vivir en El Poblado sigue sin un correo editorial verificado (solo
+uno de publicidad); no encontré uno nuevo esta semana, así que sigue sin mensaje.
+
+· Mensajes listos para enviar: 2
+
+---
+
+#### Mensaje 1
+
+**Destinatario:** ACMV — Asociación Colombiana de Medicina Vascular
+**Dirección de contacto:** contacto@acmv.com.co
+**Asunto:** Consulta sobre el Directorio Médico — Seravena, clínica de lipedema y salud vascular en Medellín
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, una clínica de Medellín dedicada al lipedema y la salud vascular
+> (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316).
+>
+> Vimos que en acmv.com.co tienen un Directorio Médico. Queríamos preguntar si incluye únicamente a
+> médicos individuales afiliados como miembros de número, o si también contempla la categoría de
+> miembro asociado para especialistas de otras disciplinas relacionadas con la medicina vascular, y
+> en ese caso, qué pasos habría que seguir para que nuestro equipo médico sea considerado.
+>
+> Quedamos atentos a lo que nos puedan indicar.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+#### Mensaje 2
+
+**Destinatario:** ACHC — Asociación Colombiana de Hospitales y Clínicas
+**Dirección de contacto:** juridico@achc.org.co
+**Asunto:** Consulta sobre afiliación para una IPS de sede única — Seravena, Medellín
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, una clínica de Medellín dedicada al lipedema y la salud vascular
+> (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316), constituida como SERAVENA
+> S.A.S.
+>
+> Vimos que la ACHC afilia a personas jurídicas prestadoras de servicios de salud, con categorías
+> según el número de sedes y el nivel de complejidad. Somos una institución de sede única. Nos
+> gustaría saber qué categoría de afiliación nos correspondería, qué requisitos y costos tiene, y si
+> las instituciones afiliadas aparecen en algún listado público de la asociación.
+>
+> Quedamos atentos a lo que nos puedan indicar.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
