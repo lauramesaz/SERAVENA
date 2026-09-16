@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-09-16 | como-elegir-especialista-vascular | Cómo elegir especialista vascular para el cuidado de tus piernas | elegir especialista vascular | publicado | — | — | — |
 | 2026-09-15 | flebitis-superficial-sintomas | Flebitis superficial: síntomas y qué hacer | flebitis superficial síntomas | publicado | — | — | — |
 | 2026-09-14 | ulceras-venosas-piernas | Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan | úlceras venosas piernas | publicado | — | — | — |
 | 2026-09-13 | lipedema-tiene-cura | ¿El lipedema tiene cura? Lo que sí se puede hacer | lipedema tiene cura | publicado | — | — | — |

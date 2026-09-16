@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-15",
+  "actualizado": "2026-09-16",
   "articulos": [
+    {
+      "fecha": "2026-09-16",
+      "titulo": "Cómo elegir especialista vascular para el cuidado de tus piernas",
+      "slug": "como-elegir-especialista-vascular",
+      "categoria": "Diagnóstico",
+      "keyword": "elegir especialista vascular",
+      "seo": 90,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/como-elegir-especialista-vascular.html",
+      "nota": "Artículo del racimo 'diagnostico', primer tema pendiente de temas.md en esta fecha. Explica qué formación debe tener un buen especialista vascular (angiólogo/cirujano vascular vs. flebólogo), cómo verificar el registro de un médico en Colombia (ReTHUS), señales de un buen profesional, preguntas para hacer antes de decidir y red flags, sin prometer curas ni dar indicaciones personalizadas. Médico: APROBADO CON CORRECCIONES (se reforzó la señal de alarma de posible trombosis venosa profunda para pedir atención médica 'cuanto antes' en lugar de 'pronta'). SEO: 90/100, APTO (se ajustaron H1 y un H2 para incluir la keyword exacta y se completó el campo MedicalCondition del JSON-LD). Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'diagnostico' (preparar-valoracion-vascular, cuando-derivar-especialista-vascular, guia-diagnostico-problema-venoso). Imagen hero-poster.webp (antes sin usar) registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-15",
       "titulo": "Flebitis superficial: síntomas y qué hacer",
