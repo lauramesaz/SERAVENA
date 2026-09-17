@@ -529,6 +529,26 @@ if (form) {
 if (!reduceMotion) updateParallax(window.scrollY);
 
 /* ============================================================
+   MICROSOFT CLARITY — mapas de calor y grabaciones (toda la web)
+   ------------------------------------------------------------
+   Proyecto "Seravena" en clarity.microsoft.com (gratis, sin límite).
+   Carga en todas las páginas públicas porque todas incluyen este
+   archivo; el panel /admin y el dashboard /equipo NO lo incluyen, así
+   que quedan fuera a propósito. Clarity enmascara por defecto todo lo
+   que la gente escribe en formularios. Con CLARITY_ID vacío no carga
+   nada. Los clics a WhatsApp/llamar/correo se marcan también en Clarity
+   (ver track() más abajo) para filtrar grabaciones por acción.
+   ============================================================ */
+var CLARITY_ID = 'yjrylwviw2';
+if (CLARITY_ID) {
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, 'clarity', 'script', CLARITY_ID);
+}
+
+/* ============================================================
    Medición de clics y conversiones (Google Analytics GA4 + Ads)
    - clic_whatsapp / clic_llamar / clic_correo: eventos descriptivos.
    - generate_lead: señal estándar de "contacto/lead" que Google Ads
@@ -540,6 +560,10 @@ if (!reduceMotion) updateParallax(window.scrollY);
   // Vacía = no se envía conversión a Ads (los eventos GA4 sí se envían siempre).
   var ADS_CONVERSION = 'JdAhCKWLhOkcEJ3D55xE';
   function track(name, params) {
+    // Marca el evento en Clarity (si está activo) para filtrar grabaciones por acción.
+    if (typeof window.clarity === 'function') {
+      try { window.clarity('event', name); window.clarity('set', 'accion', name); } catch (e) {}
+    }
     if (typeof window.gtag !== 'function') return;
     try { window.gtag('event', name, params || {}); } catch (e) {}
   }
