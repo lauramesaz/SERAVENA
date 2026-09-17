@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-16",
+  "actualizado": "2026-09-17",
   "articulos": [
+    {
+      "fecha": "2026-09-17",
+      "titulo": "Anticonceptivos y várices: lo que dice la evidencia",
+      "slug": "anticonceptivos-y-varices",
+      "categoria": "Salud vascular",
+      "keyword": "anticonceptivos y várices",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/anticonceptivos-y-varices.html",
+      "nota": "Artículo del racimo 'situaciones'. Explica la diferencia entre el posible efecto de los anticonceptivos hormonales sobre la aparición de várices (evidencia limitada) y su relación clara con el riesgo de trombosis venosa, qué factores lo aumentan y qué señales de alarma vigilar, sin dar indicaciones personalizadas sobre qué anticonceptivo usar. Médico: APROBADO sin correcciones. SEO: 99/100, APTO. Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'situaciones' (varices-en-el-embarazo, habitos-mejorar-circulacion, cuidar-piernas-viajes-largos). Imagen 6643071.webp (compartida con varices-tratamiento-sin-cirugia) registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-16",
       "titulo": "Cómo elegir especialista vascular para el cuidado de tus piernas",

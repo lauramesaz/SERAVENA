@@ -131,7 +131,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Úlceras venosas en las piernas: por qué aparecen y cómo se cuidan — úlceras venosas piernas — ulceras-venosas-piernas
 - [publicado] Flebitis superficial: síntomas y qué hacer — flebitis superficial síntomas — flebitis-superficial-sintomas
 - [publicado] Cómo elegir un buen especialista vascular — elegir especialista vascular — como-elegir-especialista-vascular
-- [pendiente] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices
+- [publicado] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices
 - [pendiente] ¿Las várices se heredan? Lo que influye la genética — várices hereditarias — varices-hereditarias-genetica
 - [pendiente] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
 - [pendiente] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
