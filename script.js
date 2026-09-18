@@ -121,7 +121,7 @@ const revealObserver = new IntersectionObserver((entries, obs) => {
 revealEls.forEach(el => {
   const group = el.parentElement;
   const siblings = $$(':scope > .reveal', group);
-  if (siblings.length > 1 && el.classList.contains('reveal')) el.dataset.delay = siblings.indexOf(el) * 90;
+  if (siblings.length > 1 && el.classList.contains('reveal')) el.dataset.delay = (siblings.indexOf(el) % 4) * 90; // tope: en listas largas (blog) el retraso crecía hasta varios segundos
   revealObserver.observe(el);
 });
 // Respaldo: revela lo que ya esté en pantalla (por si el observer no dispara)
@@ -540,7 +540,9 @@ if (!reduceMotion) updateParallax(window.scrollY);
    (ver track() más abajo) para filtrar grabaciones por acción.
    ============================================================ */
 var CLARITY_ID = 'yjrylwviw2';
-if (CLARITY_ID) {
+// En vista previa local (localhost / archivo) no se graba: ensuciaría los datos reales.
+var ES_LOCAL = /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname) || location.protocol === 'file:';
+if (CLARITY_ID && !ES_LOCAL) {
   (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
