@@ -206,6 +206,10 @@
     "lipedema-salud-emocional": {
       "imagen": "silk-flowers.webp",
       "alt": "Ramo de flores de tela en tonos suaves sobre una mesa clara, evocando un momento de calma y autocuidado emocional"
+    },
+    "varices-hereditarias-genetica": {
+      "imagen": "texture-camel.webp",
+      "alt": "Tela satinada en tono camel con pliegues suaves, en un ambiente cálido y neutro"
     }
   }
 }

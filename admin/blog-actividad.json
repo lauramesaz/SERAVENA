@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-17",
+  "actualizado": "2026-09-18",
   "articulos": [
+    {
+      "fecha": "2026-09-18",
+      "titulo": "Várices hereditarias: qué papel juega la genética",
+      "slug": "varices-hereditarias-genetica",
+      "categoria": "Salud vascular",
+      "keyword": "várices hereditarias",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-hereditarias-genetica.html",
+      "nota": "Creado por la rutina automática del equipo de agentes. Médico aprobado sin correcciones (cifras de heredabilidad verificadas de forma independiente). SEO 98/100."
+    },
     {
       "fecha": "2026-09-17",
       "titulo": "Anticonceptivos y várices: lo que dice la evidencia",

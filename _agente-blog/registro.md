@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-09-18 | varices-hereditarias-genetica | Várices hereditarias: qué papel juega la genética | várices hereditarias | publicado | — | — | — |
 | 2026-09-17 | anticonceptivos-y-varices | Anticonceptivos y várices: lo que dice la evidencia | anticonceptivos y várices | publicado | — | — | — |
 | 2026-09-16 | como-elegir-especialista-vascular | Cómo elegir especialista vascular para el cuidado de tus piernas | elegir especialista vascular | publicado | — | — | — |
 | 2026-09-15 | flebitis-superficial-sintomas | Flebitis superficial: síntomas y qué hacer | flebitis superficial síntomas | publicado | — | — | — |
