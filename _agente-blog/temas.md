@@ -133,8 +133,21 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Cómo elegir un buen especialista vascular — elegir especialista vascular — como-elegir-especialista-vascular
 - [publicado] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices
 - [publicado] ¿Las várices se heredan? Lo que influye la genética — várices hereditarias — varices-hereditarias-genetica
-- [pendiente] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
+- [publicado] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
 - [pendiente] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
 - [pendiente] Compresión para lipedema: en qué se diferencia de la de várices — compresión para lipedema — compresion-para-lipedema
 - [pendiente] Piel y lipedema: cuidados básicos que ayudan — piel y lipedema — piel-y-cuidados-lipedema
 - [pendiente] Lipedema y vida laboral: adaptaciones que marcan la diferencia — lipedema y trabajo — lipedema-y-trabajo
+
+## Temas nuevos (añadidos por el orquestador el 19-sep-2026 — quedaban solo 4 pendientes)
+
+- [pendiente] Sedentarismo y salud venosa: cómo el trabajo sentado afecta tus piernas — sedentarismo y venas — sedentarismo-piernas-venas
+- [pendiente] Ejercicio de bajo impacto recomendado si tienes várices — ejercicio para várices — ejercicio-para-varices
+- [pendiente] Tabaco, alcohol y salud vascular: qué relación existe — tabaco y circulación — tabaco-alcohol-circulacion
+- [pendiente] Diabetes y salud vascular de las piernas: qué vigilar — diabetes y circulación piernas — diabetes-circulacion-piernas
+- [pendiente] Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso — lipedema y sueño — lipedema-y-sueno
+- [pendiente] Actividades acuáticas y lipedema: por qué pueden ayudar — natación y lipedema — natacion-y-lipedema
+- [pendiente] Cómo hablar con tu familia sobre el lipedema — hablar en familia sobre lipedema — hablar-en-familia-lipedema
+- [pendiente] Alimentación antiinflamatoria y lipedema: qué dice la evidencia — alimentación antiinflamatoria lipedema — alimentacion-antiinflamatoria-lipedema
+- [pendiente] Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas — preguntas primera cita piernas — preguntas-primera-cita-piernas
+- [pendiente] Antecedentes familiares y salud vascular: qué preguntar en casa — antecedentes familiares várices — antecedentes-familiares-varices
