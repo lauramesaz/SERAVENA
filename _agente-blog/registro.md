@@ -181,7 +181,7 @@ Semana del 20-sep-2026
   - Los 55 artículos tienen `canonical`, `FAQPage`, `MedicalWebPage` y `BreadcrumbList` válidos (JSON-LD parseable sin errores en ninguno), y los 55 están en `sitemap.xml` sin URLs de más ni de menos; los 55 tienen también su tarjeta en `blog/index.html`.
   - Descripciones meta: las 55 están dentro del rango 140–160 caracteres.
   - Hallazgo menor de documentación (no de SEO): los artículos "Anticonceptivos y várices" (17-sep) y "Várices hereditarias" (18-sep) solo tienen fila en la tabla de arriba, sin la entrada narrativa que sí tienen el resto de publicaciones en `## Historial de acciones SEO`. No afecta al sitio en vivo, pero le resta trazabilidad al registro; lo señalo para que quien retome la rutina diaria lo tenga en cuenta, no lo reescribí yo para no inventar detalles de una sesión que no fue la mía.
-  - Nota técnica sobre verificación de publicación: ver el resultado del `curl` real más abajo, junto con el aviso a Laura.
+  - Nota técnica sobre verificación de publicación: igual que en revisiones anteriores, no pude comprobar con `curl` que `https://www.clinicaseravena.com/blog/habitos-mejorar-circulacion.html` responda 200 en esta sesión: la política de red de este entorno bloquea la salida hacia ese dominio (`connect_rejected` / "policy denial" en el CONNECT), antes y después del despliegue. En su lugar comprobé el run de GitHub Actions "pages build and deployment" del commit publicado (run #184, id 35518907102): terminó con `conclusion: success` en 42 segundos. Es una señal indirecta razonable, no un 200 real; se lo pedí a Laura en el aviso (issue #12) para que lo confirme a simple vista.
 · Lo que recomiendo escribir esta semana:
   1. Del racimo más flojo, `diagnostico`: no tiene tema hijo propio pendiente, pero "Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas" (preguntas-primera-cita-piernas, pendiente) encaja bien con ese racimo y refuerza directamente el momento del diagnóstico.
   2. "Sedentarismo y salud venosa: cómo el trabajo sentado afecta tus piernas" (sedentarismo-piernas-venas, pendiente) — primer tema pendiente de `temas.md`, conecta bien con la sección nueva que añadí esta semana sobre frecuencia de movimiento.
@@ -202,3 +202,4 @@ Semana del 13-sep-2026
 
 | Fecha | Artículo (slug) | Publicada por |
 |---|---|---|
+| 2026-09-20 | lipedema-y-embarazo | Sugerida al Agente 6, pendiente de que Laura la publique en el Perfil de Empresa (ver issue #12) |
