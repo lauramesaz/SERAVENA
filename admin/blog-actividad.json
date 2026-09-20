@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-19",
+  "actualizado": "2026-09-20",
   "articulos": [
+    {
+      "fecha": "2026-09-20",
+      "titulo": "Lipedema y embarazo: qué cambia y qué cuidar",
+      "slug": "lipedema-y-embarazo",
+      "categoria": "Lipedema",
+      "keyword": "lipedema y embarazo",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-y-embarazo.html",
+      "nota": "Creado por la rutina automática del equipo de agentes. Racimo lipedema: qué dice la evidencia sobre si el embarazo empeora el lipedema, cómo diferenciar el lipedema de la hinchazón normal del embarazo, cuidado conservador (compresión, movimiento suave, drenaje linfático) y qué esperar en el posparto. Médico: aprobado con correcciones (se suavizaron dos afirmaciones de beneficio a lenguaje prudente, 'puede ayudar'). SEO: 100/100."
+    },
     {
       "fecha": "2026-09-19",
       "titulo": "Ropa para lipedema: cómo vestir con confianza",

@@ -3,6 +3,10 @@
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "lipedema-y-embarazo": {
+      "imagen": "care-hands.webp",
+      "alt": "Manos aplicándose crema con suavidad, en un gesto de autocuidado durante el embarazo"
+    },
     "ropa-comoda-lipedema": {
       "imagen": "hero-poster.webp",
       "alt": "Tela suave en tono chocolate con pliegues cálidos, evocando la búsqueda de ropa cómoda y agradable al tacto para el lipedema"

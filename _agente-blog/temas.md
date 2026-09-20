@@ -134,7 +134,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Anticonceptivos hormonales y várices: lo que dice la evidencia — anticonceptivos y várices — anticonceptivos-y-varices
 - [publicado] ¿Las várices se heredan? Lo que influye la genética — várices hereditarias — varices-hereditarias-genetica
 - [publicado] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
-- [pendiente] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
+- [publicado] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
 - [pendiente] Compresión para lipedema: en qué se diferencia de la de várices — compresión para lipedema — compresion-para-lipedema
 - [pendiente] Piel y lipedema: cuidados básicos que ayudan — piel y lipedema — piel-y-cuidados-lipedema
 - [pendiente] Lipedema y vida laboral: adaptaciones que marcan la diferencia — lipedema y trabajo — lipedema-y-trabajo
