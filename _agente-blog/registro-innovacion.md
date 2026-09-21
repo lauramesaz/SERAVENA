@@ -78,3 +78,31 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   Sobre esta segunda la marqué con impacto bajo y dejé por escrito que es higiene técnica, no
   algo que por sí solo mueva el ranking local. Aviso a Laura: nota en GitHub con etiqueta
   `propuestas`.
+- **2026-09-21 · 2 propuestas nuevas (W39-1, W39-2) + 6 propuestas caducadas.** Repetí las 5
+  búsquedas objetivo: Seravena sigue sin aparecer en ninguna; misma competencia dominante de
+  siempre (Doctoralia, Top Doctors, Franco Vascular, Flebosalud, Vasculab, Centrolab,
+  dopplervenosomedellin.com, doctoramontenegro.com, Cardiovas IPS) más otras vistas hoy por
+  primera vez (VARICLINIC, Derma Skin Care, Internista Vascular Medellín, Clínica Somos, Angiosur,
+  MDE Care). Antes de proponer comprobé el estado de las 6 propuestas pendientes de W36-W38 en el
+  código (canonical de insuficiencia-venosa.html, tel:, openingHours/mapa/geo en contacto.html,
+  Medellín en los dos artículos del blog, autoevaluación venosa): ninguna se ha implementado
+  todavía, así que no las repetí. Encontré dos huecos nuevos y verificables, ninguno repetido:
+  (1) de las 8 páginas raíz, solo `insuficiencia-venosa.html` declara sus procedimientos con
+  `availableService` en el JSON-LD `MedicalClinic`; `vascular.html` —la página con título literal
+  "Várices y salud vascular en Medellín" y que además tiene en su cuerpo las secciones de
+  Escleroterapia y eco doppler— no declara ninguno, pese a ser el mismo patrón ya probado en su
+  página hermana; (2) leyendo el manual del Agente 6 (analista) confirmé que "Seravena tiene
+  Perfil de Empresa en Google" —ya existe, y esta semana el propio agente sugirió una Novedad
+  para publicarla ahí (registro.md, 20-sep)— pero ninguna de las 8 páginas raíz enlaza a Google
+  Maps ni al perfil en ningún sitio (0 coincidencias de "google.com/maps", "goo.gl/maps" ni
+  "maps.app.goo.gl" en todo el código), y el `sameAs` del JSON-LD solo lleva Instagram.
+  Revisé también las propuestas antiguas: las 6 de la tanda del 20-ago (W34-1 a W34-6) llevaban
+  32 días en `propuesta`, más de un mes, así que las marqué `caducada` con una frase cada una en
+  `admin/propuestas.json` (campo `nota_caducidad`) en vez de repetirlas. La más relevante: W34-1
+  ("crear el Perfil de Empresa") parece ya hecha —el hallazgo (2) de esta semana lo confirma—,
+  así que dejé anotado que Laura la revise y la pase a `hecha` en vez de seguir en `propuesta`.
+  También encontré, leyendo `_agente-blog/registro-relaciones.md`, que el trabajo de directorios
+  de W34-4 ya lo lleva semana a semana el Agente relacionista público desde el 2-sep (mensajes
+  listos para Lipedema Colombia, Asovascular, ACMV, ACHC, Clínica Las Vegas), así que lo marqué
+  caducado para no duplicar seguimiento, no porque haya perdido sentido. Aviso a Laura: nota en
+  GitHub con etiqueta `propuestas`.

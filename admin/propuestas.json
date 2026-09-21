@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-09-14",
+  "actualizado": "2026-09-21",
   "propuestas": [
+    {
+      "id": "2026-W39-1",
+      "fecha": "2026-09-21",
+      "titulo": "Añadir el listado de procedimientos (várices, escleroterapia, eco doppler) al JSON-LD de la página de salud vascular",
+      "categoria": "Técnico",
+      "que": "En `vascular.html` — la página con título literal \"Várices y salud vascular en Medellín\", que además contiene en su propio cuerpo las secciones \"Escleroterapia\" (línea 280) y de eco doppler — añadir al bloque JSON-LD `MedicalClinic` un array `availableService` con tres entradas: {\"@type\": \"MedicalProcedure\", \"name\": \"Tratamiento de várices sin cirugía\"}, {\"@type\": \"MedicalProcedure\", \"name\": \"Escleroterapia\"} y {\"@type\": \"MedicalTest\", \"name\": \"Eco doppler venoso\"}. Es exactamente el mismo patrón, con nombres ya usados en el sitio, que hoy existe y funciona en `insuficiencia-venosa.html` (líneas 107-110). No se toca ningún otro campo del bloque ni el diseño visible.",
+      "porque": "Comprobado hoy en el código: de las 8 páginas raíz, solo `insuficiencia-venosa.html` declara sus procedimientos con `availableService` en el JSON-LD `MedicalClinic`; las otras 7 —incluida `vascular.html`— no declaran ninguno. `vascular.html` es justo la página construida para 'várices Medellín' (búsqueda objetivo de la misión) y roza directamente 'escleroterapia Medellín' y 'eco doppler venoso Medellín' (2 búsquedas objetivo más), sin que su propio marcado estructurado lo confirme. No es una hipótesis: es replicar un patrón que ya existe y ya está en producción en una página hermana del mismo sitio.",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Claude",
+      "como_se_mide": "Que el bloque `MedicalClinic` de `vascular.html` pase sin errores el Google Rich Results Test mostrando los 3 servicios (hoy no aparece ninguno). El efecto sobre el ranking no se puede aislar por sí solo, pero es la misma base estructurada que ya lleva insuficiencia-venosa.html desde el 24-ago (W35-1).",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W39-2",
+      "fecha": "2026-09-21",
+      "titulo": "Enlazar el Perfil de Empresa de Google (sameAs) en el JSON-LD de las 8 páginas raíz",
+      "categoria": "Local",
+      "que": "Añadir la URL del Perfil de Empresa de Google de Seravena (el enlace para compartir, tipo `https://g.co/kgs/...` o `https://maps.app.goo.gl/...`, que aparece en el botón 'Compartir' del propio perfil) al array `sameAs` del JSON-LD `MedicalClinic` que se repite en las 8 páginas raíz, junto al de Instagram que ya está. Laura tiene que pasar primero ese enlace exacto: no se puede inventar ni conseguir por scraping.",
+      "porque": "El manual del Agente 6 (analista) confirma hoy que \"Seravena tiene Perfil de Empresa en Google\" —ya existe, y esta misma semana el propio agente sugirió una Novedad para publicar en él (registro.md, sección 'Novedades del Perfil de Empresa', 20-sep)—. Pero comprobado hoy en el código: ninguna de las 8 páginas raíz tiene ningún enlace a Google Maps ni al perfil (0 coincidencias de 'google.com/maps', 'goo.gl/maps' o 'maps.app.goo.gl' en todo el sitio), y el `sameAs` del JSON-LD solo lleva Instagram. Es la pieza que falta para que la web le confirme a Google que el sitio y la ficha ya verificada son la misma entidad — señal complementaria a `geo` (W38-2, aún sin hacer) y al mapa embebido (W36-1, aún sin hacer).",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "ambos",
+      "como_se_mide": "Que la URL del perfil aparezca enlazada correctamente al validar el JSON-LD con Google Rich Results Test. Igual que con `geo`, no se puede aislar un efecto propio sobre el ranking: es una pieza más de consistencia de entidad, no algo que mueva el primer puesto por sí sola.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W38-1",
       "fecha": "2026-09-14",
@@ -115,10 +141,12 @@
       "esfuerzo": "bajo",
       "impacto": "alto",
       "quien": "Laura",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Registrar Seravena en google.com/business con la dirección de la Calle 2 Sur No. 46-55, verificar la dirección cuando Google lo pida y subir fotos reales de la clínica.",
       "porque": "Seravena no aparece en el mapa de Google. En búsquedas locales, la ficha decide el primer puesto más que cualquier artículo: sin ella no se compite por 'flebólogo Medellín', se compite solo por búsquedas informativas.",
-      "como_se_mide": "Aparecer en el mapa al buscar 'flebólogo Medellín' desde un móvil en la ciudad. Primeras señales en 2-4 semanas tras la verificación."
+      "como_se_mide": "Aparecer en el mapa al buscar 'flebólogo Medellín' desde un móvil en la ciudad. Primeras señales en 2-4 semanas tras la verificación.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "Parece ya hecha: el manual del Agente 6 confirma hoy que \"Seravena tiene Perfil de Empresa en Google\" y ya recibe Novedades semanales sugeridas (registro.md, 20-sep); recomiendo que Laura lo confirme y la pase a 'hecha' en vez de seguir en 'propuesta'."
     },
     {
       "id": "2026-W34-2",
@@ -128,10 +156,12 @@
       "esfuerzo": "medio",
       "impacto": "alto",
       "quien": "Laura",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Una vez verificada la ficha, escribir a las pacientes satisfechas de los últimos meses con el enlace directo para dejar reseña. Nunca ofrecer nada a cambio.",
       "porque": "Las reseñas son la señal que más pesa en el mapa local y es la única que no se puede construir desde la web. Las clínicas que hoy salen primero en Medellín las tienen; Seravena tiene cero.",
-      "como_se_mide": "Número de reseñas y nota media. Un objetivo realista es 15-20 reseñas reales en tres meses."
+      "como_se_mide": "Número de reseñas y nota media. Un objetivo realista es 15-20 reseñas reales en tres meses.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "Sigue teniendo sentido y ahora es más viable que cuando se propuso: con el Perfil de Empresa ya existente (ver W34-1) ya hay dónde pedir esas reseñas; caduca solo el plazo de repetirla, no la idea."
     },
     {
       "id": "2026-W34-3",
@@ -141,10 +171,12 @@
       "esfuerzo": "medio",
       "impacto": "alto",
       "quien": "ambos",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Crear una página que presente a los médicos reales: nombre, especialidad, registro profesional y foto. Después, firmar los artículos con la persona que los revisa en vez de 'Equipo médico de Seravena'.",
       "porque": "Los 24 artículos van firmados por un anónimo. En contenido de salud, Google pondera de forma explícita quién escribe y qué credenciales tiene. La página 'Profesionales' que existe hoy no es esto: es el canal de referidos de otros médicos.",
-      "como_se_mide": "Evolución de la posición media de los artículos de blog en Search Console en los 2-3 meses siguientes."
+      "como_se_mide": "Evolución de la posición media de los artículos de blog en Search Console en los 2-3 meses siguientes.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "Sigue teniendo sentido: comprobado hoy en el código, profesionales.html sigue siendo el canal de referidos entre médicos, sin nombres ni fotos del equipo."
     },
     {
       "id": "2026-W34-4",
@@ -154,10 +186,12 @@
       "esfuerzo": "medio",
       "impacto": "medio",
       "quien": "Laura",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Dar de alta a Seravena en Doctoralia y en los directorios médicos colombianos relevantes, siempre con el mismo nombre, dirección y teléfono que en la web y en la ficha de Google.",
       "porque": "El diagnóstico del 6 de agosto fue claro: Google conoce las páginas pero no las rastrea, y no es un fallo técnico sino falta de autoridad. Nadie enlaza a Seravena desde fuera. Los directorios son la forma más limpia de empezar a corregirlo.",
-      "como_se_mide": "Enlaces detectados en el informe de enlaces de Search Console y páginas que pasan de 'descubierta' a 'indexada'."
+      "como_se_mide": "Enlaces detectados en el informe de enlaces de Search Console y páginas que pasan de 'descubierta' a 'indexada'.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "El seguimiento semanal de esto ya lo lleva el Agente relacionista público (registro-relaciones.md: mensajes listos desde el 2-sep para Lipedema Colombia, Asovascular, ACMV, ACHC y otros); sigue con sentido pero ya no debe repetirse aquí para no duplicar el mismo trabajo."
     },
     {
       "id": "2026-W34-5",
@@ -167,10 +201,12 @@
       "esfuerzo": "alto",
       "impacto": "medio",
       "quien": "Claude",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Separar escleroterapia y eco doppler en sus propias páginas de servicio, además de la sección que ya tienen dentro de vascular.html.",
       "porque": "'escleroterapia Medellín' y 'eco doppler venoso Medellín' son búsquedas con intención altísima y hoy compiten dentro de una página que habla de todo. Una página por tratamiento es lo que tienen las clínicas que salen primero.",
-      "como_se_mide": "Impresiones y posición de esas dos búsquedas concretas en Search Console."
+      "como_se_mide": "Impresiones y posición de esas dos búsquedas concretas en Search Console.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse; al ser esfuerzo alto ha quedado detrás de las propuestas de esfuerzo bajo de las últimas semanas, no porque haya perdido vigencia."
     },
     {
       "id": "2026-W34-6",
@@ -180,10 +216,12 @@
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "ambos",
-      "estado": "propuesta",
+      "estado": "caducada",
       "que": "Cambiar la cadencia del robot de 7 a 4 artículos semanales y encender el analista para que mejore los ya publicados con el tiempo liberado.",
       "porque": "En la última lectura Google tenía 2 de 11 páginas indexadas. El cuello de botella no es producir, es autoridad: el artículo número 25 rinde menos que hacer que los 24 existentes se enlacen, se actualicen y consigan enlaces.",
-      "como_se_mide": "Páginas indexadas en Search Console. Si a las 6 semanas no mejora, la hipótesis era errónea y se vuelve a subir la cadencia."
+      "como_se_mide": "Páginas indexadas en Search Console. Si a las 6 semanas no mejora, la hipótesis era errónea y se vuelve a subir la cadencia.",
+      "caducada_el": "2026-09-21",
+      "nota_caducidad": "El momento no ha pasado pero tampoco hay dato nuevo que lo confirme: sin Search Console conectado no se sabe si la autoridad de dominio ya mejoró, y la cadencia real sigue por encima de 1 artículo diario (55 artículos entre el 6-ago y el 20-sep); sigue pendiente de que Laura decida."
     }
   ]
 }
