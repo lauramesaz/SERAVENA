@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-20",
+  "actualizado": "2026-09-21",
   "articulos": [
+    {
+      "fecha": "2026-09-21",
+      "titulo": "Sedentarismo y venas: qué le pasa a tus piernas",
+      "slug": "sedentarismo-piernas-venas",
+      "categoria": "Salud vascular",
+      "keyword": "sedentarismo y venas",
+      "seo": 92,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/sedentarismo-piernas-venas.html",
+      "nota": "Artículo del racimo 'situaciones'. El primer tema pendiente ('compresion-para-lipedema') se descartó por rotación de racimos: 'lipedema' ya llevaba 2 días seguidos publicando. Explica el mecanismo de la bomba muscular de la pantorrilla, por qué la inmovilidad prolongada en el trabajo comparte el mismo riesgo que la de los viajes largos (várices, insuficiencia venosa, trombosis venosa), la referencia de moverse cada 30-60 minutos y ejercicios sencillos sentado, sin cifras de riesgo inventadas. Médico: APROBADO sin correcciones. SEO: 92/100, APTO. Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'situaciones' (cuidar-piernas-trabajo-de-pie, cuidar-piernas-viajes-largos, habitos-mejorar-circulacion). Imagen 9165651.webp registrada en imagenes.json. Nota técnica: se detectó y resolvió una condición de carrera con otra sesión concurrente de esta misma rutina que ya había publicado hasta el 20-sep-2026 en origin/main (ver detalle en registro.md)."
+    },
     {
       "fecha": "2026-09-20",
       "titulo": "Lipedema y embarazo: qué cambia y qué cuidar",

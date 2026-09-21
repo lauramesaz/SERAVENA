@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-19",
+  "actualizado": "2026-09-21",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "sedentarismo-piernas-venas": {
+      "imagen": "9165651.webp",
+      "alt": "Mujer sentada cuidando la piel de sus piernas, en un momento de pausa durante la jornada"
+    },
     "lipedema-y-embarazo": {
       "imagen": "care-hands.webp",
       "alt": "Manos aplicándose crema con suavidad, en un gesto de autocuidado durante el embarazo"
