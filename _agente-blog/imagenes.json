@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-21",
+  "actualizado": "2026-09-22",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "compresion-para-lipedema": {
+      "imagen": "band-veins.webp",
+      "alt": "Pierna apoyada sobre una tela suave y ajustada, evocando la sensación de una prenda de compresión bien puesta"
+    },
     "sedentarismo-piernas-venas": {
       "imagen": "9165651.webp",
       "alt": "Mujer sentada cuidando la piel de sus piernas, en un momento de pausa durante la jornada"

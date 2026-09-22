@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-21",
+  "actualizado": "2026-09-22",
   "articulos": [
+    {
+      "fecha": "2026-09-22",
+      "titulo": "Compresión para lipedema: en qué se diferencia de la de várices",
+      "slug": "compresion-para-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "compresión para lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/compresion-para-lipedema.html",
+      "nota": "Artículo del racimo 'lipedema', primer tema pendiente de temas.md en esta fecha. Explica por qué la compresión de tejido plano suele indicarse en lipedema en vez de la de tejido circular típica de várices, el objetivo distinto de cada una, por qué la graduación y la prenda las decide siempre un profesional, cuidado de la piel y señales de una prenda mal ajustada. Médico: APROBADO sin correcciones. SEO: 98/100, APTO (ajustó title/meta description y recortó el cuerpo de ~1140 a 1017 palabras). Integrada tarjeta en el listado, entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en 'Sigue leyendo' de sus 3 hermanos del racimo 'lipedema' (diagnostico-lipedema, drenaje-linfatico-lipedema, dolor-lipedema-manejo). Imagen band-veins.webp (primer uso dentro del racimo lipedema) registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-21",
       "titulo": "Sedentarismo y venas: qué le pasa a tus piernas",
