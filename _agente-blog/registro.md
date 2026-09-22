@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-09-22 | como-elegir-clinica-lipedema-medellin | Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir | clínica de lipedema en Medellín | publicado (pendiente de push por Laura) | — | — | — |
 | 2026-09-22 | compresion-para-lipedema | Compresión para lipedema: en qué se diferencia de la de várices | compresión para lipedema | publicado | — | — | — |
 | 2026-09-21 | sedentarismo-piernas-venas | Sedentarismo y venas: qué le pasa a tus piernas | sedentarismo y venas | publicado | — | — | — |
 | 2026-09-20 | lipedema-y-embarazo | Lipedema y embarazo: qué cambia y qué cuidar | lipedema y embarazo | publicado | — | — | — |

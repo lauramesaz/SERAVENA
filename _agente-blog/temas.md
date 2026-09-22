@@ -151,3 +151,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [pendiente] Alimentación antiinflamatoria y lipedema: qué dice la evidencia — alimentación antiinflamatoria lipedema — alimentacion-antiinflamatoria-lipedema
 - [pendiente] Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas — preguntas primera cita piernas — preguntas-primera-cita-piernas
 - [pendiente] Antecedentes familiares y salud vascular: qué preguntar en casa — antecedentes familiares várices — antecedentes-familiares-varices
+
+## Tema fijado por Laura (22-sep-2026)
+
+- [publicado] Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir — clínica de lipedema en Medellín — como-elegir-clinica-lipedema-medellin

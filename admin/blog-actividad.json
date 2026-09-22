@@ -3,6 +3,18 @@
   "articulos": [
     {
       "fecha": "2026-09-22",
+      "titulo": "Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir",
+      "slug": "como-elegir-clinica-lipedema-medellin",
+      "categoria": "Lipedema",
+      "keyword": "clínica de lipedema en Medellín",
+      "seo": 95,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/como-elegir-clinica-lipedema-medellin.html",
+      "nota": "Tema fijado por Laura (racimo 'lipedema'): guía honesta de criterios para elegir dónde tratarse el lipedema en Medellín, útil aunque la paciente no elija Seravena: 6 criterios (diagnóstico clínico + eco doppler para descartar componente venoso/linfático, enfoque conservador y multidisciplinario, médicos identificables verificables en ReTHUS/REPS, sin promesas de cura, claridad en plan y costos, seguimiento), 7 banderas rojas, 9 preguntas para la primera cita y bloque final diferenciado 'Cómo trabajamos en Seravena' sin autoelogios. Sin cifras, precios, estudios ni nombres inventados; sin mencionar otras clínicas. Fuentes: consenso Delphi Lipedema World Alliance 2025/26, Lipedema Foundation, De Paula 2024, Amato 2021, MinSalud ReTHUS/REPS. Médico: APROBADO CON CORRECCIONES (5 menores aplicadas: 'no existe un tratamiento que lo cure', doppler solo para descartar venoso/linfático en FAQ 1 y pregunta 3, 'dolor en el pecho' en el aviso, matiz de sanciones en ReTHUS). SEO: 95/100 APTO (4 mejoras aplicadas: ancla real de diagnostico-lipedema, secundarias 'tratamiento de lipedema' y 'especialista en lipedema', frase larga dividida). Imagen professionals.webp (primer uso en el racimo lipedema; solo la usaba guia-diagnostico-problema-venoso) registrada en imagenes.json. Entrada en sitemap.xml; enlaces recíprocos en 'Sigue leyendo' de 4 hermanos (diagnostico-lipedema, guia-completa-lipedema, lipedema-tiene-cura, mitos-lipedema) con lastmod actualizado. La tarjeta NO se insertó en blog/index.html (tiene cambios locales pendientes de otra persona): quedó lista aparte para pegar bajo INICIO_POSTS. Sin commit ni push: publica Laura."
+    },
+    {
+      "fecha": "2026-09-22",
       "titulo": "Compresión para lipedema: en qué se diferencia de la de várices",
       "slug": "compresion-para-lipedema",
       "categoria": "Lipedema",

@@ -640,3 +640,5 @@ section[id], .section[id] { scroll-margin-top: 88px; }
 /* Alternativa por correo bajo el aviso del formulario */
 .form-note-alt { display:inline-block; margin-top:.45rem; font-size:.88rem; color: var(--muted); }
 .form-note-alt a { color: var(--camel-on-light); }
+.mini-link { margin-top: 1rem; }
+.mini-link a { font-size: .9rem; }

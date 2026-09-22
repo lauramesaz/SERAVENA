@@ -487,7 +487,7 @@ if (form) {
     formNote.classList.remove('error');
 
     const texto =
-      'Hola Seravena, escribo desde la página de contacto.\n\n' +
+      'Hola Seravena, vengo de la página web y quiero agendar una cita.\n\n' +
       'Nombre: ' + nombre + '\n' +
       'Correo: ' + email + '\n' +
       (telefono ? 'Teléfono: ' + telefono + '\n' : '') +

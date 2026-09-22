@@ -9,6 +9,10 @@ Datos de la entidad: razón social SERAVENA S.A.S. (NIT 902033506-9). Correo inf
 - [Inicio](https://www.clinicaseravena.com/): qué es Seravena y a quién atiende
 - [Lipedema en Medellín](https://www.clinicaseravena.com/lipedema.html): qué es, cómo se confirma, etapas y manejo conservador
 - [Várices y salud vascular en Medellín](https://www.clinicaseravena.com/vascular.html): eco doppler, escleroterapia, tratamientos endovenosos, medias de compresión
+- [Sobre Seravena](https://www.clinicaseravena.com/sobre.html): qué es la clínica, dónde queda, cómo trabaja
+- [Tratamiento de várices en Medellín](https://www.clinicaseravena.com/varices-medellin.html): opciones sin cirugía
+- [Escleroterapia en Medellín](https://www.clinicaseravena.com/escleroterapia-medellin.html): para arañitas y várices pequeñas
+- [Eco doppler venoso en Medellín](https://www.clinicaseravena.com/eco-doppler-venoso-medellin.html): el examen con el que empieza la valoración
 - [Insuficiencia venosa](https://www.clinicaseravena.com/insuficiencia-venosa.html): síntomas y tratamiento
 - [Cómo es tu valoración](https://www.clinicaseravena.com/proceso.html): pasos de la primera consulta
 - [Preguntas frecuentes](https://www.clinicaseravena.com/preguntas.html)
@@ -17,6 +21,7 @@ Datos de la entidad: razón social SERAVENA S.A.S. (NIT 902033506-9). Correo inf
 
 ## Artículos del blog más consultados (revisados por el equipo médico)
 
+- [Cómo elegir una clínica de lipedema en Medellín](https://www.clinicaseravena.com/blog/como-elegir-clinica-lipedema-medellin.html)
 - [Cómo saber si tengo lipedema: señales para autoevaluarte](https://www.clinicaseravena.com/blog/como-saber-si-tengo-lipedema.html)
 - [Escleroterapia vs láser para várices: diferencias](https://www.clinicaseravena.com/blog/escleroterapia-vs-laser.html)
 - [Diagnóstico de lipedema: cómo se confirma](https://www.clinicaseravena.com/blog/diagnostico-lipedema.html)
