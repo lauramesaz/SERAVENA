@@ -276,6 +276,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .contact-method:hover { border-color: var(--camel-soft); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
 .contact-method-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--camel-on-dark); }
 .contact-method-value { font-size: 1.15rem; color: var(--white); font-weight: 500; }
+.contact-method-note { font-size: 0.86rem; color: rgba(255,255,255,0.7); }
+.contact-method-value { overflow-wrap: anywhere; }
+@media (max-width: 640px) { .contact-method { flex-basis: 100%; } }
 .form-or { color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 18px; }
 .contact-form { display: flex; flex-direction: column; gap: 22px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
