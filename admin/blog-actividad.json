@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-22",
+  "actualizado": "2026-09-23",
   "articulos": [
+    {
+      "fecha": "2026-09-23",
+      "titulo": "Piel y lipedema: cuidados básicos que ayudan",
+      "slug": "piel-y-cuidados-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "piel y lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piel-y-cuidados-lipedema.html",
+      "nota": "Artículo del racimo 'lipedema', primer tema pendiente de temas.md en esta fecha. Explica por qué la piel cambia con el lipedema (tejido conjuntivo, edema local), la controversia real sobre los moretones fáciles (sin afirmar una causa cerrada), y cuidados básicos: hidratación diaria, aseo suave sin agua caliente, cuidado con golpes y roces, piel bajo la compresión, y cuándo consultar. Médico: APROBADO sin correcciones (verificó de forma independiente el balance de la sección de moretones y las señales de alarma del post-note). SEO: 98/100, APTO (añadió la keyword a un h2, mejoró un texto ancla y dividió 3 párrafos largos). 881 palabras de cuerpo. Integrada tarjeta en el listado (primera, la más nueva), entrada en sitemap.xml (lastmod de '/blog/' actualizado a hoy), marcado como publicado en temas.md, y añadidos enlaces bidireccionales en el 'Sigue leyendo' de sus 3 hermanos del racimo 'lipedema' (drenaje-linfatico-lipedema, dolor-lipedema-manejo, ropa-comoda-lipedema). Imagen 7479558.webp (primer uso dentro del racimo lipedema) registrada en imagenes.json."
+    },
     {
       "fecha": "2026-09-22",
       "titulo": "Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir",

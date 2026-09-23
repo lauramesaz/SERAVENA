@@ -136,7 +136,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Ropa cómoda para el lipedema: cómo vestir con confianza — ropa para lipedema — ropa-comoda-lipedema
 - [publicado] Lipedema y embarazo: qué cambia y qué cuidar — lipedema y embarazo — lipedema-y-embarazo
 - [publicado] Compresión para lipedema: en qué se diferencia de la de várices — compresión para lipedema — compresion-para-lipedema
-- [pendiente] Piel y lipedema: cuidados básicos que ayudan — piel y lipedema — piel-y-cuidados-lipedema
+- [publicado] Piel y lipedema: cuidados básicos que ayudan — piel y lipedema — piel-y-cuidados-lipedema
 - [pendiente] Lipedema y vida laboral: adaptaciones que marcan la diferencia — lipedema y trabajo — lipedema-y-trabajo
 
 ## Temas nuevos (añadidos por el orquestador el 19-sep-2026 — quedaban solo 4 pendientes)
