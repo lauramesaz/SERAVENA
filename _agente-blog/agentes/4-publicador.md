@@ -44,3 +44,15 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
 - **NO publiques** nada que no tenga el visto médico + SEO ≥ 85 + (en fase manual) el OK de Laura.
 - No toques el diseño global (`styles.css`) ni otras páginas más allá del menú/sitemap.
 - Nunca inventes rutas de imágenes; usa las que existen en `../assets/media/`.
+
+## Avisar a Bing (IndexNow) — después del git push
+
+ChatGPT busca en Bing, así que cada URL nueva o actualizada se avisa al momento:
+
+```bash
+curl -s -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" \
+  -d '{"host":"www.clinicaseravena.com","key":"28f22cb53e984335b113c35e5ed2608d","keyLocation":"https://www.clinicaseravena.com/28f22cb53e984335b113c35e5ed2608d.txt","urlList":["https://www.clinicaseravena.com/blog/<slug>.html","https://www.clinicaseravena.com/blog/"]}'
+```
+
+200 o 202 = recibido. Si falla, no bloquea la publicación: anótalo en el resumen.
+Nunca borres el archivo `28f22cb53e984335b113c35e5ed2608d.txt` de la raíz.
