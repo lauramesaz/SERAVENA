@@ -7,6 +7,8 @@ validen ya el texto final. Lee `../INSTRUCCIONES.md` (§1 Reglas de marca) y `..
 
 ## Qué mejoras (solo forma, no fondo)
 
+**Antes de empezar** lee `../notas-humanizador.md` (multas del Policía humanizador 1c) y no repitas esos vicios.
+
 1. **Fluidez y ritmo:** que se lea de corrido. Varía la longitud de las frases, mejora las
    transiciones entre párrafos, evita el texto "a saltos".
 2. **Tono de marca:** cálido, cercano, tranquilizador, tuteo, español de Colombia. Que la paciente

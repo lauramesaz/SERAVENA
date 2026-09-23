@@ -11,6 +11,7 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 |---|--------|---------|----------------------|
 | 1 | Investigador-Redactor | `agentes/1-investigador-redactor.md` | Investiga el tema con fuentes reales y escribe el borrador |
 | 1b | Editor de estilo | `agentes/1b-editor-estilo.md` | Pule la redacción para que lea natural, cálida y humana (solo forma) |
+| 1c | Policía humanizador | `agentes/1c-policia-humanizador.md` | Reescribe para que suene a persona real, pone multas a los agentes y humaniza 1 artículo viejo/día |
 | 2 | Verificador médico | `agentes/2-verificador-medico.md` | Comprueba que cada afirmación de salud sea real y prudente |
 | 3 | Juez SEO | `agentes/3-juez-seo.md` | Puntúa y corrige el SEO según lineamientos |
 | 4 | Publicador / indexación | `agentes/4-publicador.md` | Optimiza indexación, integra en la web y publica |
@@ -31,6 +32,11 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
         │  1b. EDITOR DE ESTILO  → pule la redacción (solo forma)  │
         └─────────────────────────────────────────────────────────┘
                               │
+        ┌─────────────────────────────────────────────────────────┐
+        │  1c. POLICÍA HUMANIZADOR → reescribe voz, prueba ≥ 8/10  │
+        │      y anota multas en notas-humanizador.md              │
+        └─────────────────────────────────────────────────────────┘
+                              │
              ┌────────────────┴────────────────┐
              ▼                                 ▼
    ┌───────────────────┐             ┌───────────────────┐
@@ -43,6 +49,11 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
              ¿Ambos aprueban (médico OK y SEO ≥ 85)?
                     │ no → vuelve al Redactor con las correcciones
                     │ sí ▼
+        ┌─────────────────────────────────────────────────────────┐
+        │  1c. POLICÍA (control final): solo mira; si las          │
+        │      correcciones metieron frases robóticas, las limpia  │
+        └─────────────────────────────────────────────────────────┘
+                              ▼
         ┌─────────────────────────────────────────────────────────┐
         │  🔔 APROBACIÓN DE LAURA (durante la fase "a mano")       │
         │  Se le muestra el borrador final + nota SEO + visto médico│
@@ -62,6 +73,9 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 ```
 
 ## Controles de aprobación (gates)
+
+- **Gate humano:** el artículo NO avanza si la prueba de humanidad del Policía (1c) es < 8/10.
+  Devuelve al Editor.
 
 - **Gate médico:** el artículo NO avanza si el Verificador médico marca algo como falso,
   arriesgado o no verificable. Devuelve al Redactor.
