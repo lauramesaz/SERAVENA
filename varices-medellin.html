@@ -30,7 +30,7 @@
 <meta name="twitter:image" content="https://www.clinicaseravena.com/assets/media/band-veins.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
@@ -188,7 +188,7 @@
 </header>
 
 <section class="page-hero">
-  <div class="page-hero-media"><img src="assets/media/band-veins.webp" alt="" data-parallax-bg></div>
+  <div class="page-hero-media"><img src="assets/media/band-veins.webp" fetchpriority="high" alt="" data-parallax-bg></div>
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-inner">
     <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="vascular.html">Salud vascular</a> / Tratamiento de várices</p>

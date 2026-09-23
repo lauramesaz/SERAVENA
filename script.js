@@ -132,6 +132,7 @@ function revealInView() {
     if (r.top < window.innerHeight * 0.92 && r.bottom > 0) el.classList.add('in');
   });
 }
+revealInView(); // lo que ya está en pantalla aparece sin esperar a que cargue todo (velocidad: LCP)
 window.addEventListener('load', () => setTimeout(revealInView, 250));
 window.addEventListener('scroll', () => requestAnimationFrame(revealInView), { passive: true });
 

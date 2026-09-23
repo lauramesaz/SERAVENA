@@ -40,7 +40,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
@@ -205,7 +205,7 @@
 </header>
 
 <section class="page-hero">
-  <div class="page-hero-media"><img src="assets/media/7006873.webp" alt="" data-parallax-bg></div>
+  <div class="page-hero-media"><img src="assets/media/7006873.webp" fetchpriority="high" alt="" data-parallax-bg></div>
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-inner">
     <p class="breadcrumb"><a href="index.html">Inicio</a> / <a href="vascular.html">Salud vascular</a> / Eco doppler venoso</p>
@@ -244,8 +244,8 @@
 <section class="section editorial editorial-dark" id="cuando">
   <div class="container editorial-grid reverse">
     <div class="editorial-media editorial-collage">
-      <div class="media-frame reveal-media"><img src="assets/media/vascular-veins.webp" alt="Pierna con afección venosa"></div>
-      <div class="media-frame media-frame-accent reveal-media"><img src="assets/media/band-veins.webp" alt="Cuidado de la salud venosa"></div>
+      <div class="media-frame reveal-media"><img loading="lazy" decoding="async" src="assets/media/vascular-veins.webp" alt="Pierna con afección venosa"></div>
+      <div class="media-frame media-frame-accent reveal-media"><img loading="lazy" decoding="async" src="assets/media/band-veins.webp" alt="Cuidado de la salud venosa"></div>
     </div>
     <div class="editorial-text">
       <p class="eyebrow reveal">Cuándo se indica</p>
@@ -296,7 +296,7 @@
       <p class="reveal">En <a href="proceso.html">tu proceso</a> te contamos cómo se organiza toda la valoración, de la primera conversación al plan.</p>
     </div>
     <div class="editorial-media">
-      <div class="media-frame reveal-media"><img src="assets/media/skin-detail.webp" alt="Primer plano de la piel de las piernas"></div>
+      <div class="media-frame reveal-media"><img loading="lazy" decoding="async" src="assets/media/skin-detail.webp" alt="Primer plano de la piel de las piernas"></div>
     </div>
   </div>
 </section>
