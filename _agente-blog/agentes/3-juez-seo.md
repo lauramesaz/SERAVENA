@@ -32,9 +32,14 @@ Un artículo no avanza a publicación con nota < 85. Lee `../INSTRUCCIONES.md` (
 - `BreadcrumbList` presente y correcto. (4)
 - Sin errores que rompan el rich result. (3)
 
+**F. Descuentos por "texto en serie" (hasta −15)**
+- −2 por cada huella de IA de `../INSTRUCCIONES.md` §1.1 que siga en el texto (máx. −10).
+- −5 si no hay ninguna "señal de persona real" (§1.1): el texto podría ser de cualquier web.
+- −3 si el title, la meta o la apertura siguen el mismo molde que otro artículo del blog.
+
 ## Entregable
 
-- **Nota /100** con el desglose por secciones A–E.
+- **Nota /100** con el desglose por secciones A–E y los descuentos F.
 - **Lista de correcciones priorizadas** (qué cambiar para subir la nota).
 - Veredicto: **APTO** (≥ 85) o **DEVUELTO** (< 85, con las correcciones para el Redactor).
 

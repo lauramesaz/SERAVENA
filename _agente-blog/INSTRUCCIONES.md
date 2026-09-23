@@ -31,6 +31,35 @@ seguridad (se publica y se avisa, y todo queda registrado para poder revertir).
 - **Longitud:** 700–1100 palabras. Frases cortas. Párrafos de 2–4 líneas.
 - **Colores/diseño:** NO tocar. El artículo usa `../styles.css` + `blog.css` que ya definen todo.
 
+### 1.1 Que suene a PERSONA, no a IA (obligatorio para todos los agentes)
+
+Google no castiga que un texto se ayude de IA; castiga el contenido **genérico, en serie y sin
+experiencia real** ("scaled content"). ChatGPT tampoco cita textos que dicen lo mismo que otros mil.
+Lo que nos diferencia es sonar a la clínica de verdad. Por eso:
+
+**Huellas de IA PROHIBIDAS (el Editor las borra, el Juez SEO descuenta si aparecen):**
+- Raya larga (—) como muletilla. Máximo 1 por artículo; usa punto, coma o dos puntos.
+- Fórmulas de relleno: "Es importante destacar/señalar", "En este artículo te contamos", "En resumen",
+  "En conclusión", "juega un papel clave", "no solo… sino también" (máx. 1), "clave" (máx. 2),
+  "sumérgete", "descubre", "en el mundo actual", "No estás sola" (máx. 1 cada 5 artículos).
+- Meta descriptions en molde "¿Pregunta? Te contamos…". Cada una distinta, con un dato concreto.
+- Listas de exactamente 3 adjetivos o 3 ideas por costumbre; todos los párrafos del mismo largo;
+  cierres que repiten lo ya dicho.
+- Aperturas genéricas ("El lipedema es una condición que afecta a millones…"). Empieza por la
+  situación real de la lectora o por la pregunta tal como la hacen en consulta.
+
+**Señales de persona real (buscar al menos 2 por artículo):**
+- Algo de `voz-real.md` (pregunta real de consulta, frase del equipo, patrón que vemos). NUNCA inventarlo.
+- Contexto local verdadero: Medellín, el clima, El Poblado, cómo es la consulta aquí.
+- Una opinión clara de la clínica ("En Seravena no recomendamos X como primer paso porque…"),
+  siempre respaldada por el Verificador médico.
+- Admitir límites con honestidad ("esto no lo resuelve una media", "no todas las pacientes…").
+- Frases de largo variado, algún párrafo de una sola línea, preguntas directas a la lectora.
+
+**Autoría:** cuando exista página de equipo médico con nombres y registro reales, el artículo
+lo firma/revisa esa persona (Person en JSON-LD con enlace a su perfil). Mientras no exista, se
+mantiene "Equipo médico de Seravena". Nunca inventar un autor.
+
 ## 2. Reglas de ORO médicas (imprescindibles — es contenido de salud "YMYL")
 
 1. **Nunca inventes datos, cifras, estudios ni nombres de médicos.** Si no estás seguro, no lo pongas.

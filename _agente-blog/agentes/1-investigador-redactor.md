@@ -29,6 +29,9 @@ Lee siempre antes: `../INSTRUCCIONES.md` (marca, SEO base, salvaguardas médicas
 - No des dosis, fármacos concretos ni indicaciones personalizadas.
 - Autoría siempre "Equipo médico de Seravena".
 - Tono humano y empático: escribes para alguien preocupado por sus piernas, no para un buscador.
+- Lee `../voz-real.md` antes de escribir y usa lo que sea pertinente (1–2 elementos). Es la única
+  fuente permitida de "experiencia de la clínica"; si no hay nada, no inventes anécdotas.
+- Evita desde el borrador las huellas de IA de `../INSTRUCCIONES.md` §1.1.
 
 ## Qué entregas al siguiente agente
 

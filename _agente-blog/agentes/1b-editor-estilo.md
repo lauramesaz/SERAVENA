@@ -18,6 +18,11 @@ validen ya el texto final. Lee `../INSTRUCCIONES.md` (§1 Reglas de marca) y `..
 5. **Repeticiones:** quita palabras o ideas repetidas; enriquece el vocabulario sin volverlo rebuscado.
 6. **Titulares:** que los `<h2>`/`<h3>` sean claros y atractivos, no genéricos.
 7. **Ortografía y gramática:** corrige tildes, puntuación y concordancia. Impecable.
+8. **Quitar huellas de IA:** aplica la lista de `../INSTRUCCIONES.md` §1.1 palabra por palabra
+   (rayas largas, "Es importante", "Te contamos", "no solo… sino", ritmos idénticos, cierres que
+   repiten). Cuenta las rayas (—) al final: máximo 1.
+9. **Voz de clínica real:** comprueba que haya al menos 2 "señales de persona real" (§1.1). Si falta
+   experiencia real y `../voz-real.md` tiene algo pertinente, sugiérelo en tu reporte; no lo inventes.
 
 ## Lo que NO puedes hacer (límites)
 
