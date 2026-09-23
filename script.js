@@ -14,6 +14,8 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 document.body.classList.add('loaded');
 
 /* ---------- Transición entre páginas ---------- */
+/* Al volver con el botón "atrás" el navegador restaura la página tal cual quedó (invisible): se vuelve a mostrar */
+window.addEventListener('pageshow', (e) => { if (e.persisted) document.body.classList.remove('leaving'); });
 function isInternalLink(a) {
   const href = a.getAttribute('href') || '';
   if (a.target === '_blank' || a.hasAttribute('download')) return false;
