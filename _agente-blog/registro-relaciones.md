@@ -412,3 +412,82 @@ uno de publicidad); no encontré uno nuevo esta semana, así que sigue sin mensa
 >
 > Seravena · SERAVENA S.A.S.
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-09-23
+
+· Sitios revisados: 16 (Doctoralia.co, Top Doctors, búsqueda general en Google de "Seravena" y de
+"clinicaseravena.com"/"SERAVENA S.A.S.", Lipedema Colombia — el directorio completo y su página
+específica de Medellín, Colmédica — directorio médico y requisitos de afiliación, clinicasyhospitales.com.co
+— directorio de IPS construido sobre datos públicos del REPS, Universidad de Antioquia y Universidad CES
+— programas de posgrado en medicina/cirugía vascular, El Colombiano, Q'hubo Medellín, Minuto30,
+Teleantioquia, Caracol Radio Medellín, Unidad Médica Las Vegas, Clínica Las Vegas / Directorio
+Institucional, prensa nacional sobre lipedema en 2026) + las 3 búsquedas objetivo en Google ("várices
+Medellín", "flebólogo Medellín", "eco doppler venoso Medellín")
+· Seravena aparece en: 0
+
+### Nombre/dirección/teléfono de Seravena: sin novedad
+
+La web sigue siendo internamente consistente con **Calle 2 Sur #46-159, Torre Médica Salud Vegas,
+consultorio 1316** (la misma que confirman las instrucciones de esta semana contra la ficha del
+edificio en Google). No encontré ninguna mención nueva de Seravena en ningún sitio esta semana —
+sigue en cero — así que no hay nada que corregir a nombre de Seravena.
+
+Sí encontré un dato menor sobre el edificio, sin relación directa con Seravena: **Unidad Médica Las
+Vegas** (unidadmedicalasvegas.com) da hoy su dirección como "Carrera 46 # 2 Sur-45" — una cuarta forma
+de nombrar el mismo edificio, distinta de las tres que ya había registrado (46-159, 46-55, 46-116).
+Probablemente sea la fachada sobre la Carrera 46 (Avenida Las Vegas), igual que la "Carrera 48 # 1
+Sur-126" que Top Doctors usa para otro especialista de la torre — es decir, ruido normal de un edificio
+con frentes sobre dos vías, no un error nuevo. No requiere ninguna acción: es la administración del
+edificio quien tendría que unificarlo, no Seravena. También confirmé que **Clínica Las Vegas**
+(clinicalasvegas.com/contacto) sigue usando "Calle 2 Sur #46-55" en su página oficial de contacto, sin
+cambios frente a lo que ya señalé la semana pasada — sigue en pie la recomendación de que Laura quite o
+suavice, antes de enviarlo, el párrafo sobre la dirección en el Mensaje 1 de la semana del 2026-09-09.
+
+### Esta semana no encontré ninguna oportunidad nueva que valga la pena
+
+Repetí las 3 búsquedas objetivo: los mismos de siempre (Doctoralia, Top Doctors, Clínica Medellín/
+QuirónSalud, Vasculab, Flebosalud, Variclinic, Cardiovas IPS, Franco Vascular, Centrolab,
+dopplervenosomedellin.com) siguen dominando, y ninguno tiene cobertura de prensa local verificable
+(revisé El Colombiano, Q'hubo y Minuto30 buscando entrevistas o notas sobre ellos: no encontré ninguna).
+Esto en realidad refuerza que el Mensaje 3 a El Colombiano, redactado el 2026-09-02 y aún sin enviar, es
+una entrada poco explotada por la competencia, no solo por Seravena.
+
+Revisé además varias vías nuevas y ninguna dio un mensaje con destinatario verificado:
+
+- **Colmédica** (directorio médico de medicina prepagada) — aparecer ahí exige ser prestador
+  contratado de su red, no un registro ni una solicitud de enlace. Es una decisión comercial de
+  contratación, no algo que se resuelva con un correo de relaciones públicas.
+- **clinicasyhospitales.com.co** — parece un sitio que reconstruye automáticamente el directorio de
+  IPS a partir de datos públicos del REPS (Minsalud), no un directorio editorial con formulario de
+  alta. Confirmé que Seravena no aparece ahí, pero no encontré ningún canal de contacto para pedir que
+  se añada — y si es puramente automático, la vía correcta sigue siendo que la ficha del REPS esté
+  bien (la verificación de dos minutos que ya le pedí a Laura la semana pasada), no escribirle a este
+  sitio.
+- **Universidad de Antioquia y Universidad CES** (programas de especialización en medicina/cirugía
+  vascular) — tienen convenios de práctica con clínicas grandes (Clínica CES, Hospital General), pero
+  no encontré ningún listado público de "sitios de práctica" o afiliados donde Seravena pudiera pedir
+  figurar, ni un canal de contacto claro para esa pregunta.
+- **Teleantioquia y Caracol Radio Medellín** — ambos cubren salud con cierta frecuencia, pero no
+  encontré un correo o formulario editorial verificado para proponer una fuente médica (a diferencia
+  de El Colombiano, donde sí hay un correo institucional). Quedan anotados para revisar si en el futuro
+  aparece un contacto editorial concreto — no invento uno.
+- **Lipedema Colombia** — no pude abrir directamente `lipedemacolombia.com/single-location/medellin/`
+  (la política de red de este entorno bloquea la salida hacia ese dominio, el mismo tipo de bloqueo que
+  ya afecta a `prestadores.minsalud.gov.co`), pero confirmé por búsqueda que Seravena sigue sin
+  aparecer ahí. No cambia nada: el Mensaje 1 a Adriana, redactado el 2026-09-02 por Instagram, sigue
+  siendo la vía correcta y sigue sin enviarse.
+
+### Sobre lo ya redactado: el cuello de botella ya no es la investigación
+
+Con esta semana ya son **3 semanas seguidas** en las que este agente entrega mensajes listos y ninguno
+se ha enviado: quedan pendientes los 3 de la semana del 2-sep (Lipedema Colombia, Asovascular, El
+Colombiano), los 2 de la semana del 9-sep (Clínica Las Vegas — con el ajuste señalado arriba —, Escuela
+Colombiana de Linfología) y los 2 de la semana del 16-sep (ACMV, ACHC). Son 7 mensajes acumulados, y
+esta semana no encontré terreno nuevo verificable que justifique añadir un octavo: repetirlo sería
+relleno, no trabajo nuevo. Se lo digo directamente a Laura en el aviso: antes de que yo sume más
+mensajes, vale más revisar y enviar (o descartar) los que ya están listos.
+
+· Mensajes listos para enviar: 0 (7 mensajes de semanas anteriores siguen pendientes de envío — ver
+arriba)
