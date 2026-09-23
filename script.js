@@ -95,13 +95,17 @@ function updateParallax(scrollTop) {
     el.style.transform = `translate3d(0, ${(-p * range).toFixed(1)}px, 0)`;
   });
 }
+/* Artículos del blog y política de privacidad (fondo claro arriba): el menú arranca en su versión clara,
+   si no el logo y el menú blancos no se ven sobre el fondo blanco. */
+const sinPortadaOscura = !!document.querySelector('.post-head, section.legal');
+if (navbar && sinPortadaOscura) navbar.classList.add('scrolled');
 function onScroll() {
   const scrollTop = window.scrollY;
   if (progress) {
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = (scrollTop / docH * 100) + '%';
   }
-  if (navbar) navbar.classList.toggle('scrolled', scrollTop > 60);
+  if (navbar) navbar.classList.toggle('scrolled', scrollTop > 60 || sinPortadaOscura);
   if (!reduceMotion) updateParallax(scrollTop);
 }
 window.addEventListener('scroll', () => {
