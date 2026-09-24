@@ -916,3 +916,74 @@ a.hero-bar-item:hover { color: var(--white); }
 .hero-home.go.hero-luz .hero-actions { transition-delay: .95s; }
 .hero-home.go.hero-luz .hero-bar { transition-delay: 1.15s; }
 @media (prefers-reduced-motion: reduce) { .hl-media img { opacity: 1; transform: none; } }
+
+/* ============================================================
+   HOME — atmósfera: difuminados en movimiento + grano + más aire
+   ============================================================ */
+.home { background: var(--piedra); }
+.ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.amb { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; will-change: transform; }
+.amb-1 { background: radial-gradient(circle, rgba(201,176,131,0.42) 0%, rgba(201,176,131,0) 62%); top: -20vmax; left: -18vmax; animation: ambA 38s ease-in-out infinite alternate; }
+.amb-2 { background: radial-gradient(circle, rgba(231,205,190,0.55) 0%, rgba(231,205,190,0) 60%); bottom: -28vmax; right: -20vmax; animation: ambB 46s ease-in-out infinite alternate; }
+.amb-3 { width: 52vmax; height: 52vmax; background: radial-gradient(circle, rgba(237,226,208,0.9) 0%, rgba(237,226,208,0) 62%); top: 30%; left: 35%; animation: ambC 52s ease-in-out infinite alternate; }
+@keyframes ambA { to { transform: translate(38vw, 30vh) scale(1.15); } }
+@keyframes ambB { to { transform: translate(-42vw, -34vh) scale(0.9); } }
+@keyframes ambC { 0% { transform: translate(-20vw, -10vh); } 100% { transform: translate(18vw, 22vh) scale(1.2); } }
+.amb-grain { position: absolute; inset: -60%; opacity: .09; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; animation: hlGrain 1s steps(6) infinite; }
+
+/* las secciones claras dejan ver la atmósfera */
+.home main, .home > section, .home > footer, .home .footer { position: relative; z-index: 1; }
+.home .intro, .home .areas, .home .h-path, .home .quiz, .home .h-team, .home .h-reviews, .home .h-blog { background: transparent; }
+
+/* más aire */
+.home > .section { padding: clamp(96px, 15vh, 176px) 0; }
+.home .intro { padding-top: clamp(110px, 17vh, 200px); }
+.home .h-head { margin-bottom: clamp(52px, 7vw, 92px); }
+.home .intro-grid { max-width: 920px; }
+.home .areas-grid { gap: clamp(22px, 3vw, 44px); }
+.home .area-card { aspect-ratio: 4 / 3.9; }
+.home .area-tags { display: none; }
+.home .area-card p { margin-bottom: 0; max-width: 24em; }
+.home .h-steps { gap: clamp(28px, 4vw, 64px); }
+.home .h-step { border-top-color: rgba(75,65,45,0.14); }
+.home .h-team-grid { gap: clamp(56px, 9vw, 140px); }
+
+/* equipo: lista limpia, sin viñetas ni líneas */
+.home .h-roles { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-bottom: 44px; }
+.home .h-roles li { padding: 0; border: 0; color: var(--muted); font-size: 0.95rem; }
+.home .h-roles li::before { display: none; }
+
+/* test: claro con tarjetas de vidrio */
+.home .quiz { color: var(--pardo); }
+.home .quiz h2 { color: var(--chocolate); }
+.home .quiz .lead { color: var(--muted); }
+.home .quiz .eyebrow { color: var(--camel-on-light); }
+.home .quiz-chip { color: var(--chocolate); border: 1px solid rgba(75,65,45,0.12); background: rgba(255,255,255,0.5); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.home .quiz-chip:hover { border-color: rgba(157,128,81,0.5); background: rgba(255,255,255,0.72); transform: translateY(-2px); }
+.home .quiz-chip.on { border-color: var(--camel); background: rgba(157,128,81,0.12); }
+.home .quiz-check { border-color: rgba(75,65,45,0.28); }
+.home .quiz-bar { background: rgba(75,65,45,0.08); height: 3px; }
+.home .quiz-msg { color: var(--chocolate); }
+.home .quiz-msg strong { color: var(--camel-on-light); }
+.home .quiz .btn-ghost { color: var(--chocolate); border-color: rgba(75,65,45,0.28); background: transparent; }
+.home .quiz .btn-ghost:hover { border-color: var(--chocolate); background: rgba(255,255,255,0.5); }
+
+/* reseñas: claras */
+.home .h-reviews { color: var(--pardo); }
+.home .h-reviews .eyebrow { color: var(--camel-on-light); }
+.home .h-score-num { color: var(--chocolate); }
+.home .h-score .stars, .home .h-review .stars { color: var(--camel); }
+.home .h-score-note { color: var(--muted); }
+.home .h-reviews .link-arrow { color: var(--camel-on-light); }
+.home .h-review { background: rgba(255,255,255,0.5); border-color: rgba(75,65,45,0.1); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.home .h-review:hover { border-color: rgba(157,128,81,0.4); }
+.home .h-review blockquote { color: var(--chocolate); }
+.home .h-review figcaption { color: var(--chocolate); }
+.home .h-review figcaption small { color: var(--muted); }
+.home .h-review-cta { background: transparent; border: 1px dashed rgba(75,65,45,0.22); color: var(--muted); }
+.home .h-review-cta-title { color: var(--chocolate); }
+.home .h-review-cta i { color: var(--camel-on-light); }
+
+@media (prefers-reduced-motion: reduce) { .amb, .amb-grain { animation: none; } }
