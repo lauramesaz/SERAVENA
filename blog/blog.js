@@ -11,7 +11,7 @@
   if (!grid || !filtros || !masWrap || !masBtn) return;
 
   var POR_TANDA = 12;          // artículos visibles antes de pedir "ver más"
-  var CTA_TRAS = 6;            // la invitación a agendar va después de esta tarjeta
+  var CTA_TRAS = 3;            // la invitación a agendar va después de esta tarjeta (antes 6: solo 1 de 3 llegaba)
   var ORDEN = ['Lipedema', 'Salud vascular', 'Diagnóstico', 'Bienestar'];
 
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.blog-card'));

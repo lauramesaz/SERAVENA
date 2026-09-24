@@ -633,3 +633,43 @@ if (hl && !reduceMotion) {
   };
   window.addEventListener('scroll', () => requestAnimationFrame(hlScroll), { passive: true });
 }
+
+/* Blog y artículos en celular: barra fija abajo con "¿Tengo lipedema?" + "Agendar por WhatsApp".
+   Casi todo el tráfico del blog viene de Instagram en celular y se va tras ver una sola página
+   (Clarity, sep-2026): así el siguiente paso queda siempre a la vista. Reemplaza el botón redondo.
+   Los estilos van aquí mismo para que la barra nunca aparezca sin ellos por caché. */
+(function () {
+  if (!/\/blog\//.test(location.pathname)) return;
+  var css = document.createElement('style');
+  css.textContent =
+    '.blog-bar{display:none}' +
+    '@media (max-width:760px){' +
+      '.blog-bar{position:fixed;left:0;right:0;bottom:0;z-index:900;display:flex;gap:8px;' +
+        'padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(249,249,248,.96);' +
+        '-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(75,65,45,.12);' +
+        'transform:translateY(0);transition:transform .35s cubic-bezier(0.16,1,0.3,1)}' +
+      '.blog-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 8px;border-radius:999px;' +
+        'font-weight:600;font-size:.92rem;text-decoration:none;line-height:1.2;text-align:center}' +
+      '.blog-bar .bb-test{border:1.5px solid #4B412D;color:#4B412D;background:transparent}' +
+      '.blog-bar .bb-wa{background:#4B412D;color:#fff;flex:1.25}' +
+      '.blog-bar .bb-wa svg{width:18px;height:18px;fill:currentColor;flex:none}' +
+      'body.has-blog-bar{padding-bottom:76px}' +
+      'body.has-blog-bar .wa-float{display:none}' +
+      'body.menu-abierto .blog-bar{transform:translateY(110%)}' +
+    '}';
+  document.head.appendChild(css);
+  var bar = document.createElement('div');
+  bar.className = 'blog-bar';
+  bar.innerHTML =
+    '<a class="bb-test" href="../index.html#autoevaluacion">¿Tengo lipedema?</a>' +
+    '<a class="bb-wa" target="_blank" rel="noopener" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20del%20blog%20y%20quiero%20agendar%20una%20valoraci%C3%B3n">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>' +
+      'Agendar valoración</a>';
+  document.body.appendChild(bar);
+  document.body.classList.add('has-blog-bar');
+  // Con el menú abierto la barra se esconde para no tapar los enlaces
+  var t = document.getElementById('navToggle');
+  if (t) t.addEventListener('click', function () {
+    setTimeout(function () { document.body.classList.toggle('menu-abierto', t.classList.contains('open')); }, 0);
+  });
+})();
