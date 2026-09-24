@@ -1032,3 +1032,9 @@ a.hero-bar-item:hover { color: var(--white); }
 /* Aviso para pacientes en la página para médicos (muchos llegan buscando al equipo) */
 .patient-note { display: inline-block; margin-top: 1.25rem; padding: .6rem 1rem; border-radius: 999px; background: rgba(255,255,255,.14); color: var(--white); font-size: .92rem; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .patient-note a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* "Tu proceso" en celulares angostos: los 4 pasos en una columna (a 2 columnas "Acompañamiento" no cabía y la página se salía de lado) */
+@media (max-width: 400px) {
+  .journey-line { grid-template-columns: 1fr; gap: 36px; }
+  .journey-step h3 { overflow-wrap: break-word; }
+}
