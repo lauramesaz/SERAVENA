@@ -69,7 +69,7 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
 
 <div class="preloader" id="preloader">
   <img src="assets/isotype-chocolate.webp" alt="" class="preloader-mark">
@@ -115,16 +115,12 @@
       <a href="contacto.html" class="btn btn-primary">Agendar una valoración</a>
       <a href="profesionales.html" class="btn btn-ghost">Soy profesional de la salud</a>
     </div>
+    <a class="hero-trust reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener">
+      <span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span><span><strong>4,9</strong> en Google</span><span class="hero-trust-sep"></span><span>Medellín · Torre Médica Salud Vegas</span>
+    </a>
   </div>
   <a href="#intro" class="scroll-cue" aria-label="Desplázate"><span>Descubre</span><span class="scroll-cue-line"></span></a>
 </section>
-
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Lipedema</span><i>✦</i><span>Salud vascular</span><i>✦</i><span>Diagnóstico preciso</span><i>✦</i><span>Acompañamiento humano</span><i>✦</i><span>Tratamiento personalizado</span><i>✦</i>
-    <span>Lipedema</span><i>✦</i><span>Salud vascular</span><i>✦</i><span>Diagnóstico preciso</span><i>✦</i><span>Acompañamiento humano</span><i>✦</i><span>Tratamiento personalizado</span><i>✦</i>
-  </div>
-</div>
 
 <!-- Filosofía -->
 <section class="section intro" id="intro">
@@ -134,22 +130,15 @@
   </div>
 </section>
 
-<!-- Stats -->
-<section class="stats">
-  <div class="container stats-grid">
-    <div class="stat reveal"><span class="stat-num" data-count="10" data-suffix="+">0</span><span class="stat-label">Años de experiencia clínica</span></div>
-    <div class="stat reveal"><span class="stat-num" data-count="1500" data-suffix="+">0</span><span class="stat-label">Pacientes acompañados</span></div>
-    <div class="stat reveal"><span class="stat-num" data-count="2" data-suffix="">0</span><span class="stat-label">Áreas de enfoque especializado</span></div>
-    <div class="stat reveal"><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">Atención personalizada</span></div>
-  </div>
-</section>
-
-<!-- Áreas (entradas a las páginas internas) -->
+<!-- Áreas -->
 <section class="section areas">
   <div class="container">
-    <div class="section-head">
-      <p class="eyebrow reveal">Nuestras áreas</p>
-      <h2 class="reveal">Dos enfoques, un mismo cuidado</h2>
+    <div class="h-head">
+      <div>
+        <p class="eyebrow reveal">Nuestras áreas</p>
+        <h2 class="reveal">Dos enfoques,<br>un mismo <em>cuidado</em></h2>
+      </div>
+      <p class="h-head-note reveal">Cada cuerpo cuenta algo distinto. Por eso empezamos por entender el tuyo.</p>
     </div>
     <div class="areas-grid">
       <a href="lipedema.html" class="area-card reveal">
@@ -159,7 +148,8 @@
           <p class="eyebrow">01</p>
           <h3>Lipedema</h3>
           <p>Diagnóstico especializado y manejo integral de esta condición crónica que afecta piernas y brazos.</p>
-          <span class="area-link">Conocer más <i>→</i></span>
+          <ul class="area-tags"><li>Dolor y pesadez</li><li>Plan integral</li><li>Compresión</li></ul>
+          <span class="area-go" aria-hidden="true">→</span>
         </div>
       </a>
       <a href="vascular.html" class="area-card reveal">
@@ -169,10 +159,30 @@
           <p class="eyebrow">02</p>
           <h3>Salud vascular</h3>
           <p>Várices, insuficiencia venosa y tratamientos mínimamente invasivos para mejorar tu calidad de vida.</p>
-          <span class="area-link">Conocer más <i>→</i></span>
+          <ul class="area-tags"><li>Várices</li><li>Eco doppler</li><li>Sin cirugía</li></ul>
+          <span class="area-go" aria-hidden="true">→</span>
         </div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- Así es tu camino -->
+<section class="section h-path" id="camino">
+  <div class="container">
+    <div class="h-head">
+      <div>
+        <p class="eyebrow reveal">Tu proceso</p>
+        <h2 class="reveal">Así es tu camino<br>en <em>Seravena</em></h2>
+      </div>
+      <a href="proceso.html" class="link-arrow reveal">Ver el proceso completo <i>→</i></a>
+    </div>
+    <ol class="h-steps">
+      <li class="h-step reveal"><span class="h-step-num">01</span><h3>Te escuchamos</h3><p>Una primera valoración sin afán: tu historia, tus síntomas y el examen físico.</p></li>
+      <li class="h-step reveal"><span class="h-step-num">02</span><h3>Diagnóstico claro</h3><p>Con eco doppler cuando hace falta, para saber con certeza qué está pasando.</p></li>
+      <li class="h-step reveal"><span class="h-step-num">03</span><h3>Tu plan</h3><p>Qué hacer, en qué orden y qué es razonable esperar. Sin promesas de catálogo.</p></li>
+      <li class="h-step reveal"><span class="h-step-num">04</span><h3>Te acompañamos</h3><p>Seguimiento cercano para ajustar el camino mientras tu cuerpo responde.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -203,43 +213,97 @@
   </div>
 </section>
 
-<!-- Banda de video -->
-<section class="band band-video" aria-label="Seravena en movimiento">
-  <video class="band-vid" muted loop playsinline preload="none" poster="assets/media/hero-poster.webp" data-rate="0.5" data-lazy>
-    <source src="assets/media/fabric-flow.mp4" type="video/mp4">
-  </video>
-  <div class="band-overlay"></div>
-  <div class="container band-inner">
-    <p class="eyebrow reveal">Seravena</p>
-    <blockquote class="band-quote reveal">Cuidado experto, con la calidez de sentirte acompañada en cada paso.</blockquote>
+<!-- Equipo -->
+<section class="section h-team">
+  <div class="container h-team-grid">
+    <div class="h-team-media reveal">
+      <div class="h-team-main"><img loading="lazy" decoding="async" src="assets/media/5888062.webp" alt="Manos de una terapeuta realizando drenaje linfático en las piernas de una paciente"></div>
+      <div class="h-team-accent"><img loading="lazy" decoding="async" src="assets/media/29162163.webp" alt="Paciente tranquila y sonriente descansando"></div>
+    </div>
+    <div class="h-team-text">
+      <p class="eyebrow reveal">Enfoque multidisciplinario</p>
+      <h2 class="reveal">Un equipo entero<br>alrededor de <em>ti</em></h2>
+      <p class="h-team-lead reveal">El lipedema y la salud vascular no se tratan desde una sola especialidad. Aquí te acompañan varias miradas, coordinadas en un mismo plan.</p>
+      <ul class="h-roles reveal">
+        <li>Medicina interna vascular</li><li>Diagnóstico con ecografía</li>
+        <li>Nutrióloga</li><li>Nutricionista</li>
+        <li>Deportólogo</li><li>Psicología</li>
+        <li>Acompañamiento clínico</li><li>Acompañamiento farmacológico</li>
+      </ul>
+      <a href="sobre.html" class="link-arrow reveal">Conoce Seravena <i>→</i></a>
+    </div>
   </div>
 </section>
 
-<!-- Testimonios -->
-<section class="section testimonials">
+<!-- Reseñas reales de Google -->
+<section class="section h-reviews">
+  <div class="container h-reviews-grid">
+    <div class="h-score reveal">
+      <p class="eyebrow">Lo que dicen nuestras pacientes</p>
+      <p class="h-score-num">4,9</p>
+      <span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span>
+      <p class="h-score-note">Calificación en Google</p>
+      <div class="h-score-actions">
+        <a href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" class="link-arrow">Ver reseñas en Google <i>→</i></a>
+      </div>
+    </div>
+    <div class="h-review-list">
+      <figure class="h-review reveal">
+        <span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span>
+        <blockquote>“Me realicé el plan integral para lipedema y me fue súper bien, ¡gracias Seravena!”</blockquote>
+        <figcaption><span class="h-avatar">Y</span><span class="h-who">Yeidi A.<small>Reseña en Google</small></span></figcaption>
+      </figure>
+      <figure class="h-review reveal">
+        <span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span>
+        <blockquote>“Súper recomiendo el tratamiento para el manejo del lipedema.”</blockquote>
+        <figcaption><span class="h-avatar">E</span><span class="h-who">Emiliana C.<small>Reseña en Google</small></span></figcaption>
+      </figure>
+      <a class="h-review h-review-cta reveal" href="resena.html" target="_blank" rel="noopener">
+        <span class="h-review-cta-title">¿Ya viviste Seravena?</span>
+        <span>Cuéntale a otras mujeres cómo te fue <i>→</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section h-blog">
   <div class="container">
-    <p class="eyebrow center reveal">Lo que dicen quienes ya pasaron por aquí</p>
-    <div class="testi-track" id="testiTrack">
-      <blockquote class="testi active"><p>“Por primera vez sentí que alguien entendía lo que me pasaba. Llegué con un diagnóstico equivocado de años y en Seravena encontré claridad y un plan real.”</p><footer>— Paciente de lipedema</footer></blockquote>
-      <blockquote class="testi"><p>“El acompañamiento fue lo que marcó la diferencia. Nunca me sentí un número: cada control fue cercano y humano.”</p><footer>— Paciente de salud vascular</footer></blockquote>
-      <blockquote class="testi"><p>“Refiero a mis pacientes con total confianza. La comunicación es directa y los informes, impecables.”</p><footer>— Médico referente</footer></blockquote>
+    <div class="h-head">
+      <div>
+        <p class="eyebrow reveal">Blog</p>
+        <h2 class="reveal">Entender tu cuerpo<br>es el <em>primer paso</em></h2>
+      </div>
+      <a href="blog/" class="link-arrow reveal">Ver todos los artículos <i>→</i></a>
     </div>
-    <div class="testi-dots" id="testiDots"></div>
+    <div class="h-blog-grid" id="homeBlog">
+      <a class="h-post reveal" href="blog/piel-y-cuidados-lipedema.html"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/7479558.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Piel y lipedema: cuidados básicos que ayudan</h3></a>
+      <a class="h-post reveal" href="blog/como-elegir-clinica-lipedema-medellin.html"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/professionals.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir</h3></a>
+      <a class="h-post reveal" href="blog/compresion-para-lipedema.html"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/band-veins.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Compresión para lipedema: en qué se diferencia de la de várices</h3></a>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- CTA + ubicación -->
+<section class="cta h-cta">
   <img src="assets/isotype-white.webp" alt="" class="cta-mark">
-  <div class="container cta-inner">
-    <p class="eyebrow reveal">Da el primer paso</p>
-    <h2 class="reveal">Agenda tu valoración en Seravena</h2>
-    <p class="reveal">Cuéntanos tu caso, ya seas paciente o nos refieras a alguien, y te acompañamos en el proceso.</p>
-    <div class="cta-actions reveal">
-      <a href="contacto.html" class="btn btn-primary">Agendar una valoración</a>
-      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
-      <a href="tel:+573052088204" class="btn btn-ghost">Llamar</a>
+  <div class="container h-cta-grid">
+    <div class="h-cta-text">
+      <p class="eyebrow reveal">Da el primer paso</p>
+      <h2 class="reveal">Agenda tu valoración<br>en <em>Seravena</em></h2>
+      <p class="reveal">Cuéntanos tu caso, ya seas paciente o nos refieras a alguien, y te acompañamos en el proceso.</p>
+      <div class="cta-actions reveal">
+        <a href="contacto.html" class="btn btn-primary">Agendar una valoración</a>
+        <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
+      </div>
     </div>
+    <a class="h-place reveal" href="https://www.google.com/maps/search/?api=1&query=Torre+M%C3%A9dica+Salud+Vegas+Calle+2+Sur+46-159+Medell%C3%ADn" target="_blank" rel="noopener">
+      <span class="h-place-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+      <span class="h-place-label">Dónde estamos</span>
+      <span class="h-place-name">Torre Médica Salud Vegas</span>
+      <span class="h-place-addr">Calle 2 Sur #46-159 · Consultorio 1316<br>Medellín, Antioquia</span>
+      <span class="h-place-go">Cómo llegar <i>→</i></span>
+    </a>
   </div>
 </section>
 

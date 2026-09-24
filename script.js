@@ -616,3 +616,21 @@ if (CLARITY_ID && !ES_LOCAL) {
     }
   } catch (e) {}
 })();
+
+/* Home: los 3 artículos más recientes del blog (se actualiza solo cuando el agente publica) */
+const homeBlog = document.getElementById('homeBlog');
+if (homeBlog && window.fetch) {
+  fetch('blog/', { cache: 'no-cache' }).then(r => r.ok ? r.text() : '').then(html => {
+    if (!html) return;
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const cards = [...doc.querySelectorAll('#blogGrid .blog-card')].slice(0, 3);
+    if (cards.length < 3) return;
+    homeBlog.innerHTML = cards.map(c => {
+      const href = 'blog/' + c.getAttribute('href');
+      const img = (c.querySelector('img')?.getAttribute('src') || '').replace(/^\.\.\//, '');
+      const tag = c.querySelector('.blog-tag')?.textContent || '';
+      const t = c.querySelector('h3')?.textContent || '';
+      return `<a class="h-post reveal in" href="${href}"><div class="h-post-media"><img loading="lazy" decoding="async" src="${img}" alt=""></div><span class="h-post-tag">${tag}</span><h3>${t}</h3></a>`;
+    }).join('');
+  }).catch(() => {});
+}
