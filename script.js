@@ -19,8 +19,11 @@ window.addEventListener('pageshow', (e) => { if (e.persisted) document.body.clas
 function isInternalLink(a) {
   const href = a.getAttribute('href') || '';
   if (a.target === '_blank' || a.hasAttribute('download')) return false;
-  if (/^(mailto:|tel:|https?:\/\/|#)/.test(href)) return false;
-  return /\.html(\?.*)?$/.test(href) || href === '' || href === './';
+  if (/^(mailto:|tel:|https?:\/\/|#|javascript:)/.test(href)) return false;
+  // Páginas del sitio: con o sin ".html" (direcciones limpias). Los enlaces con ancla (#) navegan normal.
+  const ruta = href.split('?')[0];
+  if (ruta.indexOf('#') > -1) return false;
+  return /\.html$/.test(ruta) || !/\.[a-z0-9]{2,5}$/i.test(ruta);
 }
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a');
@@ -675,7 +678,7 @@ if (hl && !reduceMotion) {
   var bar = document.createElement('div');
   bar.className = 'blog-bar';
   bar.innerHTML =
-    '<a class="bb-test" href="como-saber-si-tengo-lipedema.html#test">¿Tengo lipedema?</a>' +
+    '<a class="bb-test" href="como-saber-si-tengo-lipedema#test">¿Tengo lipedema?</a>' +
     '<a class="bb-wa" target="_blank" rel="noopener" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20del%20blog%20y%20quiero%20agendar%20una%20valoraci%C3%B3n">' +
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>' +
       'Agendar valoración</a>';

@@ -125,18 +125,21 @@ Trabaja siempre dentro de `web/` (donde está el repositorio git).
 5. **Registra** en `_agente-blog/registro.md` una línea nueva: fecha, slug, título, keyword.
    Marca el tema como `publicado` en `temas.md`.
 6. **Publica:** haz commit y push:
+   > **Direcciones limpias (desde 24-sep-2026):** los enlaces NUNCA terminan en `.html` (`../lipedema`, `otro-articulo`, `https://www.clinicaseravena.com/blog/<slug>`). El archivo sí se llama `<slug>.html`. Antes del commit corre SIEMPRE `python3 _agente-blog/limpiar-enlaces.py` (corrige cualquier `.html` que se haya colado en enlaces, canonical, JSON-LD y sitemap).
+
    ```
+   python3 _agente-blog/limpiar-enlaces.py
    git add -A
    git commit -m "blog: <título del artículo>"
    git push
    ```
 7. **Verifica que quedó EN VIVO de verdad** (paso obligatorio, no opcional): espera 1–3 min y
-   comprueba que `https://www.clinicaseravena.com/blog/<slug>.html` responde **200**. Un push
+   comprueba que `https://www.clinicaseravena.com/blog/<slug>` responde **200**. Un push
    correcto NO garantiza publicación: el build de GitHub Pages puede fallar (pasó el 6-ago-2026 y
    el artículo estuvo invisible ~6 horas). Si da 404, sigue el procedimiento del Auditor
    (`agentes/5-auditor.md`, sección "Publicación real") para relanzar el build.
 8. **Avisa a Laura** (ver sección 6) con el título y el enlace
-   `https://www.clinicaseravena.com/blog/<slug>.html`.
+   `https://www.clinicaseravena.com/blog/<slug>`.
 
 Si `temas.md` se queda con menos de 5 temas pendientes, **genera 10 temas nuevos** relevantes
 (basados en dudas reales de pacientes de lipedema y salud vascular) y añádelos al final.

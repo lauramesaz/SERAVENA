@@ -23,7 +23,8 @@ control: nada se da por cerrado si tú encuentras un fallo. Lee `../pipeline.md`
 - [ ] `canonical` correcto y `robots` = index,follow.
 
 **Publicación real (OBLIGATORIO — no basta con que el push salga bien)**
-- [ ] `https://www.clinicaseravena.com/blog/<slug>.html` responde **200** (no 404).
+- [ ] `https://www.clinicaseravena.com/blog/<slug>` responde **200** (no 404).
+- [ ] Ningún enlace, canonical ni `<loc>` del sitemap termina en `.html` (si alguno sí: `python3 _agente-blog/limpiar-enlaces.py`).
 - [ ] `https://www.clinicaseravena.com/blog/` ya muestra la tarjeta del post nuevo.
 - [ ] `https://www.clinicaseravena.com/sitemap.xml` ya contiene la URL del post.
 - Si algo de esto da 404 o no aparece, **el sitio no se ha reconstruido**: GitHub Pages puede tardar

@@ -28,7 +28,10 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
 ## Publicación
 
 9. Publica con git (esto lo pone online vía GitHub Pages):
+   > **Direcciones limpias (desde 24-sep-2026):** los enlaces NUNCA terminan en `.html` (`../lipedema`, `otro-articulo`, `https://www.clinicaseravena.com/blog/<slug>`). El archivo sí se llama `<slug>.html`. Antes del commit corre SIEMPRE `python3 _agente-blog/limpiar-enlaces.py` (corrige cualquier `.html` que se haya colado en enlaces, canonical, JSON-LD y sitemap).
+
    ```
+   python3 _agente-blog/limpiar-enlaces.py
    git add -A
    git commit -m "blog: <título>"
    git push
@@ -37,7 +40,7 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
     indexación en Search Console, una vez esté conectado). Mientras tanto, el sitemap actualizado
     hace que Google lo encuentre.
 11. Deja el enlace público listo para el aviso a Laura y para el Auditor:
-    `https://www.clinicaseravena.com/blog/<slug>.html`.
+    `https://www.clinicaseravena.com/blog/<slug>`.
 
 ## Reglas
 
@@ -51,7 +54,7 @@ ChatGPT busca en Bing, así que cada URL nueva o actualizada se avisa al momento
 
 ```bash
 curl -s -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json; charset=utf-8" \
-  -d '{"host":"www.clinicaseravena.com","key":"28f22cb53e984335b113c35e5ed2608d","keyLocation":"https://www.clinicaseravena.com/28f22cb53e984335b113c35e5ed2608d.txt","urlList":["https://www.clinicaseravena.com/blog/<slug>.html","https://www.clinicaseravena.com/blog/"]}'
+  -d '{"host":"www.clinicaseravena.com","key":"28f22cb53e984335b113c35e5ed2608d","keyLocation":"https://www.clinicaseravena.com/28f22cb53e984335b113c35e5ed2608d.txt","urlList":["https://www.clinicaseravena.com/blog/<slug>","https://www.clinicaseravena.com/blog/"]}'
 ```
 
 200 o 202 = recibido. Si falla, no bloquea la publicación: anótalo en el resumen.
