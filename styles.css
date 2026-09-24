@@ -70,6 +70,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 /* ---------- Navbar ---------- */
 .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 26px 0; transition: padding 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease); }
 .navbar.scrolled { padding: 14px 0; background: rgba(249,249,248,0.85); backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(75,65,45,0.08); }
+/* Con el menú del celular abierto se quita el desenfoque: si no, el menú (position: fixed) queda encerrado en la barra y se ve cortado */
+.navbar.menu-open, .navbar:has(.nav-links.open) { backdrop-filter: none; -webkit-backdrop-filter: none; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 .logo { display: inline-flex; align-items: center; text-decoration: none; position: relative; }
 .logo-img { height: 26px; width: auto; transition: opacity 0.4s var(--ease); }
@@ -84,6 +86,20 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .nav-links a:not(.nav-cta):hover::after { width: 100%; }
 .nav-links a:not(.nav-cta):hover { color: var(--camel-soft); }
 .navbar.scrolled .nav-links a:not(.nav-cta):hover { color: var(--camel); }
+/* Menú "Tratamientos": desplegable en computador, lista a la vista en celular */
+.nav-group { position: relative; }
+.nav-group-btn { font: inherit; font-size: 0.9rem; font-weight: 500; color: var(--white); background: none; border: 0; padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: color 0.3s; }
+.nav-group-btn::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 0.3s var(--ease); }
+.navbar.scrolled .nav-group-btn { color: var(--pardo); }
+.nav-group-btn:hover, .nav-group.is-active .nav-group-btn { color: var(--camel-soft); }
+.navbar.scrolled .nav-group-btn:hover, .navbar.scrolled .nav-group.is-active .nav-group-btn { color: var(--camel); }
+.nav-sub { position: absolute; top: 100%; left: 50%; padding-top: 16px; transform: translate(-50%, 6px); opacity: 0; visibility: hidden; transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s; }
+.nav-sub-box { display: flex; flex-direction: column; min-width: 230px; padding: 8px; background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); border: 1px solid rgba(75,65,45,0.08); }
+.nav-links .nav-sub a { color: var(--pardo); padding: 10px 14px; border-radius: 8px; white-space: nowrap; }
+.nav-links .nav-sub a::after { display: none; }
+.nav-links .nav-sub a:hover, .nav-links .nav-sub a.active { background: var(--arena); color: var(--chocolate); }
+.nav-group:hover .nav-sub, .nav-group:focus-within .nav-sub, .nav-group.open .nav-sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.nav-group:hover .nav-group-btn::after, .nav-group.open .nav-group-btn::after { transform: translateY(1px) rotate(225deg); }
 .nav-cta { background: var(--camel); color: var(--white) !important; padding: 11px 22px; border-radius: 999px; transition: background 0.3s, transform 0.3s var(--ease); }
 .nav-cta:hover { background: var(--chocolate); transform: translateY(-2px); }
 .nav-toggle { display: none; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 1001; }
@@ -358,6 +374,13 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   .nav-links.open { transform: translateX(0); }
   .nav-links a { color: var(--pardo) !important; font-size: 1.3rem; }
   .nav-links .nav-cta { color: var(--white) !important; }
+  .nav-links { gap: 22px; }
+  .nav-group { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .nav-group-btn { color: var(--camel-on-light) !important; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; pointer-events: none; }
+  .nav-group-btn::after { display: none; }
+  .nav-sub { position: static; padding: 0; opacity: 1; visibility: visible; transform: none; }
+  .nav-sub-box { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 340px; min-width: 0; padding: 0; background: none; box-shadow: none; border: 0; }
+  .nav-links .nav-sub a { font-size: 0.95rem; padding: 8px 15px; border: 1px solid var(--arena-deep); border-radius: 999px; background: var(--white); }
 }
 @media (max-width: 860px) {
   .editorial-grid, .two-col { grid-template-columns: 1fr; gap: 48px; }
@@ -987,3 +1010,25 @@ a.hero-bar-item:hover { color: var(--white); }
 .home .h-review-cta i { color: var(--camel-on-light); }
 
 @media (prefers-reduced-motion: reduce) { .amb, .amb-grain { animation: none; } }
+
+/* Test de lipedema dentro de un artículo del blog (reusa el cuestionario #quiz2) */
+.post-test { margin: 2.5rem 0; padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 4vw, 2.5rem); border-radius: var(--radius-lg); background: var(--chocolate); color: var(--white); text-align: center; scroll-margin-top: 90px; }
+.post-body .post-test h2 { color: var(--white); margin: 0 0 .5rem; font-size: clamp(1.35rem, 3vw, 1.75rem); }
+.post-body .post-test .post-test-eyebrow { font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--camel-on-dark); margin: 0 0 .75rem; }
+.post-body .post-test .post-test-lead { color: rgba(255,255,255,.72); font-size: .95rem; margin: 0 0 1.75rem; }
+.post-body .post-test .q2-count, .post-body .post-test .q2-rcount { color: var(--camel-on-dark); font-size: .78rem; margin-bottom: 14px; }
+.post-body .post-test .q2-q { color: var(--white); font-size: clamp(1.15rem, 2.6vw, 1.45rem); min-height: 72px; margin-bottom: 24px; }
+.post-body .post-test .q2-rmsg { color: var(--white); font-size: clamp(1.1rem, 2.4vw, 1.35rem); margin-bottom: 24px; }
+.post-body .post-test .cta-actions { display: flex; justify-content: center; }
+.post-body .post-test .btn-primary { color: var(--white); text-decoration: none; }
+@media (max-width: 480px) { .post-test .q2-btn { min-width: 0; flex: 1; } }
+
+/* Recuadro dentro de un artículo que lleva a la página del servicio */
+.post-service { margin: 1.75rem 0 2rem; padding: 1.25rem 1.4rem; border-radius: var(--radius-md); background: var(--arena); border-left: 3px solid var(--camel); }
+.post-body .post-service p { margin: 0 0 .6rem; font-size: .98rem; line-height: 1.55; }
+.post-body .post-service a { font-weight: 600; color: var(--chocolate); text-decoration: none; }
+.post-body .post-service a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Aviso para pacientes en la página para médicos (muchos llegan buscando al equipo) */
+.patient-note { display: inline-block; margin-top: 1.25rem; padding: .6rem 1rem; border-radius: 999px; background: rgba(255,255,255,.14); color: var(--white); font-size: .92rem; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.patient-note a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

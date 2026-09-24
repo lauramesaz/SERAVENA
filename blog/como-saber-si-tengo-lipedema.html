@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.css?v=20260924n">
 <link rel="stylesheet" href="blog.css">
 <style>
   .post-table-wrap { overflow-x: auto; margin: 0 0 1.75rem; }
@@ -123,10 +123,18 @@
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="../index.html">Inicio</a>
-      <a href="../lipedema.html">Lipedema</a>
-      <a href="../vascular.html">Salud vascular</a>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false">Tratamientos</button>
+        <div class="nav-sub"><div class="nav-sub-box">
+          <a href="../lipedema.html">Lipedema</a>
+          <a href="../vascular.html">Salud vascular</a>
+          <a href="../varices-medellin.html">Várices</a>
+          <a href="../insuficiencia-venosa.html">Insuficiencia venosa</a>
+          <a href="../escleroterapia-medellin.html">Escleroterapia</a>
+          <a href="../eco-doppler-venoso-medellin.html">Eco doppler</a>
+        </div></div>
+      </div>
       <a href="../proceso.html">Tu proceso</a>
-      <a href="../profesionales.html">Profesionales</a>
       <a href="index.html" class="active">Blog</a>
       <a href="../preguntas.html">Preguntas</a>
       <a href="../contacto.html" class="nav-cta">Agendar cita</a>
@@ -159,6 +167,32 @@
 
       <!-- Primer párrafo: incluye la keyword principal de forma natural. -->
       <p>Si llevas tiempo notando que tus piernas —o tus brazos— tienen un volumen que no cuadra con el resto de tu cuerpo, es probable que te hayas preguntado <strong>cómo saber si tengo lipedema</strong>. No existe una respuesta de sí o no que puedas darte sola en casa: el lipedema solo se confirma con una valoración médica. Pero sí hay señales concretas, descritas en la literatura médica actual, que puedes revisar en ti misma para decidir si vale la pena pedir esa valoración. Te las contamos, una por una.</p>
+
+      <!-- Test interactivo (lo maneja script.js: #quiz2). Quien llega de Google o Instagram busca justo esto. -->
+      <section class="post-test" id="test" aria-labelledby="testTitulo">
+        <p class="post-test-eyebrow">Test de lipedema · 1 minuto</p>
+        <h2 id="testTitulo">¿Podrías tener lipedema? Responde 6 preguntas</h2>
+        <p class="post-test-lead">Es anónimo y orientativo: no reemplaza una valoración médica.</p>
+        <div class="quiz2" id="quiz2">
+          <div class="quiz2-bar"><span id="q2bar"></span></div>
+          <div class="quiz2-card" id="q2card">
+            <p class="q2-count" id="q2count">Pregunta 1 de 6</p>
+            <p class="q2-q" id="q2q">¿Tus piernas o brazos se ven desproporcionados respecto al resto del cuerpo?</p>
+            <div class="q2-btns">
+              <button type="button" class="q2-btn" data-v="1" id="q2si">Sí</button>
+              <button type="button" class="q2-btn" data-v="0" id="q2no">No</button>
+            </div>
+          </div>
+          <div class="quiz2-result" id="q2result" hidden>
+            <p class="q2-rcount" id="q2rcount"></p>
+            <p class="q2-rmsg" id="q2rmsg"></p>
+            <div class="cta-actions">
+              <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary">Agendar por WhatsApp</a>
+            </div>
+            <button type="button" class="q2-restart" id="q2restart">Volver a empezar</button>
+          </div>
+        </div>
+      </section>
 
       <h2>Cómo saber si tengo lipedema: señales que puedes notar en tu cuerpo</h2>
       <p>El lipedema es una enfermedad crónica del tejido graso que afecta casi siempre a mujeres. Si quieres entender bien en qué consiste y en qué se diferencia de tener sobrepeso, te lo explicamos con calma en <a href="que-es-el-lipedema.html">Qué es el lipedema y en qué se diferencia de la obesidad</a>. Por ahora, quédate con lo esencial: el volumen del lipedema se distribuye de una forma particular, y esa distribución es la primera pista a la que puedes prestar atención.</p>
@@ -201,7 +235,7 @@
         <li><strong>Presiona con un dedo la zona hinchada durante unos segundos.</strong> Si queda una marca hundida, es más probable que se trate de líquido acumulado; en el lipedema esa marca casi nunca aparece.</li>
         <li><strong>Palpa con suavidad la cara interna del muslo.</strong> Observa si duele con una presión ligera y si sientes pequeños nódulos o una textura desigual bajo la piel.</li>
       </ol>
-      <p>Si prefieres una versión guiada, en nuestra página de <a href="../lipedema.html#autoevaluacion">lipedema</a> hay un cuestionario de autoevaluación de seis preguntas, anónimo y orientativo, que respondes en dos minutos. Sea cual sea el resultado, ningún test reemplaza el examen físico.</p>
+      <p>Si prefieres una versión guiada, <a href="#test">haz el test de lipedema</a> al inicio de este artículo: seis preguntas, anónimo y orientativo, en un minuto. Sea cual sea el resultado, ningún test reemplaza el examen físico.</p>
 
       <h2>Que la piel se vea lisa no descarta el lipedema</h2>
       <p>Un error frecuente es pensar que, si desde afuera las piernas se ven "normales", no puede ser lipedema. En la etapa inicial la piel se ve lisa y de aspecto habitual; los cambios están debajo: al palpar ya pueden sentirse pequeños nódulos, y puede haber dolor al tacto y facilidad para los moretones. Solo en etapas más avanzadas la superficie se vuelve irregular, con una textura que recuerda a la cáscara de naranja. Por eso lo que sientes con las manos dice más que lo que se ve a simple vista, y por eso la etapa no mide la intensidad de lo que sientes: puedes estar en una etapa temprana y tener bastante dolor. Lo explicamos en <a href="etapas-del-lipedema.html">Etapas del lipedema: cómo evoluciona con el tiempo</a>.</p>
@@ -299,8 +333,12 @@
     <nav class="footer-nav">
       <a href="../lipedema.html">Lipedema</a>
       <a href="../vascular.html">Salud vascular</a>
+      <a href="../varices-medellin.html">Várices</a>
+      <a href="../insuficiencia-venosa.html">Insuficiencia venosa</a>
+      <a href="../escleroterapia-medellin.html">Escleroterapia</a>
+      <a href="../eco-doppler-venoso-medellin.html">Eco doppler</a>
       <a href="../proceso.html">Tu proceso</a>
-      <a href="../profesionales.html">Profesionales</a>
+      <a href="../profesionales.html">Para médicos</a>
       <a href="index.html">Blog</a>
       <a href="../preguntas.html">Preguntas</a>
       <a href="../contacto.html">Contacto</a>
