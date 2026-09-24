@@ -44,7 +44,14 @@ if (preloader) {
   // respaldo: si la carga tarda, igual mostramos el banner
   setTimeout(() => { preloader.classList.add('done'); $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go'); }, 3000);
 } else {
-  $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go');
+  // sin pantalla de carga: el telón del banner arranca apenas la foto está lista (máx. 1,2 s de espera)
+  const goHero = () => { $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go'); };
+  const heroImg = $('.hl-media img');
+  if (heroImg && !heroImg.complete) {
+    let hecho = false; const una = () => { if (!hecho) { hecho = true; goHero(); } };
+    heroImg.addEventListener('load', una, { once: true }); heroImg.addEventListener('error', una, { once: true });
+    setTimeout(una, 1200);
+  } else goHero();
 }
 
 /* ---------- Videos (hero + bandas, con cámara lenta y lazy) ---------- */
