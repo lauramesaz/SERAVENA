@@ -20,7 +20,9 @@
 <meta property="og:description" content="Diagnóstico preciso, tratamiento personalizado y acompañamiento humano.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="image" href="assets/media/hero-manos.webp" media="(min-width: 768px)">
+<link rel="preload" as="image" href="assets/media/hero-manos-movil.webp" media="(max-width: 767px)">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
@@ -98,28 +100,32 @@
 </header>
 
 <!-- Hero -->
-<section class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/media/hero-poster.webp" id="heroVideo" data-rate="0.5">
-    <source data-src="assets/media/hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="container hero-inner">
-    <p class="eyebrow reveal">Lipedema · Salud vascular</p>
-    <h1 class="hero-title">
-      <span class="line"><span>Recupera el bienestar</span></span>
-      <span class="line"><span>de tu <em>cuerpo</em>,</span></span>
-      <span class="line"><span>paso a paso.</span></span>
+<section class="hero hero-home hero-luz" id="top">
+  <picture class="hl-media">
+    <source media="(max-width: 767px)" srcset="assets/media/hero-manos-movil.webp">
+    <img src="assets/media/hero-manos.webp" alt="Manos de mujeres con distintos tonos de piel que se buscan unas a otras" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hl-veil"></div>
+  <div class="container hero-inner hl-inner">
+    <p class="eyebrow reveal">Lipedema · Salud vascular · Medellín</p>
+    <h1 class="hero-title hl-title">
+      <span class="line"><span data-c="inicio_titulo_1">Tu cuerpo,</span></span>
+      <span class="line"><span data-c="inicio_titulo_2">en <em>buenas</em></span></span>
+      <span class="line"><span data-c="inicio_titulo_3">manos.</span></span>
     </h1>
     <p class="hero-sub reveal" data-c="inicio_sub">Diagnóstico preciso, tratamiento personalizado y un acompañamiento profundamente humano para el manejo del lipedema y la salud vascular.</p>
     <div class="hero-actions reveal">
-      <a href="contacto.html" class="btn btn-primary">Agendar una valoración</a>
+      <a href="contacto.html" class="btn btn-dark">Agendar una valoración</a>
       <a href="profesionales.html" class="btn btn-ghost">Soy profesional de la salud</a>
     </div>
-    <a class="hero-trust reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener">
-      <span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span><span><strong>4,9</strong> en Google</span><span class="hero-trust-sep"></span><span>Medellín · Torre Médica Salud Vegas</span>
-    </a>
   </div>
-  <a href="#intro" class="scroll-cue" aria-label="Desplázate"><span>Descubre</span><span class="scroll-cue-line"></span></a>
+  <div class="hero-bar reveal">
+    <div class="container hero-bar-inner">
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" class="hero-bar-item"><span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span><span><strong>4,9</strong> en Google</span></a>
+      <span class="hero-bar-item">Torre Médica Salud Vegas · Medellín</span>
+      <a href="#intro" class="hero-bar-item hero-bar-down">Descubre <i aria-hidden="true">↓</i></a>
+    </div>
+  </div>
 </section>
 
 <!-- Filosofía -->
@@ -204,7 +210,7 @@
     </div>
     <div class="quiz-result reveal">
       <div class="quiz-bar"><span id="quizBarFill"></span></div>
-      <p class="quiz-msg" id="quizMsg">Marca las señales que reconozcas en ti.</p>
+      <p class="quiz-msg" id="quizMsg" data-c="inicio_quiz_msg">Marca las señales que reconozcas en ti.</p>
       <div class="quiz-cta" id="quizCta" hidden>
         <a href="contacto.html" class="btn btn-primary">Agendar una valoración</a>
         <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" class="btn btn-ghost">Escribir por WhatsApp</a>
@@ -217,8 +223,8 @@
 <section class="section h-team">
   <div class="container h-team-grid">
     <div class="h-team-media reveal">
-      <div class="h-team-main"><img loading="lazy" decoding="async" src="assets/media/5888062.webp" alt="Manos de una terapeuta realizando drenaje linfático en las piernas de una paciente"></div>
-      <div class="h-team-accent"><img loading="lazy" decoding="async" src="assets/media/29162163.webp" alt="Paciente tranquila y sonriente descansando"></div>
+      <div class="h-team-main"><img loading="lazy" decoding="async" src="assets/media/professionals.webp" alt="Médica especialista con bata y fonendoscopio examinando a una paciente"></div>
+      <div class="h-team-accent"><img loading="lazy" decoding="async" src="assets/media/treatment.webp" alt="Especialista vascular realizando un tratamiento en la pierna de una paciente"></div>
     </div>
     <div class="h-team-text">
       <p class="eyebrow reveal">Enfoque multidisciplinario</p>

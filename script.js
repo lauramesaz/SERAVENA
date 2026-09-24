@@ -38,11 +38,13 @@ document.addEventListener('click', (e) => {
 const preloader = document.getElementById('preloader');
 if (preloader) {
   window.addEventListener('load', () => {
-    setTimeout(() => preloader.classList.add('done'), 1500);
-    setTimeout(() => $('.hero-title')?.classList.add('in'), 1600);
+    setTimeout(() => preloader.classList.add('done'), 900);
+    setTimeout(() => { $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go'); }, 1000);
   });
+  // respaldo: si la carga tarda, igual mostramos el banner
+  setTimeout(() => { preloader.classList.add('done'); $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go'); }, 3000);
 } else {
-  $('.hero-title')?.classList.add('in');
+  $('.hero-title')?.classList.add('in'); $('.hero')?.classList.add('go');
 }
 
 /* ---------- Videos (hero + bandas, con cámara lenta y lazy) ---------- */
@@ -141,20 +143,6 @@ function revealInView() {
 revealInView(); // lo que ya está en pantalla aparece sin esperar a que cargue todo (velocidad: LCP)
 window.addEventListener('load', () => setTimeout(revealInView, 250));
 window.addEventListener('scroll', () => requestAnimationFrame(revealInView), { passive: true });
-
-/* ---------- Inclinación 3D + brillo en imágenes ---------- */
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
-  $$('.media-frame, .area-card').forEach(frame => {
-    const max = frame.classList.contains('area-card') ? 4 : 6;
-    frame.addEventListener('mousemove', e => {
-      const r = frame.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      frame.style.transform = `perspective(900px) rotateX(${(-py * max).toFixed(2)}deg) rotateY(${(px * max).toFixed(2)}deg)`;
-    });
-    frame.addEventListener('mouseleave', () => { frame.style.transform = ''; });
-  });
-}
 
 /* ---------- Contadores ---------- */
 const countObserver = new IntersectionObserver((entries) => {
@@ -279,18 +267,6 @@ if (introText && !reduceMotion) {
   window.addEventListener('scroll', () => requestAnimationFrame(lightWords), { passive: true });
   window.addEventListener('resize', lightWords);
   lightWords();
-}
-
-/* ---------- Hero reactivo al mouse ---------- */
-const heroEl = document.querySelector('.hero');
-const heroInner = document.querySelector('.hero .hero-inner');
-if (heroEl && heroInner && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
-  heroEl.addEventListener('mousemove', e => {
-    const x = (e.clientX / window.innerWidth - 0.5);
-    const y = (e.clientY / window.innerHeight - 0.5);
-    heroInner.style.transform = `translate(${(x * 16).toFixed(1)}px, ${(y * 10).toFixed(1)}px)`;
-  });
-  heroEl.addEventListener('mouseleave', () => { heroInner.style.transform = ''; });
 }
 
 /* ---------- Mapa del cuerpo (Lipedema) ---------- */
@@ -633,4 +609,20 @@ if (homeBlog && window.fetch) {
       return `<a class="h-post reveal in" href="${href}"><div class="h-post-media"><img loading="lazy" decoding="async" src="${img}" alt=""></div><span class="h-post-tag">${tag}</span><h3>${t}</h3></a>`;
     }).join('');
   }).catch(() => {});
+}
+
+/* Home: al bajar, el título del banner sube y se desvanece más rápido que la foto */
+const hl = document.querySelector('.hero-luz');
+if (hl && !reduceMotion) {
+  const hlInner = hl.querySelector('.hl-inner'), hlImg = hl.querySelector('.hl-media img');
+  let hlListo = false;   // esperamos a que termine la entrada (telón + zoom) para no pelear con ella
+  hlImg.addEventListener('transitionend', e => { if (e.propertyName === 'transform' && !hlListo) { hlListo = true; hlImg.style.transition = 'none'; hlInner.style.transition = 'none'; hlScroll(); } });
+  const hlScroll = () => {
+    const y = Math.min(window.scrollY, window.innerHeight);
+    if (!hlListo) return;
+    hlInner.style.transform = `translateY(${(-y * 0.35).toFixed(1)}px)`;
+    hlInner.style.opacity = (1 - y / (window.innerHeight * 0.7)).toFixed(3);
+    hlImg.style.transform = `scale(${(1 + y / window.innerHeight * 0.08).toFixed(4)}) translateY(${(y * 0.12).toFixed(1)}px)`;
+  };
+  window.addEventListener('scroll', () => requestAnimationFrame(hlScroll), { passive: true });
 }
