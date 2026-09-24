@@ -2,7 +2,7 @@
 
 Estado: [pendiente] → [humanizado AAAA-MM-DD · nota antes→después]
 
-- [pendiente] blog/piernas-hinchadas-cuando-preocuparse.html
+- [humanizado 2026-09-24 · antes ~5/10 (meta description en molde "¿…? Descubre…", sin señal local, cierre genérico, ritmo plano) → después 9/10 (meta reescrita, contexto de Medellín, un cierre con acción concreta, dos líneas cortas para variar el ritmo). Pendiente de paso por Médico/Verificador antes de publicar.] blog/piernas-hinchadas-cuando-preocuparse.html
 - [pendiente] blog/varices-tratamiento-sin-cirugia.html
 - [pendiente] blog/aranitas-vasculares-piernas.html
 - [pendiente] blog/eco-doppler-venoso-que-es.html
