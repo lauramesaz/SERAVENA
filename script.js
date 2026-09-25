@@ -702,8 +702,13 @@ if (hl && !reduceMotion) {
   var movil = window.matchMedia('(max-width: 767px)').matches;
   if (v && movil && v.dataset.posterMovil) v.poster = v.dataset.posterMovil;   // foto vertical, igual al primer cuadro del video
   if (v && !ahorro && !reduceMotion) {
+    v.autoplay = true; v.muted = true;
     v.src = (movil && v.dataset.srcMovil) ? v.dataset.srcMovil : v.dataset.src;
-    v.addEventListener('canplay', function () { v.play().catch(function () {}); }, { once: true });
+    var arranca = function () { if (v.paused) v.play().catch(function () {}); };
+    ['loadeddata', 'canplay', 'canplaythrough'].forEach(function (ev) { v.addEventListener(ev, arranca); });
+    // si el navegador lo pausó (pestaña en segundo plano, ahorro de batería), retoma al volver o al tocar
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) arranca(); });
+    ['touchstart', 'scroll'].forEach(function (ev) { window.addEventListener(ev, arranca, { once: true, passive: true }); });
     v.load();
   }
   // Sello: la nota sube de 0,0 a 4,9 cuando arranca la entrada
