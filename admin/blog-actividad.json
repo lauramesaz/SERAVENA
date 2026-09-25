@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-24",
+  "actualizado": "2026-09-25",
   "articulos": [
+    {
+      "fecha": "2026-09-25",
+      "titulo": "Lipedema y trabajo: adaptaciones que marcan la diferencia",
+      "slug": "lipedema-y-trabajo",
+      "categoria": "Lipedema",
+      "keyword": "lipedema y trabajo",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-y-trabajo",
+      "nota": "Artículo del racimo 'lipedema', primer tema pendiente de temas.md en esta fecha. Explica por qué una jornada laboral larga sentada o de pie pesa distinto con lipedema y da adaptaciones concretas (pausas de movimiento, compresión durante el día, calzado, elevar piernas, manejo del calor, y cómo hablar con talento humano). Médico: aprobado con correcciones (se precisó la señal de alarma unilateral y súbita del post-note). SEO: 98/100."
+    },
     {
       "fecha": "2026-09-24",
       "titulo": "Ejercicio para várices: qué tipo conviene y qué evitar",
