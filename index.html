@@ -23,7 +23,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"></noscript>
 <link rel="preload" as="image" href="assets/media/hero-manos.webp" media="(min-width: 768px)">
 <link rel="preload" as="image" href="assets/media/hero-manos-movil.webp" media="(max-width: 767px)">
-<link rel="stylesheet" href="styles.css?v=20260924p">
+<link rel="stylesheet" href="styles.css?v=20260925b">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
 <script type="application/ld+json">
@@ -103,17 +103,27 @@
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero hero-home hero-luz" id="top">
-  <picture class="hl-media">
-    <source media="(max-width: 767px)" srcset="assets/media/hero-manos-movil.webp">
-    <img src="assets/media/hero-manos.webp" alt="Manos de mujeres con distintos tonos de piel que se buscan unas a otras" fetchpriority="high" decoding="async">
-  </picture>
-  <div class="hl-veil"></div>
+<!-- Hero con movimiento: video de las manos + círculos de puntitos (ruido) que se dibujan y titilan -->
+<section class="hero hero-home hero-mov" id="top">
+  <div class="hm-media">
+    <video class="hm-video" muted loop playsinline preload="none" poster="assets/media/hero-manos.webp" aria-hidden="true"
+      data-src="assets/media/hero-manos.mp4" data-src-movil="assets/media/hero-manos-movil.mp4" data-poster-movil="assets/media/hero-manos-movil-video.webp"></video>
+  </div>
+  <div class="hm-veil"></div>
   <div class="hl-grain" aria-hidden="true"></div>
-  <div class="container hero-inner hl-inner">
+
+  <!-- Trazos finos (se dibujan al entrar y giran muy despacio) -->
+  <svg class="hm-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <!-- Círculos de "ruido": puntitos granulados que arma script.js a lo largo de cada círculo -->
+    <g class="hm-noise" data-circulos="880,420,310;1180,440,400;580,440,400"></g>
+    <g class="hm-orbit"><circle class="hm-dot" cx="880" cy="110" r="7"/></g>
+    <path class="hm-spark hm-s1" d="M0,-16 C1.5,-3 3,-1.5 16,0 C3,1.5 1.5,3 0,16 C-1.5,3 -3,1.5 -16,0 C-3,-1.5 -1.5,-3 0,-16Z" transform="translate(880 176)"/>
+    <path class="hm-spark hm-s2" d="M0,-16 C1.5,-3 3,-1.5 16,0 C3,1.5 1.5,3 0,16 C-1.5,3 -3,1.5 -16,0 C-3,-1.5 -1.5,-3 0,-16Z" transform="translate(880 704) scale(.8)"/>
+  </svg>
+
+  <div class="container hero-inner hm-inner">
     <p class="eyebrow reveal">Lipedema · Salud vascular · Medellín</p>
-    <h1 class="hero-title hl-title">
+    <h1 class="hero-title hm-title">
       <span class="line"><span data-c="inicio_titulo_1">Tu cuerpo,</span></span>
       <span class="line"><span data-c="inicio_titulo_2">en <em>buenas</em></span></span>
       <span class="line"><span data-c="inicio_titulo_3">manos.</span></span>
@@ -121,17 +131,18 @@
     </h1>
     <p class="hero-sub reveal" data-c="inicio_sub">Diagnóstico preciso, tratamiento personalizado y un acompañamiento profundamente humano para el manejo del lipedema y la salud vascular.</p>
     <div class="hero-actions reveal">
-      <a href="contacto" class="btn btn-dark">Agendar una valoración</a>
-      <a href="profesionales" class="btn btn-ghost">Soy profesional de la salud</a>
+      <a href="contacto" class="btn btn-light">Agendar una valoración</a>
+      <a href="lipedema" class="hm-link">Conoce el tratamiento <i aria-hidden="true">→</i></a>
     </div>
   </div>
-  <div class="hero-bar reveal">
-    <div class="container hero-bar-inner">
-      <a href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" class="hero-bar-item"><span class="stars" aria-label="5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z"/></svg></span><span><strong>4,9</strong> en Google</span></a>
-      <span class="hero-bar-item">Torre Médica Salud Vegas · Medellín</span>
-      <a href="#intro" class="hero-bar-item hero-bar-down">Descubre <i aria-hidden="true">↓</i></a>
-    </div>
-  </div>
+
+  <!-- Sello circular (estilo "dato" de las referencias): la nota de Google cuenta hasta 4,9 -->
+  <a class="hm-badge reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" aria-label="4,9 de 5 en Google">
+    <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="hm-ring-bg" cx="60" cy="60" r="54"/><circle class="hm-ring" cx="60" cy="60" r="54"/></svg>
+    <span class="hm-badge-num" data-hasta="4.9">0,0</span>
+    <span class="hm-badge-txt">en Google</span>
+  </a>
+
 </section>
 
 <div class="ambient" aria-hidden="true"><span class="amb amb-1"></span><span class="amb amb-2"></span><span class="amb amb-3"></span><i class="amb-grain"></i></div>
@@ -357,7 +368,7 @@
 <a class="wa-float" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.748-.985zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
-<script src="script.js?v=20260924f"></script>
+<script src="script.js?v=20260925b"></script>
 <script src="contenido.js?v=9"></script>
 </body>
 </html>

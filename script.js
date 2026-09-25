@@ -690,3 +690,70 @@ if (hl && !reduceMotion) {
     setTimeout(function () { document.body.classList.toggle('menu-abierto', t.classList.contains('open')); }, 0);
   });
 })();
+
+/* Inicio: banner con movimiento (.hero-mov) — video de las manos, conteo del sello y parallax del nombre */
+(function () {
+  var hero = document.querySelector('.hero-mov');
+  if (!hero) return;
+  var v = hero.querySelector('.hm-video');
+  var con = navigator.connection || {};
+  var ahorro = con.saveData === true || ['slow-2g', '2g'].indexOf(con.effectiveType) > -1;
+  // En celular también hay movimiento, pero con un video liviano. Con ahorro de datos o "menos movimiento" se queda la foto.
+  var movil = window.matchMedia('(max-width: 767px)').matches;
+  if (v && movil && v.dataset.posterMovil) v.poster = v.dataset.posterMovil;   // foto vertical, igual al primer cuadro del video
+  if (v && !ahorro && !reduceMotion) {
+    v.src = (movil && v.dataset.srcMovil) ? v.dataset.srcMovil : v.dataset.src;
+    v.addEventListener('canplay', function () { v.play().catch(function () {}); }, { once: true });
+    v.load();
+  }
+  // Sello: la nota sube de 0,0 a 4,9 cuando arranca la entrada
+  var num = hero.querySelector('.hm-badge-num');
+  if (num) {
+    var hasta = parseFloat(num.dataset.hasta) || 0;
+    var pinta = function (x) { num.textContent = x.toFixed(1).replace('.', ','); };
+    if (reduceMotion) pinta(hasta);
+    else setTimeout(function () {
+      var t0 = null;
+      (function paso(t) {
+        if (!t0) t0 = t;
+        var k = Math.min(1, (t - t0) / 2000), e = 1 - Math.pow(1 - k, 3);
+        pinta(hasta * e);
+        if (k < 1) requestAnimationFrame(paso);
+      })(performance.now());
+    }, 1900);
+  }
+  // Círculos de "ruido": cientos de puntitos granulados a lo largo de cada círculo, con leve
+  // desorden (como grano de película). Aparecen en orden, como si se dibujaran, y algunos titilan.
+  var ruido = hero.querySelector('.hm-noise');
+  if (ruido) {
+    var NS = 'http://www.w3.org/2000/svg', frag = document.createDocumentFragment();
+    ruido.dataset.circulos.split(';').forEach(function (c, ci) {
+      var p = c.split(',').map(Number), cx = p[0], cy = p[1], r = p[2];
+      var n = Math.round(2 * Math.PI * r / 3.2), giro = Math.random() * Math.PI * 2;
+      for (var i = 0; i < n; i++) {
+        var a = giro + i / n * Math.PI * 2;
+        var rr = r + (Math.random() + Math.random() - 1) * 5;           // se abre y cierra un poco: trazo "vivo"
+        var d = document.createElementNS(NS, 'circle');
+        d.setAttribute('cx', (cx + Math.cos(a) * rr + (Math.random() * 2 - 1)).toFixed(1));
+        d.setAttribute('cy', (cy + Math.sin(a) * rr + (Math.random() * 2 - 1)).toFixed(1));
+        d.setAttribute('r', (0.7 + Math.random() * 1.3).toFixed(2));
+        d.setAttribute('class', 'hm-n' + (Math.random() < 0.28 ? ' tw' : ''));
+        d.style.setProperty('--o', (0.125 + Math.random() * 0.3).toFixed(3));   // a la mitad de opacidad (pedido de Laura 25-sep)
+        d.style.setProperty('--d', (0.4 + ci * 0.35 + i / n * 2.6).toFixed(2) + 's');
+        d.style.setProperty('--t', (1.6 + Math.random() * 3).toFixed(2) + 's');
+        frag.appendChild(d);
+      }
+    });
+    ruido.appendChild(frag);
+    // un cuadro después, para que la aparición sí se anime
+    requestAnimationFrame(function () { requestAnimationFrame(function () { ruido.classList.add('on'); }); });
+  }
+  // Al bajar, el texto sube más rápido que el fondo y se desvanece
+  var inner = hero.querySelector('.hm-inner');
+  if (!reduceMotion) window.addEventListener('scroll', function () {
+    requestAnimationFrame(function () {
+      var y = Math.min(window.scrollY, window.innerHeight);
+      if (inner) { inner.style.transform = 'translateY(' + (-y * 0.2).toFixed(1) + 'px)'; inner.style.opacity = (1 - y / (window.innerHeight * 0.8)).toFixed(3); }
+    });
+  }, { passive: true });
+})();
