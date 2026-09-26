@@ -17,5 +17,7 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-09-25 · Redactor · "Aquí te contamos" como fórmula de cierre del párrafo de entrada (post-lead) · varices-tratamiento-sin-cirugia.html
 - 2026-09-26 · Redactor · ritmo monótono: todas las frases medias-largas, sin ninguna frase corta ni párrafo de una línea en todo el cuerpo · tabaco-alcohol-circulacion.html (Policía tuvo que insertar 3 frases cortas)
 - 2026-09-26 · Editor · variante de "Aquí te contamos" que el Editor no atrapa: "Aquí revisamos/separamos..." como muletilla de cierre del post-lead · tabaco-alcohol-circulacion.html
+- 2026-09-26 · Redactor (archivo viejo) · h2 de cierre "En resumen" otra vez (ya van 2 artículos con este vicio) · aranitas-vasculares-piernas.html
+- 2026-09-26 · Redactor (archivo viejo) · "en la mayoría de los casos" repetido 3 veces en el mismo artículo sin variar la redacción · aranitas-vasculares-piernas.html
 
 ## Resueltas
