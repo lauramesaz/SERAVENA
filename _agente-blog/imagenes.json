@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-25",
+  "actualizado": "2026-09-26",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "tabaco-alcohol-circulacion": {
+      "imagen": "6643063.webp",
+      "alt": "Piel de la pierna con textura irregular, una imagen que evoca el efecto del tabaco y el alcohol en la circulación"
+    },
     "lipedema-y-trabajo": {
       "imagen": "9775219.webp",
       "alt": "Manos aplicándose crema con suavidad sobre la pierna, en una pausa de autocuidado durante la jornada laboral"
