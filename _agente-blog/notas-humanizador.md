@@ -15,5 +15,7 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-09-25 · Redactor · h2 de cierre "En resumen" (fórmula de relleno prohibida usada como título de sección, no solo en el texto) · varices-tratamiento-sin-cirugia.html
 - 2026-09-25 · Redactor · primer párrafo del cuerpo abre con definición de enciclopedia ("Las várices son venas hinchadas y retorcidas que se ven justo debajo de la piel...") en vez de la situación de la lectora · varices-tratamiento-sin-cirugia.html
 - 2026-09-25 · Redactor · "Aquí te contamos" como fórmula de cierre del párrafo de entrada (post-lead) · varices-tratamiento-sin-cirugia.html
+- 2026-09-26 · Redactor · ritmo monótono: todas las frases medias-largas, sin ninguna frase corta ni párrafo de una línea en todo el cuerpo · tabaco-alcohol-circulacion.html (Policía tuvo que insertar 3 frases cortas)
+- 2026-09-26 · Editor · variante de "Aquí te contamos" que el Editor no atrapa: "Aquí revisamos/separamos..." como muletilla de cierre del post-lead · tabaco-alcohol-circulacion.html
 
 ## Resueltas
