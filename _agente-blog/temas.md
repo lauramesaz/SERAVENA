@@ -143,7 +143,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 - [publicado] Sedentarismo y salud venosa: cómo el trabajo sentado afecta tus piernas — sedentarismo y venas — sedentarismo-piernas-venas
 - [publicado] Ejercicio de bajo impacto recomendado si tienes várices — ejercicio para várices — ejercicio-para-varices
-- [pendiente] Tabaco, alcohol y salud vascular: qué relación existe — tabaco y circulación — tabaco-alcohol-circulacion
+- [publicado] Tabaco, alcohol y salud vascular: qué relación existe — tabaco y circulación — tabaco-alcohol-circulacion
 - [pendiente] Diabetes y salud vascular de las piernas: qué vigilar — diabetes y circulación piernas — diabetes-circulacion-piernas
 - [pendiente] Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso — lipedema y sueño — lipedema-y-sueno
 - [pendiente] Actividades acuáticas y lipedema: por qué pueden ayudar — natación y lipedema — natacion-y-lipedema

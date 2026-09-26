@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-25",
+  "actualizado": "2026-09-26",
   "articulos": [
+    {
+      "fecha": "2026-09-26",
+      "titulo": "Tabaco y circulación: qué relación existe con tus piernas",
+      "slug": "tabaco-alcohol-circulacion",
+      "categoria": "Salud vascular",
+      "keyword": "tabaco y circulación",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/tabaco-alcohol-circulacion",
+      "nota": "Artículo del racimo 'situaciones', tema pendiente de temas.md en esta fecha. Explica cómo la nicotina contrae arterias y venas (mayor riesgo de enfermedad arterial periférica e insuficiencia venosa) y cómo el alcohol dilata vasos e hincha tobillos sin ser causa directa de várices. Médico: APROBADO sin correcciones (confirmó de forma independiente el estudio Vin et al. 2002 sobre el OR 1,7x/2,4x de insuficiencia venosa en fumadores). SEO: 100/100, APTO."
+    },
     {
       "fecha": "2026-09-25",
       "titulo": "Lipedema y trabajo: adaptaciones que marcan la diferencia",
