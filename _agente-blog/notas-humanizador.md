@@ -19,5 +19,6 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-09-26 · Editor · variante de "Aquí te contamos" que el Editor no atrapa: "Aquí revisamos/separamos..." como muletilla de cierre del post-lead · tabaco-alcohol-circulacion.html
 - 2026-09-26 · Redactor (archivo viejo) · h2 de cierre "En resumen" otra vez (ya van 2 artículos con este vicio) · aranitas-vasculares-piernas.html
 - 2026-09-26 · Redactor (archivo viejo) · "en la mayoría de los casos" repetido 3 veces en el mismo artículo sin variar la redacción · aranitas-vasculares-piernas.html
+- 2026-09-27 · Redactor (archivo viejo) · palabra "clave" usada 3 veces en el mismo artículo (h1, post-lead, bullet) superando el máximo de 2 · eco-doppler-venoso-que-es.html (el Policía la quitó del post-lead)
 
 ## Resueltas
