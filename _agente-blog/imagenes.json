@@ -3,6 +3,10 @@
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "diabetes-circulacion-piernas": {
+      "imagen": "professionals.webp",
+      "alt": "Profesional de salud con bata blanca revisando los pies y las piernas de una paciente durante una valoración"
+    },
     "tabaco-alcohol-circulacion": {
       "imagen": "6643063.webp",
       "alt": "Piel de la pierna con textura irregular, una imagen que evoca el efecto del tabaco y el alcohol en la circulación"

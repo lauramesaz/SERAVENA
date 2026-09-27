@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-26",
+  "actualizado": "2026-09-27",
   "articulos": [
+    {
+      "fecha": "2026-09-27",
+      "titulo": "Diabetes y circulación en las piernas: qué vigilar",
+      "slug": "diabetes-circulacion-piernas",
+      "categoria": "Salud vascular",
+      "keyword": "diabetes y circulación piernas",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/diabetes-circulacion-piernas",
+      "nota": "Artículo del racimo 'sintomas', primer tema pendiente de temas.md en esta fecha. Explica cómo la diabetes afecta la circulación de las piernas por dos vías (enfermedad arterial periférica y neuropatía diabética), qué señales vigilar (heridas que no cicatrizan, hormigueo, frialdad, cambios de color, claudicación) y cuándo pedir una valoración vascular. Médico: aprobado con correcciones (se separó la señal de isquemia arterial aguda -frialdad/color repentinos- como urgencia real, del resto de señales, en el post-note). SEO: 98/100. Prueba de humanidad: 10/10."
+    },
     {
       "fecha": "2026-09-26",
       "titulo": "Tabaco y circulación: qué relación existe con tus piernas",
