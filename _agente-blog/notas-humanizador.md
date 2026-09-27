@@ -20,5 +20,7 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-09-26 · Redactor (archivo viejo) · h2 de cierre "En resumen" otra vez (ya van 2 artículos con este vicio) · aranitas-vasculares-piernas.html
 - 2026-09-26 · Redactor (archivo viejo) · "en la mayoría de los casos" repetido 3 veces en el mismo artículo sin variar la redacción · aranitas-vasculares-piernas.html
 - 2026-09-27 · Redactor (archivo viejo) · palabra "clave" usada 3 veces en el mismo artículo (h1, post-lead, bullet) superando el máximo de 2 · eco-doppler-venoso-que-es.html (el Policía la quitó del post-lead)
+- 2026-09-27 · Redactor · artículo se pasa bastante del límite de 700-1100 palabras (1289 palabras en el cuerpo, ~200 de más frente a otros artículos recientes de 1000-1100) · diabetes-circulacion-piernas.html
+- 2026-09-27 · Redactor · generaliza un comportamiento de pacientes como si fuera patrón observado en consulta ("muchas pacientes con diabetes usan sandalias abiertas casi todo el tiempo") sin que esté en voz-real.md: es una anécdota clínica de facto sin fuente, no contexto local puro · diabetes-circulacion-piernas.html (el Policía lo cambió a un hecho de clima/cultura general, sin atribuirlo a lo que se ve en consulta)
 
 ## Resueltas
