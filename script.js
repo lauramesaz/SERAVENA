@@ -580,12 +580,26 @@ if (CLARITY_ID && !ES_LOCAL) {
     if (!ADS_CONVERSION || typeof window.gtag !== 'function') return;
     try { window.gtag('event', 'conversion', { send_to: 'AW-18314027421/' + ADS_CONVERSION }); } catch (e) {}
   }
+  // Quien llega desde el anuncio de Google (la URL trae gclid/gbraid/wbraid) escribe a WhatsApp
+  // con un saludo propio, para que el equipo pueda contar cuántos chats vienen de la pauta.
+  // Se recuerda durante la visita aunque la persona pase a otras páginas de la web.
+  var MSG_ANUNCIO = 'Hola Seravena, vengo desde la web de venitas y quiero agendar una cita';
+  var deAnuncio = /[?&](gclid|gbraid|wbraid)=/.test(location.search);
+  try {
+    if (deAnuncio) sessionStorage.setItem('seravena_anuncio', '1');
+    deAnuncio = deAnuncio || sessionStorage.getItem('seravena_anuncio') === '1';
+  } catch (e) {}
+  function saludoAnuncio(a) {
+    var h = a.getAttribute('href') || '', txt = 'text=' + encodeURIComponent(MSG_ANUNCIO);
+    a.setAttribute('href', /[?&]text=/.test(h) ? h.replace(/text=[^&]*/, txt) : h + (h.indexOf('?') > -1 ? '&' : '?') + txt);
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
     if (!a) return;
     var href = (a.getAttribute('href') || '').toLowerCase();
     var label = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
+      if (deAnuncio) saludoAnuncio(a);
       track('clic_whatsapp', { boton: label, pagina: location.pathname });
       track('generate_lead', { metodo: 'whatsapp', pagina: location.pathname });
       trackAdsConversion();
