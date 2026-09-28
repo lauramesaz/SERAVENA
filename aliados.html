@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de aliados | Seravena</title>
+<meta name="description" content="Red de beneficios Seravena: consulta con tu cédula los beneficios que tienes por ser parte de una empresa aliada.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=20260924p">
+<link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
+<script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="./" class="logo">
+      <img src="assets/wordmark-pardo.webp" alt="Seravena" class="logo-img logo-dark">
+      <img src="assets/wordmark-white.webp" alt="Seravena" class="logo-img logo-light">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="./">Inicio</a>
+      <div class="nav-group">
+        <button type="button" class="nav-group-btn" aria-expanded="false">Tratamientos</button>
+        <div class="nav-sub"><div class="nav-sub-box">
+          <a href="lipedema">Lipedema</a>
+          <a href="vascular">Salud vascular</a>
+          <a href="varices-medellin">Várices</a>
+          <a href="insuficiencia-venosa">Insuficiencia venosa</a>
+          <a href="escleroterapia-medellin">Escleroterapia</a>
+          <a href="eco-doppler-venoso-medellin">Eco doppler</a>
+        </div></div>
+      </div>
+      <a href="proceso">Tu proceso</a>
+      <a href="blog/">Blog</a>
+      <a href="preguntas">Preguntas</a>
+      <a href="contacto" class="nav-cta">Agendar cita</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span></button>
+  </div>
+</header>
+
+
+<style>
+  .pa { --tinta:#1D1D1F; --gris:#86868B; --linea:rgba(29,29,31,.08); --arena:#E6D3B3; --arena-fuerte:#C9A876; --arena-suave:#F4ECDF; --ok:#2E7D4F;
+    --vidrio:rgba(255,255,255,.58); --borde-vidrio:rgba(255,255,255,.85);
+    --sombra:0 1px 0 rgba(255,255,255,.9) inset, 0 10px 30px rgba(29,29,31,.06), 0 1px 3px rgba(29,29,31,.04);
+    position:relative; overflow:hidden; background:linear-gradient(180deg,#F2F3F5 0%,#ECEEF1 100%); color:var(--tinta); padding:130px 0 90px; font-feature-settings:"ss01"; }
+  .pa::before, .pa::after { content:""; position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none; }
+  .pa::before { width:520px; height:520px; background:#EBD9BC; opacity:.55; top:40px; right:-120px; }
+  .pa::after { width:460px; height:460px; background:#DDE3EA; opacity:.9; bottom:80px; left:-140px; }
+  .pa .container { max-width:980px; position:relative; z-index:1; }
+  .pa-glass { background:var(--vidrio); -webkit-backdrop-filter:blur(24px) saturate(170%); backdrop-filter:blur(24px) saturate(170%); border:1px solid var(--borde-vidrio); box-shadow:var(--sombra); }
+
+  .pa-demo { display:inline-flex; align-items:center; gap:8px; font-size:.78rem; font-weight:600; color:var(--tinta); padding:7px 14px; border-radius:99px; margin-bottom:22px; background:var(--vidrio); border:1px solid var(--borde-vidrio); box-shadow:var(--sombra); }
+  .pa-demo::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--arena-fuerte); box-shadow:0 0 10px 2px rgba(214,178,120,.7); }
+  .pa h1 { font-size:clamp(2.3rem,5vw,3.5rem); font-weight:700; letter-spacing:-.035em; line-height:1.05; color:var(--tinta); }
+  .pa-lead { font-size:1.15rem; color:var(--gris); margin-top:12px; max-width:620px; line-height:1.55; }
+
+  /* Botones de rol (estilo píldora) */
+  .pa-roles { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:44px; }
+  .pa-role { display:grid; grid-template-columns:1fr auto; gap:4px 14px; align-items:center; text-align:left; padding:22px 22px 22px 26px; border-radius:28px; cursor:pointer; font:inherit; color:inherit;
+    background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.55)); -webkit-backdrop-filter:blur(24px) saturate(170%); backdrop-filter:blur(24px) saturate(170%);
+    border:1px solid var(--borde-vidrio); box-shadow:var(--sombra); transition:transform .25s var(--ease), box-shadow .25s; }
+  .pa-role:hover { transform:translateY(-2px); box-shadow:0 1px 0 rgba(255,255,255,.9) inset, 0 16px 40px rgba(29,29,31,.09); }
+  .pa-role b { grid-column:1; font-size:1.2rem; font-weight:700; letter-spacing:-.015em; color:var(--tinta); }
+  .pa-role span { grid-column:1; font-size:.9rem; color:var(--gris); line-height:1.45; }
+  .pa-role-ico { grid-column:2; grid-row:1 / 3; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:var(--tinta);
+    background:linear-gradient(180deg,#fff,#F1F1F3); box-shadow:0 1px 0 #fff inset, 0 3px 8px rgba(29,29,31,.10); transition:all .3s var(--ease); }
+  .pa-role.on { background:linear-gradient(180deg,#fff,rgba(255,255,255,.8)); box-shadow:0 1px 0 #fff inset, 0 18px 44px rgba(29,29,31,.10), 0 0 0 1.5px rgba(201,168,118,.55); }
+  .pa-role.on .pa-role-ico { background:radial-gradient(circle at 50% 45%,#FFF8EC 0%,#F2DFBF 55%,#E3C79A 100%); color:#6B5226; box-shadow:0 0 0 1px rgba(255,255,255,.9) inset, 0 0 22px 6px rgba(230,200,150,.65); }
+
+  .pa-panel { scroll-margin-top:90px; margin-top:34px; display:none; }
+  .pa-panel.on { display:block; animation:paIn .4s var(--ease); }
+  @keyframes paIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  .pa-card-main { border-radius:28px; padding:34px; }
+  .pa-panel h2 { font-size:1.7rem; font-weight:700; letter-spacing:-.025em; color:var(--tinta); }
+  .pa-panel .pa-sub { color:var(--gris); margin-top:6px; }
+
+  .pa-form { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; max-width:640px; }
+  .pa-input { flex:1 1 220px; font:inherit; font-size:1.02rem; padding:15px 20px; border-radius:99px; min-width:0; color:var(--tinta);
+    background:rgba(255,255,255,.8); border:1px solid var(--linea); box-shadow:0 1px 2px rgba(29,29,31,.04) inset; transition:box-shadow .2s, border-color .2s; }
+  .pa-input:focus { outline:none; border-color:rgba(201,168,118,.8); box-shadow:0 0 0 4px rgba(230,211,179,.45); }
+  select.pa-input { border-radius:16px; }
+  .pa-btn { font:inherit; font-weight:600; font-size:.98rem; padding:15px 26px; border-radius:99px; border:0; background:var(--tinta); color:#fff; cursor:pointer; white-space:nowrap;
+    box-shadow:0 1px 0 rgba(255,255,255,.15) inset, 0 6px 16px rgba(29,29,31,.18); transition:transform .15s, background .2s; }
+  .pa-btn:hover { background:#000; }
+  .pa-btn:active { transform:scale(.98); }
+  .pa-btn.sec { background:rgba(255,255,255,.9); color:var(--tinta); box-shadow:0 1px 0 #fff inset, 0 2px 8px rgba(29,29,31,.08); }
+  .pa-btn.sec:hover { background:#fff; }
+  .pa-btn.sm { padding:9px 16px; font-size:.86rem; }
+  .pa-link { background:none; border:0; font:inherit; color:var(--tinta); font-weight:600; cursor:pointer; padding:0; text-decoration:underline; text-decoration-color:var(--arena-fuerte); text-decoration-thickness:2px; text-underline-offset:4px; }
+  .pa-msg { margin-top:16px; font-size:.95rem; color:var(--gris); }
+  .pa-msg.err { color:#B4533A; }
+  .pa-hint { font-size:.82rem; color:var(--gris); margin-top:12px; }
+  .pa-hint code { background:rgba(255,255,255,.8); border:1px solid var(--linea); padding:2px 8px; border-radius:99px; color:var(--tinta); }
+
+  /* Carné (tarjeta de vidrio arena) */
+  .pa-res { margin-top:30px; }
+  .pa-carne { border-radius:26px; padding:26px 28px; max-width:420px; position:relative; overflow:hidden; color:var(--tinta);
+    background:linear-gradient(135deg,rgba(255,250,241,.95) 0%,rgba(240,224,196,.9) 55%,rgba(222,196,152,.9) 100%);
+    border:1px solid rgba(255,255,255,.9); box-shadow:0 1px 0 #fff inset, 0 24px 50px rgba(160,120,60,.20), 0 2px 6px rgba(29,29,31,.05); }
+  .pa-carne::before { content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%); }
+  .pa-carne::after { content:""; position:absolute; right:-30px; top:-30px; width:160px; height:160px; background:url(assets/isotype-chocolate.png) center/contain no-repeat; opacity:.07; }
+  .pa-carne > * { position:relative; }
+  .pa-carne small { font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:#7A6444; font-weight:600; }
+  .pa-carne .n { font-size:1.5rem; font-weight:700; letter-spacing:-.02em; margin-top:14px; }
+  .pa-carne .e { color:#5E5446; margin-top:2px; }
+  .pa-carne .row { display:flex; justify-content:space-between; margin-top:22px; font-size:.8rem; color:#7A6444; }
+  .pa-carne .row b { display:block; font-size:1rem; color:var(--tinta); }
+  .pa-carne .ok { display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.7); padding:5px 12px; border-radius:99px; font-size:.78rem; font-weight:600; margin-top:14px; }
+  .pa-carne .ok::before { content:""; width:7px; height:7px; border-radius:50%; background:#3FA66A; box-shadow:0 0 8px rgba(63,166,106,.7); }
+
+  .pa-h3 { font-size:1.15rem; font-weight:700; letter-spacing:-.01em; color:var(--tinta); margin:38px 0 14px; }
+  .pa-star { border-radius:24px; padding:24px 26px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; }
+  .pa-star ul { list-style:none; }
+  .pa-star li { padding:6px 0; color:var(--gris); }
+  .pa-star li b { color:var(--tinta); }
+  .pa-wa { display:inline-flex; align-items:center; gap:8px; background:var(--tinta); color:#fff; text-decoration:none; font-weight:600; padding:14px 22px; border-radius:99px; white-space:nowrap; box-shadow:0 6px 16px rgba(29,29,31,.18); }
+  .pa-wa::before { content:""; width:8px; height:8px; border-radius:50%; background:#25D366; box-shadow:0 0 8px #25D366; }
+  .pa-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; }
+  .pa-card { border-radius:22px; padding:20px; }
+  .pa-card .logo { width:40px; height:40px; border-radius:50%; background:linear-gradient(180deg,#fff,#F1F1F3); box-shadow:0 1px 0 #fff inset, 0 3px 8px rgba(29,29,31,.10); display:grid; place-items:center; font-weight:700; color:var(--tinta); margin-bottom:14px; }
+  .pa-card b { display:block; color:var(--tinta); }
+  .pa-card .d { display:inline-block; font-size:.95rem; font-weight:700; color:#6B5226; background:var(--arena-suave); border:1px solid rgba(201,168,118,.35); padding:4px 12px; border-radius:99px; margin:10px 0 8px; }
+  .pa-card p { font-size:.88rem; color:var(--gris); line-height:1.45; }
+
+  /* Portales (empresa / aliado) */
+  .pa-top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .pa-kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px; }
+  .pa-kpi { border-radius:22px; padding:18px 22px; }
+  .pa-kpi small { color:var(--gris); font-size:.85rem; }
+  .pa-kpi b { display:block; font-size:2.1rem; letter-spacing:-.04em; color:var(--tinta); margin-top:4px; }
+  .pa-kpi.acento { background:linear-gradient(135deg,rgba(255,250,241,.95),rgba(236,218,188,.85)); }
+  .pa-box { border-radius:24px; padding:22px 24px; margin-top:14px; }
+  .pa-box h4 { font-size:1rem; font-weight:700; color:var(--tinta); margin-bottom:12px; }
+  .pa-row { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:12px 0; border-top:1px solid var(--linea); }
+  .pa-row:first-of-type { border-top:0; }
+  .pa-row .who b { display:block; font-weight:600; }
+  .pa-row .who span { font-size:.85rem; color:var(--gris); }
+  .pa-row .acts { display:flex; gap:6px; }
+  .pa-x { background:none; border:0; color:var(--gris); cursor:pointer; font-size:.86rem; padding:6px 12px; border-radius:99px; }
+  .pa-x:hover { color:#B4533A; background:rgba(180,83,58,.07); }
+  .pa-list { max-height:360px; overflow:auto; }
+  .pa-drop { display:block; line-height:1.5; border:1.5px dashed rgba(29,29,31,.15); border-radius:20px; padding:24px; text-align:center; color:var(--gris); cursor:pointer; background:rgba(255,255,255,.45); transition:all .2s; }
+  .pa-drop:hover { border-color:var(--arena-fuerte); background:rgba(244,236,223,.6); color:var(--tinta); }
+  .pa-drop b { color:var(--tinta); }
+  .pa-verdict { margin-top:20px; border-radius:22px; padding:20px 24px; max-width:640px; }
+  .pa-verdict.si { background:rgba(234,246,238,.85); color:var(--ok); border:1px solid rgba(46,125,79,.15); }
+  .pa-verdict.no { background:rgba(250,238,234,.85); color:#B4533A; border:1px solid rgba(180,83,58,.15); }
+  .pa-verdict b { display:block; font-size:1.25rem; margin-bottom:2px; }
+  .pa-reset { margin-top:50px; font-size:.82rem; color:var(--gris); }
+
+  .pa-modal { position:fixed; inset:0; background:rgba(236,238,241,.55); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); display:none; place-items:center; z-index:200; padding:16px; }
+  .pa-modal.on { display:grid; }
+  .pa-modal > div { background:rgba(255,255,255,.85); -webkit-backdrop-filter:blur(30px) saturate(170%); backdrop-filter:blur(30px) saturate(170%); border:1px solid #fff; box-shadow:0 30px 70px rgba(29,29,31,.16); border-radius:28px; padding:30px; width:100%; max-width:440px; color:var(--tinta); }
+  .pa-modal h3 { color:var(--tinta); font-size:1.3rem; letter-spacing:-.02em; margin-bottom:6px; }
+  .pa-modal .pa-sub { color:var(--gris); }
+  .pa-modal .pa-input { width:100%; margin-top:10px; }
+  .pa-modal .acts { display:flex; gap:8px; margin-top:20px; justify-content:flex-end; }
+
+  @media (max-width:760px) {
+    .pa { padding-top:110px; }
+    .pa-roles { grid-template-columns:1fr; gap:12px; }
+    .pa-role { padding:18px 18px 18px 22px; border-radius:24px; }
+    .pa-card-main { padding:24px 20px; border-radius:24px; }
+    .pa-star { grid-template-columns:1fr; }
+    .pa-wa { justify-content:center; }
+    .pa-kpis { gap:8px; }
+    .pa-kpi { padding:14px 12px; border-radius:18px; }
+    .pa-kpi small { font-size:.74rem; line-height:1.3; display:block; }
+    .pa-kpi b { font-size:1.5rem; }
+    .pa-kpi b[style] { font-size:.9rem !important; }
+    .pa-row { flex-wrap:wrap; }
+    .pa-box { padding:18px; }
+  }
+</style>
+
+<main class="pa">
+  <div class="container">
+    <h1>Portal de aliados</h1>
+    <p class="pa-lead">La red de beneficios de Seravena. Elige cómo quieres entrar.</p>
+
+    <div class="pa-roles" role="tablist">
+      <button class="pa-role" data-rol="empresa" role="tab">
+        <i class="pa-role-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 9h4a1 1 0 0 1 1 1v11M3 21h18M8 8h3M8 12h3M8 16h3"/></svg></i>
+        <b>Empresa</b>
+        <span>Son las empresas que tienen a sus empleados inscritos.</span>
+      </button>
+      <button class="pa-role" data-rol="empleado" role="tab">
+        <i class="pa-role-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></i>
+        <b>Empleado</b>
+        <span>Los empleados de la empresa.</span>
+      </button>
+      <button class="pa-role" data-rol="aliado" role="tab">
+        <i class="pa-role-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7C10 3 6 3 6 5.5S9 7 12 7zM12 7c2-4 6-4 6-1.5S15 7 12 7z"/></svg></i>
+        <b>Aliado</b>
+        <span>Empresa que brinda beneficios a los empleados y empresas.</span>
+      </button>
+    </div>
+
+    <!-- EMPLEADO -->
+    <section class="pa-panel pa-glass pa-card-main" id="p-empleado">
+      <h2>Consulta tus beneficios</h2>
+      <p class="pa-sub">Escribe tu número de cédula. Solo te mostramos tus beneficios, nunca tus datos a otras personas.</p>
+      <form class="pa-form" id="fEmpleado">
+        <input class="pa-input" id="ccEmpleado" inputmode="numeric" placeholder="Número de cédula" autocomplete="off">
+        <button class="pa-btn">Ver mis beneficios</button>
+      </form>
+      <div id="resEmpleado"></div>
+    </section>
+
+    <!-- EMPRESA -->
+    <section class="pa-panel pa-glass pa-card-main" id="p-empresa">
+      <div id="empresaLogin">
+        <h2>Ingreso para empresas</h2>
+        <p class="pa-sub">Para el área de Recursos Humanos: aquí mantienen al día la lista de empleados inscritos.</p>
+        <form class="pa-form" id="fEmpresa">
+          <input class="pa-input" id="uEmpresa" placeholder="Usuario" autocomplete="off">
+          <input class="pa-input" id="kEmpresa" type="password" placeholder="Clave">
+          <button class="pa-btn">Entrar</button>
+        </form>
+        <p class="pa-msg err" id="errEmpresa"></p>
+      </div>
+      <div id="empresaPortal" hidden></div>
+    </section>
+
+    <!-- ALIADO -->
+    <section class="pa-panel pa-glass pa-card-main" id="p-aliado">
+      <div id="aliadoLogin">
+        <h2>Ingreso para aliados</h2>
+        <p class="pa-sub">Para los negocios que dan beneficios: verifica en segundos si una persona es miembro.</p>
+        <form class="pa-form" id="fAliado">
+          <input class="pa-input" id="uAliado" placeholder="Usuario" autocomplete="off">
+          <input class="pa-input" id="kAliado" type="password" placeholder="Clave">
+          <button class="pa-btn">Entrar</button>
+        </form>
+        <p class="pa-msg err" id="errAliado"></p>
+      </div>
+      <div id="aliadoPortal" hidden></div>
+    </section>
+
+  </div>
+</main>
+
+<div class="pa-modal" id="modal"><div id="modalBox"></div></div>
+
+<script>
+(function () {
+  const WA = '573052088204';
+  const SB = 'https://ppxrwyzqtsvwhyfjwgjg.supabase.co';
+  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc';
+
+  async function rpc(fn, args) {
+    const r = await fetch(SB + '/rest/v1/rpc/' + fn, {
+      method:'POST', headers:{ apikey:KEY, Authorization:'Bearer ' + KEY, 'Content-Type':'application/json' }, body:JSON.stringify(args || {})
+    });
+    const txt = await r.text(); const data = txt ? JSON.parse(txt) : null;
+    if (!r.ok) throw new Error((data && data.message) || 'No pudimos conectar. Inténtalo de nuevo.');
+    return data;
+  }
+  const ses = {
+    get: (k) => { try { return sessionStorage.getItem('red_' + k); } catch (e) { return null; } },
+    set: (k, v) => { try { v ? sessionStorage.setItem('red_' + k, v) : sessionStorage.removeItem('red_' + k); } catch (e) {} }
+  };
+
+  const $ = (s) => document.querySelector(s);
+  const limpio = (v) => String(v || '').replace(/\D/g, '');
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fecha = (iso) => iso ? new Date(iso + 'T12:00').toLocaleDateString('es-CO', { day:'numeric', month:'short', year:'numeric' }) : 'Sin cargar';
+  const inicial = (n) => esc(String(n || '?').trim().charAt(0).toUpperCase());
+  function ocupado(btn, si) { if (!btn) return; btn.disabled = si; btn.style.opacity = si ? .6 : 1; }
+
+  /* ---------- Selector de rol ---------- */
+  document.querySelectorAll('.pa-role').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.pa-role').forEach((x) => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.pa-panel').forEach((p) => p.classList.toggle('on', p.id === 'p-' + b.dataset.rol));
+    const panel = $('#p-' + b.dataset.rol);
+    panel.scrollIntoView({ behavior:'smooth', block:'start' });
+    const inp = [...panel.querySelectorAll('input')].find((i) => i.offsetParent !== null); if (inp) setTimeout(() => inp.focus({ preventScroll:true }), 400);
+  }));
+
+  /* ---------- Modal ---------- */
+  function modal(html) { $('#modalBox').innerHTML = html; $('#modal').classList.add('on'); }
+  function cerrar() { $('#modal').classList.remove('on'); }
+  $('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal' || e.target.dataset.cerrar !== undefined) cerrar(); });
+
+  /* ---------- EMPLEADO ---------- */
+  $('#fEmpleado').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const cc = limpio($('#ccEmpleado').value);
+    const out = $('#resEmpleado'); const btn = e.submitter;
+    if (!cc) { out.innerHTML = '<p class="pa-msg err">Escribe tu número de cédula.</p>'; return; }
+    ocupado(btn, true);
+    let m;
+    try { m = await rpc('red_consultar', { p_cc:cc }); }
+    catch (err) { out.innerHTML = `<p class="pa-msg err">${esc(err.message)}</p>`; ocupado(btn, false); return; }
+    ocupado(btn, false);
+    if (!m.encontrado) {
+      out.innerHTML = `<p class="pa-msg">No encontramos esa cédula en la red de aliados. Si tu empresa es aliada y aún no apareces,
+        <button class="pa-link" id="btnSolicitar">solicita tu acceso</button> y Recursos Humanos de tu empresa lo aprueba.</p>`;
+      $('#btnSolicitar').onclick = () => solicitar(cc);
+      return;
+    }
+    const sv = m.aliados.find((a) => a.principal) || { beneficios:[] };
+    const otros = m.aliados.filter((a) => !a.principal && a.beneficios.length);
+    const txt = encodeURIComponent(`Hola Seravena, soy ${m.nombre} de ${m.empresa} (CC ${cc}) y quiero usar mi beneficio de aliado.`);
+    const vence = new Date(); vence.setMonth(vence.getMonth() + 1, 0);
+    out.innerHTML = `
+      <div class="pa-res">
+        <div class="pa-carne">
+          <small>Red de aliados Seravena</small>
+          <div class="n">${esc(m.nombre)}</div>
+          <div class="e">${esc(m.empresa)}</div>
+          <span class="ok">Miembro activo</span>
+          <div class="row"><div>Cédula<b>•••• ${esc(m.cc4)}</b></div><div style="text-align:right">Válido hasta<b>${vence.toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'})}</b></div></div>
+        </div>
+        <p class="pa-hint">Este es tu carné digital. Muéstralo junto con tu cédula para usar tus beneficios.</p>
+
+        <h3 class="pa-h3">Tus beneficios en Seravena</h3>
+        <div class="pa-star pa-glass">
+          <div>${sv.beneficios.length ? `<ul>${sv.beneficios.map((b) => `<li><b>${esc(b.d)}</b> · ${esc(b.t)}</li>`).join('')}</ul>` : '<p class="pa-msg" style="margin:0">Escríbenos y te contamos los beneficios que tienes por ser parte de la red.</p>'}</div>
+          <a class="pa-wa" href="https://wa.me/${WA}?text=${txt}" target="_blank" rel="noopener">Agendar con mi beneficio</a>
+        </div>
+        ${otros.length ? `<h3 class="pa-h3">Tus beneficios en la red de aliados</h3>
+        <div class="pa-grid">${otros.map((a) => a.beneficios.map((b) => `
+          <div class="pa-card pa-glass"><div class="logo">${inicial(a.nombre)}</div><b>${esc(a.nombre)}</b>
+            <div class="d">${esc(b.d)}</div><p>${esc(b.t)}.${a.como ? ' ' + esc(a.como) : ''}</p></div>`).join('')).join('')}
+        </div>` : ''}
+      </div>`;
+  });
+
+  async function solicitar(cc) {
+    let empresas = [];
+    try { empresas = await rpc('red_empresas_publicas'); } catch (e) {}
+    modal(`<h3>Solicitar acceso</h3><p class="pa-sub">Le llegará a Recursos Humanos de tu empresa para que lo apruebe.</p>
+      <input class="pa-input" id="sNombre" placeholder="Nombre completo">
+      <input class="pa-input" id="sCc" value="${esc(cc)}" inputmode="numeric" placeholder="Cédula">
+      <select class="pa-input" id="sEmp"><option value="">¿En qué empresa trabajas?</option>${empresas.map((e) => `<option value="${esc(e.id)}">${esc(e.nombre)}</option>`).join('')}</select>
+      <input class="pa-input" id="sCel" inputmode="tel" placeholder="Celular">
+      <p class="pa-msg err" id="sErr"></p>
+      <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="sOk">Enviar solicitud</button></div>`);
+    $('#sOk').onclick = async () => {
+      const s = { p_nombre:$('#sNombre').value.trim(), p_cc:limpio($('#sCc').value), p_empresa:$('#sEmp').value, p_cel:limpio($('#sCel').value) };
+      if (!s.p_nombre || !s.p_cc || !s.p_empresa) { $('#sErr').textContent = 'Completa nombre, cédula y empresa.'; return; }
+      ocupado($('#sOk'), true);
+      try { await rpc('red_solicitar', s); }
+      catch (err) { $('#sErr').textContent = err.message; ocupado($('#sOk'), false); return; }
+      $('#modalBox').innerHTML = `<h3>Solicitud enviada</h3><p class="pa-sub">Cuando Recursos Humanos la apruebe, podrás consultar tus beneficios con tu cédula.</p><div class="acts"><button class="pa-btn" data-cerrar>Listo</button></div>`;
+      $('#resEmpleado').innerHTML = '';
+    };
+  }
+
+  /* ---------- Ingreso (empresa / aliado) ---------- */
+  function ingreso(tipo, form, u, k, err, login, portal, pintar) {
+    $(form).addEventListener('submit', async (e) => {
+      e.preventDefault(); ocupado(e.submitter, true);
+      try {
+        const r = await rpc('red_login', { p_tipo:tipo, p_usuario:$(u).value, p_clave:$(k).value });
+        ses.set(tipo, r.token); $(err).textContent = ''; $(k).value = '';
+        $(login).hidden = true; $(portal).hidden = false; await pintar();
+      } catch (x) { $(err).textContent = x.message; }
+      ocupado(e.submitter, false);
+    });
+  }
+  function salir(tipo, login, portal) {
+    const t = ses.get(tipo); if (t) rpc('red_salir', { p_token:t }).catch(() => {});
+    ses.set(tipo, null); $(portal).hidden = true; $(login).hidden = false;
+  }
+  function sesionVencida(tipo, login, portal, err, msg) { salir(tipo, login, portal); $(err).textContent = msg; }
+
+  /* ---------- EMPRESA ---------- */
+  let datosEmp = null;
+  ingreso('empresa', '#fEmpresa', '#uEmpresa', '#kEmpresa', '#errEmpresa', '#empresaLogin', '#empresaPortal', () => cargarEmpresa());
+  async function cargarEmpresa() {
+    try { datosEmp = await rpc('red_empresa_datos', { p_token:ses.get('empresa') }); pintarEmpresa(); }
+    catch (x) { sesionVencida('empresa', '#empresaLogin', '#empresaPortal', '#errEmpresa', x.message); }
+  }
+  async function accionEmp(fn, args) {
+    try { await rpc(fn, Object.assign({ p_token:ses.get('empresa') }, args)); await cargarEmpresa(); return true; }
+    catch (x) { alert(x.message); return false; }
+  }
+
+  function pintarEmpresa(filtro = '') {
+    const emp = datosEmp, sols = emp.solicitudes;
+    const f = filtro.toLowerCase();
+    const lista = emp.miembros.filter((p) => !f || p.nombre.toLowerCase().includes(f) || p.cc.includes(f));
+    $('#empresaPortal').innerHTML = `
+      <div class="pa-top"><div><h2>${esc(emp.nombre)}</h2><p class="pa-sub">Portal de Recursos Humanos</p></div>
+        <button class="pa-btn sec sm" id="salirEmp">Salir</button></div>
+      <div class="pa-kpis">
+        <div class="pa-kpi pa-glass"><small>Empleados inscritos</small><b>${emp.miembros.length}</b></div>
+        <div class="pa-kpi pa-glass acento"><small>Solicitudes por aprobar</small><b>${sols.length}</b></div>
+        <div class="pa-kpi pa-glass"><small>Lista actualizada</small><b style="font-size:1.15rem;margin-top:10px">${fecha(emp.actualizada)}</b></div>
+      </div>
+      ${sols.length ? `<div class="pa-box pa-glass"><h4>Solicitudes por aprobar</h4>${sols.map((s) => `
+        <div class="pa-row"><div class="who"><b>${esc(s.nombre)}</b><span>CC ${esc(s.cc)}${s.cel ? ' · ' + esc(s.cel) : ''}</span></div>
+          <div class="acts"><button class="pa-btn sec sm" data-rechazar="${esc(s.id)}">Rechazar</button><button class="pa-btn sm" data-aprobar="${esc(s.id)}">Aprobar</button></div></div>`).join('')}</div>` : ''}
+      <div class="pa-box pa-glass">
+        <h4>Actualizar la lista completa</h4>
+        <label class="pa-drop" for="archivo">Sube el Excel de nómina (columnas: <b>cédula</b> y <b>nombre</b>).<br>La lista nueva reemplaza a la anterior: quien ya no esté, pierde el acceso.</label>
+        <input type="file" id="archivo" accept=".xlsx,.xls,.csv" hidden>
+        <p class="pa-msg" id="msgArchivo"></p>
+      </div>
+      <div class="pa-box pa-glass">
+        <div class="pa-top"><h4>Empleados inscritos</h4><button class="pa-btn sm" id="btnAgregar">+ Agregar empleado</button></div>
+        <input class="pa-input" id="buscarEmp" placeholder="Buscar por nombre o cédula" value="${esc(filtro)}" style="width:100%;margin:6px 0 8px">
+        <div class="pa-list">${lista.slice(0, 300).map((p) => `
+          <div class="pa-row"><div class="who"><b>${esc(p.nombre)}</b><span>CC ${esc(p.cc)}</span></div>
+          <button class="pa-x" data-quitar="${esc(p.cc)}">Quitar</button></div>`).join('') || `<p class="pa-msg">${emp.miembros.length ? 'Sin resultados.' : 'Aún no hay empleados. Sube el Excel de nómina o agrégalos uno por uno.'}</p>`}
+          ${lista.length > 300 ? `<p class="pa-msg">Mostrando 300 de ${lista.length}. Usa el buscador para encontrar a alguien.</p>` : ''}</div>
+      </div>`;
+
+    $('#salirEmp').onclick = () => salir('empresa', '#empresaLogin', '#empresaPortal');
+    const b = $('#buscarEmp');
+    b.oninput = () => { pintarEmpresa(b.value); const n = $('#buscarEmp'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
+    $('#empresaPortal').querySelectorAll('[data-aprobar]').forEach((x) => x.onclick = () => {
+      const s = sols.find((y) => y.id === x.dataset.aprobar); ocupado(x, true);
+      accionEmp('red_empresa_agregar', { p_cc:s.cc, p_nombre:s.nombre });
+    });
+    $('#empresaPortal').querySelectorAll('[data-rechazar]').forEach((x) => x.onclick = () => { ocupado(x, true); accionEmp('red_empresa_rechazar', { p_id:x.dataset.rechazar }); });
+    $('#empresaPortal').querySelectorAll('[data-quitar]').forEach((x) => x.onclick = () => {
+      const p = emp.miembros.find((y) => y.cc === x.dataset.quitar);
+      modal(`<h3>¿Quitar a ${esc(p.nombre)}?</h3><p class="pa-sub">Dejará de tener acceso a los beneficios.</p>
+        <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="okQuitar">Sí, quitar</button></div>`);
+      $('#okQuitar').onclick = async () => { ocupado($('#okQuitar'), true); await accionEmp('red_empresa_quitar', { p_cc:p.cc }); cerrar(); };
+    });
+    $('#btnAgregar').onclick = () => {
+      modal(`<h3>Agregar empleado</h3>
+        <input class="pa-input" id="aNombre" placeholder="Nombre completo"><input class="pa-input" id="aCc" inputmode="numeric" placeholder="Cédula">
+        <p class="pa-msg err" id="aErr"></p>
+        <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="aOk">Agregar</button></div>`);
+      $('#aOk').onclick = async () => {
+        const nombre = $('#aNombre').value.trim(), cc = limpio($('#aCc').value);
+        if (!nombre || !cc) { $('#aErr').textContent = 'Completa nombre y cédula.'; return; }
+        if (emp.miembros.some((p) => p.cc === cc)) { $('#aErr').textContent = 'Esa cédula ya está inscrita.'; return; }
+        ocupado($('#aOk'), true);
+        if (await accionEmp('red_empresa_agregar', { p_cc:cc, p_nombre:nombre })) cerrar(); else ocupado($('#aOk'), false);
+      };
+    };
+    $('#archivo').onchange = (ev) => subirArchivo(ev.target.files[0], emp);
+  }
+
+  function subirArchivo(file, emp) {
+    if (!file) return;
+    const msg = $('#msgArchivo'); msg.className = 'pa-msg';
+    msg.textContent = 'Leyendo el archivo…';
+    const listo = () => {
+      const r = new FileReader();
+      r.onload = () => {
+        try {
+          const wb = XLSX.read(r.result, { type:'array' });
+          const filas = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header:1, defval:'' });
+          const nuevos = [];
+          filas.forEach((f) => {
+            const cc = limpio(f.find((c) => /^\s*[\d.\s]{5,}\s*$/.test(String(c))));
+            const nombre = String(f.find((c) => /[a-záéíóúñ]/i.test(String(c)) && !/c[eé]dula|nombre|documento/i.test(String(c))) || '').trim();
+            if (cc && nombre && !nuevos.some((p) => p.cc === cc)) nuevos.push({ cc, nombre });
+          });
+          msg.textContent = '';
+          if (!nuevos.length) { msg.className = 'pa-msg err'; msg.textContent = 'No encontramos cédulas y nombres en el archivo.'; return; }
+          const antes = new Set(emp.miembros.map((p) => p.cc));
+          const entran = nuevos.filter((p) => !antes.has(p.cc)).length;
+          const salen = emp.miembros.filter((p) => !nuevos.some((n) => n.cc === p.cc)).length;
+          modal(`<h3>Revisa antes de guardar</h3><p class="pa-sub">El archivo trae <b>${nuevos.length}</b> empleados.</p>
+            <ul style="margin:14px 0 0 18px;line-height:1.8"><li>Entran nuevos: <b>${entran}</b></li><li>Pierden el acceso: <b>${salen}</b></li></ul>
+            <p class="pa-msg err" id="lErr"></p>
+            <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="okLista">Guardar lista</button></div>`);
+          $('#okLista').onclick = async () => {
+            ocupado($('#okLista'), true);
+            try { await rpc('red_empresa_reemplazar', { p_token:ses.get('empresa'), p_lista:nuevos }); cerrar(); await cargarEmpresa(); }
+            catch (x) { $('#lErr').textContent = x.message; ocupado($('#okLista'), false); }
+          };
+        } catch (err) { msg.className = 'pa-msg err'; msg.textContent = 'No pudimos leer el archivo.'; }
+        $('#archivo').value = '';
+      };
+      r.readAsArrayBuffer(file);
+    };
+    if (window.XLSX) listo();
+    else { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js'; s.onload = listo; s.onerror = () => { msg.className = 'pa-msg err'; msg.textContent = 'No pudimos cargar el lector de Excel. Revisa tu conexión.'; }; document.head.appendChild(s); }
+  }
+
+  /* ---------- ALIADO ---------- */
+  ingreso('aliado', '#fAliado', '#uAliado', '#kAliado', '#errAliado', '#aliadoLogin', '#aliadoPortal', () => cargarAliado());
+  async function cargarAliado() {
+    let al;
+    try { al = await rpc('red_aliado_datos', { p_token:ses.get('aliado') }); }
+    catch (x) { sesionVencida('aliado', '#aliadoLogin', '#aliadoPortal', '#errAliado', x.message); return; }
+    $('#aliadoPortal').innerHTML = `
+      <div class="pa-top"><div><h2>${esc(al.nombre)}</h2><p class="pa-sub">Portal de aliados</p></div>
+        <button class="pa-btn sec sm" id="salirAl">Salir</button></div>
+      <h3 class="pa-h3">Verificar a un miembro</h3>
+      <form class="pa-form" id="fVerificar" style="margin-top:0">
+        <input class="pa-input" id="ccVer" inputmode="numeric" placeholder="Cédula de la persona" autocomplete="off">
+        <button class="pa-btn">Verificar</button>
+      </form>
+      <div id="resVer"></div>
+      <h3 class="pa-h3">Lo que ofreces a la red</h3>
+      ${al.beneficios.length ? `<div class="pa-grid">${al.beneficios.map((b) => `<div class="pa-card pa-glass"><div class="d" style="margin-top:0">${esc(b.d)}</div><p>${esc(b.t)}.${al.como ? ' ' + esc(al.como) : ''}</p></div>`).join('')}</div>` : '<p class="pa-msg">Aún no hay beneficios cargados.</p>'}
+      <p class="pa-hint">Para cambiar tus beneficios, escríbele a Seravena.</p>`;
+    $('#salirAl').onclick = () => salir('aliado', '#aliadoLogin', '#aliadoPortal');
+    $('#fVerificar').onsubmit = async (e) => {
+      e.preventDefault();
+      const cc = limpio($('#ccVer').value); if (!cc) return;
+      ocupado(e.submitter, true);
+      try {
+        const m = await rpc('red_aliado_verificar', { p_token:ses.get('aliado'), p_cc:cc });
+        $('#resVer').innerHTML = m.activo
+          ? `<div class="pa-verdict si"><b>✓ Miembro activo</b>${esc(m.nombre)} · ${esc(m.empresa)}${al.beneficios.length ? '<br>Aplica: ' + al.beneficios.map((b) => esc(b.d) + ' en ' + esc(b.t.toLowerCase())).join(', ') + '.' : ''}</div>`
+          : `<div class="pa-verdict no"><b>No es miembro</b>Esta cédula no está en la red de aliados de Seravena.</div>`;
+      } catch (x) { sesionVencida('aliado', '#aliadoLogin', '#aliadoPortal', '#errAliado', x.message); }
+      ocupado(e.submitter, false);
+    };
+  }
+
+  // Si recarga la página con sesión abierta, vuelve a su portal
+  if (ses.get('empresa')) { $('#empresaLogin').hidden = true; $('#empresaPortal').hidden = false; cargarEmpresa(); document.querySelector('[data-rol=empresa]').click(); }
+  else if (ses.get('aliado')) { $('#aliadoLogin').hidden = true; $('#aliadoPortal').hidden = false; cargarAliado(); document.querySelector('[data-rol=aliado]').click(); }
+})();
+</script>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/wordmark-white.webp" alt="Seravena" class="footer-logo">
+      <p>Manejo integral de lipedema y salud vascular.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="lipedema">Lipedema</a>
+      <a href="vascular">Salud vascular</a>
+      <a href="varices-medellin">Várices</a>
+      <a href="insuficiencia-venosa">Insuficiencia venosa</a>
+      <a href="escleroterapia-medellin">Escleroterapia</a>
+      <a href="eco-doppler-venoso-medellin">Eco doppler</a>
+      <a href="proceso">Tu proceso</a>
+      <a href="profesionales">Para médicos</a>
+      <a href="blog/">Blog</a>
+      <a href="preguntas">Preguntas</a>
+      <a href="contacto">Contacto</a>
+      <a href="sobre">Sobre Seravena</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener">WhatsApp · +57 305 208 8204</a>
+      <a href="mailto:info@clinicaseravena.com">info@clinicaseravena.com</a>
+      <a href="https://www.instagram.com/seravenams/" target="_blank" rel="noopener">Instagram · @seravenams</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Seravena. Todos los derechos reservados.</span>
+    <a href="politica-privacidad">Política de privacidad</a>
+    <a href="./" class="to-top">Inicio ↑</a>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.748-.985zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Red de aliados · Admin | Seravena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/isotype-chocolate.png">
+<style>
+  :root { --tinta:#1D1D1F; --gris:#86868B; --linea:rgba(29,29,31,.08); --arena:#E6D3B3; --arena-fuerte:#C9A876; --arena-suave:#F4ECDF;
+    --vidrio:rgba(255,255,255,.62); --borde:rgba(255,255,255,.9); --sombra:0 1px 0 rgba(255,255,255,.9) inset, 0 10px 30px rgba(29,29,31,.06), 0 1px 3px rgba(29,29,31,.04); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Plus Jakarta Sans',sans-serif; color:var(--tinta); min-height:100vh; background:linear-gradient(180deg,#F2F3F5,#ECEEF1); overflow-x:hidden; }
+  body::before, body::after { content:""; position:fixed; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
+  body::before { width:520px; height:520px; background:#EBD9BC; opacity:.55; top:-60px; right:-120px; }
+  body::after { width:460px; height:460px; background:#DDE3EA; opacity:.9; bottom:-80px; left:-140px; }
+  .wrap { position:relative; z-index:1; max-width:1040px; margin:0 auto; padding:36px 20px 80px; }
+  .glass { background:var(--vidrio); -webkit-backdrop-filter:blur(24px) saturate(170%); backdrop-filter:blur(24px) saturate(170%); border:1px solid var(--borde); box-shadow:var(--sombra); }
+  .top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .top a { color:var(--gris); text-decoration:none; font-size:.9rem; }
+  h1 { font-size:clamp(1.9rem,4vw,2.6rem); letter-spacing:-.035em; margin-top:18px; }
+  .lead { color:var(--gris); margin-top:6px; }
+  .tabs { display:inline-flex; gap:4px; padding:5px; border-radius:99px; margin-top:26px; }
+  .tabs button { font:inherit; font-weight:600; font-size:.92rem; border:0; background:none; padding:10px 20px; border-radius:99px; cursor:pointer; color:var(--gris); }
+  .tabs button.on { background:var(--tinta); color:#fff; }
+  .card { border-radius:24px; padding:22px 24px; margin-top:14px; }
+  .card-h { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+  .card-h b { font-size:1.12rem; letter-spacing:-.01em; }
+  .sub { color:var(--gris); font-size:.86rem; margin-top:3px; }
+  .pill { display:inline-block; font-size:.76rem; font-weight:600; padding:3px 10px; border-radius:99px; background:rgba(255,255,255,.85); border:1px solid var(--linea); margin-left:6px; vertical-align:middle; }
+  .pill.ar { background:var(--arena-suave); border-color:rgba(201,168,118,.4); color:#6B5226; }
+  .pill.off { color:#B4533A; }
+  .acts { display:flex; gap:6px; flex-wrap:wrap; }
+  .btn { font:inherit; font-weight:600; font-size:.88rem; padding:10px 18px; border-radius:99px; border:0; background:var(--tinta); color:#fff; cursor:pointer; white-space:nowrap; box-shadow:0 6px 16px rgba(29,29,31,.16); }
+  .btn.sec { background:rgba(255,255,255,.92); color:var(--tinta); box-shadow:0 1px 0 #fff inset, 0 2px 8px rgba(29,29,31,.08); }
+  .btn.lg { padding:14px 24px; font-size:.98rem; }
+  .btn:disabled { opacity:.55; }
+  .x { background:none; border:0; color:var(--gris); cursor:pointer; font:inherit; font-size:.84rem; padding:6px 10px; border-radius:99px; }
+  .x:hover { color:#B4533A; background:rgba(180,83,58,.07); }
+  .inp { width:100%; font:inherit; font-size:1rem; padding:13px 18px; border-radius:14px; border:1px solid var(--linea); background:rgba(255,255,255,.85); color:var(--tinta); margin-top:10px; }
+  .inp:focus { outline:none; border-color:rgba(201,168,118,.8); box-shadow:0 0 0 4px rgba(230,211,179,.45); }
+  .bens { margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+  .ben { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.8); border:1px solid var(--linea); border-radius:99px; padding:6px 6px 6px 14px; font-size:.88rem; }
+  .ben b { color:#6B5226; }
+  .ben button { border:0; background:none; cursor:pointer; color:var(--gris); width:24px; height:24px; border-radius:50%; }
+  .ben button:hover { background:rgba(180,83,58,.08); color:#B4533A; }
+  .vacio { color:var(--gris); padding:30px 0; text-align:center; }
+  .login { max-width:400px; margin:12vh auto 0; border-radius:28px; padding:32px; }
+  .msg { color:#B4533A; font-size:.9rem; margin-top:10px; min-height:1.2em; }
+  .modal { position:fixed; inset:0; background:rgba(236,238,241,.55); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); display:none; place-items:center; z-index:50; padding:16px; }
+  .modal.on { display:grid; }
+  .modal > div { background:rgba(255,255,255,.9); border:1px solid #fff; box-shadow:0 30px 70px rgba(29,29,31,.16); border-radius:26px; padding:28px; width:100%; max-width:460px; }
+  .modal h3 { font-size:1.25rem; letter-spacing:-.02em; }
+  .modal .row { display:flex; justify-content:flex-end; gap:8px; margin-top:18px; }
+  .modal label { display:block; font-size:.82rem; color:var(--gris); margin-top:14px; }
+  .modal label + .inp { margin-top:4px; }
+  #toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); opacity:0; background:var(--tinta); color:#fff; padding:12px 20px; border-radius:99px; font-size:.9rem; transition:all .3s; z-index:60; }
+  #toast.on { opacity:1; transform:translateX(-50%); }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div id="loginWrap" class="hidden">
+    <form class="login glass" id="loginForm">
+      <h1 style="margin:0;font-size:1.8rem">Red de aliados</h1>
+      <p class="lead">Entra con tu usuario del panel de Seravena.</p>
+      <input class="inp" id="email" type="email" placeholder="Correo" autocomplete="username">
+      <input class="inp" id="pass" type="password" placeholder="Contraseña" autocomplete="current-password">
+      <p class="msg" id="loginMsg"></p>
+      <button class="btn lg" style="width:100%;margin-top:8px">Ingresar</button>
+    </form>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="top"><a href="./">← Panel de Seravena</a><a href="../aliados.html" target="_blank">Ver el portal ↗</a></div>
+    <h1>Red de aliados</h1>
+    <p class="lead">Crea las empresas afiliadas y los aliados que dan beneficios. Cada uno recibe un usuario y una clave para entrar al portal.</p>
+    <div class="tabs glass">
+      <button class="on" data-t="empresas">Empresas</button>
+      <button data-t="aliados">Aliados y beneficios</button>
+    </div>
+    <div id="vEmpresas"></div>
+    <div id="vAliados" class="hidden"></div>
+  </div>
+</div>
+
+<div class="modal" id="modal"><div id="modalBox"></div></div>
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const sb = window.supabase.createClient('https://ppxrwyzqtsvwhyfjwgjg.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc');
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const slug = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+const fecha = (iso) => iso ? new Date(iso + 'T12:00').toLocaleDateString('es-CO', { day:'numeric', month:'short', year:'numeric' }) : 'sin lista';
+let tt; function toast(t) { const e = $('#toast'); e.textContent = t; e.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => e.classList.remove('on'), 2400); }
+function modal(h) { $('#modalBox').innerHTML = h; $('#modal').classList.add('on'); const i = $('#modalBox input'); if (i) setTimeout(() => i.focus(), 50); }
+function cerrar() { $('#modal').classList.remove('on'); }
+$('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal' || e.target.dataset.cerrar !== undefined) cerrar(); });
+function fallo(error) { if (error) { toast(error.message || 'No se pudo guardar'); return true; } return false; }
+
+/* ---------- Sesión ---------- */
+(async () => { const { data:{ session } } = await sb.auth.getSession(); session ? abrir() : $('#loginWrap').classList.remove('hidden'); })();
+$('#loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const { error } = await sb.auth.signInWithPassword({ email:$('#email').value.trim(), password:$('#pass').value });
+  if (error) { $('#loginMsg').textContent = 'Correo o contraseña incorrectos.'; return; }
+  $('#loginWrap').classList.add('hidden'); abrir();
+});
+function abrir() { $('#app').classList.remove('hidden'); cargarEmpresas(); cargarAliados(); }
+document.querySelectorAll('.tabs button').forEach((b) => b.onclick = () => {
+  document.querySelectorAll('.tabs button').forEach((x) => x.classList.toggle('on', x === b));
+  $('#vEmpresas').classList.toggle('hidden', b.dataset.t !== 'empresas');
+  $('#vAliados').classList.toggle('hidden', b.dataset.t !== 'aliados');
+});
+
+/* Usuario + clave: se muestra UNA vez para que Seravena se la pase a la empresa o aliado */
+function pedirClave(tipo, id, nombre, usuario) {
+  modal(`<h3>Clave de acceso</h3><p class="sub">${esc(nombre)} entra al portal con el usuario <b>${esc(usuario)}</b>. Escribe la clave que le vas a dar (mínimo 4 caracteres).</p>
+    <label>Clave</label><input class="inp" id="mClave" placeholder="Ej: ${esc(usuario)}2026">
+    <p class="msg" id="mErr"></p>
+    <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">Guardar clave</button></div>`);
+  $('#mOk').onclick = async () => {
+    const clave = $('#mClave').value.trim();
+    const { error } = await sb.rpc('red_admin_clave', { p_tipo:tipo, p_id:id, p_clave:clave });
+    if (error) { $('#mErr').textContent = error.message; return; }
+    const txt = `Portal de aliados Seravena\nclinicaseravena.com/aliados\nUsuario: ${usuario}\nClave: ${clave}`;
+    $('#modalBox').innerHTML = `<h3>¡Listo!</h3><p class="sub">Envíale estos datos a ${esc(nombre)}:</p>
+      <pre style="font:inherit;background:var(--arena-suave);border-radius:14px;padding:14px 16px;margin-top:12px;white-space:pre-wrap">${esc(txt)}</pre>
+      <div class="row"><button class="btn sec" id="mCopiar">Copiar</button><button class="btn" data-cerrar>Cerrar</button></div>`;
+    $('#mCopiar').onclick = () => { navigator.clipboard.writeText(txt).then(() => toast('Copiado')); };
+    tipo === 'empresa' ? cargarEmpresas() : cargarAliados();
+  };
+}
+
+/* ---------- EMPRESAS ---------- */
+async function cargarEmpresas() {
+  const { data:emps, error } = await sb.from('red_empresas').select('id,nombre,usuario,activa,actualizada,clave_hash').order('nombre');
+  if (fallo(error)) return;
+  const { data:conteo } = await sb.from('red_miembros').select('empresa_id');
+  const { data:sols } = await sb.from('red_solicitudes').select('empresa_id');
+  const n = (arr, id) => (arr || []).filter((x) => x.empresa_id === id).length;
+  $('#vEmpresas').innerHTML = `
+    <div class="card glass"><div class="card-h"><div><b>Empresas afiliadas</b><p class="sub">Sus empleados son miembros de la red. Recursos Humanos mantiene la lista.</p></div>
+      <button class="btn" id="nuevaEmp">+ Nueva empresa</button></div></div>
+    ${emps.length ? emps.map((e) => `
+      <div class="card glass"><div class="card-h">
+        <div><b>${esc(e.nombre)}</b>${e.activa ? '' : '<span class="pill off">Pausada</span>'}${e.clave_hash ? '' : '<span class="pill ar">Falta clave</span>'}
+          <p class="sub">Usuario: ${esc(e.usuario)} · ${n(conteo, e.id)} empleados · lista ${fecha(e.actualizada)}${n(sols, e.id) ? ' · ' + n(sols, e.id) + ' solicitudes por aprobar' : ''}</p></div>
+        <div class="acts">
+          <button class="btn sec" data-clave="${e.id}">${e.clave_hash ? 'Cambiar clave' : 'Poner clave'}</button>
+          <button class="btn sec" data-pausa="${e.id}">${e.activa ? 'Pausar' : 'Activar'}</button>
+          <button class="x" data-borrar="${e.id}">Eliminar</button>
+        </div></div></div>`).join('') : '<p class="vacio">Aún no hay empresas. Crea la primera.</p>'}`;
+  $('#nuevaEmp').onclick = () => {
+    modal(`<h3>Nueva empresa</h3>
+      <label>Nombre de la empresa</label><input class="inp" id="mNom" placeholder="Ej: Colpo">
+      <label>Usuario para entrar al portal</label><input class="inp" id="mUsu" placeholder="colpo">
+      <p class="msg" id="mErr"></p>
+      <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">Crear</button></div>`);
+    $('#mNom').oninput = () => { $('#mUsu').value = slug($('#mNom').value); };
+    $('#mOk').onclick = async () => {
+      const nombre = $('#mNom').value.trim(), usuario = slug($('#mUsu').value);
+      if (!nombre || !usuario) { $('#mErr').textContent = 'Completa nombre y usuario.'; return; }
+      const { data, error } = await sb.from('red_empresas').insert({ nombre, usuario }).select().single();
+      if (error) { $('#mErr').textContent = /duplicate|unique/i.test(error.message) ? 'Ese usuario ya existe.' : error.message; return; }
+      pedirClave('empresa', data.id, nombre, usuario);
+    };
+  };
+  const buscar = (id) => emps.find((e) => e.id === id);
+  document.querySelectorAll('[data-clave]').forEach((b) => b.onclick = () => { const e = buscar(b.dataset.clave); pedirClave('empresa', e.id, e.nombre, e.usuario); });
+  document.querySelectorAll('[data-pausa]').forEach((b) => b.onclick = async () => {
+    const e = buscar(b.dataset.pausa);
+    if (!fallo((await sb.from('red_empresas').update({ activa:!e.activa }).eq('id', e.id)).error)) { toast(e.activa ? 'Empresa pausada' : 'Empresa activa'); cargarEmpresas(); }
+  });
+  document.querySelectorAll('[data-borrar]').forEach((b) => b.onclick = () => {
+    const e = buscar(b.dataset.borrar);
+    modal(`<h3>¿Eliminar ${esc(e.nombre)}?</h3><p class="sub">Se borran también sus ${n(conteo, e.id)} empleados inscritos. No se puede deshacer. Si solo quieres suspenderla, usa "Pausar".</p>
+      <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">Sí, eliminar</button></div>`);
+    $('#mOk').onclick = async () => { if (!fallo((await sb.from('red_empresas').delete().eq('id', e.id)).error)) { cerrar(); toast('Empresa eliminada'); cargarEmpresas(); } };
+  });
+}
+
+/* ---------- ALIADOS ---------- */
+async function cargarAliados() {
+  const { data:als, error } = await sb.from('red_aliados').select('id,nombre,usuario,principal,como,activo,orden,clave_hash').order('principal', { ascending:false }).order('orden').order('nombre');
+  if (fallo(error)) return;
+  const { data:bens } = await sb.from('red_beneficios').select('id,aliado_id,titulo,detalle,orden').order('orden').order('titulo');
+  $('#vAliados').innerHTML = `
+    <div class="card glass"><div class="card-h"><div><b>Aliados y beneficios</b><p class="sub">Lo que ven los empleados al consultar su cédula. Seravena siempre aparece primero.</p></div>
+      <button class="btn" id="nuevoAl">+ Nuevo aliado</button></div></div>
+    ${als.map((a) => {
+      const mis = (bens || []).filter((b) => b.aliado_id === a.id);
+      return `<div class="card glass"><div class="card-h">
+        <div><b>${esc(a.nombre)}</b>${a.principal ? '<span class="pill ar">Principal</span>' : ''}${a.activo ? '' : '<span class="pill off">Pausado</span>'}${!a.principal && !a.clave_hash ? '<span class="pill ar">Falta clave</span>' : ''}
+          <p class="sub">${a.usuario ? 'Usuario: ' + esc(a.usuario) + ' · ' : ''}Cómo se usa: ${esc(a.como || '—')}</p></div>
+        <div class="acts">
+          <button class="btn sec" data-edit="${a.id}">Editar</button>
+          ${a.principal ? '' : `<button class="btn sec" data-aclave="${a.id}">${a.clave_hash ? 'Cambiar clave' : 'Poner clave'}</button>
+          <button class="btn sec" data-apausa="${a.id}">${a.activo ? 'Pausar' : 'Activar'}</button>
+          <button class="x" data-aborrar="${a.id}">Eliminar</button>`}
+        </div></div>
+        <div class="bens">${mis.map((b) => `<span class="ben"><b>${esc(b.detalle)}</b> · ${esc(b.titulo)}<button title="Quitar" data-bborrar="${b.id}">✕</button></span>`).join('')}
+          <button class="btn sec" style="padding:7px 14px" data-bnuevo="${a.id}">+ Beneficio</button></div>
+      </div>`; }).join('')}`;
+  const buscar = (id) => als.find((a) => a.id === id);
+  $('#nuevoAl').onclick = () => editarAliado(null);
+  document.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => editarAliado(buscar(b.dataset.edit)));
+  document.querySelectorAll('[data-aclave]').forEach((b) => b.onclick = () => { const a = buscar(b.dataset.aclave); pedirClave('aliado', a.id, a.nombre, a.usuario); });
+  document.querySelectorAll('[data-apausa]').forEach((b) => b.onclick = async () => {
+    const a = buscar(b.dataset.apausa);
+    if (!fallo((await sb.from('red_aliados').update({ activo:!a.activo }).eq('id', a.id)).error)) cargarAliados();
+  });
+  document.querySelectorAll('[data-aborrar]').forEach((b) => b.onclick = () => {
+    const a = buscar(b.dataset.aborrar);
+    modal(`<h3>¿Eliminar ${esc(a.nombre)}?</h3><p class="sub">Se borran también sus beneficios. Si solo quieres suspenderlo, usa "Pausar".</p>
+      <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">Sí, eliminar</button></div>`);
+    $('#mOk').onclick = async () => { if (!fallo((await sb.from('red_aliados').delete().eq('id', a.id)).error)) { cerrar(); cargarAliados(); } };
+  });
+  document.querySelectorAll('[data-bborrar]').forEach((b) => b.onclick = async () => { if (!fallo((await sb.from('red_beneficios').delete().eq('id', b.dataset.bborrar)).error)) cargarAliados(); });
+  document.querySelectorAll('[data-bnuevo]').forEach((b) => b.onclick = () => {
+    const a = buscar(b.dataset.bnuevo);
+    modal(`<h3>Nuevo beneficio · ${esc(a.nombre)}</h3>
+      <label>¿En qué?</label><input class="inp" id="mT" placeholder="Ej: Valoración de lipedema">
+      <label>¿Qué recibe?</label><input class="inp" id="mD" placeholder="Ej: 15% de descuento">
+      <p class="msg" id="mErr"></p>
+      <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">Agregar</button></div>`);
+    $('#mOk').onclick = async () => {
+      const titulo = $('#mT').value.trim(), detalle = $('#mD').value.trim();
+      if (!titulo || !detalle) { $('#mErr').textContent = 'Completa los dos campos.'; return; }
+      const { error } = await sb.from('red_beneficios').insert({ aliado_id:a.id, titulo, detalle });
+      if (error) { $('#mErr').textContent = error.message; return; }
+      cerrar(); toast('Beneficio agregado'); cargarAliados();
+    };
+  });
+}
+
+function editarAliado(a) {
+  const nuevo = !a;
+  modal(`<h3>${nuevo ? 'Nuevo aliado' : 'Editar ' + esc(a.nombre)}</h3>
+    <label>Nombre</label><input class="inp" id="mNom" value="${esc(a ? a.nombre : '')}" placeholder="Ej: Gimnasio Vital">
+    ${a && a.principal ? '' : `<label>Usuario para entrar al portal</label><input class="inp" id="mUsu" value="${esc(a ? a.usuario || '' : '')}" placeholder="gimnasiovital">`}
+    <label>¿Cómo usa el beneficio el empleado?</label><input class="inp" id="mComo" value="${esc(a ? a.como || '' : '')}" placeholder="Ej: Muestra tu carné y tu cédula en recepción.">
+    <p class="msg" id="mErr"></p>
+    <div class="row"><button class="btn sec" data-cerrar>Cancelar</button><button class="btn" id="mOk">${nuevo ? 'Crear' : 'Guardar'}</button></div>`);
+  if (nuevo) $('#mNom').oninput = () => { $('#mUsu').value = slug($('#mNom').value); };
+  $('#mOk').onclick = async () => {
+    const fila = { nombre:$('#mNom').value.trim(), como:$('#mComo').value.trim() || null };
+    if ($('#mUsu')) fila.usuario = slug($('#mUsu').value) || null;
+    if (!fila.nombre || ($('#mUsu') && !fila.usuario)) { $('#mErr').textContent = 'Completa nombre y usuario.'; return; }
+    const q = nuevo ? sb.from('red_aliados').insert(fila).select().single() : sb.from('red_aliados').update(fila).eq('id', a.id).select().single();
+    const { data, error } = await q;
+    if (error) { $('#mErr').textContent = /duplicate|unique/i.test(error.message) ? 'Ese usuario ya existe.' : error.message; return; }
+    if (nuevo) pedirClave('aliado', data.id, data.nombre, data.usuario);
+    else { cerrar(); toast('Guardado'); }
+    cargarAliados();
+  };
+}
+</script>
+</body>
+</html>

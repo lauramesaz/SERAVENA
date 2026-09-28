@@ -109,7 +109,7 @@ function updateParallax(scrollTop) {
 }
 /* Artículos del blog y política de privacidad (fondo claro arriba): el menú arranca en su versión clara,
    si no el logo y el menú blancos no se ven sobre el fondo blanco. */
-const sinPortadaOscura = !!document.querySelector('.post-head, section.legal');
+const sinPortadaOscura = !!document.querySelector('.post-head, section.legal, main.pa');
 if (navbar && sinPortadaOscura) navbar.classList.add('scrolled');
 function onScroll() {
   const scrollTop = window.scrollY;
