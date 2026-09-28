@@ -106,3 +106,41 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   listos para Lipedema Colombia, Asovascular, ACMV, ACHC, Clínica Las Vegas), así que lo marqué
   caducado para no duplicar seguimiento, no porque haya perdido sentido. Aviso a Laura: nota en
   GitHub con etiqueta `propuestas`.
+- **2026-09-28 · 2 propuestas nuevas (W40-1, W40-2).** Antes de proponer, hice `git checkout main`
+  + `git pull` (el checkout local estaba en HEAD separado, 47 commits detrás de `origin/main`; se
+  actualizó sin tocar nada en producción) y repasé todo lo que cambió desde el 21-sep: el sitio dio
+  un salto grande esta semana — 3 páginas nuevas por tratamiento (`varices-medellin.html`,
+  `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, creadas el 24-sep), enlazadas
+  en el menú, el sitemap y desde `vascular.html` y los 3 artículos del blog hermanos, cada una con
+  su propio `MedicalClinic`/`availableService`/FAQ — esto cumple, de hecho, lo que pedía W34-5
+  ('una página propia por tratamiento'), marcada caducada el 21-sep; no hacía falta repetirlo.
+  También se añadió el enlace `tel:` y un mapa de Google Maps a `contacto.html` (parte de W36-1,
+  que sigue abierta porque el horario y el `openingHours` todavía no están). Repetí las 5 búsquedas
+  objetivo: Seravena sigue sin aparecer en ninguna; misma competencia dominante de siempre
+  (Doctoralia, Top Doctors, Franco Vascular, Flebosalud, Centrolab, Cardiovas IPS, VARICLINIC,
+  dopplervenosomedellin.com, doctoramontenegro.com, CFMEDICINA, Clínica Somos, Centro de Medicina
+  Integrativa, Clínica Bedharma, MDE Care, Internista Vascular Medellín, Derma Skin Care). Antes de
+  proponer comprobé el código de las propuestas abiertas (W37-1, W36-1, W36-2): ninguna se ha
+  implementado todavía, así que no las repetí — pero sí hice un hallazgo importante sobre W37-1:
+  el commit `25dafec` (24-sep, "Direcciones limpias sin .html en toda la web") migró las 90+
+  páginas del sitio, a propósito, a URLs sin extensión (`/insuficiencia-venosa`, no
+  `/insuficiencia-venosa.html`) en enlaces, canonical, JSON-LD y sitemap, con un script
+  (`_agente-blog/limpiar-enlaces.py`) que corre antes de cada commit del blog. Comprobé que las 76
+  URLs del sitemap y los canonical de las 12 páginas raíz están hoy, sin excepción, sin `.html`.
+  Eso significa que W37-1 —que pedía justo lo contrario, volver a poner `.html` en el canonical de
+  `insuficiencia-venosa.html`— quedó obsoleta: ejecutarla tal como está escrita rompería la
+  consistencia que el resto del sitio ya tiene. No pude confirmar en vivo que `/insuficiencia-venosa`
+  responda 200 (mismo bloqueo de red de siempre hacia clinicaseravena.com, confirmado de nuevo hoy
+  con `curl`: `connect_rejected`), pero es un cambio deliberado, de sitio completo, ya en producción
+  4 días sin reversión. Sigue teniendo menos de un mes (21 días), así que por la regla del manual no
+  la marqué caducada yo misma — se lo dejo dicho aquí y en el aviso de GitHub para que Laura no la
+  apruebe tal cual. Buscando huecos nuevos y verificables encontré dos, ninguno repetido: (1) de las
+  12 páginas raíz, `index.html` —la portada— es la única sin ningún enlace `tel:` (tiene 4 botones
+  de WhatsApp, cero de llamada), un vacío que quedó de W37-2 (ya marcada `hecha` el 22-sep, que
+  nombraba `index.html` explícitamente entre las páginas a corregir); (2) `insuficiencia-venosa.html`
+  es la única página con 2 bloques `MedicalClinic` en su JSON-LD en vez de 1 (uno incompleto, anidado
+  como `publisher` sin `address`/`geo`/`availableService`/`@id`, y un segundo completo pero también
+  sin `@id`), mientras las otras 11 páginas raíz usan un único bloque con
+  `"@id": "https://www.clinicaseravena.com/#clinica"` referenciado desde `MedicalWebPage` — quedó
+  sin migrar al patrón que sí llegó al resto del sitio. Aviso a Laura: nota en GitHub con etiqueta
+  `propuestas`, incluyendo el aviso sobre W37-1.

@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-09-21",
+  "actualizado": "2026-09-28",
   "propuestas": [
+    {
+      "id": "2026-W40-1",
+      "fecha": "2026-09-28",
+      "titulo": "Añadir el botón de llamada directa (tel:) que falta en la portada (index.html)",
+      "categoria": "Local",
+      "que": "En `index.html`, añadir un enlace `<a href=\"tel:+573052088204\">` con la etiqueta 'Llamar' junto a los botones de WhatsApp que ya existen: en el bloque `cta-actions` de la sección final ('Agenda tu valoración', junto al botón WhatsApp de la línea 322), en el enlace de contacto del pie de página (línea 356, junto a 'WhatsApp · +57 305 208 8204') y, si es posible sin romper el diseño, como segundo botón flotante junto al `wa-float` (línea 368). Usar el mismo patrón de botón `tel:` que ya existe, probado, en `contacto.html` (líneas 137-139: `<a class=\"contact-method\" href=\"tel:+573052088204\">`) y en las otras 10 páginas raíz.",
+      "porque": "Comprobado hoy en el código: de las 12 páginas raíz del sitio (los 8 originales + `sobre.html` + las 3 páginas nuevas de tratamiento creadas el 24-sep — `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`), `index.html` —la portada, la página con más tráfico de toda la web— es la ÚNICA que no tiene ningún enlace `href=\"tel:\"`: tiene 4 botones de WhatsApp (incluido el flotante `wa-float`) pero cero de llamada directa. Es un vacío que quedó de la propuesta W37-2 ('Añadir botón de llamada directa en contacto.html y el resto de páginas raíz'), que nombraba explícitamente `index.html` entre las páginas a corregir y que se marcó `hecha` el 22-sep: el botón llegó a las otras 11 páginas raíz, pero no a esta.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que `index.html` tenga al menos un enlace `tel:` visible (comprobación directa en el código, no depende de datos externos). Si se instala el evento de clic sugerido en W37-2, comparar clics a 'Llamar' contra clics a 'WhatsApp' en la portada frente al resto del sitio, en 2-3 semanas.",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W40-2",
+      "fecha": "2026-09-28",
+      "titulo": "Corregir el bloque de datos estructurados duplicado e incompleto en insuficiencia-venosa.html",
+      "categoria": "Técnico",
+      "que": "En `insuficiencia-venosa.html`, el bloque `MedicalWebPage` (líneas 49-68) trae anidado un `publisher` de tipo `MedicalClinic` incompleto (sin `address`, sin `geo`, sin `availableService`, sin `legalName` ni `taxID`, sin `@id`); más abajo (líneas 85-119) hay un SEGUNDO bloque `MedicalClinic` completo, tampoco con `@id`. Corregir para seguir el mismo patrón que ya usan las otras 11 páginas raíz: añadir `\"@id\": \"https://www.clinicaseravena.com/#clinica\"` al bloque `MedicalClinic` completo, y reemplazar el `publisher` incompleto del `MedicalWebPage` por `\"about\": { \"@id\": \"https://www.clinicaseravena.com/#clinica\" }` (igual que en `index.html`, `vascular.html`, `lipedema.html` y el resto).",
+      "porque": "Comprobado hoy en el código, campo por campo: de las 12 páginas raíz, `insuficiencia-venosa.html` es la única con 2 bloques `MedicalClinic` (las otras 11 tienen exactamente 1); es también la única cuyo `MedicalWebPage` no usa el patrón `\"about\": { \"@id\": \".../#clinica\" }` que sí usan, por ejemplo, `index.html`, `vascular.html`, `lipedema.html` y las 3 páginas nuevas de tratamiento. Al bloque duplicado (`publisher`) le faltan justo los campos de negocio local que en las últimas semanas se han ido añadiendo con cuidado al resto del sitio —`address`, `geo`, `availableService`— y que sí están en el segundo bloque. Es la página construida para 'insuficiencia venosa Medellín', una de las 5 búsquedas objetivo de la misión, con un marcado estructurado inconsistente que ninguna otra página del sitio tiene hoy.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que `insuficiencia-venosa.html` pase el Google Rich Results Test mostrando un único `MedicalClinic` completo (hoy muestra dos, uno incompleto), igual que el resto del sitio. No es una señal que por sí sola mueva el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1 (ya hechas en el resto de páginas).",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W39-1",
       "fecha": "2026-09-21",
