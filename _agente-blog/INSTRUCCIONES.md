@@ -78,6 +78,12 @@ Un artículo genérico ("qué es la escleroterapia") compite con todo el mundo h
 lectoras que nunca van a venir a la clínica. **Seravena solo atiende en Medellín: escribimos para
 pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colombia que viajarían.**
 
+
+**Datos confirmados por Laura (28-sep-2026), úsalos tal cual:**
+- Seravena atiende **solo pacientes particulares**: no trabaja con EPS ni con medicina prepagada. No se necesita remisión ni autorización: se agenda directo por WhatsApp. Nunca escribas que "la EPS cubre" o que "puedes venir por tu EPS/prepagada".
+- El **eco doppler se hace en el mismo consultorio de El Poblado** (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316).
+- Hablar de EPS sí está permitido como contexto para la lectora (p. ej. "si por tu EPS la cita tarda meses, una valoración particular es otra opción"), sin afirmar coberturas ni tiempos concretos.
+
 **Reglas para TODOS los artículos (nuevos y los que se actualicen):**
 1. **Elige keywords con intención local o colombiana** cuando existan: "en Medellín", "en Colombia",
    "EPS", "precio en Colombia", "dónde hacerse…", "especialista en…". Si la keyword es general,

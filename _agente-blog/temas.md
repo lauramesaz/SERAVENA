@@ -41,8 +41,8 @@ Todos los demás siguen las reglas de §2b de `INSTRUCCIONES.md` (Medellín/Colo
 ⚠️ Datos de EPS, precios y normas: SOLO si el Verificador médico los puede respaldar con una fuente
 colombiana real (Minsalud, Supersalud, INVIMA). Si no, el artículo explica "de qué depende" sin cifras.
 
-- [pendiente] ¿La EPS cubre el tratamiento de várices? Lo que debes saber en Colombia — eps várices colombia — eps-tratamiento-varices-colombia — racimo: tratamiento
-- [pendiente] Lipedema y EPS en Colombia: qué cubre y cómo pedir valoración — lipedema eps colombia — lipedema-eps-colombia — racimo: lipedema
+- [pendiente] Várices por EPS o consulta particular: diferencias reales en Colombia (Seravena es solo particular; no afirmar coberturas) — várices eps o particular — varices-eps-o-particular — racimo: tratamiento
+- [pendiente] Lipedema en Colombia: por qué muchas pacientes buscan valoración particular (Seravena es solo particular; no afirmar coberturas) — lipedema valoración particular — lipedema-valoracion-particular — racimo: lipedema
 - [pendiente] Cuánto cuesta tratar las várices en Colombia y de qué depende — precio tratamiento várices colombia — precio-tratamiento-varices-colombia — racimo: tratamiento
 - [pendiente] Lipedema en Colombia: por qué tarda tanto el diagnóstico y cómo conseguirlo — lipedema colombia — lipedema-en-colombia-diagnostico — racimo: lipedema
 - [pendiente] Medias de compresión en Colombia: cómo elegirlas, tallas y dónde comprarlas — medias de compresión colombia — medias-compresion-colombia-comprar — racimo: tratamiento
