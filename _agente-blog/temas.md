@@ -11,11 +11,11 @@ mucho mejor "esta clínica sabe de várices" cuando ve 8 artículos conectados q
 
 | Racimo | De qué va | Guía madre | Página de servicio |
 |--------|-----------|-----------|--------------------|
-| `sintomas` | Qué siente la paciente: pesadez, hinchazón, calambres, dolor | Guía completa de síntomas de mala circulación | `../vascular.html` |
-| `tratamiento` | Qué se puede hacer: escleroterapia, láser, compresión | Guía de tratamientos de várices sin cirugía | `../insuficiencia-venosa` |
-| `diagnostico` | Cómo se estudia: eco doppler, consulta, señales de alarma | Cómo se diagnostica un problema venoso | `../proceso.html` |
+| `sintomas` | Qué siente la paciente: pesadez, hinchazón, calambres, dolor | Guía completa de síntomas de mala circulación | `../varices-medellin` |
+| `tratamiento` | Qué se puede hacer: escleroterapia, láser, compresión | Guía de tratamientos de várices sin cirugía | `../escleroterapia-medellin` o `../insuficiencia-venosa` |
+| `diagnostico` | Cómo se estudia: eco doppler, consulta, señales de alarma | Cómo se diagnostica un problema venoso | `../eco-doppler-venoso-medellin` |
 | `situaciones` | Embarazo, trabajo de pie, viajes, calor, menopausia | Tus piernas según tu momento de vida | `../vascular.html` |
-| `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema.html` |
+| `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema` |
 
 ### Regla de elección del tema (IMPORTANTE — cambió el 6-ago-2026)
 
@@ -30,6 +30,27 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 3. **Anticanibalización.** Antes de escribir, revisa en `registro.md` que ninguna keyword publicada
    se parezca demasiado a la nueva. Si se parecen, NO escribas otro artículo: **actualiza el que
    ya existe** y marca el tema como descartado explicando por qué.
+
+### Regla 4 (desde 28-sep-2026): foco LOCAL
+
+**Al menos 1 de cada 2 artículos sale de la lista "Temas LOCALES" de abajo**, hasta agotarla.
+Todos los demás siguen las reglas de §2b de `INSTRUCCIONES.md` (Medellín/Colombia en el texto).
+
+## Temas LOCALES prioritarios (añadidos el 28-sep-2026 tras la revisión de Search Console)
+
+⚠️ Datos de EPS, precios y normas: SOLO si el Verificador médico los puede respaldar con una fuente
+colombiana real (Minsalud, Supersalud, INVIMA). Si no, el artículo explica "de qué depende" sin cifras.
+
+- [pendiente] ¿La EPS cubre el tratamiento de várices? Lo que debes saber en Colombia — eps várices colombia — eps-tratamiento-varices-colombia — racimo: tratamiento
+- [pendiente] Lipedema y EPS en Colombia: qué cubre y cómo pedir valoración — lipedema eps colombia — lipedema-eps-colombia — racimo: lipedema
+- [pendiente] Cuánto cuesta tratar las várices en Colombia y de qué depende — precio tratamiento várices colombia — precio-tratamiento-varices-colombia — racimo: tratamiento
+- [pendiente] Lipedema en Colombia: por qué tarda tanto el diagnóstico y cómo conseguirlo — lipedema colombia — lipedema-en-colombia-diagnostico — racimo: lipedema
+- [pendiente] Medias de compresión en Colombia: cómo elegirlas, tallas y dónde comprarlas — medias de compresión colombia — medias-compresion-colombia-comprar — racimo: tratamiento
+- [pendiente] Viajes a tierra caliente: cómo cuidar las piernas si sales de Medellín a la costa — piernas hinchadas viaje calor — piernas-viaje-tierra-caliente — racimo: situaciones
+- [pendiente] Drenaje linfático en Medellín: cuándo sirve y cómo elegir dónde hacerlo — drenaje linfático medellín — drenaje-linfatico-medellin — racimo: lipedema
+- [pendiente] Médico vascular o cirujano vascular: a quién consultar por várices en Colombia — médico vascular colombia — medico-vascular-o-cirujano-colombia — racimo: diagnostico
+- [pendiente] Primera cita por várices en Medellín: qué llevar y qué te van a preguntar — cita várices medellín — primera-cita-varices-medellin — racimo: diagnostico
+- [pendiente] Caminar las lomas de Medellín: ¿es bueno para las venas y el lipedema? — caminar y circulación — caminar-lomas-medellin-circulacion — racimo: situaciones
 
 ---
 

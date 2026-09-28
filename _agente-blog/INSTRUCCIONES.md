@@ -70,6 +70,38 @@ mantiene "Equipo médico de Seravena". Nunca inventar un autor.
 5. Autoría = **"Equipo médico de Seravena"** (no inventes un nombre propio de doctor).
 6. Ante cualquier duda de seguridad médica, elige la redacción más prudente.
 
+## 2b. Enfoque LOCAL: Medellín y Colombia (obligatorio desde 28-sep-2026)
+
+**Por qué:** en la revisión de Search Console del 28-sep-2026, de 1.410 apariciones en Google en
+3 meses, **868 fueron en España** y solo 242 en Colombia. Los 26 clics llegaron todos de Colombia.
+Un artículo genérico ("qué es la escleroterapia") compite con todo el mundo hispano y atrae
+lectoras que nunca van a venir a la clínica. **Seravena solo atiende en Medellín: escribimos para
+pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colombia que viajarían.**
+
+**Reglas para TODOS los artículos (nuevos y los que se actualicen):**
+1. **Elige keywords con intención local o colombiana** cuando existan: "en Medellín", "en Colombia",
+   "EPS", "precio en Colombia", "dónde hacerse…", "especialista en…". Si la keyword es general,
+   el artículo igual debe ser inconfundiblemente colombiano (puntos 2 a 5).
+2. **Medellín o Colombia aparece de forma natural** en el primer párrafo, en al menos un `<h2>` y en
+   la meta description. Nunca a la fuerza ni repetido (máx. 3–4 veces en todo el texto).
+3. **Contexto colombiano real:** EPS y medicina prepagada, INVIMA, pesos colombianos (COP), el clima
+   de Medellín (primavera todo el año, calor de tierra caliente en viajes a la costa o a Santa Fe de
+   Antioquia), subir lomas, el Metro, trabajos de pie en comercio y salud. Solo datos verdaderos;
+   **nunca inventes precios, coberturas de EPS ni normas**: si no está verificado, no va.
+4. **Español de Colombia:** "celular", "cita", "EPS", "consultorio", "medias de compresión".
+   Prohibido vocabulario de España: "vosotros", "ordenador", "móvil", "coger", "ambulatorio", "euros".
+5. **Cada artículo enlaza a UNA página de servicio local** del racimo (además de lo de §3):
+   `../varices-medellin`, `../escleroterapia-medellin`, `../eco-doppler-venoso-medellin`,
+   `../lipedema`, `../insuficiencia-venosa`. Con texto de enlace descriptivo y local
+   (ej. "tratamiento de várices en Medellín"), no "haz clic aquí".
+6. **Título:** si la búsqueda tiene intención local, "Medellín" o "Colombia" va en el `<title>`.
+   Si es informativa pura (ej. "mitos de las medias"), no se fuerza en el título, pero sí en la
+   meta description.
+7. **JSON-LD:** `"inLanguage": "es-CO"`.
+8. **Anticanibalización con las páginas de servicio:** un artículo NUNCA ataca la misma keyword
+   que una página de servicio (ej. "escleroterapia en Medellín" es de `escleroterapia-medellin`).
+   El artículo responde una duda alrededor y enlaza a esa página.
+
 ## 3. Reglas SEO (cómo posicionar)
 
 - **1 palabra clave principal** por artículo (mira `temas.md`), + 3–5 secundarias relacionadas.
