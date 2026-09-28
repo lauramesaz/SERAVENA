@@ -181,6 +181,7 @@
 
 <main class="pa">
   <div class="container">
+    <span class="pa-demo">Demo · datos de ejemplo</span><br>
     <h1>Portal de aliados</h1>
     <p class="pa-lead">La red de beneficios de Seravena. Elige cómo quieres entrar.</p>
 
@@ -210,6 +211,7 @@
         <input class="pa-input" id="ccEmpleado" inputmode="numeric" placeholder="Número de cédula" autocomplete="off">
         <button class="pa-btn">Ver mis beneficios</button>
       </form>
+      <p class="pa-hint">Prueba con <code>1010101010</code> (Colpo) o <code>2020202020</code> (Andina Logística).</p>
       <div id="resEmpleado"></div>
     </section>
 
@@ -243,6 +245,7 @@
       <div id="aliadoPortal" hidden></div>
     </section>
 
+    <p class="pa-reset">Demo: los cambios se guardan solo en este navegador. <button class="pa-link" id="btnReset">Volver a los datos de ejemplo</button></p>
   </div>
 </main>
 
@@ -251,28 +254,39 @@
 <script>
 (function () {
   const WA = '573052088204';
-  const SB = 'https://ppxrwyzqtsvwhyfjwgjg.supabase.co';
-  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBweHJ3eXpxdHN2d2h5Zmp3Z2pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMjkxOTEsImV4cCI6MjA5NzkwNTE5MX0.0fi-LnkGmofWEsxTsj9mWVOqgTjZMilEtwzNWtaKEWc';
-
-  async function rpc(fn, args) {
-    const r = await fetch(SB + '/rest/v1/rpc/' + fn, {
-      method:'POST', headers:{ apikey:KEY, Authorization:'Bearer ' + KEY, 'Content-Type':'application/json' }, body:JSON.stringify(args || {})
-    });
-    const txt = await r.text(); const data = txt ? JSON.parse(txt) : null;
-    if (!r.ok) throw new Error((data && data.message) || 'No pudimos conectar. Inténtalo de nuevo.');
-    return data;
-  }
-  const ses = {
-    get: (k) => { try { return sessionStorage.getItem('red_' + k); } catch (e) { return null; } },
-    set: (k, v) => { try { v ? sessionStorage.setItem('red_' + k, v) : sessionStorage.removeItem('red_' + k); } catch (e) {} }
+  const KEY = 'seravena_aliados_demo_v1';
+  const SEMILLA = {
+    empresas: [
+      { id:'colpo', nombre:'Colpo', usuario:'colpo', clave:'1234', actualizada:'2026-09-15',
+        empleados:[ {cc:'1010101010', nombre:'Juan Pérez'}, {cc:'1010101011', nombre:'Luisa Restrepo'}, {cc:'1010101012', nombre:'Carlos Múnera'}, {cc:'1010101013', nombre:'Ana María Zapata'} ] },
+      { id:'andina', nombre:'Andina Logística', usuario:'andina', clave:'1234', actualizada:'2026-08-02',
+        empleados:[ {cc:'2020202020', nombre:'María Gómez'}, {cc:'2020202021', nombre:'Jorge Ochoa'} ] }
+    ],
+    aliados: [
+      { id:'seravena', nombre:'Seravena', inicial:'S', principal:true,
+        beneficios:[ {t:'Valoración de lipedema', d:'15% de descuento'}, {t:'Eco doppler venoso', d:'10% de descuento'}, {t:'Paquetes de tratamiento', d:'Precio preferencial'} ],
+        como:'Agenda por WhatsApp y muestra tu carné al llegar.' },
+      { id:'vital', nombre:'Gimnasio Vital', inicial:'V', usuario:'vital', clave:'1234', beneficios:[{t:'Mensualidad', d:'20% de descuento'}], como:'Muestra tu carné y tu cédula en recepción.' },
+      { id:'optica', nombre:'Óptica Visión Clara', inicial:'O', usuario:'optica', clave:'1234', beneficios:[{t:'Monturas y lentes', d:'15% de descuento'}], como:'Muestra tu carné al pagar.' },
+      { id:'aroma', nombre:'Café Aroma', inicial:'C', usuario:'aroma', clave:'1234', beneficios:[{t:'Todo el menú', d:'10% de descuento'}], como:'Muestra tu carné al pedir.' }
+    ],
+    solicitudes: [ { cc:'1010101099', nombre:'Sofía Arango', empresa:'colpo', cel:'3001234567', fecha:'2026-09-26' } ]
   };
+
+  let db;
+  function cargar() { try { db = JSON.parse(localStorage.getItem(KEY)); } catch (e) {} if (!db) db = JSON.parse(JSON.stringify(SEMILLA)); }
+  function guardar() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} }
+  cargar();
 
   const $ = (s) => document.querySelector(s);
   const limpio = (v) => String(v || '').replace(/\D/g, '');
-  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const fecha = (iso) => iso ? new Date(iso + 'T12:00').toLocaleDateString('es-CO', { day:'numeric', month:'short', year:'numeric' }) : 'Sin cargar';
-  const inicial = (n) => esc(String(n || '?').trim().charAt(0).toUpperCase());
-  function ocupado(btn, si) { if (!btn) return; btn.disabled = si; btn.style.opacity = si ? .6 : 1; }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fecha = (iso) => new Date(iso + 'T12:00').toLocaleDateString('es-CO', { day:'numeric', month:'short', year:'numeric' });
+  const hoyISO = () => new Date().toISOString().slice(0, 10);
+  function buscarMiembro(cc) {
+    for (const e of db.empresas) { const p = e.empleados.find((x) => x.cc === cc); if (p) return { persona:p, empresa:e }; }
+    return null;
+  }
 
   /* ---------- Selector de rol ---------- */
   document.querySelectorAll('.pa-role').forEach((b) => b.addEventListener('click', () => {
@@ -289,116 +303,91 @@
   $('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal' || e.target.dataset.cerrar !== undefined) cerrar(); });
 
   /* ---------- EMPLEADO ---------- */
-  $('#fEmpleado').addEventListener('submit', async (e) => {
+  $('#fEmpleado').addEventListener('submit', (e) => {
     e.preventDefault();
     const cc = limpio($('#ccEmpleado').value);
-    const out = $('#resEmpleado'); const btn = e.submitter;
+    const out = $('#resEmpleado');
     if (!cc) { out.innerHTML = '<p class="pa-msg err">Escribe tu número de cédula.</p>'; return; }
-    ocupado(btn, true);
-    let m;
-    try { m = await rpc('red_consultar', { p_cc:cc }); }
-    catch (err) { out.innerHTML = `<p class="pa-msg err">${esc(err.message)}</p>`; ocupado(btn, false); return; }
-    ocupado(btn, false);
-    if (!m.encontrado) {
+    const m = buscarMiembro(cc);
+    if (!m) {
       out.innerHTML = `<p class="pa-msg">No encontramos esa cédula en la red de aliados. Si tu empresa es aliada y aún no apareces,
         <button class="pa-link" id="btnSolicitar">solicita tu acceso</button> y Recursos Humanos de tu empresa lo aprueba.</p>`;
       $('#btnSolicitar').onclick = () => solicitar(cc);
       return;
     }
-    const sv = m.aliados.find((a) => a.principal) || { beneficios:[] };
-    const otros = m.aliados.filter((a) => !a.principal && a.beneficios.length);
-    const txt = encodeURIComponent(`Hola Seravena, soy ${m.nombre} de ${m.empresa} (CC ${cc}) y quiero usar mi beneficio de aliado.`);
+    const sv = db.aliados.find((a) => a.principal);
+    const otros = db.aliados.filter((a) => !a.principal);
+    const txt = encodeURIComponent(`Hola Seravena, soy ${m.persona.nombre} de ${m.empresa.nombre} (CC ${cc}) y quiero usar mi beneficio de aliado.`);
     const vence = new Date(); vence.setMonth(vence.getMonth() + 1, 0);
     out.innerHTML = `
       <div class="pa-res">
         <div class="pa-carne">
           <small>Red de aliados Seravena</small>
-          <div class="n">${esc(m.nombre)}</div>
-          <div class="e">${esc(m.empresa)}</div>
+          <div class="n">${esc(m.persona.nombre)}</div>
+          <div class="e">${esc(m.empresa.nombre)}</div>
           <span class="ok">Miembro activo</span>
-          <div class="row"><div>Cédula<b>•••• ${esc(m.cc4)}</b></div><div style="text-align:right">Válido hasta<b>${vence.toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'})}</b></div></div>
+          <div class="row"><div>Cédula<b>•••• ${cc.slice(-4)}</b></div><div style="text-align:right">Válido hasta<b>${vence.toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'})}</b></div></div>
         </div>
         <p class="pa-hint">Este es tu carné digital. Muéstralo junto con tu cédula para usar tus beneficios.</p>
 
         <h3 class="pa-h3">Tus beneficios en Seravena</h3>
         <div class="pa-star pa-glass">
-          <div>${sv.beneficios.length ? `<ul>${sv.beneficios.map((b) => `<li><b>${esc(b.d)}</b> · ${esc(b.t)}</li>`).join('')}</ul>` : '<p class="pa-msg" style="margin:0">Escríbenos y te contamos los beneficios que tienes por ser parte de la red.</p>'}</div>
+          <div><ul>${sv.beneficios.map((b) => `<li><b>${esc(b.d)}</b> · ${esc(b.t)}</li>`).join('')}</ul></div>
           <a class="pa-wa" href="https://wa.me/${WA}?text=${txt}" target="_blank" rel="noopener">Agendar con mi beneficio</a>
         </div>
-        ${otros.length ? `<h3 class="pa-h3">Tus beneficios en la red de aliados</h3>
+
+        <h3 class="pa-h3">Tus beneficios en la red de aliados</h3>
         <div class="pa-grid">${otros.map((a) => a.beneficios.map((b) => `
-          <div class="pa-card pa-glass"><div class="logo">${inicial(a.nombre)}</div><b>${esc(a.nombre)}</b>
-            <div class="d">${esc(b.d)}</div><p>${esc(b.t)}.${a.como ? ' ' + esc(a.como) : ''}</p></div>`).join('')).join('')}
-        </div>` : ''}
+          <div class="pa-card pa-glass"><div class="logo">${esc(a.inicial)}</div><b>${esc(a.nombre)}</b>
+            <div class="d">${esc(b.d)}</div><p>${esc(b.t)}. ${esc(a.como)}</p></div>`).join('')).join('')}
+        </div>
       </div>`;
   });
 
-  async function solicitar(cc) {
-    let empresas = [];
-    try { empresas = await rpc('red_empresas_publicas'); } catch (e) {}
+  function solicitar(cc) {
     modal(`<h3>Solicitar acceso</h3><p class="pa-sub">Le llegará a Recursos Humanos de tu empresa para que lo apruebe.</p>
       <input class="pa-input" id="sNombre" placeholder="Nombre completo">
       <input class="pa-input" id="sCc" value="${esc(cc)}" inputmode="numeric" placeholder="Cédula">
-      <select class="pa-input" id="sEmp"><option value="">¿En qué empresa trabajas?</option>${empresas.map((e) => `<option value="${esc(e.id)}">${esc(e.nombre)}</option>`).join('')}</select>
+      <select class="pa-input" id="sEmp"><option value="">¿En qué empresa trabajas?</option>${db.empresas.map((e) => `<option value="${e.id}">${esc(e.nombre)}</option>`).join('')}</select>
       <input class="pa-input" id="sCel" inputmode="tel" placeholder="Celular">
       <p class="pa-msg err" id="sErr"></p>
       <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="sOk">Enviar solicitud</button></div>`);
-    $('#sOk').onclick = async () => {
-      const s = { p_nombre:$('#sNombre').value.trim(), p_cc:limpio($('#sCc').value), p_empresa:$('#sEmp').value, p_cel:limpio($('#sCel').value) };
-      if (!s.p_nombre || !s.p_cc || !s.p_empresa) { $('#sErr').textContent = 'Completa nombre, cédula y empresa.'; return; }
-      ocupado($('#sOk'), true);
-      try { await rpc('red_solicitar', s); }
-      catch (err) { $('#sErr').textContent = err.message; ocupado($('#sOk'), false); return; }
+    $('#sOk').onclick = () => {
+      const s = { nombre:$('#sNombre').value.trim(), cc:limpio($('#sCc').value), empresa:$('#sEmp').value, cel:limpio($('#sCel').value), fecha:hoyISO() };
+      if (!s.nombre || !s.cc || !s.empresa) { $('#sErr').textContent = 'Completa nombre, cédula y empresa.'; return; }
+      db.solicitudes.push(s); guardar();
       $('#modalBox').innerHTML = `<h3>Solicitud enviada</h3><p class="pa-sub">Cuando Recursos Humanos la apruebe, podrás consultar tus beneficios con tu cédula.</p><div class="acts"><button class="pa-btn" data-cerrar>Listo</button></div>`;
       $('#resEmpleado').innerHTML = '';
     };
   }
 
-  /* ---------- Ingreso (empresa / aliado) ---------- */
-  function ingreso(tipo, form, u, k, err, login, portal, pintar) {
-    $(form).addEventListener('submit', async (e) => {
-      e.preventDefault(); ocupado(e.submitter, true);
-      try {
-        const r = await rpc('red_login', { p_tipo:tipo, p_usuario:$(u).value, p_clave:$(k).value });
-        ses.set(tipo, r.token); $(err).textContent = ''; $(k).value = '';
-        $(login).hidden = true; $(portal).hidden = false; await pintar();
-      } catch (x) { $(err).textContent = x.message; }
-      ocupado(e.submitter, false);
-    });
-  }
-  function salir(tipo, login, portal) {
-    const t = ses.get(tipo); if (t) rpc('red_salir', { p_token:t }).catch(() => {});
-    ses.set(tipo, null); $(portal).hidden = true; $(login).hidden = false;
-  }
-  function sesionVencida(tipo, login, portal, err, msg) { salir(tipo, login, portal); $(err).textContent = msg; }
-
   /* ---------- EMPRESA ---------- */
-  let datosEmp = null;
-  ingreso('empresa', '#fEmpresa', '#uEmpresa', '#kEmpresa', '#errEmpresa', '#empresaLogin', '#empresaPortal', () => cargarEmpresa());
-  async function cargarEmpresa() {
-    try { datosEmp = await rpc('red_empresa_datos', { p_token:ses.get('empresa') }); pintarEmpresa(); }
-    catch (x) { sesionVencida('empresa', '#empresaLogin', '#empresaPortal', '#errEmpresa', x.message); }
-  }
-  async function accionEmp(fn, args) {
-    try { await rpc(fn, Object.assign({ p_token:ses.get('empresa') }, args)); await cargarEmpresa(); return true; }
-    catch (x) { alert(x.message); return false; }
-  }
+  let empresaActual = null;
+  $('#fEmpresa').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const u = $('#uEmpresa').value.trim().toLowerCase(), k = $('#kEmpresa').value;
+    const emp = db.empresas.find((x) => x.usuario === u && x.clave === k);
+    if (!emp) { $('#errEmpresa').textContent = 'Usuario o clave incorrectos.'; return; }
+    $('#errEmpresa').textContent = ''; empresaActual = emp.id;
+    $('#empresaLogin').hidden = true; $('#empresaPortal').hidden = false; pintarEmpresa();
+  });
 
   function pintarEmpresa(filtro = '') {
-    const emp = datosEmp, sols = emp.solicitudes;
+    const emp = db.empresas.find((x) => x.id === empresaActual);
+    const sols = db.solicitudes.filter((s) => s.empresa === emp.id);
     const f = filtro.toLowerCase();
-    const lista = emp.miembros.filter((p) => !f || p.nombre.toLowerCase().includes(f) || p.cc.includes(f));
+    const lista = emp.empleados.filter((p) => !f || p.nombre.toLowerCase().includes(f) || p.cc.includes(f));
     $('#empresaPortal').innerHTML = `
       <div class="pa-top"><div><h2>${esc(emp.nombre)}</h2><p class="pa-sub">Portal de Recursos Humanos</p></div>
-        <button class="pa-btn sec sm" id="salirEmp">Salir</button></div>
+        <span class="pa-demo" style="margin:0">Empresa de ejemplo</span></div>
       <div class="pa-kpis">
-        <div class="pa-kpi pa-glass"><small>Empleados inscritos</small><b>${emp.miembros.length}</b></div>
+        <div class="pa-kpi pa-glass"><small>Empleados inscritos</small><b>${emp.empleados.length}</b></div>
         <div class="pa-kpi pa-glass acento"><small>Solicitudes por aprobar</small><b>${sols.length}</b></div>
         <div class="pa-kpi pa-glass"><small>Lista actualizada</small><b style="font-size:1.15rem;margin-top:10px">${fecha(emp.actualizada)}</b></div>
       </div>
       ${sols.length ? `<div class="pa-box pa-glass"><h4>Solicitudes por aprobar</h4>${sols.map((s) => `
         <div class="pa-row"><div class="who"><b>${esc(s.nombre)}</b><span>CC ${esc(s.cc)}${s.cel ? ' · ' + esc(s.cel) : ''}</span></div>
-          <div class="acts"><button class="pa-btn sec sm" data-rechazar="${esc(s.id)}">Rechazar</button><button class="pa-btn sm" data-aprobar="${esc(s.id)}">Aprobar</button></div></div>`).join('')}</div>` : ''}
+          <div class="acts"><button class="pa-btn sec sm" data-rechazar="${s.cc}">Rechazar</button><button class="pa-btn sm" data-aprobar="${s.cc}">Aprobar</button></div></div>`).join('')}</div>` : ''}
       <div class="pa-box pa-glass">
         <h4>Actualizar la lista completa</h4>
         <label class="pa-drop" for="archivo">Sube el Excel de nómina (columnas: <b>cédula</b> y <b>nombre</b>).<br>La lista nueva reemplaza a la anterior: quien ya no esté, pierde el acceso.</label>
@@ -408,37 +397,37 @@
       <div class="pa-box pa-glass">
         <div class="pa-top"><h4>Empleados inscritos</h4><button class="pa-btn sm" id="btnAgregar">+ Agregar empleado</button></div>
         <input class="pa-input" id="buscarEmp" placeholder="Buscar por nombre o cédula" value="${esc(filtro)}" style="width:100%;margin:6px 0 8px">
-        <div class="pa-list">${lista.slice(0, 300).map((p) => `
+        <div class="pa-list">${lista.map((p) => `
           <div class="pa-row"><div class="who"><b>${esc(p.nombre)}</b><span>CC ${esc(p.cc)}</span></div>
-          <button class="pa-x" data-quitar="${esc(p.cc)}">Quitar</button></div>`).join('') || `<p class="pa-msg">${emp.miembros.length ? 'Sin resultados.' : 'Aún no hay empleados. Sube el Excel de nómina o agrégalos uno por uno.'}</p>`}
-          ${lista.length > 300 ? `<p class="pa-msg">Mostrando 300 de ${lista.length}. Usa el buscador para encontrar a alguien.</p>` : ''}</div>
+          <button class="pa-x" data-quitar="${p.cc}">Quitar</button></div>`).join('') || '<p class="pa-msg">Sin resultados.</p>'}</div>
       </div>`;
 
-    $('#salirEmp').onclick = () => salir('empresa', '#empresaLogin', '#empresaPortal');
     const b = $('#buscarEmp');
     b.oninput = () => { pintarEmpresa(b.value); const n = $('#buscarEmp'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
     $('#empresaPortal').querySelectorAll('[data-aprobar]').forEach((x) => x.onclick = () => {
-      const s = sols.find((y) => y.id === x.dataset.aprobar); ocupado(x, true);
-      accionEmp('red_empresa_agregar', { p_cc:s.cc, p_nombre:s.nombre });
+      const s = db.solicitudes.find((y) => y.cc === x.dataset.aprobar && y.empresa === emp.id);
+      if (!emp.empleados.some((p) => p.cc === s.cc)) emp.empleados.push({ cc:s.cc, nombre:s.nombre });
+      db.solicitudes = db.solicitudes.filter((y) => y !== s); guardar(); pintarEmpresa();
     });
-    $('#empresaPortal').querySelectorAll('[data-rechazar]').forEach((x) => x.onclick = () => { ocupado(x, true); accionEmp('red_empresa_rechazar', { p_id:x.dataset.rechazar }); });
+    $('#empresaPortal').querySelectorAll('[data-rechazar]').forEach((x) => x.onclick = () => {
+      db.solicitudes = db.solicitudes.filter((y) => !(y.cc === x.dataset.rechazar && y.empresa === emp.id)); guardar(); pintarEmpresa();
+    });
     $('#empresaPortal').querySelectorAll('[data-quitar]').forEach((x) => x.onclick = () => {
-      const p = emp.miembros.find((y) => y.cc === x.dataset.quitar);
+      const p = emp.empleados.find((y) => y.cc === x.dataset.quitar);
       modal(`<h3>¿Quitar a ${esc(p.nombre)}?</h3><p class="pa-sub">Dejará de tener acceso a los beneficios.</p>
         <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="okQuitar">Sí, quitar</button></div>`);
-      $('#okQuitar').onclick = async () => { ocupado($('#okQuitar'), true); await accionEmp('red_empresa_quitar', { p_cc:p.cc }); cerrar(); };
+      $('#okQuitar').onclick = () => { emp.empleados = emp.empleados.filter((y) => y !== p); guardar(); cerrar(); pintarEmpresa(); };
     });
     $('#btnAgregar').onclick = () => {
       modal(`<h3>Agregar empleado</h3>
         <input class="pa-input" id="aNombre" placeholder="Nombre completo"><input class="pa-input" id="aCc" inputmode="numeric" placeholder="Cédula">
         <p class="pa-msg err" id="aErr"></p>
         <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="aOk">Agregar</button></div>`);
-      $('#aOk').onclick = async () => {
+      $('#aOk').onclick = () => {
         const nombre = $('#aNombre').value.trim(), cc = limpio($('#aCc').value);
         if (!nombre || !cc) { $('#aErr').textContent = 'Completa nombre y cédula.'; return; }
-        if (emp.miembros.some((p) => p.cc === cc)) { $('#aErr').textContent = 'Esa cédula ya está inscrita.'; return; }
-        ocupado($('#aOk'), true);
-        if (await accionEmp('red_empresa_agregar', { p_cc:cc, p_nombre:nombre })) cerrar(); else ocupado($('#aOk'), false);
+        if (emp.empleados.some((p) => p.cc === cc)) { $('#aErr').textContent = 'Esa cédula ya está inscrita.'; return; }
+        emp.empleados.unshift({ cc, nombre }); guardar(); cerrar(); pintarEmpresa();
       };
     };
     $('#archivo').onchange = (ev) => subirArchivo(ev.target.files[0], emp);
@@ -446,8 +435,8 @@
 
   function subirArchivo(file, emp) {
     if (!file) return;
-    const msg = $('#msgArchivo'); msg.className = 'pa-msg';
-    msg.textContent = 'Leyendo el archivo…';
+    const msg = $('#msgArchivo');
+    if (!window.XLSX) { msg.textContent = 'Cargando lector de Excel…'; }
     const listo = () => {
       const r = new FileReader();
       r.onload = () => {
@@ -456,42 +445,42 @@
           const filas = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { header:1, defval:'' });
           const nuevos = [];
           filas.forEach((f) => {
-            const cc = limpio(f.find((c) => /^\s*[\d.\s]{5,}\s*$/.test(String(c))));
+            const cc = limpio(f.find((c) => /^\s*[\d.\s]{6,}\s*$/.test(String(c))));
             const nombre = String(f.find((c) => /[a-záéíóúñ]/i.test(String(c)) && !/c[eé]dula|nombre|documento/i.test(String(c))) || '').trim();
             if (cc && nombre && !nuevos.some((p) => p.cc === cc)) nuevos.push({ cc, nombre });
           });
-          msg.textContent = '';
           if (!nuevos.length) { msg.className = 'pa-msg err'; msg.textContent = 'No encontramos cédulas y nombres en el archivo.'; return; }
-          const antes = new Set(emp.miembros.map((p) => p.cc));
+          const antes = new Set(emp.empleados.map((p) => p.cc));
           const entran = nuevos.filter((p) => !antes.has(p.cc)).length;
-          const salen = emp.miembros.filter((p) => !nuevos.some((n) => n.cc === p.cc)).length;
+          const salen = emp.empleados.filter((p) => !nuevos.some((n) => n.cc === p.cc)).length;
           modal(`<h3>Revisa antes de guardar</h3><p class="pa-sub">El archivo trae <b>${nuevos.length}</b> empleados.</p>
             <ul style="margin:14px 0 0 18px;line-height:1.8"><li>Entran nuevos: <b>${entran}</b></li><li>Pierden el acceso: <b>${salen}</b></li></ul>
-            <p class="pa-msg err" id="lErr"></p>
             <div class="acts"><button class="pa-btn sec" data-cerrar>Cancelar</button><button class="pa-btn" id="okLista">Guardar lista</button></div>`);
-          $('#okLista').onclick = async () => {
-            ocupado($('#okLista'), true);
-            try { await rpc('red_empresa_reemplazar', { p_token:ses.get('empresa'), p_lista:nuevos }); cerrar(); await cargarEmpresa(); }
-            catch (x) { $('#lErr').textContent = x.message; ocupado($('#okLista'), false); }
-          };
+          $('#okLista').onclick = () => { emp.empleados = nuevos; emp.actualizada = hoyISO(); guardar(); cerrar(); pintarEmpresa(); };
         } catch (err) { msg.className = 'pa-msg err'; msg.textContent = 'No pudimos leer el archivo.'; }
-        $('#archivo').value = '';
       };
       r.readAsArrayBuffer(file);
     };
     if (window.XLSX) listo();
-    else { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js'; s.onload = listo; s.onerror = () => { msg.className = 'pa-msg err'; msg.textContent = 'No pudimos cargar el lector de Excel. Revisa tu conexión.'; }; document.head.appendChild(s); }
+    else { const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js'; s.onload = () => { msg.textContent = ''; listo(); }; document.head.appendChild(s); }
   }
 
   /* ---------- ALIADO ---------- */
-  ingreso('aliado', '#fAliado', '#uAliado', '#kAliado', '#errAliado', '#aliadoLogin', '#aliadoPortal', () => cargarAliado());
-  async function cargarAliado() {
-    let al;
-    try { al = await rpc('red_aliado_datos', { p_token:ses.get('aliado') }); }
-    catch (x) { sesionVencida('aliado', '#aliadoLogin', '#aliadoPortal', '#errAliado', x.message); return; }
+  let aliadoActual = null;
+  $('#fAliado').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const u = $('#uAliado').value.trim().toLowerCase(), k = $('#kAliado').value;
+    const al = db.aliados.find((x) => x.usuario === u && x.clave === k);
+    if (!al) { $('#errAliado').textContent = 'Usuario o clave incorrectos.'; return; }
+    $('#errAliado').textContent = ''; aliadoActual = al.id;
+    $('#aliadoLogin').hidden = true; $('#aliadoPortal').hidden = false; pintarAliado();
+  });
+
+  function pintarAliado() {
+    const al = db.aliados.find((x) => x.id === aliadoActual);
     $('#aliadoPortal').innerHTML = `
       <div class="pa-top"><div><h2>${esc(al.nombre)}</h2><p class="pa-sub">Portal de aliados</p></div>
-        <button class="pa-btn sec sm" id="salirAl">Salir</button></div>
+        <span class="pa-demo" style="margin:0">Aliado de ejemplo</span></div>
       <h3 class="pa-h3">Verificar a un miembro</h3>
       <form class="pa-form" id="fVerificar" style="margin-top:0">
         <input class="pa-input" id="ccVer" inputmode="numeric" placeholder="Cédula de la persona" autocomplete="off">
@@ -499,26 +488,26 @@
       </form>
       <div id="resVer"></div>
       <h3 class="pa-h3">Lo que ofreces a la red</h3>
-      ${al.beneficios.length ? `<div class="pa-grid">${al.beneficios.map((b) => `<div class="pa-card pa-glass"><div class="d" style="margin-top:0">${esc(b.d)}</div><p>${esc(b.t)}.${al.como ? ' ' + esc(al.como) : ''}</p></div>`).join('')}</div>` : '<p class="pa-msg">Aún no hay beneficios cargados.</p>'}
+      <div class="pa-grid">${al.beneficios.map((b) => `<div class="pa-card pa-glass"><div class="d" style="margin-top:0">${esc(b.d)}</div><p>${esc(b.t)}. ${esc(al.como)}</p></div>`).join('')}</div>
       <p class="pa-hint">Para cambiar tus beneficios, escríbele a Seravena.</p>`;
-    $('#salirAl').onclick = () => salir('aliado', '#aliadoLogin', '#aliadoPortal');
-    $('#fVerificar').onsubmit = async (e) => {
+    $('#fVerificar').onsubmit = (e) => {
       e.preventDefault();
       const cc = limpio($('#ccVer').value); if (!cc) return;
-      ocupado(e.submitter, true);
-      try {
-        const m = await rpc('red_aliado_verificar', { p_token:ses.get('aliado'), p_cc:cc });
-        $('#resVer').innerHTML = m.activo
-          ? `<div class="pa-verdict si"><b>✓ Miembro activo</b>${esc(m.nombre)} · ${esc(m.empresa)}${al.beneficios.length ? '<br>Aplica: ' + al.beneficios.map((b) => esc(b.d) + ' en ' + esc(b.t.toLowerCase())).join(', ') + '.' : ''}</div>`
-          : `<div class="pa-verdict no"><b>No es miembro</b>Esta cédula no está en la red de aliados de Seravena.</div>`;
-      } catch (x) { sesionVencida('aliado', '#aliadoLogin', '#aliadoPortal', '#errAliado', x.message); }
-      ocupado(e.submitter, false);
+      const m = buscarMiembro(cc);
+      $('#resVer').innerHTML = m
+        ? `<div class="pa-verdict si"><b>✓ Miembro activo</b>${esc(m.persona.nombre)} · ${esc(m.empresa.nombre)}<br>Aplica: ${al.beneficios.map((b) => esc(b.d) + ' en ' + esc(b.t.toLowerCase())).join(', ')}.</div>`
+        : `<div class="pa-verdict no"><b>No es miembro</b>Esta cédula no está en la red de aliados de Seravena.</div>`;
     };
   }
 
-  // Si recarga la página con sesión abierta, vuelve a su portal
-  if (ses.get('empresa')) { $('#empresaLogin').hidden = true; $('#empresaPortal').hidden = false; cargarEmpresa(); document.querySelector('[data-rol=empresa]').click(); }
-  else if (ses.get('aliado')) { $('#aliadoLogin').hidden = true; $('#aliadoPortal').hidden = false; cargarAliado(); document.querySelector('[data-rol=aliado]').click(); }
+  // Demo sin claves: Empresa y Aliado abren directo su portal de ejemplo
+  function entrarDemo() {
+    empresaActual = 'colpo'; $('#empresaLogin').hidden = true; $('#empresaPortal').hidden = false; pintarEmpresa();
+    aliadoActual = 'vital'; $('#aliadoLogin').hidden = true; $('#aliadoPortal').hidden = false; pintarAliado();
+  }
+  entrarDemo();
+
+  $('#btnReset').onclick = () => { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); };
 })();
 </script>
 
