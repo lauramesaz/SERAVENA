@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-26",
+  "actualizado": "2026-09-28",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -250,6 +250,10 @@
     "varices-hereditarias-genetica": {
       "imagen": "texture-camel.webp",
       "alt": "Tela satinada en tono camel con pliegues suaves, en un ambiente cálido y neutro"
+    },
+    "lipedema-y-sueno": {
+      "imagen": "5888064.webp",
+      "alt": "Manos masajeando la pantorrilla de una persona recostada, en un momento de descanso nocturno"
     }
   }
 }

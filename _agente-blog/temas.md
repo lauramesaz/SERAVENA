@@ -145,7 +145,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Ejercicio de bajo impacto recomendado si tienes várices — ejercicio para várices — ejercicio-para-varices
 - [publicado] Tabaco, alcohol y salud vascular: qué relación existe — tabaco y circulación — tabaco-alcohol-circulacion
 - [publicado] Diabetes y salud vascular de las piernas: qué vigilar — diabetes y circulación piernas — diabetes-circulacion-piernas
-- [pendiente] Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso — lipedema y sueño — lipedema-y-sueno
+- [publicado] Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso — lipedema y sueño — lipedema-y-sueno
 - [pendiente] Actividades acuáticas y lipedema: por qué pueden ayudar — natación y lipedema — natacion-y-lipedema
 - [pendiente] Cómo hablar con tu familia sobre el lipedema — hablar en familia sobre lipedema — hablar-en-familia-lipedema
 - [pendiente] Alimentación antiinflamatoria y lipedema: qué dice la evidencia — alimentación antiinflamatoria lipedema — alimentacion-antiinflamatoria-lipedema

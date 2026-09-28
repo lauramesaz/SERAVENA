@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-27",
+  "actualizado": "2026-09-28",
   "articulos": [
+    {
+      "fecha": "2026-09-28",
+      "titulo": "Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso",
+      "slug": "lipedema-y-sueno",
+      "categoria": "Lipedema",
+      "keyword": "lipedema y sueño",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-y-sueno",
+      "nota": "Artículo del racimo 'lipedema', primer tema pendiente de temas.md en esta fecha (rutina automática diaria). Explica por qué el dolor y la hinchazón del lipedema se sienten peor al acostarse, el círculo entre falta de sueño y más sensibilidad al dolor, medidas para descansar mejor (elevar piernas, temperatura del cuarto, compresión nocturna solo si el médico la indica) y cuándo el dolor nocturno amerita valoración (posible trombosis venosa profunda si es unilateral y súbito). Médico: APROBADO sin correcciones. SEO: 100/100, APTO. Prueba de humanidad: 9/10."
+    },
     {
       "fecha": "2026-09-27",
       "titulo": "Diabetes y circulación en las piernas: qué vigilar",
