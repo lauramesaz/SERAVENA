@@ -49,7 +49,7 @@ colombiana real (Minsalud, Supersalud, INVIMA). Si no, el artículo explica "de 
 - [pendiente] Viajes a tierra caliente: cómo cuidar las piernas si sales de Medellín a la costa — piernas hinchadas viaje calor — piernas-viaje-tierra-caliente — racimo: situaciones
 - [pendiente] Drenaje linfático en Medellín: cuándo sirve y cómo elegir dónde hacerlo — drenaje linfático medellín — drenaje-linfatico-medellin — racimo: lipedema
 - [pendiente] Médico vascular o cirujano vascular: a quién consultar por várices en Colombia — médico vascular colombia — medico-vascular-o-cirujano-colombia — racimo: diagnostico
-- [pendiente] Primera cita por várices en Medellín: qué llevar y qué te van a preguntar — cita várices medellín — primera-cita-varices-medellin — racimo: diagnostico
+- [publicado] Primera cita por várices en Medellín: qué llevar y qué te van a preguntar — cita várices medellín — primera-cita-varices-medellin — racimo: diagnostico
 - [pendiente] Caminar las lomas de Medellín: ¿es bueno para las venas y el lipedema? — caminar y circulación — caminar-lomas-medellin-circulacion — racimo: situaciones
 
 ---

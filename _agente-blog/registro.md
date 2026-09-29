@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-09-29 | primera-cita-varices-medellin | Primera cita por várices en Medellín: qué llevar y qué te van a preguntar | primera cita por várices en Medellín | publicado | — | — | — |
 | 2026-09-28 | lipedema-y-sueno | Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso | lipedema y sueño | publicado | — | — | — |
 | 2026-09-27 | diabetes-circulacion-piernas | Diabetes y circulación en las piernas: qué vigilar | diabetes y circulación piernas | publicado | — | — | — |
 | 2026-09-26 | tabaco-alcohol-circulacion | Tabaco y circulación: qué relación existe con tus piernas | tabaco y circulación | publicado | — | — | — |
