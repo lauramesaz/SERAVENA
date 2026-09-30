@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-09-28",
+  "actualizado": "2026-09-30",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "hablar-en-familia-lipedema": {
+      "imagen": "7006873.webp",
+      "alt": "Nervadura de una hoja iluminada a contraluz, como una red de conexiones que sostiene, evocando el apoyo familiar"
+    },
     "diabetes-circulacion-piernas": {
       "imagen": "professionals.webp",
       "alt": "Profesional de salud con bata blanca revisando los pies y las piernas de una paciente durante una valoración"

@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-09-29",
+  "actualizado": "2026-09-30",
   "articulos": [
+    {
+      "fecha": "2026-09-30",
+      "titulo": "Cómo hablar en familia sobre el lipedema",
+      "slug": "hablar-en-familia-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "hablar en familia sobre el lipedema",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/hablar-en-familia-lipedema",
+      "nota": "Artículo del racimo 'lipedema', primer tema pendiente vigente de temas.md tras descartar 'natacion-y-lipedema' por anticanibalización con ejercicio-lipedema.html. Explica por qué a la familia y la pareja les cuesta entender que el lipedema no es un problema de peso, ideas prácticas para esa conversación y el papel del apoyo familiar en el manejo conservador. Médico: APROBADO sin correcciones. SEO: 98/100, APTO. Prueba de humanidad: 10/10."
+    },
     {
       "fecha": "2026-09-29",
       "titulo": "Primera cita por várices en Medellín: qué llevar y qué te van a preguntar",

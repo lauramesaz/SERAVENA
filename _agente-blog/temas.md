@@ -168,7 +168,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Diabetes y salud vascular de las piernas: qué vigilar — diabetes y circulación piernas — diabetes-circulacion-piernas
 - [publicado] Lipedema y sueño: por qué el dolor nocturno interrumpe el descanso — lipedema y sueño — lipedema-y-sueno
 - [descartado] Actividades acuáticas y lipedema: por qué pueden ayudar — natación y lipedema — natacion-y-lipedema (anticanibalización, hallada por el orquestador el 30-sep-2026 antes de escribir: "ejercicio-lipedema.html", publicado el 17-ago-2026, ya dedica una sección H3 completa a "El agua, tu gran aliada" -natación y aquagym como opción principal- y su meta `keywords` incluye explícitamente "natación lipedema" y "ejercicio en agua para lipedema"; un artículo nuevo centrado solo en natación competiría por la misma intención de búsqueda que ya cubre ese hermano. Se elige en su lugar el siguiente tema pendiente de temas.md.)
-- [pendiente] Cómo hablar con tu familia sobre el lipedema — hablar en familia sobre lipedema — hablar-en-familia-lipedema
+- [publicado] Cómo hablar con tu familia sobre el lipedema — hablar en familia sobre lipedema — hablar-en-familia-lipedema
 - [pendiente] Alimentación antiinflamatoria y lipedema: qué dice la evidencia — alimentación antiinflamatoria lipedema — alimentacion-antiinflamatoria-lipedema
 - [pendiente] Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas — preguntas primera cita piernas — preguntas-primera-cita-piernas
 - [pendiente] Antecedentes familiares y salud vascular: qué preguntar en casa — antecedentes familiares várices — antecedentes-familiares-varices
