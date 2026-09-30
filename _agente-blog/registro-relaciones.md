@@ -491,3 +491,110 @@ mensajes, vale más revisar y enviar (o descartar) los que ya están listos.
 
 · Mensajes listos para enviar: 0 (7 mensajes de semanas anteriores siguen pendientes de envío — ver
 arriba)
+
+---
+
+## Semana del 2026-09-30
+
+· Sitios revisados: 6 (búsqueda general de "Seravena" en Google, Vivir en El Poblado — sección Salud
+y ficha de contacto editorial, Consultorios Salud Vegas / consultoriossaludvegas.com, Doctoralia.co
+— condiciones de registro, prensa local — El Colombiano/Q'hubo/Minuto30 buscando cobertura de
+lipedema) + las 3 búsquedas objetivo en Google ("várices Medellín", "flebólogo Medellín", "eco
+doppler venoso Medellín") + revisión directa del código de las 20 páginas raíz del sitio que
+mencionan la dirección
+· Seravena aparece en: 0
+
+### Nombre/dirección/teléfono: sin incoherencias nuevas
+
+Revisé directamente el código fuente de todas las páginas raíz que mencionan la dirección (20 en
+total, ya no son 9: el sitio ha crecido con páginas nuevas desde la primera revisión). Las 20, sin
+excepción, usan **Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316** — la misma
+dirección que confirman las instrucciones de esta semana contra la ficha del edificio en Google.
+Nada que corregir en la web.
+
+Sigue abierto un detalle menor que llevo señalando desde la primera semana (2-sep) y que no depende
+de mí corregir: mi propio manual (`agentes/8-relacionista-publico.md`) todavía trae la dirección
+vieja, **Calle 2 Sur No. 46-55, Of. 1316**, en el bloque "Qué entregas cada semana". No afecta el
+trabajo — uso la dirección verificada que traen las instrucciones semanales, no la del manual — pero
+ya son 4 semanas sin que se actualice ese archivo. Lo repito una vez más y no voy a seguir
+insistiendo cada semana: es una línea de texto, se corrige cuando alguien edite ese archivo por otro
+motivo.
+
+No encontré ninguna mención nueva de Seravena en ningún sitio esta semana (la única aparición en la
+búsqueda general de "Seravena Medellín" son mis propios informes anteriores en los issues de este
+repositorio, no una mención externa real). Sigue en cero: no hay nada que corregir ni pedir que
+enlace a nombre de Seravena.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: los mismos de siempre siguen dominando, sin novedad — Doctoralia,
+Top Doctors, Vasculab, Variclinic, Francovascular, Centrolab, Cardiovas IPS y dopplervenosomedellin.com
+para "eco doppler venoso Medellín"; Top Doctors, Doctoralia, Clínica Medellín/QuirónSalud y
+Variclinic para "várices Medellín"/"flebólogo Medellín". Ninguno es nuevo frente a lo ya registrado
+las semanas anteriores.
+
+### Oportunidad nueva: Vivir en El Poblado ya tiene un contacto editorial verificable
+
+La semana del 9-sep dejé anotado que este periódico local (el del barrio donde está Seravena) era un
+encaje evidente pero que solo tenía un correo de publicidad, no editorial, así que no redacté mensaje.
+Esta semana encontré un correo distinto y verificable: **alexander@vivirenelpoblado.com**, de
+Alexander Barajas Maldonado, uno de los periodistas del medio (la dirección editorial es de Carlos
+Salgado R.). No puedo confirmar desde aquí si él cubre específicamente la sección Salud o si el correo
+simplemente redirige a quien corresponda, así que el mensaje va dirigido a "la sección Salud" y no le
+asigno personalmente el tema. Mensaje 1, abajo — mismo contenido y mismo enfoque (ofrecer al equipo
+médico como fuente, sin pedir nada a cambio) que el Mensaje 3 a El Colombiano de la semana del 2-sep,
+que sigue sin enviarse.
+
+### Revisado y sin mensaje nuevo
+
+- **Consultorios Salud Vegas** (consultoriossaludvegas.com) — confirmé que el sitio existe y sigue
+  ofreciendo arriendo de consultorios amoblados en el mismo edificio, pero no encontré ningún correo
+  de contacto público, solo el teléfono ya anotado la semana pasada (604 460 9940). Sigue sin canal de
+  contacto seguro para redactar un mensaje.
+- **Doctoralia** — reconfirmé que el registro es gratuito y de autoservicio, con cuenta propia del
+  administrador de la clínica. Sigue sin ser un mensaje mío: es la propuesta del estratega
+  (2026-W34-4), autorregistro de Laura.
+- **Prensa local sobre lipedema** (El Colombiano, Q'hubo, Minuto30) — no encontré ninguna nota nueva
+  de 2026 sobre lipedema escrita desde Medellín. Sin cambios frente a lo ya registrado.
+
+### ⚠️ El cuello de botella sigue siendo el envío, ya van 4 semanas
+
+Con el mensaje de esta semana son **8 mensajes acumulados sin enviar** desde el 2 de septiembre:
+Lipedema Colombia y Asovascular (2-sep), Clínica Las Vegas — con el ajuste de tono señalado el
+16-sep — y Escuela Colombiana de Linfología (9-sep), ACMV y ACHC (16-sep), El Colombiano (2-sep) y
+Vivir en El Poblado (esta semana). Ninguno ha caducado ni perdió vigencia, pero cuatro semanas sin
+mover ninguno es tiempo real perdido frente a las clínicas que sí aparecen en las búsquedas objetivo.
+Se lo repito a Laura de forma directa: el trabajo de investigación y redacción está al día; lo que
+falta es que alguien revise esta lista y decida, mensaje por mensaje, cuáles enviar tal cual, cuáles
+ajustar primero y cuáles descartar.
+
+· Mensajes listos para enviar: 1 (8 mensajes en total siguen pendientes de envío, contando los 7 de
+semanas anteriores — ver arriba)
+
+---
+
+#### Mensaje 1
+
+**Destinatario:** Vivir en El Poblado, sección Salud
+**Dirección de contacto:** alexander@vivirenelpoblado.com
+**Asunto:** Fuente médica disponible para nota sobre lipedema (no es un PQR) — Seravena, Medellín
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, una clínica de El Poblado dedicada al lipedema y la salud vascular.
+> Este no es un reclamo ni una petición de servicio: es un mensaje para la sección Salud.
+>
+> El lipedema es una condición poco conocida, que muchas veces se confunde con sobrepeso o celulitis,
+> y que ha tenido cobertura reciente en medios nacionales. No encontramos ninguna nota sobre el tema
+> escrita desde El Poblado o Medellín. Si en algún momento están preparando contenido sobre piernas
+> hinchadas, várices, lipedema o salud vascular, nuestro equipo médico está disponible como fuente
+> para consultas o entrevistas, sin ningún costo ni condición de por medio.
+>
+> Quedamos atentos.
+>
+> Seravena · SERAVENA S.A.S.
+> Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, El Poblado, Medellín, Antioquia,
+> Colombia
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
