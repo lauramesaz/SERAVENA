@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-02 | lipedema-valoracion-particular | Lipedema en Colombia: por qué muchas pacientes buscan valoración particular | lipedema valoración particular | publicado | — | — | — |
 | 2026-10-01 | varices-eps-o-particular | Várices por EPS o particular: diferencias reales en Colombia | várices eps o particular | publicado | — | — | — |
 | 2026-09-30 | hablar-en-familia-lipedema | Cómo hablar en familia sobre el lipedema | hablar en familia sobre el lipedema | publicado | — | — | — |
 | 2026-09-29 | primera-cita-varices-medellin | Primera cita por várices en Medellín: qué llevar y qué te van a preguntar | primera cita por várices en Medellín | publicado | — | — | — |

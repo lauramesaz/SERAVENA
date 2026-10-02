@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-01",
+  "actualizado": "2026-10-02",
   "articulos": [
+    {
+      "fecha": "2026-10-02",
+      "titulo": "Lipedema en Colombia: por qué muchas pacientes buscan valoración particular",
+      "slug": "lipedema-valoracion-particular",
+      "categoria": "Lipedema",
+      "keyword": "lipedema valoración particular",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-valoracion-particular",
+      "nota": "Tema LOCAL prioritario del racimo 'lipedema'. Explica por qué el diagnóstico de lipedema tarda años en Colombia (poca formación médica, sin examen único que lo confirme) y por qué muchas pacientes optan por una valoración particular con especialista, sin afirmar coberturas ni plazos de EPS. Médico: aprobado. SEO: 98/100, APTO. Prueba de humanidad: 9/10."
+    },
     {
       "fecha": "2026-10-01",
       "titulo": "Várices por EPS o particular: diferencias reales en Colombia",
