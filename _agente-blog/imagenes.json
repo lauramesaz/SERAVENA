@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-01",
+  "actualizado": "2026-10-03",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -270,6 +270,10 @@
     "lipedema-valoracion-particular": {
       "imagen": "sede-recepcion.webp",
       "alt": "Recepción de la clínica Seravena en El Poblado, Medellín, donde se realizan las valoraciones particulares de lipedema"
+    },
+    "precio-tratamiento-varices-colombia": {
+      "imagen": "sede-cabina.webp",
+      "alt": "Sala de tratamiento de Seravena en El Poblado, Medellín, donde se valora cada caso de várices antes de hablar de costo"
     }
   }
 }
