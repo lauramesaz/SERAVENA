@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-03",
+  "actualizado": "2026-10-04",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -274,6 +274,10 @@
     "precio-tratamiento-varices-colombia": {
       "imagen": "sede-cabina.webp",
       "alt": "Sala de tratamiento de Seravena en El Poblado, Medellín, donde se valora cada caso de várices antes de hablar de costo"
+    },
+    "medico-vascular-o-cirujano-colombia": {
+      "imagen": "sede-fachada.webp",
+      "alt": "Fachada del consultorio de Seravena en El Poblado, Medellín, donde se atienden las valoraciones vasculares particulares"
     }
   }
 }
