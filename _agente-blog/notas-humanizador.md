@@ -4,9 +4,6 @@ Redactor (1) y Editor (1b): leer ANTES de escribir. Aquí están los vicios que 
 Formato: fecha · agente · vicio · ejemplo corto.
 
 ## Activas
-- 2026-09-23 · Redactor · rayas largas (—) como muletilla · 213 en 44 de 59 artículos
-- 2026-09-23 · Redactor/SEO · todas las meta description en molde "¿…? Te contamos…" · ver cualquier post
-- 2026-09-23 · Redactor · "Es importante…" como relleno · 16 apariciones
 - 2026-09-23 · Redactor · "No estás sola" repetido · 7 artículos
 - 2026-09-25 · Redactor · cierre que repite la conclusión ("es apenas el primer paso...") en vez de dar una acción concreta para el día siguiente · lipedema-y-trabajo.html terminaba la sección "Hablar del tema en tu trabajo" sin decir qué hacer mañana
 - 2026-09-25 · Redactor · h2 de cierre "En resumen" (fórmula de relleno prohibida usada como título de sección, no solo en el texto) · varices-tratamiento-sin-cirugia.html
@@ -29,5 +26,8 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-10-03 · Redactor (archivo viejo) · variante nueva de la familia "te contamos": "Aquí te explicamos" usado en el post-lead · trombosis-venosa-senales.html (el Policía lo quitó sin perder el mensaje)
 - 2026-10-04 · Redactor (archivo viejo) · 5 rayas largas (—) como muletilla en un mismo artículo (post-lead, primer párrafo del cuerpo, factores laborales, calzado y elevar piernas al llegar a casa), muy por encima del máximo de 1, además de "Te contamos"/"Aquí te contamos" repetido en post-lead y cuerpo · cuidar-piernas-trabajo-de-pie.html (el Policía dejó solo 1 raya larga, dentro del blockquote, y quitó las 2 apariciones de "te contamos")
 - 2026-10-04 · Redactor/Editor · meta description (replicada en og:description, twitter:description y el "description" del JSON-LD) otra vez en el molde prohibido "¿Pregunta? Te explicamos…" pese a la multa activa desde 2026-09-23 sobre ese mismo molde · medico-vascular-o-cirujano-colombia.html: "¿Médico vascular o cirujano vascular? En Colombia son la misma especialidad. Te explicamos a quién consultar..." (el Policía la reescribió como dato concreto sin pregunta ni "te explicamos", y replicó el cambio en las 4 copias)
+- 2026-10-05 · Redactor (archivo viejo) · primer párrafo del cuerpo abre con definición de enciclopedia ("La escleroterapia es uno de los tratamientos más usados en el mundo para las várices...") en vez de la situación de la lectora — mismo vicio ya multado el 2026-09-25, sigue apareciendo en archivos viejos · escleroterapia-que-es.html (el Policía puso primero la situación de la lectora -las líneas rojizas/azuladas, la pesadez- y la definición después)
+- 2026-10-05 · Redactor (archivo viejo) · "te contamos" usado 3 veces en el mismo artículo (post-lead "Aquí te contamos", el aside de servicio local y la sección de embarazo) · escleroterapia-que-es.html (el Policía quitó las 3 variando cada frase sin perder el mensaje)
+- 2026-10-05 · Redactor (archivo viejo) · cuerpo muy por encima del límite de 700-1100 palabras (1298 palabras), vicio ya multado el 2026-09-27 y 2026-10-01 por el mismo motivo · escleroterapia-que-es.html (el Policía solo pudo recortar ~20 palabras en este turno sin tocar datos ni enlaces; queda pendiente de un recorte más profundo)
 
 ## Resueltas
