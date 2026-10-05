@@ -598,3 +598,104 @@ semanas anteriores — ver arriba)
 > Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, El Poblado, Medellín, Antioquia,
 > Colombia
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-10-05
+
+· Sitios revisados: 12 (las 3 búsquedas objetivo en Google — "várices Medellín", "flebólogo
+Medellín", "eco doppler venoso Medellín" —, búsqueda general de "Seravena" y de "Seravena
+Instagram", Infolocal / Comfenalco Antioquia, encolombia.com — directorio de clínicas y
+hospitales —, Clúster Medellín Health City, lipedemacolombia.com/single-location/medellin,
+Clínica Las Vegas — página de contacto oficial —, El Mundo (prensa local), revistas médicas
+colombianas buscando artículos de lipedema en 2026)
+· Seravena aparece en: 0
+
+### Nombre/dirección/teléfono: sin novedad
+
+La búsqueda general de "Seravena" y de "clinicaseravena.com" solo devuelve mis propios informes
+anteriores en los issues de este repositorio y el propio blog — ninguna mención externa real,
+igual que las semanas anteriores. Sigue en cero. Reconfirmé que **Calle 2 Sur #46-159, Torre
+Médica Salud Vegas, consultorio 1316** es la dirección correcta (coincide con la ficha del
+edificio en Google que traen las instrucciones de esta semana), así que no hay nada que corregir
+a nombre de Seravena.
+
+Sin cambios en el ruido ya conocido del edificio: la página oficial de contacto de **Clínica Las
+Vegas** (clinicalasvegas.com/contacto) sigue dando "Calle 2 Sur #46-55" — lo mismo que señalé el
+9-sep y el 23-sep. Sigue en pie la recomendación de que Laura quite o suavice ese párrafo antes de
+enviar el Mensaje 1 de la semana del 2026-09-09.
+
+Dato de contexto, sin acción: confirmé que **El Mundo**, el periódico de Medellín, cerró en 2020 —
+no es una oportunidad de prensa perdida, nunca estuvo disponible en este proyecto.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre, sin ningún nombre nuevo frente a
+lo ya registrado (Doctoralia, Top Doctors, Vasculab, Variclinic, Franco Vascular, Centrolab,
+Cardiovas IPS, dopplervenosomedellin.com, Clínica Medellín/QuirónSalud). También confirmé, de
+paso, que en `lipedemacolombia.com/single-location/medellin` ya hay dos profesionales listados en
+el mismo edificio de Seravena (Edificio Salud Vegas, piso 16, consultorio 1610) — un dato que
+refuerza, sin cambiar nada, que el Mensaje 1 a Adriana (Lipedema Colombia, redactado el 2-sep y
+aún sin enviar) sigue siendo la vía correcta: ese directorio ya tiene presencia en la torre, solo
+falta que Seravena esté en él.
+
+### Oportunidad nueva: Infolocal, el directorio de Comfenalco Antioquia
+
+Es un hallazgo nuevo, no revisado en semanas anteriores. **Infolocal** (infolocal.comfenalcoantioquia.com)
+es el Servicio de Información Local de Comfenalco Antioquia —la caja de compensación familiar del
+departamento, una entidad real y conocida, no un directorio basura— y mantiene un listado público
+de empresas por categoría, incluida "Salud, prevención y seguridad social", con subcategorías de
+clínicas e IPS/EPS. Ahí aparecen tanto clínicas grandes (Clínica CES, Clínica del Rosario, Clínica
+Vida, Centro Oncológico de Antioquia) como IPS más pequeñas (Coopsana IPS, Uroclin, Promedan IPS),
+así que no es un listado reservado solo a hospitales grandes. Tiene un correo de contacto
+verificado (infolocal@comfenalcoantioquia.com) y un formulario propio en
+infolocal.comfenalcoantioquia.com/index.php/nosotros/contactenos. No encontré si el alta tiene
+costo o es gratuita, así que el mensaje pregunta primero, no asume. Mensaje 1, abajo.
+
+- **encolombia.com** (directorio de clínicas y hospitales de Medellín) — lo revisé, pero su propio
+  contacto (marketing@encolombia.com) y su descripción de sí mismo ("transformamos la forma de
+  hacer publicidad") apuntan a que el directorio es un producto publicitario, no un listado
+  editorial gratuito. No redacto mensaje: no es mi función negociar un espacio pago, y comprar
+  presencia en un directorio no es lo que busca esta misión. Si Laura quiere explorarlo como
+  pauta, es una decisión de negocio suya, no una oportunidad de relaciones públicas.
+- **Clúster Medellín Health City** (Cámara de Comercio de Medellín) — sin cambios frente al 9-sep:
+  sigue siendo una afiliación formal, probablemente con matrícula y cuota, no algo que se resuelva
+  con un correo.
+- No encontré ninguna mención de Seravena sin enlace en ningún sitio nuevo esta semana.
+
+### Sobre lo acumulado: sigue sin enviarse nada
+
+Con el mensaje de esta semana son **9 mensajes listos sin enviar** desde el 2 de septiembre (5
+semanas). No repito el contenido de los 8 anteriores aquí —están completos arriba, en sus semanas
+respectivas—, pero sí lo repito a Laura en el aviso: el trabajo de investigación y redacción está
+al día semana tras semana; lo que no avanza es el envío. Esta semana encontré exactamente una
+oportunidad nueva y verificable (Infolocal); no inflo el número solo por rellenar el cupo de 3.
+
+· Mensajes listos para enviar: 1 (9 mensajes en total siguen pendientes de envío, contando los 8
+de semanas anteriores — ver arriba)
+
+---
+
+#### Mensaje 1
+
+**Destinatario:** Infolocal — Servicio de Información Local de Comfenalco Antioquia
+**Dirección de contacto:** infolocal@comfenalcoantioquia.com (también hay formulario en
+infolocal.comfenalcoantioquia.com/index.php/nosotros/contactenos; teléfono (604) 511 2133)
+**Asunto:** Consulta sobre el listado de clínicas e IPS — Seravena, Medellín
+
+**Cuerpo:**
+
+> Buenos días.
+>
+> Les escribimos de Seravena, una clínica de Medellín dedicada al lipedema y la salud vascular
+> (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, El Poblado).
+>
+> Vimos que en Infolocal tienen un listado de empresas en la categoría de salud, prevención y
+> seguridad social, con clínicas e IPS de distintos tamaños. Queríamos preguntar si el listado está
+> abierto a que una IPS como la nuestra solicite su inclusión, si tiene algún costo y qué datos
+> necesitan de nuestra parte.
+>
+> Quedamos atentos a lo que nos puedan indicar.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
