@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-04",
+  "actualizado": "2026-10-05",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "drenaje-linfatico-medellin": {
+      "imagen": "sede-consultorio.webp",
+      "alt": "Sala de consulta de Seravena en El Poblado, Medellín, donde se valora si el drenaje linfático tiene sentido dentro del manejo del lipedema"
+    },
     "varices-eps-o-particular": {
       "imagen": "sede-consultorio.webp",
       "alt": "Consultorio de Seravena en El Poblado, Medellín, donde se atienden las valoraciones particulares de várices"
