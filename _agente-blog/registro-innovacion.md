@@ -106,6 +106,37 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   listos para Lipedema Colombia, Asovascular, ACMV, ACHC, Clínica Las Vegas), así que lo marqué
   caducado para no duplicar seguimiento, no porque haya perdido sentido. Aviso a Laura: nota en
   GitHub con etiqueta `propuestas`.
+- **2026-10-05 · 2 propuestas nuevas (W41-1, W41-2) + 2 propuestas caducadas.** Hice
+  `git checkout main` + `git pull` (el checkout local estaba en HEAD separado tras el commit
+  más reciente del relacionista; se actualizó sin tocar nada en producción). Repetí las 5
+  búsquedas objetivo: Seravena sigue sin aparecer en ninguna; misma competencia dominante de
+  siempre (Doctoralia, Top Doctors, Franco Vascular, Flebosalud, Internista Vascular Medellín,
+  Clínica Somos, Centrolab, Cardiovas IPS, dopplervenosomedellin.com, CFMEDICINA, Angiosur, MDE
+  Care, Clínica Bedharma, Clínica Medellín/QuirónSalud, Vasculab) más otras vistas hoy por
+  primera vez (Centro Médico Buenos Aires Medellín, Venitas Medellín, Centro de Estéticas
+  Medellín, Derma Skin Care). Antes de proponer comprobé en el código el estado de W40-1 (tel:
+  en index.html) y W40-2 (MedicalClinic duplicado en insuficiencia-venosa.html): ninguna de las
+  dos se ha implementado todavía, así que no las repetí. También comprobé que las 3 páginas
+  nuevas de tratamiento creadas el 24-sep (varices-medellin, escleroterapia-medellin,
+  eco-doppler-venoso-medellin) ya tienen tel:, geo, sameAs y @id consistentes con el resto del
+  sitio, y que el FAQ visible y el JSON-LD `FAQPage` de los 4 artículos publicados esta semana
+  coinciden palabra por palabra: nada que proponer ahí. Revisé las propuestas pendientes de más
+  de un mes: W36-1 (horario + mapa, 31-ago, 35 días) y W36-2 (autoevaluación venosa, 31-ago, 35
+  días) siguen en `propuesta` sin que nadie las apruebe y sin que se hayan implementado (comprobé
+  el código: sigue sin existir `openingHours` ni horario visible, y la única autoevaluación que
+  hay es de lipedema, no venosa), así que las marqué `caducada` con una nota cada una en vez de
+  repetirlas; ambas siguen teniendo sentido, solo caduca el plazo. Encontré dos huecos nuevos y
+  verificables, ninguno repetido: (1) de las 19 páginas raíz, `index.html` —la portada— es la
+  ÚNICA que declara `<html lang="es">` genérico en vez de `lang="es-CO"` como las otras 18,
+  contradiciendo su propio JSON-LD que ya dice `"inLanguage": "es-CO"`; es justo el tipo de señal
+  de idioma/región relevante para el problema España-vs-Colombia diagnosticado el 28-sep; (2)
+  ninguna página de servicio del sitio menciona un precio (0 coincidencias de '$' o 'COP' en
+  vascular, varices-medellin, escleroterapia-medellin, eco-doppler-venoso-medellin,
+  insuficiencia-venosa, contacto), mientras que buscando hoy 'eco doppler venoso Medellín'
+  encontré que Cardiovas IPS ($275.000) y Centrolab ($316.000) sí publican el precio exacto de
+  ese examen puntual de precio fijo —distinto del tratamiento de várices, que el propio blog de
+  esta semana explica con razón que no tiene tarifa fija por paciente—. Aviso a Laura: nota en
+  GitHub con etiqueta `propuestas`.
 - **2026-09-28 · 2 propuestas nuevas (W40-1, W40-2).** Antes de proponer, hice `git checkout main`
   + `git pull` (el checkout local estaba en HEAD separado, 47 commits detrás de `origin/main`; se
   actualizó sin tocar nada en producción) y repasé todo lo que cambió desde el 21-sep: el sitio dio

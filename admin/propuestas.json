@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-09-28",
+  "actualizado": "2026-10-05",
   "propuestas": [
+    {
+      "id": "2026-W41-1",
+      "fecha": "2026-10-05",
+      "titulo": "Corregir el idioma declarado de la portada: dice 'es', debería decir 'es-CO' como el resto del sitio",
+      "categoria": "Técnico",
+      "que": "En `index.html`, cambiar el atributo `<html lang=\"es\">` a `<html lang=\"es-CO\">`. Es el único cambio: no toca ningún otro atributo ni el diseño visible.",
+      "porque": "Comprobado hoy en el código, página por página: de las 19 páginas raíz del sitio, `index.html` —la portada, la página con más tráfico— es la ÚNICA que declara `lang=\"es\"` genérico en vez de `lang=\"es-CO\"`; las otras 18 (incluidas `vascular.html`, `insuficiencia-venosa.html` y las 3 páginas de tratamiento) ya usan `es-CO`. La propia portada ya declara `\"inLanguage\": \"es-CO\"` en su JSON-LD, así que hoy se contradice a sí misma: le dice a Google una cosa en el `<html>` y otra en los datos estructurados. Es justo el tipo de señal de idioma/región que importa para el problema que el equipo diagnosticó el 28-sep-2026 (868 de 1.410 apariciones en Google fueron en España, solo 242 en Colombia) — no lo va a resolver por sí sola, pero es una inconsistencia real, verificable y gratuita de corregir, justo en la página de entrada.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que las 19 páginas raíz, sin excepción, declaren `lang=\"es-CO\"` (comprobación directa en el código). Si Search Console vuelve a conectarse, vigilar si baja la proporción de apariciones en España frente a Colombia en las semanas siguientes — aunque ese cambio no se puede atribuir solo a este ajuste.",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W41-2",
+      "fecha": "2026-10-05",
+      "titulo": "Publicar el precio real del eco doppler venoso en su página (es un examen de precio fijo, no un tratamiento personalizado)",
+      "categoria": "Local",
+      "que": "En `eco-doppler-venoso-medellin.html`, añadir una mención visible del precio real del eco doppler venoso que se hace en el consultorio de El Poblado (una cifra en pesos colombianos, la misma que ya se cobra hoy en recepción), en el cuerpo del texto y, si cabe sin romper el patrón del resto de preguntas, como una pregunta frecuente nueva tipo '¿Cuánto cuesta el eco doppler venoso en Seravena?'. Laura tiene que confirmar primero la cifra exacta: no se inventa ni se calcula.",
+      "porque": "Comprobado hoy en el código: ninguna de las páginas de servicio del sitio (`vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `contacto.html`) menciona un precio, ni en pesos ni como rango — cero coincidencias de '$' o 'COP'. Repitiendo hoy la búsqueda 'eco doppler venoso Medellín' encontré que dos competidores publican el precio exacto de ese mismo examen: Cardiovas IPS ($275.000) y Centrolab ($316.000, 30 minutos). A diferencia del tratamiento de várices —que el propio blog de esta semana ('precio-tratamiento-varices-colombia', 3-oct) explica con razón que no tiene tarifa fija porque depende del caso—, el eco doppler es 'un estudio propio que se cobra de forma independiente' (cita literal de ese mismo artículo): un examen puntual con un precio que sí es fijo y conocido de antemano. No es un gancho promocional: es la misma transparencia de precio que el propio manual señala como una de las cosas que tienen las clínicas que hoy salen primero, aplicada solo al único servicio del sitio donde el precio no varía por paciente.",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "ambos",
+      "como_se_mide": "Impresiones y posición de 'eco doppler venoso Medellín' y 'precio eco doppler Medellín' en Search Console para esa URL en las 4-6 semanas siguientes a publicarse (hoy la página no aparece en los resultados para ninguna de las dos). Señal más simple e inmediata: que la cifra esté visible en la página y coincida con la que de verdad se cobra en recepción.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W40-1",
       "fecha": "2026-09-28",
@@ -123,7 +149,9 @@
       "esfuerzo": "bajo",
       "impacto": "alto",
       "quien": "ambos",
-      "estado": "propuesta",
+      "estado": "caducada",
+      "caducada_el": "2026-10-05",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobado hoy en el código, ninguna página tiene el campo `openingHours` en su JSON-LD ni un horario visible en el texto. Solo se avanzó la mitad que no pedía Laura: `contacto.html` ya tiene un enlace a Google Maps (añadido el 22-sep junto al Perfil de Empresa), pero no es un mapa embebido y no sustituye el horario. Caduca el plazo de repetirla cada semana, no la idea; sigue esperando que Laura confirme el horario real.",
       "que": "En `contacto.html`, añadir un bloque visible con el horario real de atención (días y horas) junto a los datos de WhatsApp y correo que ya existen, y añadir un mapa de Google Maps embebido con la ubicación exacta (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316). Además, añadir el campo `openingHours` al bloque JSON-LD `MedicalClinic` que ya existe, repetido, en las 8 páginas del sitio raíz (index, vascular, insuficiencia-venosa, lipedema, proceso, preguntas, profesionales, contacto), con ese mismo horario. Laura tiene que decir primero cuál es el horario real: eso no se puede inventar.",
       "porque": "Comprobado hoy en el código fuente: ninguna de las 8 páginas del sitio raíz menciona un horario de atención, ni en el texto visible ni en el JSON-LD (el campo `openingHours` no existe en ningún `MedicalClinic` del sitio), y `contacto.html` no tiene ningún mapa embebido. `openingHours` es uno de los campos de schema.org que Google usa para negocios locales, y es además el dato más básico que una paciente necesita antes de llamar o presentarse — hoy no aparece en ningún sitio de la web.",
       "como_se_mide": "Que 'horario' aparezca en el resultado enriquecido de Google al buscar 'Seravena Medellín' (hoy no aparece). Primeras señales en 2-4 semanas tras el rastreo, en cuanto Google vuelva a indexar las páginas."
@@ -136,7 +164,9 @@
       "esfuerzo": "medio",
       "impacto": "medio",
       "quien": "Claude",
-      "estado": "propuesta",
+      "estado": "caducada",
+      "caducada_el": "2026-10-05",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobado hoy en el código, la única autoevaluación que existe (`index.html`, `lipedema.html`) es sobre lipedema, no sobre insuficiencia venosa/várices. Caduca solo el plazo de repetirla cada semana; al ser esfuerzo medio ha quedado detrás de propuestas más baratas, no porque haya perdido vigencia.",
       "que": "Crear una página nueva (`autoevaluacion-piernas.html`) con 6-8 preguntas de sí/no sobre síntomas ya cubiertos y aprobados en el blog (pesadez, hinchazón al final del día, arañitas o várices visibles, calambres nocturnos, picor, muchas horas de pie o sentada). Al final, un resultado en dos niveles simples — 'vale la pena que te revise un especialista' o 'por ahora no hay señales de alarma, seguí cuidándote' — sin diagnosticar ni prometer nada, con enlace a agendar valoración y una mención del eco doppler como el examen que sí lo confirma. Enlazar la página nueva desde el menú, `vascular.html` e `insuficiencia-venosa.html`.",
       "porque": "Hipótesis sin datos de posición: no hay forma de medir hoy si esto mejora el ranking. Es un hueco de formato, no de contenido: de las 9 páginas de la competencia que salieron hoy en los 5 resultados de búsqueda (Franco Vascular, Vasculab, Flebosalud, Cardiovas IPS, CF Medicina, Clínica Bedharma, Doctoralia, Top Doctors y el sitio dedicado dopplervenosomedellin.com), ninguna ofrece una autoevaluación interactiva: todas son páginas de servicio o listados estáticos. El propio manual del agente señala las autoevaluaciones, en la sección de formatos nuevos, como una vía que Seravena todavía no ha probado.",
       "como_se_mide": "Tiempo medio en la página y clics hacia 'Agendar valoración' desde ella en Google Analytics, comparados con el promedio de las páginas de servicio. Primera lectura a las 4 semanas de publicada."
