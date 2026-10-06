@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-06 | medias-compresion-colombia-comprar | Medias de compresión en Colombia: cómo elegirlas, tallas y dónde comprarlas | medias de compresión colombia | publicado | — | — | — |
 | 2026-10-05 | drenaje-linfatico-medellin | Drenaje linfático en Medellín: cuándo sirve y cómo elegir dónde hacerlo | drenaje linfático medellín | publicado | — | — | — |
 | 2026-10-04 | medico-vascular-o-cirujano-colombia | Médico vascular o cirujano vascular: a quién consultar por várices en Colombia | médico vascular colombia | publicado | — | — | — |
 | 2026-10-03 | precio-tratamiento-varices-colombia | Precio del tratamiento de várices en Colombia: de qué depende | precio tratamiento várices colombia | publicado | — | — | — |
