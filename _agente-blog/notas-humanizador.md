@@ -4,8 +4,6 @@ Redactor (1) y Editor (1b): leer ANTES de escribir. Aquí están los vicios que 
 Formato: fecha · agente · vicio · ejemplo corto.
 
 ## Activas
-- 2026-09-23 · Redactor · "No estás sola" repetido · 7 artículos
-- 2026-09-25 · Redactor · cierre que repite la conclusión ("es apenas el primer paso...") en vez de dar una acción concreta para el día siguiente · lipedema-y-trabajo.html terminaba la sección "Hablar del tema en tu trabajo" sin decir qué hacer mañana
 - 2026-09-25 · Redactor · h2 de cierre "En resumen" (fórmula de relleno prohibida usada como título de sección, no solo en el texto) · varices-tratamiento-sin-cirugia.html
 - 2026-09-25 · Redactor · primer párrafo del cuerpo abre con definición de enciclopedia ("Las várices son venas hinchadas y retorcidas que se ven justo debajo de la piel...") en vez de la situación de la lectora · varices-tratamiento-sin-cirugia.html
 - 2026-09-25 · Redactor · "Aquí te contamos" como fórmula de cierre del párrafo de entrada (post-lead) · varices-tratamiento-sin-cirugia.html
@@ -29,5 +27,9 @@ Formato: fecha · agente · vicio · ejemplo corto.
 - 2026-10-05 · Redactor (archivo viejo) · primer párrafo del cuerpo abre con definición de enciclopedia ("La escleroterapia es uno de los tratamientos más usados en el mundo para las várices...") en vez de la situación de la lectora — mismo vicio ya multado el 2026-09-25, sigue apareciendo en archivos viejos · escleroterapia-que-es.html (el Policía puso primero la situación de la lectora -las líneas rojizas/azuladas, la pesadez- y la definición después)
 - 2026-10-05 · Redactor (archivo viejo) · "te contamos" usado 3 veces en el mismo artículo (post-lead "Aquí te contamos", el aside de servicio local y la sección de embarazo) · escleroterapia-que-es.html (el Policía quitó las 3 variando cada frase sin perder el mensaje)
 - 2026-10-05 · Redactor (archivo viejo) · cuerpo muy por encima del límite de 700-1100 palabras (1298 palabras), vicio ya multado el 2026-09-27 y 2026-10-01 por el mismo motivo · escleroterapia-que-es.html (el Policía solo pudo recortar ~20 palabras en este turno sin tocar datos ni enlaces; queda pendiente de un recorte más profundo)
+- 2026-10-06 · Redactor/Editor · post-lead construido como índice de contenidos ("Esta guía cubre qué significan los mmHg, cómo medir tu talla correctamente y cuándo conviene resolverlo...") en vez de una frase que avance la idea — variante estructural de la misma familia de "aquí te contamos" (ya multada 2026-09-25/26) pero sin usar las palabras prohibidas, por eso no la atrapa el filtro de huellas · medias-compresion-colombia-comprar.html (el Policía lo reescribió sin enumeración de temas)
+- 2026-10-06 · Redactor/Editor · ritmo otra vez sin ningún párrafo de una sola línea en todo el cuerpo (mismo vicio multado el 2026-09-26), todas las frases de largo medio-largo seguidas · medias-compresion-colombia-comprar.html (el Policía partió 2 frases cortas ya existentes en párrafos propios de una línea en vez de añadir texto nuevo)
 
 ## Resueltas
+- 2026-09-23 · Redactor · "No estás sola" repetido · 7 artículos (sin recurrencia literal en 2 semanas; solo variantes ya registradas aparte el 2026-10-01)
+- 2026-09-25 · Redactor · cierre que repite la conclusión ("es apenas el primer paso...") en vez de dar una acción concreta para el día siguiente · lipedema-y-trabajo.html (sin recurrencia en 2 semanas)
