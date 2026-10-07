@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-06",
+  "actualizado": "2026-10-07",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -286,6 +286,10 @@
     "medico-vascular-o-cirujano-colombia": {
       "imagen": "sede-fachada.webp",
       "alt": "Fachada del consultorio de Seravena en El Poblado, Medellín, donde se atienden las valoraciones vasculares particulares"
+    },
+    "piernas-viaje-tierra-caliente": {
+      "imagen": "band-veins.webp",
+      "alt": "Piernas con medias de compresión apoyadas sobre una tela clara, como conviene cuidarlas en un viaje largo hacia tierra caliente"
     }
   }
 }

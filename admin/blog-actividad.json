@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-06",
+  "actualizado": "2026-10-07",
   "articulos": [
+    {
+      "fecha": "2026-10-07",
+      "titulo": "Viajes a tierra caliente: cómo cuidar las piernas si sales de Medellín a la costa",
+      "slug": "piernas-viaje-tierra-caliente",
+      "categoria": "Bienestar",
+      "keyword": "piernas hinchadas viaje calor",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piernas-viaje-tierra-caliente",
+      "nota": "Artículo del racimo 'situaciones'. Explica por qué se hinchan más las piernas al viajar de Medellín (clima templado) a tierra caliente, combinando el efecto del calor (vasodilatación) con la inmovilidad del viaje, y da medidas concretas antes, durante y al llegar. Médico: APROBADO CON CORRECCIÓN ya aplicada sobre el nivel de evidencia de las medias de compresión (se matizó que la evidencia es más fuerte para prevención de trombosis que para reducir la hinchazón en sí). SEO: 99/100, APTO. Prueba de humanidad (Policía humanizador): 9/10, sin cambios necesarios."
+    },
     {
       "fecha": "2026-10-06",
       "titulo": "Medias de compresión en Colombia: cómo elegirlas, tallas y dónde comprarlas",
