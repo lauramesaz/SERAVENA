@@ -699,3 +699,138 @@ infolocal.comfenalcoantioquia.com/index.php/nosotros/contactenos; teléfono (604
 >
 > Seravena · SERAVENA S.A.S.
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-10-07
+
+· Sitios revisados: 11 (las 3 búsquedas objetivo en Google, búsqueda general de "Seravena" y de
+"Seravena" fuera del propio dominio, masquemedicos.co, clinicasomos.co, Lipedema Foundation / LF
+Provider Directory, Sociedad Colombiana de Angiología y Cirugía Vascular, RUES/Cámara de Comercio
+de Medellín) + revisión directa del archivo `_agente-blog/kit-backlinks.md`
+
+### ⚠️ Hallazgo principal: ya existe un kit de backlinks completo, del 28-sep, que esta bitácora no conocía
+
+Buscando si el nombre del médico de Seravena aparecía en algún sitio (ver más abajo, es relevante),
+encontré por grep en el propio repositorio `_agente-blog/kit-backlinks.md` — un documento fechado
+el 28 de septiembre de 2026, con ficha maestra, checklist de perfiles por crear (Google, Doctoralia,
+Bing, Apple, Facebook, LinkedIn, 4 directorios), 11 aliados locales con mensajes plantilla, una nota
+de prensa lista para junio de 2027, **y los mismos 7 mensajes que yo venía redactando entre el 2 y
+el 16 de septiembre, ya revisados y con un octavo añadido**. No sé qué agente o sesión lo preparó —
+no está citado en ningún aviso de este tipo (relaciones) en los issues del repositorio, así que no
+puedo confirmar cuándo se avisó a Laura de que existía ni si ella ya lo ha visto.
+
+Esto cambia lo que vengo diciendo semana a semana:
+
+1. **El Mensaje 4 (Clínica Las Vegas) ya está corregido ahí.** El 16-sep señalé que había que quitar
+   el párrafo sobre la dirección del edificio antes de enviarlo; en el kit ese mensaje **ya no tiene
+   ese párrafo**. Dejo de repetir esa recomendación: ya está resuelta, solo que en otro archivo.
+2. **El "cuello de botella de 9 mensajes sin enviar" que lleva 5 semanas en esta bitácora en
+   realidad son 10**, contando el mensaje nuevo que trae el kit (grupos y cuentas de pacientes con
+   lipedema, dirigido a la página de Facebook de Lipedema Colombia). Los dos mensajes que yo añadí
+   después del 28-sep (Vivir en El Poblado, Infolocal) **no están en el kit**: si Laura va a usar el
+   kit como referencia única, habría que añadirlos ahí; si prefiere seguir usando esta bitácora, que
+   sepa que el kit tiene uno más que aquí no estaba.
+3. El kit confirma algo que yo no sabía: **Seravena sí tiene Instagram, @seravenams**
+   (instagram.com/seravenams), activo desde antes del 28-sep. Ninguno de mis informes anteriores lo
+   encontró como mención externa porque nunca hasta ahora busqué la cuenta por su usuario exacto.
+
+**Recomendación concreta:** que alguien (no yo, no toco ese archivo ni los demás del equipo) decida
+si el kit sustituye a esta bitácora como plan de envío o si se fusionan. Mientras eso no se decida,
+desde esta semana reviso también `kit-backlinks.md` antes de redactar, para no duplicar mensajes que
+ya estén ahí.
+
+### ⚠️ Cuidado con los resúmenes de IA del buscador: una conexión inventada
+
+Al buscar "Seravena Medellín lipedema" dos veces esta semana, el resumen del buscador afirmó con
+seguridad que Seravena está "liderada por el Dr. Jose David Puerta Rojas" y dio una biografía
+completa. Revisé los enlaces reales que el propio buscador citó como fuente: ninguno menciona a
+Seravena ni a ese médico junto con la clínica — son el perfil de Doctoralia de un médico con ese
+nombre (sin relación visible con Seravena) y artículos académicos sobre lipedema sin conexión con la
+clínica. Es decir, el resumen generado por el modelo del buscador inventó la conexión; no es una
+mención externa real y no la cuento como tal. Dato curioso y sin relación causal demostrable: ese
+mismo nombre, sin confirmar, aparece anotado como pendiente en el kit de la sección anterior
+("tenemos pendiente José Luis o José David Puerta") para el perfil de Doctoralia del médico — pero
+esa nota vive solo en un archivo de este repositorio, no en ningún sitio público que haya podido
+verificar, así que no puedo explicar la coincidencia; la trato como una alucinación del buscador, no
+como una fuga de información. Lo dejo anotado para que quien revise esto la próxima vez no repita el
+dato como si fuera un hecho confirmado.
+
+### Nombre/dirección/teléfono: sin incoherencias nuevas
+
+Sin cambios frente a las últimas semanas: la web sigue usando **Calle 2 Sur #46-159, Torre Médica
+Salud Vegas, consultorio 1316** en todas sus páginas, coincide con la ficha del edificio en Google
+que confirman las instrucciones de esta semana, y el ruido ya conocido de terceros sobre la
+dirección del edificio (Clínica Las Vegas con 46-55, Unidad Médica Las Vegas con otra variante) sigue
+igual, sin novedad que registrar.
+
+### Posible novedad sin confirmar: un perfil de Facebook llamado "Seravena"
+
+Buscando menciones externas apareció un perfil de Facebook cuyo título es exactamente "Seravena"
+(facebook.com/people/Seravena/pfbid028dTt7U5C3DXW1ZymFwhzNGWi4haWY8Axzh7a9vLoA5zw9TWKrJ2631sXdYa3i6Pjl/).
+No pude abrirlo: Facebook está bloqueado para este agente desde este entorno. El kit de la sección
+de arriba, del 28-sep, decía que la página de Facebook "todavía no existe" y traía instrucciones
+para crearla — si Laura ya la creó siguiendo esas instrucciones, esto sería esa misma página y sería
+una buena noticia. No lo doy por hecho: puede ser cualquier perfil personal con ese nombre. Pido a
+Laura una revisión de dos minutos (igual que pedí con el REPS en su momento): abrir ese enlace y
+confirmar que es la página de la clínica, que el nombre, dirección y teléfono coinciden con la ficha
+maestra, y que enlaza a la web.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: sin cambios, dominan los mismos de siempre (Doctoralia, Top
+Doctors, Vasculab, Variclinic, Franco Vascular, Centrolab, Cardiovas IPS, dopplervenosomedellin.com,
+Clínica Medellín/QuirónSalud). Nada nuevo frente a lo ya registrado.
+
+### Oportunidad nueva: LF Provider Directory (Lipedema Foundation, EE. UU.)
+
+Es un directorio internacional de profesionales que diagnostican o tratan lipedema, de una fundación
+real y conocida en el mundo del lipedema (ya citada como fuente en la nota de prensa del kit). Su
+formulario de registro pide número de licencia estatal ("state licensure number"), lo que sugiere que
+hoy está pensado para Estados Unidos. No encontré información de si acepta profesionales de otros
+países, así que el mensaje pregunta, no asume. Mensaje 1, abajo.
+
+### Revisado y sin mensaje nuevo
+
+- **masquemedicos.co** y **clinicasomos.co** — aparecieron esta semana en las búsquedas objetivo,
+  pero no encontré en ninguno de los dos una página de contacto, condiciones de registro ni
+  evidencia clara de que operen en Colombia (masquemedicos.co se fundó en Madrid y solo confirmé su
+  expansión a México). Mismo criterio que con encolombia.com: sin un canal verificado, no redacto
+  mensaje.
+- **Sociedad Colombiana de Angiología y Cirugía Vascular** — no encontré un sitio propio distinto de
+  Asovascular (a quien ya le escribimos el 2-sep); puede que sea el mismo gremio con otro nombre. Sin
+  mensaje nuevo.
+
+### Sobre lo acumulado
+
+No repito aquí el detalle semana a semana: ver la sección de arriba sobre `kit-backlinks.md`. En
+total, contando ese kit y esta bitácora, hay **11 mensajes listos para enviar** (10 de semanas
+anteriores + el de esta semana). Sigue sin enviarse ninguno.
+
+· Mensajes listos para enviar: 1 (11 en total entre esta bitácora y `kit-backlinks.md` — ver arriba)
+
+---
+
+#### Mensaje 1
+
+**Destinatario:** Lipedema Foundation — LF Provider Directory (EE. UU.)
+**Dirección de contacto:** info@lipedema.org
+**Asunto:** Question about international providers — Diagnosing Clinician Directory (Seravena, Medellín, Colombia)
+**Nota:** en inglés, porque la fundación es de Estados Unidos y es el idioma de su sitio y su directorio.
+
+**Cuerpo:**
+
+> Hello,
+>
+> We are writing from Seravena, a clinic in Medellín, Colombia dedicated to lipedema and vascular
+> health (Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, El Poblado).
+>
+> We saw that the LF Provider Directory's Diagnosing Clinician Directory asks for a state licensure
+> number, which suggests it may currently be limited to providers in the United States. We wanted to
+> ask whether the directory is open to providers outside the US, and if so, what you would need from
+> a clinic in Colombia to be considered.
+>
+> Thank you for the work you do connecting patients with providers who understand lipedema.
+>
+> Seravena · SERAVENA S.A.S.
+> +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
