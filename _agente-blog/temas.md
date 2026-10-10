@@ -171,7 +171,20 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Cómo hablar con tu familia sobre el lipedema — hablar en familia sobre lipedema — hablar-en-familia-lipedema
 - [descartado] Alimentación antiinflamatoria y lipedema: qué dice la evidencia — alimentación antiinflamatoria lipedema — alimentacion-antiinflamatoria-lipedema (anticanibalización, hallada por el orquestador el 9-oct-2026 antes de escribir: "dieta-y-lipedema.html", publicado y vivo, ya dedica un punto completo a "patrones de alimentación de tipo antiinflamatorio —ricos en verduras, frutas, pescado, aceite de oliva y frutos secos, con menos ultraprocesados, azúcar refinada y sal—" asociados a menos dolor e inflamación, con la misma evidencia que cubriría este tema. Un artículo nuevo centrado solo en eso competiría por la misma intención de búsqueda que ya cubre ese hermano. Se elige en su lugar el siguiente tema pendiente de temas.md.)
 - [publicado] Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas — preguntas primera cita piernas — preguntas-primera-cita-piernas — racimo: diagnostico
-- [pendiente] Antecedentes familiares y salud vascular: qué preguntar en casa — antecedentes familiares várices — antecedentes-familiares-varices
+- [descartado] Antecedentes familiares y salud vascular: qué preguntar en casa — antecedentes familiares várices — antecedentes-familiares-varices (anticanibalización, hallada por el orquestador el 10-oct-2026 antes de escribir: "varices-hereditarias-genetica.html", publicado el 18-sep-2026, ya cubre a fondo esta misma intención de búsqueda -su propia meta `keywords` incluye textualmente "antecedentes familiares de várices" y el post-lead ya pregunta y responde "qué puedes hacer si tienes antecedentes familiares"-. Un artículo nuevo centrado en qué preguntar en casa sobre antecedentes familiares competiría por la misma intención de búsqueda que ya cubre ese hermano. Como no quedaba ningún tema más pendiente, el orquestador añadió 10 temas nuevos a continuación y tomó el primero de ellos.)
+
+## Temas nuevos (añadidos por el orquestador el 10-oct-2026 — no quedaba ningún tema pendiente)
+
+- [pendiente] Várices y menopausia: qué cambia en esta etapa — várices y menopausia — varices-y-menopausia — racimo: situaciones
+- [pendiente] Cirugía de várices o tratamiento sin cirugía: cómo decidir — cirugía de várices o sin cirugía — varices-cirugia-o-sin-cirugia — racimo: tratamiento
+- [pendiente] Lipedema en los brazos: no solo son las piernas — lipedema en los brazos — lipedema-en-los-brazos — racimo: lipedema
+- [pendiente] Lipedema en la adolescencia: señales tempranas que no hay que ignorar — lipedema en adolescentes — lipedema-en-adolescentes — racimo: lipedema
+- [pendiente] ¿Se puede prevenir el lipedema? Lo que sí está en tus manos — prevención del lipedema — prevencion-del-lipedema — racimo: lipedema
+- [pendiente] Cuidados después de la escleroterapia: qué hacer los primeros días — cuidados después de escleroterapia — cuidados-despues-escleroterapia — racimo: tratamiento
+- [pendiente] Automasaje para piernas pesadas: qué puedes hacer en casa — automasaje piernas pesadas — automasaje-piernas-pesadas — racimo: situaciones
+- [pendiente] Zapatos y tacones: ¿empeoran las várices? — tacones y várices — tacones-y-varices — racimo: sintomas
+- [pendiente] ¿Qué es la "piel de naranja" y qué tiene que ver con el lipedema? — piel de naranja lipedema — piel-de-naranja-lipedema — racimo: lipedema
+- [pendiente] Medias de compresión en el embarazo: cuándo empezar a usarlas — medias de compresión embarazo — medias-compresion-embarazo — racimo: tratamiento
 
 ## Tema fijado por Laura (22-sep-2026)
 
