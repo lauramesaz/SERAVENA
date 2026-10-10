@@ -175,7 +175,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 ## Temas nuevos (añadidos por el orquestador el 10-oct-2026 — no quedaba ningún tema pendiente)
 
-- [pendiente] Várices y menopausia: qué cambia en esta etapa — várices y menopausia — varices-y-menopausia — racimo: situaciones
+- [publicado] Várices y menopausia: qué cambia en esta etapa — várices y menopausia — varices-y-menopausia — racimo: situaciones
 - [pendiente] Cirugía de várices o tratamiento sin cirugía: cómo decidir — cirugía de várices o sin cirugía — varices-cirugia-o-sin-cirugia — racimo: tratamiento
 - [pendiente] Lipedema en los brazos: no solo son las piernas — lipedema en los brazos — lipedema-en-los-brazos — racimo: lipedema
 - [pendiente] Lipedema en la adolescencia: señales tempranas que no hay que ignorar — lipedema en adolescentes — lipedema-en-adolescentes — racimo: lipedema

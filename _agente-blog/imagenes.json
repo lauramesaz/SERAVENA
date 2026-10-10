@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-09",
+  "actualizado": "2026-10-10",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "varices-y-menopausia": {
+      "imagen": "7886721.webp",
+      "alt": "Manos masajeando con suavidad la pantorrilla de una mujer, en un momento de cuidado de las piernas durante la menopausia"
+    },
     "preguntas-primera-cita-piernas": {
       "imagen": "sede-recepcion.webp",
       "alt": "Recepción del consultorio de Seravena en El Poblado, Medellín, donde empieza la primera cita por piernas hinchadas"

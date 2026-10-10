@@ -8,6 +8,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-10 | varices-y-menopausia | Várices y menopausia: qué cambia en esta etapa | várices y menopausia | publicado | — | — | — |
 | 2026-10-09 | preguntas-primera-cita-piernas | Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas | preguntas primera cita piernas | publicado | — | — | — |
 | 2026-10-08 | caminar-lomas-medellin-circulacion | Caminar y circulación en las lomas de Medellín: ¿ayuda a las venas y al lipedema? | caminar y circulación | publicado | — | — | — |
 | 2026-10-07 | piernas-viaje-tierra-caliente | Viajes a tierra caliente: cómo cuidar las piernas si sales de Medellín a la costa | piernas hinchadas viaje calor | publicado | — | — | — |

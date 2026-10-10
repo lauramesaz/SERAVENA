@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-09",
+  "actualizado": "2026-10-10",
   "articulos": [
+    {
+      "fecha": "2026-10-10",
+      "titulo": "Várices y menopausia: qué cambia en esta etapa",
+      "slug": "varices-y-menopausia",
+      "categoria": "Salud vascular",
+      "keyword": "várices y menopausia",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-y-menopausia",
+      "nota": "Artículo del racimo 'situaciones'. Explica qué papel juegan las hormonas de la menopausia en las várices, por qué la evidencia no respalda una relación causal simple (un estudio encontró que el estradiol alto, no bajo, se asociaba a más várices, y el sobrepeso explicaba mejor la asociación), qué se suma en esta etapa (peso, sedentarismo, terapia hormonal) y cuándo pedir un eco doppler. Médico: aprobado con correcciones. SEO: 99/100, APTO. Prueba de humanidad (Policía humanizador): 9/10, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-09",
       "titulo": "Preguntas para hacerle a tu médico en tu primera cita por piernas hinchadas",
