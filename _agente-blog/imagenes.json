@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-10",
+  "actualizado": "2026-10-11",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "varices-cirugia-o-sin-cirugia": {
+      "imagen": "treatment.webp",
+      "alt": "Especialista con guantes aplicando una inyección de escleroterapia en una pierna con várices, una de las opciones de tratamiento sin cirugía"
+    },
     "varices-y-menopausia": {
       "imagen": "7886721.webp",
       "alt": "Manos masajeando con suavidad la pantorrilla de una mujer, en un momento de cuidado de las piernas durante la menopausia"

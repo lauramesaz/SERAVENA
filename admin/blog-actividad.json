@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-10",
+  "actualizado": "2026-10-11",
   "articulos": [
+    {
+      "fecha": "2026-10-11",
+      "titulo": "Cirugía de várices o sin cirugía: cómo decidir",
+      "slug": "varices-cirugia-o-sin-cirugia",
+      "categoria": "Tratamiento",
+      "keyword": "cirugía de várices o sin cirugía",
+      "seo": 95,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varices-cirugia-o-sin-cirugia",
+      "nota": "Artículo del racimo 'tratamiento'. Explica las cuatro vías disponibles (compresión, escleroterapia, ablación térmica, cirugía convencional) y qué factores clínicos (tipo y tamaño de la vena, insuficiencia venosa de fondo, síntomas, tratamientos previos, embarazo) usa el especialista para recomendar una u otra. Médico: APROBADO CON CORRECCIÓN. SEO: 95/100, APTO. Policía humanizador (control final): sin hallazgos, texto ya sonaba natural, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-10",
       "titulo": "Várices y menopausia: qué cambia en esta etapa",
