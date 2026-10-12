@@ -175,3 +175,30 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   `"@id": "https://www.clinicaseravena.com/#clinica"` referenciado desde `MedicalWebPage` — quedó
   sin migrar al patrón que sí llegó al resto del sitio. Aviso a Laura: nota en GitHub con etiqueta
   `propuestas`, incluyendo el aviso sobre W37-1.
+- **2026-10-12 · 2 propuestas nuevas (W42-1, W42-2) + 1 propuesta caducada (W37-1).** Repetí las 5
+  búsquedas objetivo: Seravena sigue sin aparecer en ninguna; misma competencia dominante de
+  siempre (Doctoralia como directorio más visible en las 5 búsquedas, Vasculab, Centrolab,
+  cirujanos vasculares independientes con perfil en Doctoralia). No encontré competidores nuevos
+  esta semana, a diferencia de semanas anteriores. Antes de proponer comprobé en el código el
+  estado de las propuestas pendientes: W41-1 (`lang="es"` en index.html, debería ser `es-CO`),
+  W41-2 (precio del eco doppler sin publicar), W40-1 (sin `tel:` en index.html) y W40-2 (JSON-LD
+  duplicado en insuficiencia-venosa.html) — ninguna se ha implementado todavía, así que no las
+  repetí. Sí revisé a fondo W37-1 (canonical de insuficiencia-venosa.html, 7-sep, 35 días en
+  `propuesta`, más de un mes): comprobé hoy que las 94 páginas del sitio con `<link
+  rel="canonical">` lo declaran sin '.html' sin ninguna excepción, y que el sitemap tiene 0 URLs
+  con '.html' de 93 — la migración de 'direcciones limpias' del 24-sep ya cubre todo el sitio, sin
+  reversión en 18 días. Ejecutar W37-1 tal como está escrita rompería esa consistencia en vez de
+  corregir algo, así que la marqué `caducada` con la explicación en `admin/propuestas.json`.
+  Buscando huecos nuevos en el código encontré dos, ninguno repetido con lo pendiente: (1)
+  `blog/eco-doppler-venoso-que-es.html` tiene hoy `<title>` y `<h1>` casi idénticos a los de la
+  página de servicio `eco-doppler-venoso-medellin.html` — las dos páginas atacan la misma keyword
+  exacta, 'eco doppler venoso Medellín', una canibalización que contradice la regla explícita del
+  manual (§2b.8); comprobé que el artículo hermano de escleroterapia sí sigue esa regla hoy
+  (título '¿Duele la escleroterapia? Cómo funciona', sin competir con `escleroterapia-medellin.html`),
+  así que hay un patrón ya corregido en el propio sitio para hacer lo mismo con el de eco doppler;
+  (2) 14 archivos del sitio (15 apariciones, contando las 2 de insuficiencia-venosa.html) declaran
+  `"medicalSpecialty": "Vascular"` en su JSON-LD, un valor que confirmé hoy que NO existe en la
+  enumeración oficial `MedicalSpecialty` de schema.org — el valor correcto es 'Cardiovascular'; un
+  valor de enumeración no reconocido se descarta al validar los datos estructurados, así que esas
+  páginas no le están confirmando a Google, de forma válida, la especialidad médica de la clínica.
+  Aviso a Laura: nota en GitHub con etiqueta `propuestas`.

@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-10-05",
+  "actualizado": "2026-10-12",
   "propuestas": [
+    {
+      "id": "2026-W42-1",
+      "fecha": "2026-10-12",
+      "titulo": "Corregir la canibalización entre el artículo del blog y la página de servicio de eco doppler venoso Medellín",
+      "categoria": "Técnico",
+      "que": "En `blog/eco-doppler-venoso-que-es.html`, reescribir el `<title>` (hoy: 'Eco doppler venoso en Medellín: qué detecta | Seravena'), la meta description y el `<h1>` (hoy: 'Eco doppler venoso en Medellín: qué detecta') para que dejen de competir por la keyword exacta de la página de servicio `eco-doppler-venoso-medellin.html` (título hoy: 'Eco doppler venoso en Medellín: qué detecta y cómo es | Seravena'; H1: 'Eco doppler venoso en Medellín') y respondan en cambio una duda alrededor del examen, igual que ya se hizo con el artículo hermano de escleroterapia. Sincronizar el mismo cambio en `og:title`/`og:description`/`twitter:title`/`twitter:description` y en el `headline` del JSON-LD `MedicalWebPage` del artículo, sin tocar el resto del contenido médico ni el diseño. El artículo ya enlaza a la página de servicio: ese enlace se mantiene igual.",
+      "porque": "Comprobado hoy en el código: `blog/eco-doppler-venoso-que-es.html` tiene `<title>` 'Eco doppler venoso en Medellín: qué detecta | Seravena' y `<h1>` 'Eco doppler venoso en Medellín: qué detecta', casi idénticos al `<title>` y al `<h1>` de `eco-doppler-venoso-medellin.html` ('Eco doppler venoso en Medellín: qué detecta y cómo es' / 'Eco doppler venoso en Medellín'): las dos páginas atacan la misma keyword exacta, una de las 5 búsquedas objetivo de la misión. Esto contradice la regla de anticanibalización del propio manual del equipo (`_agente-blog/INSTRUCCIONES.md`, §2b.8): 'un artículo NUNCA ataca la misma keyword que una página de servicio […] El artículo responde una duda alrededor y enlaza a esa página'. Comprobé que el artículo hermano de escleroterapia sí sigue esa regla hoy: su título es '¿Duele la escleroterapia? Cómo funciona', una pregunta distinta a la de `escleroterapia-medellin.html` — así que hay un patrón ya corregido y probado en el propio sitio para hacer lo mismo aquí, no una idea nueva. Repetí hoy la búsqueda 'eco doppler venoso Medellín': Seravena no aparece entre los resultados revisados; cuando dos páginas propias compiten por la misma búsqueda, Google reparte la relevancia entre ellas en vez de concentrarla en la que de verdad convierte (la página de servicio, con botón de agendar).",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que el `<title>` y el `<h1>` del artículo ya no coincidan con los de la página de servicio (comprobación directa en el código). Si Search Console se conecta, vigilar si `eco-doppler-venoso-medellin.html` —no el artículo— empieza a aparecer para 'eco doppler venoso Medellín' en las 4-6 semanas siguientes; hoy ninguna de las dos páginas aparece.",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W42-2",
+      "fecha": "2026-10-12",
+      "titulo": "Corregir el valor inválido 'Vascular' por 'Cardiovascular' en el campo medicalSpecialty del JSON-LD, en las páginas que lo usan",
+      "categoria": "Técnico",
+      "que": "En las páginas que hoy declaran `\"medicalSpecialty\": \"Vascular\"` en su JSON-LD `MedicalClinic` o `MedicalWebPage` (`index.html`, `vascular.html`, `insuficiencia-venosa.html` —aparece 2 veces—, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `lipedema.html`, `contacto.html`, `proceso.html`, `preguntas.html`, `profesionales.html`, `sobre.html`, `test-lipedema.html`, `guia-lipedema-medicos.html`), cambiar ese valor por `\"medicalSpecialty\": \"Cardiovascular\"`. Es un cambio de texto en el mismo campo, en cada archivo; no toca ningún otro dato ni el diseño visible.",
+      "porque": "Comprobado hoy: 'Vascular' no es un valor de la enumeración oficial `MedicalSpecialty` de schema.org (verificado en schema.org y sus espejos); el valor correcto para esta especialidad es 'Cardiovascular', que sí está en la lista oficial y que schema.org define como la rama de la medicina que trata los trastornos del corazón y del sistema vascular. Hoy las páginas del sitio que declaran esta especialidad —incluidas las 3 páginas de tratamiento y `vascular.html`, construidas justo para competir por las 5 búsquedas objetivo de la misión— usan el valor inválido. Un valor de enumeración que Google no reconoce se descarta al validar los datos estructurados: hoy esas páginas no le están confirmando a Google, de forma válida, cuál es la especialidad médica de la clínica.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que esas páginas pasen el Google Rich Results Test mostrando 'Cardiovascular' como `medicalSpecialty` válido (hoy el validador no reconoce 'Vascular'). No se puede aislar un efecto propio sobre el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1, ya hechas en el sitio.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W41-1",
       "fecha": "2026-10-05",
@@ -121,7 +147,9 @@
       "esfuerzo": "bajo",
       "impacto": "alto",
       "quien": "Claude",
-      "estado": "propuesta",
+      "estado": "caducada",
+      "caducada_el": "2026-10-12",
+      "nota_caducidad": "Quedó obsoleta, no solo caduca el plazo: comprobado hoy en el código, las 94 páginas del sitio que tienen `<link rel=\"canonical\">` lo declaran sin '.html', sin ninguna excepción, y el sitemap tiene 0 URLs con '.html' de 93. Es la migración deliberada de 'direcciones limpias' del 24-sep (commit `25dafec`), ya en producción 18 días sin reversión. Ejecutar esta propuesta tal como está escrita —poner '.html' de vuelta solo en insuficiencia-venosa.html— rompería la consistencia que el resto del sitio ya tiene, en vez de arreglar nada. Ya se avisó de esto en el aviso del 28-sep y el 5-oct; con más de un mes en 'propuesta' y confirmado hoy que la premisa ya no aplica, se marca caducada.",
       "que": "En `insuficiencia-venosa.html`, cambiar el `<link rel=\"canonical\">` (línea 25) y el campo `\"url\"` del JSON-LD `MedicalWebPage` (línea 54) de `https://www.clinicaseravena.com/insuficiencia-venosa` a `.../insuficiencia-venosa.html`, que es la ruta real del archivo. Corregir la misma URL en `sitemap.xml` (hoy sin extensión, la única de las 8 páginas raíz así) y en los 3 enlaces internos que también apuntan a la versión sin extensión: `blog/eco-doppler-venoso-que-es.html`, `blog/piernas-hinchadas-cuando-preocuparse.html` y `blog/varices-tratamiento-sin-cirugia.html`.",
       "porque": "Comprobado hoy en el código: de las 8 páginas raíz del sitio, `insuficiencia-venosa.html` es la única cuyo `<link rel=\"canonical\">` no coincide con su propio nombre de archivo (apunta a '/insuficiencia-venosa', sin '.html'); el mismo error se repite en el campo `\"url\"` de su JSON-LD y en su entrada del `sitemap.xml`, y 3 enlaces internos del blog apuntan también a esa versión rota. El repositorio no tiene `_config.yml`, `.nojekyll` ni ningún redirect que haga válida esa URL sin extensión, así que con GitHub Pages sirviendo archivos estáticos esa dirección probablemente da 404 — es decir, la página declara como canónica una URL rota. Es justo la página que el 24-ago (W35-1, ya hecha) se optimizó para competir por 'insuficiencia venosa Medellín', una de las 5 búsquedas objetivo de la misión. No pude confirmar el 404 en vivo con curl porque la política de red de este entorno bloquea la salida hacia clinicaseravena.com (mismo bloqueo que ya registró el analista el 30-ago y el 6-sep); recomiendo verificar con el navegador antes y después del cambio.",
       "como_se_mide": "Que `https://www.clinicaseravena.com/insuficiencia-venosa.html` aparezca con el canonical correcto en la Inspección de URLs de Search Console. Señal inmediata y más simple: abrir hoy la URL sin extensión en el navegador (debería fallar) y, tras el cambio, comprobar que ya nada del sitio enlaza ni declara esa versión rota."
