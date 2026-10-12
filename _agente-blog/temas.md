@@ -177,7 +177,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 - [publicado] Várices y menopausia: qué cambia en esta etapa — várices y menopausia — varices-y-menopausia — racimo: situaciones
 - [publicado] Cirugía de várices o tratamiento sin cirugía: cómo decidir — cirugía de várices o sin cirugía — varices-cirugia-o-sin-cirugia — racimo: tratamiento
-- [pendiente] Lipedema en los brazos: no solo son las piernas — lipedema en los brazos — lipedema-en-los-brazos — racimo: lipedema
+- [publicado] Lipedema en los brazos: no solo son las piernas — lipedema en los brazos — lipedema-en-los-brazos — racimo: lipedema
 - [pendiente] Lipedema en la adolescencia: señales tempranas que no hay que ignorar — lipedema en adolescentes — lipedema-en-adolescentes — racimo: lipedema
 - [pendiente] ¿Se puede prevenir el lipedema? Lo que sí está en tus manos — prevención del lipedema — prevencion-del-lipedema — racimo: lipedema
 - [pendiente] Cuidados después de la escleroterapia: qué hacer los primeros días — cuidados después de escleroterapia — cuidados-despues-escleroterapia — racimo: tratamiento

@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-11",
+  "actualizado": "2026-10-12",
   "articulos": [
+    {
+      "fecha": "2026-10-12",
+      "titulo": "Lipedema en los brazos: no solo son las piernas",
+      "slug": "lipedema-en-los-brazos",
+      "categoria": "Lipedema",
+      "keyword": "lipedema en los brazos",
+      "seo": 93,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-en-los-brazos",
+      "nota": "Artículo del racimo 'lipedema', primero en abrir el tema de brazos (tipo IV): explica el signo del brazalete (manos respetadas, no absoluto), en qué se diferencia de unos brazos grandes, en qué etapa suele aparecer junto con piernas, y manejo conservador con una fuente real sobre compresión+ejercicio. Médico: APROBADO sin correcciones -verificó por búsqueda independiente la clasificación tipo IV y el signo del brazalete-. SEO: 93/100, APTO. Prueba de humanidad (Policía humanizador): 9/10, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-11",
       "titulo": "Cirugía de várices o sin cirugía: cómo decidir",
