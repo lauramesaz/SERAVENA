@@ -3,6 +3,12 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (12-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la
+política de red de este entorno (mismo bloqueo ya documentado el 11-oct). Confirmado en su
+lugar vía GitHub Actions: los runs `pages build and deployment` para los commits `f11453a`
+(humanizado dolor-lipedema-manejo) y `e15a4b1` (nuevo: lipedema-en-los-brazos) terminaron en
+`success` a las 13:43 y 13:48 UTC respectivamente.
+
 Formato:
 `| fecha | slug | título | keyword | estado | impresiones | clics | posición |`
 
