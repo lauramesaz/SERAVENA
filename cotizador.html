@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cotizador · Seravena</title>
+<link rel="icon" href="assets/isotype-camel.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<!--
+  Seravena · página INTERNA "Cotizador de programas" (código de acceso, no indexada, sin enlace desde la web).
+  Para cambiar precios, renglones o costos: editar el bloque PROGRAMAS de abajo.
+  "u" = costo por unidad (solo lo ves tú, nunca sale en el PDF) · "q" = cantidad · interno:true = costo que no sale en el PDF.
+-->
+<style>
+:root{
+  --fondo:#F9F9F8; --blanco:#fff; --arena:#EDE2D0; --arena-suave:#F5EFE5; --linea:#E5DCCD;
+  --texto:#1A1A1A; --tenue:#6e6450; --choco:#4B412D; --camel:#9D8051; --camel-osc:#806733;
+  --ok:#3E6B4A; --error:#A23B3B; --radio:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--fondo);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:500;letter-spacing:-.01em}
+button,input,select{font:inherit;color:inherit}
+.oculto{display:none!important}
+.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+
+/* candado */
+#candado{position:fixed;inset:0;background:var(--arena-suave);display:grid;place-items:center;z-index:50;padding:16px}
+#candado form{background:#fff;border:1px solid var(--linea);border-radius:22px;padding:40px 32px;width:100%;max-width:340px;text-align:center}
+#candado img{height:30px;margin:0 auto 22px}
+#candado p{color:var(--tenue);font-size:14px;margin-bottom:18px}
+#candado input{width:100%;text-align:center;font-size:24px;letter-spacing:.4em;padding:10px;border:1px solid var(--linea);border-radius:var(--radio);outline:none}
+#candado input:focus{border-color:var(--camel)}
+#candado .mal{color:var(--error);font-size:13px;margin-top:10px;min-height:20px}
+
+header{display:flex;align-items:center;gap:16px;padding:16px 28px;border-bottom:1px solid var(--linea);position:sticky;top:0;background:rgba(249,249,248,.94);backdrop-filter:blur(8px);z-index:5}
+header img{height:22px}
+header h1{font-size:16px;font-weight:500;color:var(--tenue);padding-left:16px;border-left:1px solid var(--linea)}
+header .etiqueta{margin-left:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tenue)}
+
+main{max-width:1180px;margin:0 auto;padding:32px 28px 80px;display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:40px;align-items:start}
+
+/* programa */
+.programas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:8px}
+.programas button{border:1px solid var(--linea);background:#fff;border-radius:999px;padding:12px 10px;cursor:pointer;font-weight:600;font-size:14px;color:var(--tenue);transition:.15s}
+.programas button:hover{border-color:var(--camel);color:var(--choco)}
+.programas button.activa{background:var(--choco);border-color:var(--choco);color:#fff}
+.programas button small{display:block;font-weight:400;font-size:11px;opacity:.7}
+
+.paso{padding:26px 0;border-bottom:1px solid var(--linea)}
+.paso h2{font-size:19px;display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.paso h2 span{font-size:12px;color:var(--camel-osc);font-weight:700;letter-spacing:.08em}
+.paso .ayuda{color:var(--tenue);font-size:14px;margin-bottom:18px}
+.fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+label small{font-weight:400;color:var(--tenue)}
+input[type=text],select{width:100%;padding:11px 13px;border:1px solid var(--linea);border-radius:var(--radio);background:#fff;outline:none;transition:border-color .15s}
+select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236e6450' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+input:focus,select:focus{border-color:var(--camel)}
+.campo.error input,.campo.error select{border-color:var(--error)}
+.dinero{position:relative}
+.dinero input{padding-left:26px;text-align:right;font-variant-numeric:tabular-nums}
+.dinero::before{content:"$";position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--tenue)}
+
+/* catálogo de servicios */
+.cab-items,.item{display:grid;grid-template-columns:28px minmax(0,1fr) 140px;gap:12px;align-items:center}
+.cab-items{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tenue);font-weight:700;padding:0 0 8px}
+.cab-items span:nth-child(3){text-align:center}
+.item.interno{display:none}
+.item{padding:9px 0;border-top:1px solid var(--arena);transition:opacity .15s}
+.item.apagado{opacity:.45}
+.item.apagado .it-valor{text-decoration:line-through}
+.item input[type=text]{padding:8px 10px;font-size:14px}
+.item .it-nombre{border-color:transparent;background:transparent;padding-left:0}
+.item .it-nombre:focus{border-color:var(--camel);background:#fff;padding-left:10px}
+.it-nombre-t{display:block;font-size:14px;line-height:1.35}
+.check{width:22px;height:22px;accent-color:var(--choco);cursor:pointer}
+.paso-q{display:flex;align-items:center;border:1px solid var(--linea);border-radius:999px;background:#fff;overflow:hidden}
+.paso-q button{border:0;background:transparent;width:34px;height:36px;cursor:pointer;font-size:17px;color:var(--tenue)}
+.paso-q button:hover{color:var(--choco);background:var(--arena-suave)}
+.paso-q input{border:0!important;text-align:center;padding:6px 0!important;width:100%;min-width:0;border-radius:0!important}
+.item .dinero input{font-size:13px;color:var(--tenue)}
+.item .it-valor{text-align:right;font-variant-numeric:tabular-nums;font-size:14px;font-weight:600}
+.tag{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--camel-osc);background:var(--arena-suave);border-radius:999px;padding:2px 8px;margin-top:2px}
+.quitar{border:0;background:transparent;cursor:pointer;color:var(--tenue);font-size:17px;height:30px}
+.quitar:hover{color:var(--error)}
+.quitar.fijo{visibility:hidden}
+.botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn-linea{border:1px dashed var(--linea);background:#fff;border-radius:999px;padding:9px 16px;cursor:pointer;font-size:13px}
+.btn-linea:hover{border-color:var(--camel);color:var(--camel-osc)}
+.pendiente{background:var(--arena-suave);border-radius:var(--radio);padding:14px 16px;font-size:14px;color:var(--choco);margin-bottom:14px}
+
+/* resumen */
+aside{position:sticky;top:84px;background:#fff;border:1px solid var(--linea);border-radius:22px;padding:24px}
+aside h3{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tenue);font-weight:700;margin-bottom:6px}
+aside .prog{font-size:26px;margin-bottom:16px;color:var(--choco)}
+.linea-r{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0}
+.linea-r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--linea);margin-top:8px;padding-top:16px}
+.total span:first-child{font-size:14px;font-weight:600}
+.total b{font-weight:500;font-size:28px;font-variant-numeric:tabular-nums;color:var(--choco)}
+.privado{margin-top:16px;background:var(--arena-suave);border-radius:14px;padding:14px 16px}
+.privado p{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--camel-osc);font-weight:700;margin-bottom:4px}
+.privado .linea-r{padding:3px 0}
+.privado .queda b{color:var(--ok)}
+.privado .queda.mal b{color:var(--error)}
+.btn{width:100%;margin-top:18px;background:var(--choco);color:#fff;border:0;border-radius:999px;padding:14px;font-weight:700;cursor:pointer;font-size:15px}
+.btn:hover{background:#3a3222}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn-sec{width:100%;margin-top:10px;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:11px;cursor:pointer;font-size:14px}
+.nota{font-size:12px;color:var(--tenue);margin-top:14px}
+
+#aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--choco);color:#fff;padding:12px 18px;border-radius:var(--radio);font-size:14px;opacity:0;transition:.25s;z-index:60;max-width:calc(100% - 32px)}
+#aviso.ver{opacity:1;transform:translateX(-50%)}
+#aviso.mal{background:var(--error)}
+
+@media (max-width:900px){
+  main{grid-template-columns:1fr;padding:22px 16px 60px;gap:28px}
+  aside{position:static}
+  header{padding:14px 16px}
+  header .etiqueta{display:none}
+  .programas{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .fila{grid-template-columns:1fr}
+  .cab-items{display:none}
+  .cab-items,.item{grid-template-columns:26px minmax(0,1fr) 112px;gap:10px}
+}
+
+/* ---------- PDF (carta: 816 × 1056 px) ---------- */
+#pdf-caja{position:absolute;left:-10000px;top:0}
+#pdf{width:816px;min-height:1056px;background:#fff;color:#1A1A1A;font:13.5px/1.55 "Plus Jakarta Sans",sans-serif;display:flex;flex-direction:column}
+#pdf .p-cab{background:#4B412D;color:#EDE2D0;padding:34px 60px 30px;display:flex;justify-content:space-between;align-items:flex-end}
+#pdf .p-cab img{height:30px}
+#pdf .p-cab .der{text-align:right;font-size:12px;color:#d8c9b0;line-height:1.7}
+#pdf .p-cab .der b{display:block;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:2px}
+#pdf .p-cab .p-prog{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-size:36px;line-height:1.1;color:#fff;margin-bottom:4px}
+#pdf .p-cuerpo{flex:1;display:flex;flex-direction:column;padding:24px 60px 0}
+#pdf .p-datos{display:grid;grid-template-columns:1.3fr 1fr;gap:10px 40px;padding:16px 22px;background:#F5EFE5;border-radius:12px}
+#pdf .p-datos span{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;margin-bottom:1px}
+#pdf .p-datos b{font-weight:600;font-size:14px}
+#pdf table{width:100%;border-collapse:collapse;margin-top:18px}
+#pdf th{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;font-weight:700;text-align:left;padding:0 0 9px;border-bottom:1px solid #4B412D}
+#pdf th:last-child,#pdf td:last-child{text-align:right;white-space:nowrap}
+#pdf td{padding:8px 0;border-bottom:1px solid #EDE2D0;vertical-align:top;font-size:13.5px}
+#pdf .p-dur td{color:#6e6450;font-size:12.5px}
+#pdf .p-total{margin-top:18px;background:#9D8051;color:#fff;border-radius:12px;padding:15px 22px;display:flex;justify-content:space-between;align-items:center}
+#pdf .p-total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+#pdf .p-total b{font-weight:500;font-size:28px}
+#pdf .p-vence{margin-top:9px;font-size:11.5px;color:#6e6450;display:flex;justify-content:space-between}
+#pdf .p-info{margin-top:auto;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:36px;border-top:1px solid #E5DCCD}
+#pdf h4{font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:#806733}
+#pdf ul{list-style:none}
+#pdf li{padding-left:14px;position:relative;margin-bottom:3px;font-size:12px}
+#pdf li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:#9D8051}
+#pdf .p-frase{margin-top:18px;font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;color:#4B412D;text-align:center}
+#pdf .p-pie{margin:18px 0 0;padding:13px 60px;background:#EDE2D0;font-size:11px;color:#6e6450;display:flex;justify-content:space-between;letter-spacing:.05em}
+</style>
+</head>
+<body>
+
+<div id="candado">
+  <form id="f-candado" autocomplete="off">
+    <img src="assets/wordmark-pardo.png" alt="Seravena">
+    <p>Escribe el código para entrar.</p>
+    <input id="codigo" type="password" inputmode="numeric" maxlength="6" autofocus>
+    <div class="mal" id="codigo-mal"></div>
+  </form>
+</div>
+
+<header>
+  <img src="assets/wordmark-pardo.png" alt="Seravena">
+  <h1>Cotizador de programas</h1>
+  
+</header>
+
+<main>
+  <div>
+    <div class="programas" id="programas"></div>
+
+    <section class="paso">
+      <h2><span>01</span>Paciente</h2>
+      <p class="ayuda">Así sale en la cotización.</p>
+      <div class="fila">
+        <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" type="text" autocomplete="off"></div>
+        <div class="campo"><label for="contacto">Número de contacto</label><input id="contacto" type="text" inputmode="tel" autocomplete="off"></div>
+        <div class="campo"><label for="tipo-id">Tipo de identificación</label>
+          <select id="tipo-id"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></div>
+        <div class="campo"><label for="num-id">Número de identificación</label><input id="num-id" type="text" autocomplete="off"></div>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><span>02</span>Especialista</h2>
+      <div class="fila">
+        <div class="campo"><label for="esp">Especialista</label><input id="esp" type="text"></div>
+        <div class="campo"><label for="espec">Especialidad</label><input id="espec" type="text"></div>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><span>03</span>Qué trae el plan</h2>
+      <p class="ayuda">Marca lo que quieres incluir y cuántas veces. El precio se ajusta solo.</p>
+      <div class="pendiente oculto" id="pendiente"></div>
+      <div class="cab-items"><span></span><span>Servicio</span><span>Cantidad</span></div>
+      <div id="items"></div>
+      <div class="botones">
+        <button type="button" class="btn-linea" id="restaurar">Volver al plan original</button>
+      </div>
+    </section>
+
+    <section class="paso">
+      <h2><span>04</span>Precio</h2>
+      <p class="ayuda" id="ayuda-precio"></p>
+      <div class="fila">
+        <div class="campo"><label for="descuento">Descuento <small>(opcional)</small></label><div class="dinero"><input id="descuento" type="text" inputmode="numeric" data-dinero placeholder="0"></div></div>
+        <div class="campo"><label for="duracion">Duración</label><input id="duracion" type="text"></div>
+      </div>
+    </section>
+  </div>
+
+  <aside>
+    <h3>Cotización</h3>
+    <div class="prog serif" id="r-prog"></div>
+    <div id="resumen"></div>
+    <div class="linea-r oculto" id="r-desc" style="color:var(--tenue)"><span>Descuento</span><span></span></div>
+    <div class="total"><span>Valor para el paciente</span><b id="total">$0</b></div>
+    <div class="linea-r" style="color:var(--tenue)"><span>Anticipo del 50%</span><span id="anticipo">$0</span></div>
+    <button class="btn" id="descargar">Descargar PDF</button>
+    <button class="btn-sec" id="nueva">Nueva cotización</button>
+  </aside>
+</main>
+
+<div id="aviso"></div>
+<div id="pdf-caja"><div id="pdf"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+/* ============ CONFIGURACIÓN (aquí se cambian precios y renglones) ============ */
+const CODIGO = "111";
+const VIGENCIA_DIAS = 30;
+const ESPECIALISTA = "Jose David Puerta";
+const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
+const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cuerpo de tus sueños.";
+
+/* Todos los servicios que se pueden incluir. u = costo por unidad (solo lo ves tú). interno = no sale en el PDF. */
+const CATALOGO = [
+  { id: "ecografia",     n: "Ecografía", u: 30000, interno: true },
+  { id: "psicologia",    n: "Cita de psicología", u: 150000 },
+  { id: "nutriologa",    n: "Nutrióloga", u: 200000 },
+  { id: "nutricionista", n: "Acompañamiento nutricionista", u: 80000 },
+  { id: "deportologia",  n: "Deportología", u: 200000 },
+  { id: "interna",       n: "Medicina interna (vascular)", u: 200000 },
+  { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000 },
+  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000 },
+  { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000 },
+  { id: "medias",        n: "Medias de compresión", u: 370000 },
+  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000 },
+  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000 },
+];
+
+/* Cada plan: qué trae (id: cantidad, o [cantidad, costo distinto]) y su precio de lista.
+   El precio sube o baja en la misma proporción que el costo cuando agregas o quitas servicios. */
+const PROGRAMAS = {
+  lipedema: {
+    nombre: "Lipedema", titulo: "Programa de manejo de lipedema", precio: 8952381, duracion: "3 meses",
+    pagos: ["Cuenta de ahorros Bancolombia: 60900006450", "Cuenta de ahorros Davivienda: 0550031800056199", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
+    plan: { ecografia: 1, psicologia: 2, nutriologa: 2, deportologia: 2, nutricionista: 2, interna: 2, general: 12,
+            tirzepatida: [5, 370000], enfermeria: ["A demanda", 60000], medias: 1, aparatologia: 20, drenaje: 6 },
+  },
+  obesidad: {
+    nombre: "Obesidad", titulo: "Paquete de manejo de obesidad", precio: 7883333, duracion: "3 meses",
+    pagos: ["Cuenta de ahorros Bancolombia: 25900002589", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
+    plan: { ecografia: 1, psicologia: 2, nutriologa: 2, nutricionista: 2, deportologia: 2, interna: 2, general: 12,
+            tirzepatida: 6, enfermeria: 1 },
+  },
+  venas: {
+    nombre: "Venas", titulo: "Programa de manejo de venas", precio: 0, duracion: "", pagos: null, plan: {},
+    pendiente: "Plan de venas en construcción: marca los servicios que apliquen.",
+  },
+  celulitis: {
+    nombre: "Celulitis", titulo: "Programa de manejo de celulitis", precio: 0, duracion: "", pagos: null, plan: {},
+    pendiente: "Plan de celulitis en construcción: marca los servicios que apliquen.",
+  },
+};
+const FACTOR_SIN_PLANTILLA = 1 / 0.6; // si no hay precio de lista: el costo es el 60% del precio
+const PAGOS_BASE = PROGRAMAS.lipedema.pagos;
+/* ============================================================================ */
+
+const $ = s => document.querySelector(s);
+const fmt = n => "$" + Math.round(n || 0).toLocaleString("es-CO");
+const num = v => parseInt(String(v || "").replace(/\D/g, ""), 10) || 0;
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mult = q => { const n = parseFloat(String(q).replace(",", ".")); return isNaN(n) ? 1 : n; }; // "A demanda" cuenta como 1
+
+/* costo del plan original y factor costo → precio */
+function costoPlan(p){
+  return Object.entries(p.plan).reduce((s, [id, v]) => {
+    const c = CATALOGO.find(x => x.id === id), [q, u] = Array.isArray(v) ? v : [v, c.u];
+    return s + mult(q) * u;
+  }, 0);
+}
+Object.values(PROGRAMAS).forEach(p => { const c = costoPlan(p); p.factor = p.precio && c ? p.precio / c : FACTOR_SIN_PLANTILLA; });
+
+/* ---- candado ---- */
+function abrir(){ $("#candado").classList.add("oculto"); try{ sessionStorage.setItem("sera-cot", "1"); }catch(e){} }
+try{ if (sessionStorage.getItem("sera-cot") === "1") abrir(); }catch(e){}
+$("#f-candado").addEventListener("submit", e => e.preventDefault());
+$("#codigo").addEventListener("input", e => {
+  const v = e.target.value;
+  if (v === CODIGO) abrir();
+  else $("#codigo-mal").textContent = v.length >= CODIGO.length ? "Código incorrecto" : "";
+});
+
+$("#esp").value = ESPECIALISTA; $("#espec").value = ESPECIALIDAD;
+
+/* ---- programas ---- */
+let PROG = "lipedema";
+const P = () => PROGRAMAS[PROG];
+$("#programas").innerHTML = Object.entries(PROGRAMAS).map(([id, p]) =>
+  `<button type="button" data-prog="${id}">${p.nombre}${p.pendiente ? "<small>sin plantilla</small>" : ""}</button>`).join("");
+document.querySelectorAll("#programas button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.prog));
+
+function ponerPrograma(id){
+  PROG = id;
+  document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id));
+  $("#pendiente").textContent = P().pendiente || "";
+  $("#pendiente").classList.toggle("oculto", !P().pendiente);
+  $("#ayuda-precio").textContent = P().precio
+    ? `El plan original de ${P().nombre} vale ${fmt(P().precio)}. Si agregas o quitas servicios, el precio se mueve en la misma proporción.`
+    : `El precio se arma con lo que marques en el plan.`;
+  cargarPlantilla();
+}
+function cargarPlantilla(){
+  $("#items").innerHTML = "";
+  CATALOGO.forEach(c => {
+    const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
+    agregarItem({ n: c.n, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
+  });
+  $("#descuento").value = "";
+  $("#duracion").value = P().duracion;
+  calcular();
+}
+
+/* ---- renglones ---- */
+function agregarItem(it = {}){
+  const d = document.createElement("div");
+  d.className = "item" + (it.interno ? " interno" : "");
+  d.dataset.interno = it.interno ? "1" : "";
+  if (it.fijo) d.dataset.n = it.n;
+  const on = it.on !== false;
+  d.innerHTML = `<input type="checkbox" class="check" ${on ? "checked" : ""} title="Incluir en el plan">
+    <div class="it-nombre-c">${it.fijo ? `<span class="it-nombre-t">${esc(it.n)}</span>` : `<input type="text" class="it-nombre" placeholder="Nombre del servicio" value="${esc(it.n)}">`}</div>
+    <div class="paso-q"><button type="button" data-d="-1">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1">+</button></div>
+`;
+  d.dataset.u = it.u || 0;
+  d.classList.toggle("apagado", !on);
+  d.querySelector(".check").onchange = e => { d.classList.toggle("apagado", !e.target.checked); calcular(); };
+  d.querySelectorAll(".paso-q button").forEach(b => b.onclick = () => {
+    const inp = d.querySelector(".it-q"), n = parseFloat(String(inp.value).replace(",", "."));
+    const nuevo = Math.max(0, (isNaN(n) ? 0 : n) + Number(b.dataset.d));
+    inp.value = nuevo;
+    d.querySelector(".check").checked = nuevo > 0; d.classList.toggle("apagado", nuevo === 0);
+    calcular();
+  });
+  $("#items").appendChild(d);
+  if (!it.fijo && !it.n) d.querySelector(".it-nombre").focus();
+  calcular();
+}
+$("#restaurar").onclick = () => { if (confirm("¿Volver al plan original de " + P().nombre + "?")) cargarPlantilla(); };
+
+document.addEventListener("input", e => {
+  if (!e.target.matches("[data-dinero]")) return;
+  const n = num(e.target.value);
+  e.target.value = n ? n.toLocaleString("es-CO") : "";
+});
+
+/* ---- cálculo ---- */
+function leer(){
+  const f = P().factor;
+  const items = [...document.querySelectorAll(".item")].map(x => {
+    const n = x.dataset.n || x.querySelector(".it-nombre").value.trim(), q = x.querySelector(".it-q").value.trim(), u = Number(x.dataset.u) || 0;
+    const costo = u * mult(q);
+    return { n, q, u, costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
+  });
+  const sel = items.filter(x => x.on && (x.n || x.u));
+  const costo = sel.reduce((s, x) => s + x.costo, 0);
+  const lista = Math.round(costo * f);
+  const descuento = Math.min(num($("#descuento").value), lista);
+  const precio = lista - descuento;
+  return {
+    programa: P().titulo, nombre: $("#nombre").value.trim(), tipoId: $("#tipo-id").value, numId: $("#num-id").value.trim(),
+    contacto: $("#contacto").value.trim(), esp: $("#esp").value.trim(), espec: $("#espec").value.trim(),
+    duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, descuento, precio, costo, queda: precio - costo,
+  };
+}
+function calcular(){
+  const s = leer();
+  $("#r-prog").textContent = P().nombre;
+  const vis = s.items.filter(x => !x.interno && x.n);
+  $("#resumen").innerHTML = vis.length
+    ? vis.map(x => `<div class="linea-r"><span>${esc(x.n.split(":")[0].split("(")[0])} </span><span>${esc(x.q)}</span></div>`).join("")
+    : `<p class="linea-r" style="color:var(--tenue)">Marca lo que trae el plan.</p>`;
+  $("#r-desc").classList.toggle("oculto", !s.descuento);
+  $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
+  $("#total").textContent = fmt(s.precio);
+  $("#anticipo").textContent = fmt(s.precio / 2);
+  return s;
+}
+document.addEventListener("input", calcular);
+document.addEventListener("change", e => { if (e.target.matches("input,select")) calcular(); });
+
+function validar(s){
+  const faltan = [];
+  const marca = (id, mal, txt) => { $(id).closest(".campo").classList.toggle("error", mal); if (mal) faltan.push(txt); };
+  marca("#nombre", !s.nombre, "nombre");
+  marca("#num-id", !s.numId, "número de identificación");
+  if (!s.items.some(x => !x.interno && x.n)) faltan.push("qué trae el plan");
+  
+  return faltan;
+}
+
+/* ---- PDF ---- */
+const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const fecha = d => d.getDate() + " de " + MESES[d.getMonth()] + " de " + d.getFullYear();
+const dos = n => String(n).padStart(2, "0");
+
+function armarPDF(s, numero, hoy, vence){
+  const filas = s.items.filter(x => !x.interno && x.n);
+  const pagos = P().pagos || PAGOS_BASE;
+  $("#pdf").innerHTML = `
+    <div class="p-cab"><img src="assets/wordmark-white.png" alt="Seravena">
+      <div class="der"><b>Cotización</b><span class="p-prog">${esc(s.programa)}</span>N.º ${numero} · ${fecha(hoy)}</div></div>
+    <div class="p-cuerpo">
+      <div class="p-datos">
+        <div><span>Paciente</span><b>${esc(s.nombre)}</b></div>
+        <div><span>${esc(s.tipoId)}</span><b>${esc(s.numId)}</b></div>
+        <div><span>Especialista</span><b>${esc(s.esp)}</b><small style="display:block;font-size:11.5px;color:#6e6450;line-height:1.35">${esc(s.espec)}</small></div>
+        <div><span>Contacto</span><b>${esc(s.contacto) || "—"}</b></div>
+      </div>
+      <table><thead><tr><th>Incluye</th><th>Cantidad</th></tr></thead><tbody>
+        ${filas.map(f => `<tr><td>${esc(f.n)}</td><td>${esc(f.q)}</td></tr>`).join("")}
+        ${s.duracion ? `<tr class="p-dur"><td>Duración del programa</td><td>${esc(s.duracion)}</td></tr>` : ""}
+      </tbody></table>
+      ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento: −${fmt(s.descuento)}</span></div>` : ""}
+      <div class="p-total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
+      <div class="p-vence"><span>50% de anticipo al iniciar el programa: <b style="color:#1A1A1A">${fmt(s.precio / 2)}</b></span><span>Válida hasta el ${fecha(vence)}</span></div>
+      <div class="p-info">
+        <div><h4>Medios de pago</h4><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+        <div><h4>Condiciones</h4><ul><li>50% de anticipo al iniciar el programa.</li><li>Los valores pueden ajustarse según la evolución y la recomendación médica.</li></ul></div>
+      </div>
+      <p class="p-frase">${esc(FRASE)}</p>
+    </div>
+    <div class="p-pie"><span>Seravena · Manejo de lipedema y salud vascular · Medellín</span><span>clinicaseravena.com</span></div>`;
+}
+
+function aviso(t, mal){
+  const a = $("#aviso"); a.textContent = t; a.classList.toggle("mal", !!mal); a.classList.add("ver");
+  clearTimeout(aviso.t); aviso.t = setTimeout(() => a.classList.remove("ver"), 4500);
+}
+
+$("#descargar").onclick = async () => {
+  const s = calcular(), faltan = validar(s);
+  if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); return; }
+  const b = $("#descargar"); b.disabled = true; b.textContent = "Generando…";
+  const hoy = new Date(), vence = new Date(hoy); vence.setDate(vence.getDate() + VIGENCIA_DIAS);
+  const numero = "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes());
+  armarPDF(s, numero, hoy, vence);
+  try{
+    await document.fonts.ready;
+    window.scrollTo(0, 0);
+    const archivo = `Cotizacion Seravena - ${s.nombre} - ${P().nombre}.pdf`.replace(/[\\/:*?"<>|]/g, "");
+    await html2pdf().set({
+      margin: 0, filename: archivo,
+      image: { type: "jpeg", quality: 0.97 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", scrollX: 0, scrollY: 0 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      pagebreak: { mode: ["css"], avoid: ["tr", ".p-total", ".p-info"] },
+    }).from($("#pdf")).save();
+    aviso("PDF descargado");
+  }catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); }
+  b.disabled = false; b.textContent = "Descargar PDF";
+};
+
+$("#nueva").onclick = () => {
+  if (!confirm("¿Borrar los datos del paciente y empezar una cotización nueva?")) return;
+  ["#nombre", "#num-id", "#contacto"].forEach(id => $(id).value = "");
+  $("#tipo-id").selectedIndex = 0;
+  document.querySelectorAll(".campo.error").forEach(c => c.classList.remove("error"));
+  cargarPlantilla(); window.scrollTo(0, 0);
+};
+
+ponerPrograma("lipedema");
+</script>
+</body>
+</html>
