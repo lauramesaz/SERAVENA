@@ -5,9 +5,10 @@ las métricas de SEO (impresiones, clics, posición) cuando Search Console esté
 
 **Nota de verificación (13-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la
 política de red de este entorno (mismo bloqueo documentado el 11 y el 12-oct; también falló el
-ping a api.indexnow.org por la misma razón). Confirmado en su lugar vía GitHub Actions: el run
-`pages build and deployment` para el commit `8397484` (nuevo: lipedema-en-adolescentes) terminó
-en `success` a las 13:48 UTC.
+ping a api.indexnow.org por la misma razón). Confirmado en su lugar vía GitHub Actions: los runs
+`pages build and deployment` para los commits `8397484` (nuevo: lipedema-en-adolescentes) y
+`9b92862` (humanizado: lipedema-vs-linfedema) terminaron en `success` a las 13:48 y 13:55 UTC
+respectivamente.
 
 **Nota de verificación (12-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la
 política de red de este entorno (mismo bloqueo ya documentado el 11-oct). Confirmado en su
