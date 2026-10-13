@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-12",
+  "actualizado": "2026-10-13",
   "articulos": [
+    {
+      "fecha": "2026-10-13",
+      "titulo": "Lipedema en adolescentes: señales tempranas que no hay que ignorar",
+      "slug": "lipedema-en-adolescentes",
+      "categoria": "Lipedema",
+      "keyword": "lipedema en adolescentes",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-en-adolescentes",
+      "nota": "Artículo del racimo 'lipedema': por qué suele empezar en la pubertad, señales que no son solo subir de peso, por qué se confunde con obesidad y qué puede hacer la familia mientras espera la cita. Médico: APROBADO CON CORRECCIONES (ajustó una cifra sin respaldo exacto y un cálculo de años, y suavizó una afirmación sobre guías clínicas). SEO: 98/100, APTO. Prueba de humanidad (Policía humanizador): 9/10, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-12",
       "titulo": "Lipedema en los brazos: no solo son las piernas",

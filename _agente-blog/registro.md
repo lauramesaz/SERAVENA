@@ -14,6 +14,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-13 | lipedema-en-adolescentes | Lipedema en adolescentes: señales tempranas que no hay que ignorar | lipedema en adolescentes | publicado | — | — | — |
 | 2026-10-12 | lipedema-en-los-brazos | Lipedema en los brazos: no solo son las piernas | lipedema en los brazos | publicado | — | — | — |
 | 2026-10-11 | varices-cirugia-o-sin-cirugia | Cirugía de várices o sin cirugía: cómo decidir | cirugía de várices o sin cirugía | publicado | — | — | — |
 | 2026-10-10 | varices-y-menopausia | Várices y menopausia: qué cambia en esta etapa | várices y menopausia | publicado | — | — | — |
