@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/isotype-camel.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!--
   Seravena · página INTERNA "Cotizador de programas" (código de acceso, no indexada, sin enlace desde la web).
   Para cambiar precios, renglones o costos: editar el bloque PROGRAMAS de abajo.
@@ -21,17 +21,17 @@
   --error:#A23B3B; --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased}
-body{background:var(--marfil);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;position:relative}
+html{-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{overflow-x:hidden;background:var(--marfil);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;position:relative}
 /* textura de grano suave */
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* luz cálida de fondo */
-body::after{content:"";position:fixed;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;pointer-events:none;z-index:0;
+body::after{content:"";position:fixed;width:min(900px,120vw);height:min(900px,120vw);right:-20vw;top:-380px;border-radius:50%;pointer-events:none;z-index:0;
   background:radial-gradient(circle,rgba(201,176,131,.28),rgba(201,176,131,0) 65%)}
 button,input,select{font:inherit;color:inherit}
 .oculto{display:none!important}
-.serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
+.serif{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.025em}
 
 /* candado */
 #candado{position:fixed;inset:0;background:var(--marfil);display:grid;place-items:center;z-index:90;padding:16px}
@@ -48,7 +48,7 @@ header img{height:24px}
 
 .intro{text-align:center;max-width:680px;margin:0 auto;padding:44px 20px 34px}
 .ojo{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--camel-osc);font-weight:600;margin-bottom:14px}
-.intro h1{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:clamp(42px,6vw,64px);line-height:1;color:var(--choco);letter-spacing:-.01em}
+.intro h1{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.025em;font-size:clamp(34px,5vw,52px);line-height:1.05;color:var(--choco);letter-spacing:-.01em}
 .intro p{color:var(--tenue);margin-top:14px;font-size:16px}
 
 /* tarjetas de programa */
@@ -57,7 +57,7 @@ header img{height:24px}
   box-shadow:0 0 0 1px var(--linea);transition:transform .5s var(--ease),box-shadow .3s}
 .prog-card:hover{transform:translateY(-3px)}
 .prog-card .foto{height:150px;border-radius:22px;background-size:cover;background-position:center;filter:saturate(.85);transition:filter .3s}
-.prog-card b{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:28px;line-height:1;color:var(--choco);margin:14px 10px 4px}
+.prog-card b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.025em;font-size:20px;line-height:1.1;color:var(--choco);margin:14px 10px 4px}
 .prog-card small{display:block;margin:0 10px;font-size:12.5px;color:var(--tenue)}
 .prog-card::after{content:"";position:absolute;top:18px;right:18px;width:22px;height:22px;border-radius:50%;background:rgba(255,253,249,.9);box-shadow:inset 0 0 0 1.5px var(--linea-2);transition:.3s}
 .prog-card.activa{box-shadow:0 0 0 2px var(--choco),0 24px 40px -24px rgba(75,65,45,.45)}
@@ -68,33 +68,78 @@ main{max-width:1120px;margin:0 auto;padding:44px 28px 120px;display:grid;grid-te
 
 .bloque{background:var(--blanco);border-radius:32px;padding:32px;box-shadow:0 0 0 1px var(--linea);margin-bottom:20px}
 .bloque-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
-.bloque h2{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:34px;line-height:1;color:var(--choco)}
+.bloque h2{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.025em;font-size:26px;line-height:1;color:var(--choco)}
 .bloque .ayuda{color:var(--tenue);font-size:14px;margin-top:6px}
 .link-sutil{border:0;background:none;color:var(--camel-osc);font-size:13px;font-weight:600;cursor:pointer;padding:6px 0;border-bottom:1px solid currentColor}
 .pendiente{background:var(--marfil);border-radius:18px;padding:14px 18px;font-size:14px;color:var(--choco);margin-bottom:16px}
 
-/* servicios como tarjetas */
-#items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.item{position:relative;border-radius:22px;padding:18px 18px 16px;background:var(--marfil);border:1.5px solid transparent;display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:background .3s,border-color .3s,opacity .3s}
+/* servicios: lista tipo cotizador */
+#items{border-top:1px solid var(--linea)}
+.item{display:grid;grid-template-columns:46px minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--linea);cursor:pointer;transition:opacity .25s,background .25s}
 .item.interno{display:none}
-.item:not(.apagado){background:#fff;border-color:var(--choco)}
-.item.apagado{opacity:.62}
-.item.apagado:hover{opacity:.9}
+.item:hover{background:rgba(237,226,208,.25)}
+.item.apagado{opacity:.5}
 .item .check{position:absolute;opacity:0;pointer-events:none}
-.it-cab{display:flex;gap:12px;align-items:flex-start;padding-right:28px}
-.it-cab .titulo{font-weight:600;font-size:15px;line-height:1.3}
-.it-cab .desc{display:block;font-size:12.5px;color:var(--tenue);margin-top:3px;line-height:1.4}
-.marca{position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--linea-2);transition:.25s}
-.item:not(.apagado) .marca{background:var(--choco) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='white' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat center;box-shadow:none}
-.paso-q{display:flex;align-items:center;justify-content:space-between;background:var(--marfil);border-radius:999px;padding:3px;width:150px;cursor:default}
-.item:not(.apagado) .paso-q{background:var(--marfil-2)}
+.emoji{width:46px;height:46px;border-radius:14px;background:var(--marfil);display:grid;place-items:center;font-size:22px;transition:.25s}
+.item:not(.apagado) .emoji{background:var(--marfil-2)}
+.item.apagado .emoji{filter:grayscale(1)}
+.it-cab .titulo{font-weight:600;font-size:15px;line-height:1.3;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.it-cab .desc{display:block;font-size:13px;color:var(--tenue);margin-top:2px;line-height:1.4}
+.leyenda{display:none;margin-top:6px;font-size:12px;font-weight:600;color:#9a3412;background:#FFF1E6;border-radius:999px;padding:3px 10px;width:max-content;max-width:100%}
+.item.bloqueado .leyenda{display:inline-block}
+body:not(.comercial) .leyenda{display:none!important}
+.candado{border:1px solid var(--linea);background:#fff;border-radius:999px;height:32px;padding:0 10px;font-size:14px;cursor:pointer;filter:grayscale(1);opacity:.55;transition:.2s;white-space:nowrap}
+.candado:hover{opacity:1}
+.item.bloqueado .candado{filter:none;opacity:1;background:#FFF1E6;border-color:#F5C9A8}
+body.comercial .candado,body.paciente .candado{display:none}
+body.comercial .item.bloqueado .titulo::after{content:"🔒";font-size:14px}
+.paso-q{display:flex;align-items:center;gap:2px;background:var(--marfil);border-radius:999px;padding:3px;cursor:default}
 .item.apagado .paso-q{visibility:hidden}
-.paso-q button{border:0;background:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--choco);box-shadow:0 1px 2px rgba(75,65,45,.12);transition:.2s}
+.paso-q button{border:0;background:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;color:var(--choco);box-shadow:0 1px 2px rgba(75,65,45,.12);transition:.2s}
 .paso-q button:hover{background:var(--choco);color:#fff}
-.paso-q input{border:0;background:transparent;text-align:center;width:70px;font-weight:600;font-size:14px;outline:none}
-.agregar{font-size:12.5px;color:var(--camel-osc);font-weight:600}
-.item:not(.apagado) .agregar{display:none}
-.item.apagado .paso-q{display:none}
+.item .paso-q input[type=text]{border:0;background:transparent;text-align:center;width:78px;padding:0;border-radius:0;font-weight:700;font-size:14px;outline:none}
+.marca{display:none}
+.agregar{display:none}
+
+/* duración protagonista */
+.duracion-wow{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--choco);color:var(--marfil);border-radius:26px;padding:26px 30px;margin-bottom:26px;position:relative;overflow:hidden}
+.duracion-wow::after{content:"";position:absolute;width:300px;height:300px;right:-120px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
+.duracion-wow .grande{font-size:clamp(54px,8vw,84px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:#fff}
+.duracion-wow .grande small{display:inline-block;margin-left:14px;vertical-align:middle;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#c9b083;font-weight:600;margin-top:10px}
+.duracion-wow .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;position:relative;z-index:1}
+.duracion-wow .stat{border-left:1px solid rgba(237,226,208,.2);padding-left:16px}
+.duracion-wow .stat b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.duracion-wow .stat span{font-size:12.5px;color:#d8c9b0;line-height:1.3;display:block;margin-top:2px}
+
+/* simulador de cuotas */
+.btn-cuotas{width:100%;margin-top:10px;background:transparent;border:1px solid #c9b083;color:#fff;border-radius:999px;padding:13px;cursor:pointer;font-size:14px;font-weight:600}
+.btn-cuotas:hover{background:rgba(201,176,131,.15)}
+.plan-pago{margin-top:12px;font-size:13px;color:#d8c9b0;background:rgba(237,226,208,.08);border-radius:14px;padding:10px 14px}
+.plan-pago b{color:#fff}
+#modal{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+#modal.ver{opacity:1;pointer-events:auto}
+.caja-modal{background:var(--blanco);border-radius:32px;width:100%;max-width:520px;padding:32px;box-shadow:0 40px 80px -30px rgba(31,27,20,.5);transform:translateY(16px) scale(.98);transition:transform .45s var(--ease);max-height:calc(100vh - 32px);overflow:auto}
+#modal.ver .caja-modal{transform:none}
+.caja-modal h3{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--choco)}
+.caja-modal .ayuda{color:var(--tenue);font-size:14px;margin:4px 0 22px}
+.cerrar{float:right;border:0;background:var(--marfil);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--choco)}
+.m-anticipo{display:flex;justify-content:space-between;align-items:center;background:var(--choco);color:#fff;border-radius:20px;padding:18px 22px}
+.m-anticipo span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#c9b083;font-weight:600}
+.m-anticipo b{font-size:28px;font-weight:700;letter-spacing:-.03em}
+.m-label{font-size:13px;font-weight:600;color:var(--tenue);margin:22px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid var(--linea);background:#fff;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:600;font-size:14px;color:var(--tenue)}
+.chips button.activa{background:var(--choco);border-color:var(--choco);color:#fff}
+.m-cuota{text-align:center;margin:24px 0 8px}
+.m-cuota span{display:block;font-size:13px;color:var(--tenue)}
+.m-cuota b{display:block;font-size:46px;font-weight:700;letter-spacing:-.04em;color:var(--choco);line-height:1.1}
+.calendario{border-top:1px solid var(--linea);margin-top:14px}
+.calendario div{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--linea);font-size:14px}
+.calendario div span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.m-botones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.m-botones button{border-radius:999px;padding:14px;font-weight:700;cursor:pointer;font-size:14px}
+.m-botones .si{background:var(--choco);color:#fff;border:0}
+.m-botones .no{background:#fff;border:1px solid var(--linea);color:var(--choco)}
 
 /* datos */
 .fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
@@ -108,7 +153,7 @@ input:focus,select:focus{border-color:var(--camel)}
 .dinero input{padding-left:32px;font-variant-numeric:tabular-nums}
 .dinero::before{content:"$";position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--tenue)}
 .especialista{display:flex;align-items:center;gap:14px;background:var(--marfil);border-radius:999px;padding:8px 22px 8px 8px;margin-bottom:22px}
-.especialista .ini{width:44px;height:44px;border-radius:50%;background:var(--choco);color:var(--marfil);display:grid;place-items:center;font-family:"Instrument Serif",serif;font-style:italic;font-size:20px;flex:none}
+.especialista .ini{width:44px;height:44px;border-radius:50%;background:var(--choco);color:var(--marfil);display:grid;place-items:center;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:20px;flex:none}
 .especialista b{display:block;font-size:14px}
 .especialista span{font-size:12.5px;color:var(--tenue)}
 .especialista button{margin-left:auto}
@@ -119,14 +164,14 @@ aside{position:sticky;top:24px;background:var(--choco);color:var(--marfil);borde
 aside::before{content:"";position:absolute;width:360px;height:360px;right:-160px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
 aside > *{position:relative}
 aside .ojo{color:#c9b083;margin-bottom:8px}
-aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38px;line-height:1;color:#fff;margin-bottom:22px}
+aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.05;color:#fff;margin-bottom:22px}
 #resumen{border-top:1px solid rgba(237,226,208,.16)}
 .linea-r{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:9px 0;border-bottom:1px solid rgba(237,226,208,.1)}
 .linea-r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:#d8c9b0}
 .linea-r.vacio{color:#c9b083;border:0}
 .total{margin-top:22px}
 .total span{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#c9b083;font-weight:600}
-.total b{display:block;font-family:"Instrument Serif",serif;font-style:normal;font-weight:400;font-size:52px;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em;transition:color .3s}
+.total b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.035em;font-size:44px;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em;transition:color .3s}
 .total b.cambia{color:#e8d6b3}
 .sub-total{display:flex;justify-content:space-between;font-size:13px;color:#d8c9b0;margin-top:6px}
 .btn{width:100%;margin-top:24px;background:var(--marfil);color:var(--choco);border:0;border-radius:999px;padding:16px;font-weight:700;cursor:pointer;font-size:15px;transition:transform .3s var(--ease),background .2s}
@@ -136,7 +181,9 @@ aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38p
 .btn-sec:hover{border-color:rgba(237,226,208,.6)}
 
 /* modos: comercial y paciente */
-.franja{position:relative;z-index:2;max-width:640px;margin:22px auto 0;background:var(--blanco);box-shadow:0 0 0 1px var(--linea);border-radius:999px;padding:10px 22px;font-size:13.5px;color:var(--choco);text-align:center}
+.franja{position:relative;z-index:2;max-width:760px;margin:24px auto 0;background:var(--blanco);box-shadow:0 0 0 1px var(--linea);border-radius:999px;padding:16px 30px;font-size:17px;color:var(--choco);text-align:center}
+.franja .rojo{color:#E10600;font-weight:800}
+@media (max-width:640px){.franja{margin:18px 16px 0;border-radius:22px;font-size:15px;padding:14px 18px}}
 .franja b{font-weight:700}
 body.paciente .programas,body.paciente #restaurar,body.paciente #datos,body.paciente .item.apagado,
 body.paciente #enviar,body.paciente #nueva,body.paciente .barra button{display:none!important}
@@ -144,8 +191,8 @@ body.paciente .item{cursor:default}
 body.paciente .item .marca{display:none}
 body.paciente .paso-q{background:transparent!important;width:auto;padding:0}
 body.paciente .paso-q button{display:none}
-body.paciente .paso-q::before{content:"Cantidad";font-size:12px;color:var(--tenue);margin-right:8px}
-body.paciente .paso-q input{text-align:left;width:90px;padding:0;color:var(--choco);font-weight:700;pointer-events:none}
+body.paciente .paso-q::before{content:"×";font-size:13px;color:var(--tenue);margin:0 2px 0 10px}
+body.paciente .item .paso-q input[type=text]{text-align:left;width:84px;padding:0;color:var(--choco);font-weight:700;pointer-events:none}
 body.paciente #descargar{background:var(--marfil);color:var(--choco);border:0;font-weight:700;padding:16px;margin-top:24px}
 #compartir-pdf{display:none}
 body.comercial #compartir-pdf.puede{display:block}
@@ -166,17 +213,23 @@ body.comercial #compartir-pdf.puede{display:block}
   .programas{padding:0 16px;gap:10px}
   .prog-card{border-radius:22px}
   .prog-card .foto{height:96px;border-radius:16px}
-  .prog-card b{font-size:23px;margin:10px 8px 2px}
+  .prog-card b{font-size:17px;margin:10px 8px 2px}
   .prog-card small{margin:0 8px;font-size:11.5px}
   .intro{padding:30px 16px 24px}
   main{padding:24px 16px 120px;gap:20px}
   .bloque{padding:22px 16px;border-radius:24px}
-  .bloque h2{font-size:28px}
-  #items{grid-template-columns:1fr}
+  .bloque h2{font-size:22px}
+  .item{grid-template-columns:40px minmax(0,1fr) auto;gap:10px;padding:12px 0}
+  .emoji{width:40px;height:40px;font-size:19px;border-radius:12px}
+  .item .paso-q{grid-column:2/4;justify-self:start}
+  .item .candado{grid-row:1;grid-column:3}
+  .item.apagado .paso-q{display:none}
+  .duracion-wow{grid-template-columns:1fr;gap:18px;padding:22px}
+  .duracion-wow .stat b{font-size:24px}
   .fila{grid-template-columns:1fr}
   .barra{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:80;background:var(--choco);color:#fff;border-radius:999px;padding:10px 10px 10px 22px;align-items:center;justify-content:space-between;box-shadow:0 20px 40px -16px rgba(58,50,34,.6)}
   .barra span{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#c9b083}
-  .barra b{font-family:"Instrument Serif",serif;font-weight:400;font-size:26px;line-height:1}
+  .barra b{font-size:22px!important;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:700;letter-spacing:-.02em;font-size:26px;line-height:1}
   .barra button{border:0;background:var(--marfil);color:var(--choco);border-radius:999px;padding:12px 18px;font-weight:700;font-size:13.5px}
 }
 
@@ -187,7 +240,7 @@ body.comercial #compartir-pdf.puede{display:block}
 #pdf .p-cab img{height:30px}
 #pdf .p-cab .der{text-align:right;font-size:12px;color:#d8c9b0;line-height:1.7}
 #pdf .p-cab .der b{display:block;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:2px}
-#pdf .p-cab .p-prog{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-size:36px;line-height:1.1;color:#fff;margin-bottom:4px}
+#pdf .p-cab .p-prog{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.1;color:#fff;margin-bottom:4px}
 #pdf .p-cuerpo{flex:1;display:flex;flex-direction:column;padding:24px 60px 0}
 #pdf .p-datos{display:grid;grid-template-columns:1.3fr 1fr;gap:10px 40px;padding:16px 22px;background:#F5EFE5;border-radius:12px}
 #pdf .p-datos span{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;margin-bottom:1px}
@@ -196,7 +249,9 @@ body.comercial #compartir-pdf.puede{display:block}
 #pdf th{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;font-weight:700;text-align:left;padding:0 0 9px;border-bottom:1px solid #4B412D}
 #pdf th:last-child,#pdf td:last-child{text-align:right;white-space:nowrap}
 #pdf td{padding:8px 0;border-bottom:1px solid #EDE2D0;vertical-align:top;font-size:13.5px}
-#pdf .p-dur td{color:#6e6450;font-size:12.5px}
+#pdf .p-wow{margin-top:16px;display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #EDE2D0;padding-bottom:12px}
+#pdf .p-wow b{font-size:40px;font-weight:700;letter-spacing:-.04em;color:#4B412D;line-height:1}
+#pdf .p-wow span{font-size:13px;color:#6e6450}
 #pdf .p-total{margin-top:18px;background:#9D8051;color:#fff;border-radius:12px;padding:15px 22px;display:flex;justify-content:space-between;align-items:center}
 #pdf .p-total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
 #pdf .p-total b{font-weight:500;font-size:28px}
@@ -206,7 +261,7 @@ body.comercial #compartir-pdf.puede{display:block}
 #pdf ul{list-style:none}
 #pdf li{padding-left:14px;position:relative;margin-bottom:3px;font-size:12px}
 #pdf li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:#9D8051}
-#pdf .p-frase{margin-top:18px;font-family:"Instrument Serif",serif;font-style:italic;font-size:22px;color:#4B412D;text-align:center}
+#pdf .p-frase{margin-top:18px;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:16px;color:#4B412D;text-align:center}
 #pdf .p-pie{margin:18px 0 0;padding:13px 60px;background:#EDE2D0;font-size:11px;color:#6e6450;display:flex;justify-content:space-between;letter-spacing:.05em}
 </style>
 </head>
@@ -242,6 +297,14 @@ body.comercial #compartir-pdf.puede{display:block}
         <button type="button" class="link-sutil" id="restaurar">Volver al plan original</button>
       </div>
       <div class="pendiente oculto" id="pendiente"></div>
+      <div class="duracion-wow" id="wow">
+        <div class="grande" id="wow-dur">3 meses<small>de acompañamiento</small></div>
+        <div class="stats">
+          <div class="stat"><b id="wow-sem">12</b><span>semanas de seguimiento médico</span></div>
+          <div class="stat"><b id="wow-citas">10</b><span>citas con especialistas</span></div>
+          <div class="stat"><b id="wow-ses">26</b><span id="wow-ses-t">sesiones y tratamientos</span></div>
+        </div>
+      </div>
       <div id="items"></div>
     </section>
 
@@ -276,6 +339,8 @@ body.comercial #compartir-pdf.puede{display:block}
     <div class="linea-r oculto" id="r-desc"><span>Descuento</span><span></span></div>
     <div class="total"><span>Tu inversión</span><b id="total">$0</b></div>
     <div class="sub-total"><span>Anticipo del 50% para iniciar</span><span id="anticipo">$0</span></div>
+    <div class="plan-pago oculto" id="plan-pago"></div>
+    <button class="btn-cuotas" id="abrir-cuotas">Simular cuotas</button>
     <button class="btn" id="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
     <button class="btn-sec" id="descargar">Descargar PDF</button>
@@ -286,6 +351,19 @@ body.comercial #compartir-pdf.puede{display:block}
 <div class="barra"><div><span>Tu inversión</span><b id="total-m">$0</b></div><button type="button" id="ir-resumen">Ver resumen</button></div>
 </div>
 
+<div id="modal">
+  <div class="caja-modal">
+    <button type="button" class="cerrar" id="cerrar-modal" aria-label="Cerrar">×</button>
+    <h3>Simulador de cuotas</h3>
+    <p class="ayuda" id="m-ayuda"></p>
+    <div class="m-anticipo"><span>Anticipo para iniciar</span><b id="m-anticipo"></b></div>
+    <p class="m-label">¿En cuántas cuotas pagas el resto (<span id="m-resto"></span>)?</p>
+    <div class="chips" id="m-chips"></div>
+    <div class="m-cuota"><span id="m-cuota-t"></span><b id="m-cuota"></b></div>
+    <div class="calendario" id="m-cal"></div>
+    <div class="m-botones"><button type="button" class="no" id="m-quitar">Sin cuotas</button><button type="button" class="si" id="m-usar">Usar este plan</button></div>
+  </div>
+</div>
 <div id="aviso"></div>
 <div id="pdf-caja"><div id="pdf"></div></div>
 
@@ -302,18 +380,18 @@ const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cue
 
 /* Todos los servicios que se pueden incluir. u = costo por unidad (solo lo ves tú). interno = no sale en el PDF. */
 const CATALOGO = [
-  { id: "ecografia",     n: "Ecografía", u: 30000, t: "Ecografía", d: "", interno: true },
-  { id: "psicologia",    n: "Cita de psicología", u: 150000, t: "Psicología", d: "Acompañamiento emocional durante el proceso" },
-  { id: "nutriologa",    n: "Nutrióloga", u: 200000, t: "Nutrióloga", d: "Plan de alimentación médico" },
-  { id: "nutricionista", n: "Acompañamiento nutricionista", u: 80000, t: "Nutricionista", d: "Seguimiento a tu alimentación" },
-  { id: "deportologia",  n: "Deportología", u: 200000, t: "Deportología", d: "Ejercicio seguro y a tu medida" },
-  { id: "interna",       n: "Medicina interna (vascular)", u: 200000, t: "Medicina interna", d: "Valoración con el especialista vascular" },
-  { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000, t: "Seguimiento semanal", d: "Medicina general, semana a semana" },
-  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000, t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
-  { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000, t: "Enfermería", d: "Acompañamiento cuando lo necesites" },
-  { id: "medias",        n: "Medias de compresión", u: 370000, t: "Medias de compresión", d: "Para el día a día" },
-  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
-  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, t: "Drenaje linfático", d: "Con fisioterapia" },
+  { id: "ecografia",     n: "Ecografía", u: 30000, e: "🩻", t: "Ecografía", d: "", interno: true },
+  { id: "psicologia",    n: "Cita de psicología", u: 150000, e: "🧠", t: "Psicología", d: "Acompañamiento emocional durante el proceso" },
+  { id: "nutriologa",    n: "Nutrióloga", u: 200000, e: "🥗", t: "Nutrióloga", d: "Plan de alimentación médico" },
+  { id: "nutricionista", n: "Acompañamiento nutricionista", u: 80000, e: "🍎", t: "Nutricionista", d: "Seguimiento a tu alimentación" },
+  { id: "deportologia",  n: "Deportología", u: 200000, e: "🏃‍♀️", t: "Deportología", d: "Ejercicio seguro y a tu medida" },
+  { id: "interna",       n: "Medicina interna (vascular)", u: 200000, e: "🩺", t: "Medicina interna", d: "Valoración con el especialista vascular" },
+  { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000, e: "📋", t: "Seguimiento semanal", d: "Medicina general, semana a semana" },
+  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000, e: "💉", t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
+  { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000, e: "👩‍⚕️", t: "Enfermería", d: "Acompañamiento cuando lo necesites" },
+  { id: "medias",        n: "Medias de compresión", u: 370000, e: "🧦", t: "Medias de compresión", d: "Para el día a día" },
+  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
+  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
 ];
 
 /* Cada plan: qué trae (id: cantidad, o [cantidad, costo distinto]) y su precio de lista.
@@ -405,7 +483,7 @@ function cargarPlantilla(){
   $("#items").innerHTML = "";
   CATALOGO.forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
-    agregarItem({ n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
+    agregarItem({ n: c.n, t: c.t, d: c.d, e: c.e, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
   });
   $("#descuento").value = "";
   $("#duracion").value = P().duracion;
@@ -420,16 +498,19 @@ function agregarItem(it = {}){
   if (it.fijo) d.dataset.n = it.n;
   const on = it.on !== false;
   d.innerHTML = `<input type="checkbox" class="check" ${on ? "checked" : ""} tabindex="-1">
-    <span class="marca"></span>
-    <div class="it-cab"><div><span class="titulo">${esc(it.t || it.n)}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}</div></div>
+    <span class="emoji">${it.e || "✨"}</span>
+    <div class="it-cab"><span class="titulo">${esc(it.t || it.n)}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}<span class="leyenda">🔒 El doctor recomienda que esto no se quite</span></div>
     <div class="paso-q"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1" aria-label="Más">+</button></div>
-    <span class="agregar">+ Agregar al plan</span>`;
+    <button type="button" class="candado" title="Recomendar que no se quite">🔒 Clave</button>`;
+  if (it.lock) d.classList.add("bloqueado");
+  d.querySelector(".candado").onclick = e => { e.stopPropagation(); d.classList.toggle("bloqueado"); };
   d.dataset.u = it.u || 0;
   d.classList.toggle("apagado", !on);
   const poner = v => { d.querySelector(".check").checked = v; d.classList.toggle("apagado", !v); calcular(); };
   d.addEventListener("click", e => {
-    if (e.target.closest(".paso-q")) return;
+    if (e.target.closest(".paso-q") || MODO === "paciente") return;
     const ch = d.querySelector(".check"), inp = d.querySelector(".it-q");
+    if (ch.checked && MODO === "comercial" && d.classList.contains("bloqueado") && !confirm("🔒 El doctor recomienda que esto no se quite. ¿Quitarlo igual?")) return;
     if (!ch.checked && mult(inp.value) === 0) inp.value = "1";
     poner(!ch.checked);
   });
@@ -469,6 +550,54 @@ function leer(){
     duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, descuento, precio, costo, queda: precio - costo,
   };
 }
+/* bloque "3 meses" */
+const ESPECIALISTAS = ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"];
+const SESIONES = ["aparatologia", "drenaje"];
+function cantDe(s, ids){ return s.items.filter(x => { const c = CATALOGO.find(k => k.n === x.n); return c && ids.includes(c.id); }).reduce((t, x) => t + mult(x.q), 0); }
+function pintarWow(s){
+  const dur = s.duracion;
+  $("#wow").classList.toggle("oculto", !dur);
+  $("#wow-dur").firstChild.textContent = dur;
+  const sem = cantDe(s, ["general"]), citas = cantDe(s, ESPECIALISTAS), ses = cantDe(s, SESIONES), med = cantDe(s, ["tirzepatida"]);
+  $("#wow-sem").textContent = sem; $("#wow-sem").parentElement.classList.toggle("oculto", !sem);
+  $("#wow-citas").textContent = citas; $("#wow-citas").parentElement.classList.toggle("oculto", !citas);
+  if (ses){ $("#wow-ses").textContent = ses; $("#wow-ses-t").textContent = "sesiones de aparatología y drenaje"; }
+  else { $("#wow-ses").textContent = med; $("#wow-ses-t").textContent = "aplicaciones de medicamento"; }
+  $("#wow-ses").parentElement.classList.toggle("oculto", !(ses || med));
+}
+
+/* simulador de cuotas: anticipo 50% + el resto en cuotas mensuales */
+const OPCIONES_CUOTAS = [1, 2, 3, 4, 5, 6];
+let CUOTAS = 0, cuotasModal = 3;
+const anticipoDe = p => Math.round(p / 2);
+function pintarPlanPago(s){
+  const pp = $("#plan-pago");
+  if (!CUOTAS || !s.precio){ pp.classList.add("oculto"); return; }
+  const resto = s.precio - anticipoDe(s.precio);
+  pp.innerHTML = `Plan de pago: anticipo <b>${fmt(anticipoDe(s.precio))}</b> + <b>${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas"} de ${fmt(resto / CUOTAS)}</b>`;
+  pp.classList.remove("oculto");
+}
+function pintarModal(){
+  const s = leer(), ant = anticipoDe(s.precio), resto = s.precio - ant, c = resto / cuotasModal;
+  $("#m-ayuda").textContent = `Programa de ${P().nombre} · ${fmt(s.precio)}`;
+  $("#m-anticipo").textContent = fmt(ant);
+  $("#m-resto").textContent = fmt(resto);
+  $("#m-chips").innerHTML = OPCIONES_CUOTAS.map(n => `<button type="button" data-n="${n}" class="${n === cuotasModal ? "activa" : ""}">${n}</button>`).join("");
+  $("#m-chips").querySelectorAll("button").forEach(b => b.onclick = () => { cuotasModal = Number(b.dataset.n); pintarModal(); });
+  $("#m-cuota-t").textContent = cuotasModal === 1 ? "Un solo pago de" : `${cuotasModal} cuotas mensuales de`;
+  $("#m-cuota").textContent = fmt(c);
+  let cal = `<div><span>Hoy · anticipo</span><span>${fmt(ant)}</span></div>`;
+  for (let i = 1; i <= cuotasModal; i++) cal += `<div><span>Mes ${i}</span><span>${fmt(c)}</span></div>`;
+  $("#m-cal").innerHTML = cal;
+}
+$("#abrir-cuotas").onclick = () => { if (!leer().precio){ aviso("Primero arma el plan", true); return; } cuotasModal = CUOTAS || 3; pintarModal(); $("#modal").classList.add("ver"); };
+const cerrarModal = () => $("#modal").classList.remove("ver");
+$("#cerrar-modal").onclick = cerrarModal;
+$("#modal").addEventListener("click", e => { if (e.target.id === "modal") cerrarModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
+$("#m-usar").onclick = () => { CUOTAS = cuotasModal; calcular(); cerrarModal(); aviso("Plan de pago agregado a la cotización"); };
+$("#m-quitar").onclick = () => { CUOTAS = 0; calcular(); cerrarModal(); };
+
 let totalVisto = null;
 function animarTotal(v){
   const t = $("#total"), m = $("#total-m");
@@ -493,6 +622,8 @@ function calcular(){
   $("#r-desc").classList.toggle("oculto", !s.descuento);
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
   animarTotal(s.precio);
+  pintarWow(s);
+  pintarPlanPago(s);
   $("#anticipo").textContent = fmt(s.precio / 2);
   return s;
 }
@@ -527,12 +658,14 @@ function armarPDF(s, numero, hoy, vence){
         <div><span>Especialista</span><b>${esc(s.esp)}</b><small style="display:block;font-size:11.5px;color:#6e6450;line-height:1.35">${esc(s.espec)}</small></div>
         <div><span>Contacto</span><b>${esc(s.contacto) || "—"}</b></div>
       </div>
+      ${s.duracion ? `<div class="p-wow"><b>${esc(s.duracion)}</b><span>de acompañamiento médico integral</span></div>` : ""}
       <table><thead><tr><th>Incluye</th><th>Cantidad</th></tr></thead><tbody>
         ${filas.map(f => `<tr><td>${esc(f.n)}</td><td>${esc(f.q)}</td></tr>`).join("")}
-        ${s.duracion ? `<tr class="p-dur"><td>Duración del programa</td><td>${esc(s.duracion)}</td></tr>` : ""}
+
       </tbody></table>
       ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento: −${fmt(s.descuento)}</span></div>` : ""}
       <div class="p-total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
+      ${CUOTAS ? `<div class="p-vence" style="margin-top:12px;font-size:12.5px;color:#1A1A1A"><span>Plan de pago: anticipo de <b>${fmt(anticipoDe(s.precio))}</b> + <b>${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt((s.precio - anticipoDe(s.precio)) / CUOTAS)}</b></span></div>` : ""}
       <div class="p-vence"><span>50% de anticipo al iniciar el programa: <b style="color:#1A1A1A">${fmt(s.precio / 2)}</b></span><span>Válida hasta el ${fecha(vence)}</span></div>
       <div class="p-info">
         <div><h4>Medios de pago</h4><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
@@ -588,7 +721,8 @@ $("#compartir-pdf").onclick = async () => {
 /* ---- la cotización viaja guardada dentro del link ---- */
 function empacar(){
   const d = {
-    p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0]),
+    p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0]),
+    cu: CUOTAS,
     n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
   };
@@ -600,8 +734,9 @@ function desempacar(txt){
 function cargar(d){
   ponerPrograma(d.p in PROGRAMAS ? d.p : "lipedema");
   const items = document.querySelectorAll(".item");
-  (d.i || []).forEach(([q, on], k) => { const x = items[k]; if (!x) return;
-    x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); });
+  (d.i || []).forEach(([q, on, lock], k) => { const x = items[k]; if (!x) return;
+    x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
+  CUOTAS = Number(d.cu) || 0;
   $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
   if (d.t) $("#tipo-id").value = d.t;
   $("#esp").value = d.e || ESPECIALISTA; $("#espec").value = d.es || ESPECIALIDAD; pintarEsp();
@@ -621,9 +756,11 @@ $("#enviar").onclick = () => {
     if (!s.items.some(x => !x.interno)) faltan.push("qué incluye");
     if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
     const link = SITIO + "#c=" + empacar();
+    const bloq = [...document.querySelectorAll(".item.bloqueado:not(.apagado)")].map(x => { const c = CATALOGO.find(k => k.n === x.dataset.n); return c ? c.t : x.dataset.n; });
     abrirWhatsApp(COMERCIAL.whatsapp,
       `Hola ${COMERCIAL.nombre} 👋 Nueva cotización de Seravena\n\n` +
       `Paciente: ${s.nombre}${s.contacto ? "\nCelular: " + s.contacto : ""}\nPrograma: ${P().nombre}\nValor: ${fmt(s.precio)}\nArmada por: ${s.esp}\n\n` +
+      (bloq.length ? `🔒 El doctor recomienda no quitar:\n${bloq.map(x => "• " + x).join("\n")}\n\n` : "") +
       `Ábrela aquí para negociar:\n${link}`);
     aviso("Se abrió WhatsApp con la cotización para " + COMERCIAL.nombre);
   } else {
@@ -632,7 +769,8 @@ $("#enviar").onclick = () => {
     const link = SITIO + "#p=" + empacar();
     abrirWhatsApp(num,
       `Hola ${s.nombre.split(" ")[0]} 🤍 Te comparto tu plan de ${P().nombre} en Seravena.\n\n` +
-      `Inversión: ${fmt(s.precio)} (anticipo del 50%: ${fmt(s.precio / 2)})\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
+      `Inversión: ${fmt(s.precio)} (anticipo del 50%: ${fmt(anticipoDe(s.precio))})` +
+      (CUOTAS ? `\nEl resto en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt((s.precio - anticipoDe(s.precio)) / CUOTAS)}` : "") + `\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
       `Cualquier duda, aquí estoy.`);
     aviso("Se abrió WhatsApp con el chat de la paciente");
   }
@@ -645,7 +783,7 @@ function ponerModo(){
   if (d) cargar(d); else ponerPrograma("lipedema");
   const fr = $("#franja");
   if (MODO === "comercial"){
-    fr.innerHTML = `Cotización armada por <b>${esc($("#esp").value)}</b> para <b>${esc($("#nombre").value)}</b>. Ajústala con la paciente y envíasela.`;
+    fr.innerHTML = `Cotización armada por <b>${esc($("#esp").value)}</b> para <b class="rojo">${esc($("#nombre").value.trim())}</b>. Ajústala con la paciente y envíasela.`;
     fr.classList.remove("oculto");
     $("#enviar-txt").textContent = "Enviar a la paciente por WhatsApp";
     $("#intro-h1").textContent = "Negocia el plan";
@@ -671,7 +809,7 @@ $("#nueva").onclick = () => {
   ["#nombre", "#num-id", "#contacto"].forEach(id => $(id).value = "");
   $("#tipo-id").selectedIndex = 0;
   document.querySelectorAll(".campo.error").forEach(c => c.classList.remove("error"));
-  cargarPlantilla(); window.scrollTo(0, 0);
+  CUOTAS = 0; cargarPlantilla(); window.scrollTo(0, 0);
 };
 
 ponerModo();
