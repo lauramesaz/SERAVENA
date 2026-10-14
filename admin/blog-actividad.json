@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-13",
+  "actualizado": "2026-10-14",
   "articulos": [
+    {
+      "fecha": "2026-10-14",
+      "titulo": "Cuidados después de la escleroterapia: qué hacer los primeros días",
+      "slug": "cuidados-despues-escleroterapia",
+      "categoria": "Salud vascular",
+      "keyword": "cuidados después de escleroterapia",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/cuidados-despues-escleroterapia",
+      "nota": "Artículo del racimo 'tratamiento' (elegido por rotación de racimo: los 2 días previos fueron racimo 'lipedema', así que no se tomó el primer pendiente literal de temas.md -prevención del lipedema, que sigue pendiente- sino el siguiente pendiente de otro racimo). Media de compresión, sol/calor, ejercicio, moretones normales y señales de alarma tras la escleroterapia. Médico: APROBADO CON CORRECCIONES (añadió una cláusula de prudencia remitiendo al especialista sobre los plazos de ver resultado, en el cuerpo y en el FAQ/JSON-LD). SEO: 97/100, APTO (ajustó un h2 para incluir 'Medellín'). Prueba de humanidad (Policía humanizador): 10/10, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-13",
       "titulo": "Lipedema en adolescentes: señales tempranas que no hay que ignorar",
