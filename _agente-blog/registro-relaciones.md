@@ -834,3 +834,100 @@ anteriores + el de esta semana). Sigue sin enviarse ninguno.
 >
 > Seravena · SERAVENA S.A.S.
 > +57 305 208 8204 · info@clinicaseravena.com · https://www.clinicaseravena.com
+
+---
+
+## Semana del 2026-10-14
+
+· Sitios revisados: 9 (Doctoralia — búsqueda directa del perfil del médico y del directorio de
+"venas/várices en Medellín", lipedemacolombia.com, prensa local — El Colombiano/Vivir en El
+Poblado/Minuto30 buscando cobertura de lipedema en 2026, búsqueda general de "Seravena" y de
+"clinicaseravena.com", Cámara de Comercio/RUES por NIT, Google Maps/reseñas) + las 3 búsquedas
+objetivo en Google ("várices Medellín", "flebólogo Medellín", "eco doppler venoso Medellín") +
+revisión directa del código de las páginas raíz y de blog que mencionan la dirección
+· Seravena aparece en: 1 (ver hallazgo principal)
+
+### ⚠️ Hallazgo principal: Seravena ya aparece en Doctoralia — a través del perfil del médico, no de la clínica
+
+Hasta la semana pasada esta bitácora decía "Seravena aparece en: 0" semana tras semana. Buscando hoy
+"Seravena Medellín lipedema várices" encontré un perfil real y verificable en Doctoralia:
+**doctoralia.co/perfil/jose-david-puerta-rojas**. No es un resumen de IA inventado — es la página
+real del directorio, con datos concretos:
+
+- Lo presenta como médico vascular e internista, con consultorio en **Calle 2 Sur 46-159, Medellín**
+  (la dirección correcta, coincide con la ficha maestra).
+- Dice textualmente que trabaja en **Seravena**, un espacio que "integra medicina vascular,
+  tecnología médica y bienestar en un espacio cálido, humano y especializado" — es, casi palabra por
+  palabra, el tono de marca de la propia clínica.
+- Lista como enfoque: venas, arterias, sistema linfático y lipedema, con eco Doppler.
+- Solo atiende particular (sin EPS ni prepagada) — coherente con los datos confirmados por Laura.
+- El perfil **no tiene servicios, precios ni reseñas cargadas todavía**, y no encontré que enlace a
+  **clinicaseravena.com**: es exactamente el caso de "mención sin enlace", salvo que aquí no hay a
+  quién escribirle — es un perfil de autoservicio del propio médico.
+
+Esto conecta con dos cosas que ya estaban anotadas en este repositorio y que esta bitácora no había
+cruzado hasta ahora:
+
+1. La semana pasada (7-oct) registré que el resumen de IA del buscador decía que Seravena está
+   "liderada por el Dr. Jose David Puerta Rojas" y lo marqué como una alucinación porque ninguna
+   fuente citada lo confirmaba. **Con la búsqueda de hoy, directa y sin resumen de IA, encontré la
+   fuente real que sí lo confirma.** No fue una alucinación: el buscador tenía razón, solo que la
+   semana pasada sus fuentes citadas no eran las correctas.
+2. `kit-backlinks.md` (28-sep, sección B.2) tenía pendiente justo esto: "Perfil del médico (gratis)…
+   tenemos pendiente José Luis o José David Puerta". Por el nombre completo y la dirección exacta,
+   todo indica que **ese perfil ya se creó** — no sé si lo hizo el propio médico, Laura, o si ya
+   existía desde antes sin que nadie de este equipo lo hubiera buscado por el nombre exacto hasta
+   hoy.
+
+**No es algo que yo deba redactar como mensaje:** es un perfil de autoservicio, igual que el resto
+de Doctoralia, y ya tiene dueño. Lo que sí recomiendo que Laura revise en dos minutos, siguiendo el
+mismo patrón que ya usé con el REPS y con el posible perfil de Facebook: entrar a ese perfil con la
+cuenta del médico y completar lo que falta (servicios, y sobre todo el enlace a
+www.clinicaseravena.com, que hoy no tiene) y, ya que hay cuenta abierta, seguir con el paso B.2 del
+kit que falta: crear el **perfil de la clínica** (no solo el del médico) en
+doctoralia.co/registro-centro con la ficha maestra.
+
+No encontré, en cambio, que este perfil aparezca todavía en los resultados de las 3 búsquedas
+objetivo ni en el listado de doctoralia.co/enfermedades/venas-varices/medellin — así que el efecto
+en posicionamiento, si lo hay, todavía no se nota desde fuera.
+
+### Nombre/dirección/teléfono: sin incoherencias nuevas
+
+Revisé de nuevo el código fuente de las páginas raíz y una muestra de artículos del blog que
+mencionan la dirección: todas, sin excepción, usan **Calle 2 Sur #46-159, Torre Médica Salud Vegas,
+consultorio 1316** — la misma que confirman las instrucciones de esta semana contra la ficha del
+edificio en Google, y la misma que trae el perfil de Doctoralia del hallazgo principal. Sin cambios
+en el ruido ya conocido de terceros sobre la dirección del edificio (Clínica Las Vegas con 46-55,
+Unidad Médica Las Vegas con otra variante): no volví a revisar esas páginas esta semana porque ya
+está todo registrado y no cambia semana a semana.
+
+### Dónde debería estar Seravena y sigue sin estar (fuera de Doctoralia)
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre, sin ningún nombre nuevo frente a lo
+ya registrado (Doctoralia, Top Doctors, Vasculab, Variclinic, Franco Vascular, Centrolab, Cardiovas
+IPS, dopplervenosomedellin.com, Clínica Medellín/QuirónSalud). Confirmé también que
+`lipedemacolombia.com` sigue sin Seravena (no pude abrir el directorio directamente — bloqueo de red
+ya conocido hacia ese dominio — pero una búsqueda específica no devolvió ninguna página del sitio
+que la mencione): el Mensaje 1 a Adriana, redactado el 2-sep y aún sin enviar, sigue siendo la vía
+correcta. No encontré ninguna nota de prensa nueva de 2026 sobre lipedema en El Colombiano, Vivir en
+El Poblado ni Minuto30. Intenté verificar el NIT de SERAVENA S.A.S. en fuentes públicas indexadas
+por el buscador y no apareció: no es una alarma (el RUES/Cámara de Comercio no siempre está
+indexado), pero no pude confirmarlo desde aquí.
+
+### Esta semana no encontré ninguna oportunidad nueva de enlace que amerite un mensaje
+
+El hallazgo de hoy (Doctoralia) es justo el tipo de cosa que esta misión busca — una mención real sin
+enlace — pero no tiene destinatario al que escribir: es un perfil de autoservicio que ya existe y
+que debe completarse desde adentro, no desde afuera. No encontré ningún directorio, gremio, medio ni
+aliado nuevo esta semana que no esté ya cubierto por los 11 mensajes acumulados en esta bitácora y en
+`kit-backlinks.md`. No redacto mensajes nuevos solo por llenar el cupo de 3: sería relleno.
+
+· Mensajes listos para enviar: 0 esta semana (11 mensajes de semanas anteriores siguen pendientes de
+envío, repartidos entre esta bitácora y `kit-backlinks.md` — ver semanas anteriores y ese archivo)
+
+### Para Laura, en una línea
+
+Ya son 6 semanas con mensajes listos y ninguno enviado. Esta semana, en cambio, sí hay algo accionable
+y rápido que no depende de escribirle a nadie: entrar al perfil de Doctoralia del médico (arriba),
+completarlo y crear el de la clínica. Es el paso B.2 del kit que ya estaba pendiente, con la ventaja
+de que la parte más lenta (que el médico abriera cuenta) parece que ya se hizo.
