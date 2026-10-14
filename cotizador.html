@@ -107,6 +107,19 @@ body.comercial .item.bloqueado .titulo::after{content:"🔒";font-size:14px}
 .item.bloqueado .candado .off{display:none}
 .item.apagado .candado{visibility:hidden}
 
+/* lista compacta: todo el plan en una sola vista */
+.item{grid-template-columns:34px minmax(0,1fr) auto auto;gap:12px;padding:6px 4px}
+.emoji{width:34px;height:34px;border-radius:10px;font-size:17px}
+.it-cab .titulo{font-size:13.5px;line-height:1.25}
+.it-cab .desc{font-size:11.5px;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it-cab{min-width:0}
+.paso-q{padding:2px}
+.paso-q button{width:24px;height:24px;font-size:13px}
+.item .paso-q input[type=text]{width:70px;font-size:13px}
+.candado{height:26px;min-width:88px;font-size:12px}
+.agregar{padding:4px 12px;font-size:12px}
+.leyenda{margin-top:3px;font-size:11px;padding:2px 8px}
+
 /* duración protagonista */
 .duracion-wow{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--choco);color:var(--marfil);border-radius:26px;padding:26px 30px;margin-bottom:26px;position:relative;overflow:hidden}
 .duracion-wow::after{content:"";position:absolute;width:300px;height:300px;right:-120px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
@@ -246,10 +259,11 @@ body.comercial #compartir-pdf.puede{display:block}
   main{padding:24px 16px 120px;gap:20px}
   .bloque{padding:22px 16px;border-radius:24px}
   .bloque h2{font-size:22px}
-  .item{grid-template-columns:40px minmax(0,1fr) auto;gap:10px;padding:12px 0}
-  .emoji{width:40px;height:40px;font-size:19px;border-radius:12px}
-  .item .paso-q,.item .agregar{grid-column:2/4;justify-self:start}
-  .item .candado{grid-row:1;grid-column:3}
+  .item{grid-template-columns:32px minmax(0,1fr) auto auto;gap:8px;padding:7px 0}
+  .emoji{width:32px;height:32px;font-size:16px;border-radius:9px}
+  .candado{min-width:0;width:30px;padding:0;height:26px}
+  .candado .on{display:none!important}
+  .item .paso-q input[type=text]{width:68px;font-size:12px}
   .item.apagado .paso-q{display:none}
   .duracion-wow{grid-template-columns:1fr;gap:18px;padding:22px}
   .duracion-wow .grande small{display:block;margin:10px 0 0}
