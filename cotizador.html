@@ -540,6 +540,7 @@ const ESPECIALISTA = "Jose David Puerta";
 const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
 const COMERCIAL = { nombre: "Federico", whatsapp: "573006397083" }; // a quien le llega "Enviar al comercial"
 const SITIO = "https://www.clinicaseravena.com/cotizador";
+const ENVIO_COPIA = "https://seravena-cotizador-correo.vercel.app/api/enviar"; // proyecto ~/seravena-cotizador-correo (Vercel + Resend) → clinicaseravena@gmail.com y lauramesazuluaga@gmail.com
 const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cuerpo de tus sueños.";
 
 /* Todos los servicios que se pueden incluir. u = costo por unidad (solo lo ves tú). interno = no sale en el PDF. */
@@ -937,14 +938,35 @@ async function hacerPDF(s){
     jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     pagebreak: { mode: ["css"], avoid: ["tr", ".p-total", ".p-info"] },
   }).from($("#pdf")).toPdf().get("pdf");
-  return { doc, archivo };
+  return { doc, archivo, numero, hoy, vence };
+}
+/* copia por correo de cada PDF descargado */
+async function enviarCopia(s, r){
+  const ini = anticipoDe(s.precio), resto = s.precio - ini;
+  const datos = {
+    numero: r.numero, fecha: fecha(r.hoy), vence: fecha(r.vence), modo: MODO,
+    programa: s.programa, paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
+    especialista: s.esp, duracion: s.duracion,
+    servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, lock: x.el.classList.contains("bloqueado") }; }),
+    lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.descuento, total: s.precio,
+    inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? resto / CUOTAS : 0,
+    costo: s.costo, queda: s.queda,
+    archivo: r.archivo, pdf: r.doc.output("datauristring").split(",")[1],
+  };
+  const res = await fetch(ENVIO_COPIA, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok || !j.ok) throw new Error(j.error || "error");
 }
 $("#descargar").onclick = async () => {
   const s = calcular(), faltan = MODO === "paciente" ? [] : validar(s);
   if (faltan.length){ aviso("Para descargar falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => $("#nombre").focus(), 400); return; }
   const b = $("#descargar"), tx = b.querySelector(".txt-desc"), t = tx.textContent; b.disabled = true; tx.textContent = "Generando…";
-  try{ const { doc, archivo } = await hacerPDF(s); doc.save(archivo); aviso("PDF descargado"); }
-  catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); }
+  let r;
+  try{ r = await hacerPDF(s); r.doc.save(r.archivo); aviso("PDF descargado"); }
+  catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); b.disabled = false; tx.textContent = t; return; }
+  tx.textContent = "Enviando copia…";
+  try{ await enviarCopia(s, r); aviso("PDF descargado · copia enviada al correo de Seravena"); }
+  catch(e){ aviso("El PDF se descargó, pero no se pudo enviar la copia al correo.", true); }
   b.disabled = false; tx.textContent = t;
 };
 /* en celular: compartir el PDF como archivo (WhatsApp, correo…) */
@@ -953,9 +975,10 @@ $("#compartir-pdf").onclick = async () => {
   const s = calcular(), faltan = validar(s);
   if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); return; }
   try{
-    const { doc, archivo } = await hacerPDF(s);
-    const f = new File([doc.output("blob")], archivo, { type: "application/pdf" });
-    await navigator.share({ files: [f], title: archivo });
+    const r = await hacerPDF(s);
+    const f = new File([r.doc.output("blob")], r.archivo, { type: "application/pdf" });
+    enviarCopia(s, r).catch(() => {});
+    await navigator.share({ files: [f], title: r.archivo });
   }catch(e){ if (e && e.name !== "AbortError") aviso("No se pudo compartir el PDF.", true); }
 };
 
