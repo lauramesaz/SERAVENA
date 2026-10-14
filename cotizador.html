@@ -75,7 +75,7 @@ main{max-width:1120px;margin:0 auto;padding:44px 28px 120px;display:grid;grid-te
 
 /* servicios: lista tipo cotizador */
 #items{border-top:1px solid var(--linea)}
-.item{display:grid;grid-template-columns:46px minmax(0,1fr) auto auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--linea);cursor:pointer;transition:opacity .25s,background .25s}
+.item{display:grid;grid-template-columns:46px minmax(0,1fr) auto auto auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--linea);cursor:pointer;transition:opacity .25s,background .25s}
 .item.interno{display:none}
 .item:hover{background:rgba(237,226,208,.25)}
 .item.apagado{opacity:.5}
@@ -88,18 +88,24 @@ main{max-width:1120px;margin:0 auto;padding:44px 28px 120px;display:grid;grid-te
 .leyenda{display:none;margin-top:6px;font-size:12px;font-weight:600;color:#9a3412;background:#FFF1E6;border-radius:999px;padding:3px 10px;width:max-content;max-width:100%}
 .item.bloqueado .leyenda{display:inline-block}
 body:not(.comercial) .leyenda{display:none!important}
-.candado{border:1px solid var(--linea);background:#fff;border-radius:999px;height:32px;padding:0 10px;font-size:14px;cursor:pointer;filter:grayscale(1);opacity:.55;transition:.2s;white-space:nowrap}
-.candado:hover{opacity:1}
+.candado{border:1px solid transparent;background:transparent;border-radius:999px;height:32px;padding:0 10px;min-width:104px;font-size:14px;cursor:pointer;filter:grayscale(1);opacity:.35;transition:.2s;white-space:nowrap}
+.candado:hover{opacity:.9;border-color:var(--linea);background:#fff}
 .item.bloqueado .candado{filter:none;opacity:1;background:#FFF1E6;border-color:#F5C9A8}
 body.comercial .candado,body.paciente .candado{display:none}
 body.comercial .item.bloqueado .titulo::after{content:"🔒";font-size:14px}
 .paso-q{display:flex;align-items:center;gap:2px;background:var(--marfil);border-radius:999px;padding:3px;cursor:default}
-.item.apagado .paso-q{visibility:hidden}
 .paso-q button{border:0;background:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;color:var(--choco);box-shadow:0 1px 2px rgba(75,65,45,.12);transition:.2s}
 .paso-q button:hover{background:var(--choco);color:#fff}
 .item .paso-q input[type=text]{border:0;background:transparent;text-align:center;width:78px;padding:0;border-radius:0;font-weight:700;font-size:14px;outline:none}
 .marca{display:none}
-.agregar{display:none}
+.agregar{display:none;border:1px dashed var(--linea-2);border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--camel-osc);white-space:nowrap}
+.item.apagado .agregar{display:inline-block}
+.item.apagado .paso-q{display:none}
+.item.apagado:hover .agregar{border-style:solid;border-color:var(--camel);background:#fff}
+.candado .on{display:none}
+.item.bloqueado .candado .on{display:inline}
+.item.bloqueado .candado .off{display:none}
+.item.apagado .candado{visibility:hidden}
 
 /* duración protagonista */
 .duracion-wow{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--choco);color:var(--marfil);border-radius:26px;padding:26px 30px;margin-bottom:26px;position:relative;overflow:hidden}
@@ -171,7 +177,22 @@ aside::before{content:"";position:absolute;width:360px;height:360px;right:-160px
 aside > *{position:relative}
 aside .ojo{color:#c9b083;margin-bottom:8px}
 aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.05;color:#fff;margin-bottom:22px}
-#resumen{border-top:1px solid rgba(237,226,208,.16)}
+.r-meta{font-size:13px;color:#d8c9b0;margin:-14px 0 14px}
+.r-lista{border-top:1px solid rgba(237,226,208,.16);border-bottom:1px solid rgba(237,226,208,.16)}
+.r-lista summary{list-style:none;cursor:pointer;padding:12px 0;font-size:13.5px;font-weight:600;color:#e8d6b3;display:flex;justify-content:space-between}
+.r-lista summary::-webkit-details-marker{display:none}
+.r-lista summary::after{content:"+";font-size:18px;line-height:1;transition:transform .3s}
+.r-lista[open] summary::after{transform:rotate(45deg)}
+#resumen{max-height:280px;overflow:auto;padding-bottom:6px}
+#resumen .linea-r:last-child{border-bottom:0}
+.acciones-sec{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.chip-osc{background:rgba(237,226,208,.08);border:1px solid rgba(237,226,208,.22);color:#fff;border-radius:999px;padding:11px 8px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s}
+.chip-osc:hover,.chip-osc.activa{background:rgba(237,226,208,.18);border-color:#c9b083}
+.desc-caja{margin-top:12px}
+.desc-caja label{color:#c9b083;margin-left:6px}
+.desc-caja input[type=text]{background:rgba(255,255,255,.95)}
+.link-claro{display:block;margin:16px auto 0;background:none;border:0;color:#c9b083;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.link-claro:hover{color:#fff}
 .linea-r{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:9px 0;border-bottom:1px solid rgba(237,226,208,.1)}
 .linea-r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:#d8c9b0}
 .linea-r.vacio{color:#c9b083;border:0}
@@ -180,7 +201,7 @@ aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-we
 .total b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.035em;font-size:44px;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em;transition:color .3s}
 .total b.cambia{color:#e8d6b3}
 .sub-total{display:flex;justify-content:space-between;font-size:13px;color:#d8c9b0;margin-top:6px}
-.btn{width:100%;margin-top:24px;background:var(--marfil);color:var(--choco);border:0;border-radius:999px;padding:16px;font-weight:700;cursor:pointer;font-size:15px;transition:transform .3s var(--ease),background .2s}
+.btn{width:100%;margin-top:20px;background:var(--marfil);color:var(--choco);border:0;border-radius:999px;padding:16px;font-weight:700;cursor:pointer;font-size:15px;transition:transform .3s var(--ease),background .2s}
 .btn:hover{background:#fff;transform:translateY(-1px)}
 .btn:disabled{opacity:.6;cursor:wait}
 .btn-sec{width:100%;margin-top:10px;background:transparent;border:1px solid rgba(237,226,208,.25);color:var(--marfil);border-radius:999px;padding:12px;cursor:pointer;font-size:13.5px}
@@ -192,7 +213,7 @@ aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-we
 @media (max-width:640px){.franja{margin:18px 16px 0;border-radius:22px;font-size:15px;padding:14px 18px}}
 .franja b{font-weight:700}
 body.paciente .programas,body.paciente #restaurar,body.paciente #datos,body.paciente .item.apagado,
-body.paciente #enviar,body.paciente #nueva,body.paciente .barra button{display:none!important}
+body.paciente .r-lista,body.paciente #enviar,body.paciente #nueva,body.paciente .acciones-sec,body.paciente #desc-caja,body.paciente .agregar,body.paciente .candado,body.paciente .barra button{display:none!important}
 body.paciente .item{cursor:default}
 body.paciente .item .marca{display:none}
 body.paciente .paso-q{background:transparent!important;width:auto;padding:0}
@@ -227,12 +248,17 @@ body.comercial #compartir-pdf.puede{display:block}
   .bloque h2{font-size:22px}
   .item{grid-template-columns:40px minmax(0,1fr) auto;gap:10px;padding:12px 0}
   .emoji{width:40px;height:40px;font-size:19px;border-radius:12px}
-  .item .paso-q{grid-column:2/4;justify-self:start}
+  .item .paso-q,.item .agregar{grid-column:2/4;justify-self:start}
   .item .candado{grid-row:1;grid-column:3}
   .item.apagado .paso-q{display:none}
   .duracion-wow{grid-template-columns:1fr;gap:18px;padding:22px}
+  .duracion-wow .grande small{display:block;margin:10px 0 0}
+  .duracion-wow .stat{padding-left:10px}
   .duracion-wow .stat b{font-size:24px}
   .fila{grid-template-columns:1fr}
+  #aviso{bottom:92px}
+  .barra{transition:transform .4s var(--ease),opacity .3s}
+  .barra.esconder{transform:translateY(120%);opacity:0;pointer-events:none}
   .barra{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:80;background:var(--choco);color:#fff;border-radius:999px;padding:10px 10px 10px 22px;align-items:center;justify-content:space-between;box-shadow:0 20px 40px -16px rgba(58,50,34,.6)}
   .barra span{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#c9b083}
   .barra b{font-size:22px!important;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:700;letter-spacing:-.02em;font-size:26px;line-height:1}
@@ -326,13 +352,12 @@ body.comercial #compartir-pdf.puede{display:block}
         <div class="campo"><label for="espec">Especialidad</label><input id="espec" type="text"></div>
       </div>
       <div class="fila">
-        <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" type="text" autocomplete="off"></div>
-        <div class="campo"><label for="contacto">Celular</label><input id="contacto" type="text" inputmode="tel" autocomplete="off"></div>
+        <div class="campo"><label for="nombre">Nombre completo <small>(obligatorio)</small></label><input id="nombre" type="text" autocomplete="off"></div>
+        <div class="campo"><label for="contacto">Celular</label><input id="contacto" type="text" inputmode="tel" autocomplete="off" placeholder="300 000 0000"></div>
         <div class="campo"><label for="tipo-id">Tipo de identificación</label>
           <select id="tipo-id"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></div>
         <div class="campo"><label for="num-id">Número de identificación</label><input id="num-id" type="text" autocomplete="off"></div>
-        <div class="campo"><label for="duracion">Duración del programa</label><input id="duracion" type="text"></div>
-        <div class="campo"><label for="descuento">Descuento <small>(opcional)</small></label><div class="dinero"><input id="descuento" type="text" inputmode="numeric" data-dinero placeholder="0"></div></div>
+        <div class="campo"><label for="duracion">Duración del programa <small>(sale grande en el plan)</small></label><input id="duracion" type="text"></div>
       </div>
       <p class="ayuda oculto" id="ayuda-precio"></p>
     </section>
@@ -341,16 +366,24 @@ body.comercial #compartir-pdf.puede{display:block}
   <aside id="resumen-caja">
     <p class="ojo">Tu programa</p>
     <div class="prog" id="r-prog"></div>
-    <div id="resumen"></div>
-    <div class="linea-r oculto" id="r-desc"><span>Descuento</span><span></span></div>
+    <p class="r-meta" id="r-meta"></p>
+    <details class="r-lista"><summary>Ver lo que incluye</summary><div id="resumen"></div></details>
     <div class="total"><span>Tu inversión</span><b id="total">$0</b></div>
+    <div class="sub-total oculto" id="r-desc"><span>Descuento aplicado</span><span></span></div>
     <div class="sub-total"><span id="anticipo-t">Valor inicial (50%)</span><span id="anticipo">$0</span></div>
     <div class="plan-pago oculto" id="plan-pago"></div>
-    <button class="btn-cuotas" id="abrir-cuotas">Simular cuotas</button>
+    <div class="acciones-sec">
+      <button type="button" class="chip-osc" id="abrir-cuotas">💳 Simular cuotas</button>
+      <button type="button" class="chip-osc" id="abrir-desc">🏷️ Descuento</button>
+    </div>
+    <div class="desc-caja oculto" id="desc-caja">
+      <label for="descuento">Descuento en pesos</label>
+      <div class="dinero"><input id="descuento" type="text" inputmode="numeric" data-dinero placeholder="0"></div>
+    </div>
     <button class="btn" id="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
     <button class="btn-sec" id="descargar">Descargar PDF</button>
-    <button class="btn-sec" id="nueva">Nueva cotización</button>
+    <button type="button" class="link-claro" id="nueva">Empezar una cotización nueva</button>
   </aside>
 </main>
 
@@ -468,6 +501,9 @@ function pintarEsp(){
 pintarEsp();
 $("#esp").addEventListener("input", pintarEsp); $("#espec").addEventListener("input", pintarEsp);
 $("#esp-cambiar").onclick = () => { $("#esp-editar").classList.toggle("oculto"); };
+/* en celular la barra de precio se esconde cuando ya se ve el resumen */
+try{ new IntersectionObserver(([e]) => document.querySelector(".barra").classList.toggle("esconder", e.isIntersecting), { threshold: .15 }).observe($("#resumen-caja")); }catch(e){}
+$("#abrir-desc").onclick = () => { const c = $("#desc-caja"); c.classList.toggle("oculto"); $("#abrir-desc").classList.toggle("activa", !c.classList.contains("oculto")); if (!c.classList.contains("oculto")) $("#descuento").focus(); };
 $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
 /* ---- programas ---- */
@@ -509,7 +545,8 @@ function agregarItem(it = {}){
     <span class="emoji">${it.e || "✨"}</span>
     <div class="it-cab"><span class="titulo">${esc(it.t || it.n)}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}<span class="leyenda">🔒 El doctor recomienda que esto no se quite</span></div>
     <div class="paso-q"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1" aria-label="Más">+</button></div>
-    <button type="button" class="candado" title="Recomendar que no se quite">🔒 Clave</button>`;
+    <span class="agregar">+ Agregar</span>
+    <button type="button" class="candado" title="Marcar como recomendado: el comercial verá que no se debería quitar">🔒<span class="on"> No quitar</span></button>`;
   if (it.lock) d.classList.add("bloqueado");
   d.querySelector(".candado").onclick = e => { e.stopPropagation(); d.classList.toggle("bloqueado"); };
   d.dataset.u = it.u || 0;
@@ -634,6 +671,8 @@ function calcular(){
     : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
   $("#r-desc").classList.toggle("oculto", !s.descuento);
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
+  const nServ = vis.length;
+  $("#r-meta").textContent = nServ ? `${nServ} ${nServ === 1 ? "servicio" : "servicios"}${s.duracion ? " · " + s.duracion : ""}` : "";
   animarTotal(s.precio);
   pintarWow(s);
   pintarPlanPago(s);
@@ -801,6 +840,8 @@ function ponerModo(){
     $("#enviar-txt").textContent = "Enviar a la paciente por WhatsApp";
     $("#intro-h1").textContent = "Negocia el plan";
     $("#intro-p").textContent = "Lo que muevas aquí cambia el precio al instante.";
+    $("#ayuda-items").textContent = "Toca un servicio para sumarlo o quitarlo. Lo que tiene 🔒 el doctor recomienda no quitarlo.";
+    if ($("#descuento").value){ $("#desc-caja").classList.remove("oculto"); $("#abrir-desc").classList.add("activa"); }
   } else if (MODO === "paciente"){
     abrir();
     $("#intro-ojo").textContent = "Tu plan en Seravena";
@@ -812,6 +853,7 @@ function ponerModo(){
     document.title = "Tu plan · Seravena";
   } else {
     $("#enviar-txt").textContent = "Enviar a " + COMERCIAL.nombre + " (comercial)";
+    $("#ayuda-items").textContent = "Toca un servicio para sumarlo o quitarlo. Con 🔒 marcas lo que el comercial no debería quitar.";
   }
 }
 window.addEventListener("hashchange", () => location.reload());
