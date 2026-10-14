@@ -202,6 +202,13 @@ aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-we
 .chip-osc{background:rgba(237,226,208,.08);border:1px solid rgba(237,226,208,.22);color:#fff;border-radius:999px;padding:11px 8px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s}
 .chip-osc:hover,.chip-osc.activa{background:rgba(237,226,208,.18);border-color:#c9b083}
 .desc-caja{margin-top:12px}
+.desc-fila{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center}
+.porcentaje{position:relative}
+.porcentaje input[type=text]{text-align:center;padding-right:30px;font-weight:700;background:rgba(255,255,255,.95);color:var(--choco)}
+.porcentaje::after{content:"%";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--tenue);font-weight:700}
+.desc-rapidos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.desc-rapidos button{background:rgba(237,226,208,.08);border:1px solid rgba(237,226,208,.22);color:#fff;border-radius:999px;padding:10px 0;cursor:pointer;font-size:13px;font-weight:600}
+.desc-rapidos button:hover,.desc-rapidos button.activa{background:#EDE2D0;color:var(--choco);border-color:#EDE2D0}
 .desc-caja label{color:#c9b083;margin-left:6px}
 .desc-caja input[type=text]{background:rgba(255,255,255,.95)}
 .link-claro{display:block;margin:16px auto 0;background:none;border:0;color:#c9b083;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
@@ -391,8 +398,11 @@ body.comercial #compartir-pdf.puede{display:block}
       <button type="button" class="chip-osc" id="abrir-desc">🏷️ Descuento</button>
     </div>
     <div class="desc-caja oculto" id="desc-caja">
-      <label for="descuento">Descuento en pesos</label>
-      <div class="dinero"><input id="descuento" type="text" inputmode="numeric" data-dinero placeholder="0"></div>
+      <label for="descuento">Descuento</label>
+      <div class="desc-fila">
+        <div class="porcentaje"><input id="descuento" type="text" inputmode="decimal" placeholder="0" maxlength="5"></div>
+        <div class="desc-rapidos"><button type="button" data-p="5">5%</button><button type="button" data-p="10">10%</button><button type="button" data-p="15">15%</button></div>
+      </div>
     </div>
     <button class="btn" id="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
@@ -517,6 +527,10 @@ $("#esp").addEventListener("input", pintarEsp); $("#espec").addEventListener("in
 $("#esp-cambiar").onclick = () => { $("#esp-editar").classList.toggle("oculto"); };
 /* en celular la barra de precio se esconde cuando ya se ve el resumen */
 try{ new IntersectionObserver(([e]) => document.querySelector(".barra").classList.toggle("esconder", e.isIntersecting), { threshold: .15 }).observe($("#resumen-caja")); }catch(e){}
+$("#descuento").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); });
+document.querySelectorAll(".desc-rapidos button").forEach(b => b.onclick = () => {
+  $("#descuento").value = $("#descuento").value === b.dataset.p ? "" : b.dataset.p; calcular();
+});
 $("#abrir-desc").onclick = () => { const c = $("#desc-caja"); c.classList.toggle("oculto"); $("#abrir-desc").classList.toggle("activa", !c.classList.contains("oculto")); if (!c.classList.contains("oculto")) $("#descuento").focus(); };
 $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -601,12 +615,13 @@ function leer(){
   const sel = items.filter(x => x.on && (x.n || x.u));
   const costo = sel.reduce((s, x) => s + x.costo, 0);
   const lista = Math.round(costo * f);
-  const descuento = Math.min(num($("#descuento").value), lista);
+  const pct = Math.min(100, Math.max(0, parseFloat(String($("#descuento").value).replace(",", ".")) || 0));
+  const descuento = Math.round(lista * pct / 100);
   const precio = lista - descuento;
   return {
     programa: P().titulo, nombre: $("#nombre").value.trim(), tipoId: $("#tipo-id").value, numId: $("#num-id").value.trim(),
     contacto: $("#contacto").value.trim(), esp: $("#esp").value.trim(), espec: $("#espec").value.trim(),
-    duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, descuento, precio, costo, queda: precio - costo,
+    duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, pct, descuento, precio, costo, queda: precio - costo,
   };
 }
 /* bloque "3 meses" */
@@ -684,7 +699,9 @@ function calcular(){
     ? vis.map(x => { const c = CATALOGO.find(k => k.n === x.n); return `<div class="linea-r"><span>${esc(c ? c.t : x.n)}</span><span>${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span></div>`; }).join("")
     : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
   $("#r-desc").classList.toggle("oculto", !s.descuento);
+  $("#r-desc").firstElementChild.textContent = `Descuento del ${String(s.pct).replace(".", ",")}%`;
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
+  document.querySelectorAll(".desc-rapidos button").forEach(b => b.classList.toggle("activa", Number(b.dataset.p) === s.pct));
   const nServ = vis.length;
   $("#r-meta").textContent = nServ ? `${nServ} ${nServ === 1 ? "servicio" : "servicios"}${s.duracion ? " · " + s.duracion : ""}` : "";
   animarTotal(s.precio);
@@ -729,7 +746,7 @@ function armarPDF(s, numero, hoy, vence){
         ${filas.map(f => `<tr><td>${esc(f.n)}</td><td>${esc(f.q)}</td></tr>`).join("")}
 
       </tbody></table>
-      ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento: −${fmt(s.descuento)}</span></div>` : ""}
+      ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
       <div class="p-total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
       ${CUOTAS ? `<div class="p-vence" style="margin-top:12px;font-size:12.5px;color:#1A1A1A"><span>Plan de pago: valor inicial de <b>${fmt(anticipoDe(s.precio))}</b> + <b>${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt((s.precio - anticipoDe(s.precio)) / CUOTAS)}</b></span></div>` : ""}
       <div class="p-vence"><span>Valor inicial para empezar el programa: <b style="color:#1A1A1A">${fmt(anticipoDe(s.precio))}</b></span><span>Válida hasta el ${fecha(vence)}</span></div>
