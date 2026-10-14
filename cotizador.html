@@ -21,8 +21,8 @@
   --error:#A23B3B; --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body{overflow-x:hidden;background:var(--marfil);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;position:relative}
+html{-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{overflow-x:clip;background:var(--marfil);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;position:relative}
 /* textura de grano suave */
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -57,6 +57,7 @@ header img{height:24px}
   box-shadow:0 0 0 1px var(--linea);transition:transform .5s var(--ease),box-shadow .3s}
 .prog-card:hover{transform:translateY(-3px)}
 .prog-card .foto{height:150px;border-radius:22px;background-size:cover;background-position:center;filter:saturate(.85);transition:filter .3s}
+aside .total{margin-top:14px}
 .prog-card b{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.025em;font-size:20px;line-height:1.1;color:var(--choco);margin:14px 10px 4px}
 .prog-card small{display:block;margin:0 10px;font-size:12.5px;color:var(--tenue)}
 .prog-card::after{content:"";position:absolute;top:18px;right:18px;width:22px;height:22px;border-radius:50%;background:rgba(255,253,249,.9);box-shadow:inset 0 0 0 1.5px var(--linea-2);transition:.3s}
@@ -179,6 +180,12 @@ body.paciente .pasos{display:none}
 .caja-inicial{margin-top:14px;background:rgba(237,226,208,.09);border-radius:16px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
 .caja-inicial span{font-size:12.5px;color:#d8c9b0}
 .caja-inicial b{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.r-incluye{margin:4px 0 6px;border-top:1px solid rgba(237,226,208,.14);padding-top:12px}
+.r-tit{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c9b083;font-weight:600;margin-bottom:4px}
+#resumen{max-height:none!important;overflow:visible!important}
+#resumen .linea-r{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;padding:4px 0;font-size:12.5px;border-bottom:0}
+#resumen .linea-r .ico{width:16px;height:16px;color:#c9b083}
+#resumen .linea-r span:last-child{font-weight:600;color:#fff}
 .r-filas{margin-top:16px;border-top:1px solid rgba(237,226,208,.14)}
 .r-fila{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(237,226,208,.1);font-size:13.5px;color:#EDE2D0}
 .r-fila .ico{color:#c9b083;width:19px;height:19px}
@@ -258,7 +265,7 @@ input:focus,select:focus{border-color:var(--camel)}
 .esp-editar{margin-bottom:22px}
 
 /* resumen */
-aside{position:sticky;top:24px;background:var(--choco);color:var(--marfil);border-radius:32px;padding:30px 28px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(58,50,34,.7)}
+aside{padding:24px 24px!important;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto!important;scrollbar-width:thin;scrollbar-color:rgba(237,226,208,.25) transparent;background:var(--choco);color:var(--marfil);border-radius:32px;padding:30px 28px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(58,50,34,.7)}
 aside::before{content:"";position:absolute;width:360px;height:360px;right:-160px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
 aside > *{position:relative}
 aside .ojo{color:#c9b083;margin-bottom:8px}
@@ -327,7 +334,7 @@ body.comercial #compartir-pdf.puede{display:block}
 @media (max-width:980px){
   .programas{grid-template-columns:repeat(2,minmax(0,1fr))}
   main{grid-template-columns:1fr}
-  aside{position:static}
+  aside{position:static;max-height:none}
 }
 @media (max-width:640px){
   .programas{padding:0 16px;gap:10px}
@@ -475,6 +482,7 @@ body.comercial #compartir-pdf.puede{display:block}
     <p class="ojo">Resumen de tu programa</p>
     <div class="prog" id="r-prog"></div>
     <p class="r-meta" id="r-meta"></p>
+    <div class="r-incluye"><p class="r-tit">Lo que incluye</p><div id="resumen"></div></div>
     <div class="total"><span>Tu inversión total</span><b><span id="total">$0</span><small>COP</small></b></div>
     <div class="sub-total oculto" id="r-desc"><span>Descuento aplicado</span><span></span></div>
     <div class="caja-inicial"><span id="anticipo-t">Valor inicial (50%)</span><b id="anticipo">$0</b></div>
@@ -490,12 +498,11 @@ body.comercial #compartir-pdf.puede{display:block}
         <div class="desc-rapidos"><button type="button" data-p="5">5%</button><button type="button" data-p="10">10%</button><button type="button" data-p="15">15%</button></div>
       </div>
     </div>
-    <div class="r-filas">
+    <div class="r-filas oculto">
       <div class="r-fila" data-ico="personas"><span>Especialistas</span><b id="rf-citas"></b></div>
       <div class="r-fila" data-ico="calendario"><span>Seguimiento médico</span><b id="rf-sem"></b></div>
       <div class="r-fila" data-ico="corazon"><span>Tratamiento y bienestar</span><b id="rf-tto"></b></div>
     </div>
-    <details class="r-lista"><summary>Ver detalle de servicios</summary><div id="resumen"></div></details>
     <button class="btn" id="enviar" data-ico="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
     <button class="btn-sec" id="descargar" data-ico="descargar"><span class="txt-desc">Descargar PDF</span></button>
@@ -838,7 +845,7 @@ function calcular(){
   $("#r-prog").textContent = P().nombre;
   const vis = s.items.filter(x => !x.interno && x.n);
   $("#resumen").innerHTML = vis.length
-    ? vis.map(x => { const c = CATALOGO.find(k => k.n === x.n); return `<div class="linea-r"><span>${esc(c ? c.t : x.n)}</span><span>${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span></div>`; }).join("")
+    ? vis.map(x => { const c = CATALOGO.find(k => k.n === x.n); return `<div class="linea-r">${c ? ico(c.id) : ""}<span>${esc(c ? c.t : x.n)}</span><span>${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span></div>`; }).join("")
     : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
   $("#r-desc").classList.toggle("oculto", !s.descuento);
   $("#r-desc").firstElementChild.textContent = `Descuento del ${String(s.pct).replace(".", ",")}%`;
