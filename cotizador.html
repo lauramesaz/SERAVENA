@@ -120,6 +120,79 @@ body.comercial .item.bloqueado .titulo::after{content:"🔒";font-size:14px}
 .agregar{padding:4px 12px;font-size:12px}
 .leyenda{margin-top:3px;font-size:11px;padding:2px 8px}
 
+/* ---- vectores ---- */
+.ico{width:20px;height:20px;flex:none;display:block}
+.emoji{color:var(--choco);background:transparent!important;filter:none!important}
+.emoji .ico{width:21px;height:21px}
+.item.apagado .emoji{color:var(--tenue)}
+/* casilla visible */
+.caja-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--linea-2);display:grid;place-items:center;transition:.2s;flex:none}
+.caja-check .ico{width:13px;height:13px;color:#fff;opacity:0;stroke-width:2.6}
+.item:not(.apagado) .caja-check{background:var(--choco);border-color:var(--choco)}
+.item:not(.apagado) .caja-check .ico{opacity:1}
+body.paciente .caja-check{display:none}
+.item{grid-template-columns:20px 30px minmax(0,1fr) auto auto!important}
+body.paciente .item{grid-template-columns:30px minmax(0,1fr) auto!important}
+.item > .caja-check{grid-column:1;grid-row:1}
+.item > .emoji{grid-column:2;grid-row:1}
+.item > .it-cab{grid-column:3;grid-row:1}
+.item > .paso-q,.item > .agregar{grid-column:4;grid-row:1}
+.item > .candado{grid-column:5;grid-row:1}
+body.paciente .item > .emoji{grid-column:1}
+body.paciente .item > .it-cab{grid-column:2}
+body.paciente .item > .paso-q{grid-column:3}
+.candado{display:inline-flex;align-items:center;justify-content:center;gap:5px;filter:none}
+.candado .ico{width:15px;height:15px}
+.item.bloqueado .candado{color:#9a3412}
+.leyenda{display:none;align-items:center;gap:5px;grid-column:3/-1;grid-row:2;margin-top:-2px!important;justify-self:start}
+.item.bloqueado .leyenda{display:inline-flex}
+.leyenda .ico{width:12px;height:12px}
+body.comercial .item.bloqueado .titulo::after{content:none}
+.titulo .ico-lock{width:13px;height:13px;color:#9a3412;display:none}
+body.comercial .item.bloqueado .titulo .ico-lock{display:block}
+/* grupos */
+.grupo{border:1px solid var(--linea);border-radius:20px;background:#fff;margin-bottom:12px;overflow:hidden}
+.grupo summary{list-style:none;display:flex;align-items:center;gap:14px;padding:14px 18px;cursor:pointer;background:var(--blanco)}
+.grupo summary::-webkit-details-marker{display:none}
+.grupo summary .ico{color:var(--choco);width:22px;height:22px}
+.grupo summary b{display:block;font-size:15px;font-weight:600}
+.grupo summary small{display:block;font-size:12px;color:var(--tenue)}
+.grupo summary .ico.flecha-g{margin-left:auto;width:18px;height:18px;color:var(--tenue);transition:transform .3s}
+.grupo[open] summary .ico.flecha-g{transform:rotate(180deg)}
+.grupo .lista{border-top:1px solid var(--linea);padding:2px 14px}
+.grupo .lista .item:last-child{border-bottom:0}
+#items{border-top:0}
+/* pasos */
+.pasos{display:flex;align-items:center;justify-content:center;gap:14px;margin:-6px auto 30px;padding:0 16px;flex-wrap:wrap}
+.pasos button{display:flex;align-items:center;gap:9px;border:0;background:none;cursor:pointer;font-size:13.5px;color:var(--tenue);font-weight:500;padding:4px}
+.pasos button span{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--linea-2);display:grid;place-items:center;font-size:12.5px;font-weight:700;transition:.25s}
+.pasos button.activo{color:var(--texto);font-weight:600}
+.pasos button.activo span{background:var(--choco);border-color:var(--choco);color:#fff}
+.pasos button.hecho span{background:var(--marfil-2);border-color:var(--marfil-2);color:var(--choco)}
+.pasos i{width:56px;height:1px;background:var(--linea-2)}
+body.paciente .pasos{display:none}
+/* resumen con íconos */
+.pasos em{font-style:normal}
+.ico-txt .ico{display:inline-block;width:14px;height:14px;vertical-align:-2px;color:var(--choco)}
+.total b span{display:inline;font:inherit;letter-spacing:inherit;text-transform:none;color:inherit}
+.total b small{display:inline;font-size:15px;font-weight:600;color:#c9b083;margin-left:8px;letter-spacing:.04em}
+.caja-inicial{margin-top:14px;background:rgba(237,226,208,.09);border-radius:16px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.caja-inicial span{font-size:12.5px;color:#d8c9b0}
+.caja-inicial b{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.r-filas{margin-top:16px;border-top:1px solid rgba(237,226,208,.14)}
+.r-fila{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(237,226,208,.1);font-size:13.5px;color:#EDE2D0}
+.r-fila .ico{color:#c9b083;width:19px;height:19px}
+.r-fila b{margin-left:auto;font-weight:500;color:#d8c9b0;font-size:13px}
+.r-lista{border-top:0!important}
+.chip-osc{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.chip-osc .ico{width:17px;height:17px;color:#c9b083}
+.btn,.btn-sec{display:flex;align-items:center;justify-content:center;gap:9px}
+.btn .ico,.btn-sec .ico{width:18px;height:18px}
+/* 3 meses con íconos */
+.duracion-wow .stat .ico{width:20px;height:20px;color:#c9b083;margin-bottom:6px}
+.duracion-wow .grande{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.duracion-wow .grande .ico{width:44px;height:44px;color:#c9b083;stroke-width:1.3}
+
 /* duración protagonista */
 .duracion-wow{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--choco);color:var(--marfil);border-radius:26px;padding:26px 30px;margin-bottom:26px;position:relative;overflow:hidden}
 .duracion-wow::after{content:"";position:absolute;width:300px;height:300px;right:-120px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
@@ -266,7 +339,15 @@ body.comercial #compartir-pdf.puede{display:block}
   main{padding:24px 16px 120px;gap:20px}
   .bloque{padding:22px 16px;border-radius:24px}
   .bloque h2{font-size:22px}
-  .item{grid-template-columns:32px minmax(0,1fr) auto auto;gap:8px;padding:7px 0}
+  .item{grid-template-columns:18px 24px minmax(0,1fr) auto auto!important;gap:8px;padding:7px 0}
+  body.paciente .item{grid-template-columns:24px minmax(0,1fr) auto!important}
+  .emoji .ico{width:18px;height:18px}
+  .grupo .lista{padding:2px 10px}
+  .grupo summary{padding:12px 14px}
+  .pasos{gap:6px;margin-bottom:22px}
+  .pasos button em{display:none}
+  .pasos button.activo em{display:inline}
+  .pasos i{width:18px}
   .emoji{width:32px;height:32px;font-size:16px;border-radius:9px}
   .candado{min-width:0;width:30px;padding:0;height:26px}
   .candado .on{display:none!important}
@@ -340,6 +421,12 @@ body.comercial #compartir-pdf.puede{display:block}
   <p id="intro-p">Elige el programa, ajusta lo que necesitas y mira tu inversión al instante.</p>
 </section>
 
+<nav class="pasos" id="pasos">
+  <button type="button" data-ir="programas" class="activo"><span>1</span><em>Programa y servicios</em></button><i></i>
+  <button type="button" data-ir="datos"><span>2</span><em>Tus datos</em></button><i></i>
+  <button type="button" data-ir="resumen-caja"><span>3</span><em>Revisar y compartir</em></button>
+</nav>
+
 <div class="programas" id="programas"></div>
 
 <main>
@@ -351,11 +438,11 @@ body.comercial #compartir-pdf.puede{display:block}
       </div>
       <div class="pendiente oculto" id="pendiente"></div>
       <div class="duracion-wow" id="wow">
-        <div class="grande" id="wow-dur">3 meses<small>de acompañamiento</small></div>
+        <div class="grande" data-ico="reloj"><span id="wow-dur">3 meses</span><small>de acompañamiento</small></div>
         <div class="stats">
-          <div class="stat"><b id="wow-sem">12</b><span>semanas de seguimiento médico</span></div>
-          <div class="stat"><b id="wow-citas">10</b><span>citas con especialistas</span></div>
-          <div class="stat"><b id="wow-ses">26</b><span id="wow-ses-t">sesiones y tratamientos</span></div>
+          <div class="stat" data-ico="calendario"><b id="wow-sem">12</b><span>semanas de seguimiento médico</span></div>
+          <div class="stat" data-ico="personas"><b id="wow-citas">10</b><span>citas con especialistas</span></div>
+          <div class="stat" data-ico="corazon"><b id="wow-ses">26</b><span id="wow-ses-t">sesiones y tratamientos</span></div>
         </div>
       </div>
       <div id="items"></div>
@@ -385,17 +472,16 @@ body.comercial #compartir-pdf.puede{display:block}
   </div>
 
   <aside id="resumen-caja">
-    <p class="ojo">Tu programa</p>
+    <p class="ojo">Resumen de tu programa</p>
     <div class="prog" id="r-prog"></div>
     <p class="r-meta" id="r-meta"></p>
-    <details class="r-lista"><summary>Ver lo que incluye</summary><div id="resumen"></div></details>
-    <div class="total"><span>Tu inversión</span><b id="total">$0</b></div>
+    <div class="total"><span>Tu inversión total</span><b><span id="total">$0</span><small>COP</small></b></div>
     <div class="sub-total oculto" id="r-desc"><span>Descuento aplicado</span><span></span></div>
-    <div class="sub-total"><span id="anticipo-t">Valor inicial (50%)</span><span id="anticipo">$0</span></div>
+    <div class="caja-inicial"><span id="anticipo-t">Valor inicial (50%)</span><b id="anticipo">$0</b></div>
     <div class="plan-pago oculto" id="plan-pago"></div>
     <div class="acciones-sec">
-      <button type="button" class="chip-osc" id="abrir-cuotas">💳 Simular cuotas</button>
-      <button type="button" class="chip-osc" id="abrir-desc">🏷️ Descuento</button>
+      <button type="button" class="chip-osc" id="abrir-cuotas" data-ico="tarjeta">Simular cuotas</button>
+      <button type="button" class="chip-osc" id="abrir-desc" data-ico="porcentaje">Descuento</button>
     </div>
     <div class="desc-caja oculto" id="desc-caja">
       <label for="descuento">Descuento</label>
@@ -404,9 +490,15 @@ body.comercial #compartir-pdf.puede{display:block}
         <div class="desc-rapidos"><button type="button" data-p="5">5%</button><button type="button" data-p="10">10%</button><button type="button" data-p="15">15%</button></div>
       </div>
     </div>
-    <button class="btn" id="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
+    <div class="r-filas">
+      <div class="r-fila" data-ico="personas"><span>Especialistas</span><b id="rf-citas"></b></div>
+      <div class="r-fila" data-ico="calendario"><span>Seguimiento médico</span><b id="rf-sem"></b></div>
+      <div class="r-fila" data-ico="corazon"><span>Tratamiento y bienestar</span><b id="rf-tto"></b></div>
+    </div>
+    <details class="r-lista"><summary>Ver detalle de servicios</summary><div id="resumen"></div></details>
+    <button class="btn" id="enviar" data-ico="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
-    <button class="btn-sec" id="descargar">Descargar PDF</button>
+    <button class="btn-sec" id="descargar" data-ico="descargar"><span class="txt-desc">Descargar PDF</span></button>
     <button type="button" class="link-claro" id="nueva">Empezar una cotización nueva</button>
   </aside>
 </main>
@@ -506,6 +598,42 @@ function costoPlan(p){
 }
 Object.values(PROGRAMAS).forEach(p => { const c = costoPlan(p); p.factor = p.precio && c ? p.precio / c : FACTOR_SIN_PLANTILLA; });
 
+/* ---- íconos de línea (estilo Lucide, trazo 1,6) ---- */
+const ICO = {
+  psicologia: '<path d="M12 3a7 7 0 0 0-7 7c0 2.1.9 3.6 2 4.8V21h7v-3h2a2 2 0 0 0 2-2v-2.4l1.6-.6-1.6-3.2A7 7 0 0 0 12 3Z"/><path d="M10 9.5a2 2 0 0 1 3.5-1.3 1.8 1.8 0 0 1 .5 2.8"/>',
+  nutriologa: '<path d="M12 20.9c1.5 0 2.8 1.1 4 1.1 3 0 6-8 6-12.2A4.9 4.9 0 0 0 17 5c-2.2 0-4 1.4-5 2-1-.6-2.8-2-5-2a4.9 4.9 0 0 0-5 4.8C2 14 5 22 8 22c1.2 0 2.5-1.1 4-1.1Z"/><path d="M10 2c1 .5 2 2 2 5"/>',
+  nutricionista: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/>',
+  deportologia: '<path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/>',
+  interna: '<path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15v1a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="11" r="2"/>',
+  general: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/>',
+  tirzepatida: '<path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/>',
+  enfermeria: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/><path d="M3.2 12h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/>',
+  medias: '<path d="M9 2h7v8.5l-5.4 9.3a3 3 0 0 1-4.1 1.1l-1.4-.8a3 3 0 0 1-1.1-4.1L9 9.5Z"/><path d="M9 6h7"/>',
+  aparatologia: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>',
+  drenaje: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/>',
+  ecografia: '<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/>',
+  personas: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+  calendario: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  corazon: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
+  tarjeta: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',
+  porcentaje: '<path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>',
+  candado: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  flecha: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  abajo: '<path d="m6 9 6 6 6-6"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  descargar: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+};
+const ico = (k, c = "") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k] || ICO.check}</svg>`;
+document.querySelectorAll("[data-ico]").forEach(el => el.insertAdjacentHTML("afterbegin", ico(el.dataset.ico)));
+
+/* ---- grupos de servicios ---- */
+const GRUPOS = [
+  { id: "esp", t: "Consultas con especialistas", i: "personas", ids: ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"] },
+  { id: "tto", t: "Tratamiento y seguimiento", i: "general", ids: ["general", "tirzepatida", "enfermeria", "medias", "aparatologia", "drenaje", "ecografia"] },
+];
+
 /* ---- candado ---- */
 function abrir(){ $("#candado").classList.add("oculto"); try{ sessionStorage.setItem("sera-cot", "1"); }catch(e){} }
 try{ if (sessionStorage.getItem("sera-cot") === "1" || location.hash.startsWith("#p=")) abrir(); }catch(e){}
@@ -525,6 +653,17 @@ function pintarEsp(){
 pintarEsp();
 $("#esp").addEventListener("input", pintarEsp); $("#espec").addEventListener("input", pintarEsp);
 $("#esp-cambiar").onclick = () => { $("#esp-editar").classList.toggle("oculto"); };
+document.querySelectorAll("#pasos button").forEach(b => b.onclick = () => document.getElementById(b.dataset.ir).scrollIntoView({ behavior: "smooth", block: "start" }));
+function pasoActivo(){
+  const y = window.scrollY + innerHeight * .35, orden = ["programas", "datos", "resumen-caja"];
+  let k = 0;
+  const datos = $("#datos").getBoundingClientRect().top + scrollY, res = $("#resumen-caja").getBoundingClientRect().top + scrollY;
+  if (y > datos) k = 1;
+  if (innerWidth <= 980 ? y > res : (y > datos + $("#datos").offsetHeight * .6)) k = 2;
+  document.querySelectorAll("#pasos button").forEach((b, i) => { b.classList.toggle("activo", i === k); b.classList.toggle("hecho", i < k); });
+}
+addEventListener("scroll", pasoActivo, { passive: true });
+
 /* en celular la barra de precio se esconde cuando ya se ve el resumen */
 try{ new IntersectionObserver(([e]) => document.querySelector(".barra").classList.toggle("esconder", e.isIntersecting), { threshold: .15 }).observe($("#resumen-caja")); }catch(e){}
 $("#descuento").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); });
@@ -552,10 +691,10 @@ function ponerPrograma(id){
   cargarPlantilla();
 }
 function cargarPlantilla(){
-  $("#items").innerHTML = "";
+  $("#items").innerHTML = GRUPOS.map(g => `<details class="grupo" open data-g="${g.id}"><summary>${ico(g.i)}<div><b>${g.t}</b><small class="g-cuenta"></small></div>${ico("abajo", "flecha-g")}</summary><div class="lista"></div></details>`).join("");
   CATALOGO.forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
-    agregarItem({ n: c.n, t: c.t, d: c.d, e: c.e, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
+    agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
   });
   $("#descuento").value = "";
   $("#duracion").value = P().duracion;
@@ -570,11 +709,13 @@ function agregarItem(it = {}){
   if (it.fijo) d.dataset.n = it.n;
   const on = it.on !== false;
   d.innerHTML = `<input type="checkbox" class="check" ${on ? "checked" : ""} tabindex="-1">
-    <span class="emoji">${it.e || "✨"}</span>
-    <div class="it-cab"><span class="titulo">${esc(it.t || it.n)}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}<span class="leyenda">🔒 El doctor recomienda que esto no se quite</span></div>
+    <span class="caja-check">${ico("check")}</span>
+    <span class="emoji">${ico(it.id)}</span>
+    <div class="it-cab"><span class="titulo">${esc(it.t || it.n)}${ico("candado", "ico-lock")}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}</div>
     <div class="paso-q"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1" aria-label="Más">+</button></div>
     <span class="agregar">+ Agregar</span>
-    <button type="button" class="candado" title="Marcar como recomendado: el comercial verá que no se debería quitar">🔒<span class="on"> No quitar</span></button>`;
+    <span class="leyenda">${ico("candado")}El doctor recomienda que esto no se quite</span>
+    <button type="button" class="candado" title="Marcar como recomendado: el comercial verá que no se debería quitar">${ico("candado")}<span class="on">No quitar</span></button>`;
   if (it.lock) d.classList.add("bloqueado");
   d.querySelector(".candado").onclick = e => { e.stopPropagation(); d.classList.toggle("bloqueado"); };
   d.dataset.u = it.u || 0;
@@ -583,7 +724,7 @@ function agregarItem(it = {}){
   d.addEventListener("click", e => {
     if (e.target.closest(".paso-q") || MODO === "paciente") return;
     const ch = d.querySelector(".check"), inp = d.querySelector(".it-q");
-    if (ch.checked && MODO === "comercial" && d.classList.contains("bloqueado") && !confirm("🔒 El doctor recomienda que esto no se quite. ¿Quitarlo igual?")) return;
+    if (ch.checked && MODO === "comercial" && d.classList.contains("bloqueado") && !confirm("El doctor recomienda que esto no se quite. ¿Quitarlo igual?")) return;
     if (!ch.checked && mult(inp.value) === 0) inp.value = "1";
     poner(!ch.checked);
   });
@@ -593,7 +734,8 @@ function agregarItem(it = {}){
     inp.value = nuevo;
     poner(nuevo > 0);
   });
-  $("#items").appendChild(d);
+  const g = GRUPOS.find(g => g.ids.includes(it.id)) || GRUPOS[1];
+  $(`.grupo[data-g="${g.id}"] .lista`).appendChild(d);
   calcular();
 }
 $("#restaurar").onclick = () => { if (confirm("¿Volver al plan original de " + P().nombre + "?")) cargarPlantilla(); };
@@ -631,7 +773,7 @@ function cantDe(s, ids){ return s.items.filter(x => { const c = CATALOGO.find(k 
 function pintarWow(s){
   const dur = s.duracion;
   $("#wow").classList.toggle("oculto", !dur);
-  $("#wow-dur").firstChild.textContent = dur;
+  $("#wow-dur").textContent = dur;
   const sem = cantDe(s, ["general"]), citas = cantDe(s, ESPECIALISTAS), ses = cantDe(s, SESIONES), med = cantDe(s, ["tirzepatida"]);
   $("#wow-sem").textContent = sem; $("#wow-sem").parentElement.classList.toggle("oculto", !sem);
   $("#wow-citas").textContent = citas; $("#wow-citas").parentElement.classList.toggle("oculto", !citas);
@@ -703,6 +845,15 @@ function calcular(){
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
   document.querySelectorAll(".desc-rapidos button").forEach(b => b.classList.toggle("activa", Number(b.dataset.p) === s.pct));
   const nServ = vis.length;
+  const citas = cantDe(s, ESPECIALISTAS), sem = cantDe(s, ["general"]), ses = cantDe(s, SESIONES);
+  $("#rf-citas").textContent = citas ? citas + (citas === 1 ? " cita" : " citas") : "—";
+  $("#rf-sem").textContent = sem ? sem + (sem === 1 ? " semana" : " semanas") : "—";
+  $("#rf-tto").textContent = ses ? ses + " sesiones" : (cantDe(s, ["tirzepatida", "medias", "enfermeria"]) ? "Incluido" : "—");
+  document.querySelectorAll(".grupo").forEach(g => {
+    const n = g.querySelectorAll(".item:not(.apagado):not(.interno)").length;
+    g.querySelector(".g-cuenta").textContent = n + (n === 1 ? " servicio incluido" : " servicios incluidos");
+    g.classList.toggle("oculto", MODO === "paciente" && !n);
+  });
   $("#r-meta").textContent = nServ ? `${nServ} ${nServ === 1 ? "servicio" : "servicios"}${s.duracion ? " · " + s.duracion : ""}` : "";
   animarTotal(s.precio);
   pintarWow(s);
@@ -784,10 +935,10 @@ async function hacerPDF(s){
 $("#descargar").onclick = async () => {
   const s = calcular(), faltan = MODO === "paciente" ? [] : validar(s);
   if (faltan.length){ aviso("Para descargar falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => $("#nombre").focus(), 400); return; }
-  const b = $("#descargar"), t = b.textContent; b.disabled = true; b.textContent = "Generando…";
+  const b = $("#descargar"), tx = b.querySelector(".txt-desc"), t = tx.textContent; b.disabled = true; tx.textContent = "Generando…";
   try{ const { doc, archivo } = await hacerPDF(s); doc.save(archivo); aviso("PDF descargado"); }
   catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); }
-  b.disabled = false; b.textContent = t;
+  b.disabled = false; tx.textContent = t;
 };
 /* en celular: compartir el PDF como archivo (WhatsApp, correo…) */
 try{ if (navigator.canShare && navigator.canShare({ files: [new File(["x"], "x.pdf", { type: "application/pdf" })] })) $("#compartir-pdf").classList.add("puede"); }catch(e){}
@@ -871,20 +1022,20 @@ function ponerModo(){
     $("#enviar-txt").textContent = "Enviar a la paciente por WhatsApp";
     $("#intro-h1").textContent = "Negocia el plan";
     $("#intro-p").textContent = "Lo que muevas aquí cambia el precio al instante.";
-    $("#ayuda-items").textContent = "Toca un servicio para sumarlo o quitarlo. Lo que tiene 🔒 el doctor recomienda no quitarlo.";
+    $("#ayuda-items").innerHTML = `Toca un servicio para sumarlo o quitarlo. Lo que tiene <span class="ico-txt">${ico("candado")}</span> el doctor recomienda no quitarlo.`;
     if ($("#descuento").value){ $("#desc-caja").classList.remove("oculto"); $("#abrir-desc").classList.add("activa"); }
   } else if (MODO === "paciente"){
     abrir();
     $("#intro-ojo").textContent = "Tu plan en Seravena";
     $("#intro-h1").textContent = (($("#nombre").value || "").split(" ")[0] || "Tu") + ", este es tu plan";
     $("#intro-p").textContent = "Aquí está todo lo que incluye tu programa. Puedes descargar tu cotización en PDF.";
-    $("#descargar").textContent = "Descargar mi cotización";
+    $(".txt-desc").textContent = "Descargar mi cotización";
     $("#ayuda-items").textContent = "Esto es lo que trae tu programa y cuántas veces.";
     document.querySelectorAll(".it-q").forEach(i => { i.readOnly = true; i.tabIndex = -1; });
     document.title = "Tu plan · Seravena";
   } else {
     $("#enviar-txt").textContent = "Enviar a " + COMERCIAL.nombre + " (comercial)";
-    $("#ayuda-items").textContent = "Toca un servicio para sumarlo o quitarlo. Con 🔒 marcas lo que el comercial no debería quitar.";
+    $("#ayuda-items").innerHTML = `Toca un servicio para sumarlo o quitarlo. Con <span class="ico-txt">${ico("candado")}</span> marcas lo que el comercial no debería quitar.`;
   }
 }
 window.addEventListener("hashchange", () => location.reload());
