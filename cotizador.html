@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Cotizador · Seravena</title>
+<title>Arma tu programa · Seravena</title>
 <link rel="icon" href="assets/isotype-camel.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,118 +16,153 @@
 -->
 <style>
 :root{
-  --fondo:#F9F9F8; --blanco:#fff; --arena:#EDE2D0; --arena-suave:#F5EFE5; --linea:#E5DCCD;
-  --texto:#1A1A1A; --tenue:#6e6450; --choco:#4B412D; --camel:#9D8051; --camel-osc:#806733;
-  --ok:#3E6B4A; --error:#A23B3B; --radio:12px;
+  --marfil:#F6F1E8; --marfil-2:#EFE7DA; --blanco:#FFFDF9; --linea:#E6DCCB; --linea-2:#D9CBB4;
+  --texto:#1F1B14; --tenue:#7A6E5A; --choco:#4B412D; --choco-2:#3a3222; --camel:#9D8051; --camel-osc:#806733;
+  --error:#A23B3B; --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--fondo);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-weight:500;letter-spacing:-.01em}
+html{-webkit-font-smoothing:antialiased}
+body{background:var(--marfil);color:var(--texto);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;min-height:100vh;position:relative}
+/* textura de grano suave */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* luz cálida de fondo */
+body::after{content:"";position:fixed;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(201,176,131,.28),rgba(201,176,131,0) 65%)}
 button,input,select{font:inherit;color:inherit}
 .oculto{display:none!important}
 .serif{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400}
 
 /* candado */
-#candado{position:fixed;inset:0;background:var(--arena-suave);display:grid;place-items:center;z-index:50;padding:16px}
-#candado form{background:#fff;border:1px solid var(--linea);border-radius:22px;padding:40px 32px;width:100%;max-width:340px;text-align:center}
-#candado img{height:30px;margin:0 auto 22px}
+#candado{position:fixed;inset:0;background:var(--marfil);display:grid;place-items:center;z-index:90;padding:16px}
+#candado form{background:var(--blanco);border:1px solid var(--linea);border-radius:32px;padding:44px 34px;width:100%;max-width:350px;text-align:center;box-shadow:0 30px 60px -30px rgba(75,65,45,.25)}
+#candado img{height:28px;margin:0 auto 24px}
 #candado p{color:var(--tenue);font-size:14px;margin-bottom:18px}
-#candado input{width:100%;text-align:center;font-size:24px;letter-spacing:.4em;padding:10px;border:1px solid var(--linea);border-radius:var(--radio);outline:none}
+#candado input{width:100%;text-align:center;font-size:24px;letter-spacing:.4em;padding:12px;border:1px solid var(--linea);border-radius:999px;outline:none;background:#fff}
 #candado input:focus{border-color:var(--camel)}
 #candado .mal{color:var(--error);font-size:13px;margin-top:10px;min-height:20px}
 
-header{display:flex;align-items:center;gap:16px;padding:16px 28px;border-bottom:1px solid var(--linea);position:sticky;top:0;background:rgba(249,249,248,.94);backdrop-filter:blur(8px);z-index:5}
-header img{height:22px}
-header h1{font-size:16px;font-weight:500;color:var(--tenue);padding-left:16px;border-left:1px solid var(--linea)}
-header .etiqueta{margin-left:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tenue)}
+.envoltura{position:relative;z-index:1}
+header{display:flex;justify-content:center;padding:26px 16px 0}
+header img{height:24px}
 
-main{max-width:1180px;margin:0 auto;padding:32px 28px 80px;display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:40px;align-items:start}
+.intro{text-align:center;max-width:680px;margin:0 auto;padding:44px 20px 34px}
+.ojo{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--camel-osc);font-weight:600;margin-bottom:14px}
+.intro h1{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:clamp(42px,6vw,64px);line-height:1;color:var(--choco);letter-spacing:-.01em}
+.intro p{color:var(--tenue);margin-top:14px;font-size:16px}
 
-/* programa */
-.programas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:8px}
-.programas button{border:1px solid var(--linea);background:#fff;border-radius:999px;padding:12px 10px;cursor:pointer;font-weight:600;font-size:14px;color:var(--tenue);transition:.15s}
-.programas button:hover{border-color:var(--camel);color:var(--choco)}
-.programas button.activa{background:var(--choco);border-color:var(--choco);color:#fff}
-.programas button small{display:block;font-weight:400;font-size:11px;opacity:.7}
+/* tarjetas de programa */
+.programas{max-width:1120px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.prog-card{position:relative;border:0;background:var(--blanco);border-radius:28px;padding:8px 8px 16px;cursor:pointer;text-align:left;
+  box-shadow:0 0 0 1px var(--linea);transition:transform .5s var(--ease),box-shadow .3s}
+.prog-card:hover{transform:translateY(-3px)}
+.prog-card .foto{height:150px;border-radius:22px;background-size:cover;background-position:center;filter:saturate(.85);transition:filter .3s}
+.prog-card b{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:28px;line-height:1;color:var(--choco);margin:14px 10px 4px}
+.prog-card small{display:block;margin:0 10px;font-size:12.5px;color:var(--tenue)}
+.prog-card::after{content:"";position:absolute;top:18px;right:18px;width:22px;height:22px;border-radius:50%;background:rgba(255,253,249,.9);box-shadow:inset 0 0 0 1.5px var(--linea-2);transition:.3s}
+.prog-card.activa{box-shadow:0 0 0 2px var(--choco),0 24px 40px -24px rgba(75,65,45,.45)}
+.prog-card.activa::after{background:var(--choco) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='white' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat center;box-shadow:none}
+.prog-card:not(.activa) .foto{filter:saturate(.5) brightness(1.04)}
 
-.paso{padding:26px 0;border-bottom:1px solid var(--linea)}
-.paso h2{font-size:19px;display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
-.paso h2 span{font-size:12px;color:var(--camel-osc);font-weight:700;letter-spacing:.08em}
-.paso .ayuda{color:var(--tenue);font-size:14px;margin-bottom:18px}
-.fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
-label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
-label small{font-weight:400;color:var(--tenue)}
-input[type=text],select{width:100%;padding:11px 13px;border:1px solid var(--linea);border-radius:var(--radio);background:#fff;outline:none;transition:border-color .15s}
-select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236e6450' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+main{max-width:1120px;margin:0 auto;padding:44px 28px 120px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:36px;align-items:start}
+
+.bloque{background:var(--blanco);border-radius:32px;padding:32px;box-shadow:0 0 0 1px var(--linea);margin-bottom:20px}
+.bloque-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.bloque h2{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:34px;line-height:1;color:var(--choco)}
+.bloque .ayuda{color:var(--tenue);font-size:14px;margin-top:6px}
+.link-sutil{border:0;background:none;color:var(--camel-osc);font-size:13px;font-weight:600;cursor:pointer;padding:6px 0;border-bottom:1px solid currentColor}
+.pendiente{background:var(--marfil);border-radius:18px;padding:14px 18px;font-size:14px;color:var(--choco);margin-bottom:16px}
+
+/* servicios como tarjetas */
+#items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.item{position:relative;border-radius:22px;padding:18px 18px 16px;background:var(--marfil);border:1.5px solid transparent;display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:background .3s,border-color .3s,opacity .3s}
+.item.interno{display:none}
+.item:not(.apagado){background:#fff;border-color:var(--choco)}
+.item.apagado{opacity:.62}
+.item.apagado:hover{opacity:.9}
+.item .check{position:absolute;opacity:0;pointer-events:none}
+.it-cab{display:flex;gap:12px;align-items:flex-start;padding-right:28px}
+.it-cab .titulo{font-weight:600;font-size:15px;line-height:1.3}
+.it-cab .desc{display:block;font-size:12.5px;color:var(--tenue);margin-top:3px;line-height:1.4}
+.marca{position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--linea-2);transition:.25s}
+.item:not(.apagado) .marca{background:var(--choco) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='white' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat center;box-shadow:none}
+.paso-q{display:flex;align-items:center;justify-content:space-between;background:var(--marfil);border-radius:999px;padding:3px;width:150px;cursor:default}
+.item:not(.apagado) .paso-q{background:var(--marfil-2)}
+.item.apagado .paso-q{visibility:hidden}
+.paso-q button{border:0;background:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--choco);box-shadow:0 1px 2px rgba(75,65,45,.12);transition:.2s}
+.paso-q button:hover{background:var(--choco);color:#fff}
+.paso-q input{border:0;background:transparent;text-align:center;width:70px;font-weight:600;font-size:14px;outline:none}
+.agregar{font-size:12.5px;color:var(--camel-osc);font-weight:600}
+.item:not(.apagado) .agregar{display:none}
+.item.apagado .paso-q{display:none}
+
+/* datos */
+.fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+label{display:block;font-size:12px;font-weight:600;margin:0 0 7px 4px;color:var(--tenue);letter-spacing:.02em}
+label small{font-weight:400}
+input[type=text],select{width:100%;padding:13px 18px;border:1px solid var(--linea);border-radius:999px;background:#fff;outline:none;transition:border-color .2s}
+select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A6E5A' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 18px center;padding-right:40px}
 input:focus,select:focus{border-color:var(--camel)}
 .campo.error input,.campo.error select{border-color:var(--error)}
 .dinero{position:relative}
-.dinero input{padding-left:26px;text-align:right;font-variant-numeric:tabular-nums}
-.dinero::before{content:"$";position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--tenue)}
-
-/* catálogo de servicios */
-.cab-items,.item{display:grid;grid-template-columns:28px minmax(0,1fr) 140px;gap:12px;align-items:center}
-.cab-items{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tenue);font-weight:700;padding:0 0 8px}
-.cab-items span:nth-child(3){text-align:center}
-.item.interno{display:none}
-.item{padding:9px 0;border-top:1px solid var(--arena);transition:opacity .15s}
-.item.apagado{opacity:.45}
-.item.apagado .it-valor{text-decoration:line-through}
-.item input[type=text]{padding:8px 10px;font-size:14px}
-.item .it-nombre{border-color:transparent;background:transparent;padding-left:0}
-.item .it-nombre:focus{border-color:var(--camel);background:#fff;padding-left:10px}
-.it-nombre-t{display:block;font-size:14px;line-height:1.35}
-.check{width:22px;height:22px;accent-color:var(--choco);cursor:pointer}
-.paso-q{display:flex;align-items:center;border:1px solid var(--linea);border-radius:999px;background:#fff;overflow:hidden}
-.paso-q button{border:0;background:transparent;width:34px;height:36px;cursor:pointer;font-size:17px;color:var(--tenue)}
-.paso-q button:hover{color:var(--choco);background:var(--arena-suave)}
-.paso-q input{border:0!important;text-align:center;padding:6px 0!important;width:100%;min-width:0;border-radius:0!important}
-.item .dinero input{font-size:13px;color:var(--tenue)}
-.item .it-valor{text-align:right;font-variant-numeric:tabular-nums;font-size:14px;font-weight:600}
-.tag{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--camel-osc);background:var(--arena-suave);border-radius:999px;padding:2px 8px;margin-top:2px}
-.quitar{border:0;background:transparent;cursor:pointer;color:var(--tenue);font-size:17px;height:30px}
-.quitar:hover{color:var(--error)}
-.quitar.fijo{visibility:hidden}
-.botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.btn-linea{border:1px dashed var(--linea);background:#fff;border-radius:999px;padding:9px 16px;cursor:pointer;font-size:13px}
-.btn-linea:hover{border-color:var(--camel);color:var(--camel-osc)}
-.pendiente{background:var(--arena-suave);border-radius:var(--radio);padding:14px 16px;font-size:14px;color:var(--choco);margin-bottom:14px}
+.dinero input{padding-left:32px;font-variant-numeric:tabular-nums}
+.dinero::before{content:"$";position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--tenue)}
+.especialista{display:flex;align-items:center;gap:14px;background:var(--marfil);border-radius:999px;padding:8px 22px 8px 8px;margin-bottom:22px}
+.especialista .ini{width:44px;height:44px;border-radius:50%;background:var(--choco);color:var(--marfil);display:grid;place-items:center;font-family:"Instrument Serif",serif;font-style:italic;font-size:20px;flex:none}
+.especialista b{display:block;font-size:14px}
+.especialista span{font-size:12.5px;color:var(--tenue)}
+.especialista button{margin-left:auto}
+.esp-editar{margin-bottom:22px}
 
 /* resumen */
-aside{position:sticky;top:84px;background:#fff;border:1px solid var(--linea);border-radius:22px;padding:24px}
-aside h3{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--tenue);font-weight:700;margin-bottom:6px}
-aside .prog{font-size:26px;margin-bottom:16px;color:var(--choco)}
-.linea-r{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0}
-.linea-r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
-.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--linea);margin-top:8px;padding-top:16px}
-.total span:first-child{font-size:14px;font-weight:600}
-.total b{font-weight:500;font-size:28px;font-variant-numeric:tabular-nums;color:var(--choco)}
-.privado{margin-top:16px;background:var(--arena-suave);border-radius:14px;padding:14px 16px}
-.privado p{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--camel-osc);font-weight:700;margin-bottom:4px}
-.privado .linea-r{padding:3px 0}
-.privado .queda b{color:var(--ok)}
-.privado .queda.mal b{color:var(--error)}
-.btn{width:100%;margin-top:18px;background:var(--choco);color:#fff;border:0;border-radius:999px;padding:14px;font-weight:700;cursor:pointer;font-size:15px}
-.btn:hover{background:#3a3222}
+aside{position:sticky;top:24px;background:var(--choco);color:var(--marfil);border-radius:32px;padding:30px 28px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(58,50,34,.7)}
+aside::before{content:"";position:absolute;width:360px;height:360px;right:-160px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
+aside > *{position:relative}
+aside .ojo{color:#c9b083;margin-bottom:8px}
+aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38px;line-height:1;color:#fff;margin-bottom:22px}
+#resumen{border-top:1px solid rgba(237,226,208,.16)}
+.linea-r{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;padding:9px 0;border-bottom:1px solid rgba(237,226,208,.1)}
+.linea-r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:#d8c9b0}
+.linea-r.vacio{color:#c9b083;border:0}
+.total{margin-top:22px}
+.total span{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#c9b083;font-weight:600}
+.total b{display:block;font-family:"Instrument Serif",serif;font-style:normal;font-weight:400;font-size:52px;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em;transition:color .3s}
+.total b.cambia{color:#e8d6b3}
+.sub-total{display:flex;justify-content:space-between;font-size:13px;color:#d8c9b0;margin-top:6px}
+.btn{width:100%;margin-top:24px;background:var(--marfil);color:var(--choco);border:0;border-radius:999px;padding:16px;font-weight:700;cursor:pointer;font-size:15px;transition:transform .3s var(--ease),background .2s}
+.btn:hover{background:#fff;transform:translateY(-1px)}
 .btn:disabled{opacity:.6;cursor:wait}
-.btn-sec{width:100%;margin-top:10px;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:11px;cursor:pointer;font-size:14px}
-.nota{font-size:12px;color:var(--tenue);margin-top:14px}
+.btn-sec{width:100%;margin-top:10px;background:transparent;border:1px solid rgba(237,226,208,.25);color:var(--marfil);border-radius:999px;padding:12px;cursor:pointer;font-size:13.5px}
+.btn-sec:hover{border-color:rgba(237,226,208,.6)}
 
-#aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--choco);color:#fff;padding:12px 18px;border-radius:var(--radio);font-size:14px;opacity:0;transition:.25s;z-index:60;max-width:calc(100% - 32px)}
+/* barra fija en celular */
+.barra{display:none}
+
+#aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--choco);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;opacity:0;transition:.25s;z-index:95;max-width:calc(100% - 32px)}
 #aviso.ver{opacity:1;transform:translateX(-50%)}
 #aviso.mal{background:var(--error)}
 
-@media (max-width:900px){
-  main{grid-template-columns:1fr;padding:22px 16px 60px;gap:28px}
-  aside{position:static}
-  header{padding:14px 16px}
-  header .etiqueta{display:none}
+@media (max-width:980px){
   .programas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  main{grid-template-columns:1fr}
+  aside{position:static}
 }
-@media (max-width:600px){
+@media (max-width:640px){
+  .programas{padding:0 16px;gap:10px}
+  .prog-card{border-radius:22px}
+  .prog-card .foto{height:96px;border-radius:16px}
+  .prog-card b{font-size:23px;margin:10px 8px 2px}
+  .prog-card small{margin:0 8px;font-size:11.5px}
+  .intro{padding:30px 16px 24px}
+  main{padding:24px 16px 120px;gap:20px}
+  .bloque{padding:22px 16px;border-radius:24px}
+  .bloque h2{font-size:28px}
+  #items{grid-template-columns:1fr}
   .fila{grid-template-columns:1fr}
-  .cab-items{display:none}
-  .cab-items,.item{grid-template-columns:26px minmax(0,1fr) 112px;gap:10px}
+  .barra{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:80;background:var(--choco);color:#fff;border-radius:999px;padding:10px 10px 10px 22px;align-items:center;justify-content:space-between;box-shadow:0 20px 40px -16px rgba(58,50,34,.6)}
+  .barra span{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#c9b083}
+  .barra b{font-family:"Instrument Serif",serif;font-weight:400;font-size:26px;line-height:1}
+  .barra button{border:0;background:var(--marfil);color:var(--choco);border-radius:999px;padding:12px 18px;font-weight:700;font-size:13.5px}
 }
 
 /* ---------- PDF (carta: 816 × 1056 px) ---------- */
@@ -171,68 +206,66 @@ aside .prog{font-size:26px;margin-bottom:16px;color:var(--choco)}
   </form>
 </div>
 
-<header>
-  <img src="assets/wordmark-pardo.png" alt="Seravena">
-  <h1>Cotizador de programas</h1>
-  
-</header>
+<div class="envoltura">
+<header><img src="assets/wordmark-pardo.png" alt="Seravena"></header>
+
+<section class="intro">
+  <p class="ojo">Tu plan a la medida</p>
+  <h1>Arma tu programa</h1>
+  <p>Elige el programa, ajusta lo que necesitas y mira tu inversión al instante.</p>
+</section>
+
+<div class="programas" id="programas"></div>
 
 <main>
   <div>
-    <div class="programas" id="programas"></div>
-
-    <section class="paso">
-      <h2><span>01</span>Paciente</h2>
-      <p class="ayuda">Así sale en la cotización.</p>
-      <div class="fila">
-        <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" type="text" autocomplete="off"></div>
-        <div class="campo"><label for="contacto">Número de contacto</label><input id="contacto" type="text" inputmode="tel" autocomplete="off"></div>
-        <div class="campo"><label for="tipo-id">Tipo de identificación</label>
-          <select id="tipo-id"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></div>
-        <div class="campo"><label for="num-id">Número de identificación</label><input id="num-id" type="text" autocomplete="off"></div>
+    <section class="bloque">
+      <div class="bloque-cab">
+        <div><h2>Qué incluye</h2><p class="ayuda">Toca un servicio para sumarlo o quitarlo, y ajusta cuántas veces.</p></div>
+        <button type="button" class="link-sutil" id="restaurar">Volver al plan original</button>
       </div>
+      <div class="pendiente oculto" id="pendiente"></div>
+      <div id="items"></div>
     </section>
 
-    <section class="paso">
-      <h2><span>02</span>Especialista</h2>
-      <div class="fila">
+    <section class="bloque">
+      <div class="bloque-cab"><div><h2>Tus datos</h2><p class="ayuda">Para dejar la cotización a tu nombre.</p></div></div>
+      <div class="especialista" id="esp-tarjeta">
+        <div class="ini">JD</div>
+        <div><b id="esp-nombre"></b><span id="esp-espec"></span></div>
+        <button type="button" class="link-sutil" id="esp-cambiar">Cambiar</button>
+      </div>
+      <div class="fila esp-editar oculto" id="esp-editar">
         <div class="campo"><label for="esp">Especialista</label><input id="esp" type="text"></div>
         <div class="campo"><label for="espec">Especialidad</label><input id="espec" type="text"></div>
       </div>
-    </section>
-
-    <section class="paso">
-      <h2><span>03</span>Qué trae el plan</h2>
-      <p class="ayuda">Marca lo que quieres incluir y cuántas veces. El precio se ajusta solo.</p>
-      <div class="pendiente oculto" id="pendiente"></div>
-      <div class="cab-items"><span></span><span>Servicio</span><span>Cantidad</span></div>
-      <div id="items"></div>
-      <div class="botones">
-        <button type="button" class="btn-linea" id="restaurar">Volver al plan original</button>
-      </div>
-    </section>
-
-    <section class="paso">
-      <h2><span>04</span>Precio</h2>
-      <p class="ayuda" id="ayuda-precio"></p>
       <div class="fila">
+        <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" type="text" autocomplete="off"></div>
+        <div class="campo"><label for="contacto">Celular</label><input id="contacto" type="text" inputmode="tel" autocomplete="off"></div>
+        <div class="campo"><label for="tipo-id">Tipo de identificación</label>
+          <select id="tipo-id"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></div>
+        <div class="campo"><label for="num-id">Número de identificación</label><input id="num-id" type="text" autocomplete="off"></div>
+        <div class="campo"><label for="duracion">Duración del programa</label><input id="duracion" type="text"></div>
         <div class="campo"><label for="descuento">Descuento <small>(opcional)</small></label><div class="dinero"><input id="descuento" type="text" inputmode="numeric" data-dinero placeholder="0"></div></div>
-        <div class="campo"><label for="duracion">Duración</label><input id="duracion" type="text"></div>
       </div>
+      <p class="ayuda oculto" id="ayuda-precio"></p>
     </section>
   </div>
 
-  <aside>
-    <h3>Cotización</h3>
-    <div class="prog serif" id="r-prog"></div>
+  <aside id="resumen-caja">
+    <p class="ojo">Tu programa</p>
+    <div class="prog" id="r-prog"></div>
     <div id="resumen"></div>
-    <div class="linea-r oculto" id="r-desc" style="color:var(--tenue)"><span>Descuento</span><span></span></div>
-    <div class="total"><span>Valor para el paciente</span><b id="total">$0</b></div>
-    <div class="linea-r" style="color:var(--tenue)"><span>Anticipo del 50%</span><span id="anticipo">$0</span></div>
-    <button class="btn" id="descargar">Descargar PDF</button>
+    <div class="linea-r oculto" id="r-desc"><span>Descuento</span><span></span></div>
+    <div class="total"><span>Tu inversión</span><b id="total">$0</b></div>
+    <div class="sub-total"><span>Anticipo del 50% para iniciar</span><span id="anticipo">$0</span></div>
+    <button class="btn" id="descargar">Descargar cotización</button>
     <button class="btn-sec" id="nueva">Nueva cotización</button>
   </aside>
 </main>
+
+<div class="barra"><div><span>Tu inversión</span><b id="total-m">$0</b></div><button type="button" id="ir-resumen">Ver resumen</button></div>
+</div>
 
 <div id="aviso"></div>
 <div id="pdf-caja"><div id="pdf"></div></div>
@@ -248,40 +281,44 @@ const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cue
 
 /* Todos los servicios que se pueden incluir. u = costo por unidad (solo lo ves tú). interno = no sale en el PDF. */
 const CATALOGO = [
-  { id: "ecografia",     n: "Ecografía", u: 30000, interno: true },
-  { id: "psicologia",    n: "Cita de psicología", u: 150000 },
-  { id: "nutriologa",    n: "Nutrióloga", u: 200000 },
-  { id: "nutricionista", n: "Acompañamiento nutricionista", u: 80000 },
-  { id: "deportologia",  n: "Deportología", u: 200000 },
-  { id: "interna",       n: "Medicina interna (vascular)", u: 200000 },
-  { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000 },
-  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000 },
-  { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000 },
-  { id: "medias",        n: "Medias de compresión", u: 370000 },
-  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000 },
-  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000 },
+  { id: "ecografia",     n: "Ecografía", u: 30000, t: "Ecografía", d: "", interno: true },
+  { id: "psicologia",    n: "Cita de psicología", u: 150000, t: "Psicología", d: "Acompañamiento emocional durante el proceso" },
+  { id: "nutriologa",    n: "Nutrióloga", u: 200000, t: "Nutrióloga", d: "Plan de alimentación médico" },
+  { id: "nutricionista", n: "Acompañamiento nutricionista", u: 80000, t: "Nutricionista", d: "Seguimiento a tu alimentación" },
+  { id: "deportologia",  n: "Deportología", u: 200000, t: "Deportología", d: "Ejercicio seguro y a tu medida" },
+  { id: "interna",       n: "Medicina interna (vascular)", u: 200000, t: "Medicina interna", d: "Valoración con el especialista vascular" },
+  { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000, t: "Seguimiento semanal", d: "Medicina general, semana a semana" },
+  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000, t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
+  { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000, t: "Enfermería", d: "Acompañamiento cuando lo necesites" },
+  { id: "medias",        n: "Medias de compresión", u: 370000, t: "Medias de compresión", d: "Para el día a día" },
+  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
+  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, t: "Drenaje linfático", d: "Con fisioterapia" },
 ];
 
 /* Cada plan: qué trae (id: cantidad, o [cantidad, costo distinto]) y su precio de lista.
    El precio sube o baja en la misma proporción que el costo cuando agregas o quitas servicios. */
 const PROGRAMAS = {
   lipedema: {
+    foto: "assets/media/band-veins.webp", frase: "Manejo integral · 3 meses",
     nombre: "Lipedema", titulo: "Programa de manejo de lipedema", precio: 8952381, duracion: "3 meses",
     pagos: ["Cuenta de ahorros Bancolombia: 60900006450", "Cuenta de ahorros Davivienda: 0550031800056199", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
     plan: { ecografia: 1, psicologia: 2, nutriologa: 2, deportologia: 2, nutricionista: 2, interna: 2, general: 12,
             tirzepatida: [5, 370000], enfermeria: ["A demanda", 60000], medias: 1, aparatologia: 20, drenaje: 6 },
   },
   obesidad: {
+    foto: "assets/media/silk-flowers.webp", frase: "Manejo médico del peso · 3 meses",
     nombre: "Obesidad", titulo: "Paquete de manejo de obesidad", precio: 7883333, duracion: "3 meses",
     pagos: ["Cuenta de ahorros Bancolombia: 25900002589", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
     plan: { ecografia: 1, psicologia: 2, nutriologa: 2, nutricionista: 2, deportologia: 2, interna: 2, general: 12,
             tirzepatida: 6, enfermeria: 1 },
   },
   venas: {
+    foto: "assets/media/vascular-veins.webp", frase: "Salud de tus venas",
     nombre: "Venas", titulo: "Programa de manejo de venas", precio: 0, duracion: "", pagos: null, plan: {},
     pendiente: "Plan de venas en construcción: marca los servicios que apliquen.",
   },
   celulitis: {
+    foto: "assets/media/skin-detail.webp", frase: "Piel más firme y uniforme",
     nombre: "Celulitis", titulo: "Programa de manejo de celulitis", precio: 0, duracion: "", pagos: null, plan: {},
     pendiente: "Plan de celulitis en construcción: marca los servicios que apliquen.",
   },
@@ -316,12 +353,21 @@ $("#codigo").addEventListener("input", e => {
 });
 
 $("#esp").value = ESPECIALISTA; $("#espec").value = ESPECIALIDAD;
+function pintarEsp(){
+  const n = $("#esp").value.trim();
+  $("#esp-nombre").textContent = n; $("#esp-espec").textContent = $("#espec").value.trim();
+  $(".especialista .ini").textContent = n.split(/\s+/).slice(0, 2).map(x => x[0] || "").join("").toUpperCase();
+}
+pintarEsp();
+$("#esp").addEventListener("input", pintarEsp); $("#espec").addEventListener("input", pintarEsp);
+$("#esp-cambiar").onclick = () => { $("#esp-editar").classList.toggle("oculto"); };
+$("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
 /* ---- programas ---- */
 let PROG = "lipedema";
 const P = () => PROGRAMAS[PROG];
 $("#programas").innerHTML = Object.entries(PROGRAMAS).map(([id, p]) =>
-  `<button type="button" data-prog="${id}">${p.nombre}${p.pendiente ? "<small>sin plantilla</small>" : ""}</button>`).join("");
+  `<button type="button" class="prog-card" data-prog="${id}"><div class="foto" style="background-image:url('${p.foto}')"></div><b>${p.nombre}</b><small>${p.frase}</small></button>`).join("");
 document.querySelectorAll("#programas button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.prog));
 
 function ponerPrograma(id){
@@ -338,7 +384,7 @@ function cargarPlantilla(){
   $("#items").innerHTML = "";
   CATALOGO.forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
-    agregarItem({ n: c.n, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
+    agregarItem({ n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
   });
   $("#descuento").value = "";
   $("#duracion").value = P().duracion;
@@ -352,22 +398,27 @@ function agregarItem(it = {}){
   d.dataset.interno = it.interno ? "1" : "";
   if (it.fijo) d.dataset.n = it.n;
   const on = it.on !== false;
-  d.innerHTML = `<input type="checkbox" class="check" ${on ? "checked" : ""} title="Incluir en el plan">
-    <div class="it-nombre-c">${it.fijo ? `<span class="it-nombre-t">${esc(it.n)}</span>` : `<input type="text" class="it-nombre" placeholder="Nombre del servicio" value="${esc(it.n)}">`}</div>
-    <div class="paso-q"><button type="button" data-d="-1">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1">+</button></div>
-`;
+  d.innerHTML = `<input type="checkbox" class="check" ${on ? "checked" : ""} tabindex="-1">
+    <span class="marca"></span>
+    <div class="it-cab"><div><span class="titulo">${esc(it.t || it.n)}</span>${it.d ? `<span class="desc">${esc(it.d)}</span>` : ""}</div></div>
+    <div class="paso-q"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="text" class="it-q" value="${esc(it.q || "1")}"><button type="button" data-d="1" aria-label="Más">+</button></div>
+    <span class="agregar">+ Agregar al plan</span>`;
   d.dataset.u = it.u || 0;
   d.classList.toggle("apagado", !on);
-  d.querySelector(".check").onchange = e => { d.classList.toggle("apagado", !e.target.checked); calcular(); };
+  const poner = v => { d.querySelector(".check").checked = v; d.classList.toggle("apagado", !v); calcular(); };
+  d.addEventListener("click", e => {
+    if (e.target.closest(".paso-q")) return;
+    const ch = d.querySelector(".check"), inp = d.querySelector(".it-q");
+    if (!ch.checked && mult(inp.value) === 0) inp.value = "1";
+    poner(!ch.checked);
+  });
   d.querySelectorAll(".paso-q button").forEach(b => b.onclick = () => {
     const inp = d.querySelector(".it-q"), n = parseFloat(String(inp.value).replace(",", "."));
-    const nuevo = Math.max(0, (isNaN(n) ? 0 : n) + Number(b.dataset.d));
+    const nuevo = Math.max(0, (isNaN(n) ? 1 : n) + Number(b.dataset.d));
     inp.value = nuevo;
-    d.querySelector(".check").checked = nuevo > 0; d.classList.toggle("apagado", nuevo === 0);
-    calcular();
+    poner(nuevo > 0);
   });
   $("#items").appendChild(d);
-  if (!it.fijo && !it.n) d.querySelector(".it-nombre").focus();
   calcular();
 }
 $("#restaurar").onclick = () => { if (confirm("¿Volver al plan original de " + P().nombre + "?")) cargarPlantilla(); };
@@ -382,7 +433,7 @@ document.addEventListener("input", e => {
 function leer(){
   const f = P().factor;
   const items = [...document.querySelectorAll(".item")].map(x => {
-    const n = x.dataset.n || x.querySelector(".it-nombre").value.trim(), q = x.querySelector(".it-q").value.trim(), u = Number(x.dataset.u) || 0;
+    const n = x.dataset.n || "", q = x.querySelector(".it-q").value.trim(), u = Number(x.dataset.u) || 0;
     const costo = u * mult(q);
     return { n, q, u, costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
   });
@@ -397,16 +448,30 @@ function leer(){
     duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, descuento, precio, costo, queda: precio - costo,
   };
 }
+let totalVisto = null;
+function animarTotal(v){
+  const t = $("#total"), m = $("#total-m");
+  if (totalVisto === null || totalVisto === v){ totalVisto = v; t.textContent = m.textContent = fmt(v); return; }
+  const de = totalVisto, ini = performance.now(); totalVisto = v;
+  t.classList.add("cambia");
+  cancelAnimationFrame(animarTotal.f);
+  const paso = now => {
+    const k = Math.min(1, (now - ini) / 500), e = 1 - Math.pow(1 - k, 3);
+    t.textContent = m.textContent = fmt(de + (v - de) * e);
+    if (k < 1) animarTotal.f = requestAnimationFrame(paso); else t.classList.remove("cambia");
+  };
+  animarTotal.f = requestAnimationFrame(paso);
+}
 function calcular(){
   const s = leer();
   $("#r-prog").textContent = P().nombre;
   const vis = s.items.filter(x => !x.interno && x.n);
   $("#resumen").innerHTML = vis.length
-    ? vis.map(x => `<div class="linea-r"><span>${esc(x.n.split(":")[0].split("(")[0])} </span><span>${esc(x.q)}</span></div>`).join("")
-    : `<p class="linea-r" style="color:var(--tenue)">Marca lo que trae el plan.</p>`;
+    ? vis.map(x => { const c = CATALOGO.find(k => k.n === x.n); return `<div class="linea-r"><span>${esc(c ? c.t : x.n)}</span><span>${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span></div>`; }).join("")
+    : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
   $("#r-desc").classList.toggle("oculto", !s.descuento);
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
-  $("#total").textContent = fmt(s.precio);
+  animarTotal(s.precio);
   $("#anticipo").textContent = fmt(s.precio / 2);
   return s;
 }
