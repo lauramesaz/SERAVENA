@@ -135,6 +135,21 @@ aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38p
 .btn-sec{width:100%;margin-top:10px;background:transparent;border:1px solid rgba(237,226,208,.25);color:var(--marfil);border-radius:999px;padding:12px;cursor:pointer;font-size:13.5px}
 .btn-sec:hover{border-color:rgba(237,226,208,.6)}
 
+/* modos: comercial y paciente */
+.franja{position:relative;z-index:2;max-width:640px;margin:22px auto 0;background:var(--blanco);box-shadow:0 0 0 1px var(--linea);border-radius:999px;padding:10px 22px;font-size:13.5px;color:var(--choco);text-align:center}
+.franja b{font-weight:700}
+body.paciente .programas,body.paciente #restaurar,body.paciente #datos,body.paciente .item.apagado,
+body.paciente #enviar,body.paciente #nueva,body.paciente .barra button{display:none!important}
+body.paciente .item{cursor:default}
+body.paciente .item .marca{display:none}
+body.paciente .paso-q{background:transparent!important;width:auto;padding:0}
+body.paciente .paso-q button{display:none}
+body.paciente .paso-q::before{content:"Cantidad";font-size:12px;color:var(--tenue);margin-right:8px}
+body.paciente .paso-q input{text-align:left;width:90px;padding:0;color:var(--choco);font-weight:700;pointer-events:none}
+body.paciente #descargar{background:var(--marfil);color:var(--choco);border:0;font-weight:700;padding:16px;margin-top:24px}
+#compartir-pdf{display:none}
+body.comercial #compartir-pdf.puede{display:block}
+
 /* barra fija en celular */
 .barra{display:none}
 
@@ -209,10 +224,12 @@ aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38p
 <div class="envoltura">
 <header><img src="assets/wordmark-pardo.png" alt="Seravena"></header>
 
+<div class="franja oculto" id="franja"></div>
+
 <section class="intro">
-  <p class="ojo">Tu plan a la medida</p>
-  <h1>Arma tu programa</h1>
-  <p>Elige el programa, ajusta lo que necesitas y mira tu inversión al instante.</p>
+  <p class="ojo" id="intro-ojo">Tu plan a la medida</p>
+  <h1 id="intro-h1">Arma tu programa</h1>
+  <p id="intro-p">Elige el programa, ajusta lo que necesitas y mira tu inversión al instante.</p>
 </section>
 
 <div class="programas" id="programas"></div>
@@ -221,14 +238,14 @@ aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38p
   <div>
     <section class="bloque">
       <div class="bloque-cab">
-        <div><h2>Qué incluye</h2><p class="ayuda">Toca un servicio para sumarlo o quitarlo, y ajusta cuántas veces.</p></div>
+        <div><h2>Qué incluye</h2><p class="ayuda" id="ayuda-items">Toca un servicio para sumarlo o quitarlo, y ajusta cuántas veces.</p></div>
         <button type="button" class="link-sutil" id="restaurar">Volver al plan original</button>
       </div>
       <div class="pendiente oculto" id="pendiente"></div>
       <div id="items"></div>
     </section>
 
-    <section class="bloque">
+    <section class="bloque" id="datos">
       <div class="bloque-cab"><div><h2>Tus datos</h2><p class="ayuda">Para dejar la cotización a tu nombre.</p></div></div>
       <div class="especialista" id="esp-tarjeta">
         <div class="ini">JD</div>
@@ -259,7 +276,9 @@ aside .prog{font-family:"Instrument Serif",serif;font-style:italic;font-size:38p
     <div class="linea-r oculto" id="r-desc"><span>Descuento</span><span></span></div>
     <div class="total"><span>Tu inversión</span><b id="total">$0</b></div>
     <div class="sub-total"><span>Anticipo del 50% para iniciar</span><span id="anticipo">$0</span></div>
-    <button class="btn" id="descargar">Descargar cotización</button>
+    <button class="btn" id="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
+    <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
+    <button class="btn-sec" id="descargar">Descargar PDF</button>
     <button class="btn-sec" id="nueva">Nueva cotización</button>
   </aside>
 </main>
@@ -277,6 +296,8 @@ const CODIGO = "111";
 const VIGENCIA_DIAS = 30;
 const ESPECIALISTA = "Jose David Puerta";
 const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
+const COMERCIAL = { nombre: "Federico", whatsapp: "573006397083" }; // a quien le llega "Enviar al comercial"
+const SITIO = "https://www.clinicaseravena.com/cotizador";
 const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cuerpo de tus sueños.";
 
 /* Todos los servicios que se pueden incluir. u = costo por unidad (solo lo ves tú). interno = no sale en el PDF. */
@@ -344,7 +365,7 @@ Object.values(PROGRAMAS).forEach(p => { const c = costoPlan(p); p.factor = p.pre
 
 /* ---- candado ---- */
 function abrir(){ $("#candado").classList.add("oculto"); try{ sessionStorage.setItem("sera-cot", "1"); }catch(e){} }
-try{ if (sessionStorage.getItem("sera-cot") === "1") abrir(); }catch(e){}
+try{ if (sessionStorage.getItem("sera-cot") === "1" || location.hash.startsWith("#p=")) abrir(); }catch(e){}
 $("#f-candado").addEventListener("submit", e => e.preventDefault());
 $("#codigo").addEventListener("input", e => {
   const v = e.target.value;
@@ -527,30 +548,125 @@ function aviso(t, mal){
   clearTimeout(aviso.t); aviso.t = setTimeout(() => a.classList.remove("ver"), 4500);
 }
 
-$("#descargar").onclick = async () => {
-  const s = calcular(), faltan = validar(s);
-  if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); return; }
-  const b = $("#descargar"); b.disabled = true; b.textContent = "Generando…";
+/* ---- PDF ---- */
+async function hacerPDF(s){
   const hoy = new Date(), vence = new Date(hoy); vence.setDate(vence.getDate() + VIGENCIA_DIAS);
   const numero = "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes());
   armarPDF(s, numero, hoy, vence);
+  await document.fonts.ready;
+  window.scrollTo(0, 0);
+  const archivo = `Cotizacion Seravena - ${s.nombre} - ${P().nombre}.pdf`.replace(/[\\/:*?"<>|]/g, "");
+  const doc = await html2pdf().set({
+    margin: 0, filename: archivo,
+    image: { type: "jpeg", quality: 0.97 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", scrollX: 0, scrollY: 0 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    pagebreak: { mode: ["css"], avoid: ["tr", ".p-total", ".p-info"] },
+  }).from($("#pdf")).toPdf().get("pdf");
+  return { doc, archivo };
+}
+$("#descargar").onclick = async () => {
+  const s = calcular(), faltan = MODO === "paciente" ? [] : validar(s);
+  if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); return; }
+  const b = $("#descargar"), t = b.textContent; b.disabled = true; b.textContent = "Generando…";
+  try{ const { doc, archivo } = await hacerPDF(s); doc.save(archivo); aviso("PDF descargado"); }
+  catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); }
+  b.disabled = false; b.textContent = t;
+};
+/* en celular: compartir el PDF como archivo (WhatsApp, correo…) */
+try{ if (navigator.canShare && navigator.canShare({ files: [new File(["x"], "x.pdf", { type: "application/pdf" })] })) $("#compartir-pdf").classList.add("puede"); }catch(e){}
+$("#compartir-pdf").onclick = async () => {
+  const s = calcular(), faltan = validar(s);
+  if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); return; }
   try{
-    await document.fonts.ready;
-    window.scrollTo(0, 0);
-    const archivo = `Cotizacion Seravena - ${s.nombre} - ${P().nombre}.pdf`.replace(/[\\/:*?"<>|]/g, "");
-    await html2pdf().set({
-      margin: 0, filename: archivo,
-      image: { type: "jpeg", quality: 0.97 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", scrollX: 0, scrollY: 0 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-      pagebreak: { mode: ["css"], avoid: ["tr", ".p-total", ".p-info"] },
-    }).from($("#pdf")).save();
-    aviso("PDF descargado");
-  }catch(e){ aviso("No se pudo generar el PDF. Intenta de nuevo.", true); }
-  b.disabled = false; b.textContent = "Descargar PDF";
+    const { doc, archivo } = await hacerPDF(s);
+    const f = new File([doc.output("blob")], archivo, { type: "application/pdf" });
+    await navigator.share({ files: [f], title: archivo });
+  }catch(e){ if (e && e.name !== "AbortError") aviso("No se pudo compartir el PDF.", true); }
 };
 
+/* ---- la cotización viaja guardada dentro del link ---- */
+function empacar(){
+  const d = {
+    p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0]),
+    n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
+    e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
+  };
+  return btoa(unescape(encodeURIComponent(JSON.stringify(d)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+function desempacar(txt){
+  try{ return JSON.parse(decodeURIComponent(escape(atob(txt.replace(/-/g, "+").replace(/_/g, "/"))))); }catch(e){ return null; }
+}
+function cargar(d){
+  ponerPrograma(d.p in PROGRAMAS ? d.p : "lipedema");
+  const items = document.querySelectorAll(".item");
+  (d.i || []).forEach(([q, on], k) => { const x = items[k]; if (!x) return;
+    x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); });
+  $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
+  if (d.t) $("#tipo-id").value = d.t;
+  $("#esp").value = d.e || ESPECIALISTA; $("#espec").value = d.es || ESPECIALIDAD; pintarEsp();
+  $("#duracion").value = d.du || ""; $("#descuento").value = d.de || "";
+  totalVisto = null; calcular();
+}
+const celular = c => { let n = String(c || "").replace(/\D/g, ""); if (n.length === 10 && n[0] === "3") n = "57" + n; return n; };
+const abrirWhatsApp = (num, txt) => window.open("https://wa.me/" + num + "?text=" + encodeURIComponent(txt), "_blank");
+
+/* ---- modos: doctor (normal) · comercial (#c=) · paciente (#p=) ---- */
+let MODO = "doctor";
+$("#enviar").onclick = () => {
+  const s = calcular();
+  if (MODO === "doctor"){
+    const faltan = [];
+    $("#nombre").closest(".campo").classList.toggle("error", !s.nombre); if (!s.nombre) faltan.push("nombre de la paciente");
+    if (!s.items.some(x => !x.interno)) faltan.push("qué incluye");
+    if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
+    const link = SITIO + "#c=" + empacar();
+    abrirWhatsApp(COMERCIAL.whatsapp,
+      `Hola ${COMERCIAL.nombre} 👋 Nueva cotización de Seravena\n\n` +
+      `Paciente: ${s.nombre}${s.contacto ? "\nCelular: " + s.contacto : ""}\nPrograma: ${P().nombre}\nValor: ${fmt(s.precio)}\nArmada por: ${s.esp}\n\n` +
+      `Ábrela aquí para negociar:\n${link}`);
+    aviso("Se abrió WhatsApp con la cotización para " + COMERCIAL.nombre);
+  } else {
+    const num = celular(s.contacto);
+    if (num.length < 11){ $("#contacto").closest(".campo").classList.add("error"); aviso("Falta el celular de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
+    const link = SITIO + "#p=" + empacar();
+    abrirWhatsApp(num,
+      `Hola ${s.nombre.split(" ")[0]} 🤍 Te comparto tu plan de ${P().nombre} en Seravena.\n\n` +
+      `Inversión: ${fmt(s.precio)} (anticipo del 50%: ${fmt(s.precio / 2)})\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
+      `Cualquier duda, aquí estoy.`);
+    aviso("Se abrió WhatsApp con el chat de la paciente");
+  }
+};
+function ponerModo(){
+  const h = location.hash, c = h.startsWith("#c="), pa = h.startsWith("#p=");
+  MODO = c ? "comercial" : pa ? "paciente" : "doctor";
+  document.body.classList.toggle("comercial", c); document.body.classList.toggle("paciente", pa);
+  const d = (c || pa) ? desempacar(h.slice(3)) : null;
+  if (d) cargar(d); else ponerPrograma("lipedema");
+  const fr = $("#franja");
+  if (MODO === "comercial"){
+    fr.innerHTML = `Cotización armada por <b>${esc($("#esp").value)}</b> para <b>${esc($("#nombre").value)}</b>. Ajústala con la paciente y envíasela.`;
+    fr.classList.remove("oculto");
+    $("#enviar-txt").textContent = "Enviar a la paciente por WhatsApp";
+    $("#intro-h1").textContent = "Negocia el plan";
+    $("#intro-p").textContent = "Lo que muevas aquí cambia el precio al instante.";
+  } else if (MODO === "paciente"){
+    abrir();
+    $("#intro-ojo").textContent = "Tu plan en Seravena";
+    $("#intro-h1").textContent = (($("#nombre").value || "").split(" ")[0] || "Tu") + ", este es tu plan";
+    $("#intro-p").textContent = "Aquí está todo lo que incluye tu programa. Puedes descargar tu cotización en PDF.";
+    $("#descargar").textContent = "Descargar mi cotización";
+    $("#ayuda-items").textContent = "Esto es lo que trae tu programa y cuántas veces.";
+    document.querySelectorAll(".it-q").forEach(i => { i.readOnly = true; i.tabIndex = -1; });
+    document.title = "Tu plan · Seravena";
+  } else {
+    $("#enviar-txt").textContent = "Enviar a " + COMERCIAL.nombre + " (comercial)";
+  }
+}
+window.addEventListener("hashchange", () => location.reload());
+
 $("#nueva").onclick = () => {
+  if (location.hash){ if (confirm("¿Empezar una cotización nueva?")) location.href = location.pathname; return; }
   if (!confirm("¿Borrar los datos del paciente y empezar una cotización nueva?")) return;
   ["#nombre", "#num-id", "#contacto"].forEach(id => $(id).value = "");
   $("#tipo-id").selectedIndex = 0;
@@ -558,7 +674,7 @@ $("#nueva").onclick = () => {
   cargarPlantilla(); window.scrollTo(0, 0);
 };
 
-ponerPrograma("lipedema");
+ponerModo();
 </script>
 </body>
 </html>
