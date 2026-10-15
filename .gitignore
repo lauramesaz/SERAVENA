@@ -4,3 +4,5 @@ _mockups-finanzas/
 equipo/finanzas-datos.js
 _finanzas/datos.json
 _finanzas/.clave
+**/datos-metas.json
+_metas/

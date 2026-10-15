@@ -1072,6 +1072,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text'
     <button class="railitem" id="railCal">Calendario</button>
     <button class="railitem" id="railOpt">Optimizador de espacios</button>
     <button class="railitem" id="railFin">Finanzas</button>
+    <button class="railitem" id="railMetas">Metas</button>
   </div>
   <div class="railpie">
     <button class="railitem sm" id="railTv">Modo pantalla</button>
@@ -3142,6 +3143,7 @@ $('#railHoy').onclick   = ()=>{ pintarTablero(); mostrar('vistaTablero'); };
 $('#railCal').onclick   = ()=>{ $('#fechaHoy3').textContent=fechaLarga(); renderCal(); mostrar('vistaCalendario'); };
 $('#railOpt').onclick   = ()=>{ mostrar('vistaOptim'); optArrancar(); };
 $('#railFin').onclick   = ()=>{ location.href='finanzas.html'; };  /* Finanzas vive en su propia página (piel nude) */
+$('#railMetas').onclick = ()=>{ location.href='metas.html'; };    /* panel de metas: ¿cuánto tengo que vender? */
 $('#railTv').onclick    = ()=>$('#btnPantalla').click();
 $('#railAjustes').onclick = ()=>$('#btnAjustes').click();
 $('#railReset').onclick = ()=>$('#btnReset').click();
