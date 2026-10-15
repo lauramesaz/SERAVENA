@@ -200,6 +200,18 @@ body.paciente .pasos{display:none}
 .duracion-wow .grande{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .duracion-wow .grande .ico{width:44px;height:44px;color:#c9b083;stroke-width:1.3}
 
+/* paquetes (HAUSFORM) */
+.variantes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.variantes button{border:1.5px solid var(--linea);background:#fff;border-radius:20px;padding:16px;text-align:left;cursor:pointer;transition:.25s}
+.variantes button:hover{border-color:var(--camel)}
+.variantes button.activa{border-color:var(--choco);background:var(--choco);color:#fff}
+.variantes b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.variantes small{display:block;font-size:12px;opacity:.7;margin-top:2px}
+.variantes span{display:block;font-size:15px;font-weight:600;margin-top:10px;font-variant-numeric:tabular-nums}
+body.paciente .variantes button:not(.activa){display:none}
+body.paciente .variantes{grid-template-columns:1fr}
+@media (max-width:640px){.variantes{gap:6px}.variantes button{padding:12px 10px;border-radius:16px}.variantes b{font-size:14px}.variantes small{font-size:11px}.variantes span{font-size:13px}}
+
 /* duración protagonista */
 .duracion-wow{display:grid;grid-template-columns:1fr;gap:22px;align-items:center;background:var(--choco);color:var(--marfil);border-radius:26px;padding:26px 30px;margin-bottom:26px;position:relative;overflow:hidden}
 .duracion-wow::after{content:"";position:absolute;width:300px;height:300px;right:-120px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
@@ -443,6 +455,7 @@ body.comercial #compartir-pdf.puede{display:block}
         <div><h2>Qué incluye</h2><p class="ayuda" id="ayuda-items">Toca un servicio para sumarlo o quitarlo, y ajusta cuántas veces.</p></div>
         <button type="button" class="link-sutil" id="restaurar">Volver al plan original</button>
       </div>
+      <div class="variantes oculto" id="variantes"></div>
       <div class="pendiente oculto" id="pendiente"></div>
       <div class="duracion-wow" id="wow">
         <div class="grande" data-ico="reloj"><span id="wow-dur">3 meses</span><small>de acompañamiento</small></div>
@@ -557,6 +570,13 @@ const CATALOGO = [
   { id: "medias",        n: "Medias de compresión", u: 370000, e: "🧦", t: "Medias de compresión", d: "Para el día a día" },
   { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
   { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
+  /* HAUSFORM (celulitis) — costos del Excel HAUSFORM */
+  { id: "sculptra",   n: "Sculptra (bioestimulador de colágeno)", u: 980000, t: "Sculptra", d: "Bioestimulador de colágeno · por vial" },
+  { id: "venufill",   n: "Venufill 50 ml", u: 1200000, t: "Venufill 50 ml", d: "Tratamiento para la textura de la piel" },
+  { id: "prp",        n: "Plasma rico en plaquetas (PRP)", u: 120000, t: "Plasma rico en plaquetas", d: "PRP con tu propia sangre" },
+  { id: "medico",     n: "Procedimiento médico", u: 1000000, t: "Procedimiento médico", d: "Realizado por el especialista" },
+  { id: "insumos",    n: "Anestesia local y materiales", u: 105000, t: "Anestesia local y materiales", d: "Lidocaína, cánulas y material estéril" },
+  { id: "indirectos", n: "Consultorio e indirectos", u: 180000, interno: true },
 ];
 
 /* Cada plan: qué trae (id: cantidad, o [cantidad, costo distinto]) y su precio de lista.
@@ -582,9 +602,19 @@ const PROGRAMAS = {
     pendiente: "Plan de venas en construcción: marca los servicios que apliquen.",
   },
   celulitis: {
-    foto: "assets/media/skin-detail.webp", frase: "Piel más firme y uniforme",
-    nombre: "Celulitis", titulo: "Programa de manejo de celulitis", precio: 0, duracion: "", pagos: null, plan: {},
-    pendiente: "Plan de celulitis en construcción: marca los servicios que apliquen.",
+    foto: "assets/media/skin-detail.webp", frase: "Tratamiento HAUSFORM", familia: "celulitis", solo: "hf",
+    nombre: "HAUSFORM Essential", corto: "Essential", resumen: "Sculptra", titulo: "Celulitis · HAUSFORM Essential", precio: 4500000, duracion: "", pagos: null,
+    plan: { sculptra: 2, medico: 1, insumos: [1, 105000], indirectos: [1, 180000] },
+  },
+  celulitis_advance: {
+    oculto: true, familia: "celulitis", solo: "hf",
+    nombre: "HAUSFORM Advance", corto: "Advance", resumen: "Venufill + PRP", titulo: "Celulitis · HAUSFORM Advance", precio: 3500000, duracion: "", pagos: null,
+    plan: { venufill: 1, prp: 1, medico: 1, insumos: [1, 95000], indirectos: [1, 180000] },
+  },
+  celulitis_prestige: {
+    oculto: true, familia: "celulitis", solo: "hf",
+    nombre: "HAUSFORM Prestige", corto: "Prestige", resumen: "Sculptra + Venufill", titulo: "Celulitis · HAUSFORM Prestige", precio: 5800000, duracion: "", pagos: null,
+    plan: { sculptra: 2, venufill: 1, medico: 1, insumos: [1, 115000], indirectos: [1, 210000] },
   },
 };
 const FACTOR_SIN_PLANTILLA = 1 / 0.6; // si no hay precio de lista: el costo es el 60% del precio
@@ -619,6 +649,12 @@ const ICO = {
   medias: '<path d="M9 2h7v8.5l-5.4 9.3a3 3 0 0 1-4.1 1.1l-1.4-.8a3 3 0 0 1-1.1-4.1L9 9.5Z"/><path d="M9 6h7"/>',
   aparatologia: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>',
   drenaje: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/>',
+  sculptra: '<path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 9h-5M14.5 15h-5"/>',
+  venufill: '<path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/>',
+  prp: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/><path d="M9 15h6M12 12v6"/>',
+  medico: '<path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15v1a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="11" r="2"/>',
+  insumos: '<path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7Z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/>',
+  brillo: '<path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2Z"/>',
   ecografia: '<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/>',
   personas: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
   calendario: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
@@ -640,6 +676,7 @@ document.querySelectorAll("[data-ico]").forEach(el => el.insertAdjacentHTML("aft
 const GRUPOS = [
   { id: "esp", t: "Consultas con especialistas", i: "personas", ids: ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"] },
   { id: "tto", t: "Tratamiento y seguimiento", i: "general", ids: ["general", "tirzepatida", "enfermeria", "medias", "aparatologia", "drenaje", "ecografia"] },
+  { id: "hf", t: "Tratamiento HAUSFORM", i: "brillo", ids: ["sculptra", "venufill", "prp", "medico", "insumos", "indirectos"] },
 ];
 
 /* ---- candado ---- */
@@ -684,13 +721,18 @@ $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "
 /* ---- programas ---- */
 let PROG = "lipedema";
 const P = () => PROGRAMAS[PROG];
-$("#programas").innerHTML = Object.entries(PROGRAMAS).map(([id, p]) =>
-  `<button type="button" class="prog-card" data-prog="${id}"><div class="foto" style="background-image:url('${p.foto}')"></div><b>${p.nombre}</b><small>${p.frase}</small></button>`).join("");
+$("#programas").innerHTML = Object.entries(PROGRAMAS).filter(([, p]) => !p.oculto).map(([id, p]) =>
+  `<button type="button" class="prog-card" data-prog="${id}"><div class="foto" style="background-image:url('${p.foto}')"></div><b>${p.familia ? p.familia[0].toUpperCase() + p.familia.slice(1) : p.nombre}</b><small>${p.frase}</small></button>`).join("");
 document.querySelectorAll("#programas button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.prog));
 
 function ponerPrograma(id){
   PROG = id;
-  document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id));
+  const fam = P().familia;
+  document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (fam && PROGRAMAS[b.dataset.prog].familia === fam)));
+  const vars = fam ? Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam) : [];
+  $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small><span>${fmt(p.precio)}</span></button>`).join("");
+  $("#variantes").classList.toggle("oculto", !vars.length);
+  $("#variantes").querySelectorAll("button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.v));
   $("#pendiente").textContent = P().pendiente || "";
   $("#pendiente").classList.toggle("oculto", !P().pendiente);
   $("#ayuda-precio").textContent = P().precio
@@ -699,8 +741,10 @@ function ponerPrograma(id){
   cargarPlantilla();
 }
 function cargarPlantilla(){
-  $("#items").innerHTML = GRUPOS.map(g => `<details class="grupo" open data-g="${g.id}"><summary>${ico(g.i)}<div><b>${g.t}</b><small class="g-cuenta"></small></div>${ico("abajo", "flecha-g")}</summary><div class="lista"></div></details>`).join("");
-  CATALOGO.forEach(c => {
+  const grupos = GRUPOS.filter(g => P().solo ? g.id === P().solo : g.id !== "hf");
+  $("#items").innerHTML = grupos.map(g => `<details class="grupo" open data-g="${g.id}"><summary>${ico(g.i)}<div><b>${g.t}</b><small class="g-cuenta"></small></div>${ico("abajo", "flecha-g")}</summary><div class="lista"></div></details>`).join("");
+  const permitidos = grupos.flatMap(g => g.ids);
+  CATALOGO.filter(c => permitidos.includes(c.id)).forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
     agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
   });
