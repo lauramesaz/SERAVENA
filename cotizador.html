@@ -639,7 +639,7 @@ const CATALOGO = [
   { id: "escleroterapia", n: "Escleroterapia (sesión)", u: 300000, t: "Escleroterapia", d: "Por sesión" },
   { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna" },
   { id: "espuma_safena",  n: "Espuma de safena (por pierna)", u: 3000000, t: "Espuma de safena", d: "Por pierna", max: 2, unidad: "pierna" },
-  { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "1 pierna $6.500.000 · las 2 piernas $10.000.000", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 } },
+  { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "Por pierna", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 } },
   { id: "medias_v",       n: "Medias de compresión", u: 0, t: "Medias de compresión", d: "Incluidas en el tratamiento", incluido: true },
   { id: "rivaroxaban",    n: "Rivaroxabán 10 mg", u: 0, t: "Rivaroxabán 10 mg", d: "Medicamento · escribe el valor", precioLibre: true },
   /* HAUSFORM (celulitis) — costos del Excel HAUSFORM */
@@ -670,17 +670,17 @@ const PROGRAMAS = {
   },
   venas: {
     foto: "assets/media/vascular-veins.webp", frase: "Escleroterapia, espuma o endoláser", familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
-    nombre: "Escleroterapia", corto: "Escleroterapia", resumen: "Por sesión", etiqueta: "$300.000 / sesión", titulo: "Venas · Escleroterapia", precio: 0, duracion: "", pagos: null,
+    nombre: "Escleroterapia", corto: "Escleroterapia", resumen: "Elige cuántas sesiones", etiqueta: "", titulo: "Venas · Escleroterapia", precio: 0, duracion: "", pagos: null,
     plan: { escleroterapia: 1 },
   },
   venas_espuma: {
     oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
-    nombre: "Espuma", corto: "Espuma", resumen: "Tributarias o safena · con medias", etiqueta: "desde $1.500.000", titulo: "Venas · Espuma", precio: 0, duracion: "", pagos: null,
+    nombre: "Espuma", corto: "Espuma", resumen: "Tributarias o safena · con medias", etiqueta: "", titulo: "Venas · Espuma", precio: 0, duracion: "", pagos: null,
     plan: { espuma_trib: 1, medias_v: "Incluidas" },
   },
   venas_endolaser: {
     oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
-    nombre: "Endoláser", corto: "Endoláser", resumen: "Por pierna · con medias", etiqueta: "desde $6.500.000", titulo: "Venas · Endoláser", precio: 0, duracion: "", pagos: null,
+    nombre: "Endoláser", corto: "Endoláser", resumen: "1 o 2 piernas · con medias", etiqueta: "", titulo: "Venas · Endoláser", precio: 0, duracion: "", pagos: null,
     plan: { endolaser: 1, medias_v: "Incluidas" },
   },
   celulitis: {
@@ -822,7 +822,7 @@ function ponerPrograma(id){
   document.body.classList.toggle("desc-libre-on", !!P().descuentoLibre);
   document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (!!fam && PROGRAMAS[b.dataset.prog].familia === fam)));
   const vars = fam ? Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam) : [];
-  $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small><span>${p.etiqueta || fmt(p.precio)}</span></button>`).join("");
+  $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small>${p.etiqueta === "" ? "" : `<span>${p.etiqueta || fmt(p.precio)}</span>`}</button>`).join("");
   $("#variantes").classList.toggle("oculto", !vars.length);
   $("#variantes").querySelectorAll("button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.v));
   $("#pendiente").textContent = P().pendiente || "";
