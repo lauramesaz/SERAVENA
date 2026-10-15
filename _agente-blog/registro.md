@@ -27,6 +27,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-15 | prevencion-del-lipedema | Prevención del lipedema: qué sí está en tus manos | prevención del lipedema | publicado | — | — | — |
 | 2026-10-14 | cuidados-despues-escleroterapia | Cuidados después de la escleroterapia: qué hacer los primeros días | cuidados después de escleroterapia | publicado | — | — | — |
 | 2026-10-13 | lipedema-en-adolescentes | Lipedema en adolescentes: señales tempranas que no hay que ignorar | lipedema en adolescentes | publicado | — | — | — |
 | 2026-10-12 | lipedema-en-los-brazos | Lipedema en los brazos: no solo son las piernas | lipedema en los brazos | publicado | — | — | — |

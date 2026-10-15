@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-14",
+  "actualizado": "2026-10-15",
   "articulos": [
+    {
+      "fecha": "2026-10-15",
+      "titulo": "Prevención del lipedema: qué sí está en tus manos",
+      "slug": "prevencion-del-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "prevención del lipedema",
+      "seo": 100,
+      "medico": "aprobado con correcciones",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/prevencion-del-lipedema",
+      "nota": "Artículo del racimo 'lipedema': explica por qué no existe una fórmula garantizada para prevenirlo (genética y hormonas) y qué sí puede manejarse (diagnóstico temprano, peso, movimiento, compresión)."
+    },
     {
       "fecha": "2026-10-14",
       "titulo": "Cuidados después de la escleroterapia: qué hacer los primeros días",
