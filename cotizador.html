@@ -209,6 +209,15 @@ body.paciente .it-nota{border:0;background:transparent;padding:0 0 0 2px;color:v
 body.paciente .it-nota.vacia{display:none}
 @media (max-width:640px){.it-nota{grid-column:2/-1}}
 
+/* precio manual */
+.chip-osc.ancho{grid-column:1/-1}
+#manual-caja textarea{width:100%;border:0;border-radius:16px;padding:12px 16px;font:inherit;font-size:13.5px;color:var(--choco);background:rgba(255,255,255,.95);resize:vertical;outline:none;min-height:60px}
+#manual-caja .link-claro{margin:10px 0 0;font-size:12.5px}
+.r-manual{margin-top:8px;background:rgba(225,6,0,.12);border:1px solid rgba(255,140,120,.35);border-radius:14px;padding:10px 14px;font-size:12.5px;color:#ffd9d2;line-height:1.45}
+.r-manual b{color:#fff}
+body.paciente #abrir-manual,body.paciente #manual-caja,body.paciente .r-manual{display:none!important}
+body.doctor.desc-libre-on .acciones-sec{grid-template-columns:1fr 1fr}
+
 /* venas */
 .item.incluido .paso-q{display:none}
 .item.incluido::after{content:"Incluidas";grid-column:4;grid-row:1;font-size:12px;font-weight:600;color:var(--camel-osc);background:var(--marfil);border-radius:999px;padding:5px 12px}
@@ -561,11 +570,13 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
     <div class="r-incluye"><p class="r-tit">Lo que incluye</p><div id="resumen"></div></div>
     <div class="total"><span>Tu inversión total</span><b><span id="total">$0</span><small>COP</small></b></div>
     <div class="sub-total oculto" id="r-desc"><span>Descuento aplicado</span><span></span></div>
+    <div class="r-manual oculto" id="r-manual"></div>
     <div class="caja-inicial"><span id="anticipo-t">Valor inicial (50%)</span><b id="anticipo">$0</b></div>
     <div class="plan-pago oculto" id="plan-pago"></div>
     <div class="acciones-sec">
       <button type="button" class="chip-osc" id="abrir-cuotas" data-ico="tarjeta">Simular cuotas</button>
       <button type="button" class="chip-osc" id="abrir-desc" data-ico="porcentaje">Descuento</button>
+      <button type="button" class="chip-osc ancho" id="abrir-manual" data-ico="lapiz">Agregar precio manual</button>
     </div>
     <div class="desc-caja oculto" id="desc-caja">
       <label for="descuento">Descuento</label>
@@ -574,6 +585,13 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
         <div class="desc-libre"><div class="porcentaje"><input id="desc-libre" type="text" inputmode="decimal" placeholder="0" maxlength="5"></div><small>Escribe el % que vas a dar</small></div>
         <div class="desc-rapidos"><button type="button" data-p="0">Sin descuento</button><button type="button" data-p="3">3%</button><button type="button" data-p="5">5%</button></div>
       </div>
+    </div>
+    <div class="desc-caja oculto" id="manual-caja">
+      <label for="manual-v">Precio manual (reemplaza el precio calculado)</label>
+      <div class="dinero"><input id="manual-v" type="text" inputmode="numeric" data-dinero placeholder="Escribe el precio final"></div>
+      <label for="manual-nota" style="margin-top:12px">¿Por qué es manual? <small>(obligatorio)</small></label>
+      <textarea id="manual-nota" rows="2" placeholder="Ej: precio acordado con el doctor por…"></textarea>
+      <button type="button" class="link-claro" id="manual-quitar">Quitar precio manual</button>
     </div>
     <div class="r-filas oculto">
       <div class="r-fila" data-ico="personas"><span>Especialistas</span><b id="rf-citas"></b></div>
@@ -756,6 +774,7 @@ const ICO = {
   enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
   descargar: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
   correo: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  lapiz: '<path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>',
   reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 };
 const ico = (k, c = "") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k] || ICO.check}</svg>`;
@@ -806,6 +825,8 @@ document.querySelectorAll(".desc-rapidos button").forEach(b => b.onclick = () =>
   $("#descuento").value = b.dataset.p === "0" ? "" : b.dataset.p; calcular();
 });
 $("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
+$("#abrir-manual").onclick = () => { const c = $("#manual-caja"); c.classList.toggle("oculto"); if (!c.classList.contains("oculto")) $("#manual-v").focus(); };
+$("#manual-quitar").onclick = () => { $("#manual-v").value = ""; $("#manual-nota").value = ""; $("#manual-caja").classList.add("oculto"); calcular(); };
 $("#abrir-desc").onclick = () => { const c = $("#desc-caja"); c.classList.toggle("oculto"); $("#abrir-desc").classList.toggle("activa", !c.classList.contains("oculto")); };
 $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -840,7 +861,7 @@ function cargarPlantilla(){
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
     agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad });
   });
-  $("#descuento").value = ""; $("#desc-libre").value = "";
+  $("#descuento").value = ""; $("#desc-libre").value = ""; $("#manual-v").value = ""; $("#manual-nota").value = ""; $("#manual-caja").classList.add("oculto");
   $("#duracion").value = P().duracion;
   calcular();
 }
@@ -917,11 +938,13 @@ function leer(){
   const lista = Math.round(costo * f);
   const pct = Math.min(100, Math.max(0, parseFloat(String($("#descuento").value).replace(",", ".")) || 0));
   const descuento = Math.round(lista * pct / 100);
-  const precio = lista - descuento;
+  const manualV = num($("#manual-v").value);
+  const manual = manualV ? { v: manualV, antes: lista - descuento, nota: $("#manual-nota").value.trim() } : null;
+  const precio = manual ? manual.v : lista - descuento;
   return {
     programa: P().titulo, nombre: $("#nombre").value.trim(), tipoId: $("#tipo-id").value, numId: $("#num-id").value.trim(),
     contacto: $("#contacto").value.trim(), esp: $("#esp").value.trim(), espec: $("#espec").value.trim(),
-    duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, pct, descuento, precio, costo, queda: precio - costo,
+    duracion: $("#duracion").value.trim(), todos: items, items: sel, lista, pct, descuento, precio, manual, costo, queda: precio - costo,
   };
 }
 /* bloque "3 meses" */
@@ -1018,7 +1041,10 @@ function calcular(){
   $("#resumen").innerHTML = vis.length
     ? vis.map(x => { const c = CATALOGO.find(k => k.n === x.n); return `<div class="linea-r">${c ? ico(c.id) : ""}<span>${esc(c ? c.t : x.n)}</span><span>${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span></div>`; }).join("")
     : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
-  $("#r-desc").classList.toggle("oculto", !s.descuento);
+  $("#r-desc").classList.toggle("oculto", !s.descuento || !!s.manual);
+  $("#r-manual").classList.toggle("oculto", !s.manual);
+  if (s.manual) $("#r-manual").innerHTML = `✍️ <b>Precio manual</b> (el calculado era ${fmt(s.manual.antes)})${s.manual.nota ? `<br>Motivo: ${esc(s.manual.nota)}` : "<br><b>Falta escribir el motivo</b>"}`;
+  $("#abrir-manual").classList.toggle("activa", !!s.manual);
   $("#r-desc").firstElementChild.textContent = `Descuento del ${String(s.pct).replace(".", ",")}%`;
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
   document.querySelectorAll(".desc-rapidos button").forEach(b => b.classList.toggle("activa", Number(b.dataset.p) === s.pct));
@@ -1045,6 +1071,7 @@ document.addEventListener("change", e => { if (e.target.matches("input,select"))
 
 function validar(s){
   const faltan = [];
+  if (s.manual && !s.manual.nota){ faltan.push("el motivo del precio manual"); $("#manual-caja").classList.remove("oculto"); }
   const marca = (id, mal, txt) => { $(id).closest(".campo").classList.toggle("error", mal); if (mal) faltan.push(txt); };
   marca("#nombre", !s.nombre, "nombre");
   if (!s.items.some(x => !x.interno && x.n)) faltan.push("qué trae el plan");
@@ -1094,7 +1121,7 @@ function armarPDF(s, numero, hoy, vence){
       <div class="der"><div class="eti">Tu inversión</div><div class="tit">${esc(s.nombre)}</div></div></div>
     <div class="cuerpo">
       <div class="total"><div><span>Valor del programa</span><small>${esc(s.programa)}</small></div><b>${fmt(s.precio)}</b></div>
-      ${s.descuento ? `<div class="desc"><span>Precio de lista ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
+      ${s.descuento && !s.manual ? `<div class="desc"><span>Precio de lista ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
       <div class="inicial"><span>Valor inicial para empezar${plan ? " · se descuenta de la primera cuota" : ""}</span><b>${fmt(ini)}</b></div>
       ${plan ? `<p class="sec" style="margin-top:22px">Plan de pagos · ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt(plan.base)}</p>
         <div class="cal">${ini ? `<div><span>Hoy · valor inicial</span><b>${fmt(ini)}</b></div>` : ""}${plan.cuotas.map((v, i) => `<div><span>Cuota ${i + 1}${Math.round(v) < Math.round(plan.base) ? " (con el abono descontado)" : ""}</span><b>${Math.round(v) ? fmt(v) : "Cubierta con el abono"}</b></div>`).join("")}</div>` : ""}
@@ -1140,7 +1167,7 @@ async function enviarCopia(s, r, tipo = "descarga"){
     programa: s.programa, paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
     especialista: s.esp, duracion: s.duracion,
     servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
-    lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.descuento, total: s.precio,
+    lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.manual ? 0 : s.descuento, total: s.precio, manual: s.manual,
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
     costo: P().sinCostos ? null : s.costo, queda: P().sinCostos ? null : s.queda,
     link: SITIO + "#c=" + empacar(),
@@ -1179,7 +1206,7 @@ $("#compartir-pdf").onclick = async () => {
 function empacar(){
   const d = {
     p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
-    cu: CUOTAS, ini: INICIAL,
+    cu: CUOTAS, ini: INICIAL, pm: $("#manual-v").value, pmn: $("#manual-nota").value,
     n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
     nm: ($(".it-nota") || {}).value || "",
@@ -1195,6 +1222,7 @@ function cargar(d){
   (d.i || []).forEach(([q, on, lock, pu], k) => { const x = items[k]; if (!x) return;
     if (pu && x.classList.contains("precio-libre")){ x.dataset.u = pu; x.querySelector(".it-precio").value = Number(pu).toLocaleString("es-CO"); }
     x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
+  $("#manual-v").value = d.pm || ""; $("#manual-nota").value = d.pmn || "";
   CUOTAS = Number(d.cu) || 0; INICIAL = CUOTAS && d.ini != null && d.ini !== 0 ? Number(d.ini) : (CUOTAS && d.ini === 0 ? 0 : null);
   $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
   if (d.t) $("#tipo-id").value = d.t;
@@ -1212,6 +1240,7 @@ $("#enviar-correo").onclick = async () => {
   const s = calcular();
   if (!s.nombre){ $("#nombre").closest(".campo").classList.add("error"); aviso("Falta el nombre de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
   if (!s.items.some(x => !x.interno)){ aviso("Falta lo que incluye el plan", true); return; }
+  if (s.manual && !s.manual.nota){ $("#manual-caja").classList.remove("oculto"); $("#manual-nota").focus(); aviso("Escribe por qué el precio es manual", true); return; }
   const b = $("#enviar-correo"), tx = b.querySelector("span"), t = tx.textContent; b.disabled = true; tx.textContent = "Enviando…";
   const hoy = new Date(), vence = new Date(hoy); vence.setDate(vence.getDate() + VIGENCIA_DIAS);
   const numero = "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes());
@@ -1225,12 +1254,14 @@ $("#enviar").onclick = () => {
     const faltan = [];
     $("#nombre").closest(".campo").classList.toggle("error", !s.nombre); if (!s.nombre) faltan.push("nombre de la paciente");
     if (!s.items.some(x => !x.interno)) faltan.push("qué incluye");
+    if (s.manual && !s.manual.nota){ faltan.push("motivo del precio manual"); $("#manual-caja").classList.remove("oculto"); }
     if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
     const link = SITIO + "#c=" + empacar();
     const bloq = [...document.querySelectorAll(".item.bloqueado:not(.apagado)")].map(x => { const c = CATALOGO.find(k => k.n === x.dataset.n); return c ? c.t : x.dataset.n; });
     abrirWhatsApp(COMERCIAL.whatsapp,
       `Hola ${COMERCIAL.nombre} 👋 Nueva cotización de Seravena\n\n` +
       `Paciente: ${s.nombre}${s.contacto ? "\nCelular: " + s.contacto : ""}\nPrograma: ${P().nombre}\nValor: ${fmt(s.precio)}\nArmada por: ${s.esp}\n\n` +
+      (s.manual ? `✍️ Precio manual (calculado ${fmt(s.manual.antes)}). Motivo: ${s.manual.nota}\n\n` : "") +
       (bloq.length ? `🔒 El doctor recomienda no quitar:\n${bloq.map(x => "• " + x).join("\n")}\n\n` : "") +
       `Ábrela aquí para negociar:\n${link}`);
     aviso("Se abrió WhatsApp con la cotización para " + COMERCIAL.nombre);
@@ -1261,6 +1292,7 @@ function ponerModo(){
     $("#intro-p").textContent = "Lo que muevas aquí cambia el precio al instante.";
     $("#ayuda-items").innerHTML = `Toca un servicio para sumarlo o quitarlo. Lo que tiene <span class="ico-txt">${ico("candado")}</span> el doctor recomienda no quitarlo.`;
     if ($("#descuento").value){ $("#desc-caja").classList.remove("oculto"); $("#abrir-desc").classList.add("activa"); }
+    if ($("#manual-v").value) $("#manual-caja").classList.remove("oculto");
   } else if (MODO === "paciente"){
     abrir();
     $("#intro-ojo").textContent = "Tu plan en Seravena";
