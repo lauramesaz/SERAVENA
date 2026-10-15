@@ -337,7 +337,7 @@ aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-we
 @media (max-width:640px){.franja{margin:18px 16px 0;border-radius:22px;font-size:15px;padding:14px 18px}}
 .franja b{font-weight:700}
 body.paciente .programas,body.paciente #restaurar,body.paciente #datos,body.paciente .item.apagado,
-body.paciente .r-lista,body.paciente #enviar,body.paciente #nueva,body.paciente .acciones-sec,body.paciente #desc-caja,body.paciente .agregar,body.paciente .candado,body.paciente .barra button{display:none!important}
+body.comercial #enviar-correo,body.paciente #enviar-correo,body.paciente .r-lista,body.paciente #enviar,body.paciente #nueva,body.paciente .acciones-sec,body.paciente #desc-caja,body.paciente .agregar,body.paciente .candado,body.paciente .barra button{display:none!important}
 body.paciente .item{cursor:default}
 body.paciente .item .marca{display:none}
 body.paciente .paso-q{background:transparent!important;width:auto;padding:0}
@@ -347,6 +347,7 @@ body.paciente .item .paso-q input[type=text]{text-align:left;width:84px;padding:
 body.paciente #descargar{background:var(--marfil);color:var(--choco);border:0;font-weight:700;padding:16px;margin-top:24px}
 #compartir-pdf{display:none}
 body.comercial #compartir-pdf.puede{display:block}
+body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(--choco);border:0;font-weight:700;padding:16px;margin-top:20px}
 
 /* barra fija en celular */
 .barra{display:none}
@@ -530,7 +531,8 @@ body.comercial #compartir-pdf.puede{display:block}
       <div class="r-fila" data-ico="calendario"><span>Seguimiento médico</span><b id="rf-sem"></b></div>
       <div class="r-fila" data-ico="corazon"><span>Tratamiento y bienestar</span><b id="rf-tto"></b></div>
     </div>
-    <button class="btn" id="enviar" data-ico="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
+    <button class="btn" id="enviar-correo" data-ico="correo"><span>Enviar por correo a Federico</span></button>
+    <button class="btn-sec" id="enviar" data-ico="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
     <button class="btn-sec" id="descargar" data-ico="descargar"><span class="txt-desc">Descargar PDF</span></button>
     <button type="button" class="link-claro" id="nueva">Empezar una cotización nueva</button>
@@ -681,6 +683,7 @@ const ICO = {
   check: '<path d="M20 6 9 17l-5-5"/>',
   enviar: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
   descargar: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  correo: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
   reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 };
 const ico = (k, c = "") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k] || ICO.check}</svg>`;
@@ -1023,10 +1026,10 @@ async function hacerPDF(s){
   return { doc, archivo, numero, hoy, vence };
 }
 /* copia por correo de cada PDF descargado */
-async function enviarCopia(s, r){
+async function enviarCopia(s, r, tipo = "descarga"){
   const ini = anticipoDe(s.precio), resto = s.precio - ini;
   const datos = {
-    numero: r.numero, fecha: fecha(r.hoy), vence: fecha(r.vence), modo: MODO,
+    tipo, numero: r.numero, fecha: fecha(r.hoy), vence: fecha(r.vence), modo: MODO,
     programa: s.programa, paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
     especialista: s.esp, duracion: s.duracion,
     servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
@@ -1034,8 +1037,8 @@ async function enviarCopia(s, r){
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
     costo: s.costo, queda: s.queda,
     link: SITIO + "#c=" + empacar(),
-    archivo: r.archivo, pdf: r.doc.output("datauristring").split(",")[1],
   };
+  if (r.doc){ datos.archivo = r.archivo; datos.pdf = r.doc.output("datauristring").split(",")[1]; }
   const res = await fetch(ENVIO_COPIA, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) });
   const j = await res.json().catch(() => ({}));
   if (!res.ok || !j.ok) throw new Error(j.error || "error");
@@ -1097,6 +1100,17 @@ const abrirWhatsApp = (num, txt) => window.open("https://wa.me/" + num + "?text=
 
 /* ---- modos: doctor (normal) · comercial (#c=) · paciente (#p=) ---- */
 let MODO = "doctor";
+$("#enviar-correo").onclick = async () => {
+  const s = calcular();
+  if (!s.nombre){ $("#nombre").closest(".campo").classList.add("error"); aviso("Falta el nombre de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+  if (!s.items.some(x => !x.interno)){ aviso("Falta lo que incluye el plan", true); return; }
+  const b = $("#enviar-correo"), tx = b.querySelector("span"), t = tx.textContent; b.disabled = true; tx.textContent = "Enviando…";
+  const hoy = new Date(), vence = new Date(hoy); vence.setDate(vence.getDate() + VIGENCIA_DIAS);
+  const numero = "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes());
+  try{ await enviarCopia(s, { numero, hoy, vence }, "para-comercial"); aviso("Enviado por correo a " + COMERCIAL.nombre + " ✓"); }
+  catch(e){ aviso("No se pudo enviar el correo. Intenta de nuevo.", true); }
+  b.disabled = false; tx.textContent = t;
+};
 $("#enviar").onclick = () => {
   const s = calcular();
   if (MODO === "doctor"){
@@ -1149,7 +1163,7 @@ function ponerModo(){
     document.querySelectorAll(".it-q, .it-nota").forEach(i => { i.readOnly = true; i.tabIndex = -1; });
     document.title = "Tu plan · Seravena";
   } else {
-    $("#enviar-txt").textContent = "Enviar a " + COMERCIAL.nombre + " (comercial)";
+    $("#enviar-txt").textContent = "Enviar a " + COMERCIAL.nombre + " por WhatsApp";
     $("#ayuda-items").innerHTML = `Toca un servicio para sumarlo o quitarlo. Con <span class="ico-txt">${ico("candado")}</span> marcas lo que el comercial no debería quitar.`;
   }
 }
