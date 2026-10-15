@@ -1020,6 +1020,7 @@ async function enviarCopia(s, r){
     lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.descuento, total: s.precio,
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
     costo: s.costo, queda: s.queda,
+    link: SITIO + "#c=" + empacar(),
     archivo: r.archivo, pdf: r.doc.output("datauristring").split(",")[1],
   };
   const res = await fetch(ENVIO_COPIA, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) });
