@@ -249,6 +249,9 @@ body.paciente .variantes{grid-template-columns:1fr}
 .chips button.activa{background:var(--choco);border-color:var(--choco);color:#fff}
 .m-cuota{text-align:center;margin:24px 0 8px}
 .m-cuota span{display:block;font-size:13px;color:var(--tenue)}
+.m-cuota small{display:block;font-size:12.5px;color:var(--camel-osc);margin-top:4px}
+.calendario div small{color:var(--tenue);font-size:12px}
+.calendario div.pagada span:last-child{color:var(--tenue);font-weight:500}
 .m-cuota b{display:block;font-size:46px;font-weight:700;letter-spacing:-.04em;color:var(--choco);line-height:1.1}
 .calendario{border-top:1px solid var(--linea);margin-top:14px}
 .calendario div{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid var(--linea);font-size:14px}
@@ -533,12 +536,12 @@ body.comercial #compartir-pdf.puede{display:block}
     <button type="button" class="cerrar" id="cerrar-modal" aria-label="Cerrar">×</button>
     <h3>Simulador de cuotas</h3>
     <p class="ayuda" id="m-ayuda"></p>
-    <p class="m-label">Valor inicial</p>
+    <p class="m-label">Valor inicial <small style="font-weight:400">(se descuenta de la primera cuota)</small></p>
     <div class="dinero"><input id="m-ini" type="text" inputmode="numeric" data-dinero></div>
     <div class="m-resta"><span>Lo que resta</span><b id="m-resto"></b></div>
     <p class="m-label">Número de cuotas</p>
     <div class="m-paso"><button type="button" id="m-menos" aria-label="Menos">−</button><b id="m-n">3</b><button type="button" id="m-mas" aria-label="Más">+</button></div>
-    <div class="m-cuota"><span id="m-cuota-t"></span><b id="m-cuota"></b></div>
+    <div class="m-cuota"><span id="m-cuota-t"></span><b id="m-cuota"></b><small id="m-nota"></small></div>
     <div class="calendario" id="m-cal"></div>
     <div class="m-botones"><button type="button" class="no" id="m-quitar">Sin cuotas</button><button type="button" class="si" id="m-usar">Usar este plan</button></div>
   </div>
@@ -841,24 +844,41 @@ function pintarWow(s){
 
 /* simulador de cuotas: anticipo 50% + el resto en cuotas mensuales */
 const MAX_CUOTAS = 24;
-let CUOTAS = 0, INICIAL = 0, mN = 3;   // INICIAL 0 = 50% del precio
-const anticipoDe = p => INICIAL ? Math.min(INICIAL, p) : Math.round(p / 2);
+let CUOTAS = 0, INICIAL = null, mN = 3;   // INICIAL null = sin plan (valor inicial del 50%)
+const anticipoDe = p => INICIAL != null ? Math.min(INICIAL, p) : Math.round(p / 2);
+/* el total se divide en cuotas iguales; lo que se paga hoy se descuenta de la primera cuota (y si sobra, de la siguiente) */
+function repartir(total, ini, n){
+  const base = total / n, cuotas = [];
+  let abono = Math.min(ini, total);
+  for (let i = 0; i < n; i++){ const usa = Math.min(abono, base); cuotas.push(base - usa); abono -= usa; }
+  return { base, cuotas };
+}
+function textoPlan(total, corto){
+  const ini = anticipoDe(total), { base, cuotas } = repartir(total, ini, CUOTAS);
+  const grupos = []; // junta cuotas iguales seguidas
+  cuotas.forEach((v, i) => { const g = grupos[grupos.length - 1]; if (g && Math.round(g.v) === Math.round(v)) g.n++; else grupos.push({ v, n: 1, desde: i + 1 }); });
+  const partes = grupos.filter(g => Math.round(g.v) > 0).map(g => g.n === 1 ? `cuota ${g.desde} de ${fmt(g.v)}` : `${g.n} cuotas de ${fmt(g.v)}`);
+  return (ini ? `${corto ? "Hoy" : "Valor inicial"} ${fmt(ini)} (se descuenta de la primera cuota) + ` : "") + partes.join(" + ");
+}
 function pintarPlanPago(s){
   const pp = $("#plan-pago");
   if (!CUOTAS || !s.precio){ pp.classList.add("oculto"); return; }
-  const resto = s.precio - anticipoDe(s.precio);
-  pp.innerHTML = `Plan de pago: valor inicial <b>${fmt(anticipoDe(s.precio))}</b> + <b>${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas"} de ${fmt(resto / CUOTAS)}</b>`;
+  pp.innerHTML = `Plan de pago en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas"} de <b>${fmt(s.precio / CUOTAS)}</b>: ${textoPlan(s.precio)}`;
   pp.classList.remove("oculto");
 }
 function pintarModal(){
-  const s = leer(), ini = Math.min(num($("#m-ini").value), s.precio), resto = s.precio - ini, c = resto / mN;
+  const s = leer(), ini = Math.min(num($("#m-ini").value), s.precio), { base, cuotas } = repartir(s.precio, ini, mN);
   $("#m-ayuda").textContent = `Programa de ${P().nombre} · ${fmt(s.precio)}`;
-  $("#m-resto").textContent = fmt(resto);
+  $("#m-resto").textContent = fmt(s.precio - ini);
   $("#m-n").textContent = mN;
   $("#m-cuota-t").textContent = mN === 1 ? "Un solo pago de" : `${mN} cuotas mensuales de`;
-  $("#m-cuota").textContent = fmt(c);
-  let cal = `<div><span>Hoy · valor inicial</span><span>${fmt(ini)}</span></div>`;
-  for (let i = 1; i <= mN; i++) cal += `<div><span>Mes ${i}</span><span>${fmt(c)}</span></div>`;
+  $("#m-cuota").textContent = fmt(base);
+  $("#m-nota").textContent = ini ? `Lo que paga hoy (${fmt(ini)}) se descuenta de la primera cuota.` : "";
+  let cal = ini ? `<div><span>Hoy · valor inicial</span><span>${fmt(ini)}</span></div>` : "";
+  cuotas.forEach((v, i) => {
+    const bajo = Math.round(v) < Math.round(base);
+    cal += `<div class="${Math.round(v) === 0 ? "pagada" : ""}"><span>Cuota ${i + 1}${bajo ? ` <small>(${fmt(base)} − abono)</small>` : ""}</span><span>${Math.round(v) === 0 ? "Cubierta con el abono" : fmt(v)}</span></div>`;
+  });
   $("#m-cal").innerHTML = cal;
 }
 $("#m-ini").addEventListener("input", () => setTimeout(pintarModal));
@@ -866,7 +886,7 @@ $("#m-menos").onclick = () => { mN = Math.max(1, mN - 1); pintarModal(); };
 $("#m-mas").onclick = () => { mN = Math.min(MAX_CUOTAS, mN + 1); pintarModal(); };
 $("#abrir-cuotas").onclick = () => {
   const s = leer(); if (!s.precio){ aviso("Primero arma el plan", true); return; }
-  mN = CUOTAS || 3; $("#m-ini").value = anticipoDe(s.precio).toLocaleString("es-CO");
+  mN = CUOTAS || 3; $("#m-ini").value = INICIAL ? INICIAL.toLocaleString("es-CO") : "";
   pintarModal(); $("#modal").classList.add("ver");
 };
 const cerrarModal = () => $("#modal").classList.remove("ver");
@@ -874,7 +894,7 @@ $("#cerrar-modal").onclick = cerrarModal;
 $("#modal").addEventListener("click", e => { if (e.target.id === "modal") cerrarModal(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
 $("#m-usar").onclick = () => { CUOTAS = mN; INICIAL = num($("#m-ini").value); calcular(); cerrarModal(); aviso("Plan de pago agregado a la cotización"); };
-$("#m-quitar").onclick = () => { CUOTAS = 0; INICIAL = 0; calcular(); cerrarModal(); };
+$("#m-quitar").onclick = () => { CUOTAS = 0; INICIAL = null; calcular(); cerrarModal(); };
 
 let totalVisto = null;
 function animarTotal(v){
@@ -916,7 +936,7 @@ function calcular(){
   pintarWow(s);
   pintarPlanPago(s);
   $("#anticipo").textContent = fmt(anticipoDe(s.precio));
-  $("#anticipo-t").textContent = INICIAL ? "Valor inicial" : "Valor inicial (50%)";
+  $("#anticipo-t").textContent = INICIAL != null ? "Valor inicial" : "Valor inicial (50%)";
   return s;
 }
 document.addEventListener("input", calcular);
@@ -956,7 +976,7 @@ function armarPDF(s, numero, hoy, vence){
       </tbody></table>
       ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
       <div class="p-total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
-      ${CUOTAS ? `<div class="p-vence" style="margin-top:12px;font-size:12.5px;color:#1A1A1A"><span>Plan de pago: valor inicial de <b>${fmt(anticipoDe(s.precio))}</b> + <b>${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt((s.precio - anticipoDe(s.precio)) / CUOTAS)}</b></span></div>` : ""}
+      ${CUOTAS ? `<div class="p-vence" style="margin-top:12px;font-size:12.5px;color:#1A1A1A"><span>Plan de pago en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de <b>${fmt(s.precio / CUOTAS)}</b>: ${esc(textoPlan(s.precio))}</span></div>` : ""}
       <div class="p-vence"><span>Valor inicial para empezar el programa: <b style="color:#1A1A1A">${fmt(anticipoDe(s.precio))}</b></span><span>Válida hasta el ${fecha(vence)}</span></div>
       <div class="p-info">
         <div><h4>Medios de pago</h4><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
@@ -998,7 +1018,7 @@ async function enviarCopia(s, r){
     especialista: s.esp, duracion: s.duracion,
     servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, lock: x.el.classList.contains("bloqueado") }; }),
     lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.descuento, total: s.precio,
-    inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? resto / CUOTAS : 0,
+    inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
     costo: s.costo, queda: s.queda,
     archivo: r.archivo, pdf: r.doc.output("datauristring").split(",")[1],
   };
@@ -1049,7 +1069,7 @@ function cargar(d){
   const items = document.querySelectorAll(".item");
   (d.i || []).forEach(([q, on, lock], k) => { const x = items[k]; if (!x) return;
     x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
-  CUOTAS = Number(d.cu) || 0; INICIAL = Number(d.ini) || 0;
+  CUOTAS = Number(d.cu) || 0; INICIAL = CUOTAS && d.ini != null && d.ini !== 0 ? Number(d.ini) : (CUOTAS && d.ini === 0 ? 0 : null);
   $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
   if (d.t) $("#tipo-id").value = d.t;
   $("#esp").value = d.e || ESPECIALISTA; $("#espec").value = d.es || ESPECIALIDAD; pintarEsp();
@@ -1083,7 +1103,7 @@ $("#enviar").onclick = () => {
     abrirWhatsApp(num,
       `Hola ${s.nombre.split(" ")[0]} 🤍 Te comparto tu plan de ${P().nombre} en Seravena.\n\n` +
       `Inversión: ${fmt(s.precio)} (valor inicial: ${fmt(anticipoDe(s.precio))})` +
-      (CUOTAS ? `\nEl resto en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt((s.precio - anticipoDe(s.precio)) / CUOTAS)}` : "") + `\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
+      (CUOTAS ? `\nPlan de pago: ${textoPlan(s.precio)}` : "") + `\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
       `Cualquier duda, aquí estoy.`);
     aviso("Se abrió WhatsApp con el chat de la paciente");
   }
@@ -1125,7 +1145,7 @@ $("#nueva").onclick = () => {
   ["#nombre", "#num-id", "#contacto"].forEach(id => $(id).value = "");
   $("#tipo-id").selectedIndex = 0;
   document.querySelectorAll(".campo.error").forEach(c => c.classList.remove("error"));
-  CUOTAS = 0; INICIAL = 0; cargarPlantilla(); window.scrollTo(0, 0);
+  CUOTAS = 0; INICIAL = null; cargarPlantilla(); window.scrollTo(0, 0);
 };
 
 ponerModo();
