@@ -209,6 +209,23 @@ body.paciente .it-nota{border:0;background:transparent;padding:0 0 0 2px;color:v
 body.paciente .it-nota.vacia{display:none}
 @media (max-width:640px){.it-nota{grid-column:2/-1}}
 
+/* venas */
+.item.incluido .paso-q{display:none}
+.item.incluido::after{content:"Incluidas";grid-column:4;grid-row:1;font-size:12px;font-weight:600;color:var(--camel-osc);background:var(--marfil);border-radius:999px;padding:5px 12px}
+.item.incluido.apagado::after{content:none}
+.dinero.mini{margin-top:6px;max-width:200px}
+.dinero.mini input[type=text]{padding:7px 12px 7px 26px;font-size:13px}
+.dinero.mini::before{left:12px}
+.item.apagado .dinero.mini{display:none}
+body.paciente .dinero.mini{display:none}
+.desc-libre{display:none;align-items:center;gap:10px}
+.desc-libre .porcentaje{width:140px}
+.desc-libre small{color:#d8c9b0;font-size:12px}
+body.desc-libre-on .desc-libre{display:flex}
+body.desc-libre-on .desc-rapidos{display:none}
+body.doctor.desc-libre-on #abrir-desc,body.doctor.desc-libre-on #desc-caja{display:none!important}
+body.doctor.desc-libre-on .acciones-sec{grid-template-columns:1fr}
+
 /* paquetes (HAUSFORM) */
 .variantes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
 .variantes button{border:1.5px solid var(--linea);background:#fff;border-radius:20px;padding:16px;text-align:left;cursor:pointer;transition:.25s}
@@ -308,7 +325,7 @@ aside .prog{font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-we
 .desc-caja{margin-top:12px}
 .desc-fila{display:grid;grid-template-columns:1fr;gap:8px;align-items:center}
 .porcentaje{position:relative}
-.porcentaje input[type=text]{text-align:center;padding-right:30px;font-weight:700;background:rgba(255,255,255,.95);color:var(--choco)}
+.porcentaje input[type=text]{width:100%;text-align:center;padding-right:30px;font-weight:700;background:rgba(255,255,255,.95);color:var(--choco)}
 .porcentaje::after{content:"%";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--tenue);font-weight:700}
 .desc-rapidos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .desc-rapidos button{background:rgba(237,226,208,.08);border:1px solid rgba(237,226,208,.22);color:#fff;border-radius:999px;padding:10px 0;cursor:pointer;font-size:13px;font-weight:600}
@@ -399,36 +416,67 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
   .barra button{border:0;background:var(--marfil);color:var(--choco);border-radius:999px;padding:12px 18px;font-weight:700;font-size:13.5px}
 }
 
-/* ---------- PDF (carta: 816 × 1056 px) ---------- */
+/* ---------- PDF: 2 hojas carta exactas (816 × 1056 px cada una) ---------- */
 #pdf-caja{position:absolute;left:-10000px;top:0}
-#pdf{width:816px;min-height:1056px;background:#fff;color:#1A1A1A;font:13.5px/1.55 "Plus Jakarta Sans",sans-serif;display:flex;flex-direction:column}
-#pdf .p-cab{background:#4B412D;color:#EDE2D0;padding:34px 60px 30px;display:flex;justify-content:space-between;align-items:flex-end}
-#pdf .p-cab img{height:30px}
-#pdf .p-cab .der{text-align:right;font-size:12px;color:#d8c9b0;line-height:1.7}
-#pdf .p-cab .der b{display:block;font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:2px}
-#pdf .p-cab .p-prog{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:30px;line-height:1.1;color:#fff;margin-bottom:4px}
-#pdf .p-cuerpo{flex:1;display:flex;flex-direction:column;padding:24px 60px 0}
-#pdf .p-datos{display:grid;grid-template-columns:1.3fr 1fr;gap:10px 40px;padding:16px 22px;background:#F5EFE5;border-radius:12px}
-#pdf .p-datos span{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;margin-bottom:1px}
-#pdf .p-datos b{font-weight:600;font-size:14px}
-#pdf table{width:100%;border-collapse:collapse;margin-top:18px}
-#pdf th{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450;font-weight:700;text-align:left;padding:0 0 9px;border-bottom:1px solid #4B412D}
-#pdf th:last-child,#pdf td:last-child{text-align:right;white-space:nowrap}
-#pdf td{padding:8px 0;border-bottom:1px solid #EDE2D0;vertical-align:top;font-size:13.5px}
-#pdf .p-wow{margin-top:16px;display:flex;align-items:baseline;gap:14px;border-bottom:1px solid #EDE2D0;padding-bottom:12px}
-#pdf .p-wow b{font-size:40px;font-weight:700;letter-spacing:-.04em;color:#4B412D;line-height:1}
-#pdf .p-wow span{font-size:13px;color:#6e6450}
-#pdf .p-total{margin-top:18px;background:#9D8051;color:#fff;border-radius:12px;padding:15px 22px;display:flex;justify-content:space-between;align-items:center}
-#pdf .p-total span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
-#pdf .p-total b{font-weight:500;font-size:28px}
-#pdf .p-vence{margin-top:9px;font-size:11.5px;color:#6e6450;display:flex;justify-content:space-between}
-#pdf .p-info{margin-top:auto;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:36px;border-top:1px solid #E5DCCD}
-#pdf h4{font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:#806733}
+#pdf{width:816px;background:#fff;color:#1A1A1A;font:13px/1.5 "Plus Jakarta Sans",sans-serif}
+#pdf .hoja{width:816px;height:1056px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:#fff}
+#pdf .cab{background:#4B412D;color:#EDE2D0;padding:30px 56px 26px;display:flex;justify-content:space-between;align-items:flex-end;position:relative;overflow:hidden}
+#pdf .cab::after{content:"";position:absolute;width:360px;height:360px;right:-120px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
+#pdf .cab img{height:26px;position:relative;z-index:1}
+#pdf .cab .der{text-align:right;position:relative;z-index:1}
+#pdf .cab .eti{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#c9b083;font-weight:600}
+#pdf .cab .tit{font-size:27px;font-weight:600;letter-spacing:-.02em;color:#fff;line-height:1.15;margin:4px 0 4px}
+#pdf .cab .num{font-size:11.5px;color:#d8c9b0}
+#pdf .cab.mini{padding:20px 56px}
+#pdf .cab.mini .tit{font-size:18px;margin:2px 0 0}
+#pdf .cuerpo{flex:1;padding:24px 56px 0;display:flex;flex-direction:column}
+#pdf .sec{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#806733;font-weight:700;margin:0 0 10px}
+#pdf .datos{display:grid;grid-template-columns:1.25fr 1fr;gap:12px 32px;background:#F5EFE5;border-radius:14px;padding:16px 22px}
+#pdf .datos span{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#6e6450}
+#pdf .datos b{display:block;font-size:13.5px;font-weight:600;margin-top:1px}
+#pdf .datos small{display:block;font-size:11px;color:#6e6450;line-height:1.35}
+#pdf .wow{margin-top:18px;background:#4B412D;border-radius:16px;padding:16px 22px;display:flex;align-items:center;gap:22px;color:#EDE2D0}
+#pdf .wow .g{font-size:34px;font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1;white-space:nowrap}
+#pdf .wow .g small{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#c9b083;font-weight:600;margin-top:5px}
+#pdf .wow .st{border-left:1px solid rgba(237,226,208,.22);padding-left:16px}
+#pdf .wow .st b{display:block;font-size:20px;font-weight:700;color:#fff;line-height:1.1}
+#pdf .wow .st span{font-size:10.5px;color:#d8c9b0;line-height:1.25;display:block}
+#pdf .lista{margin-top:20px}
+#pdf .fila{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #EDE2D0}
+#pdf .fila:first-of-type{border-top:1px solid #4B412D}
+#pdf .fila .ic{width:30px;height:30px;border-radius:9px;background:#F5EFE5;display:grid;place-items:center;color:#4B412D}
+#pdf .fila .ic svg{width:16px;height:16px}
+#pdf .fila b{display:block;font-size:13px;font-weight:600}
+#pdf .fila small{display:block;font-size:10.5px;color:#6e6450;line-height:1.35}
+#pdf .fila .nota{margin-top:3px;background:#F5EFE5;border-radius:6px;padding:3px 8px;color:#806733;font-size:10.5px}
+#pdf .fila .q{font-size:13px;font-weight:700;color:#4B412D;white-space:nowrap}
+#pdf .pie{display:flex;justify-content:space-between;align-items:center;padding:14px 56px;background:#EDE2D0;font-size:10.5px;color:#6e6450;letter-spacing:.04em}
+#pdf .pie b{color:#4B412D}
+#pdf .sigue{margin-top:auto;margin-bottom:18px;font-size:11px;color:#806733;text-align:right}
+#pdf .total{background:#9D8051;color:#fff;border-radius:18px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center}
+#pdf .total span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+#pdf .total small{display:block;font-size:11.5px;letter-spacing:0;text-transform:none;font-weight:500;opacity:.85;margin-top:4px}
+#pdf .total b{font-size:36px;font-weight:700;letter-spacing:-.03em}
+#pdf .desc{display:flex;justify-content:space-between;font-size:12px;color:#6e6450;padding:10px 4px 0}
+#pdf .inicial{margin-top:14px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid #4B412D;border-radius:14px;padding:14px 22px}
+#pdf .inicial span{font-size:12.5px;color:#4B412D}
+#pdf .inicial b{font-size:22px;font-weight:700;color:#4B412D}
+#pdf .cal{margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid #EDE2D0}
+#pdf .cal div{display:flex;justify-content:space-between;padding:8px 18px;font-size:12.5px;border-bottom:1px solid #EDE2D0}
+#pdf .cal div:last-child{border-bottom:0}
+#pdf .cal div:nth-child(odd){background:#FBF8F3}
+#pdf .cal b{font-weight:700}
+#pdf .dos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+#pdf .caja{background:#F5EFE5;border-radius:14px;padding:16px 20px}
 #pdf ul{list-style:none}
-#pdf li{padding-left:14px;position:relative;margin-bottom:3px;font-size:12px}
-#pdf li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:#9D8051}
-#pdf .p-frase{margin-top:18px;font-family:"Plus Jakarta Sans",sans-serif;font-style:normal;font-weight:600;letter-spacing:-.02em;font-size:16px;color:#4B412D;text-align:center}
-#pdf .p-pie{margin:18px 0 0;padding:13px 60px;background:#EDE2D0;font-size:11px;color:#6e6450;display:flex;justify-content:space-between;letter-spacing:.05em}
+#pdf li{padding-left:14px;position:relative;margin-bottom:4px;font-size:12px;line-height:1.45}
+#pdf li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1.5px;background:#9D8051}
+#pdf .esp{margin-top:22px;display:flex;align-items:center;gap:14px;border-top:1px solid #EDE2D0;padding-top:18px}
+#pdf .esp .ini{width:42px;height:42px;border-radius:50%;background:#4B412D;color:#EDE2D0;display:grid;place-items:center;font-weight:700;font-size:15px}
+#pdf .esp b{display:block;font-size:13.5px}
+#pdf .esp small{font-size:11px;color:#6e6450}
+#pdf .frase{margin-top:auto;margin-bottom:22px;text-align:center;font-size:16px;font-weight:600;letter-spacing:-.01em;color:#4B412D;line-height:1.4;padding:0 40px}
+#pdf .vence{font-size:11px;color:#6e6450;margin-top:8px;text-align:right}
 </style>
 </head>
 <body>
@@ -523,6 +571,7 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
       <label for="descuento">Descuento</label>
       <div class="desc-fila">
         <input id="descuento" type="hidden" value="">
+        <div class="desc-libre"><div class="porcentaje"><input id="desc-libre" type="text" inputmode="decimal" placeholder="0" maxlength="5"></div><small>Escribe el % que vas a dar</small></div>
         <div class="desc-rapidos"><button type="button" data-p="0">Sin descuento</button><button type="button" data-p="3">3%</button><button type="button" data-p="5">5%</button></div>
       </div>
     </div>
@@ -586,6 +635,13 @@ const CATALOGO = [
   { id: "medias",        n: "Medias de compresión", u: 370000, e: "🧦", t: "Medias de compresión", d: "Para el día a día" },
   { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
   { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
+  /* VENAS — precios de venta que dio Laura (15-oct); aquí "u" es el precio, no el costo */
+  { id: "escleroterapia", n: "Escleroterapia (sesión)", u: 300000, t: "Escleroterapia", d: "Por sesión" },
+  { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna" },
+  { id: "espuma_safena",  n: "Espuma de safena (por pierna)", u: 3000000, t: "Espuma de safena", d: "Por pierna", max: 2, unidad: "pierna" },
+  { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "1 pierna $6.500.000 · las 2 piernas $10.000.000", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 } },
+  { id: "medias_v",       n: "Medias de compresión", u: 0, t: "Medias de compresión", d: "Incluidas en el tratamiento", incluido: true },
+  { id: "rivaroxaban",    n: "Rivaroxabán 10 mg", u: 0, t: "Rivaroxabán 10 mg", d: "Medicamento · escribe el valor", precioLibre: true },
   /* HAUSFORM (celulitis) — costos del Excel HAUSFORM */
   { id: "sculptra",   n: "Sculptra (bioestimulador de colágeno)", u: 980000, t: "Sculptra", d: "Bioestimulador de colágeno · por vial" },
   { id: "venufill",   n: "Venufill 50 ml", u: 1200000, t: "Venufill 50 ml", d: "Tratamiento para la textura de la piel" },
@@ -613,9 +669,19 @@ const PROGRAMAS = {
             tirzepatida: 6, enfermeria: 1 },
   },
   venas: {
-    foto: "assets/media/vascular-veins.webp", frase: "Salud de tus venas",
-    nombre: "Venas", titulo: "Programa de manejo de venas", precio: 0, duracion: "", pagos: null, plan: {},
-    pendiente: "Plan de venas en construcción: marca los servicios que apliquen.",
+    foto: "assets/media/vascular-veins.webp", frase: "Escleroterapia, espuma o endoláser", familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
+    nombre: "Escleroterapia", corto: "Escleroterapia", resumen: "Por sesión", etiqueta: "$300.000 / sesión", titulo: "Venas · Escleroterapia", precio: 0, duracion: "", pagos: null,
+    plan: { escleroterapia: 1 },
+  },
+  venas_espuma: {
+    oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
+    nombre: "Espuma", corto: "Espuma", resumen: "Tributarias o safena · con medias", etiqueta: "desde $1.500.000", titulo: "Venas · Espuma", precio: 0, duracion: "", pagos: null,
+    plan: { espuma_trib: 1, medias_v: "Incluidas" },
+  },
+  venas_endolaser: {
+    oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
+    nombre: "Endoláser", corto: "Endoláser", resumen: "Por pierna · con medias", etiqueta: "desde $6.500.000", titulo: "Venas · Endoláser", precio: 0, duracion: "", pagos: null,
+    plan: { endolaser: 1, medias_v: "Incluidas" },
   },
   celulitis: {
     foto: "assets/media/skin-detail.webp", frase: "Tratamiento HAUSFORM", familia: "celulitis", solo: "hf",
@@ -650,7 +716,7 @@ function costoPlan(p){
     return s + mult(q) * u;
   }, 0);
 }
-Object.values(PROGRAMAS).forEach(p => { const c = costoPlan(p); p.factor = p.precio && c ? p.precio / c : FACTOR_SIN_PLANTILLA; });
+Object.values(PROGRAMAS).forEach(p => { const c = costoPlan(p); p.factor = p.sinCostos ? 1 : p.precio && c ? p.precio / c : FACTOR_SIN_PLANTILLA; });
 
 /* ---- íconos de línea (estilo Lucide, trazo 1,6) ---- */
 const ICO = {
@@ -665,6 +731,12 @@ const ICO = {
   medias: '<path d="M9 2h7v8.5l-5.4 9.3a3 3 0 0 1-4.1 1.1l-1.4-.8a3 3 0 0 1-1.1-4.1L9 9.5Z"/><path d="M9 6h7"/>',
   aparatologia: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>',
   drenaje: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/>',
+  escleroterapia: '<path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/>',
+  espuma_trib: '<circle cx="8" cy="14" r="4"/><circle cx="16" cy="9" r="3"/><circle cx="17" cy="17" r="2"/><circle cx="8" cy="5" r="1.5"/>',
+  espuma_safena: '<path d="M10 2v6c0 3-3 4-3 8a5 5 0 0 0 10 0c0-4-3-5-3-8V2"/><circle cx="12" cy="16" r="1.5"/>',
+  endolaser: '<path d="M2 12h6M16 12h6M12 2v6M12 16v6"/><circle cx="12" cy="12" r="3"/>',
+  medias_v: '<path d="M9 2h7v8.5l-5.4 9.3a3 3 0 0 1-4.1 1.1l-1.4-.8a3 3 0 0 1-1.1-4.1L9 9.5Z"/><path d="M9 6h7"/>',
+  rivaroxaban: '<rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/>',
   sculptra: '<path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 9h-5M14.5 15h-5"/>',
   venufill: '<path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/>',
   prp: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12.5 5.5 12 3c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7Z"/><path d="M9 15h6M12 12v6"/>',
@@ -693,6 +765,7 @@ document.querySelectorAll("[data-ico]").forEach(el => el.insertAdjacentHTML("aft
 const GRUPOS = [
   { id: "esp", t: "Consultas con especialistas", i: "personas", ids: ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"] },
   { id: "tto", t: "Tratamiento y seguimiento", i: "general", ids: ["general", "tirzepatida", "enfermeria", "medias", "aparatologia", "drenaje", "ecografia"] },
+  { id: "vn", t: "Tratamiento de venas", i: "drenaje", ids: ["escleroterapia", "espuma_trib", "espuma_safena", "endolaser", "medias_v", "rivaroxaban"] },
   { id: "hf", t: "Tratamiento HAUSFORM", i: "brillo", ids: ["sculptra", "venufill", "prp", "medico", "insumos", "indirectos"] },
 ];
 
@@ -732,6 +805,7 @@ $("#descuento").addEventListener("input", e => { e.target.value = e.target.value
 document.querySelectorAll(".desc-rapidos button").forEach(b => b.onclick = () => {
   $("#descuento").value = b.dataset.p === "0" ? "" : b.dataset.p; calcular();
 });
+$("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
 $("#abrir-desc").onclick = () => { const c = $("#desc-caja"); c.classList.toggle("oculto"); $("#abrir-desc").classList.toggle("activa", !c.classList.contains("oculto")); };
 $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -745,9 +819,10 @@ document.querySelectorAll("#programas button").forEach(b => b.onclick = () => po
 function ponerPrograma(id){
   PROG = id;
   const fam = P().familia;
+  document.body.classList.toggle("desc-libre-on", !!P().descuentoLibre);
   document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (!!fam && PROGRAMAS[b.dataset.prog].familia === fam)));
   const vars = fam ? Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam) : [];
-  $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small><span>${fmt(p.precio)}</span></button>`).join("");
+  $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small><span>${p.etiqueta || fmt(p.precio)}</span></button>`).join("");
   $("#variantes").classList.toggle("oculto", !vars.length);
   $("#variantes").querySelectorAll("button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.v));
   $("#pendiente").textContent = P().pendiente || "";
@@ -758,14 +833,14 @@ function ponerPrograma(id){
   cargarPlantilla();
 }
 function cargarPlantilla(){
-  const grupos = GRUPOS.filter(g => P().solo ? g.id === P().solo : g.id !== "hf");
+  const grupos = GRUPOS.filter(g => P().solo ? g.id === P().solo : !["hf", "vn"].includes(g.id));
   $("#items").innerHTML = grupos.map(g => `<details class="grupo" open data-g="${g.id}"><summary>${ico(g.i)}<div><b>${g.t}</b><small class="g-cuenta"></small></div>${ico("abajo", "flecha-g")}</summary><div class="lista"></div></details>`).join("");
   const permitidos = grupos.flatMap(g => g.ids);
   CATALOGO.filter(c => permitidos.includes(c.id)).forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
-    agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true });
+    agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad });
   });
-  $("#descuento").value = "";
+  $("#descuento").value = ""; $("#desc-libre").value = "";
   $("#duracion").value = P().duracion;
   calcular();
 }
@@ -787,6 +862,15 @@ function agregarItem(it = {}){
     ${it.id === "tirzepatida" ? `<textarea class="it-nota" rows="2" placeholder="Notas del medicamento: dosis, cambios de dosis, indicaciones…"></textarea>` : ""}
     <button type="button" class="candado" title="Marcar como recomendado: el comercial verá que no se debería quitar">${ico("candado")}<span class="on">No quitar</span></button>`;
   if (it.lock) d.classList.add("bloqueado");
+  if (it.incluido) d.classList.add("incluido");
+  if (it.max) d.dataset.max = it.max;
+  if (it.precioLibre){
+    d.classList.add("precio-libre");
+    d.querySelector(".it-cab").insertAdjacentHTML("beforeend", `<div class="dinero mini"><input type="text" class="it-precio" inputmode="numeric" data-dinero placeholder="Valor por unidad"></div>`);
+    const pi = d.querySelector(".it-precio");
+    ["click", "keydown"].forEach(ev => pi.addEventListener(ev, e => e.stopPropagation()));
+    pi.addEventListener("input", () => { d.dataset.u = num(pi.value); calcular(); });
+  }
   const nota = d.querySelector(".it-nota");
   if (nota){ ["click", "keydown"].forEach(ev => nota.addEventListener(ev, e => e.stopPropagation())); nota.addEventListener("input", () => { nota.style.height = "auto"; nota.style.height = nota.scrollHeight + "px"; }); }
   d.querySelector(".candado").onclick = e => { e.stopPropagation(); d.classList.toggle("bloqueado"); };
@@ -802,7 +886,7 @@ function agregarItem(it = {}){
   });
   d.querySelectorAll(".paso-q button").forEach(b => b.onclick = () => {
     const inp = d.querySelector(".it-q"), n = parseFloat(String(inp.value).replace(",", "."));
-    const nuevo = Math.max(0, (isNaN(n) ? 1 : n) + Number(b.dataset.d));
+    const nuevo = Math.min(Number(d.dataset.max) || 999, Math.max(0, (isNaN(n) ? 1 : n) + Number(b.dataset.d)));
     inp.value = nuevo;
     poner(nuevo > 0);
   });
@@ -823,7 +907,8 @@ function leer(){
   const f = P().factor;
   const items = [...document.querySelectorAll(".item")].map(x => {
     const n = x.dataset.n || "", q = x.querySelector(".it-q").value.trim(), u = Number(x.dataset.u) || 0;
-    const costo = u * mult(q);
+    const cat = CATALOGO.find(k => k.n === n), mq = mult(q);
+    const costo = cat && cat.tabla && cat.tabla[mq] != null ? cat.tabla[mq] : u * mq;
     const nt = x.querySelector(".it-nota");
     return { n, q, u, nota: nt ? nt.value.trim() : "", costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
   });
@@ -975,32 +1060,54 @@ const dos = n => String(n).padStart(2, "0");
 function armarPDF(s, numero, hoy, vence){
   const filas = s.items.filter(x => !x.interno && x.n);
   const pagos = P().pagos || PAGOS_BASE;
+  const catDe = x => CATALOGO.find(k => k.n === x.n) || {};
+  const cant = q => /^\d/.test(q) ? "× " + q : q;
+  const stats = [
+    [cantDe(s, ["general"]), "semanas de seguimiento"], [cantDe(s, ESPECIALISTAS), "citas con especialistas"],
+    [cantDe(s, ["aparatologia"]), "sesiones de aparatología"], [cantDe(s, ["drenaje"]), "drenajes linfáticos"],
+  ].filter(x => x[0]);
+  const ini = anticipoDe(s.precio), plan = CUOTAS ? repartir(s.precio, ini, CUOTAS) : null;
+  const iniciales = (s.esp || "").split(/\s+/).slice(0, 2).map(x => x[0] || "").join("").toUpperCase();
+  const pie = n => `<div class="pie"><span><b>Seravena</b> · Manejo de lipedema y salud vascular · Medellín</span><span>clinicaseravena.com · ${n}/2</span></div>`;
   $("#pdf").innerHTML = `
-    <div class="p-cab"><img src="assets/wordmark-white.png" alt="Seravena">
-      <div class="der"><b>Cotización</b><span class="p-prog">${esc(s.programa)}</span>N.º ${numero} · ${fecha(hoy)}</div></div>
-    <div class="p-cuerpo">
-      <div class="p-datos">
+  <section class="hoja">
+    <div class="cab"><img src="assets/wordmark-white.png" alt="Seravena">
+      <div class="der"><div class="eti">Cotización</div><div class="tit">${esc(s.programa)}</div><div class="num">N.º ${numero} · ${fecha(hoy)}</div></div></div>
+    <div class="cuerpo">
+      <div class="datos">
         <div><span>Paciente</span><b>${esc(s.nombre)}</b></div>
-        <div><span>${esc(s.tipoId)}</span><b>${esc(s.numId)}</b></div>
-        <div><span>Especialista</span><b>${esc(s.esp)}</b><small style="display:block;font-size:11.5px;color:#6e6450;line-height:1.35">${esc(s.espec)}</small></div>
-        <div><span>Contacto</span><b>${esc(s.contacto) || "—"}</b></div>
+        <div><span>${esc(s.tipoId)}</span><b>${esc(s.numId) || "—"}</b></div>
+        <div><span>Especialista</span><b>${esc(s.esp)}</b><small>${esc(s.espec)}</small></div>
+        <div><span>Celular</span><b>${esc(s.contacto) || "—"}</b></div>
       </div>
-      ${s.duracion ? `<div class="p-wow"><b>${esc(s.duracion)}</b><span>de acompañamiento médico integral</span></div>` : ""}
-      <table><thead><tr><th>Incluye</th><th>Cantidad</th></tr></thead><tbody>
-        ${filas.map(f => `<tr><td>${esc(f.n)}${f.nota ? `<small style="display:block;color:#6e6450;font-size:11.5px;margin-top:2px">Nota: ${esc(f.nota)}</small>` : ""}</td><td>${esc(f.q)}</td></tr>`).join("")}
-
-      </tbody></table>
-      ${s.descuento ? `<div class="p-vence" style="margin-top:14px"><span>Valor del programa: ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
-      <div class="p-total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
-      ${CUOTAS ? `<div class="p-vence" style="margin-top:12px;font-size:12.5px;color:#1A1A1A"><span>Plan de pago en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de <b>${fmt(s.precio / CUOTAS)}</b>: ${esc(textoPlan(s.precio))}</span></div>` : ""}
-      <div class="p-vence"><span>Valor inicial para empezar el programa: <b style="color:#1A1A1A">${fmt(anticipoDe(s.precio))}</b></span><span>Válida hasta el ${fecha(vence)}</span></div>
-      <div class="p-info">
-        <div><h4>Medios de pago</h4><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
-        <div><h4>Condiciones</h4><ul><li>El programa inicia con el pago del valor inicial.</li><li>Los valores pueden ajustarse según la evolución y la recomendación médica.</li></ul></div>
+      ${s.duracion ? `<div class="wow"><div class="g">${esc(s.duracion)}<small>de acompañamiento</small></div>${stats.map(([v, t]) => `<div class="st"><b>${v}</b><span>${t}</span></div>`).join("")}</div>` : ""}
+      <div class="lista">
+        <p class="sec">Lo que incluye tu plan</p>
+        ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${ico(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
       </div>
-      <p class="p-frase">${esc(FRASE)}</p>
+      <p class="sigue">Tu inversión y formas de pago en la siguiente hoja →</p>
     </div>
-    <div class="p-pie"><span>Seravena · Manejo de lipedema y salud vascular · Medellín</span><span>clinicaseravena.com</span></div>`;
+    ${pie(1)}
+  </section>
+  <section class="hoja">
+    <div class="cab mini"><img src="assets/wordmark-white.png" alt="Seravena">
+      <div class="der"><div class="eti">Tu inversión</div><div class="tit">${esc(s.nombre)}</div></div></div>
+    <div class="cuerpo">
+      <div class="total"><div><span>Valor del programa</span><small>${esc(s.programa)}</small></div><b>${fmt(s.precio)}</b></div>
+      ${s.descuento ? `<div class="desc"><span>Precio de lista ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
+      <div class="inicial"><span>Valor inicial para empezar${plan ? " · se descuenta de la primera cuota" : ""}</span><b>${fmt(ini)}</b></div>
+      ${plan ? `<p class="sec" style="margin-top:22px">Plan de pagos · ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt(plan.base)}</p>
+        <div class="cal">${ini ? `<div><span>Hoy · valor inicial</span><b>${fmt(ini)}</b></div>` : ""}${plan.cuotas.map((v, i) => `<div><span>Cuota ${i + 1}${Math.round(v) < Math.round(plan.base) ? " (con el abono descontado)" : ""}</span><b>${Math.round(v) ? fmt(v) : "Cubierta con el abono"}</b></div>`).join("")}</div>` : ""}
+      <p class="vence">Cotización válida hasta el ${fecha(vence)}</p>
+      <div class="dos">
+        <div class="caja"><p class="sec">Medios de pago</p><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+        <div class="caja"><p class="sec">Condiciones</p><ul><li>El programa inicia con el pago del valor inicial.</li><li>Los valores pueden ajustarse según la evolución y la recomendación médica.</li></ul></div>
+      </div>
+      <div class="esp"><div class="ini">${iniciales}</div><div><b>${esc(s.esp)}</b><small>${esc(s.espec)}</small></div></div>
+      <p class="frase">${esc(FRASE)}</p>
+    </div>
+    ${pie(2)}
+  </section>`;
 }
 
 function aviso(t, mal){
@@ -1021,7 +1128,7 @@ async function hacerPDF(s){
     image: { type: "jpeg", quality: 0.97 },
     html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", scrollX: 0, scrollY: 0 },
     jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    pagebreak: { mode: ["css"], avoid: ["tr", ".p-total", ".p-info"] },
+    pagebreak: { mode: ["legacy"] },
   }).from($("#pdf")).toPdf().get("pdf");
   return { doc, archivo, numero, hoy, vence };
 }
@@ -1035,7 +1142,7 @@ async function enviarCopia(s, r, tipo = "descarga"){
     servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
     lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.descuento, total: s.precio,
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
-    costo: s.costo, queda: s.queda,
+    costo: P().sinCostos ? null : s.costo, queda: P().sinCostos ? null : s.queda,
     link: SITIO + "#c=" + empacar(),
   };
   if (r.doc){ datos.archivo = r.archivo; datos.pdf = r.doc.output("datauristring").split(",")[1]; }
@@ -1071,7 +1178,7 @@ $("#compartir-pdf").onclick = async () => {
 /* ---- la cotización viaja guardada dentro del link ---- */
 function empacar(){
   const d = {
-    p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0]),
+    p: PROG, i: [...document.querySelectorAll(".item")].map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
     cu: CUOTAS, ini: INICIAL,
     n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
@@ -1085,13 +1192,14 @@ function desempacar(txt){
 function cargar(d){
   ponerPrograma(d.p in PROGRAMAS ? d.p : "lipedema");
   const items = document.querySelectorAll(".item");
-  (d.i || []).forEach(([q, on, lock], k) => { const x = items[k]; if (!x) return;
+  (d.i || []).forEach(([q, on, lock, pu], k) => { const x = items[k]; if (!x) return;
+    if (pu && x.classList.contains("precio-libre")){ x.dataset.u = pu; x.querySelector(".it-precio").value = Number(pu).toLocaleString("es-CO"); }
     x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
   CUOTAS = Number(d.cu) || 0; INICIAL = CUOTAS && d.ini != null && d.ini !== 0 ? Number(d.ini) : (CUOTAS && d.ini === 0 ? 0 : null);
   $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
   if (d.t) $("#tipo-id").value = d.t;
   $("#esp").value = d.e || ESPECIALISTA; $("#espec").value = d.es || ESPECIALIDAD; pintarEsp();
-  $("#duracion").value = d.du || ""; $("#descuento").value = d.de || "";
+  $("#duracion").value = d.du || ""; $("#descuento").value = d.de || ""; $("#desc-libre").value = d.de || "";
   const nt = $(".it-nota"); if (nt){ nt.value = d.nm || ""; nt.classList.toggle("vacia", !d.nm); setTimeout(() => { nt.style.height = "auto"; nt.style.height = nt.scrollHeight + "px"; }); }
   totalVisto = null; calcular();
 }
@@ -1141,7 +1249,7 @@ $("#enviar").onclick = () => {
 function ponerModo(){
   const h = location.hash, c = h.startsWith("#c="), pa = h.startsWith("#p=");
   MODO = c ? "comercial" : pa ? "paciente" : "doctor";
-  document.body.classList.toggle("comercial", c); document.body.classList.toggle("paciente", pa);
+  document.body.classList.toggle("comercial", c); document.body.classList.toggle("paciente", pa); document.body.classList.toggle("doctor", !c && !pa);
   const d = (c || pa) ? desempacar(h.slice(3)) : null;
   if (d) cargar(d); else ponerPrograma("lipedema");
   const fr = $("#franja");
