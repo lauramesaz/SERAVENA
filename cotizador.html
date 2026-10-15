@@ -216,7 +216,7 @@ body.paciente .it-nota.vacia{display:none}
 #manual-caja .link-claro{margin:10px 0 0;font-size:12.5px}
 .r-manual{margin-top:8px;background:rgba(225,6,0,.12);border:1px solid rgba(255,140,120,.35);border-radius:14px;padding:10px 14px;font-size:12.5px;color:#ffd9d2;line-height:1.45}
 .r-manual b{color:#fff}
-body.paciente #abrir-manual,body.paciente #manual-caja,body.paciente .r-manual{display:none!important}
+body.paciente #abrir-manual,body.paciente .r-manual{display:none!important}
 body.doctor.desc-libre-on .acciones-sec{grid-template-columns:1fr 1fr}
 
 /* venas */
@@ -263,10 +263,14 @@ body.paciente .variantes{grid-template-columns:1fr}
 .btn-cuotas:hover{background:rgba(201,176,131,.15)}
 .plan-pago{margin-top:12px;font-size:13px;color:#d8c9b0;background:rgba(237,226,208,.08);border-radius:14px;padding:10px 14px}
 .plan-pago b{color:#fff}
-#modal{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
-#modal.ver{opacity:1;pointer-events:auto}
+#modal,#modal-manual{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+#modal.ver,#modal-manual.ver{opacity:1;pointer-events:auto}
 .caja-modal{background:var(--blanco);border-radius:32px;width:100%;max-width:520px;padding:32px;box-shadow:0 40px 80px -30px rgba(31,27,20,.5);transform:translateY(16px) scale(.98);transition:transform .45s var(--ease);max-height:calc(100vh - 32px);overflow:auto}
-#modal.ver .caja-modal{transform:none}
+#modal.ver .caja-modal,#modal-manual.ver .caja-modal{transform:none}
+#mm-nota{width:100%;border:1px solid var(--linea);border-radius:18px;padding:12px 16px;font:inherit;font-size:14px;color:var(--texto);background:#fff;resize:vertical;outline:none;min-height:80px}
+#mm-nota:focus{border-color:var(--camel)}
+.mm-error{color:var(--error);font-size:13px;margin-top:10px}
+#mm-dif b.baja{color:#9a3412}
 .caja-modal h3{font-size:24px;font-weight:600;letter-spacing:-.02em;color:var(--choco)}
 .caja-modal .ayuda{color:var(--tenue);font-size:14px;margin:4px 0 22px}
 .cerrar{float:right;border:0;background:var(--marfil);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--choco)}
@@ -587,13 +591,7 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
         <div class="desc-rapidos"><button type="button" data-p="0">Sin descuento</button><button type="button" data-p="3">3%</button><button type="button" data-p="5">5%</button></div>
       </div>
     </div>
-    <div class="desc-caja oculto" id="manual-caja">
-      <label for="manual-v">Precio manual (reemplaza el precio calculado)</label>
-      <div class="dinero"><input id="manual-v" type="text" inputmode="numeric" data-dinero placeholder="Escribe el precio final"></div>
-      <label for="manual-nota" style="margin-top:12px">¿Por qué es manual? <small>(obligatorio)</small></label>
-      <textarea id="manual-nota" rows="2" placeholder="Ej: precio acordado con el doctor por…"></textarea>
-      <button type="button" class="link-claro" id="manual-quitar">Quitar precio manual</button>
-    </div>
+    <input type="hidden" id="manual-v" value=""><input type="hidden" id="manual-nota" value="">
     <div class="r-filas oculto">
       <div class="r-fila" data-ico="personas"><span>Especialistas</span><b id="rf-citas"></b></div>
       <div class="r-fila" data-ico="calendario"><span>Seguimiento médico</span><b id="rf-sem"></b></div>
@@ -610,7 +608,21 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
 <div class="barra"><div><span>Tu inversión</span><b id="total-m">$0</b></div><button type="button" id="ir-resumen">Ver resumen</button></div>
 </div>
 
-<div id="modal">
+<div id="modal-manual" class="modal">
+  <div class="caja-modal">
+    <button type="button" class="cerrar" id="cerrar-manual" aria-label="Cerrar">×</button>
+    <h3>Precio manual</h3>
+    <p class="ayuda" id="mm-ayuda"></p>
+    <p class="m-label">Precio final</p>
+    <div class="dinero"><input id="mm-v" type="text" inputmode="numeric" data-dinero placeholder="Escribe el precio final"></div>
+    <div class="m-resta" id="mm-dif"><span>Diferencia con el calculado</span><b></b></div>
+    <p class="m-label">¿Por qué es manual? <small style="font-weight:400">(obligatorio)</small></p>
+    <textarea id="mm-nota" rows="3" placeholder="Ej: precio especial acordado con el doctor por…"></textarea>
+    <p class="mm-error oculto" id="mm-error">Escribe el precio y el motivo para poder usarlo.</p>
+    <div class="m-botones"><button type="button" class="no" id="mm-quitar">Quitar precio manual</button><button type="button" class="si" id="mm-usar">Usar este precio</button></div>
+  </div>
+</div>
+<div id="modal" class="modal">
   <div class="caja-modal">
     <button type="button" class="cerrar" id="cerrar-modal" aria-label="Cerrar">×</button>
     <h3>Simulador de cuotas</h3>
@@ -826,8 +838,29 @@ document.querySelectorAll(".desc-rapidos button").forEach(b => b.onclick = () =>
   $("#descuento").value = b.dataset.p === "0" ? "" : b.dataset.p; calcular();
 });
 $("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
-$("#abrir-manual").onclick = () => { const c = $("#manual-caja"); c.classList.toggle("oculto"); if (!c.classList.contains("oculto")) $("#manual-v").focus(); };
-$("#manual-quitar").onclick = () => { $("#manual-v").value = ""; $("#manual-nota").value = ""; $("#manual-caja").classList.add("oculto"); calcular(); };
+/* precio manual en ventana emergente */
+function precioCalculado(){ const v = $("#manual-v").value; $("#manual-v").value = ""; const p = leer().precio; $("#manual-v").value = v; return p; }
+function pintarManual(){
+  const calc = precioCalculado(), v = num($("#mm-v").value), dif = v - calc;
+  $("#mm-ayuda").textContent = `Precio calculado de ${P().nombre}: ${fmt(calc)}`;
+  $("#mm-dif").classList.toggle("oculto", !v);
+  const b = $("#mm-dif b"); b.textContent = (dif < 0 ? "−" : "+") + fmt(Math.abs(dif)); b.classList.toggle("baja", dif < 0);
+}
+$("#abrir-manual").onclick = () => {
+  $("#mm-v").value = $("#manual-v").value; $("#mm-nota").value = $("#manual-nota").value;
+  $("#mm-error").classList.add("oculto"); pintarManual(); $("#modal-manual").classList.add("ver"); setTimeout(() => $("#mm-v").focus(), 200);
+};
+$("#mm-v").addEventListener("input", () => setTimeout(pintarManual));
+const cerrarManual = () => $("#modal-manual").classList.remove("ver");
+$("#cerrar-manual").onclick = cerrarManual;
+$("#modal-manual").addEventListener("click", e => { if (e.target.id === "modal-manual") cerrarManual(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarManual(); });
+$("#mm-usar").onclick = () => {
+  if (!num($("#mm-v").value) || !$("#mm-nota").value.trim()){ $("#mm-error").classList.remove("oculto"); return; }
+  $("#manual-v").value = $("#mm-v").value; $("#manual-nota").value = $("#mm-nota").value.trim();
+  totalVisto = totalVisto; calcular(); cerrarManual(); aviso("Precio manual aplicado");
+};
+$("#mm-quitar").onclick = () => { $("#manual-v").value = ""; $("#manual-nota").value = ""; calcular(); cerrarManual(); };
 $("#abrir-desc").onclick = () => { const c = $("#desc-caja"); c.classList.toggle("oculto"); $("#abrir-desc").classList.toggle("activa", !c.classList.contains("oculto")); };
 $("#ir-resumen").onclick = () => $("#resumen-caja").scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -862,7 +895,7 @@ function cargarPlantilla(){
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
     agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad });
   });
-  $("#descuento").value = ""; $("#desc-libre").value = ""; $("#manual-v").value = ""; $("#manual-nota").value = ""; $("#manual-caja").classList.add("oculto");
+  $("#descuento").value = ""; $("#desc-libre").value = ""; $("#manual-v").value = ""; $("#manual-nota").value = "";
   $("#duracion").value = P().duracion;
   calcular();
 }
@@ -1044,8 +1077,9 @@ function calcular(){
     : `<p class="linea-r vacio">Toca los servicios para armar tu plan.</p>`;
   $("#r-desc").classList.toggle("oculto", !s.descuento || !!s.manual);
   $("#r-manual").classList.toggle("oculto", !s.manual);
-  if (s.manual) $("#r-manual").innerHTML = `✍️ <b>Precio manual</b> (el calculado era ${fmt(s.manual.antes)})${s.manual.nota ? `<br>Motivo: ${esc(s.manual.nota)}` : "<br><b>Falta escribir el motivo</b>"}`;
+  if (s.manual) $("#r-manual").innerHTML = `✍️ <b>Precio manual</b> (el calculado era ${fmt(s.manual.antes)})${s.manual.nota ? `<br>Motivo: ${esc(s.manual.nota)}` : ""}`;
   $("#abrir-manual").classList.toggle("activa", !!s.manual);
+  $("#abrir-manual").lastChild.textContent = s.manual ? "Editar precio manual" : "Agregar precio manual";
   $("#r-desc").firstElementChild.textContent = `Descuento del ${String(s.pct).replace(".", ",")}%`;
   $("#r-desc").lastElementChild.textContent = "−" + fmt(s.descuento);
   document.querySelectorAll(".desc-rapidos button").forEach(b => b.classList.toggle("activa", Number(b.dataset.p) === s.pct));
@@ -1072,7 +1106,6 @@ document.addEventListener("change", e => { if (e.target.matches("input,select"))
 
 function validar(s){
   const faltan = [];
-  if (s.manual && !s.manual.nota){ faltan.push("el motivo del precio manual"); $("#manual-caja").classList.remove("oculto"); }
   const marca = (id, mal, txt) => { $(id).closest(".campo").classList.toggle("error", mal); if (mal) faltan.push(txt); };
   marca("#nombre", !s.nombre, "nombre");
   if (!s.items.some(x => !x.interno && x.n)) faltan.push("qué trae el plan");
@@ -1241,7 +1274,6 @@ $("#enviar-correo").onclick = async () => {
   const s = calcular();
   if (!s.nombre){ $("#nombre").closest(".campo").classList.add("error"); aviso("Falta el nombre de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
   if (!s.items.some(x => !x.interno)){ aviso("Falta lo que incluye el plan", true); return; }
-  if (s.manual && !s.manual.nota){ $("#manual-caja").classList.remove("oculto"); $("#manual-nota").focus(); aviso("Escribe por qué el precio es manual", true); return; }
   const b = $("#enviar-correo"), tx = b.querySelector("span"), t = tx.textContent; b.disabled = true; tx.textContent = "Enviando…";
   const hoy = new Date(), vence = new Date(hoy); vence.setDate(vence.getDate() + VIGENCIA_DIAS);
   const numero = "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes());
@@ -1255,7 +1287,6 @@ $("#enviar").onclick = () => {
     const faltan = [];
     $("#nombre").closest(".campo").classList.toggle("error", !s.nombre); if (!s.nombre) faltan.push("nombre de la paciente");
     if (!s.items.some(x => !x.interno)) faltan.push("qué incluye");
-    if (s.manual && !s.manual.nota){ faltan.push("motivo del precio manual"); $("#manual-caja").classList.remove("oculto"); }
     if (faltan.length){ aviso("Falta: " + faltan.join(", "), true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
     const link = SITIO + "#c=" + empacar();
     const bloq = [...document.querySelectorAll(".item.bloqueado:not(.apagado)")].map(x => { const c = CATALOGO.find(k => k.n === x.dataset.n); return c ? c.t : x.dataset.n; });
@@ -1293,7 +1324,6 @@ function ponerModo(){
     $("#intro-p").textContent = "Lo que muevas aquí cambia el precio al instante.";
     $("#ayuda-items").innerHTML = `Toca un servicio para sumarlo o quitarlo. Lo que tiene <span class="ico-txt">${ico("candado")}</span> el doctor recomienda no quitarlo.`;
     if ($("#descuento").value){ $("#desc-caja").classList.remove("oculto"); $("#abrir-desc").classList.add("activa"); }
-    if ($("#manual-v").value) $("#manual-caja").classList.remove("oculto");
   } else if (MODO === "paciente"){
     abrir();
     $("#intro-ojo").textContent = "Tu plan en Seravena";
