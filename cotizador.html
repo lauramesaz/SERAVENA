@@ -733,7 +733,7 @@ document.querySelectorAll("#programas button").forEach(b => b.onclick = () => po
 function ponerPrograma(id){
   PROG = id;
   const fam = P().familia;
-  document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (fam && PROGRAMAS[b.dataset.prog].familia === fam)));
+  document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (!!fam && PROGRAMAS[b.dataset.prog].familia === fam)));
   const vars = fam ? Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam) : [];
   $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small><span>${fmt(p.precio)}</span></button>`).join("");
   $("#variantes").classList.toggle("oculto", !vars.length);
