@@ -636,7 +636,7 @@ const CATALOGO = [
   { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: 20000, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
   { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
   /* VENAS — precios de venta que dio Laura (15-oct); aquí "u" es el precio, no el costo */
-  { id: "escleroterapia", n: "Escleroterapia (sesión)", u: 300000, t: "Escleroterapia", d: "Por sesión" },
+  { id: "escleroterapia", n: "Sesiones de escleroterapia", u: 300000, t: "Sesiones de escleroterapia", d: "Dale + para sumar sesiones" },
   { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna" },
   { id: "espuma_safena",  n: "Espuma de safena (por pierna)", u: 3000000, t: "Espuma de safena", d: "Por pierna", max: 2, unidad: "pierna" },
   { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "Por pierna", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 } },
@@ -671,17 +671,17 @@ const PROGRAMAS = {
   venas: {
     foto: "assets/media/vascular-veins.webp", frase: "Escleroterapia, espuma o endoláser", familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
     nombre: "Escleroterapia", corto: "Escleroterapia", resumen: "Elige cuántas sesiones", etiqueta: "", titulo: "Venas · Escleroterapia", precio: 0, duracion: "", pagos: null,
-    plan: { escleroterapia: 1 },
+    plan: { escleroterapia: 1 }, muestra: ["escleroterapia", "rivaroxaban"],
   },
   venas_espuma: {
     oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
     nombre: "Espuma", corto: "Espuma", resumen: "Tributarias o safena · con medias", etiqueta: "", titulo: "Venas · Espuma", precio: 0, duracion: "", pagos: null,
-    plan: { espuma_trib: 1, medias_v: "Incluidas" },
+    plan: { espuma_trib: 1, medias_v: "Incluidas" }, muestra: ["espuma_trib", "espuma_safena", "medias_v", "rivaroxaban"],
   },
   venas_endolaser: {
     oculto: true, familia: "venas", solo: "vn", sinCostos: true, descuentoLibre: true,
     nombre: "Endoláser", corto: "Endoláser", resumen: "1 o 2 piernas · con medias", etiqueta: "", titulo: "Venas · Endoláser", precio: 0, duracion: "", pagos: null,
-    plan: { endolaser: 1, medias_v: "Incluidas" },
+    plan: { endolaser: 1, medias_v: "Incluidas" }, muestra: ["endolaser", "medias_v", "rivaroxaban"],
   },
   celulitis: {
     foto: "assets/media/skin-detail.webp", frase: "Tratamiento HAUSFORM", familia: "celulitis", solo: "hf",
@@ -835,7 +835,7 @@ function ponerPrograma(id){
 function cargarPlantilla(){
   const grupos = GRUPOS.filter(g => P().solo ? g.id === P().solo : !["hf", "vn"].includes(g.id));
   $("#items").innerHTML = grupos.map(g => `<details class="grupo" open data-g="${g.id}"><summary>${ico(g.i)}<div><b>${g.t}</b><small class="g-cuenta"></small></div>${ico("abajo", "flecha-g")}</summary><div class="lista"></div></details>`).join("");
-  const permitidos = grupos.flatMap(g => g.ids);
+  const permitidos = P().muestra || grupos.flatMap(g => g.ids);
   CATALOGO.filter(c => permitidos.includes(c.id)).forEach(c => {
     const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
     agregarItem({ id: c.id, n: c.n, t: c.t, d: c.d, q: String(q), u, interno: c.interno, on: v != null, fijo: true, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad });
