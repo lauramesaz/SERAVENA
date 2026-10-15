@@ -430,67 +430,65 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
   .barra button{border:0;background:var(--marfil);color:var(--choco);border-radius:999px;padding:12px 18px;font-weight:700;font-size:13.5px}
 }
 
-/* ---------- PDF: 2 hojas carta exactas (816 × 1056 px cada una) ---------- */
+/* ---------- PDF: 1 hoja carta exacta (816 × 1056 px) ---------- */
 #pdf-caja{position:absolute;left:-10000px;top:0}
-#pdf{width:816px;background:#fff;color:#1A1A1A;font:13px/1.5 "Plus Jakarta Sans",sans-serif}
-#pdf .hoja{width:816px;height:1056px;overflow:hidden;position:relative;display:flex;flex-direction:column;background:#fff}
-#pdf .cab{background:#4B412D;color:#EDE2D0;padding:30px 56px 26px;display:flex;justify-content:space-between;align-items:flex-end;position:relative;overflow:hidden}
-#pdf .cab::after{content:"";position:absolute;width:360px;height:360px;right:-120px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
-#pdf .cab img{height:26px;position:relative;z-index:1}
+#pdf{width:816px;background:#fff;color:#1A1A1A;font:12px/1.45 "Plus Jakarta Sans",sans-serif}
+#pdf .hoja{width:816px;height:1056px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+#pdf .cab{background:#4B412D;color:#EDE2D0;padding:24px 48px 20px;display:flex;justify-content:space-between;align-items:flex-end;position:relative;overflow:hidden;flex:none}
+#pdf .cab::after{content:"";position:absolute;width:320px;height:320px;right:-110px;top:-190px;border-radius:50%;background:radial-gradient(circle,rgba(201,176,131,.35),transparent 65%)}
+#pdf .cab img{height:24px;position:relative;z-index:1}
 #pdf .cab .der{text-align:right;position:relative;z-index:1}
-#pdf .cab .eti{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#c9b083;font-weight:600}
-#pdf .cab .tit{font-size:27px;font-weight:600;letter-spacing:-.02em;color:#fff;line-height:1.15;margin:4px 0 4px}
-#pdf .cab .num{font-size:11.5px;color:#d8c9b0}
-#pdf .cab.mini{padding:20px 56px}
-#pdf .cab.mini .tit{font-size:18px;margin:2px 0 0}
-#pdf .cuerpo{flex:1;padding:24px 56px 0;display:flex;flex-direction:column}
-#pdf .sec{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#806733;font-weight:700;margin:0 0 10px}
-#pdf .datos{display:grid;grid-template-columns:1.25fr 1fr;gap:12px 32px;background:#F5EFE5;border-radius:14px;padding:16px 22px}
-#pdf .datos span{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#6e6450}
-#pdf .datos b{display:block;font-size:13.5px;font-weight:600;margin-top:1px}
-#pdf .datos small{display:block;font-size:11px;color:#6e6450;line-height:1.35}
-#pdf .wow{margin-top:18px;background:#4B412D;border-radius:16px;padding:16px 22px;display:flex;align-items:center;gap:22px;color:#EDE2D0}
-#pdf .wow .g{font-size:34px;font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1;white-space:nowrap}
-#pdf .wow .g small{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#c9b083;font-weight:600;margin-top:5px}
-#pdf .wow .st{border-left:1px solid rgba(237,226,208,.22);padding-left:16px}
-#pdf .wow .st b{display:block;font-size:20px;font-weight:700;color:#fff;line-height:1.1}
-#pdf .wow .st span{font-size:10.5px;color:#d8c9b0;line-height:1.25;display:block}
-#pdf .lista{margin-top:20px}
-#pdf .fila{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #EDE2D0}
-#pdf .fila:first-of-type{border-top:1px solid #4B412D}
-#pdf .fila .ic{width:30px;height:30px;border-radius:9px;background:#F5EFE5;display:grid;place-items:center;color:#4B412D}
-#pdf .fila .ic svg{width:16px;height:16px}
-#pdf .fila b{display:block;font-size:13px;font-weight:600}
-#pdf .fila small{display:block;font-size:10.5px;color:#6e6450;line-height:1.35}
-#pdf .fila .nota{margin-top:3px;background:#F5EFE5;border-radius:6px;padding:3px 8px;color:#806733;font-size:10.5px}
-#pdf .fila .q{font-size:13px;font-weight:700;color:#4B412D;white-space:nowrap}
-#pdf .pie{display:flex;justify-content:space-between;align-items:center;padding:14px 56px;background:#EDE2D0;font-size:10.5px;color:#6e6450;letter-spacing:.04em}
-#pdf .pie b{color:#4B412D}
-#pdf .sigue{margin-top:auto;margin-bottom:18px;font-size:11px;color:#806733;text-align:right}
-#pdf .total{background:#9D8051;color:#fff;border-radius:18px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center}
-#pdf .total span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
-#pdf .total small{display:block;font-size:11.5px;letter-spacing:0;text-transform:none;font-weight:500;opacity:.85;margin-top:4px}
-#pdf .total b{font-size:36px;font-weight:700;letter-spacing:-.03em}
-#pdf .desc{display:flex;justify-content:space-between;font-size:12px;color:#6e6450;padding:10px 4px 0}
-#pdf .inicial{margin-top:14px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid #4B412D;border-radius:14px;padding:14px 22px}
-#pdf .inicial span{font-size:12.5px;color:#4B412D}
-#pdf .inicial b{font-size:22px;font-weight:700;color:#4B412D}
-#pdf .cal{margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid #EDE2D0}
-#pdf .cal div{display:flex;justify-content:space-between;padding:8px 18px;font-size:12.5px;border-bottom:1px solid #EDE2D0}
+#pdf .cab .eti{font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:#c9b083;font-weight:600}
+#pdf .cab .tit{font-size:23px;font-weight:600;letter-spacing:-.02em;color:#fff;line-height:1.15;margin:3px 0}
+#pdf .cab .num{font-size:11px;color:#d8c9b0}
+#pdf .cuerpo{flex:1;min-height:0;padding:18px 48px 0;display:flex;flex-direction:column}
+#pdf .sec{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#806733;font-weight:700;margin:0 0 7px}
+#pdf .datos{display:grid;grid-template-columns:1.2fr .9fr .8fr 1.3fr;gap:10px 18px;background:#F5EFE5;border-radius:12px;padding:12px 18px}
+#pdf .datos span{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450}
+#pdf .datos b{display:block;font-size:12.5px;font-weight:600;margin-top:1px;line-height:1.25}
+#pdf .datos small{display:block;font-size:10px;color:#6e6450;line-height:1.3}
+#pdf .wow{margin-top:12px;background:#4B412D;border-radius:14px;padding:11px 18px;display:flex;align-items:center;gap:18px;color:#EDE2D0}
+#pdf .wow .g{font-size:26px;font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1;white-space:nowrap}
+#pdf .wow .g small{display:block;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#c9b083;font-weight:600;margin-top:4px}
+#pdf .wow .st{border-left:1px solid rgba(237,226,208,.22);padding-left:14px}
+#pdf .wow .st b{display:block;font-size:16px;font-weight:700;color:#fff;line-height:1.1}
+#pdf .wow .st span{font-size:9.5px;color:#d8c9b0;line-height:1.2;display:block}
+#pdf .cols{margin-top:16px;display:grid;grid-template-columns:1.12fr .88fr;gap:24px;flex:1;min-height:0}
+#pdf .fila{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid #EDE2D0}
+#pdf .lista .fila:first-of-type{border-top:1px solid #4B412D}
+#pdf .fila .ic{width:24px;height:24px;border-radius:7px;background:#F5EFE5;display:grid;place-items:center;color:#4B412D}
+#pdf .fila .ic svg{width:13px;height:13px}
+#pdf .fila b{display:block;font-size:12px;font-weight:600;line-height:1.25}
+#pdf .fila small{display:block;font-size:9.5px;color:#6e6450;line-height:1.3}
+#pdf .fila .nota{margin-top:2px;background:#F5EFE5;border-radius:5px;padding:2px 7px;color:#806733;font-size:9.5px}
+#pdf .fila .q{font-size:12px;font-weight:700;color:#4B412D;white-space:nowrap}
+#pdf .total{background:#9D8051;color:#fff;border-radius:14px;padding:14px 18px}
+#pdf .total span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+#pdf .total b{display:block;font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-top:2px}
+#pdf .desc{display:flex;justify-content:space-between;font-size:10.5px;color:#6e6450;padding:6px 2px 0}
+#pdf .inicial{margin-top:10px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid #4B412D;border-radius:12px;padding:9px 14px}
+#pdf .inicial span{font-size:10.5px;color:#4B412D;line-height:1.3}
+#pdf .inicial b{font-size:17px;font-weight:700;color:#4B412D;white-space:nowrap}
+#pdf .cal{margin-top:8px;border-radius:10px;overflow:hidden;border:1px solid #EDE2D0}
+#pdf .cal div{display:flex;justify-content:space-between;padding:4px 12px;font-size:10.5px;border-bottom:1px solid #EDE2D0}
 #pdf .cal div:last-child{border-bottom:0}
 #pdf .cal div:nth-child(odd){background:#FBF8F3}
 #pdf .cal b{font-weight:700}
-#pdf .dos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-#pdf .caja{background:#F5EFE5;border-radius:14px;padding:16px 20px}
+#pdf .plan-txt{margin-top:8px;font-size:10.5px;color:#4B412D;background:#F5EFE5;border-radius:10px;padding:8px 12px;line-height:1.4}
+#pdf .caja{margin-top:12px;background:#F5EFE5;border-radius:12px;padding:11px 14px}
 #pdf ul{list-style:none}
-#pdf li{padding-left:14px;position:relative;margin-bottom:4px;font-size:12px;line-height:1.45}
-#pdf li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:1.5px;background:#9D8051}
-#pdf .esp{margin-top:22px;display:flex;align-items:center;gap:14px;border-top:1px solid #EDE2D0;padding-top:18px}
-#pdf .esp .ini{width:42px;height:42px;border-radius:50%;background:#4B412D;color:#EDE2D0;display:grid;place-items:center;font-weight:700;font-size:15px}
-#pdf .esp b{display:block;font-size:13.5px}
-#pdf .esp small{font-size:11px;color:#6e6450}
-#pdf .frase{margin-top:auto;margin-bottom:22px;text-align:center;font-size:16px;font-weight:600;letter-spacing:-.01em;color:#4B412D;line-height:1.4;padding:0 40px}
-#pdf .vence{font-size:11px;color:#6e6450;margin-top:8px;text-align:right}
+#pdf li{padding-left:12px;position:relative;margin-bottom:2px;font-size:10.5px;line-height:1.4}
+#pdf li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:1.5px;background:#9D8051}
+#pdf .vence{font-size:10px;color:#6e6450;margin-top:6px;text-align:right}
+#pdf .frase{flex:none;margin:12px 0 14px;text-align:center;font-size:13.5px;font-weight:600;letter-spacing:-.01em;color:#4B412D}
+#pdf .pie{flex:none;display:flex;justify-content:space-between;align-items:center;padding:11px 48px;background:#EDE2D0;font-size:10px;color:#6e6450;letter-spacing:.04em}
+#pdf .pie b{color:#4B412D}
+/* si no cabe, se compacta solo */
+#pdf .hoja.apretado .fila{padding:4px 0}
+#pdf .hoja.apretado .fila small{display:none}
+#pdf .hoja.apretado .wow{padding:8px 16px}
+#pdf .hoja.apretado .caja{padding:8px 12px;margin-top:8px}
+#pdf .hoja.apretado .frase{margin:8px 0 10px;font-size:12px}
 </style>
 </head>
 <body>
@@ -1128,8 +1126,9 @@ function armarPDF(s, numero, hoy, vence){
     [cantDe(s, ["aparatologia"]), "sesiones de aparatología"], [cantDe(s, ["drenaje"]), "drenajes linfáticos"],
   ].filter(x => x[0]);
   const ini = anticipoDe(s.precio), plan = CUOTAS ? repartir(s.precio, ini, CUOTAS) : null;
-  const iniciales = (s.esp || "").split(/\s+/).slice(0, 2).map(x => x[0] || "").join("").toUpperCase();
-  const pie = n => `<div class="pie"><span><b>Seravena</b> · Manejo de lipedema y salud vascular · Medellín</span><span>clinicaseravena.com · ${n}/2</span></div>`;
+  const calendario = !plan ? "" : CUOTAS <= 6
+    ? `<div class="cal">${ini ? `<div><span>Hoy · valor inicial</span><b>${fmt(ini)}</b></div>` : ""}${plan.cuotas.map((v, i) => `<div><span>Cuota ${i + 1}${Math.round(v) < Math.round(plan.base) ? " (con abono)" : ""}</span><b>${Math.round(v) ? fmt(v) : "Cubierta"}</b></div>`).join("")}</div>`
+    : `<div class="plan-txt">${esc(textoPlan(s.precio))}</div>`;
   $("#pdf").innerHTML = `
   <section class="hoja">
     <div class="cab"><img src="assets/wordmark-white.png" alt="Seravena">
@@ -1138,37 +1137,34 @@ function armarPDF(s, numero, hoy, vence){
       <div class="datos">
         <div><span>Paciente</span><b>${esc(s.nombre)}</b></div>
         <div><span>${esc(s.tipoId)}</span><b>${esc(s.numId) || "—"}</b></div>
-        <div><span>Especialista</span><b>${esc(s.esp)}</b><small>${esc(s.espec)}</small></div>
         <div><span>Celular</span><b>${esc(s.contacto) || "—"}</b></div>
+        <div><span>Especialista</span><b>${esc(s.esp)}</b><small>${esc(s.espec)}</small></div>
       </div>
       ${s.duracion ? `<div class="wow"><div class="g">${esc(s.duracion)}<small>de acompañamiento</small></div>${stats.map(([v, t]) => `<div class="st"><b>${v}</b><span>${t}</span></div>`).join("")}</div>` : ""}
-      <div class="lista">
-        <p class="sec">Lo que incluye tu plan</p>
-        ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${ico(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
+      <div class="cols">
+        <div class="lista">
+          <p class="sec">Lo que incluye tu plan</p>
+          ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${ico(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
+        </div>
+        <div>
+          <p class="sec">Tu inversión</p>
+          <div class="total"><span>Valor del programa</span><b>${fmt(s.precio)}</b></div>
+          ${s.descuento && !s.manual ? `<div class="desc"><span>Antes ${fmt(s.lista)}</span><span>Descuento ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
+          <div class="inicial"><span>Valor inicial para empezar${plan ? "<br>se descuenta de la primera cuota" : ""}</span><b>${fmt(ini)}</b></div>
+          ${plan ? `<p class="sec" style="margin-top:12px">${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt(plan.base)}</p>${calendario}` : ""}
+          <div class="caja"><p class="sec">Medios de pago</p><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+          <div class="caja"><p class="sec">Condiciones</p><ul><li>El programa inicia con el pago del valor inicial.</li><li>Los valores pueden ajustarse según la evolución y la recomendación médica.</li></ul></div>
+          <p class="vence">Válida hasta el ${fecha(vence)}</p>
+        </div>
       </div>
-      <p class="sigue">Tu inversión y formas de pago en la siguiente hoja →</p>
-    </div>
-    ${pie(1)}
-  </section>
-  <section class="hoja">
-    <div class="cab mini"><img src="assets/wordmark-white.png" alt="Seravena">
-      <div class="der"><div class="eti">Tu inversión</div><div class="tit">${esc(s.nombre)}</div></div></div>
-    <div class="cuerpo">
-      <div class="total"><div><span>Valor del programa</span><small>${esc(s.programa)}</small></div><b>${fmt(s.precio)}</b></div>
-      ${s.descuento && !s.manual ? `<div class="desc"><span>Precio de lista ${fmt(s.lista)}</span><span>Descuento del ${String(s.pct).replace(".", ",")}%: −${fmt(s.descuento)}</span></div>` : ""}
-      <div class="inicial"><span>Valor inicial para empezar${plan ? " · se descuenta de la primera cuota" : ""}</span><b>${fmt(ini)}</b></div>
-      ${plan ? `<p class="sec" style="margin-top:22px">Plan de pagos · ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas mensuales"} de ${fmt(plan.base)}</p>
-        <div class="cal">${ini ? `<div><span>Hoy · valor inicial</span><b>${fmt(ini)}</b></div>` : ""}${plan.cuotas.map((v, i) => `<div><span>Cuota ${i + 1}${Math.round(v) < Math.round(plan.base) ? " (con el abono descontado)" : ""}</span><b>${Math.round(v) ? fmt(v) : "Cubierta con el abono"}</b></div>`).join("")}</div>` : ""}
-      <p class="vence">Cotización válida hasta el ${fecha(vence)}</p>
-      <div class="dos">
-        <div class="caja"><p class="sec">Medios de pago</p><ul>${pagos.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
-        <div class="caja"><p class="sec">Condiciones</p><ul><li>El programa inicia con el pago del valor inicial.</li><li>Los valores pueden ajustarse según la evolución y la recomendación médica.</li></ul></div>
-      </div>
-      <div class="esp"><div class="ini">${iniciales}</div><div><b>${esc(s.esp)}</b><small>${esc(s.espec)}</small></div></div>
       <p class="frase">${esc(FRASE)}</p>
     </div>
-    ${pie(2)}
+    <div class="pie"><span><b>Seravena</b> · Manejo de lipedema y salud vascular · Medellín</span><span>clinicaseravena.com</span></div>
   </section>`;
+  // si el contenido no cabe en la hoja, se compacta
+  const h = $("#pdf .hoja"), c = h.querySelector(".cuerpo");
+  const cols = h.querySelector(".cols"), sobra = () => c.scrollHeight > c.clientHeight + 1 || [...cols.children].some(x => x.scrollHeight > cols.clientHeight + 1);
+  if (sobra()) h.classList.add("apretado");
 }
 
 function aviso(t, mal){
