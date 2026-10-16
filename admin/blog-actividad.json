@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-15",
+  "actualizado": "2026-10-16",
   "articulos": [
+    {
+      "fecha": "2026-10-16",
+      "titulo": "Automasaje para piernas pesadas en casa",
+      "slug": "automasaje-piernas-pesadas",
+      "categoria": "Autocuidado",
+      "keyword": "automasaje piernas pesadas",
+      "seo": 99,
+      "medico": "aprobado con correcciones",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/automasaje-piernas-pesadas",
+      "nota": "Artículo del racimo 'situaciones' (rotación: los 3 días previos fueron lipedema/tratamiento/lipedema). Técnica básica de autodrenaje linfático simple para piernas pesadas en casa, diferenciada del drenaje linfático manual profesional, con contraindicaciones claras (trombosis venosa, infección de piel, varices con flebitis, insuficiencia cardíaca no controlada). Médico: APROBADO CON CORRECCIONES (añadió 'varices con flebitis' al post-note para que las 4 contraindicaciones queden consistentes en cuerpo/post-note/FAQ). SEO: 99/100, APTO (acortó el <title> a ≤60 car. y sincronizó h1/og/twitter/headline/breadcrumb; añadió enlace de vuelta en los 3 artículos hermanos del racimo). Prueba de humanidad (Policía humanizador): 10/10 sin cambios, LISTO PARA PUBLICAR."
+    },
     {
       "fecha": "2026-10-15",
       "titulo": "Prevención del lipedema: qué sí está en tus manos",

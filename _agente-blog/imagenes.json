@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-15",
+  "actualizado": "2026-10-16",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "automasaje-piernas-pesadas": {
+      "imagen": "hero-manos.webp",
+      "alt": "Manos aplicando un automasaje suave y ascendente sobre la piel de la pierna, el gesto básico del autodrenaje para piernas pesadas e hinchadas"
+    },
     "prevencion-del-lipedema": {
       "imagen": "etapa-2.webp",
       "alt": "Ilustración médica de un corte transversal de piel y tejido graso en una etapa intermedia del lipedema, con nódulos más definidos, usada para explicar qué factores pueden influir en que avance"
