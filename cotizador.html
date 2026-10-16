@@ -263,10 +263,17 @@ body.paciente .variantes{grid-template-columns:1fr}
 .btn-cuotas:hover{background:rgba(201,176,131,.15)}
 .plan-pago{margin-top:12px;font-size:13px;color:#d8c9b0;background:rgba(237,226,208,.08);border-radius:14px;padding:10px 14px}
 .plan-pago b{color:#fff}
-#modal,#modal-manual{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
-#modal.ver,#modal-manual.ver{opacity:1;pointer-events:auto}
+#modal,#modal-manual,#modal-ingreso{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+#modal.ver,#modal-manual.ver,#modal-ingreso.ver{opacity:1;pointer-events:auto}
 .caja-modal{background:var(--blanco);border-radius:32px;width:100%;max-width:520px;padding:32px;box-shadow:0 40px 80px -30px rgba(31,27,20,.5);transform:translateY(16px) scale(.98);transition:transform .45s var(--ease);max-height:calc(100vh - 32px);overflow:auto}
-#modal.ver .caja-modal,#modal-manual.ver .caja-modal{transform:none}
+#modal.ver .caja-modal,#modal-manual.ver .caja-modal,#modal-ingreso.ver .caja-modal{transform:none}
+#mi-nota{width:100%;border:1px solid var(--linea);border-radius:18px;padding:12px 16px;font:inherit;font-size:14px;color:var(--texto);background:#fff;resize:vertical;outline:none;min-height:60px}
+.campo-fecha{width:100%;padding:12px 18px;border:1px solid var(--linea);border-radius:999px;background:#fff;font:inherit;color:var(--texto);outline:none}
+.campo-fecha:focus,#mi-nota:focus{border-color:var(--camel)}
+.btn-ingreso{background:#3E6B4A!important;color:#fff!important}
+.btn-ingreso:hover{background:#335a3d!important}
+.btn-ingreso .ico{color:#fff}
+body:not(.comercial) #abrir-ingreso{display:none!important}
 #mm-nota{width:100%;border:1px solid var(--linea);border-radius:18px;padding:12px 16px;font:inherit;font-size:14px;color:var(--texto);background:#fff;resize:vertical;outline:none;min-height:80px}
 #mm-nota:focus{border-color:var(--camel)}
 .mm-error{color:var(--error);font-size:13px;margin-top:10px}
@@ -595,6 +602,7 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
       <div class="r-fila" data-ico="calendario"><span>Seguimiento médico</span><b id="rf-sem"></b></div>
       <div class="r-fila" data-ico="corazon"><span>Tratamiento y bienestar</span><b id="rf-tto"></b></div>
     </div>
+    <button class="btn btn-ingreso" id="abrir-ingreso" data-ico="check"><span>Paciente ingresó al programa</span></button>
     <button class="btn" id="enviar-correo" data-ico="correo"><span>Enviar por correo a Federico</span></button>
     <button class="btn-sec" id="enviar" data-ico="enviar"><span id="enviar-txt">Enviar al comercial</span></button>
     <button class="btn-sec" id="compartir-pdf">Enviar el PDF</button>
@@ -606,6 +614,23 @@ body.comercial #enviar,body.paciente #enviar{background:var(--marfil);color:var(
 <div class="barra"><div><span>Tu inversión</span><b id="total-m">$0</b></div><button type="button" id="ir-resumen">Ver resumen</button></div>
 </div>
 
+<div id="modal-ingreso" class="modal">
+  <div class="caja-modal">
+    <button type="button" class="cerrar" id="cerrar-ingreso" aria-label="Cerrar">×</button>
+    <h3>Paciente ingresó al programa</h3>
+    <p class="ayuda" id="mi-ayuda"></p>
+    <p class="m-label">Valor del abono</p>
+    <div class="dinero"><input id="mi-abono" type="text" inputmode="numeric" data-dinero></div>
+    <p class="m-label">Fecha del abono</p>
+    <input id="mi-fecha" type="date" class="campo-fecha">
+    <p class="m-label">Medio de pago</p>
+    <select id="mi-medio"><option>Transferencia Bancolombia</option><option>Transferencia Davivienda</option><option>Link de pago</option><option>Datáfono</option><option>Efectivo</option><option>Otro</option></select>
+    <p class="m-label">Nota <small style="font-weight:400">(opcional)</small></p>
+    <textarea id="mi-nota" rows="2" placeholder="Ej: paga el resto en 3 cuotas, empieza el lunes…"></textarea>
+    <p class="mm-error oculto" id="mi-error">Escribe el valor y la fecha del abono.</p>
+    <div class="m-botones"><button type="button" class="no" id="mi-cancelar">Cancelar</button><button type="button" class="si" id="mi-guardar">Registrar ingreso</button></div>
+  </div>
+</div>
 <div id="modal-manual" class="modal">
   <div class="caja-modal">
     <button type="button" class="cerrar" id="cerrar-manual" aria-label="Cerrar">×</button>
@@ -647,6 +672,7 @@ const ESPECIALISTA = "Jose David Puerta";
 const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
 const COMERCIAL = { nombre: "Federico", whatsapp: "573006397083" }; // a quien le llega "Enviar al comercial"
 const SITIO = "https://www.clinicaseravena.com/cotizador";
+const ENVIO_INGRESO = "https://seravena-cotizador-correo.vercel.app/api/ingreso"; // fila en el Google Sheets de ingresos + correo
 const ENVIO_COPIA = "https://seravena-cotizador-correo.vercel.app/api/enviar"; // proyecto ~/seravena-cotizador-correo (Vercel + Resend) → clinicaseravena@gmail.com y lauramesazuluaga@gmail.com
 const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cuerpo de tus sueños.";
 
@@ -836,6 +862,44 @@ document.querySelectorAll(".desc-rapidos button").forEach(b => b.onclick = () =>
   $("#descuento").value = b.dataset.p === "0" ? "" : b.dataset.p; calcular();
 });
 $("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
+/* paciente ingresó al programa → Google Sheets + correo */
+const hoyISO = () => { const d = new Date(); return d.getFullYear() + "-" + dos(d.getMonth() + 1) + "-" + dos(d.getDate()); };
+$("#abrir-ingreso").onclick = () => {
+  const s = calcular();
+  if (!s.nombre){ aviso("Falta el nombre de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+  $("#mi-ayuda").textContent = `${s.nombre} · ${P().nombre} · ${fmt(s.precio)}`;
+  $("#mi-abono").value = anticipoDe(s.precio).toLocaleString("es-CO");
+  $("#mi-fecha").value = hoyISO(); $("#mi-nota").value = ""; $("#mi-error").classList.add("oculto");
+  $("#modal-ingreso").classList.add("ver");
+};
+const cerrarIngreso = () => $("#modal-ingreso").classList.remove("ver");
+$("#cerrar-ingreso").onclick = cerrarIngreso; $("#mi-cancelar").onclick = cerrarIngreso;
+$("#modal-ingreso").addEventListener("click", e => { if (e.target.id === "modal-ingreso") cerrarIngreso(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarIngreso(); });
+$("#mi-guardar").onclick = async () => {
+  const s = calcular(), abono = num($("#mi-abono").value), fechaAbono = $("#mi-fecha").value;
+  if (!abono || !fechaAbono){ $("#mi-error").classList.remove("oculto"); return; }
+  const b = $("#mi-guardar"); b.disabled = true; b.textContent = "Registrando…";
+  const hoy = new Date();
+  const datos = {
+    paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
+    programa: s.programa, valorPrograma: s.precio, abono, fechaAbono, medio: $("#mi-medio").value,
+    plan: CUOTAS ? textoPlan(s.precio) : "", descuento: s.descuento && !s.manual ? String(s.pct).replace(".", ",") + "%" : "",
+    manual: s.manual ? fmt(s.manual.v) + " · " + s.manual.nota : "", especialista: s.esp, nota: $("#mi-nota").value.trim(),
+    numero: "SV-" + String(hoy.getFullYear()).slice(2) + dos(hoy.getMonth() + 1) + dos(hoy.getDate()) + "-" + dos(hoy.getHours()) + dos(hoy.getMinutes()),
+    link: SITIO + "#c=" + empacar(),
+  };
+  try{
+    const r = await fetch(ENVIO_INGRESO, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) });
+    const j = await r.json().catch(() => ({}));
+    if (j.ok) aviso("Ingreso registrado en la hoja ✓");
+    else if (j.correo) aviso("Se avisó por correo, pero no se pudo anotar en la hoja", true);
+    else throw new Error();
+    cerrarIngreso();
+  }catch(e){ aviso("No se pudo registrar. Intenta de nuevo.", true); }
+  b.disabled = false; b.textContent = "Registrar ingreso";
+};
+
 /* precio manual en ventana emergente */
 function precioCalculado(){ const v = $("#manual-v").value; $("#manual-v").value = ""; const p = leer().precio; $("#manual-v").value = v; return p; }
 function pintarManual(){
