@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-16",
+  "actualizado": "2026-10-17",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -326,6 +326,10 @@
     "piernas-viaje-tierra-caliente": {
       "imagen": "band-veins.webp",
       "alt": "Piernas con medias de compresión apoyadas sobre una tela clara, como conviene cuidarlas en un viaje largo hacia tierra caliente"
+    },
+    "tacones-y-varices": {
+      "imagen": "6643071.webp",
+      "alt": "Venas finas y rojizas visibles bajo la piel de la pantorrilla, el tipo de várices que muchas mujeres relacionan con las horas de tacón"
     }
   }
 }

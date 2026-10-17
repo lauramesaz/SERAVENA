@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-16",
+  "actualizado": "2026-10-17",
   "articulos": [
+    {
+      "fecha": "2026-10-17",
+      "titulo": "Tacones y várices: ¿cuánto influye el zapato que usas?",
+      "slug": "tacones-y-varices",
+      "categoria": "Salud vascular",
+      "keyword": "tacones y várices",
+      "seo": 96,
+      "medico": "aprobado con correcciones",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/tacones-y-varices",
+      "nota": "Creado por la rutina automática del equipo de agentes (racimo 'sintomas'). Explica que el tacón alto no causa várices pero sí reduce la eficiencia de la bomba muscular de la pantorrilla, con fuentes reales (SciELO, ACFAS, guía de insuficiencia venosa de la Junta de Andalucía). Médico: APROBADO CON CORRECCIONES (suavizó una frase que prometía un resultado garantizado). SEO: 96/100, APTO. Prueba de humanidad: 10/10. Enlaces de vuelta añadidos en los 3 hermanos del racimo (guia-sintomas-mala-circulacion, insuficiencia-venosa-sintomas, piernas-hinchadas-cuando-preocuparse)."
+    },
     {
       "fecha": "2026-10-16",
       "titulo": "Automasaje para piernas pesadas en casa",
