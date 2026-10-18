@@ -183,7 +183,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Cuidados después de la escleroterapia: qué hacer los primeros días — cuidados después de escleroterapia — cuidados-despues-escleroterapia — racimo: tratamiento
 - [publicado] Automasaje para piernas pesadas: qué puedes hacer en casa — automasaje piernas pesadas — automasaje-piernas-pesadas — racimo: situaciones
 - [publicado] Zapatos y tacones: ¿empeoran las várices? — tacones y várices — tacones-y-varices — racimo: sintomas
-- [pendiente] ¿Qué es la "piel de naranja" y qué tiene que ver con el lipedema? — piel de naranja lipedema — piel-de-naranja-lipedema — racimo: lipedema
+- [publicado] ¿Qué es la "piel de naranja" y qué tiene que ver con el lipedema? — piel de naranja lipedema — piel-de-naranja-lipedema — racimo: lipedema
 - [pendiente] Medias de compresión en el embarazo: cuándo empezar a usarlas — medias de compresión embarazo — medias-compresion-embarazo — racimo: tratamiento
 
 ## Tema fijado por Laura (22-sep-2026)

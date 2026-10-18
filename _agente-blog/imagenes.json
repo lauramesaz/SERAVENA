@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-17",
+  "actualizado": "2026-10-18",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "piel-de-naranja-lipedema": {
+      "imagen": "etapa-3.webp",
+      "alt": "Ilustración médica de un corte transversal de piel y tejido graso en una etapa avanzada del lipedema, con nódulos grandes y superficie irregular"
+    },
     "automasaje-piernas-pesadas": {
       "imagen": "hero-manos.webp",
       "alt": "Manos aplicando un automasaje suave y ascendente sobre la piel de la pierna, el gesto básico del autodrenaje para piernas pesadas e hinchadas"

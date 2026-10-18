@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-17",
+  "actualizado": "2026-10-18",
   "articulos": [
+    {
+      "fecha": "2026-10-18",
+      "titulo": "¿Qué tiene que ver la piel de naranja con el lipedema?",
+      "slug": "piel-de-naranja-lipedema",
+      "categoria": "Lipedema",
+      "keyword": "piel de naranja lipedema",
+      "seo": 93,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/piel-de-naranja-lipedema",
+      "nota": "Creado por la rutina automática del equipo de agentes (racimo 'lipedema'; primer tema pendiente de temas.md). Antes de escribir se verificó anticanibalización: 'piel de naranja' solo se mencionaba de pasada en como-saber-si-tengo-lipedema.html y guia-completa-lipedema.html, sin un explicador dedicado. Investigado con fuentes reales (Lipedema Foundation staging, Lipoedema UK, Frontiers in Immunology 2023 sobre fibrosis del tejido en lipedema). Explica el mecanismo (bandas fibrosas + nódulos que generan hundimientos en la piel), en qué etapa suele verse (sin forzar consenso entre fuentes que no coinciden del todo), qué revisa el equipo además del aspecto de la piel (simetría, dolor, fóvea, respeto de los pies) y admite honestamente que la textura también aparece en la celulitis común sin relación con lipedema. Médico: APROBADO sin correcciones (ninguna cifra inventada, ningún estudio citado con datos falsos, tono prudente en toda afirmación, post-note con señales de alarma reales). SEO estimado: 93/100 (keyword en title/h1/primer párrafo/un h2/meta, 3 enlaces a hermanos del racimo + 1 a ../lipedema + 1 a ../contacto, JSON-LD MedicalWebPage+BreadcrumbList+FAQPage con las 3 preguntas iguales en HTML, 0 rayas largas, cuerpo 744 palabras). Prueba de humanidad: 9/10 (abre con la escena de la lectora, criterio propio marcado explícitamente 'en Seravena preferimos...', admite el límite de la celulitis común, párrafo de una sola línea, cierre con acción concreta). Imagen etapa-3.webp (hasta ahora sin usar en el blog) registrada en imagenes.json. Enlaces de vuelta añadidos en los 3 hermanos del racimo (etapas-del-lipedema, como-saber-si-tengo-lipedema, diagnostico-lipedema)."
+    },
     {
       "fecha": "2026-10-17",
       "titulo": "Tacones y várices: ¿cuánto influye el zapato que usas?",

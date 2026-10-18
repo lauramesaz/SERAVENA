@@ -39,6 +39,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-18 | piel-de-naranja-lipedema | ¿Qué tiene que ver la piel de naranja con el lipedema? | piel de naranja lipedema | publicado | — | — | — |
 | 2026-10-17 | tacones-y-varices | Tacones y várices: ¿cuánto influye el zapato que usas? | tacones y várices | publicado | — | — | — |
 | 2026-10-16 | automasaje-piernas-pesadas | Automasaje para piernas pesadas en casa | automasaje piernas pesadas | publicado | — | — | — |
 | 2026-10-15 | prevencion-del-lipedema | Prevención del lipedema: qué sí está en tus manos | prevención del lipedema | publicado | — | — | — |
