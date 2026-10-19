@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-10-12",
+  "actualizado": "2026-10-19",
   "propuestas": [
+    {
+      "id": "2026-W43-1",
+      "fecha": "2026-10-19",
+      "titulo": "Corregir los 6 títulos de páginas raíz que superan el límite de 60 caracteres, empezando por la página de eco doppler",
+      "categoria": "Técnico",
+      "que": "Acortar el `<title>` (y sincronizar `og:title` donde exista) de 6 páginas de la raíz que hoy superan el límite de 60 caracteres que exige el propio manual (`_agente-blog/INSTRUCCIONES.md`, §3), manteniendo la keyword principal de cada una: `profesionales.html` (76 caracteres: 'Para médicos: refiere un paciente con lipedema o várices | Seravena Medellín', el peor de todo el sitio), `eco-doppler-venoso-medellin.html` (64: 'Eco doppler venoso en Medellín: qué detecta y cómo es | Seravena'), `guia-lipedema-medicos.html` (64), `test-lipedema.html` (64), `sobre.html` (63) y `lipedema-colombia.html` (62). Priorizar `eco-doppler-venoso-medellin.html` primero porque es, de las 6, la única página construida para una de las 5 búsquedas objetivo de la misión.",
+      "porque": "Medí hoy con un script los caracteres reales del `<title>` de las 20 páginas de la raíz (no cuento a ojo ni con `${#variable}` de bash, que falla con tildes): 6 superan el límite de 60 caracteres que el manual exige para que Google no trunque el título en el resultado de búsqueda. El caso más grave, `profesionales.html` con 76 caracteres, no es una de las 5 búsquedas objetivo, pero `eco-doppler-venoso-medellin.html` con 64 caracteres sí lo es: es justo la página creada el 24-sep para competir por 'eco doppler venoso Medellín', y hoy, repitiendo la búsqueda, Seravena sigue sin aparecer entre los resultados. Un título truncado corta a veces la keyword o el nombre de la marca a mitad de palabra, justo en la página donde eso más pesa.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Volver a medir los caracteres del `<title>` de las 6 páginas (deben quedar en 60 o menos sin perder la keyword principal) justo después del cambio. A las 4-8 semanas, si Search Console está conectado, revisar si cambia el CTR de 'eco doppler venoso Medellín' en particular.",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W43-2",
+      "fecha": "2026-10-19",
+      "titulo": "Añadir las etiquetas Open Graph que faltan en vascular.html, lipedema.html y el resto de páginas raíz sin vista previa al compartir",
+      "categoria": "Técnico",
+      "que": "Añadir el bloque completo de etiquetas Open Graph (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `og:image`, `og:image:alt`, `og:locale`) a `vascular.html` y `lipedema.html` —las dos páginas pilar de cada línea de negocio, hoy con cero etiquetas `og:`— y también a `contacto.html`, `preguntas.html`, `proceso.html` y `profesionales.html`. Completar además las que le faltan a `index.html`, que hoy solo tiene `og:title` y `og:description` de las ocho. Replicar exactamente el mismo bloque que ya existe en `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html` e `insuficiencia-venosa.html`.",
+      "porque": "Conté hoy las etiquetas `og:` de las 20 páginas de la raíz: `vascular.html` y `lipedema.html` —las dos páginas de servicio más importantes del sitio, cada una cabeza de su línea de negocio— tienen 0, igual que `contacto.html`, `preguntas.html`, `proceso.html`, `profesionales.html` y `aliados.html`; `index.html` tiene solo 2 de las 8 habituales (le faltan `og:image`, `og:url`, `og:type`, `og:locale`, `og:site_name`). En cambio, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `sobre.html`, `test-lipedema.html`, `lipedema-colombia.html` y `guia-lipedema-medicos.html` sí tienen las 7-8 completas, y comprobé que los 85 artículos del blog también las tienen todas, sin excepción. Es decir, el hueco es específico de las páginas de servicio más antiguas de la raíz, justo las dos que más se comparten: en Colombia el canal dominante para recomendar una clínica es reenviar el enlace por WhatsApp, y sin estas etiquetas ese enlace llega sin título, sin imagen y sin descripción, solo una URL pelada, mientras que las páginas nuevas de tratamiento sí llegan con la tarjeta completa.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Pegar la URL de `vascular.html` y `lipedema.html` en un depurador de vista previa (o compartirla por WhatsApp de prueba) y comprobar que aparece título, descripción e imagen. Indirecto a 4-6 semanas: si hay Analytics conectado, vigilar si sube el tráfico referido desde WhatsApp/redes a esas dos páginas frente a las semanas anteriores.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W42-1",
       "fecha": "2026-10-12",

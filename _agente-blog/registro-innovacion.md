@@ -202,3 +202,27 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   valor de enumeración no reconocido se descarta al validar los datos estructurados, así que esas
   páginas no le están confirmando a Google, de forma válida, la especialidad médica de la clínica.
   Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-10-19 · 2 propuestas nuevas (W43-1, W43-2).** Repetí las 5 búsquedas objetivo: Seravena
+  sigue sin aparecer en ninguna; misma competencia dominante de siempre (Doctoralia como directorio
+  más visible en las 5 búsquedas, Top Doctors, Centrolab para eco doppler, varios cirujanos
+  vasculares independientes con perfil propio en Doctoralia). No encontré competidores nuevos esta
+  semana. Antes de proponer comprobé en el código el estado de las 6 propuestas pendientes (W40-1
+  tel: en index.html, W40-2 JSON-LD duplicado en insuficiencia-venosa.html, W41-1 lang="es" en
+  index.html, W41-2 precio del eco doppler, W42-1 canibalización del artículo de eco doppler, W42-2
+  medicalSpecialty inválido): ninguna se ha implementado todavía, así que no las repetí; ninguna
+  lleva más de 30 días en `propuesta` (las más antiguas, W40-1 y W40-2, llevan 21 días), así que no
+  caduqué ninguna esta semana. Leí también `_agente-blog/registro-relaciones.md` (semana del 14-oct)
+  para no duplicar: el hallazgo de esa semana sobre el perfil de Doctoralia del Dr. José David Puerta
+  Rojas (existe, menciona a Seravena, pero no enlaza a clinicaseravena.com) ya está siendo seguido por
+  el agente relacionista, así que no lo convertí en propuesta propia. Encontré dos huecos nuevos y
+  verificables en el código, ninguno repetido: (1) medí con un script (no a ojo con bash, que falla
+  con tildes) los caracteres reales del `<title>` de las 20 páginas raíz: 6 superan el límite de 60
+  caracteres del manual — `profesionales.html` con 76 (el peor del sitio), `eco-doppler-venoso-medellin.html`
+  con 64 (la única de las 6 que es una de las 5 búsquedas objetivo), `guia-lipedema-medicos.html` y
+  `test-lipedema.html` con 64, `sobre.html` con 63 y `lipedema-colombia.html` con 62; (2) conté las
+  etiquetas Open Graph de las 20 páginas raíz: `vascular.html` y `lipedema.html` —las dos páginas
+  pilar de cada línea de negocio— tienen 0, igual que `contacto.html`, `preguntas.html`, `proceso.html`
+  y `profesionales.html`, mientras las páginas nuevas de tratamiento y los 85 artículos del blog sí
+  las tienen completas; sin ellas, al compartir esas páginas por WhatsApp —el canal que más se usa en
+  Colombia para recomendar una clínica— el enlace llega sin título, sin imagen y sin descripción.
+  Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
