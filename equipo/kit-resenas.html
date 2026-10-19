@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Kit de reseñas y Doctoralia | Equipo Seravena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/isotype-chocolate.png">
+<style>
+:root {
+  --chocolate: #4B412D; --camel: #9D8051; --camel-on-light: #806733;
+  --arena: #EDE2D0; --arena-deep: #e3d4bd; --piedra: #F9F9F8; --pardo: #1A1A1A; --muted: #6e6450;
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--piedra); color: var(--pardo); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 48px 20px 80px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 40px; }
+.top img { height: 26px; }
+.top small { color: var(--muted); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; }
+h1 { font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -.02em; line-height: 1.1; color: var(--chocolate); margin-bottom: 12px; }
+.intro { color: var(--muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 40px; }
+.paso { background: #fff; border: 1px solid var(--arena-deep); border-radius: var(--radius); padding: 32px; margin-bottom: 24px; }
+.paso-k { font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--camel-on-light); font-weight: 600; margin-bottom: 6px; }
+.paso h2 { font-weight: 500; font-size: 1.45rem; color: var(--chocolate); letter-spacing: -.01em; margin-bottom: 8px; }
+.paso > p { color: var(--muted); margin-bottom: 18px; }
+.regla { background: var(--piedra); border-left: 3px solid var(--camel); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: .92rem; color: var(--chocolate); margin: 6px 0 22px; }
+/* Tarjeta QR imprimible */
+.qr-zona { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.tarjeta-qr { width: 300px; background: var(--piedra); border: 1px solid var(--arena-deep); border-radius: 22px; padding: 28px 26px 22px; text-align: center; }
+.tarjeta-qr .logo { height: 22px; margin: 0 auto 16px; display: block; }
+.tarjeta-qr h3 { font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: var(--chocolate); margin-bottom: 14px; }
+.tarjeta-qr .qr { width: 200px; height: 200px; margin: 0 auto 12px; display: block; background: #fff; border-radius: 12px; padding: 8px; }
+.tarjeta-qr p { font-size: .82rem; color: var(--muted); }
+.tarjeta-qr .url { font-weight: 600; color: var(--chocolate); font-size: .85rem; margin-top: 4px; }
+.botones { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; border: 1px solid var(--chocolate); background: var(--chocolate); color: #fff; font: inherit; font-size: .9rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background .2s, color .2s; }
+.btn:hover { background: #3a3222; }
+.btn.sec { background: transparent; color: var(--chocolate); }
+.btn.sec:hover { background: var(--arena); }
+.btn.ok { background: var(--camel); border-color: var(--camel); }
+/* Textos para copiar */
+.copiable { border: 1px solid var(--arena-deep); border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+.copiable-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; background: var(--arena); }
+.copiable-head strong { font-weight: 600; font-size: .92rem; color: var(--chocolate); }
+.copiable-head span { font-size: .8rem; color: var(--muted); }
+.copiable-head .btn { padding: 7px 14px; font-size: .82rem; flex-shrink: 0; }
+.copiable pre { white-space: pre-wrap; word-wrap: break-word; font: inherit; font-size: .95rem; padding: 16px; background: #fff; color: var(--pardo); }
+.lista-pasos { padding-left: 20px; color: var(--pardo); margin-bottom: 20px; }
+.lista-pasos li { margin-bottom: 8px; }
+a { color: var(--camel-on-light); }
+@media (max-width: 680px) { .qr-zona { grid-template-columns: 1fr; justify-items: center; } .paso { padding: 24px 20px; } }
+/* Al imprimir: solo la tarjeta del QR, grande y centrada */
+@media print {
+  @page { size: A6 portrait; margin: 0; }
+  body { background: #fff; }
+  body * { visibility: hidden; }
+  .tarjeta-qr, .tarjeta-qr * { visibility: visible; }
+  .tarjeta-qr { position: fixed; inset: 0; margin: auto; width: 100%; height: 100%; border: none; border-radius: 0; background: #fff; display: flex; flex-direction: column; justify-content: center; padding: 10mm; }
+  .tarjeta-qr .qr { width: 62mm; height: 62mm; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="../assets/wordmark-pardo.webp" alt="Seravena">
+    <small>Uso interno del equipo</small>
+  </div>
+
+  <h1>Kit de reseñas y Doctoralia</h1>
+  <p class="intro">Las inteligencias artificiales y Google recomiendan a la clínica y al médico con más opiniones reales y con perfiles completos. Aquí está todo listo para copiar, pegar e imprimir.</p>
+
+  <!-- 1. QR -->
+  <section class="paso">
+    <p class="paso-k">Paso 1 · Recepción</p>
+    <h2>Tarjeta con QR para dejar opinión en Google</h2>
+    <p>Imprímela y ponla en recepción o entrégala al salir de la consulta. El QR abre directo la ventana para escribir la reseña.</p>
+    <div class="qr-zona">
+      <div class="tarjeta-qr" id="tarjeta">
+        <img class="logo" src="../assets/wordmark-pardo.webp" alt="Seravena">
+        <h3>¿Cómo te fue hoy en Seravena?</h3>
+        <img class="qr" src="qr-resena.svg" alt="Código QR para dejar tu opinión de Seravena en Google">
+        <p>Escanea con la cámara y cuéntalo en Google.<br>Tu opinión ayuda a otras mujeres a encontrarnos.</p>
+        <p class="url">clinicaseravena.com/resena</p>
+      </div>
+      <div>
+        <div class="botones">
+          <button class="btn" type="button" onclick="window.print()">Imprimir tarjeta</button>
+          <a class="btn sec" href="qr-resena.png" download="QR-resena-Seravena.png">Descargar QR</a>
+        </div>
+        <p style="margin-top:16px;color:var(--muted);font-size:.9rem">Al imprimir sale solo la tarjeta, en tamaño postal (A6). El QR sirve para siempre: si algún día cambia la ficha de Google, se actualiza el enlace por dentro y el QR impreso sigue funcionando.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WhatsApp -->
+  <section class="paso">
+    <p class="paso-k">Paso 2 · Después de cada consulta</p>
+    <h2>Mensajes de WhatsApp para pedir la opinión</h2>
+    <p>Cámbiale el nombre a la paciente y envíalo el mismo día de la consulta, cuando la experiencia está fresca.</p>
+    <p class="regla"><strong>Dos reglas de Google:</strong> envíalo a <strong>todas</strong> las pacientes, no solo a las que se fueron contentas, y nunca ofrezcas descuentos ni regalos a cambio de la reseña. Si no, Google puede borrar las reseñas.</p>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Mensaje 1 · Google</strong> · el mismo día</span><button class="btn" type="button" data-copiar="m1">Copiar</button></div>
+      <pre id="m1">Hola, [nombre]. Gracias por venir hoy a Seravena.
+
+Nos ayudaría mucho que contaras en Google cómo te fue en tu consulta con el Dr. Puerta. Te toma un minuto y le sirve a otras mujeres que están buscando a quién acudir:
+https://www.clinicaseravena.com/resena
+
+Y si te queda cualquier duda sobre tu plan, escríbenos por aquí.</pre>
+    </div>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Mensaje 2 · Recordatorio</strong> · 3 días después, solo si no la ha dejado</span><button class="btn" type="button" data-copiar="m2">Copiar</button></div>
+      <pre id="m2">Hola, [nombre]. ¿Cómo has seguido?
+
+Te dejo de nuevo el enlace por si quieres contar tu experiencia en Seravena. Cada opinión nos ayuda a llegar a más mujeres con lipedema o problemas en las venas:
+https://www.clinicaseravena.com/resena
+
+¡Gracias!</pre>
+    </div>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Mensaje 3 · Doctoralia</strong> · para quien ya dejó su opinión en Google</span><button class="btn" type="button" data-copiar="m3">Copiar</button></div>
+      <pre id="m3">Hola, [nombre]. ¡Mil gracias por tu opinión en Google!
+
+Si tienes un minuto más, también puedes contar tu experiencia con el Dr. José David Puerta Rojas en Doctoralia, donde muchas pacientes buscan a su médico. Entra aquí y toca "Dejar opinión":
+https://www.doctoralia.co/perfil/jose-david-puerta-rojas</pre>
+    </div>
+  </section>
+
+  <!-- 3. Doctoralia -->
+  <section class="paso">
+    <p class="paso-k">Paso 3 · Una sola vez</p>
+    <h2>Textos para completar el perfil de Doctoralia</h2>
+    <p>Hoy el perfil del Dr. Puerta en Doctoralia está casi vacío: sin foto, sin servicios y sin opiniones. Es la fuente que más consultan las IA para recomendar médicos en Medellín.</p>
+    <ol class="lista-pasos">
+      <li>Entra a <a href="https://www.doctoralia.co" target="_blank" rel="noopener">doctoralia.co</a> con la cuenta del doctor. Si no tiene cuenta, en el perfil toca "¿Eres el Dr. José David Puerta Rojas?" para reclamarlo.</li>
+      <li>Sube una <strong>foto real</strong> del doctor con bata y fondo claro. Es lo que más confianza da.</li>
+      <li>Copia y pega cada texto de abajo en su lugar.</li>
+    </ol>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Sobre mí</strong> · descripción del perfil</span><button class="btn" type="button" data-copiar="d1">Copiar</button></div>
+      <pre id="d1">Soy médico internista con subespecialidad en medicina vascular. Me enfoco en el diagnóstico y el manejo integral de las enfermedades venosas, arteriales y linfáticas, y del lipedema.
+
+Atiendo en Seravena, una clínica de lipedema y salud vascular en El Poblado, Medellín (Torre Médica Salud Vegas, consultorio 1316). Allí valoro a pacientes con várices, arañitas, piernas pesadas o hinchadas, insuficiencia venosa crónica y sospecha de lipedema.
+
+En la consulta escucho tu historia, te examino y apoyo el diagnóstico en el eco doppler. Con el diagnóstico claro te explico qué corresponde en tu caso, en qué orden y qué es razonable esperar. En lipedema el manejo es conservador y multidisciplinario: trabajo coordinado con nutrición, deporte, compresión y psicología.
+
+No prometo curas ni resultados garantizados. Prefiero que tomes la decisión con toda la información.
+
+Más información en www.clinicaseravena.com</pre>
+    </div>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Enfermedades que trata</strong> · agrégalas una por una</span><button class="btn" type="button" data-copiar="d2">Copiar</button></div>
+      <pre id="d2">Lipedema
+Várices
+Arañas vasculares (telangiectasias)
+Insuficiencia venosa crónica
+Piernas pesadas e hinchadas (edema de miembros inferiores)
+Enfermedades linfáticas</pre>
+    </div>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Servicios</strong> · agrégalos uno por uno</span><button class="btn" type="button" data-copiar="d3">Copiar</button></div>
+      <pre id="d3">Consulta de medicina vascular
+Valoración de lipedema
+Eco doppler venoso de miembros inferiores
+Escleroterapia
+Tratamiento de várices sin cirugía
+Manejo integral del lipedema</pre>
+    </div>
+    <p class="regla">Doctoralia pide un precio por servicio. Pon solo el de la <strong>valoración</strong> y en los demás elige "Consultar precio", igual que hacemos en WhatsApp.</p>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Página web</strong> · si Doctoralia deja ponerla</span><button class="btn" type="button" data-copiar="d4">Copiar</button></div>
+      <pre id="d4">https://www.clinicaseravena.com/dr-jose-david-puerta-rojas</pre>
+    </div>
+
+    <div class="copiable">
+      <div class="copiable-head"><span><strong>Consultorio</strong> · revisa que diga exactamente esto</span><button class="btn" type="button" data-copiar="d5">Copiar</button></div>
+      <pre id="d5">Seravena · Torre Médica Salud Vegas, consultorio 1316
+Calle 2 Sur #46-159, El Poblado, Medellín, Antioquia</pre>
+    </div>
+  </section>
+</div>
+
+<script>
+document.querySelectorAll('[data-copiar]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var txt = document.getElementById(b.getAttribute('data-copiar')).innerText;
+    var listo = function () { var t = b.textContent; b.textContent = 'Copiado ✓'; b.classList.add('ok'); setTimeout(function () { b.textContent = t; b.classList.remove('ok'); }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(txt).then(listo); }
+    else { var a = document.createElement('textarea'); a.value = txt; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); listo(); }
+  });
+});
+</script>
+</body>
+</html>
