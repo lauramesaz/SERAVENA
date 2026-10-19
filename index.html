@@ -21,9 +21,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" as="image" href="assets/media/hero-manos.webp" media="(min-width: 768px)">
-<link rel="preload" as="image" href="assets/media/hero-manos-movil.webp" media="(max-width: 767px)">
+<link rel="preload" as="image" href="assets/media/sede-fachada.webp" fetchpriority="high">
 <link rel="stylesheet" href="styles.css?v=20260929a">
+<style>
+/* Banner del inicio con fotos reales de la sede: se turnan solas con un zoom muy lento */
+.hm-fotos { background: #3a3222; }
+.hm-fotos .hm-media { inset: 0; left: 0; top: 0; -webkit-mask-image: none; mask-image: none; }
+.hm-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; transform: scale(1.08); animation: hmSlide 28s linear infinite; }
+.hm-slide:nth-child(1), .hm-cap:nth-child(1) { animation-delay: -1.75s; }
+.hm-slide:nth-child(1) { opacity: 1; transform: scale(1.06); } /* visible desde el primer instante, antes de que arranque la animación */
+.hm-slide:nth-child(2), .hm-cap:nth-child(2) { animation-delay: 5.25s; }
+.hm-slide:nth-child(3), .hm-cap:nth-child(3) { animation-delay: 12.25s; }
+.hm-slide:nth-child(4), .hm-cap:nth-child(4) { animation-delay: 19.25s; }
+@keyframes hmSlide { 0% { opacity: 0; transform: scale(1.08); } 6.25% { opacity: 1; } 25% { opacity: 1; } 31.25% { opacity: 0; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
+@keyframes hmCap { 0%, 6.25% { opacity: 0; } 9.5% { opacity: 1; } 22% { opacity: 1; } 25%, 100% { opacity: 0; } } /* el nombre sale y entra sin encimarse */
+/* Recepción: el letrero queda a la derecha del título (se amplía desde el borde izquierdo) */
+.hm-slide:nth-child(3) { transform-origin: 0% 50%; animation-name: hmSlideR; }
+@keyframes hmSlideR { 0% { opacity: 0; transform: scale(1.34); } 6.25% { opacity: 1; } 25% { opacity: 1; } 31.25% { opacity: 0; transform: scale(1.26); } 100% { opacity: 0; transform: scale(1.26); } }
+/* Velo más fuerte: las fotos son claras y el título es blanco */
+.hm-fotos .hm-veil { background:
+  linear-gradient(90deg, rgba(52,40,27,.74) 0%, rgba(52,40,27,.46) 38%, rgba(52,40,27,.1) 70%),
+  linear-gradient(0deg, rgba(44,33,22,.62) 0%, rgba(44,33,22,0) 40%),
+  linear-gradient(180deg, rgba(44,33,22,.38) 0%, rgba(44,33,22,0) 22%); }
+/* Nombre del espacio que se está viendo */
+.hm-caps { position: absolute; z-index: 3; left: 0; right: 0; bottom: clamp(24px, 4.5vh, 44px); pointer-events: none; }
+.hm-caps .container { position: relative; height: 1.4em; }
+.hm-cap { position: absolute; top: 0; display: inline-flex; align-items: center; gap: 12px; opacity: 0; animation: hmCap 28s linear infinite; font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.88); white-space: nowrap; }
+.hm-cap::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,.7); }
+@media (max-width: 767px) {
+  /* En celular la foto va debajo del título (que queda sobre fondo liso) y se funde hacia arriba */
+  .hm-fotos .hm-media { top: 30%; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 24%); mask-image: linear-gradient(180deg, transparent 0, #000 24%); }
+  .hm-fotos .hm-veil { background: linear-gradient(180deg, rgba(44,33,22,0) 0%, rgba(44,33,22,0) 28%, rgba(44,33,22,.52) 50%, rgba(44,33,22,.68) 100%); }
+  .hm-fotos .hero-sub { text-shadow: 0 1px 14px rgba(40,30,20,.6); }
+  .hm-caps { display: none; } /* en celular chocaba con el botón de WhatsApp */
+  .hm-slide:nth-child(1) { object-position: 62% 50%; }
+  .hm-slide:nth-child(3) { animation-name: hmSlide; transform-origin: 50% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hm-slide, .hm-cap { animation: none; transform: none; }
+  .hm-slide:nth-child(1), .hm-cap:nth-child(1) { opacity: 1; }
+}
+</style>
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
 <script type="application/ld+json">
@@ -103,23 +141,16 @@
   </div>
 </header>
 
-<!-- Hero con movimiento: video de las manos + círculos de puntitos (ruido) que se dibujan y titilan -->
-<section class="hero hero-home hero-mov" id="top">
-  <div class="hm-media">
-    <video class="hm-video" muted loop playsinline preload="none" poster="assets/media/hero-manos.webp" aria-hidden="true"
-      data-src="assets/media/hero-manos.mp4" data-src-movil="assets/media/hero-manos-movil.mp4" data-poster-movil="assets/media/hero-manos-movil-video.webp"></video>
+<!-- Banner del inicio: fotos reales de la sede que se turnan + sello de Google -->
+<section class="hero hero-home hero-mov hm-fotos" id="top">
+  <div class="hm-media hm-slides">
+    <img class="hm-slide" src="assets/media/sede-fachada.webp" alt="Entrada de Seravena en la Torre Médica Salud Vegas, con la recepción y el logo" fetchpriority="high">
+    <img class="hm-slide" src="assets/media/sede-consultorio.webp" alt="Consultorio de Seravena con ventanal y vista a Medellín" decoding="async">
+    <img class="hm-slide" src="assets/media/sede-recepcion.webp" alt="Recepción de Seravena con pared en madera y el logo de la marca" decoding="async">
+    <img class="hm-slide" src="assets/media/sede-cabina.webp" alt="Cabina de tratamiento de Seravena con camilla y equipo de presoterapia" decoding="async">
   </div>
   <div class="hm-veil"></div>
   <div class="hl-grain" aria-hidden="true"></div>
-
-  <!-- Trazos finos (se dibujan al entrar y giran muy despacio) -->
-  <svg class="hm-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <!-- Círculos de "ruido": puntitos granulados que arma script.js a lo largo de cada círculo -->
-    <g class="hm-noise" data-circulos="880,420,310;1180,440,400;580,440,400"></g>
-    <g class="hm-orbit"><circle class="hm-dot" cx="880" cy="110" r="7"/></g>
-    <path class="hm-spark hm-s1" d="M0,-16 C1.5,-3 3,-1.5 16,0 C3,1.5 1.5,3 0,16 C-1.5,3 -3,1.5 -16,0 C-3,-1.5 -1.5,-3 0,-16Z" transform="translate(880 176)"/>
-    <path class="hm-spark hm-s2" d="M0,-16 C1.5,-3 3,-1.5 16,0 C3,1.5 1.5,3 0,16 C-1.5,3 -3,1.5 -16,0 C-3,-1.5 -1.5,-3 0,-16Z" transform="translate(880 704) scale(.8)"/>
-  </svg>
 
   <div class="container hero-inner hm-inner">
     <p class="eyebrow reveal">Lipedema · Salud vascular · Medellín</p>
@@ -135,6 +166,13 @@
       <a href="lipedema" class="hm-link">Conoce el tratamiento <i aria-hidden="true">→</i></a>
     </div>
   </div>
+
+  <div class="hm-caps" aria-hidden="true"><div class="container">
+    <span class="hm-cap">Nuestra sede · Entrada</span>
+    <span class="hm-cap">Consultorio con vista a Medellín</span>
+    <span class="hm-cap">Recepción</span>
+    <span class="hm-cap">Cabina de tratamiento</span>
+  </div></div>
 
   <!-- Sello circular (estilo "dato" de las referencias): la nota de Google cuenta hasta 4,9 -->
   <a class="hm-badge reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" aria-label="4,9 de 5 en Google">
