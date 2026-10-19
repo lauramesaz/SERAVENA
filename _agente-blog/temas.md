@@ -184,7 +184,20 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Automasaje para piernas pesadas: qué puedes hacer en casa — automasaje piernas pesadas — automasaje-piernas-pesadas — racimo: situaciones
 - [publicado] Zapatos y tacones: ¿empeoran las várices? — tacones y várices — tacones-y-varices — racimo: sintomas
 - [publicado] ¿Qué es la "piel de naranja" y qué tiene que ver con el lipedema? — piel de naranja lipedema — piel-de-naranja-lipedema — racimo: lipedema
-- [pendiente] Medias de compresión en el embarazo: cuándo empezar a usarlas — medias de compresión embarazo — medias-compresion-embarazo — racimo: tratamiento
+- [publicado] Medias de compresión en el embarazo: cuándo empezar a usarlas — medias de compresión embarazo — medias-compresion-embarazo — racimo: tratamiento
+
+## Temas nuevos (añadidos por el orquestador el 19-oct-2026 — no quedaba ningún tema pendiente)
+
+- [pendiente] Medias de compresión para volar: qué cambia frente a las de uso diario — medias de compresión avión — medias-compresion-para-volar — racimo: tratamiento
+- [pendiente] Insuficiencia venosa en hombres: por qué se consulta menos — insuficiencia venosa en hombres — insuficiencia-venosa-en-hombres — racimo: diagnostico
+- [pendiente] Piernas hinchadas antes de la menstruación: por qué pasa cada mes — piernas hinchadas menstruación — piernas-hinchadas-menstruacion — racimo: sintomas
+- [pendiente] Lipedema y resistencia a la insulina: qué dice la evidencia — lipedema resistencia a la insulina — lipedema-resistencia-insulina — racimo: lipedema
+- [pendiente] Lipedema en cadera y glúteos: cómo se reconoce — lipedema en cadera y glúteos — lipedema-cadera-gluteos — racimo: lipedema
+- [pendiente] Celulitis o lipedema: cómo diferenciarlos a simple vista — celulitis o lipedema — celulitis-o-lipedema — racimo: lipedema
+- [pendiente] Yoga y pilates si tienes piernas pesadas o várices: qué considerar — yoga para la circulación — yoga-pilates-circulacion-piernas — racimo: situaciones
+- [pendiente] Dolor de espalda baja y piernas pesadas: ¿están relacionados? — dolor de espalda y piernas pesadas — dolor-espalda-piernas-pesadas — racimo: sintomas
+- [pendiente] Lipedema después de una cirugía bariátrica: qué cambia y qué no — lipedema cirugía bariátrica — lipedema-cirugia-bariatrica — racimo: lipedema
+- [pendiente] Medias de compresión en el posparto: cuánto tiempo seguir usándolas — medias de compresión posparto — medias-compresion-posparto — racimo: tratamiento
 
 ## Tema fijado por Laura (22-sep-2026)
 

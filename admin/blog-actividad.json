@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-18",
+  "actualizado": "2026-10-19",
   "articulos": [
+    {
+      "fecha": "2026-10-19",
+      "titulo": "Medias de compresión en el embarazo: cuándo usarlas",
+      "slug": "medias-compresion-embarazo",
+      "categoria": "Salud vascular",
+      "keyword": "medias de compresión embarazo",
+      "seo": 91,
+      "medico": "aprobado con correcciones",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/medias-compresion-embarazo",
+      "nota": "Creado por la rutina automática del equipo de agentes (racimo 'tratamiento'; único tema pendiente de temas.md). Investigado con fuentes reales (recomendación OMS 2023 sobre manejo no farmacológico de várices/edema del embarazo, ensayo de Thaler et al. 2001, revisión en español sobre medias como primera línea en gestantes). Explica por qué no hay una semana exacta para empezar, qué dice la evidencia sobre prevención vs. alivio de síntomas, cómo ponérselas bien y diferencia la hinchazón normal del embarazo de señales de trombosis venosa y de preeclampsia. Médico: APROBADO CON CORRECCIONES (ajustó una generalización sobre venotónicos orales a lo que respalda la fuente -rutósidos- y corrigió el redondeo de la cifra de prevalencia de 'casi 8 de cada 10' a '7 u 8 de cada 10' para que coincida con el cuerpo del texto). SEO: 91/100, APTO (se aplicaron las 3 mejoras menores del Juez: keyword en un h2, Medellín en el primer párrafo, CTA en la meta description). Prueba de humanidad: 0 rayas largas, sin huellas de IA prohibidas, criterio propio de Seravena marcado explícitamente sobre medir la talla en consulta, límite honesto sobre que las medias no sustituyen una valoración, contexto local real de Medellín. Imagen hero-manos-movil.webp (hasta ahora sin usar) registrada en imagenes.json. Enlaces de vuelta añadidos en los 3 hermanos del racimo (varices-en-el-embarazo, medias-de-compresion-guia, medias-compresion-colombia-comprar). Se marcó el tema como publicado en temas.md y, al no quedar ningún tema pendiente, se añadieron 10 temas nuevos al final."
+    },
     {
       "fecha": "2026-10-18",
       "titulo": "¿Qué tiene que ver la piel de naranja con el lipedema?",
