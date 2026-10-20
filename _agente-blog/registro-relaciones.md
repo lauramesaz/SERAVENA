@@ -731,8 +731,8 @@ Esto cambia lo que vengo diciendo semana a semana:
    después del 28-sep (Vivir en El Poblado, Infolocal) **no están en el kit**: si Laura va a usar el
    kit como referencia única, habría que añadirlos ahí; si prefiere seguir usando esta bitácora, que
    sepa que el kit tiene uno más que aquí no estaba.
-3. El kit confirma algo que yo no sabía: **Seravena sí tiene Instagram, @seravenams**
-   (instagram.com/seravenams), activo desde antes del 28-sep. Ninguno de mis informes anteriores lo
+3. El kit confirma algo que yo no sabía: **Seravena sí tiene Instagram, @seravena_clinica**
+   (instagram.com/seravena_clinica), activo desde antes del 28-sep. Ninguno de mis informes anteriores lo
    encontró como mención externa porque nunca hasta ahora busqué la cuenta por su usuario exacto.
 
 **Recomendación concreta:** que alguien (no yo, no toco ese archivo ni los demás del equipo) decida

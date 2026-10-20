@@ -30,7 +30,7 @@ duda de que sea la misma clínica.
 | Teléfono / WhatsApp | +57 305 208 8204 |
 | Correo | info@clinicaseravena.com |
 | Web | https://www.clinicaseravena.com/?utm_source=NOMBREDELSITIO&utm_medium=directorio |
-| Instagram | https://www.instagram.com/seravenams/ |
+| Instagram | https://www.instagram.com/seravena_clinica/ |
 | Horario | [CONFIRMAR HORARIO] |
 | Forma de atención | Solo particular (sin EPS ni prepagada). No se necesita remisión. |
 
@@ -96,7 +96,7 @@ Atendemos solo de forma particular (sin EPS ni prepagada) y no necesitas remisi�
 
 ### Redes
 
-- Instagram: https://www.instagram.com/seravenams/ (@seravenams)
+- Instagram: https://www.instagram.com/seravena_clinica/ (@seravena_clinica)
 - Facebook: todavía no existe. Se crea en la sección B.
 - LinkedIn: todavía no existe. Se crea en la sección B.
 
@@ -204,7 +204,7 @@ señal de que la clínica existe. No hace falta publicar seguido.
   la página queda aparte).
 - Nombre: Seravena · Categoría: Clínica médica (o la más parecida)
 - Biografía: la descripción corta · Información: dirección, WhatsApp, correo, web con `utm_source=facebook`
-- Conecta Instagram @seravenams desde la configuración de la página.
+- Conecta Instagram @seravena_clinica desde la configuración de la página.
 
 ### 6. Página de empresa en LinkedIn
 
