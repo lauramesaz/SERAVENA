@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-20",
   "articulos": [
+    {
+      "fecha": "2026-10-20",
+      "titulo": "Medias de compresión avión: no son todas iguales a las de uso diario",
+      "slug": "medias-compresion-para-volar",
+      "categoria": "Tratamientos",
+      "keyword": "medias de compresión avión",
+      "seo": 99,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/medias-compresion-para-volar",
+      "nota": "Racimo 'tratamiento'. Explica la diferencia de grado entre las medias de uso diario (recetadas) y las medias de viaje genéricas que se venden sueltas para el avión, con evidencia de CDC y una revisión Cochrane sobre trombosis en vuelos largos. Médico: APROBADO. SEO: 99/100, APTO. Policía humanizador: control final sin hallazgos (sin frases robóticas tras los cambios del Juez SEO a title/H1/OG/JSON-LD/un H2). Enlaces de vuelta añadidos/ajustados en los 3 hermanos del racimo (medias-compresion-colombia-comprar, medias-compresion-embarazo, guia-tratamientos-varices), recortando esos bloques a un máximo de 4 enlaces cada uno."
+    },
     {
       "fecha": "2026-10-19",
       "titulo": "Medias de compresión en el embarazo: cuándo usarlas",

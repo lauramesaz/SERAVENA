@@ -188,7 +188,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 ## Temas nuevos (añadidos por el orquestador el 19-oct-2026 — no quedaba ningún tema pendiente)
 
-- [pendiente] Medias de compresión para volar: qué cambia frente a las de uso diario — medias de compresión avión — medias-compresion-para-volar — racimo: tratamiento
+- [publicado] Medias de compresión para volar: qué cambia frente a las de uso diario — medias de compresión avión — medias-compresion-para-volar — racimo: tratamiento
 - [pendiente] Insuficiencia venosa en hombres: por qué se consulta menos — insuficiencia venosa en hombres — insuficiencia-venosa-en-hombres — racimo: diagnostico
 - [pendiente] Piernas hinchadas antes de la menstruación: por qué pasa cada mes — piernas hinchadas menstruación — piernas-hinchadas-menstruacion — racimo: sintomas
 - [pendiente] Lipedema y resistencia a la insulina: qué dice la evidencia — lipedema resistencia a la insulina — lipedema-resistencia-insulina — racimo: lipedema
