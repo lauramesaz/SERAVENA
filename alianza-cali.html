@@ -605,7 +605,7 @@ h1 .l.gris{color:#8a7d66}
       <p class="lead">Ustedes ponen la clínica y la inversión. <b>Nosotros lo montamos y lo operamos:</b> personal, equipos, capacitación, pauta y ventas.</p>
       <div class="acciones">
         <a class="btn" href="#funciona">Ver cómo lo montamos</a>
-        <a class="link" href="#simulador">Ir al simulador</a>
+        <a class="link" href="#planes">Ver los planes</a>
       </div>
       <ul class="sellos">
         <li><b>4,9</b>en Google</li>
@@ -702,7 +702,7 @@ h1 .l.gris{color:#8a7d66}
           <article class="etapa"><span class="nodo"></span>
             <div class="et-n"><b>1</b><span>Semana 0</span></div>
             <h3>Firmamos</h3>
-            <ul><li>Acuerdo de confidencialidad y contrato.</li><li>Primer pago del montaje.</li><li>Visitamos su sede: espacios, consultorios y permisos de salud.</li></ul>
+            <ul><li>Acuerdo de confidencialidad y contrato.</li><li>Definimos fechas y responsables.</li><li>Visitamos su sede: espacios, consultorios y permisos de salud.</li></ul>
             <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>Lista de revisión de la sede</p><i></i><i></i><i></i><small>Se abre al firmar</small></div>
           </article>
           <article class="etapa"><span class="nodo"></span>
@@ -870,13 +870,12 @@ h1 .l.gris{color:#8a7d66}
       <div class="planes-cab">
         <p class="ceja rv">Los planes</p>
         <h2 class="h2 rv" style="--d:1">Tres formas de hacerlo. <span>Ustedes eligen.</span></h2>
-        <p class="bajada rv" style="--d:2">Los tres incluyen el montaje completo. Cambia cuánto operamos nosotros. Toquen uno y miren cómo cambian los números.</p>
+        <p class="bajada rv" style="--d:2">Los tres incluyen el montaje completo. Cambia cuánto operamos nosotros. Toquen el que más les sirva.</p>
       </div>
       <div class="menu" id="menu">
         <button type="button" class="plan rv" data-plan="0" aria-pressed="false" style="--d:0">
           <h3>Programa</h3>
           <p class="para">Lo montamos, los capacitamos y cuidamos la calidad. Ustedes venden.</p>
-          <div class="precio"><b data-precio="montaje"></b><span>de montaje</span><b class="mas" data-precio="paciente"></b><span>por cada paciente que entra</span><em class="borr" data-borrador>Valores de referencia</em></div>
           <ul>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Montaje completo</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Capacitación y certificados</li>
@@ -889,7 +888,6 @@ h1 .l.gris{color:#8a7d66}
           <span class="tag">Recomendado</span>
           <h3>Programa + pacientes</h3>
           <p class="para">Todo lo anterior, y además les traemos las pacientes.</p>
-          <div class="precio"><b data-precio="montaje"></b><span>de montaje</span><b class="mas" data-precio="paciente"></b><span data-precio="minimo">por cada paciente que entra</span><em class="borr" data-borrador>Valores de referencia</em></div>
           <ul>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Todo lo del plan Programa</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Pauta en Google e Instagram</li>
@@ -903,7 +901,6 @@ h1 .l.gris{color:#8a7d66}
         <button type="button" class="plan rv" data-plan="2" aria-pressed="false" style="--d:2">
           <h3>Todo operado</h3>
           <p class="para">Una persona de Seravena dirige el programa en su sede, todos los días.</p>
-          <div class="precio"><b data-precio="montaje"></b><span>de montaje</span><b class="mas" data-precio="paciente"></b><span>por cada paciente que entra</span><em class="borr" data-borrador>Valores de referencia</em></div>
           <ul>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Todo lo del plan anterior</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Coordinadora de Seravena en Cali (su salario va por cuenta de la clínica)</li>
@@ -915,34 +912,12 @@ h1 .l.gris{color:#8a7d66}
     </div>
   </section>
 
-  <!-- 8 · SIMULADOR -->
-  <section class="sim" id="simulador">
-    <div class="ancho">
-      <div>
-        <p class="ceja rv">El simulador</p>
-        <h2 class="h2 rv" style="--d:1">Muevan la barra. <span>Esto es lo que deja.</span></h2>
-        <p class="bajada rv" style="--d:2">Cuántas pacientes entran al programa cada mes, con el plan que eligieron.</p>
-        <p class="plan-sel rv" style="--d:3">Plan: <b id="sim-plan">Programa + pacientes</b> <a href="#planes">Cambiar</a></p>
-      </div>
-      <div class="tablero rv" style="--d:1">
-        <div class="cuantas"><b id="n">10</b><span>pacientes al mes</span></div>
-        <input class="rango" id="rango" type="range" min="3" max="30" value="10" aria-label="Pacientes que entran al programa cada mes">
-        <div class="cascada">
-          <div class="c-fila"><span>Entra a su clínica</span><b id="v-entra">$0</b></div>
-          <div class="c-fila"><span>Para Seravena<small id="v-nota"></small></span><b id="v-sera">$0</b></div>
-          <div class="c-fila queda"><span>Queda para su clínica<small>Antes de nómina, equipos y pauta</small></span><b id="v-queda">$0</b></div>
-        </div>
-        <p class="sim-pie">Ejemplo con el precio del programa en Medellín (<span id="v-precio"></span> por paciente). En Cali el precio lo definimos juntos.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- 9 · CIERRE -->
   <section class="cierre rv" id="cierre">
     <div class="ancho">
       <svg class="llave" viewBox="0 0 74 74" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="37" r="12"/><circle cx="24" cy="37" r="4"/><path d="M36 37h28M54 37v8M62 37v6"/></g></svg>
       <h2>¿Cuál plan escogen?</h2>
-      <div class="resumen"><span>Plan <b id="r-plan">Programa + pacientes</b></span><span><b id="r-n">10</b> pacientes al mes</span></div>
+      <div class="resumen"><span>Plan <b id="r-plan">Programa + pacientes</b></span></div>
       <div><a class="btn" id="whatsapp" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Escogemos este plan</a></div>
       <p class="sig">Siguiente paso: firmamos la confidencialidad y les mostramos el detalle.</p>
     </div>
@@ -964,19 +939,13 @@ const CONFIG = {
   clave: "111",
   clinica: "",                       // nombre de la clínica de Cali (vacío = "su clínica en Cali")
   whatsapp: "573052088204",          // a quién le llega "Escogemos este plan" (POR CONFIRMAR con Laura)
-  precioPrograma: 8952381,           // precio del programa en Medellín (cotizador), solo para el ejemplo
-  borrador: true,                    // true = muestra los avisos "por confirmar"
-  planes: [
-    { nombre: "Programa",             montaje: 45000000, paciente: 700000,  minimo: 0 },
-    { nombre: "Programa + pacientes", montaje: 60000000, paciente: 900000,  minimo: 5 },
-    { nombre: "Todo operado",         montaje: 80000000, paciente: 1200000, minimo: 5 },
-  ],
+  borrador: false,
+  planes: ["Programa", "Programa + pacientes", "Todo operado"],
 };
 /* ======================================================================== */
 (function(){
   "use strict";
   var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
-  var pesos=function(v){return "$"+Math.round(v).toLocaleString("es-CO")};
   var quieto=matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ev=function(n){try{window.clarity&&window.clarity("event",n)}catch(e){}};
   var todo=$("#todo");
@@ -1115,7 +1084,7 @@ const CONFIG = {
     if(s!==actualPaso){
       pasos.forEach(function(el,i){el.classList.toggle("on",i===s);el.classList.toggle("hecho",i<s)});
       pants.forEach(function(el,i){el.classList.toggle("on",i===s)});
-      if(s===3){var b=Math.max(1,+$("#rango").value);cuenta.textContent=b;setTimeout(function(){cuenta.textContent=b+1;cuenta.classList.remove("salta");void cuenta.offsetWidth;cuenta.classList.add("salta")},700)}
+      if(s===3){var b=10;cuenta.textContent=b;setTimeout(function(){cuenta.textContent=b+1;cuenta.classList.remove("salta");void cuenta.offsetWidth;cuenta.classList.add("salta")},700)}
       actualPaso=s;
     }
     ins.forEach(function(el,i){el.classList.toggle("on",i<=s&&(i<s||sub>.15))});
@@ -1149,39 +1118,21 @@ const CONFIG = {
   medir();tick();
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){medir();tick()});
 
-  /* ---------- Planes → simulador → cierre ---------- */
-  var plan=1, rango=$("#rango"), botonesPlan=$$(".plan");
+  /* ---------- Planes → cierre ---------- */
+  var plan=1, botonesPlan=$$(".plan");
+  function calcula(){
+    var nombre=CONFIG.planes[plan];
+    $("#r-plan").textContent=nombre;
+    var txt="Hola, venimos de la propuesta web de Seravena. Somos "+(CONFIG.clinica||"la clínica de Cali")+" y escogemos el plan "+nombre+".";
+    $("#whatsapp").href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(txt);
+  }
   botonesPlan.forEach(function(b){
-    var d=CONFIG.planes[+b.getAttribute("data-plan")];
-    $('[data-precio="montaje"]',b).textContent=pesos(d.montaje);
-    $('[data-precio="paciente"]',b).textContent=pesos(d.paciente);
-    var m=$('[data-precio="minimo"]',b);if(m&&d.minimo)m.textContent="por paciente · mínimo "+d.minimo+" al mes";
     b.addEventListener("click",function(){
       plan=+b.getAttribute("data-plan");
       botonesPlan.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
       calcula();ev("plan_elegido");
     });
   });
-  var mostrados={};
-  function animaA(id,valor){
-    var el=document.getElementById(id),de=mostrados[id]||0;mostrados[id]=valor;
-    if(quieto){el.textContent=pesos(valor);return}
-    var t0=performance.now();cancelAnimationFrame(el._r);
-    (function paso(t){var a=Math.min(1,(t-t0)/450),e=1-Math.pow(1-a,3);el.textContent=pesos(de+(valor-de)*e);if(a<1)el._r=requestAnimationFrame(paso)})(t0);
-  }
-  function calcula(){
-    var n=+rango.value,d=CONFIG.planes[plan],cobra=Math.max(n,d.minimo||0)*d.paciente;
-    $("#n").textContent=n;$("#r-n").textContent=n;
-    rango.style.setProperty("--p",((n-rango.min)/(rango.max-rango.min)*100)+"%");
-    $("#sim-plan").textContent=d.nombre;$("#r-plan").textContent=d.nombre;
-    $("#v-nota").textContent=(d.minimo&&n<d.minimo)?"Se cobra el mínimo de "+d.minimo+" pacientes":"";
-    animaA("v-entra",n*CONFIG.precioPrograma);animaA("v-sera",cobra);animaA("v-queda",n*CONFIG.precioPrograma-cobra);
-    var txt="Hola, venimos de la propuesta web de Seravena. Somos "+(CONFIG.clinica||"la clínica de Cali")+" y escogemos el plan "+d.nombre+", pensando en "+n+" pacientes al mes.";
-    $("#whatsapp").href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(txt);
-  }
-  $("#v-precio").textContent=pesos(CONFIG.precioPrograma);
-  var tocoSim=false;
-  rango.addEventListener("input",function(){calcula();if(!tocoSim){tocoSim=true;ev("simulador")}});
   $("#whatsapp").addEventListener("click",function(){ev("clic_whatsapp")});
   calcula();
 })();
