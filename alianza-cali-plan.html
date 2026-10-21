@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<script>document.documentElement.classList.add('js')</script>
+<!--
+  Seravena · página PRIVADA "Propuesta para la clínica de Cali" (clave 111, no indexada, sin enlaces desde la web).
+  Muestra el QUÉ del programa, nunca el CÓMO (sin dosis, sesiones, ajustes de equipos, guiones completos ni costos).
+  Montos y datos marcados como borrador hasta que Laura los confirme: ver CONFIG en el script.
+-->
+<title>Propuesta privada · Seravena</title>
+<meta name="description" content="Propuesta privada de Seravena para operar el programa de lipedema en Cali.">
+<meta name="theme-color" content="#F9F9F8">
+<link rel="icon" href="assets/isotype-camel.png">
+<link rel="canonical" href="https://www.clinicaseravena.com/alianza-cali-plan">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Propuesta privada · Seravena">
+<meta property="og:description" content="El programa de lipedema de Seravena, funcionando en su clínica en Cali.">
+<meta property="og:image" content="https://www.clinicaseravena.com/assets/og-alianza-cali.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap"></noscript>
+<link rel="preload" as="image" href="assets/media/sede-consultorio.webp">
+<style>
+:root{
+  --fondo:#F9F9F8; --suave:#F2EDE4; --suave-2:#EDE2D0; --tinta:#1A1A1A; --tenue:#5f5646; --linea:#e4dbcc;
+  --acento:#4B412D; --acento-vivo:#3a3222; --camel:#806733; --camel-hilo:#9D8051; --oscuro:#231d15;
+  --tenue-osc:rgba(249,246,240,.74); --camel-osc:#d2bb8f;
+  --texto:"Plus Jakarta Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --lado:clamp(16px,5vw,72px); --seccion:clamp(84px,10vw,150px); --max:1240px;
+  --curva:cubic-bezier(.2,.8,.2,1); --lenta:cubic-bezier(.16,1,.3,1); --telon:cubic-bezier(.77,0,.18,1);
+  --grano:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .27 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--fondo);color:var(--tinta);font:400 17px/1.6 var(--texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.3;mix-blend-mode:multiply;background-image:var(--grano)}
+main,header,footer{position:relative;z-index:1}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{margin:0;letter-spacing:-.025em;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+.ancho{max-width:var(--max);margin:0 auto;padding:0 var(--lado)}
+.ceja{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--camel);margin:0 0 18px}
+.h2{font-weight:300;font-size:clamp(32px,3.8vw,50px);line-height:1.08}
+.h2 span{color:#8a7d66}
+.bajada{font-size:clamp(17px,1.4vw,19px);color:var(--tenue);max-width:34em;margin-top:18px}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;border-radius:999px;border:0;
+  background:var(--acento);color:#fff;font:600 16.5px/1 var(--texto);text-decoration:none;cursor:pointer;
+  box-shadow:0 16px 30px -16px rgba(75,65,45,.7);transition:transform .3s var(--curva),background .3s var(--curva)}
+.btn:hover{background:var(--acento-vivo);transform:translateY(-2px)}
+.btn .ico{width:18px;height:18px}
+
+/* aparición al bajar (solo con JS) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--curva),transform .9s var(--curva);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.ve{opacity:1;transform:none}
+
+/* barra de avance */
+.avance{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--camel-hilo);transform-origin:0 50%;transform:scaleX(0);z-index:40}
+
+/* ---------- Cabecera ---------- */
+.cab{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .4s var(--curva),box-shadow .4s var(--curva)}
+.cab .ancho{display:flex;align-items:center;justify-content:space-between;gap:14px;height:76px;transition:height .4s var(--curva)}
+.cab img{height:22px;width:auto}
+.cab.pegada{background:rgba(249,249,248,.9);box-shadow:0 1px 0 var(--linea)}
+.cab.pegada .ancho{height:62px}
+.cab.oscura:not(.pegada) img{filter:brightness(0) invert(1)}
+.priv{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tenue);
+  padding:0 16px;height:44px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid var(--linea);text-decoration:none}
+.priv .ico{width:15px;height:15px}
+.cab.pegada .priv{background:var(--acento);color:#fff;border-color:var(--acento)}
+.priv .ver-plan{display:none}
+.cab.pegada .priv .ver-plan{display:inline}
+.cab.pegada .priv .txt{display:none}
+
+/* ---------- 1 · Héroe ---------- */
+.heroe{max-width:var(--max);margin:0 auto;padding:clamp(108px,12vw,150px) var(--lado) clamp(56px,6vw,90px);
+  display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center;min-height:100svh}
+h1{font-weight:300;font-size:clamp(40px,5vw,70px);line-height:1.04}
+h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .l>span{display:block}
+h1 .l.gris{color:#8a7d66}
+.js h1 .l>span{transform:translateY(105%);transition:transform 1.3s var(--lenta)}
+.js .abierta h1 .l>span,.abierta h1 .l>span{transform:none}
+.js h1 .l:nth-child(2)>span{transition-delay:.12s}
+.js h1 .l:nth-child(3)>span{transition-delay:.24s}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--tenue);max-width:30em;margin:24px 0 32px}
+.lead b{color:var(--tinta);font-weight:600}
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.link{color:var(--tinta);font-weight:600;font-size:15.5px;text-decoration:none;border-bottom:1px solid var(--linea);padding:12px 0 2px}
+.sellos{display:flex;margin:40px 0 0;padding:0;list-style:none;border-top:1px solid var(--linea)}
+.sellos li{flex:1;padding:18px 18px 0 0;font-size:13.5px;line-height:1.4;color:var(--tenue)}
+.sellos li+li{padding-left:18px;border-left:1px solid var(--linea)}
+.sellos b{display:block;font-size:22px;font-weight:300;color:var(--tinta);letter-spacing:-.02em;margin-bottom:4px}
+.foto-h{position:relative}
+.foto-h .marco{border-radius:clamp(22px,3vw,34px);overflow:hidden;box-shadow:0 40px 70px -40px rgba(40,30,20,.45)}
+.foto-h img{width:100%;aspect-ratio:4/4.6;object-fit:cover}
+.js .foto-h .marco{clip-path:inset(100% 0 0 0 round 34px);transition:clip-path 1.6s var(--telon) .2s}
+.js .abierta .foto-h .marco{clip-path:inset(0 0 0 0 round 34px)}
+.js .foto-h img{transform:scale(1.12);transition:transform 2.6s var(--lenta) .2s}
+.js .abierta .foto-h img{transform:none}
+.etq{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px;background:rgba(255,255,255,.9);
+  font-size:13.5px;line-height:1.35;color:var(--tinta);box-shadow:0 18px 40px -22px rgba(40,30,20,.4)}
+.etq small{display:block;color:var(--tenue);font-size:12.5px}
+.etq.uno{left:-22px;bottom:34px}
+.etq.dos{right:18px;top:18px}
+.js .etq{opacity:0;transform:translateY(14px);transition:opacity .8s var(--curva) 1.3s,transform .8s var(--curva) 1.3s}
+.js .etq.dos{transition-delay:1.55s}
+.js .abierta .etq{opacity:1;transform:none}
+.candado{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--suave-2);color:var(--acento)}
+.candado .ico{width:17px;height:17px}
+.baja{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:13px;color:var(--tenue);letter-spacing:.04em}
+.baja i{position:relative;width:1px;height:38px;background:var(--linea);overflow:hidden}
+.baja i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--camel-hilo);animation:gota 2.4s var(--curva) infinite}
+@keyframes gota{to{top:100%}}
+
+/* ---------- Hilo que une una parte con la siguiente ---------- */
+.hilo{position:relative;height:clamp(90px,10vw,140px);width:1px;margin:0 auto}
+.hilo::before{content:"";position:absolute;inset:0;background:var(--linea)}
+.hilo::after{content:"";position:absolute;inset:0;background:var(--camel-hilo);transform-origin:50% 0;transform:scaleY(var(--h,1))}
+.js .hilo::after{transform:scaleY(var(--h,0))}
+.hilo b{position:absolute;left:50%;bottom:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:1.5px solid var(--camel-hilo);background:var(--fondo);transition:background .4s}
+.hilo.lleno b{background:var(--camel-hilo)}
+
+/* ---------- 2 · Lo que ya funciona (la foto crece) ---------- */
+.escena-foto{position:relative;background:var(--oscuro);color:#fff}
+.escena-foto .fijo{position:relative;min-height:100svh;overflow:hidden}
+.ef-clip{position:absolute;inset:0;overflow:hidden}
+.ef-clip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ef-clip .dos{opacity:0;transition:opacity 1.2s var(--curva)}
+.ef-velo{position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,22,15,.88) 0%,rgba(28,22,15,.64) 52%,rgba(28,22,15,.4) 100%)}
+.ef-txt{position:relative;max-width:var(--max);margin:0 auto;padding:clamp(110px,12vw,150px) var(--lado) 90px;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.ef-txt .ceja{color:var(--camel-osc)}
+.datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 48px;max-width:760px;margin-top:20px}
+.dato .num{display:block;font-size:clamp(56px,6vw,64px);font-weight:200;line-height:1;letter-spacing:-.05em}
+.dato p{font-size:clamp(16px,1.4vw,19px);color:var(--tenue-osc);max-width:17em;margin-top:10px}
+.dato .pc{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--camel-osc)}
+.fin{margin-top:46px;font-size:clamp(26px,3vw,40px);font-weight:300;line-height:1.15;max-width:16em}
+.fin span{color:var(--camel-osc)}
+/* con escenas activas: la foto sale del tamaño del héroe y cubre la pantalla; las cifras van apareciendo en columnas y se quedan */
+.escenas .escena-foto{height:330vh;background:transparent}
+.escenas .escena-foto .fijo{position:sticky;top:0;height:100svh}
+.escenas .ef-clip{clip-path:inset(16svh 20vw round 34px);will-change:clip-path}
+.escenas .ef-clip img.uno{transform:scale(1.18);will-change:transform}
+.escenas .ef-velo{opacity:0}
+.escenas .ef-txt{position:absolute;inset:0;padding-top:60px;padding-bottom:0}
+.escenas .ef-txt .ceja{opacity:0;transition:opacity .8s var(--curva)}
+.escenas .ef-txt.mostrar .ceja{opacity:1}
+.escenas .datos{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;max-width:none;margin-top:28px}
+.escenas .dato{padding:0 clamp(18px,2.4vw,36px);border-left:1px solid rgba(255,255,255,.2);opacity:0;transform:translateY(34px);transition:opacity .8s var(--curva),transform .8s var(--curva)}
+.escenas .dato:first-child{padding-left:0;border-left:0}
+.escenas .dato.on{opacity:1;transform:none}
+.escenas .dato .num{font-size:clamp(56px,6.6vw,100px)}
+.escenas .fin{opacity:0;transform:translateY(24px);transition:opacity .9s var(--curva),transform .9s var(--curva);font-size:clamp(28px,3.4vw,46px);margin-top:clamp(36px,5vh,60px)}
+.escenas .fin.on{opacity:1;transform:none}
+
+/* ---------- 3 · Qué pone cada uno ---------- */
+.reparto{padding:0 0 var(--seccion)}
+.rep-cab{text-align:center;max-width:760px;margin:0 auto}
+.rep-cab .bajada{margin-left:auto;margin-right:auto}
+.lados{display:grid;grid-template-columns:minmax(0,.82fr) 70px minmax(0,1.18fr);margin-top:clamp(40px,5vw,64px);align-items:start}
+.lado{border-radius:clamp(26px,3vw,36px);padding:clamp(24px,3vw,40px)}
+.lado.ellos{background:#fff;border:1px solid var(--linea)}
+.lado.nos{background:var(--acento);color:#fff}
+.lado h3{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.lado.ellos h3{color:var(--camel)}
+.lado.nos h3{color:var(--camel-osc)}
+.lado .tot{font-size:clamp(26px,2.6vw,34px);font-weight:300;letter-spacing:-.02em;margin-bottom:18px}
+.lado ul{list-style:none;margin:0;padding:0}
+.lado li{display:flex;align-items:center;gap:12px;padding:12px 0;font-size:16px}
+.lado.ellos li+li{border-top:1px solid var(--linea)}
+.lado.nos li+li{border-top:1px solid rgba(255,255,255,.12)}
+.lado.nos ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:26px}
+.lado.nos li:nth-child(2){border-top:0}
+.lado .ico{color:var(--camel)}
+.lado.nos .ico{color:var(--camel-osc)}
+.medio{position:relative;align-self:stretch;display:flex;justify-content:center}
+.medio::before{content:"";position:absolute;top:40px;bottom:40px;width:1px;background:var(--linea)}
+.medio span{position:sticky;top:45vh;margin-top:60px;width:44px;height:44px;border-radius:50%;background:var(--fondo);border:1px solid var(--linea);display:grid;place-items:center;color:var(--camel)}
+
+/* ---------- 4 · La ruta (se recorre de lado) ---------- */
+.escena-ruta{position:relative;background:var(--suave)}
+.escena-ruta .fijo{padding:var(--seccion) 0}
+.ruta-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.semana{font-size:14px;color:var(--tenue);text-align:right}
+.semana b{display:block;font-size:clamp(40px,4.4vw,56px);font-weight:200;line-height:1;color:var(--tinta);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.pista-caja{overflow-x:auto;scrollbar-width:none;margin-top:clamp(28px,4vw,48px)}
+.pista-caja::-webkit-scrollbar{display:none}
+.pista{position:relative;display:flex;gap:clamp(16px,2vw,24px);padding:30px var(--lado) 6px;width:max-content}
+.pista::before{content:"";position:absolute;left:var(--lado);right:var(--lado);top:11px;height:1px;background:repeating-linear-gradient(90deg,var(--camel-hilo) 0 3px,transparent 3px 9px);opacity:.5}
+.etapa{position:relative;width:min(380px,80vw);flex:none;background:#fff;border-radius:28px;padding:30px 28px 26px;box-shadow:0 30px 60px -44px rgba(40,30,20,.5)}
+.etapa .nodo{position:absolute;top:-25px;left:28px;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--camel-hilo);background:var(--suave);transition:background .4s,transform .4s var(--curva)}
+.etapa.on .nodo{background:var(--camel-hilo);transform:scale(1.25)}
+.et-n{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.et-n b{font-size:52px;font-weight:200;line-height:1;letter-spacing:-.04em;color:var(--camel)}
+.et-n span{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tenue)}
+.etapa h3{font-size:26px;font-weight:400;margin:14px 0 14px}
+.etapa ul{list-style:none;margin:0;padding:0}
+.etapa li{position:relative;padding:7px 0 7px 22px;font-size:16px;line-height:1.45;color:var(--tinta)}
+.etapa li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--camel-hilo)}
+.cerrado{position:relative;margin-top:20px;border-radius:18px;background:var(--suave);padding:16px 16px 16px 60px;overflow:hidden}
+.cerrado i{display:block;height:7px;border-radius:9px;background:#d9cdb9;margin:6px 0;filter:blur(1.5px)}
+.cerrado i:nth-child(2){width:78%}.cerrado i:nth-child(3){width:56%}
+.cerrado .candado{position:absolute;left:14px;top:50%;margin-top:-17px;background:#fff}
+.cerrado p{font-size:13.5px;font-weight:600;color:var(--acento);margin-bottom:4px}
+.cerrado small{display:block;font-size:12.5px;color:var(--tenue);margin-top:6px}
+.escenas .escena-ruta .fijo{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0;overflow:hidden}
+.escenas .pista-caja{overflow:visible}
+.escenas .pista{will-change:transform}
+.relleno{position:absolute;top:10px;height:3px;left:0;width:0;border-radius:3px;background:var(--camel-hilo)}
+.marca{position:absolute;top:-8px;left:0;transform:translateX(-50%);height:38px;padding:0 14px;border-radius:999px;background:var(--acento);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;gap:8px;white-space:nowrap;box-shadow:0 14px 28px -12px rgba(75,65,45,.7);z-index:2}
+.marca i{width:7px;height:7px;border-radius:50%;background:var(--camel-osc)}
+.sin-escenas .marca,.sin-escenas .relleno{display:none}
+.escenas .etapa{opacity:.42;transform:scale(.93);transition:opacity .6s var(--curva),transform .7s var(--lenta),box-shadow .7s var(--curva)}
+.escenas .etapa.on{opacity:.78;transform:scale(.96)}
+.escenas .etapa.activa{opacity:1;transform:none;box-shadow:0 50px 90px -46px rgba(40,30,20,.6)}
+.escenas .etapa li{opacity:0;transform:translateX(-12px);transition:opacity .5s var(--curva),transform .5s var(--curva)}
+.escenas .etapa.on li{opacity:1;transform:none}
+.escenas .etapa.on li:nth-child(2){transition-delay:.12s}.escenas .etapa.on li:nth-child(3){transition-delay:.24s}
+.escenas .etapa .et-n b{transition:color .5s}
+.escenas .etapa.activa .et-n b{color:var(--acento)}
+.escenas .etapa.activa .cerrado .candado{animation:clic .7s var(--curva) .3s}
+@keyframes clic{30%{transform:rotate(-14deg) scale(1.12)}60%{transform:rotate(8deg)}100%{transform:none}}
+
+/* ---------- 5 · El equipo (organigrama que se dibuja) ---------- */
+.equipo-sec{padding:0 0 var(--seccion)}
+.capa-cab{max-width:780px}
+.orga{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"adm mkt med" "aux nuc enf";gap:clamp(18px,2.6vw,34px);margin-top:clamp(40px,5vw,64px)}
+.orga-lineas{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
+.orga-lineas path{fill:none;stroke:var(--camel-hilo);stroke-width:1.4;stroke-dasharray:1;stroke-dashoffset:1;stroke-linecap:round}
+.js .orga.ve .orga-lineas path{transition:stroke-dashoffset 1.1s var(--lenta);transition-delay:calc(var(--d,0)*150ms + .25s);stroke-dashoffset:0}
+.sin-js .orga-lineas path{stroke-dashoffset:0}
+.nucleo{grid-area:nuc;align-self:center;justify-self:center;position:relative;z-index:1;width:min(230px,100%);aspect-ratio:1;border-radius:50%;background:var(--suave);border:1px solid var(--linea);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.nucleo::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:1px dashed rgba(157,128,81,.45)}
+.nucleo img{width:48px;height:auto;margin-bottom:10px}
+.nucleo b{font-size:20px;font-weight:500;line-height:1.2}
+.nucleo small{font-size:13.5px;color:var(--tenue);margin-top:4px}
+.rol-c{position:relative;z-index:1;background:#fff;border:1px solid var(--linea);border-radius:28px;padding:26px 24px;overflow:hidden}
+.rol-c.adm{grid-area:adm}.rol-c.mkt{grid-area:mkt}.rol-c.med{grid-area:med}.rol-c.aux{grid-area:aux}.rol-c.enf{grid-area:enf}
+.rol-c .rol{width:46px;height:46px;border-radius:50%;background:var(--suave);display:grid;place-items:center;color:var(--acento);margin-bottom:20px}
+.rol-c h3{font-size:20px;font-weight:500;margin-bottom:8px;padding-right:84px}
+.rol-c p{font-size:16px;color:var(--tenue)}
+.rol-c.mkt{background:var(--acento);border-color:var(--acento);color:#fff;box-shadow:0 40px 70px -40px rgba(75,65,45,.8)}
+.rol-c.mkt p{color:var(--tenue-osc)}
+.rol-c.mkt .rol{background:rgba(255,255,255,.1);color:var(--camel-osc)}
+.rol-c.mkt .sello{border-color:var(--camel-osc);color:var(--camel-osc)}
+.rol-c.mkt .sello::before{border-color:rgba(210,187,143,.5)}
+.mini{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.mini span{font-size:12.5px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff}
+.js .orga .rol-c,.js .orga .nucleo{opacity:0;transform:translateY(22px) scale(.97);transition:opacity .8s var(--curva),transform .8s var(--curva)}
+.js .orga.ve .nucleo{opacity:1;transform:none}
+.js .orga.ve .rol-c{opacity:1;transform:none;transition-delay:calc(var(--d,0)*150ms + .55s)}
+.sello{position:absolute;right:16px;top:16px;width:86px;height:86px;border-radius:50%;border:1.5px solid var(--camel-hilo);color:var(--camel);display:grid;place-items:center;text-align:center;font-size:12px;font-weight:700;letter-spacing:.01em;line-height:1.2;transform:rotate(-12deg)}
+.sello::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed rgba(157,128,81,.55)}
+.js .sello{opacity:0;transform:rotate(-30deg) scale(1.7);transition:opacity .35s var(--curva),transform .55s cubic-bezier(.3,1.6,.5,1)}
+.js .orga.ve .sello{opacity:1;transform:rotate(-12deg) scale(1);transition-delay:calc(var(--d,0)*150ms + 1.2s)}
+.firma{display:flex;align-items:center;gap:12px;margin-top:30px;font-size:16px;color:var(--tenue)}
+
+/* ---------- 6 · Marketing digital (banda oscura con datos reales) ---------- */
+.mkt-sec{background:var(--oscuro);color:#fff;border-radius:clamp(28px,4vw,56px);margin:0 clamp(8px,1.5vw,20px);padding:var(--seccion) 0;position:relative;overflow:hidden}
+.mkt-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 60% at 12% 0%,rgba(210,187,143,.16),transparent 70%),radial-gradient(40% 50% at 100% 100%,rgba(210,187,143,.1),transparent 70%)}
+.mkt-sec .ancho{position:relative}
+.mkt-sec .ceja{color:var(--camel-osc)}
+.mkt-sec .h2 span{color:rgba(255,255,255,.55)}
+.mkt-sec .bajada{color:var(--tenue-osc)}
+.canales{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(36px,4vw,56px)}
+.canal{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px 22px 24px;display:flex;flex-direction:column;min-height:300px}
+.js .canal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--curva),transform .8s var(--curva);transition-delay:calc(var(--d,0)*120ms)}
+.js .canal.ve{opacity:1;transform:none}
+.c-top{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--camel-osc)}
+.c-top .ico{width:20px;height:20px}
+.canal .big{display:block;font-size:clamp(46px,4.4vw,62px);font-weight:200;letter-spacing:-.04em;line-height:1;margin:28px 0 10px;font-variant-numeric:tabular-nums}
+.canal p{font-size:16px;color:rgba(255,255,255,.88);line-height:1.45}
+.canal ul{list-style:none;margin:14px 0 0;padding:0}
+.canal li{font-size:14px;color:var(--tenue-osc);padding:5px 0;border-top:1px solid rgba(255,255,255,.08)}
+.canal li b{color:#fff;font-weight:600}
+.canal small{display:block;margin-top:auto;padding-top:16px;font-size:12.5px;color:var(--tenue-osc)}
+.canal .pc{color:var(--camel-osc)}
+.seo{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,90px);margin-top:clamp(64px,8vw,110px);align-items:start}
+.seo h3{font-size:clamp(26px,2.8vw,36px);font-weight:300;line-height:1.15;letter-spacing:-.02em}
+.seo h3 span{color:var(--camel-osc)}
+.seo .bajada{font-size:17px}
+.seo-pasos{list-style:none;margin:0;padding:0;position:relative}
+.seo-pasos .riel{position:absolute;left:21px;top:22px;bottom:40px;width:1.5px;background:rgba(255,255,255,.14)}
+.seo-pasos .riel i{position:absolute;inset:0;background:var(--camel-osc);transform-origin:50% 0;transform:scaleY(var(--h,1))}
+.js .seo-pasos .riel i{transform:scaleY(var(--h,0))}
+.seo-pasos li{position:relative;padding:0 0 30px 66px}
+.seo-pasos .n{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);background:var(--oscuro);display:grid;place-items:center;font-size:15px;font-weight:600;color:var(--camel-osc);z-index:1}
+.seo-pasos h4{margin:8px 0 4px;font-size:19px;font-weight:500}
+.seo-pasos p{font-size:16px;color:var(--tenue-osc)}
+.cada-mes{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.cada-mes span{font-size:13.5px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);color:#fff}
+
+/* ---------- 7 · Lo que ya está al aire (celulares que recorren la web) ---------- */
+.vivo-sec{padding:var(--seccion) 0 calc(var(--seccion)*.6)}
+.vivo-fila{display:flex;justify-content:center;gap:clamp(14px,2vw,26px);margin-top:clamp(36px,4vw,56px);overflow-x:auto;padding:16px var(--lado) 30px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.vivo-fila::-webkit-scrollbar{display:none}
+.mv{flex:none;width:clamp(176px,15.4vw,212px);scroll-snap-align:center;text-decoration:none;color:inherit;text-align:center}
+.mv .marco-tel{display:block;position:relative;aspect-ratio:9/19;border-radius:34px;background:#151210;padding:8px;box-shadow:0 40px 70px -44px rgba(40,30,20,.7);transition:transform .4s var(--curva)}
+.mv:hover .marco-tel{transform:translateY(-8px)}
+.mv .marco-tel::before{content:"";position:absolute;top:15px;left:50%;width:54px;height:15px;margin-left:-27px;border-radius:10px;background:#151210;z-index:2}
+.mv .pantalla{display:block;position:relative;height:100%;border-radius:27px;overflow:hidden;background:#fff}
+.mv .pantalla img{width:100%;height:auto;display:block;will-change:transform}
+.js .vivo-sec.ve .mv .pantalla img{animation:recorre 20s cubic-bezier(.45,0,.35,1) both;animation-delay:calc(var(--d,0)*.6s + .3s)}
+.mv:hover .pantalla img{animation-play-state:paused}
+@keyframes recorre{0%,8%{transform:translateY(0)}72%,86%{transform:translateY(var(--fin,0px))}100%{transform:translateY(0)}}
+.mv b{display:block;margin-top:18px;font-size:16px;font-weight:500}
+.mv small{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--tenue);margin-top:2px}
+.js .mv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--curva),transform .8s var(--curva);transition-delay:calc(var(--d,0)*110ms)}
+.js .vivo-sec.ve .mv{opacity:1;transform:none}
+
+/* ---------- 6 · De dónde salen las pacientes (teléfono) ---------- */
+.escena-tel{position:relative}
+.escena-tel .fijo{max-width:var(--max);margin:0 auto;padding:0 var(--lado) var(--seccion);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(32px,6vw,90px);align-items:center}
+.pasos{list-style:none;margin:34px 0 0;padding:0;counter-reset:p}
+.paso{position:relative;padding:16px 0 16px 64px;border-top:1px solid var(--linea);transition:opacity .5s var(--curva)}
+.paso::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:14px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--linea);display:grid;place-items:center;font-size:15px;font-weight:600;color:var(--tenue);transition:all .4s var(--curva)}
+.paso h3{font-size:21px;font-weight:500}
+.paso p{font-size:16px;color:var(--tenue);margin-top:4px}
+.paso.on::before{background:var(--acento);border-color:var(--acento);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chips span{font-size:13.5px;padding:8px 14px;border-radius:999px;background:var(--suave);color:var(--tinta)}
+.tel{position:relative;width:min(320px,74vw);aspect-ratio:9/18.6;margin:0 auto;border-radius:48px;background:#151210;padding:11px;box-shadow:0 50px 90px -50px rgba(40,30,20,.7)}
+.tel::before{content:"";position:absolute;top:22px;left:50%;width:88px;height:24px;margin-left:-44px;border-radius:20px;background:#151210;z-index:3}
+.pant{position:absolute;inset:11px;border-radius:38px;overflow:hidden;background:#fff;opacity:0;transition:opacity .6s var(--curva)}
+.pant.on{opacity:1}
+.sin-escenas .pant[data-p="1"]{opacity:1}
+.p-ig{padding:58px 14px 14px;background:#fff}
+.ig-top{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600}
+.ig-top i{width:28px;height:28px;border-radius:50%;background:var(--suave-2) url(assets/isotype-camel.webp) center/70% no-repeat}
+.ig-top small{display:block;font-weight:400;color:var(--tenue);font-size:11px}
+.p-ig img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;margin:10px 0}
+.p-ig p{font-size:13px;line-height:1.45}
+.p-ig .ig-btn{margin-top:10px;height:36px;border-radius:9px;background:var(--acento);color:#fff;font-size:12.5px;font-weight:600;display:grid;place-items:center}
+.p-wa{background:#efe7dc;display:flex;flex-direction:column}
+.wa-top{background:#075E54;color:#fff;padding:52px 14px 12px;font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:10px}
+.wa-top i{width:30px;height:30px;border-radius:50%;background:#fff url(assets/isotype-camel.webp) center/70% no-repeat}
+.wa-top small{display:block;font-weight:400;font-size:11px;opacity:.8}
+.wa-chat{padding:12px 10px;display:flex;flex-direction:column;gap:7px}
+.bur{max-width:84%;padding:8px 10px;border-radius:10px;font-size:12.5px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(10px) scale(.96);transition:opacity .45s var(--curva),transform .45s var(--curva)}
+.bur.ve{opacity:1;transform:none}
+.bur.ella{align-self:flex-end;background:#dcf8c6}
+.bur.cli{align-self:flex-start;background:#fff}
+.p-ok{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 22px;background:var(--fondo)}
+.p-ok .circ{width:74px;height:74px;border-radius:50%;background:var(--acento);color:#fff;display:grid;place-items:center;margin-bottom:18px}
+.p-ok .circ .ico{width:34px;height:34px;stroke-width:2}
+.p-ok h4{margin:0;font-size:19px;font-weight:600;letter-spacing:-.01em}
+.p-ok p{font-size:13px;color:var(--tenue);margin-top:6px}
+.cal{margin-top:16px;width:100%;background:#fff;border:1px solid var(--linea);border-radius:16px;padding:14px;text-align:left;font-size:13px}
+.cal b{display:block;font-size:15px}
+.cuenta{margin-top:16px;font-size:13px;color:var(--tenue)}
+.cuenta b{display:block;font-size:44px;font-weight:200;color:var(--tinta);letter-spacing:-.03em;line-height:1.1}
+.escenas .escena-tel{height:420vh}
+.escenas .escena-tel .fijo{position:sticky;top:0;height:100svh;padding-bottom:0}
+.escenas .paso{opacity:.38}
+.escenas .paso.on,.escenas .paso.hecho{opacity:1}
+.pasos{position:relative}
+.pasos .riel{position:absolute;left:20px;top:36px;bottom:36px;width:1.5px;background:var(--linea)}
+.pasos .riel i{position:absolute;inset:0;background:var(--acento);transform-origin:50% 0;transform:scaleY(var(--h,1))}
+.escenas .pasos .riel i{transform:scaleY(var(--h,0))}
+.paso::before{z-index:1;background:var(--fondo)}
+.paso.hecho::before{background:var(--suave-2);border-color:var(--suave-2);color:var(--acento)}
+.paso.on::before{background:var(--acento);border-color:var(--acento);color:#fff}
+.tel-caja{position:relative}
+.p-ig .post{will-change:transform}
+.p-ig .ig-btn{position:relative;overflow:hidden}
+.p-ig .ig-btn::after{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);opacity:0}
+.p-ig.tocando .ig-btn::after{animation:onda .9s var(--curva)}
+@keyframes onda{0%{transform:scale(0);opacity:.9}100%{transform:scale(16);opacity:0}}
+.dedo{position:absolute;left:50%;bottom:40px;width:38px;height:38px;margin-left:-19px;border-radius:50%;background:rgba(255,255,255,.35);border:2px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;transform:translateY(40px) scale(1.25);transition:opacity .4s var(--curva),transform .5s var(--curva);z-index:3}
+.p-ig.tocando .dedo{opacity:1;transform:none}
+.p-wa{position:absolute}
+.wa-chat{flex:1}
+.wa-barra{display:flex;gap:6px;align-items:center;padding:8px}
+.wa-barra span{flex:1;height:34px;border-radius:20px;background:#fff;font-size:12px;color:#8a8a8a;display:flex;align-items:center;padding:0 12px}
+.wa-barra i{width:34px;height:34px;border-radius:50%;background:#075E54}
+.escribe{display:none}
+.wa-top.escribiendo .linea{display:none}
+.wa-top.escribiendo .escribe{display:inline}
+.noti{position:absolute;left:10px;right:10px;top:48px;z-index:4;background:rgba(255,255,255,.97);border-radius:16px;padding:10px 12px;display:flex;gap:10px;align-items:center;font-size:12px;line-height:1.35;text-align:left;box-shadow:0 14px 30px -12px rgba(0,0,0,.35);transform:translateY(-150%);opacity:0;transition:transform .7s var(--lenta),opacity .4s var(--curva)}
+.noti.on{transform:none;opacity:1}
+.noti i{width:30px;height:30px;border-radius:8px;background:var(--suave-2) url(assets/isotype-camel.webp) center/70% no-repeat;flex:none}
+.noti b{display:block;font-size:12.5px}
+.chulo path{stroke-dasharray:30;stroke-dashoffset:30;transition:stroke-dashoffset .6s var(--curva) .35s}
+.pant.on .chulo path{stroke-dashoffset:0}
+.sin-escenas .chulo path{stroke-dashoffset:0}
+.cuenta b.salta{animation:salta .6s var(--curva)}
+@keyframes salta{40%{transform:scale(1.3);color:var(--camel)}}
+.ins{position:absolute;z-index:3;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:12px 16px 12px 12px;font-size:13.5px;line-height:1.35;color:var(--tenue);box-shadow:0 24px 44px -26px rgba(40,30,20,.5);width:230px;opacity:0;transform:translateY(18px) scale(.95);transition:opacity .6s var(--curva),transform .7s var(--lenta)}
+.ins.on{opacity:1;transform:none}
+.sin-escenas .ins{opacity:1;transform:none}
+.ins .ico{width:38px;height:38px;padding:9px;border-radius:50%;background:var(--suave);color:var(--acento)}
+.ins b{display:block;font-size:19px;font-weight:600;color:var(--tinta);letter-spacing:-.02em}
+.ins{width:196px}
+.ins.i1{left:calc(50% - 332px);top:8%}.ins.i2{left:calc(50% + 136px);top:28%}.ins.i3{left:calc(50% - 332px);top:52%}.ins.i4{left:calc(50% + 136px);top:74%}
+@media (max-width:1180px){.ins{display:none}}
+
+/* ---------- 7 · Planes ---------- */
+.planes{padding:var(--seccion) 0}
+.planes-cab{text-align:center;max-width:760px;margin:0 auto}
+.planes-cab .bajada{margin-left:auto;margin-right:auto}
+.menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(40px,5vw,64px);align-items:stretch}
+.plan{position:relative;text-align:left;background:#fff;border:1.5px solid var(--linea);border-radius:32px;padding:30px 28px 28px;cursor:pointer;font:inherit;color:inherit;
+  display:flex;flex-direction:column;transition:transform .35s var(--curva),border-color .35s var(--curva),box-shadow .35s var(--curva)}
+.plan:hover{transform:translateY(-4px)}
+.plan.reco{background:var(--suave)}
+.plan[aria-pressed="true"]{border-color:var(--acento);box-shadow:0 34px 60px -40px rgba(75,65,45,.65)}
+.plan .tag{position:absolute;top:-14px;left:28px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--acento);color:#fff;padding:7px 13px;border-radius:999px}
+.plan h3{font-size:24px;font-weight:500}
+.plan .para{font-size:16px;color:var(--tenue);margin:8px 0 22px;min-height:3em}
+.precio{border-top:1px solid var(--linea);padding-top:18px}
+.precio b{display:block;font-size:clamp(28px,2.6vw,36px);font-weight:300;letter-spacing:-.03em;line-height:1.1}
+.precio span{display:block;font-size:13.5px;color:var(--tenue)}
+.precio .mas{margin-top:12px}
+.plan ul{list-style:none;margin:20px 0 0;padding:0;flex:1}
+.plan li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:16px;line-height:1.45}
+.plan li .ico{width:18px;height:18px;margin-top:2px;color:var(--camel)}
+.plan .elegir{margin-top:22px;height:48px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;border:1.5px solid var(--acento);color:var(--acento);transition:background .3s,color .3s}
+.plan[aria-pressed="true"] .elegir{background:var(--acento);color:#fff}
+.plan[aria-pressed="true"] .elegir::before{content:"✓"}
+.borr{display:inline-block;margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a0552e}
+
+/* ---------- Plan único ---------- */
+.unico{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr);gap:0;margin-top:clamp(40px,5vw,64px);border-radius:36px;overflow:hidden;border:1.5px solid var(--linea);background:#fff;box-shadow:0 50px 90px -60px rgba(40,30,20,.55)}
+.u-izq{padding:clamp(28px,3.4vw,48px)}
+.u-izq .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--suave);color:var(--acento);padding:8px 14px;border-radius:999px}
+.u-izq h3{font-size:clamp(24px,2.4vw,30px);font-weight:400;margin:18px 0 18px}
+.u-izq ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 26px}
+.u-izq li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-size:16px;line-height:1.45;border-top:1px solid var(--linea)}
+.u-izq li .ico{width:18px;height:18px;margin-top:2px;color:var(--camel)}
+.u-der{background:var(--acento);color:#fff;padding:clamp(28px,3.4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:6px;position:relative}
+.u-der::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 100% 0%,rgba(210,187,143,.22),transparent 70%)}
+.u-der>*{position:relative}
+.u-precio b{display:block;font-size:clamp(38px,4vw,54px);font-weight:200;letter-spacing:-.04em;line-height:1.05}
+.u-precio span{display:block;font-size:15px;color:var(--tenue-osc);margin-top:4px}
+.u-mas{font-size:28px;font-weight:200;color:var(--camel-osc);margin:6px 0}
+.u-nota{font-size:15px;color:#fff;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)}
+.btn-claro{background:#fff;color:var(--acento);margin-top:22px;align-self:flex-start;box-shadow:none}
+.btn-claro:hover{background:var(--suave);color:var(--acento)}
+@media (max-width:980px){.unico{grid-template-columns:minmax(0,1fr)}.u-izq ul{grid-template-columns:minmax(0,1fr)}.btn-claro{align-self:stretch}}
+
+/* ---------- 8 · Simulador (banda oscura) ---------- */
+.sim{background:var(--oscuro);color:#fff;border-radius:clamp(28px,4vw,56px);margin:0 clamp(8px,1.5vw,20px);padding:var(--seccion) 0;position:relative;overflow:hidden}
+.sim::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 10%,rgba(210,187,143,.16),transparent 70%)}
+.sim .ancho{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,90px);align-items:center}
+.sim .ceja{color:var(--camel-osc)}
+.sim .h2 span{color:rgba(255,255,255,.55)}
+.sim .bajada{color:var(--tenue-osc)}
+.plan-sel{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:14px;color:var(--tenue-osc);padding:10px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px}
+.plan-sel b{color:#fff;font-weight:600}
+.plan-sel a{color:var(--camel-osc);font-weight:600;text-decoration:none}
+.tablero{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:32px;padding:clamp(22px,3vw,36px)}
+.cuantas{display:flex;align-items:baseline;gap:12px}
+.cuantas b{font-size:clamp(56px,6vw,64px);font-weight:200;line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.cuantas span{font-size:16px;color:var(--tenue-osc)}
+.rango{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:8px 0 14px;cursor:pointer}
+.rango::-webkit-slider-runnable-track{height:6px;border-radius:9px;background:linear-gradient(90deg,var(--camel-osc) var(--p,20%),rgba(255,255,255,.18) var(--p,20%))}
+.rango::-moz-range-track{height:6px;border-radius:9px;background:rgba(255,255,255,.18)}
+.rango::-moz-range-progress{height:6px;border-radius:9px;background:var(--camel-osc)}
+.rango::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:#fff;margin-top:-13px;box-shadow:0 0 0 7px rgba(210,187,143,.22)}
+.rango::-moz-range-thumb{width:32px;height:32px;border:0;border-radius:50%;background:#fff}
+.cascada{display:grid;gap:2px;border-radius:22px;overflow:hidden}
+.c-fila{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:18px 20px;background:rgba(255,255,255,.05);font-size:15.5px;color:var(--tenue-osc)}
+.c-fila b{font-size:22px;font-weight:500;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.c-fila.queda{background:rgba(210,187,143,.14);color:#fff}
+.c-fila.queda b{font-size:clamp(28px,3vw,38px);font-weight:300;color:var(--camel-osc);letter-spacing:-.02em}
+.c-fila small{display:block;font-size:12.5px;color:var(--tenue-osc);margin-top:2px}
+.sim-pie{font-size:13px;color:var(--tenue-osc);margin-top:16px;line-height:1.55}
+
+/* ---------- 9 · Cierre ---------- */
+.cierre{padding:var(--seccion) 0 clamp(70px,8vw,110px);text-align:center}
+.llave{width:74px;height:74px;margin:0 auto 26px;color:var(--camel)}
+.js .llave{transform:rotate(-90deg);transition:transform 1.4s var(--lenta) .2s}
+.js .cierre.ve .llave{transform:rotate(0)}
+.cierre h2{font-weight:300;font-size:clamp(40px,5.6vw,76px);line-height:1.04}
+.resumen{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:28px 0 30px}
+.resumen span{font-size:14.5px;padding:10px 16px;border-radius:999px;background:var(--suave);color:var(--tinta)}
+.resumen b{font-weight:600}
+.cierre .btn{height:58px;padding:0 36px;font-size:17px}
+.sig{font-size:14px;color:var(--tenue);margin-top:16px}
+.pie{border-top:1px solid var(--linea);padding:26px 0 40px;font-size:13px;color:var(--tenue)}
+.pie .ancho{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.pie img{height:18px;width:auto}
+
+.aviso-borrador{position:fixed;right:12px;bottom:12px;z-index:45;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:#a0552e;color:#fff;padding:7px 12px;border-radius:999px}
+
+/* ---------- Puerta con clave ---------- */
+.puerta{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:24px 16px;background:var(--fondo);transition:clip-path 1.1s var(--telon)}
+.puerta::before{content:"";position:absolute;inset:0;opacity:.32;mix-blend-mode:multiply;background-image:var(--grano)}
+.puerta.abre{clip-path:inset(0 0 100% 0)}
+.caja{position:relative;text-align:center;max-width:420px}
+.caja h2{font-weight:300;font-size:clamp(30px,4vw,40px);line-height:1.1}
+.caja p{color:var(--tenue);font-size:16px;margin:12px 0 30px}
+.lock{width:54px;height:54px;margin:0 auto 22px;color:var(--acento)}
+.lock .arco{transition:transform .6s var(--lenta);transform-origin:70% 50%}
+.puerta.ok .lock .arco{transform:translateY(-5px) rotate(-12deg)}
+.circulos{display:flex;justify-content:center;gap:18px;margin:0 auto 14px;cursor:text;padding:8px}
+.circulos i{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--acento);transition:background .25s var(--curva),transform .25s var(--curva)}
+.circulos i.lleno{background:var(--acento);transform:scale(1.08)}
+.campo{position:absolute;opacity:0;width:1px;height:1px}
+.mal{min-height:22px;font-size:14px;color:var(--tenue)}
+.puerta.error .circulos{animation:temblor .4s}
+@keyframes temblor{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.tocar{display:inline-block;margin-top:6px;font-size:13.5px;color:var(--tenue)}
+
+/* ---------- Celular ---------- */
+@media (max-width:980px){
+  .canales{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seo{grid-template-columns:minmax(0,1fr)}
+  .vivo-fila{justify-content:flex-start}
+  .menu{grid-template-columns:minmax(0,1fr);max-width:520px;margin-left:auto;margin-right:auto}
+  .sim .ancho{grid-template-columns:minmax(0,1fr)}
+  .lados{grid-template-columns:minmax(0,1fr)}
+  .medio{height:64px}
+  .medio::before{top:0;bottom:0}
+  .medio span{position:relative;top:auto;margin:10px 0 0}
+}
+@media (max-width:860px){
+  .heroe{grid-template-columns:minmax(0,1fr);padding-top:96px;gap:36px;min-height:0}
+  h1{font-size:clamp(34px,9.6vw,44px)}
+  .lead{margin:18px 0 24px}
+  .acciones .btn{width:100%}
+  .acciones{gap:6px}
+  .link{margin:0 auto}
+  .sellos{margin-top:28px}
+  .sellos li{padding:14px 10px 0 0;font-size:12.5px}
+  .sellos li+li{padding-left:10px}
+  .sellos b{font-size:18px}
+  .foto-h img{aspect-ratio:4/3.4}
+  .etq.uno{left:12px;bottom:12px}
+  .baja{margin-top:22px}
+  .baja i{height:26px}
+  .priv .txt{display:none}
+  .priv{padding:0 14px}
+  .datos{grid-template-columns:minmax(0,1fr)}
+  .escenas .ef-clip{clip-path:inset(18svh 6vw round 28px)}
+  .escenas .datos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:26px}
+  .escenas .dato{padding:0 0 0 16px}
+  .escenas .dato:nth-child(odd){padding-left:0;border-left:0}
+  .escenas .dato .num{font-size:52px}
+  .escenas .dato p{font-size:16px}
+  .escenas .fin{font-size:26px}
+  .lado.nos ul{grid-template-columns:minmax(0,1fr)}
+  .lado.nos li:nth-child(2){border-top:1px solid rgba(255,255,255,.12)}
+  .orga{grid-template-columns:minmax(0,1fr);grid-template-areas:"nuc" "mkt" "adm" "aux" "med" "enf";padding-left:22px}
+  .orga::before{content:"";position:absolute;left:0;top:40px;bottom:40px;width:1.5px;background:var(--camel-hilo);opacity:.6}
+  .orga-lineas{display:none}
+  .nucleo{justify-self:start;width:auto;aspect-ratio:auto;border-radius:24px;flex-direction:row;gap:14px;padding:16px 22px}
+  .nucleo::after{display:none}
+  .nucleo img{margin:0;width:38px}
+  .nucleo b{font-size:18px}
+  .nucleo span{text-align:left}
+  .canales{grid-template-columns:minmax(0,1fr)}
+  .canal{min-height:0}
+  .mv{width:62vw}
+  .ins{display:none}
+  .escena-tel .fijo{grid-template-columns:minmax(0,1fr);gap:22px}
+  .escenas .escena-tel .fijo{align-content:center;padding-top:70px}
+  .escenas .escena-tel .h2{font-size:28px}
+  .escenas .escena-tel .bajada,.escenas .chips{display:none}
+  .escenas .pasos{margin-top:14px;position:relative;min-height:96px}
+  .escenas .paso{position:absolute;inset:0;opacity:0;border:0;padding-top:4px}
+  .escenas .paso.on{opacity:1}
+  .escenas .paso.hecho{opacity:0}
+  .escenas .paso::before{top:2px}
+  .escenas .tel{width:auto;height:min(52svh,470px);aspect-ratio:9/18.6}
+  .escenas .pasos .riel{display:none}
+  .ruta-cab .semana{text-align:left}
+  .escenas .escena-ruta .bajada{display:none}
+  .escenas .ruta-cab{flex-wrap:nowrap;align-items:flex-end}
+  .escenas .ruta-cab .h2{font-size:30px}
+  .escenas .semana b{font-size:40px}
+  .resumen{flex-direction:column;align-items:stretch}
+  .c-fila{flex-direction:column;align-items:flex-start;gap:4px}
+  .aviso-borrador .largo{display:none}
+  .cierre .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .etq,.js .sello{opacity:1;transform:none}
+  .js h1 .l>span{transform:none}
+  .js .foto-h .marco{clip-path:none}.js .foto-h img{transform:none}
+  .js .hilo::after{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- PUERTA -->
+<div class="puerta" id="puerta" role="dialog" aria-label="Clave de acceso" hidden>
+  <div class="caja">
+    <svg class="lock" viewBox="0 0 54 54" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path class="arco" d="M18 24v-6a9 9 0 0 1 18 0v6"/><rect x="12" y="24" width="30" height="22" rx="7"/><circle cx="27" cy="34" r="2.4"/><path d="M27 36.4v3.6"/></g></svg>
+    <h2>Propuesta privada</h2>
+    <p>Preparada para <span data-clinica>su clínica en Cali</span>.<br>Escriba la clave para entrar.</p>
+    <label class="circulos" for="clave" aria-hidden="true"><i></i><i></i><i></i></label>
+    <input class="campo" id="clave" type="password" inputmode="numeric" maxlength="3" autocomplete="off" aria-label="Clave">
+    <div class="mal" id="mal" aria-live="polite"></div>
+    <span class="tocar">Toque los círculos para escribir</span>
+  </div>
+</div>
+
+<div class="avance" id="avance"></div>
+
+<header class="cab" id="cab">
+  <div class="ancho">
+    <img src="assets/wordmark-pardo.webp" alt="Seravena" width="600" height="128">
+    <a class="priv" href="#planes"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span class="txt">Propuesta privada · Cali</span><span class="ver-plan">Ver el plan</span></a>
+  </div>
+</header>
+
+<main id="todo">
+
+  <!-- 1 · HÉROE -->
+  <section class="heroe" id="inicio">
+    <div>
+      <p class="ceja">Para <span data-clinica>su clínica en Cali</span></p>
+      <h1><span class="l"><span>Su programa</span></span><span class="l"><span>de lipedema,</span></span><span class="l gris"><span>funcionando en Cali.</span></span></h1>
+      <p class="lead">Ustedes ponen la clínica y la inversión. <b>Nosotros lo montamos y lo operamos:</b> personal, equipos, capacitación, pauta y ventas.</p>
+      <div class="acciones">
+        <a class="btn" href="#funciona">Ver cómo lo montamos</a>
+        <a class="link" href="#planes">Ver el plan</a>
+      </div>
+      <ul class="sellos">
+        <li><b>4,9</b>en Google</li>
+        <li><b>8</b>especialidades en un programa</li>
+        <li><b>12</b>semanas para abrir</li>
+      </ul>
+      <p class="baja"><i></i>Unos 4 minutos · cada parte lleva a la siguiente</p>
+    </div>
+    <div class="foto-h">
+      <div class="marco"><img src="assets/media/sede-consultorio.webp" alt="Consultorio de la sede de Seravena en Medellín" width="1672" height="941" fetchpriority="high"></div>
+      <div class="etq dos"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span>5 etapas<small>se abren al firmar</small></span></div>
+      <div class="etq uno"><span>Sede Seravena · Medellín<small>De aquí sale el programa</small></span></div>
+    </div>
+  </section>
+
+  <!-- 2 · LO QUE YA FUNCIONA -->
+  <section class="escena-foto" id="funciona" data-escena="foto">
+    <div class="fijo">
+      <div class="ef-clip" id="ef-clip">
+        <img class="uno" src="assets/media/sede-consultorio.webp" alt="" width="1672" height="941" loading="lazy">
+        <img class="dos" src="assets/media/sede-recepcion.webp" alt="Recepción de Seravena en Medellín" width="1672" height="941" loading="lazy">
+        <div class="ef-velo" id="ef-velo"></div>
+      </div>
+      <div class="ef-txt" id="ef-txt">
+        <div class="ancho" style="width:100%;padding:0">
+          <p class="ceja">Esto ya funciona en Medellín</p>
+          <div class="datos">
+            <div class="dato"><span class="num" data-n="4.9" data-dec="1">4,9</span><p>en Google, con reseñas reales de pacientes.</p></div>
+            <div class="dato"><span class="num" data-n="8">8</span><p>especialidades trabajando en un solo programa.</p></div>
+            <div class="dato"><span class="num" data-n="3">3</span><p>meses de acompañamiento médico para cada paciente.</p></div>
+            <div class="dato"><span class="num" data-n="1164">1.164</span><p>conversaciones por WhatsApp en un mes, desde Instagram y Facebook.</p><span class="pc">Meta · 14 sep a 13 oct</span></div>
+          </div>
+          <p class="fin">Ya está probado. <span>Ahora lo llevamos a su clínica.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hilo" aria-hidden="true"><b></b></div>
+
+  <!-- 3 · QUÉ PONE CADA UNO -->
+  <section class="reparto" id="reparto">
+    <div class="ancho">
+      <div class="rep-cab">
+        <p class="ceja rv">El trato</p>
+        <h2 class="h2 rv" style="--d:1">Ustedes ponen la inversión. <span>Nosotros, todo lo demás.</span></h2>
+        <p class="bajada rv" style="--d:2">Ustedes no tienen que aprender a montar un programa de lipedema. Nosotros hacemos que todo pase: la parte comercial, la administrativa y la operativa.</p>
+      </div>
+      <div class="lados">
+        <div class="lado ellos rv">
+          <h3>Ustedes ponen</h3>
+          <p class="tot">5 cosas</p>
+          <ul>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>La sede y los consultorios</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M10 17h4"/></svg>La compra de los equipos</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 11a3 3 0 1 0 0-6M21 20c0-2.6-1.6-4.8-4-5.6"/></svg>El médico y las enfermeras</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>Lo que cuestan los anuncios</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M10 3v5L4 19a1.5 1.5 0 0 0 1.3 2h13.4A1.5 1.5 0 0 0 20 19l-6-11V3M8 3h8"/></svg>Insumos y medicamentos</li>
+          </ul>
+        </div>
+        <div class="medio" aria-hidden="true"><span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="lado nos rv" style="--d:2">
+          <h3>Seravena pone y opera</h3>
+          <p class="tot">Todo lo demás</p>
+          <ul>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>El área comercial</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>La parte administrativa</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>La parte operativa, día a día</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Hacer que todo pase</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Impulso desde las redes de Seravena</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Nuestros activos digitales: web, blog y pauta</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"/></svg>El programa, manuales y capacitación</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>Calidad y reseñas, cada mes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · LA RUTA -->
+  <section class="escena-ruta" id="ruta" data-escena="ruta">
+    <div class="fijo">
+      <div class="ancho ruta-cab">
+        <div>
+          <p class="ceja">La ruta</p>
+          <h2 class="h2">Así lo montamos: <span>5 etapas, 12 semanas.</span></h2>
+          <p class="bajada">Cada etapa arranca cuando se cumple la anterior. El detalle de cada una se entrega al firmar.</p>
+        </div>
+        <p class="semana">Semana<b id="semana">0</b></p>
+      </div>
+      <div class="pista-caja">
+        <div class="pista" id="pista">
+          <span class="relleno" id="relleno"></span><span class="marca" id="marca"><i></i>Semana 0</span>
+          <article class="etapa"><span class="nodo"></span>
+            <div class="et-n"><b>1</b><span>Semana 0</span></div>
+            <h3>Firmamos</h3>
+            <ul><li>Acuerdo de confidencialidad y contrato.</li><li>Pago del montaje.</li><li>Visitamos su sede: espacios, consultorios y permisos de salud.</li></ul>
+            <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>Lista de revisión de la sede</p><i></i><i></i><i></i><small>Se abre al firmar</small></div>
+          </article>
+          <article class="etapa"><span class="nodo"></span>
+            <div class="et-n"><b>2</b><span>Semanas 1 a 6</span></div>
+            <h3>Montamos</h3>
+            <ul><li>Elegimos y negociamos los equipos. Ustedes los compran y quedan a su nombre.</li><li>Buscamos, entrevistamos y elegimos al equipo. Si ya tienen gente, la evaluamos.</li><li>Les abrimos la plataforma del programa.</li></ul>
+            <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>Equipos, cargos y perfiles exactos</p><i></i><i></i><i></i><small>Se abre al firmar</small></div>
+          </article>
+          <article class="etapa"><span class="nodo"></span>
+            <div class="et-n"><b>3</b><span>Semanas 5 a 9</span></div>
+            <h3>Capacitamos</h3>
+            <ul><li>Su médico rota en nuestra sede de Medellín.</li><li>Entrenamiento por equipo, en Cali y virtual.</li><li>Certificado Seravena para cada persona.</li></ul>
+            <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>El programa completo</p><i></i><i></i><i></i><small>Solo para personas certificadas</small></div>
+          </article>
+          <article class="etapa"><span class="nodo"></span>
+            <div class="et-n"><b>4</b><span>Semanas 8 a 12</span></div>
+            <h3>Abrimos</h3>
+            <ul><li>Página para Cali, Google Maps y anuncios encendidos.</li><li>Un día de grabación en su sede.</li><li>Acompañamos las primeras valoraciones.</li></ul>
+            <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>Guiones y plan de pauta</p><i></i><i></i><i></i><small>Se abre al firmar</small></div>
+          </article>
+          <article class="etapa"><span class="nodo"></span>
+            <div class="et-n"><b>5</b><span>Cada mes</span></div>
+            <h3>Operamos</h3>
+            <ul><li>Manejamos la pauta y supervisamos las ventas.</li><li>Revisamos la calidad y las reseñas.</li><li>Reunión mensual con los números.</li></ul>
+            <div class="cerrado"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p>Tablero mensual del programa</p><i></i><i></i><i></i><small>Se abre al firmar</small></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hilo" aria-hidden="true"><b></b></div>
+
+  <!-- 5 · EL EQUIPO -->
+  <section class="equipo-sec" id="equipo">
+    <div class="ancho">
+      <div class="capa-cab">
+        <p class="ceja rv">Su equipo</p>
+        <h2 class="h2 rv" style="--d:1">Un equipo completo, <span>al servicio de su sede.</span></h2>
+        <p class="bajada rv" style="--d:2">Lo elegimos, lo entrenamos y lo certificamos. Trabaja con el método Seravena y responde a los mismos números que nuestra sede de Medellín.</p>
+      </div>
+      <div class="orga" id="orga">
+        <svg class="orga-lineas" id="orga-lineas" aria-hidden="true"></svg>
+        <div class="nucleo"><img src="assets/isotype-camel.webp" alt="" width="520" height="354"><span><b>Su sede en Cali</b><br><small>Operada por Seravena</small></span></div>
+        <article class="rol-c mkt" data-r style="--d:0"><span class="sello">Certificado<br>Seravena</span><span class="rol"><svg class="ico" viewBox="0 0 24 24"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><h3>Equipo de marketing digital</h3><p>El mismo equipo que hoy le trae pacientes a Seravena, trabajando para Cali.</p><div class="mini"><span>Pauta en Meta</span><span>Google Ads</span><span>Web y SEO</span><span>Contenido y videos</span><span>WhatsApp comercial</span><span>Redes de Seravena</span></div></article>
+        <article class="rol-c adm" data-r style="--d:1"><span class="sello">Certificado<br>Seravena</span><span class="rol"><svg class="ico" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span><h3>Administrador</h3><p>Dirige la operación de la sede, cuida los números y lidera la reunión mensual con ustedes.</p></article>
+        <article class="rol-c med" data-r style="--d:2"><span class="sello">Certificado<br>Seravena</span><span class="rol"><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v6a6 6 0 0 0 12 0V3M12 15v2a4 4 0 0 0 8 0v-2"/><circle cx="20" cy="13" r="2"/></svg></span><h3>Médico</h3><p>Valora y acompaña a cada paciente con el método Seravena. Antes de abrir, rota en nuestra sede de Medellín.</p></article>
+        <article class="rol-c aux" data-r style="--d:3"><span class="sello">Certificado<br>Seravena</span><span class="rol"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Auxiliar administrativa</h3><p>Agenda, recibe a cada paciente, organiza los cobros y los recordatorios.</p></article>
+        <article class="rol-c enf" data-r style="--d:4"><span class="sello">Certificado<br>Seravena</span><span class="rol"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/><path d="M12 9v5M9.5 11.5h5"/></svg></span><h3>Enfermeras</h3><p>Acompañan cada sesión del programa y el día a día de la paciente.</p></article>
+      </div>
+      <p class="firma rv"><span class="candado"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>Cada persona firma confidencialidad y recibe su certificado Seravena antes de atender.</p>
+    </div>
+  </section>
+
+  <!-- 6 · MARKETING DIGITAL -->
+  <section class="mkt-sec" id="marketing">
+    <div class="ancho">
+      <p class="ceja rv">Marketing digital</p>
+      <h2 class="h2 rv" style="--d:1">El motor que hoy nos trae pacientes, <span>ahora trabajando para Cali.</span></h2>
+      <p class="bajada rv" style="--d:2">Estos son números reales de Seravena. El mismo equipo y el mismo método van a trabajar para su sede.</p>
+      <div class="canales">
+        <article class="canal" style="--d:0"><span class="c-top"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>Instagram y Facebook</span><span class="big" data-n="1164">1.164</span><p>conversaciones por WhatsApp en un mes.</p><ul><li><b>1.151</b> en julio</li><li>Pauta en Meta con mensajes directos a WhatsApp</li></ul><small>Meta · 14 sep a 13 oct de 2026</small></article>
+        <article class="canal" style="--d:1"><span class="c-top"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Google Ads</span><span class="big" data-n="59">59</span><p>conversaciones por WhatsApp en 30 días.</p><ul><li><b>511</b> clics al anuncio</li><li><b>4.426</b> veces apareció el anuncio</li></ul><small>Google Ads · 20 sep a 20 oct de 2026</small></article>
+        <article class="canal" style="--d:2"><span class="c-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6M8 15h4"/></svg>SEO y contenido</span><span class="big" data-n="115">115</span><p>páginas de Seravena que Google ya muestra.</p><ul><li><b>87</b> artículos propios en el blog</li><li><b>1</b> artículo nuevo cada día</li></ul><small>Search Console · octubre de 2026</small></article>
+        <article class="canal" style="--d:3"><span class="c-top"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Google Maps</span><span class="big" data-n="4.9" data-dec="1">4,9</span><p>estrellas en Google, con reseñas reales de pacientes.</p><ul><li>Ficha con fotos reales de la sede</li><li>Sistema para pedir reseñas</li></ul><small>Perfil de Empresa en Google</small></article>
+      </div>
+      <div class="seo">
+        <div>
+          <p class="ceja rv">La estrategia SEO para Cali</p>
+          <h3 class="rv" style="--d:1">Que cuando alguien en Cali busque lipedema, <span>los encuentre a ustedes.</span></h3>
+          <p class="bajada rv" style="--d:2">No es suerte: es un sistema que ya funciona en Medellín y que se mide cada semana.</p>
+          <div class="cada-mes rv" style="--d:3"><span>Pauta en Meta</span><span>Google Ads</span><span>Página para Cali</span><span>Blog diario</span><span>Google Maps</span><span>Videos</span><span>Guiones de WhatsApp</span><span>Mapa de calor</span><span>Impulso desde las redes de Seravena</span><span>Informe mensual</span></div>
+        </div>
+        <ol class="seo-pasos">
+          <span class="riel" data-llena><i></i></span>
+          <li class="rv"><span class="n">1</span><h4>Una página propia para Cali</h4><p>Escrita para lo que la gente busca allá: lipedema en Cali, tratamiento de lipedema en Cali, piernas pesadas.</p></li>
+          <li class="rv"><span class="n">2</span><h4>Un artículo nuevo cada día</h4><p>Nuestro equipo de redacción con inteligencia artificial, revisado para que suene humano y con Cali en el texto.</p></li>
+          <li class="rv"><span class="n">3</span><h4>Google Maps de su sede</h4><p>Ficha completa, fotos reales y un sistema para que las pacientes dejen su reseña.</p></li>
+          <li class="rv"><span class="n">4</span><h4>Medimos cada semana</h4><p>Search Console, Google Analytics y mapa de calor: vemos qué buscan, por dónde llegan y dónde tocan.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · LO QUE YA ESTÁ AL AIRE -->
+  <section class="vivo-sec" id="web">
+    <div class="ancho">
+      <div class="rep-cab">
+        <p class="ceja">Lo que ya está al aire</p>
+        <h2 class="h2">Esto lo hicimos nosotros. <span>Así será la de Cali.</span></h2>
+        <p class="bajada">Toquen cualquiera para verla en vivo.</p>
+      </div>
+    </div>
+    <div class="vivo-fila">
+      <a class="mv" style="--d:0" href="https://www.clinicaseravena.com/" target="_blank" rel="noopener"><span class="marco-tel"><span class="pantalla"><img src="assets/propuesta/vivo-inicio.webp" alt="Página de inicio de Seravena" width="360" height="3415" loading="lazy"></span></span><b>Página de inicio</b><small>clinicaseravena.com ↗</small></a>
+      <a class="mv" style="--d:1" href="https://www.clinicaseravena.com/test-lipedema" target="_blank" rel="noopener"><span class="marco-tel"><span class="pantalla"><img src="assets/propuesta/vivo-test.webp" alt="Test de lipedema de Seravena" width="360" height="3415" loading="lazy"></span></span><b>Test de lipedema</b><small>/test-lipedema ↗</small></a>
+      <a class="mv" style="--d:2" href="https://www.clinicaseravena.com/blog/" target="_blank" rel="noopener"><span class="marco-tel"><span class="pantalla"><img src="assets/propuesta/vivo-blog.webp" alt="Blog de Seravena" width="360" height="3415" loading="lazy"></span></span><b>Blog: 87 artículos</b><small>/blog ↗</small></a>
+      <a class="mv" style="--d:3" href="https://www.clinicaseravena.com/clinica-lipedema-medellin" target="_blank" rel="noopener"><span class="marco-tel"><span class="pantalla"><img src="assets/propuesta/vivo-local.webp" alt="Página local de lipedema en Medellín" width="360" height="3415" loading="lazy"></span></span><b>Página local</b><small>/clinica-lipedema-medellin ↗</small></a>
+      <a class="mv" style="--d:4" href="https://www.clinicaseravena.com/insuficiencia-venosa" target="_blank" rel="noopener"><span class="marco-tel"><span class="pantalla"><img src="assets/propuesta/vivo-venas.webp" alt="Página de anuncios de venas" width="360" height="779" loading="lazy"></span></span><b>Página de anuncios</b><small>/insuficiencia-venosa ↗</small></a>
+    </div>
+  </section>
+
+  <div class="hilo" aria-hidden="true"><b></b></div>
+
+  <!-- 8 · DE DÓNDE SALEN LAS PACIENTES -->
+  <section class="escena-tel" id="pacientes" data-escena="tel">
+    <div class="fijo">
+      <div>
+        <p class="ceja">Pauta y ventas</p>
+        <h2 class="h2">Y las pacientes, <span>¿de dónde salen?</span></h2>
+        <p class="bajada">De la misma forma en que hoy le llegan a Seravena. Nosotros manejamos los anuncios y entrenamos a quien responde.</p>
+        <ol class="pasos">
+          <span class="riel" id="riel-pasos"><i></i></span>
+          <li class="paso"><h3>La ve</h3><p>Ve el anuncio en Instagram o encuentra la clínica en Google.</p></li>
+          <li class="paso"><h3>Escribe</h3><p>Escribe por WhatsApp y le responde alguien entrenado por nosotros.</p></li>
+          <li class="paso"><h3>Agenda</h3><p>Agenda su valoración con el médico de su clínica.</p></li>
+          <li class="paso"><h3>Entra</h3><p>Entra al programa. Y la cuenta del mes sube.</p></li>
+        </ol>
+      </div>
+      <div class="tel-caja">
+        <div class="ins i1"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span><b>4.426</b>veces apareció el anuncio en Google en 30 días</span></div>
+        <div class="ins i2"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span><b>1.164</b>conversaciones en un mes desde Instagram y Facebook</span></div>
+        <div class="ins i3"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span><b>Guiones probados</b>con pacientes reales en Medellín</span></div>
+        <div class="ins i4"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg><span><b>4,9 en Google</b>pacientes que recomiendan</span></div>
+        <div class="tel" aria-hidden="true">
+          <div class="pant p-ig" data-p="0">
+            <div class="post" id="post">
+              <div class="ig-top"><i></i><span>Programa de lipedema<small>Patrocinado · Cali</small></span></div>
+              <img src="assets/media/sede-cabina.webp" alt="" width="1672" height="941" loading="lazy">
+              <p><b>¿Piernas que duelen y no bajan con dieta?</b> Podría ser lipedema. Agenda tu valoración en Cali.</p>
+              <div class="ig-btn">Enviar mensaje</div>
+            </div>
+            <span class="dedo"></span>
+          </div>
+          <div class="pant p-wa" data-p="1">
+            <div class="wa-top" id="wa-top"><i></i><span>Programa de lipedema<small><span class="linea">en línea</span><span class="escribe">escribiendo…</span></small></span></div>
+            <div class="wa-chat">
+              <div class="bur ella">Hola, vi su anuncio. Creo que tengo lipedema 😔</div>
+              <div class="bur cli">¡Hola! Qué bueno que escribiste. ¿Hace cuánto sientes las piernas pesadas?</div>
+              <div class="bur ella">Hace años, y nadie me había dicho qué era</div>
+              <div class="bur cli">Te entiendo. Lo primero es una valoración con el médico. ¿Te sirve el jueves?</div>
+              <div class="bur ella">¡Sí, el jueves!</div>
+            </div>
+            <div class="wa-barra"><span>Mensaje</span><i></i></div>
+          </div>
+          <div class="pant p-ok" data-p="2">
+            <div class="noti" id="noti"><i></i><span><b>Seravena Cali</b>Nueva valoración: jueves, 10:00 a. m.</span></div>
+            <span class="circ"><svg class="ico chulo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg></span>
+            <h4>Valoración confirmada</h4><p>Ya está en la agenda de la clínica.</p>
+            <div class="cal"><b>Jueves · 10:00 a. m.</b>Valoración de lipedema · Sede Cali</div>
+          </div>
+          <div class="pant p-ok" data-p="3">
+            <span class="circ"><svg class="ico chulo" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span>
+            <h4>Paciente nueva</h4><p>Programa de lipedema · 3 meses</p>
+            <p class="cuenta">Pacientes este mes<b id="cuenta">10</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · EL PLAN -->
+  <section class="planes" id="planes">
+    <div class="ancho">
+      <div class="planes-cab">
+        <p class="ceja rv">El plan</p>
+        <h2 class="h2 rv" style="--d:1">Un solo plan. <span>Nosotros hacemos que todo pase.</span></h2>
+        <p class="bajada rv" style="--d:2">Ustedes ponen la sede y la inversión. Seravena pone el área comercial, la administrativa y la operativa, y cobra según lo que la sede facture.</p>
+      </div>
+      <div class="unico rv">
+        <div class="u-izq">
+          <span class="tag">Plan único · Operado por Seravena</span>
+          <h3>Todo lo que hacemos por su sede</h3>
+          <ul>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>El área comercial: respondemos, agendamos y cerramos</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>La parte administrativa: agenda, cobros e indicadores</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>La parte operativa, el día a día de la sede</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Hacemos que todo pase: personal, equipos y proveedores</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Impulsamos la marca desde las redes de Seravena</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Nuestros activos digitales: web, blog, Google y pauta</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>El programa, los manuales y la capacitación</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>Calidad y reunión mensual con los números</li>
+          </ul>
+        </div>
+        <div class="u-der">
+          <div class="u-precio"><b data-precio="montaje"></b><span>de montaje, una sola vez</span></div>
+          <span class="u-mas">+</span>
+          <div class="u-precio"><b data-precio="porcentaje"></b><span>de todo lo que facture el programa, cada mes</span></div>
+          <p class="u-nota">Si la sede factura más, a los dos nos va mejor. Ganamos cuando ustedes ganan.</p>
+          <a class="btn btn-claro" href="#simulador">Ver cuánto deja</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · SIMULADOR -->
+  <section class="sim" id="simulador">
+    <div class="ancho">
+      <div>
+        <p class="ceja rv">El simulador</p>
+        <h2 class="h2 rv" style="--d:1">Muevan la barra. <span>Esto es lo que deja.</span></h2>
+        <p class="bajada rv" style="--d:2">Cuántas pacientes entran al programa cada mes, y cómo se reparte lo que se factura.</p>
+        <p class="plan-sel rv" style="--d:3">Montaje: <b id="sim-montaje"></b> una sola vez</p>
+      </div>
+      <div class="tablero rv" style="--d:1">
+        <div class="cuantas"><b id="n">10</b><span>pacientes al mes</span></div>
+        <input class="rango" id="rango" type="range" min="3" max="30" value="10" aria-label="Pacientes que entran al programa cada mes">
+        <div class="cascada">
+          <div class="c-fila"><span>Factura la sede</span><b id="v-entra">$0</b></div>
+          <div class="c-fila"><span>Para Seravena<small id="v-nota"></small></span><b id="v-sera">$0</b></div>
+          <div class="c-fila queda"><span>Queda para la sede<small>Antes de pagar sede, equipos, médico, enfermeras y anuncios</small></span><b id="v-queda">$0</b></div>
+        </div>
+        <p class="sim-pie">Ejemplo con el precio del programa en Medellín (<span id="v-precio"></span> por paciente). En Cali el precio lo definimos juntos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · CIERRE -->
+  <section class="cierre rv" id="cierre">
+    <div class="ancho">
+      <svg class="llave" viewBox="0 0 74 74" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="37" r="12"/><circle cx="24" cy="37" r="4"/><path d="M36 37h28M54 37v8M62 37v6"/></g></svg>
+      <h2>¿Arrancamos?</h2>
+      <div class="resumen"><span><b>Plan único</b> operado por Seravena</span><span><b id="r-n">10</b> pacientes al mes</span></div>
+      <div><a class="btn" id="whatsapp" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Queremos arrancar</a></div>
+      <p class="sig">Siguiente paso: firmamos la confidencialidad y les mostramos el detalle.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="ancho">
+    <img src="assets/wordmark-pardo.webp" alt="Seravena" width="600" height="128">
+    <span>Propuesta confidencial para <span data-clinica>su clínica en Cali</span> · Seravena, Medellín · octubre de 2026. Por favor no la comparta.</span>
+  </div>
+</footer>
+
+<span class="aviso-borrador" id="aviso-borrador" hidden>Borrador<span class="largo"> · montos y datos por confirmar</span></span>
+
+<script>
+/* ============ CONFIGURACIÓN (aquí se cambian montos y datos) ============ */
+const CONFIG = {
+  clave: "111",
+  clinica: "",                       // nombre de la clínica de Cali (vacío = "su clínica en Cali")
+  whatsapp: "573052088204",          // a quién le llega "Queremos arrancar" (POR CONFIRMAR con Laura)
+  borrador: false,
+  montaje: 80000000,                 // una sola vez
+  porcentaje: 20,                    // de todo lo facturado, cada mes
+  precioPrograma: 8952381,           // precio del programa en Medellín (cotizador), solo para el ejemplo
+};
+/* ======================================================================== */
+(function(){
+  "use strict";
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var quieto=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ev=function(n){try{window.clarity&&window.clarity("event",n)}catch(e){}};
+  var todo=$("#todo");
+
+  /* Clarity solo en la web publicada */
+  if(/clinicaseravena\.com$/.test(location.hostname)){
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yjrylwviw2");
+    window.clarity("set","pagina","alianza-cali-plan");
+  }
+
+  /* datos de configuración */
+  if(CONFIG.clinica) $$("[data-clinica]").forEach(function(el){el.textContent=CONFIG.clinica});
+  if(!CONFIG.borrador) $$("[data-borrador]").forEach(function(el){el.hidden=true});
+  else if(!/clinicaseravena\.com$/.test(location.hostname)) $("#aviso-borrador").hidden=false;
+
+  /* ---------- Puerta ---------- */
+  var puerta=$("#puerta"), clave=$("#clave"), mal=$("#mal"), circ=$$(".circulos i");
+  function abrir(){todo.classList.add("abierta");document.documentElement.style.overflow=""}
+  if(/abierta/.test(location.search)||sessionStorageGet()){abrir()}
+  else{
+    puerta.hidden=false;document.documentElement.style.overflow="hidden";
+    setTimeout(function(){clave.focus()},300);
+    puerta.addEventListener("click",function(){clave.focus()});
+    clave.addEventListener("input",function(){
+      clave.value=clave.value.replace(/\D/g,"").slice(0,3);
+      circ.forEach(function(el,k){el.classList.toggle("lleno",k<clave.value.length)});
+      mal.textContent="";
+      if(clave.value.length===3){
+        if(clave.value===CONFIG.clave){
+          puerta.classList.add("ok");ev("clave_ok");
+          try{sessionStorage.setItem("alianza-cali","1")}catch(e){}
+          setTimeout(function(){puerta.classList.add("abre");abrir()},550);
+          setTimeout(function(){puerta.hidden=true;medir();tick()},1700);
+        }else{
+          puerta.classList.add("error");mal.textContent="Clave incorrecta";
+          setTimeout(function(){puerta.classList.remove("error");clave.value="";circ.forEach(function(el){el.classList.remove("lleno")})},450);
+        }
+      }
+    });
+  }
+  function sessionStorageGet(){try{return sessionStorage.getItem("alianza-cali")==="1"}catch(e){return false}}
+
+  /* ---------- Contadores ---------- */
+  function contar(el){
+    if(!el||el._contando)return;var fin=parseFloat(el.getAttribute("data-n")),dec=+el.getAttribute("data-dec")||0,pre=el.getAttribute("data-pre")||"",suf=el.getAttribute("data-suf")||"";
+    var pinta=function(v){el.textContent=pre+v.toLocaleString("es-CO",{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf};
+    if(quieto){pinta(fin);return}
+    el._contando=true;var t0=performance.now(),dur=1300;
+    (function paso(t){var a=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-a,3);pinta(fin*e);if(a<1)requestAnimationFrame(paso);else el._contando=false})(t0);
+  }
+
+  /* ---------- Aparición al bajar (y lo que arranca al verse) ---------- */
+  function alVer(el){
+    el.classList.add("ve");
+    if(el.classList.contains("canal"))$$("[data-n]",el).forEach(contar);
+  }
+  var observar=".rv,.orga,.canal,.vivo-sec";
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){alVer(e.target);io.unobserve(e.target)}})},{threshold:.18,rootMargin:"0px 0px -6% 0px"});
+    $$(observar).forEach(function(el){io.observe(el)});
+  }else $$(observar).forEach(alVer);
+
+  /* ---------- Escenas que se mueven con el scroll ---------- */
+  var escenas=!quieto;
+  document.documentElement.classList.add(escenas?"escenas":"sin-escenas");
+  var vh=innerHeight, movil=innerWidth<861;
+  var ef=$(".escena-foto"), efClip=$("#ef-clip"), efUno=$(".ef-clip .uno"), efDos=$(".ef-clip .dos"), efVelo=$("#ef-velo"), efTxt=$("#ef-txt"), datos=$$(".dato"), fin=$(".fin");
+  var er=$(".escena-ruta"), pista=$("#pista"), etapas=$$(".etapa"), semana=$("#semana"), relleno=$("#relleno"), marca=$("#marca"), dist=0, x0=0, x1=0;
+  var et=$(".escena-tel"), pasos=$$(".paso"), pants=$$(".pant"), burs=$$(".bur"), cuenta=$("#cuenta"), post=$("#post"), pIg=$(".p-ig"), waTop=$("#wa-top"), noti=$("#noti"), ins=$$(".ins"), rielPasos=$("#riel-pasos");
+  var hilos=$$(".hilo"), llenas=$$("[data-llena]"), avance=$("#avance"), cab=$("#cab"), orga=$("#orga"), lineas=$("#orga-lineas");
+  var actualDato=-2, actualPaso=-1, actualEtapa=-1;
+  if(!escenas){datos.forEach(function(d){contar(d.querySelector("[data-n]"))});burs.forEach(function(b){b.classList.add("ve")});etapas.forEach(function(e){e.classList.add("on")})}
+
+  /* líneas del organigrama: del centro a cada cargo */
+  function dibujaOrga(){
+    if(!orga||!lineas)return;
+    var R=orga.getBoundingClientRect(),n=$(".nucleo",orga).getBoundingClientRect(),cx=n.left+n.width/2-R.left,cy=n.top+n.height/2-R.top,h="";
+    lineas.setAttribute("viewBox","0 0 "+R.width+" "+R.height);
+    $$("[data-r]",orga).forEach(function(c){
+      var r=c.getBoundingClientRect(),x=r.left+r.width/2-R.left,y=r.top+r.height/2-R.top,my=(cy+y)/2;
+      h+='<path pathLength="1" style="--d:'+(c.style.getPropertyValue("--d")||0)+'" d="M'+cx+' '+cy+' C'+cx+' '+my+' '+x+' '+my+' '+x+' '+y+'"/>';
+    });
+    lineas.innerHTML=h;
+  }
+  /* celulares de la web: cuánto recorre cada captura */
+  function medirVivo(){
+    $$(".mv .pantalla").forEach(function(pt){var im=$("img",pt);if(!im.complete)return;pt.style.setProperty("--x",1);im.style.setProperty("--fin",Math.min(0,pt.clientHeight-im.clientHeight)+"px")});
+  }
+  $$(".mv img").forEach(function(im){im.addEventListener("load",medirVivo)});
+
+  function prog(el){var r=el.getBoundingClientRect(),tot=el.offsetHeight-vh;return tot>0?Math.min(1,Math.max(0,-r.top/tot)):(r.top<0?1:0)}
+  function medir(){
+    vh=innerHeight;movil=innerWidth<861;
+    if(escenas){
+      dist=Math.max(0,pista.scrollWidth-innerWidth);
+      er.style.height=(vh+dist*1.35)+"px";
+      x0=etapas[0].offsetLeft+34;x1=etapas[etapas.length-1].offsetLeft+34;
+      relleno.style.left=x0+"px";
+    }
+    dibujaOrga();medirVivo();
+  }
+  function escenaFoto(p){
+    var a=Math.min(1,p/.22),e=1-Math.pow(1-a,3);
+    var iy=(1-e)*(movil?18:16),ix=(1-e)*(movil?6:20),rad=(1-e)*34;
+    efClip.style.clipPath="inset("+iy+"svh "+ix+"vw round "+rad+"px)";
+    efUno.style.transform="scale("+(1.18-.18*e)+")";
+    efVelo.style.opacity=Math.min(1,Math.max(0,(p-.12)/.12));
+    efTxt.classList.toggle("mostrar",p>.2);
+    var k=p<.26?0:Math.min(4,1+Math.floor((p-.26)/.12));
+    var cierra=p>=.78;
+    if(k!==actualDato){
+      datos.forEach(function(d,i){
+        if(i<k){if(!d.classList.contains("on")){d.classList.add("on");contar(d.querySelector("[data-n]"))}}
+        else d.classList.remove("on");
+      });
+      actualDato=k;
+    }
+    fin.classList.toggle("on",cierra);
+    efDos.style.opacity=cierra?1:0;
+  }
+  function escenaRuta(p){
+    pista.style.transform="translate3d("+(-p*dist)+"px,0,0)";
+    var sem=Math.round(p*12),x=x0+p*(x1-x0);
+    semana.textContent=sem;
+    relleno.style.width=(x-x0)+"px";
+    marca.style.left=x+"px";
+    marca.lastChild.nodeValue=p>=.98?"Abierta":"Semana "+sem;
+    var n=etapas.length-1,act=Math.min(n,Math.round(p*n));
+    if(act!==actualEtapa){
+      etapas.forEach(function(e,i){e.classList.toggle("on",i<=act);e.classList.toggle("activa",i===act)});
+      actualEtapa=act;
+    }
+  }
+  function escenaTel(p){
+    var t=p*4.2,s=Math.min(3,Math.floor(t)),sub=Math.min(1,t-s);
+    if(s!==actualPaso){
+      pasos.forEach(function(el,i){el.classList.toggle("on",i===s);el.classList.toggle("hecho",i<s)});
+      pants.forEach(function(el,i){el.classList.toggle("on",i===s)});
+      if(s===3){var b=Math.max(1,+$("#rango").value);cuenta.textContent=b;setTimeout(function(){cuenta.textContent=b+1;cuenta.classList.remove("salta");void cuenta.offsetWidth;cuenta.classList.add("salta")},700)}
+      actualPaso=s;
+    }
+    ins.forEach(function(el,i){el.classList.toggle("on",i<=s&&(i<s||sub>.15))});
+    if(rielPasos)rielPasos.style.setProperty("--h",Math.min(1,p*1.12));
+    /* 1 · el anuncio sube en el feed y se toca */
+    if(s===0){post.style.transform="translateY("+((1-Math.min(1,sub/.6))*62)+"%)";pIg.classList.toggle("tocando",sub>.72)}
+    else{post.style.transform="none";pIg.classList.remove("tocando")}
+    /* 2 · el chat se escribe */
+    var vis=s>1?burs.length:(s===1?Math.min(burs.length,Math.floor(sub*6.2)):0);
+    burs.forEach(function(b,i){b.classList.toggle("ve",i<vis)});
+    var sigue=burs[vis];
+    waTop.classList.toggle("escribiendo",s===1&&!!sigue&&sigue.classList.contains("cli"));
+    /* 3 · llega la notificación */
+    noti.classList.toggle("on",s===2&&sub>.2||s>2);
+  }
+  var raf=0;
+  function llena(el){var r=el.getBoundingClientRect();return Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.15)))}
+  function tick(){
+    raf=0;
+    var y=scrollY,doc=document.documentElement.scrollHeight-vh;
+    avance.style.transform="scaleX("+(doc>0?y/doc:0)+")";
+    cab.classList.toggle("pegada",y>60);
+    hilos.forEach(function(h){var v=llena(h);h.style.setProperty("--h",v);h.classList.toggle("lleno",v>=1)});
+    llenas.forEach(function(h){h.style.setProperty("--h",llena(h))});
+    if(!escenas)return;
+    escenaFoto(prog(ef));escenaRuta(prog(er));escenaTel(prog(et));
+  }
+  addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
+  addEventListener("resize",function(){medir();tick()});
+  addEventListener("load",function(){medir();tick()});
+  medir();tick();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){medir();tick()});
+
+  /* ---------- Plan único → simulador → cierre ---------- */
+  var pesos=function(v){return "$"+Math.round(v).toLocaleString("es-CO")};
+  var rango=$("#rango"), mostrados={};
+  $('[data-precio="montaje"]').textContent=pesos(CONFIG.montaje);
+  $('[data-precio="porcentaje"]').textContent=CONFIG.porcentaje+"%";
+  $("#sim-montaje").textContent=pesos(CONFIG.montaje);
+  $("#v-precio").textContent=pesos(CONFIG.precioPrograma);
+  $("#v-nota").textContent="El "+CONFIG.porcentaje+"% de lo facturado";
+  function animaA(id,valor){
+    var el=document.getElementById(id),de=mostrados[id]||0;mostrados[id]=valor;
+    if(quieto){el.textContent=pesos(valor);return}
+    var t0=performance.now();cancelAnimationFrame(el._r);
+    (function paso(t){var a=Math.min(1,(t-t0)/450),e=1-Math.pow(1-a,3);el.textContent=pesos(de+(valor-de)*e);if(a<1)el._r=requestAnimationFrame(paso)})(t0);
+  }
+  function calcula(){
+    var n=+rango.value,factura=n*CONFIG.precioPrograma,sera=factura*CONFIG.porcentaje/100;
+    $("#n").textContent=n;$("#r-n").textContent=n;
+    rango.style.setProperty("--p",((n-rango.min)/(rango.max-rango.min)*100)+"%");
+    animaA("v-entra",factura);animaA("v-sera",sera);animaA("v-queda",factura-sera);
+    var txt="Hola, venimos de la propuesta web de Seravena. Somos "+(CONFIG.clinica||"la clínica de Cali")+" y queremos arrancar con el programa, pensando en "+n+" pacientes al mes.";
+    $("#whatsapp").href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(txt);
+  }
+  var tocoSim=false;
+  rango.addEventListener("input",function(){calcula();if(!tocoSim){tocoSim=true;ev("simulador")}});
+  $("#whatsapp").addEventListener("click",function(){ev("clic_whatsapp")});
+  calcula();
+})();
+</script>
+</body>
+</html>
