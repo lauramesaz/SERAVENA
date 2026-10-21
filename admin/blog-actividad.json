@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-20",
+  "actualizado": "2026-10-21",
   "articulos": [
+    {
+      "fecha": "2026-10-21",
+      "titulo": "Insuficiencia venosa en hombres: por qué se consulta menos",
+      "slug": "insuficiencia-venosa-en-hombres",
+      "categoria": "Diagnóstico",
+      "keyword": "insuficiencia venosa en hombres",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/insuficiencia-venosa-en-hombres",
+      "nota": "Racimo 'diagnostico'. Explica por qué los hombres consultan mucho más tarde por insuficiencia venosa pese a una prevalencia similar o algo mayor que en mujeres (Edinburgh Vein Study, revisión sistemática Thieme 2025), con foco en oficios de pie en Medellín. Médico: APROBADO sin correcciones (cifras verificadas contra las fuentes originales). SEO: 98/100, APTO. Policía humanizador: 9/10, HUMANO. Enlaces de vuelta añadidos en los 3 hermanos del racimo (guia-diagnostico-problema-venoso, medico-vascular-o-cirujano-colombia, primera-cita-varices-medellin)."
+    },
     {
       "fecha": "2026-10-20",
       "titulo": "Medias de compresión avión: no son todas iguales a las de uso diario",

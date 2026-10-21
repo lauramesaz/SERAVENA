@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-20",
+  "actualizado": "2026-10-21",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -342,6 +342,10 @@
     "tacones-y-varices": {
       "imagen": "6643071.webp",
       "alt": "Venas finas y rojizas visibles bajo la piel de la pantorrilla, el tipo de várices que muchas mujeres relacionan con las horas de tacón"
+    },
+    "insuficiencia-venosa-en-hombres": {
+      "imagen": "6643071.webp",
+      "alt": "Venas marcadas en la pantorrilla de un hombre de pie, señal de posible insuficiencia venosa"
     }
   }
 }
