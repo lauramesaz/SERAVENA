@@ -931,3 +931,63 @@ Ya son 6 semanas con mensajes listos y ninguno enviado. Esta semana, en cambio, 
 y rápido que no depende de escribirle a nadie: entrar al perfil de Doctoralia del médico (arriba),
 completarlo y crear el de la clínica. Es el paso B.2 del kit que ya estaba pendiente, con la ventaja
 de que la parte más lenta (que el médico abriera cuenta) parece que ya se hizo.
+
+---
+
+## Semana del 2026-10-21
+
+· Sitios revisados: 9 (las 3 búsquedas objetivo en Google — "várices Medellín", "flebólogo Medellín",
+"eco doppler venoso Medellín" —, búsqueda general de "Seravena Medellín" y de "clinicaseravena.com",
+perfil de Doctoralia del médico — reintento de acceso directo —, lipedemacolombia.com — reintento de
+acceso directo —, RUES/Cámara de Comercio por nombre de SERAVENA S.A.S., Secretaría de Salud de
+Medellín/Antioquia — directorio de IPS, prensa local buscando cobertura de lipedema en 2026)
+
+### Nombre/dirección/teléfono: sin novedad
+
+La dirección verificada esta semana contra la ficha del edificio (Calle 2 Sur #46-159, Torre Médica
+Salud Vegas, consultorio 1316, El Poblado) coincide con la que ya usa el perfil de Doctoralia del
+médico y con la que la web declara de forma consistente desde hace semanas. Nada que corregir.
+
+### El hallazgo de la semana pasada (Doctoralia) sigue exactamente igual
+
+Intenté dos veces acceder directamente al perfil de Doctoralia del médico
+(doctoralia.co/perfil/jose-david-puerta-rojas) para confirmar de primera mano si ya enlaza a
+www.clinicaseravena.com; las dos veces el entorno bloqueó la salida al dominio (mismo tipo de bloqueo
+ya conocido hacia otros sitios). Por búsqueda sí pude reconfirmar el estado: el perfil sigue siendo
+solo del médico, sin servicios ni precios cargados, y nada indica que ya tenga el enlace a la web.
+Tampoco encontré, buscando de varias formas, que exista ya un perfil de **centro** (clínica) para
+Seravena en Doctoralia — sigue pendiente el paso B.2 del kit que señalé la semana pasada. No cambia
+nada respecto al 14-oct: no repito el hallazgo como si fuera nuevo.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre, sin ningún nombre nuevo frente a lo ya
+registrado en semanas anteriores (Doctoralia, Top Doctors, Vasculab, Variclinic, Franco Vascular,
+Centrolab, Cardiovas IPS, Clínica Medellín/QuirónSalud). Intenté de nuevo acceder directamente a
+lipedemacolombia.com para confirmar si Seravena ya aparece en el directorio de Medellín; el entorno
+bloqueó la salida al dominio, igual que semanas anteriores. Por búsqueda no encontré ninguna página de
+ese sitio que mencione a Seravena: el Mensaje 1 a Adriana, redactado el 2-sep y aún sin enviar, sigue
+siendo la vía correcta.
+
+Intenté también verificar el NIT de SERAVENA S.A.S. en el RUES/Cámara de Comercio y encontrar un
+directorio de IPS propio de la Secretaría de Salud de Medellín (distinto del REPS nacional, ya
+señalado el 16-sep). Ninguna de las dos búsquedas dio resultado: no es una alarma — ninguno de los dos
+registros suele estar indexado por buscadores — pero tampoco pude confirmarlo desde aquí.
+
+### Esta semana no encontré ninguna oportunidad nueva que valga la pena
+
+No encontré ningún directorio, gremio, medio ni aliado nuevo esta semana que no esté ya cubierto por
+los 11 mensajes acumulados entre esta bitácora y `kit-backlinks.md`. Tampoco encontré cobertura de
+prensa nueva sobre lipedema en El Colombiano, Vivir en El Poblado ni ningún otro medio local. No
+redacto mensajes nuevos solo por llenar el cupo de 3: sería relleno, y esta semana la investigación
+genuinamente no dio nada nuevo.
+
+· Mensajes listos para enviar: 0 esta semana (11 mensajes de semanas anteriores siguen pendientes de
+envío, repartidos entre esta bitácora y `kit-backlinks.md` — ver semanas anteriores y ese archivo)
+
+### Para Laura, en una línea
+
+Ya son 7 semanas con mensajes listos sin enviar y esta semana no hay hallazgo nuevo como el de la
+pasada (Doctoralia): sigue en pie lo que dejé el 14-oct — completar el perfil de Doctoralia del médico
+con el enlace a la web y crear el perfil de la clínica— y sigue en pie que el trabajo pendiente es
+revisar y enviar (o descartar) los 11 mensajes ya redactados, no que yo siga sumando más.
