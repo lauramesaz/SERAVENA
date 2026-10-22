@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-21",
+  "actualizado": "2026-10-22",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -346,6 +346,10 @@
     "insuficiencia-venosa-en-hombres": {
       "imagen": "6643071.webp",
       "alt": "Venas marcadas en la pantorrilla de un hombre de pie, señal de posible insuficiencia venosa"
+    },
+    "piernas-hinchadas-menstruacion": {
+      "imagen": "8093136.webp",
+      "alt": "Mano sosteniendo con suavidad el tejido del muslo, el gesto de prestar atención a cómo cambian las piernas los días antes del periodo"
     }
   }
 }
