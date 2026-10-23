@@ -46,6 +46,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-23 | lipedema-resistencia-insulina | Lipedema y resistencia a la insulina: qué dice la evidencia | lipedema resistencia a la insulina | publicado | — | — | — |
 | 2026-10-22 | piernas-hinchadas-menstruacion | Piernas hinchadas antes de la menstruación: por qué pasa cada mes | piernas hinchadas menstruación | publicado | — | — | — |
 | 2026-10-21 | insuficiencia-venosa-en-hombres | Insuficiencia venosa en hombres: por qué se consulta menos | insuficiencia venosa en hombres | publicado | — | — | — |
 | 2026-10-20 | medias-compresion-para-volar | Medias de compresión avión: no son todas iguales a las de uso diario | medias de compresión avión | publicado | — | — | — |
