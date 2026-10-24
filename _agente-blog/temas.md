@@ -192,7 +192,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Insuficiencia venosa en hombres: por qué se consulta menos — insuficiencia venosa en hombres — insuficiencia-venosa-en-hombres — racimo: diagnostico
 - [publicado] Piernas hinchadas antes de la menstruación: por qué pasa cada mes — piernas hinchadas menstruación — piernas-hinchadas-menstruacion — racimo: sintomas
 - [publicado] Lipedema y resistencia a la insulina: qué dice la evidencia — lipedema resistencia a la insulina — lipedema-resistencia-insulina — racimo: lipedema
-- [pendiente] Lipedema en cadera y glúteos: cómo se reconoce — lipedema en cadera y glúteos — lipedema-cadera-gluteos — racimo: lipedema
+- [publicado] Lipedema en cadera y glúteos: cómo se reconoce — lipedema en cadera y glúteos — lipedema-cadera-gluteos — racimo: lipedema
 - [pendiente] Celulitis o lipedema: cómo diferenciarlos a simple vista — celulitis o lipedema — celulitis-o-lipedema — racimo: lipedema
 - [pendiente] Yoga y pilates si tienes piernas pesadas o várices: qué considerar — yoga para la circulación — yoga-pilates-circulacion-piernas — racimo: situaciones
 - [pendiente] Dolor de espalda baja y piernas pesadas: ¿están relacionados? — dolor de espalda y piernas pesadas — dolor-espalda-piernas-pesadas — racimo: sintomas

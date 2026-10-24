@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-23",
+  "actualizado": "2026-10-24",
   "articulos": [
+    {
+      "fecha": "2026-10-24",
+      "titulo": "Lipedema en cadera y glúteos: cómo se reconoce",
+      "slug": "lipedema-cadera-gluteos",
+      "categoria": "Lipedema",
+      "keyword": "lipedema en cadera y glúteos",
+      "seo": 93,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-cadera-gluteos",
+      "nota": "Racimo 'lipedema'. Explica el lipedema tipo I (patrón simétrico en caderas y glúteos, 'pantalón de montar'), cómo se diferencia de subir de peso y del linfedema (signo de Stemmer), y que la distribución no indica severidad (cohorte española 2025, Biomedicines, n=1.803, 87.6% distribución ginecoide). Médico: APROBADO sin correcciones (todas las afirmaciones respaldadas por fuentes consultadas: StatPearls, lipo.clinic, Biomedicines 2025, revisión de signos clínicos). SEO: 93/100, APTO. Policía humanizador: 9/10, HUMANO. Enlaces de vuelta añadidos en los 3 hermanos del racimo (lipedema-vs-linfedema, etapas-del-lipedema, lipedema-en-los-brazos)."
+    },
     {
       "fecha": "2026-10-23",
       "titulo": "Lipedema y resistencia a la insulina: qué dice la evidencia",

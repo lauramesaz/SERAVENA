@@ -53,6 +53,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-24 | lipedema-cadera-gluteos | Lipedema en cadera y glúteos: cómo se reconoce | lipedema en cadera y glúteos | publicado | — | — | — |
 | 2026-10-23 | lipedema-resistencia-insulina | Lipedema y resistencia a la insulina: qué dice la evidencia | lipedema resistencia a la insulina | publicado | — | — | — |
 | 2026-10-22 | piernas-hinchadas-menstruacion | Piernas hinchadas antes de la menstruación: por qué pasa cada mes | piernas hinchadas menstruación | publicado | — | — | — |
 | 2026-10-21 | insuficiencia-venosa-en-hombres | Insuficiencia venosa en hombres: por qué se consulta menos | insuficiencia venosa en hombres | publicado | — | — | — |
