@@ -3,6 +3,13 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (25-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la política de red
+de este entorno (`connect_rejected`, "policy denial" en el CONNECT, mismo bloqueo documentado desde el 11-oct).
+Confirmado en su lugar vía GitHub Actions: el run `pages build and deployment` #444 (id 40205836336, commit
+`c151e28`, revisión semanal del Agente 6: mejora de ropa-comoda-lipedema) terminó en `conclusion: success`
+33 segundos después de iniciado. Es una señal indirecta razonable de que el sitio se reconstruyó; no se pudo
+confirmar con un 200 real por el mismo bloqueo de red.
+
 **Nota de verificación (24-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la política de red
 de este entorno (403 "policy denial" en el CONNECT, mismo bloqueo documentado desde el 11-oct). Confirmado
 en su lugar vía GitHub Actions: el run `pages build and deployment` #40097024584 (commit `70ea187`, nuevo:
