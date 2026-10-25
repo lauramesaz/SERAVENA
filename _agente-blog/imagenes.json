@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-24",
+  "actualizado": "2026-10-25",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -358,6 +358,10 @@
     "piernas-hinchadas-menstruacion": {
       "imagen": "8093136.webp",
       "alt": "Mano sosteniendo con suavidad el tejido del muslo, el gesto de prestar atención a cómo cambian las piernas los días antes del periodo"
+    },
+    "yoga-pilates-circulacion-piernas": {
+      "imagen": "skin-detail.webp",
+      "alt": "Primer plano de la piel de dos piernas de distinto tono, una junto a la otra, la misma atención al cuerpo que conviene llevar a una clase de yoga o pilates si tienes várices o piernas pesadas"
     }
   }
 }
