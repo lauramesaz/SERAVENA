@@ -173,3 +173,92 @@ Excluidos aunque cumplían cifras: los 5 cambiados el 5-oct (hasta el 26-oct); a
 cambiado 5-oct); manchas-tobillos-causas, mitos-medias-compresion y ropa-comoda-lipedema (cambiados 28-sep, aún en
 observación); preparar-valoracion-vascular (editado hoy por el agente diario); ejercicio-lipedema y
 lipedema-tiene-cura (editados recientemente y con cambios locales sin publicar).
+
+---
+
+## Semana del 26-oct-2026
+
+> Cuenta con acceso: /u/3/ del perfil "Laura" (sigue igual). Se trabajó en una copia limpia de
+> origin/main porque la carpeta local tiene muchos cambios sin publicar de otras sesiones.
+
+### Cifras
+
+**Últimos 28 días (aprox. 27-sep a 24-oct):** 42 clics · ~4.700 impresiones · posición media 31,2
+
+| País | Clics | Impresiones | Posición |
+|---|---|---|---|
+| Colombia | 26 | 544 | 28,2 |
+| España | 10 | 2.957 | 36,1 |
+| Argentina | 3 | 174 | 28,2 |
+| Estados Unidos | 1 | 173 | 17,8 |
+| México | 0 | 272 | 20,3 |
+
+**Semana a semana:**
+
+| Semana | Clics | Impresiones | Posición | Colombia (clics / impr.) | España (clics / impr.) |
+|---|---|---|---|---|---|
+| 11 al 17-oct | 10 | 643 | 22,4 | 8 / 131 | 1 / 326 |
+| 18 al 24-oct | 11 | 892 | 24,6 | 8 / 169 | 2 / 439 |
+
+Lectura: semana estable en clics; Colombia sube en apariciones (131 → 169) con los mismos 8 clics.
+
+### Top 10 páginas (28 días)
+
+| Página | Clics | Impr. | Posición |
+|---|---|---|---|
+| / (inicio) | 22 | 119 | 3,1 |
+| blog/manchas-tobillos-causas | 2 | 403 | 12,0 |
+| blog/eco-doppler-paso-a-paso | 2 | 98 | 24,4 |
+| contacto | 2 | 88 | 4,8 |
+| blog/cuidar-piernas-viajes-largos | 2 | 32 | 11,6 |
+| dr-jose-david-puerta-rojas (nueva) | 2 | 12 | 3,2 |
+| blog/anticonceptivos-y-varices.html | 1 | 415 | 9,3 |
+| blog/lipedema-y-sueno | 1 | 90 | 6,7 |
+| blog/compresion-para-lipedema | 1 | 83 | 8,3 |
+| blog/precio-tratamiento-varices-colombia | 1 | 53 | 9,5 |
+
+Más apariciones sin clics: picor-piernas-circulacion (349, pos. 29), calambres-piernas-noche (263, pos. 61),
+senales-lipedema-primer-contacto (242, pos. 58), flebitis-superficial-sintomas (175, pos. 31).
+
+### Top 10 búsquedas (28 días)
+
+| Búsqueda | Clics | Impr. | Posición |
+|---|---|---|---|
+| seravena | 7 | 40 | 3,4 |
+| seravena clinica | 4 | 14 | 2,1 |
+| piernas cansadas | 0 | 62 | 58,7 |
+| como saber si tengo lipedema | 0 | 53 | 52,7 |
+| lipedema como identificar | 0 | 53 | 60,5 |
+| cómo saber si tengo lipedema | 0 | 52 | 51,6 |
+| como saber si tienes lipedema | 0 | 46 | 53,8 |
+| como diagnosticar lipedema | 0 | 44 | 47,7 |
+| lipedema psicológico | 0 | 38 | 32,3 |
+| arañas vasculares | 0 | 38 | 52,1 |
+
+Búsquedas nuevas: "lipedema psicológico" (38 apariciones, pos. 32; la página lipedema-salud-emocional está en pos. 42),
+"lipedema sin miedo" (20, pos. 22), "lipedema bogota" (14, pos. 41). Cerca de la página 1: "como curar lipedema" (3,7),
+"medias de compresión para lipedema" (5,0), "tratamiento para quitar varices" (8,4), "tromboflebitis superficial pierna" (9,8).
+El perfil del Dr. Puerta ya aparece y recibe clics (pos. 3,2).
+
+### Indexación (informe de Google actualizado al 22-oct)
+
+- Indexadas: 125 · Sin indexar: 50
+  - 23 "Duplicada: Google eligió otra canónica" (versiones viejas con .html)
+  - 17 página alternativa con canónica correcta (normal)
+  - 7 "Descubierta: actualmente sin indexar"
+  - 2 excluidas por "noindex" (intencional)
+  - 1 "Rastreada: actualmente sin indexar"
+
+### Títulos y descripciones cambiados hoy (no tocar antes del 16-nov-2026)
+
+| Artículo | Título nuevo | Antes |
+|---|---|---|
+| ejercicio-lipedema | Lipedema y ejercicio: qué te sirve y qué te puede doler | Ejercicio y lipedema: guía práctica y segura |
+| cuidados-despues-escleroterapia | Cuidados después de esclerosar várices: los primeros días | Cuidados después de escleroterapia |
+| lipedema-tiene-cura | ¿El lipedema se cura? Lo que sí puedes hacer desde hoy | ¿El lipedema tiene cura? Lo que sí se puede hacer |
+| diabetes-circulacion-piernas | ¿Tienes diabetes? Lo que tus piernas te avisan primero | Diabetes y circulación en las piernas |
+
+Excluidos aunque cumplían cifras: los 5 del 19-oct (hasta el 9-nov); los 5 del 5-oct (apenas 3 semanas, dejarlos
+madurar); anticonceptivos-y-varices y ropa-comoda-lipedema (en observación); medias-compresion-colombia-comprar,
+medias-compresion-embarazo y mitos-medias-compresion (tienen borrador local sin publicar de la fusión de "medias";
+no pisarlo); cuando-derivar-especialista-vascular y piel-y-cuidados-lipedema (editados el 25 y 26-oct).
