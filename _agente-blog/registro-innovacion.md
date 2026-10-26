@@ -202,6 +202,31 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   valor de enumeración no reconocido se descarta al validar los datos estructurados, así que esas
   páginas no le están confirmando a Google, de forma válida, la especialidad médica de la clínica.
   Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-10-26 · 2 propuestas nuevas (W44-1, W44-2).** Repetí las 5 búsquedas objetivo: Seravena
+  sigue sin aparecer en ninguna; los resultados de hoy fueron en general más genéricos que otras
+  semanas (mucho resultado turístico o clínico fuera de Medellín mezclado), pero donde sí salió
+  algo local se repite el mismo patrón de siempre: Doctoralia como directorio dominante y
+  Centrolab para eco doppler venoso. No encontré competidor nuevo que no hubiera visto ya en
+  semanas anteriores. Antes de proponer comprobé en el código el estado de las 8 propuestas
+  pendientes (W40-1 tel: en index.html, W40-2 JSON-LD duplicado en insuficiencia-venosa.html,
+  W41-1 lang="es" en index.html, W41-2 precio del eco doppler, W42-1 canibalización del artículo
+  de eco doppler, W42-2 medicalSpecialty inválido, W43-1 títulos largos, W43-2 Open Graph):
+  ninguna se ha implementado todavía, así que no las repetí; ninguna lleva más de 30 días en
+  `propuesta` (la más antigua, W40-1 y W40-2 del 28-sep, lleva 28 días), así que no caduqué
+  ninguna esta semana. Encontré dos huecos nuevos y verificables en el código, ninguno repetido:
+  (1) `varices-medellin.html` ya junta 'Flebólogo' y 'Medellín' en su propio H2 desde que se
+  hizo la propuesta W35-2 (24-ago, ya `hecha`), pero su página hermana `vascular.html` tiene la
+  misma sección con un H2 que dice solo 'Qué hace un flebólogo', sin 'Medellín' — y ninguna de
+  las dos tiene la palabra 'flebólogo' en su meta description real (confirmé con grep que no
+  aparece en ningún `<title>` ni meta description de todo el sitio), pese a ser una de las 5
+  búsquedas objetivo; (2) comparé con un script la fecha del último commit de git de cada una de
+  las 18 páginas raíz que están en `sitemap.xml` contra su propio `<lastmod>`: las 18 están
+  desactualizadas (2 a 35 días de diferencia). El caso más claro: el commit del 20-oct que corrigió
+  en toda la web el usuario de Instagram (estaba mal puesto) tocó las 18 páginas el mismo día, y
+  ninguna quedó con `<lastmod>` del 20-oct en el sitemap. Comprobé también que las 7 páginas fuera
+  del sitemap (`cotizador.html`, `ig.html`, `politica-privacidad.html`, `resena.html`,
+  `aliados.html`, `alianza-cali.html`, `alianza-cali-plan.html`) están así a propósito, todas con
+  `noindex`, así que eso no es un hueco. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
 - **2026-10-19 · 2 propuestas nuevas (W43-1, W43-2).** Repetí las 5 búsquedas objetivo: Seravena
   sigue sin aparecer en ninguna; misma competencia dominante de siempre (Doctoralia como directorio
   más visible en las 5 búsquedas, Top Doctors, Centrolab para eco doppler, varios cirujanos

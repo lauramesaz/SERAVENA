@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-10-19",
+  "actualizado": "2026-10-26",
   "propuestas": [
+    {
+      "id": "2026-W44-1",
+      "fecha": "2026-10-26",
+      "titulo": "Igualar el H2 de vascular.html al patrón 'Flebólogo en Medellín' que ya usa su página hermana, y sumar esa palabra a las dos meta description",
+      "categoria": "Contenido",
+      "que": "En `vascular.html`, cambiar el H2 de la sección ya existente sobre flebología (línea 355: 'Qué hace un flebólogo y cuándo conviene ver a uno') por uno que una las dos palabras del término de búsqueda, igual que ya hace `varices-medellin.html` en su propio H2 ('Flebólogo en Medellín: qué hace y cómo saber que estás en buenas manos', línea 293) — por ejemplo 'Flebólogo en Medellín: qué hace y cuándo conviene ver a uno'. Además, añadir la palabra 'flebólogo' a la meta description real (`name=\"description\"`, la que usa Google, no la de Twitter) de las dos páginas: hoy ninguna de las dos la tiene, pese a que ambas ya la usan varias veces en el cuerpo. En `vascular.html` hay margen de sobra (139 de 160 caracteres); en `varices-medellin.html` (159 de 160) hay que reescribirla, no solo añadir la palabra.",
+      "porque": "Repetí hoy la búsqueda 'flebólogo Medellín': Seravena sigue sin aparecer, una de las 5 búsquedas objetivo de la misión. Revisando el código encontré que la sección sobre flebología YA existe en las dos páginas pilar de várices (`vascular.html` y `varices-medellin.html`, fruto de la propuesta W35-2 del 24-ago, ya `hecha`), pero de forma desigual: `varices-medellin.html` sí junta 'Flebólogo' y 'Medellín' en su H2 (línea 293) y hasta en su meta Twitter (línea 29, '...Flebólogo en El Poblado.'), mientras que el H2 gemelo de `vascular.html` (línea 355) dice solo 'Qué hace un flebólogo', sin 'Medellín'. Y en ninguna de las dos páginas la meta description real (la que lee Google en los resultados, distinta de la de Twitter) menciona 'flebólogo' ni una sola vez — confirmé con grep que la palabra no aparece en ningún `<title>` ni meta description de todo el sitio. Es decir: ya hay un patrón correcto probado en una página propia (`varices-medellin.html`); solo falta llevarlo a su hermana y a los dos resúmenes que ve Google.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Comprobación directa en el código: que el H2 de `vascular.html` y las dos meta description incluyan 'flebólogo' junto a 'Medellín'. Si Search Console está conectado, vigilar en 4-6 semanas si alguna de las dos páginas empieza a recibir impresiones para 'flebólogo Medellín' (hoy ninguna aparece).",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W44-2",
+      "fecha": "2026-10-26",
+      "titulo": "El sitemap no se está actualizando cuando cambian las páginas de la raíz: las 18 páginas indexadas llevan el mismo lastmod desde hace 2 a 35 días pese a cambios reales",
+      "categoria": "Técnico",
+      "que": "Añadir al proceso de publicación de cambios en páginas raíz (no de blog, que ya lo hace bien) un paso que actualice el `<lastmod>` de `sitemap.xml` de cada página que se edite, el mismo día del cambio — igual que el manual del blog ya exige para los artículos (`_agente-blog/INSTRUCCIONES.md`, §3: 'si editas un artículo antiguo, actualiza también su lastmod'). Puede ser un paso manual en el checklist de quien publica, o un script como el que ya existe para limpiar enlaces (`_agente-blog/limpiar-enlaces.py`) que compare la fecha del último commit de cada página raíz con su `<lastmod>` en el sitemap y avise si no coinciden.",
+      "porque": "Comparé hoy, con un script, la fecha del último commit de git de cada una de las 18 páginas raíz que están en `sitemap.xml` contra su propio `<lastmod>`: las 18 están desactualizadas, con diferencias de 2 a 35 días. El caso más claro: el commit `008b6d5` del 20-oct corrigió en TODA la web el usuario de Instagram (estaba mal puesto, '@seravenams', que no existe, y se cambió a '@seravena_clinica') — tocó las 18 páginas raíz el mismo día, un cambio real de contenido, no cosmético —, y ninguna de las 18 tiene hoy `<lastmod>` del 20-oct: siguen con fechas de entre el 22-sep y el 28-sep. El propio manual explica por qué esto importa para el blog ('Google usa esa fecha para decidir si vuelve a rastrear la página: si la dejas vieja, no vuelve'); la misma lógica aplica a las páginas raíz y hoy no se está siguiendo ahí. Aclaro que las 7 páginas que no están en el sitemap (`cotizador.html`, `ig.html`, `politica-privacidad.html`, `resena.html`, `aliados.html`, `alianza-cali.html`, `alianza-cali-plan.html`) lo están a propósito, todas con `noindex`: eso no es un hueco, lo comprobé antes de proponer esto.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que, tras el próximo cambio de contenido en una página raíz, su `<lastmod>` en `sitemap.xml` quede con la fecha real del cambio (comprobación directa comparando con `git log`). Si Search Console está conectado, vigilar en 2-4 semanas si sube la frecuencia de rastreo de las páginas raíz frente a las semanas anteriores.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W43-1",
       "fecha": "2026-10-19",
