@@ -3,6 +3,13 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (26-oct-2026):** egress a clinicaseravena.com y a api.indexnow.org sigue bloqueado por
+la política de red de este entorno (timeout/`000` en el CONNECT, mismo bloqueo documentado desde el 11-oct).
+Confirmado en su lugar vía GitHub Actions: el run `pages build and deployment` #446 (id 40328813314, commit
+`dbde75d`, nuevo: celulitis-o-lipedema) terminó en `conclusion: success`; el run #447 (id 40329195646, commit
+`85820e4`, humanizado: cuando-derivar-especialista-vascular) se lanzó justo después. Es una señal indirecta
+razonable de que el sitio se reconstruyó; no se pudo confirmar con un 200 real por el mismo bloqueo de red.
+
 **Nota de verificación (25-oct-2026):** egress a clinicaseravena.com sigue bloqueado por la política de red
 de este entorno (`connect_rejected`, "policy denial" en el CONNECT, mismo bloqueo documentado desde el 11-oct).
 Confirmado en su lugar vía GitHub Actions: el run `pages build and deployment` #444 (id 40205836336, commit
