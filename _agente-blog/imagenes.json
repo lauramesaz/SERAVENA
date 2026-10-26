@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-25",
+  "actualizado": "2026-10-26",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "celulitis-o-lipedema": {
+      "imagen": "7479558.webp",
+      "alt": "Primer plano de la piel de la pierna en luz cálida, mostrando su textura natural para ilustrar la diferencia entre celulitis y lipedema"
+    },
     "lipedema-cadera-gluteos": {
       "imagen": "anatomia-celulitis.webp",
       "alt": "Ilustración médica de un corte transversal de piel y tejido subcutáneo en la zona de cadera y glúteos, útil para explicar cómo se distribuye la grasa en el lipedema tipo I"

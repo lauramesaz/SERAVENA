@@ -66,6 +66,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-26 | celulitis-o-lipedema | Celulitis o lipedema: cómo diferenciarlos a simple vista | celulitis o lipedema | publicado | — | — | — |
 | 2026-10-25 | yoga-pilates-circulacion-piernas | Yoga para la circulación si tienes várices o piernas pesadas | yoga para la circulación | publicado | — | — | — |
 | 2026-10-24 | lipedema-cadera-gluteos | Lipedema en cadera y glúteos: cómo se reconoce | lipedema en cadera y glúteos | publicado | — | — | — |
 | 2026-10-23 | lipedema-resistencia-insulina | Lipedema y resistencia a la insulina: qué dice la evidencia | lipedema resistencia a la insulina | publicado | — | — | — |
