@@ -493,8 +493,13 @@ if (form) {
     }
     formNote.classList.remove('error');
 
+    // Si la visita llegó desde el anuncio de Google, el formulario saluda igual que los botones
+    // (marca y texto: ver MSG_ANUNCIO en el bloque de medición, más abajo).
+    let deGoogle = false;
+    try { deGoogle = sessionStorage.getItem('seravena_anuncio') === '1'; } catch (err) {}
     const texto =
-      'Hola Seravena, vengo de la página web y quiero agendar una cita.\n\n' +
+      (deGoogle ? 'Hola Seravena, vengo de Google (venas) y quiero agendar una valoración.\n\n'
+                : 'Hola Seravena, vengo de la página web y quiero agendar una cita.\n\n') +
       'Nombre: ' + nombre + '\n' +
       'Correo: ' + email + '\n' +
       (telefono ? 'Teléfono: ' + telefono + '\n' : '') +
@@ -580,18 +585,32 @@ if (CLARITY_ID && !ES_LOCAL) {
     if (!ADS_CONVERSION || typeof window.gtag !== 'function') return;
     try { window.gtag('event', 'conversion', { send_to: 'AW-18314027421/' + ADS_CONVERSION }); } catch (e) {}
   }
-  // Quien llega desde el anuncio de Google (la URL trae gclid/gbraid/wbraid) escribe a WhatsApp
-  // con un saludo propio, para que el equipo pueda contar cuántos chats vienen de la pauta.
-  // Se recuerda durante la visita aunque la persona pase a otras páginas de la web.
-  var MSG_ANUNCIO = 'Hola Seravena, vengo desde la web de venitas y quiero agendar una cita';
-  var deAnuncio = /[?&](gclid|gbraid|wbraid)=/.test(location.search);
+  // Quien llega desde el anuncio de Google (la URL trae gclid/gbraid/wbraid/gad_source) escribe a
+  // WhatsApp con un saludo propio, para que el equipo pueda contar cuántos chats vienen de la pauta.
+  // Se recuerda durante la visita aunque la persona pase a otras páginas de la web. El texto cambia
+  // al cargar y otra vez en el clic (por si un enlace se arma o se cambia después). El número no se toca.
+  // Solo los enlaces de agendar a nuestro número: "referir un paciente", "sugerir un recurso" y el
+  // botón de compartir el test (wa.me sin número) se quedan como están. Sin la marca, nada cambia.
+  var TEMA_ANUNCIO = 'venas';  // la pauta de Google hoy es solo la de insuficiencia venosa
+  var MSG_ANUNCIO = 'Hola Seravena, vengo de Google (' + TEMA_ANUNCIO + ') y quiero agendar una valoración';
+  var deAnuncio = /[?&](gclid|gbraid|wbraid|gad_source)=/.test(location.search);
   try {
     if (deAnuncio) sessionStorage.setItem('seravena_anuncio', '1');
     deAnuncio = deAnuncio || sessionStorage.getItem('seravena_anuncio') === '1';
   } catch (e) {}
   function saludoAnuncio(a) {
-    var h = a.getAttribute('href') || '', txt = 'text=' + encodeURIComponent(MSG_ANUNCIO);
-    a.setAttribute('href', /[?&]text=/.test(h) ? h.replace(/text=[^&]*/, txt) : h + (h.indexOf('?') > -1 ? '&' : '?') + txt);
+    var h = a.getAttribute('href') || '';
+    if (!/wa\.me\/\d/.test(h)) return;
+    var m = h.match(/[?&]text=([^&]*)/), actual = '';
+    try { actual = m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) {}
+    if (m && actual.indexOf('agendar') < 0) return;
+    var txt = 'text=' + encodeURIComponent(MSG_ANUNCIO);
+    a.setAttribute('href', m ? h.replace(/([?&])text=[^&]*/, '$1' + txt) : h + (h.indexOf('?') > -1 ? '&' : '?') + txt);
+  }
+  if (deAnuncio) {
+    var saludoEnTodos = function () { document.querySelectorAll('a[href*="wa.me/"]').forEach(saludoAnuncio); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', saludoEnTodos);
+    else saludoEnTodos();
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
