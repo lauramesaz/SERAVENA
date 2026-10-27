@@ -1117,7 +1117,7 @@ function mostrarApp(){
   /* en celular la barra se desliza: que se vea "Metas", la página activa */
   const s=$('.side'); if(s) s.scrollLeft=s.scrollWidth;
 }
-async function abrirCon(clave){
+async function abrirCon(clave,callado){
   const btn=document.querySelector('#gateForm .btn'); btn.textContent='Abriendo…'; btn.disabled=true;
   let datos;
   try{ datos=await descifrar(clave); }
@@ -1125,7 +1125,7 @@ async function abrirCon(clave){
     const falta=/archivo/.test(err.message);
     /* la clave es la misma de Finanzas: solo se olvida si de verdad no abrió (no cuando falta el archivo) */
     if(!falta) sessionStorage.removeItem('seravena_fin_clave');
-    $('#gateErr').textContent=falta?err.message:'Clave incorrecta, intenta de nuevo'; return false;
+    if(!callado) $('#gateErr').textContent=falta?err.message:'Clave incorrecta, intenta de nuevo'; return false;
   }
   finally{ btn.textContent='Entrar'; btn.disabled=false; }
   sessionStorage.setItem('seravena_fin_clave',clave);
@@ -1138,6 +1138,11 @@ function abrirPuerta(){
 }
 $('#gateForm').onsubmit=async e=>{ e.preventDefault(); const v=$('#gatePin').value.trim(); if(!v) return;
   const ok=await abrirCon(v); if(!ok){ $('#gatePin').value=''; $('#gatePin').focus(); } };
+/* sin Enter: cuando dejas de escribir, prueba la clave en silencio y abre sola si es la correcta */
+let probando=null;
+$('#gatePin').addEventListener('input',()=>{ clearTimeout(probando); $('#gateErr').textContent='';
+  const v=$('#gatePin').value.trim(); if(v.length<3) return;
+  probando=setTimeout(()=>{ if($('#gatePin').value.trim()===v) abrirCon(v,true); },250); });
 if(LOCAL&&QS.has('plano')){
   cargarPlano().then(d=>{cargarDatos(d);mostrarApp();})
     .catch(err=>{console.error(err);abrirPuerta();$('#gateErr').textContent='Modo local: '+err.message;});

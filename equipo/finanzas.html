@@ -516,11 +516,11 @@ async function descifrar(clave){
   const plano=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(e.iv)},key,b64(e.data));
   return JSON.parse(new TextDecoder().decode(plano));
 }
-async function abrirCon(clave){
+async function abrirCon(clave,callado){
   const btn=document.querySelector('#gateForm .btn'); btn.textContent='Abriendo…'; btn.disabled=true;
   try{ cargarDatos(await descifrar(clave)); sessionStorage.setItem('seravena_fin_clave',clave);
        $('#vistaGate').classList.add('hidden'); $('#app').classList.remove('hidden'); pintar(); return true; }
-  catch(err){ sessionStorage.removeItem('seravena_fin_clave'); $('#gateErr').textContent=/archivo/.test(err.message)?err.message:'Clave incorrecta, intenta de nuevo'; return false; }
+  catch(err){ sessionStorage.removeItem('seravena_fin_clave'); if(!callado) $('#gateErr').textContent=/archivo/.test(err.message)?err.message:'Clave incorrecta, intenta de nuevo'; return false; }
   finally{ btn.textContent='Entrar'; btn.disabled=false; }
 }
 $('#vistaGate').classList.remove('hidden');
@@ -528,6 +528,11 @@ const recordada=sessionStorage.getItem('seravena_fin_clave');
 if(recordada) abrirCon(recordada); else setTimeout(()=>$('#gatePin').focus(),50);
 $('#gateForm').onsubmit=async e=>{ e.preventDefault(); const v=$('#gatePin').value.trim(); if(!v) return;
   const ok=await abrirCon(v); if(!ok){ $('#gatePin').value=''; $('#gatePin').focus(); } };
+/* sin Enter: cuando dejas de escribir, prueba la clave en silencio y abre sola si es la correcta */
+let probando=null;
+$('#gatePin').addEventListener('input',()=>{ clearTimeout(probando); $('#gateErr').textContent='';
+  const v=$('#gatePin').value.trim(); if(v.length<3) return;
+  probando=setTimeout(()=>{ if($('#gatePin').value.trim()===v) abrirCon(v,true); },250); });
 </script>
 </body>
 </html>
