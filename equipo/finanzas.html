@@ -122,6 +122,7 @@ th{text-align:left;font-size:.78rem;color:var(--ter);font-weight:600;padding:10p
 td{padding:12px 10px;border-bottom:1px solid #ECECF0;vertical-align:top}
 td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
 td .obs{display:block;color:var(--ter);font-size:.82rem;margin-top:2px}
+td .qp{font-size:.85rem;color:var(--ter)} td .qp.compro{color:var(--bien);font-weight:600} td .qp.reprogramo{color:var(--sec)} td .qp.no{color:var(--mal)}
 tr:last-child td{border-bottom:none}
 .tabla{overflow-x:auto;background:#fff;border-radius:16px;padding:6px 10px}
 .vacio{padding:30px;text-align:center;color:var(--sec)}
@@ -140,6 +141,19 @@ tr:last-child td{border-bottom:none}
 .tend text{font-family:inherit;font-size:11px;fill:var(--sec)}.tend text.val{fill:var(--ink);font-weight:600}
 .tend line.base{stroke:#D9D9DE;stroke-width:1}
 .foot{margin-top:40px;color:var(--ter);font-size:.88rem;line-height:1.6}
+
+/* mes en curso: comparación contra otros meses */
+.cmp svg{width:100%;height:auto;max-width:760px;display:block;margin-top:6px}
+.cmp .s1{fill:#5A4A3A}.cmp .s2{fill:#D6C6AE}.cmp .s1.hoy{fill:var(--ink)}
+.cmp text{font-family:inherit;font-size:11px;fill:var(--sec)}.cmp text.val{fill:var(--ink);font-weight:600}.cmp text.hoy{fill:var(--ink);font-weight:700}
+.cmp line.base{stroke:#D9D9DE;stroke-width:1}
+.cmp .leyenda{display:flex;gap:16px;font-size:.84rem;color:var(--sec);margin-top:14px}
+.cmp .leyenda i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.esc{margin-top:22px;padding-top:6px;border-top:1px solid #E1E1E6}
+.esc h4{font-size:1rem;font-weight:700;letter-spacing:-.02em;margin:14px 0 4px}
+.esc .escr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid #ECECF0;font-size:.97rem}
+.esc .escr:first-of-type{border-top:none}
+.esc .escr b{font-variant-numeric:tabular-nums;white-space:nowrap;font-size:1.05rem}
 
 /* puerta (PIN) */
 .gate{min-height:100svh;display:grid;place-items:center;padding:20px}
@@ -221,6 +235,7 @@ tr:last-child td{border-bottom:none}
   <div class="two">
     <div class="card" id="cardIngresos"></div>
     <div class="card" id="cardEgresos"></div>
+    <div class="card hidden" id="cardGastos"></div>
   </div>
 
   <div class="sec"><h2>¿Qué hago?</h2><span>Tres cosas concretas para este mes, sin palabras de contador.</span></div>
@@ -285,6 +300,14 @@ function resumen(k){
     const filas=mv.filter(x=>norm(x.n)===n&&x.t==='cita');
     return {n:filas[0].n, f:filas[0].f, v:suma(filas,x=>x.v), c:filas.map(x=>x.c).join(' + '), cortesia:filas.some(x=>x.cortesia)};
   }).sort((a,b)=>a.f.localeCompare(b.f));
+  /* seguimiento: lo que el equipo averiguó + compras en meses siguientes (se detectan solas) */
+  const llave=n=>norm(n).normalize('NFD').replace(/[\u0300-\u036f.]/g,'');
+  const seg={}; Object.entries(m.seguimiento||{}).forEach(([n,v])=>seg[llave(n)]=v);
+  const despues={}; meses.filter(q=>q>k).forEach(q=>(DATA.meses[q].movimientos||[]).forEach(x=>{
+    if(x.t!=='tratamiento') return; const l=llave(x.n); (despues[l]=despues[l]||{mes:q,v:0}).v+=x.v; }));
+  sinCompra.forEach(x=>{ const l=llave(x.n), d=despues[l], s=seg[l];
+    if(d) x.seg={estado:'compro',nota:`Compró en ${mesMin(d.mes)}: ${cop(d.v)}`};
+    else if(s) x.seg=s; });
   const efectivoPend=mv.filter(x=>x.saldo&&/efectivo pendiente/i.test(x.saldo));
   const dudosos=mv.filter(x=>x.dudoso);
   const otrosSaldos=mv.filter(x=>x.saldo&&!/efectivo pendiente/i.test(x.saldo));
@@ -292,7 +315,7 @@ function resumen(k){
   const cortesias=mv.filter(x=>x.cortesia).length;
   const citasPagadas=mv.filter(x=>x.t==='cita'&&x.v>0);
   const tratPorPersona=conTrat.size?suma(mv.filter(x=>x.t==='tratamiento'),x=>x.v)/conTrat.size:0;
-  return {k,m,mv,ingresos,metodos,entro,salio,sinGastos,quedo:sinGastos?null:entro-salio,fijos,
+  return {k,m,mv,ingresos,metodos,entro,salio,sinGastos,quedo:sinGastos?null:entro-salio,fijos,enCurso:!!m.enCurso,corte:m.corte||null,
     pacientes:personas.size,valoraciones:conCita.size,enTratamiento:conTrat.size,compraron:[...conCita.keys()].filter(n=>conTrat.has(n)).length,
     sinCompra,efectivoPend,dudosos,otrosSaldos,recompras,cortesias,citasPagadas,tratPorPersona};
 }
@@ -314,6 +337,7 @@ function fraseMes(r,ant){
 
 /* ---------- fila de arriba ---------- */
 function pintarTop(r,ant){
+  if(r.enCurso){pintarTopEnCurso(r);return;}
   const [cls,titulo]=luz(r);
   const sub=(v,va,invertir)=>{
     if(!ant||va==null) return `<div class="s">${ant?'':'primer mes registrado'}</div>`;
@@ -341,6 +365,7 @@ function pintarTop(r,ant){
 
 /* ---------- ingresos ---------- */
 function pintarIngresos(r,ant){
+  if(r.enCurso) ant=null; /* a mitad de mes no tiene sentido comparar contra un mes completo */
   const tot=r.entro||1;
   const stack=r.ingresos.map((x,i)=>`<i class="c${Math.min(i,5)}" style="width:${x.valor/tot*100}%" title="${esc(x.nombre)}"></i>`).join('');
   const leg=r.ingresos.map((x,i)=>{
@@ -348,7 +373,7 @@ function pintarIngresos(r,ant){
     return `<div><i class="c${Math.min(i,5)}"></i><span>${esc(x.nombre)}${p!==null?`<small style="color:${p>=0?'var(--bien)':'var(--mal)'};font-weight:700;margin-left:8px;font-size:.76rem">${p>=0?'↑':'↓'}${Math.abs(p)}%</small>`:''}</span><span class="v">${cop(x.valor)}</span><span class="p">${Math.round(x.valor/tot*100)}%</span></div>`;
   }).join('');
   const met=r.metodos.map(x=>`${esc(x.nombre)} <b>${Math.round(x.valor/tot*100)}%</b>`).join(' · ');
-  $('#cardIngresos').innerHTML=`<h3>¿De dónde vino la plata?</h3><div class="sub">De mayor a menor${ant?` · flechas frente a ${mesMin(ant.k)}`:''}</div>
+  $('#cardIngresos').innerHTML=`<h3>¿De dónde vino la plata?</h3><div class="sub">De mayor a menor${ant?` · flechas frente a ${mesMin(ant.k)}`:(r.enCurso?` · del 1 al ${+r.corte.split('-')[2]}`:'')}</div>
     <div class="stack">${stack}</div><div class="leg">${leg}</div>
     <div class="metodos">Cómo pagaron: ${met}</div>`;
 }
@@ -359,12 +384,14 @@ function disparados(r,ant){
   return r.m.egresos.map(e=>{const a=ant.m.egresos.find(x=>x.nombre===e.nombre);if(!a||!a.valor)return null;const p=pct(e.valor,a.valor);return(p>=25&&e.valor/r.salio>=0.03)?{nombre:e.nombre,p,dif:e.valor-a.valor}:null}).filter(Boolean).sort((a,b)=>b.dif-a.dif);
 }
 function pintarEgresos(r,ant){
+  $('#cardEgresos').style.gridColumn=''; $('#cardEgresos').style.order=''; $('#cardGastos').classList.add('hidden');
+  if(r.enCurso){pintarComparativo(r);if(!r.sinGastos)pintarGastosEnCurso(r);return;}
   if(r.sinGastos){ $('#cardEgresos').innerHTML=`<h3>¿En qué se fue?</h3><div class="sub">Los 5 gastos más grandes</div><div class="pend">Todavía no tengo los gastos de ${mesMin(r.k)}.<br>Pásame la lista (arriendo, nómina, insumos, publicidad…) como la tengas y la organizo aquí.</div>`; return; }
   const arr=[...r.m.egresos].sort((a,b)=>b.valor-a.valor), max=arr[0].valor, top=arr.slice(0,5), resto=arr.slice(5);
   const disp=disparados(r,ant), ojo=new Set(disp.map(d=>d.nombre));
   let html=`<h3>¿En qué se fue?</h3><div class="sub">Los 5 gastos más grandes</div>`;
   top.forEach(e=>{html+=`<div class="brow ${ojo.has(e.nombre)?'ojo':''}"><span class="n">${esc(e.nombre)}<small>${e.tipo==='fijo'?'se paga siempre':'depende del mes'}</small></span><span class="v">${cop(e.valor)}</span><span class="p">${Math.round(e.valor/r.salio*100)}%</span><div class="bar"><i style="width:${Math.max(3,e.valor/max*100)}%"></i></div></div>`});
-  if(resto.length){const v=suma(resto);html+=`<div class="brow"><span class="n">Otros ${resto.length} gastos</span><span class="v">${cop(v)}</span><span class="p">${Math.round(v/r.salio*100)}%</span><div class="bar"><i style="width:${Math.max(3,v/max*100)}%;opacity:.45"></i></div></div>`}
+  if(resto.length){const v=suma(resto);html+=`<div class="brow"><span class="n">Otros ${resto.length} gastos</span><span class="v">${cop(v)}</span><span class="p">${Math.round(v/r.salio*100)}%</span><div class="bar"><i style="width:${Math.min(100,Math.max(3,v/max*100))}%;opacity:.45"></i></div></div>`}
   if(disp.length) html+=`<div class="aviso"><b>Ojo:</b> ${disp.map(d=>`${esc(d.nombre)} subió ${d.p}%`).join(' · ')} frente a ${mesMin(ant.k)}.</div>`;
   $('#cardEgresos').innerHTML=html;
 }
@@ -373,8 +400,19 @@ function pintarEgresos(r,ant){
 function insights(r,ant){
   const out=[]; const m=r.m;
   (m.insights||[]).forEach(t=>out.push(typeof t==='string'?{tono:'ojo',txt:t,accion:''}:t));
+  if(r.enCurso){ const c=cmpMes(r); if(c.ant){
+    const cit=c.citasHasta(r.k), citAnt=c.citasHasta(c.ant);
+    if(cit<citAnt*0.7) out.push({tono:'ojo',txt:`Van <b>${cit} citas de valoración</b> al día ${c.D}; en ${mesMin(c.ant)} a esta altura iban <b>${citAnt}</b>. La plata de hoy son abonos de pacientes que llegaron antes: si entran pocos nuevos, el bajón se siente el mes que viene.`,accion:`<b>Llena la agenda de valoraciones esta semana</b>: pauta, seguimiento a quienes preguntaron y no agendaron, y recordatorio a quienes vinieron y no compraron.`});
+    else out.push({tono:'bien',txt:`Van <b>${cit} citas de valoración</b> al día ${c.D}, ${cit>=citAnt?'igual o más':'parecido'} que en ${mesMin(c.ant)} a esta altura (${citAnt}).`,accion:`Están entrando pacientes nuevos. <b>Cuida la conversión</b>: la lista de quienes vinieron y no compraron está más abajo.`});
+    const resto=c.totalDe(c.ant)-c.hasta(c.ant);
+    if(!r.sinGastos&&porPagar(r)){const falta=r.salio+porPagar(r)-r.entro;
+      if(falta>0) out.push({tono:falta>resto*1.2?'mal':'ojo',txt:`Faltan por pagar ≈ <b>${copCorto(porPagar(r))}</b> (segunda quincena, medicamentos, pauta…). Para no perder plata, del ${c.D+1} al fin de mes tienen que entrar ≈ <b>${copCorto(falta)}</b>. En ${mesMin(c.ant)} esos mismos días entraron <b>${copCorto(resto)}</b>.`,accion:`<b>Cobra esta semana los abonos pendientes</b> y cierra a quienes ya vinieron a valoración: es lo que más rápido se vuelve plata.`});
+      else out.push({tono:'bien',txt:`Con lo que ya entró alcanza para lo pagado y lo que falta por pagar (≈ <b>${copCorto(porPagar(r))}</b>). Lo que entre de aquí al fin de mes es lo que queda.`,accion:''});
+    }
+    else if(resto>0) out.push({tono:'bien',txt:`Ya hay <b>${cop(r.entro)}</b>. Si el resto del mes es como el de ${mesMin(c.ant)}, ${mesMin(r.k)} cierra cerca de <b>${copCorto(r.entro+resto)}</b>.`,accion:`<b>Cobra los abonos pendientes</b> de los paquetes ya vendidos: es plata prometida que sostiene el cierre.`});
+  }}
   const noCompraron=r.sinCompra.length;
-  if(r.valoraciones>=5){
+  if(r.valoraciones>=5&&!r.enCurso){
     const conv=Math.round(r.compraron/r.valoraciones*100);
     const extra=Math.round(noCompraron*0.25)||1;
     out.push({tono:conv<40?'ojo':'bien',
@@ -393,7 +431,7 @@ function insights(r,ant){
     out.push({tono:'ojo',txt:`Hay <b>${r.dudosos.length} registros por confirmar</b> que suman ${cop(suma(r.dudosos,x=>x.v))} y sí están contando.`,
       accion:`<b>Confírmame cuáles son reales</b> (lista más abajo) y ajusto el mes.`});
   }
-  if(!r.sinGastos){
+  if(!r.sinGastos&&!r.enCurso){ /* a mitad de mes los gastos están incompletos: no se sacan conclusiones de lo fijo */
     const porPaciente=r.pacientes?r.entro/r.pacientes:0;
     const disp=disparados(r,ant);
     if(r.quedo<0){const faltan=porPaciente?Math.ceil(-r.quedo/porPaciente):0;out.unshift({tono:'mal',txt:`Este mes los gastos fueron más grandes que lo que entró.`,accion:faltan?`Con <b>${faltan} paciente${faltan>1?'s':''} más</b> habrías cerrado en positivo.`:'Revisa los gastos grandes.'});}
@@ -414,10 +452,10 @@ let listaActiva='sinCompra';
 function listas(r){
   return [
     {id:'sinCompra',nombre:'Vinieron a valoración y no compraron',n:r.sinCompra.length,
-      texto:`Personas que pagaron una cita de valoración en ${mesMin(r.k)} y no tienen ningún abono a tratamiento ese mes. Es la lista para llamar.`,
-      cols:['Paciente','Fecha','Qué pagó','Valor'],
-      filas:r.sinCompra.map(x=>[esc(x.n),fechaCorta(x.f),esc(x.c)+(x.cortesia?' <span class="obs">cortesía</span>':''),cop(x.v)]),
-      copiar:()=>r.sinCompra.map(x=>`• ${x.n} (${fechaCorta(x.f)})`).join('\n')},
+      texto:`Personas que pagaron una cita de valoración en ${mesMin(r.k)} y no tienen ningún abono a tratamiento ese mes. Es la lista para llamar.`+(r.sinCompra.some(x=>x.seg)?` <b>Ya se sabe de ${r.sinCompra.filter(x=>x.seg).length}</b>: ${['compro','reprogramo','no'].map(e=>[r.sinCompra.filter(x=>x.seg&&x.seg.estado===e).length,{compro:'ya compró',reprogramo:'reprogramó la cita',no:'no le interesa'}[e]]).filter(z=>z[0]).map(z=>z[0]+' '+z[1]).join(' · ')}. Faltan ${r.sinCompra.filter(x=>!x.seg).length} por contactar (el botón copia solo esas).`:''),
+      cols:['Paciente','Fecha','Qué pagó','Qué pasó','Valor'],
+      filas:r.sinCompra.map(x=>[esc(x.n),fechaCorta(x.f),esc(x.c)+(x.cortesia?' <span class="obs">cortesía</span>':''),x.seg?`<span class="qp ${x.seg.estado}">${esc(x.seg.nota)}</span>`:'<span class="qp">Sin respuesta todavía</span>',cop(x.v)]),
+      copiar:()=>r.sinCompra.filter(x=>!x.seg).map(x=>`• ${x.n} (${fechaCorta(x.f)})`).join('\n')},
     {id:'efectivo',nombre:'Efectivo por entregar',n:r.efectivoPend.length,
       texto:'Pagos en efectivo que, según el comprobante, todavía no se habían entregado.',
       cols:['Paciente','Fecha','Concepto','Valor'],
@@ -466,11 +504,12 @@ function cfo(r,ant){
   const ef=r.metodos.find(x=>/efectivo/i.test(x.nombre));
   if(ef&&r.entro){const p=Math.round(ef.valor/r.entro*100);o.push({t:'El efectivo es el punto débil',p:`<b>${cop(ef.valor)}</b> (${p}%) entró en efectivo${r.efectivoPend.length?`, y ${r.efectivoPend.length} de esos pagos aún estaban sin entregar`:''}. El efectivo es lo más fácil de perder o de anotar mal. Regla simple: <b>se cuenta y se consigna el mismo día</b>, y una persona responsable.`});}
   if(r.metodos.length>=3) o.push({t:'La plata cae en varios sitios',p:`Entra por <b>${r.metodos.length} vías</b> (${r.metodos.map(x=>esc(x.nombre)).join(', ')}). Cada semana alguien debería cruzar el grupo de WhatsApp con el extracto de cada cuenta. <b>15 minutos los viernes</b> evitan sorpresas a fin de mes.`});
-  if(r.valoraciones>=5){const conv=Math.round(r.compraron/r.valoraciones*100);o.push({t:'La valoración es tu mejor vendedora',p:`De cada 10 valoraciones, <b>${Math.round(conv/10)} terminan en tratamiento</b>. Un tratamiento deja en promedio <b>${copR(r.tratPorPersona)}</b>. Subir la conversión 10 puntos son unos <b>${copR(r.valoraciones*0.1*r.tratPorPersona)}</b> más al mes, sin gastar un peso en publicidad.`});}
+  if(r.valoraciones>=5&&!r.enCurso){const conv=Math.round(r.compraron/r.valoraciones*100);o.push({t:'La valoración es tu mejor vendedora',p:`De cada 10 valoraciones, <b>${Math.round(conv/10)} terminan en tratamiento</b>. Un tratamiento deja en promedio <b>${copR(r.tratPorPersona)}</b>. Subir la conversión 10 puntos son unos <b>${copR(r.valoraciones*0.1*r.tratPorPersona)}</b> más al mes, sin gastar un peso en publicidad.`});}
   if(r.citasPagadas.length){const prom=suma(r.citasPagadas,x=>x.v)/r.citasPagadas.length;o.push({t:'Lo que vale la primera cita',p:`Se pagaron <b>${r.citasPagadas.length} citas</b> a un promedio de <b>${copR(prom)}</b>${r.cortesias?`, más ${r.cortesias} de cortesía`:''}. La cita casi no da plata; su trabajo es <b>abrir la puerta al tratamiento</b>. Mídela por cuántas convierten, no por lo que cobra.`});}
   if(r.recompras.length) o.push({t:'Los que vuelven',p:`<b>${r.recompras.length} pagos</b> fueron de pacientes que volvieron a comprar (${cop(suma(r.recompras,x=>x.v))}). Un paciente que repite cuesta cero en publicidad. <b>Llámalos al terminar cada tratamiento</b> para ofrecer el siguiente paso.`});
   if(m.reportadosTarde&&m.reportadosTarde.n) o.push({t:'Los números llegan tarde',p:`${esc(m.reportadosTarde.texto||'')} Mientras eso pase, <b>cada cierre de mes será una reconstrucción</b>. Comprobante el mismo día, sin excepciones.`});
-  if(r.sinGastos) o.push({t:'Lo más importante que falta',p:`Sin la lista de gastos <b>no sé si la clínica gana o pierde</b>. Con ella te digo cuántos pacientes necesitas al mes para cubrir lo fijo, que es el número que más tranquilidad da.`});
+  if(r.enCurso) o.push({t:'El mes todavía no cierra',p:`Esto va hasta el <b>día ${+r.corte.split('-')[2]}</b> con lo reportado en el chat de agendamiento. Cuando termine ${mesMin(r.k)} me pasas el Excel y los gastos, y el mes queda cerrado como agosto.`});
+  else if(r.sinGastos) o.push({t:'Lo más importante que falta',p:`Sin la lista de gastos <b>no sé si la clínica gana o pierde</b>. Con ella te digo cuántos pacientes necesitas al mes para cubrir lo fijo, que es el número que más tranquilidad da.`});
   else{const porP=r.pacientes?r.entro/r.pacientes:0;if(porP&&r.fijos)o.push({t:'Tu número de tranquilidad',p:`Necesitas <b>${Math.ceil(r.fijos/porP)} pacientes al mes</b> para cubrir lo fijo. Todo lo que pase de ahí es ganancia. Este mes fueron ${r.pacientes}.`});}
   return o.slice(0,6);
 }
@@ -492,12 +531,92 @@ function pintarTend(k){
   $('#tend').innerHTML=`<h3>Lo que te quedó, mes a mes</h3><div class="sub">${rs.length===1?"Primer mes con ingresos y gastos":"Últimos "+rs.length+" meses"}</div>${svg}</svg>`;
 }
 
+/* ---------- mes en curso: comparar "a esta altura del mes" ---------- */
+function cmpMes(r){
+  const C=DATA.comparativo||{}, D=+r.corte.split('-')[2];
+  /* si el mes ya está cerrado en el panel (Excel), manda el panel; si no, lo que se leyó del chat */
+  const cerrado=k=>k!==r.k&&DATA.meses[k]&&!DATA.meses[k].enCurso&&(DATA.meses[k].movimientos||[]).length?DATA.meses[k].movimientos:null;
+  const hastaDia=(k,campo)=>{const mv=cerrado(k);if(mv){const f=mv.filter(x=>+x.f.split('-')[2]<=D);return campo==='citasDia'?new Set(f.filter(x=>x.t==='cita'&&x.v>0&&!/restante/i.test(x.c)).map(x=>norm(x.n))).size:suma(f,x=>x.v);}const c=C[k];if(!c)return 0;let s=0;for(let d=1;d<=D;d++)s+=c[campo][String(d)]||0;return s;};
+  const otros=[...new Set([...Object.keys(C).filter(k=>C[k].completo),...meses.filter(k=>cerrado(k))])].filter(k=>k<r.k).sort();
+  const ant=otros[otros.length-1]||null;
+  const hasta=k=>k===r.k?r.entro:hastaDia(k,'ingresosDia');
+  const citasHasta=k=>k===r.k?new Set(r.mv.filter(x=>x.t==='cita'&&x.v>0&&!/restante/i.test(x.c)).map(x=>norm(x.n))).size:hastaDia(k,'citasDia');
+  const totalDe=k=>{if(k===r.k)return r.entro;const mv=cerrado(k);return mv?suma(mv,x=>x.v):(C[k]?C[k].total:0);};
+  const mejor=otros.length?otros.reduce((a,b)=>hasta(b)>hasta(a)?b:a):null;
+  return {C,D,otros,ant,mejor,hasta,citasHasta,totalDe};
+}
+function pintarTopEnCurso(r){
+  const c=cmpMes(r);
+  let cls='',titulo='Así va el mes',frase=`Del 1 al ${c.D} de ${mesMin(r.k)} han entrado <b>${cop(r.entro)}</b>.`;
+  if(c.ant){
+    const a=c.hasta(c.ant);
+    if(r.entro>=a*1.05){cls='verde';titulo='Vas mejor que el mes pasado';}
+    else if(r.entro>=a*0.9){cls='amarillo';titulo='Vas parecido al mes pasado';}
+    else {cls='rojo';titulo='Vas por debajo del mes pasado';}
+    frase=`Del 1 al ${c.D} de ${mesMin(r.k)} han entrado <b>${cop(r.entro)}</b>. En ${mesMin(c.ant)} a esta altura iban <b>${cop(a)}</b>`+(c.mejor&&c.mejor!==c.ant?` y en ${mesMin(c.mejor)}, el mejor mes, <b>${cop(c.hasta(c.mejor))}</b>.`:'.');
+  }
+  $('#filaTop').innerHTML=`
+    <div class="card hero ${cls}">
+      <div class="l">¿Cómo va ${mesMin(r.k)}?</div>
+      <div class="titulo">${titulo}</div>
+      <div class="frase">${frase}</div>
+      <div><span class="chip">Mes en curso · al ${c.D} de ${mesMin(r.k)}</span><span class="chip">${r.pacientes} personas pagaron</span><span class="chip">${c.citasHasta(r.k)} valoraciones</span></div>
+    </div>
+    ${!r.sinGastos?`
+    <div class="card kpi"><div class="l">Plata que ha entrado</div><div class="v">${cop(r.entro)}</div><div class="s">del 1 al ${c.D}</div></div>
+    <div class="card kpi"><div class="l">Plata que ha salido</div><div class="v">${cop(r.salio)}</div><div class="s">lo pagado hasta el ${diaGastos(r)}</div></div>
+    <div class="card kpi"><div class="l">Lo que va quedando</div><div class="v">${cop(r.quedo)}</div><div class="s">${porPagar(r)?`pero faltan por pagar ≈ ${copCorto(porPagar(r))}`:'el mes todavía no cierra'}</div></div>`:`
+    <div class="card kpi"><div class="l">Plata que ha entrado</div><div class="v">${cop(r.entro)}</div><div class="s">del 1 al ${c.D}</div></div>
+    ${c.ant?`<div class="card kpi"><div class="l">${mesNombre(c.ant).split(' ')[0]} a esta altura</div><div class="v">${cop(c.hasta(c.ant))}</div><div class="s">cerró en ${cop(c.totalDe(c.ant))}</div></div>`:''}
+    ${c.mejor&&c.mejor!==c.ant?`<div class="card kpi"><div class="l">${mesNombre(c.mejor).split(' ')[0]}, el mejor, a esta altura</div><div class="v">${cop(c.hasta(c.mejor))}</div><div class="s">cerró en ${cop(c.totalDe(c.mejor))}</div></div>`:''}`}`;
+}
+/* gastos que todavía no han salido en el mes en curso (los estima Claude con el mes pasado; vienen en datos) */
+const porPagar=r=>suma(r.m.porPagar||[]);
+/* los gastos pueden ir más atrás que los ingresos (llegan en otro chat): egresosCorte dice hasta qué día van */
+const diaGastos=r=>+(r.m.egresosCorte||r.corte).split('-')[2];
+function pintarGastosEnCurso(r){
+  const D=diaGastos(r), arr=[...r.m.egresos].sort((a,b)=>b.valor-a.valor), max=arr[0].valor, top=arr.slice(0,5), resto=arr.slice(5);
+  let html=`<h3>¿En qué se ha ido?</h3><div class="sub">Lo pagado del 1 al ${D}, de mayor a menor</div>`;
+  top.forEach(e=>{html+=`<div class="brow"><span class="n">${esc(e.nombre)}</span><span class="v">${cop(e.valor)}</span><span class="p">${Math.round(e.valor/r.salio*100)}%</span><div class="bar"><i style="width:${Math.max(3,e.valor/max*100)}%"></i></div></div>`});
+  if(resto.length){const v=suma(resto);html+=`<div class="brow"><span class="n">Otros ${resto.length} gastos</span><span class="v">${cop(v)}</span><span class="p">${Math.round(v/r.salio*100)}%</span><div class="bar"><i style="width:${Math.min(100,Math.max(3,v/max*100))}%;opacity:.45"></i></div></div>`}
+  const pp=r.m.porPagar||[];
+  if(pp.length) html+=`<div class="aviso"><b>Todavía falta por pagar ≈ ${cop(porPagar(r))}</b> (calculado con lo de ${mesMin(anteriorK(r.k))}): ${pp.map(x=>`${esc(x.nombre.toLowerCase())} ≈ ${copCorto(x.valor)}`).join(' · ')}.</div>`;
+  const g=$('#cardGastos'); g.innerHTML=html; g.classList.remove('hidden'); g.style.order=2; $('#cardEgresos').style.order=3;
+}
+const anteriorK=k=>{const i=meses.indexOf(k);return i>0?meses[i-1]:k};
+function pintarComparativo(r){
+  const c=cmpMes(r), ks=[...c.otros.slice(-5),r.k];
+  const W=720,H=210,padT=24,padB=26,gap=16,n=ks.length,slot=(W-gap*(n+1))/n,bw=Math.min(72,slot);
+  const max=Math.max(1,...ks.map(k=>c.totalDe(k)));
+  const e=(H-padT-padB)/max, base=H-padB;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Lo que entró cada mes, del 1 al ${c.D} y el resto"><line class="base" x1="0" x2="${W}" y1="${base}" y2="${base}"/>`;
+  ks.forEach((k,i)=>{const x=gap+i*(slot+gap)+(slot-bw)/2,h1=c.hasta(k)*e,h2=(c.totalDe(k)-c.hasta(k))*e,hoy=k===r.k;
+    svg+=`<rect class="s1 ${hoy?'hoy':''}" x="${x}" y="${base-h1}" width="${bw}" height="${Math.max(2,h1)}" rx="3"><title>${mesNombre(k)} · del 1 al ${c.D}: ${cop(c.hasta(k))}</title></rect>`;
+    if(h2>0) svg+=`<rect class="s2" x="${x}" y="${base-h1-h2-2}" width="${bw}" height="${Math.max(2,h2)}" rx="3"><title>${mesNombre(k)} · resto del mes: ${cop(c.totalDe(k)-c.hasta(k))}</title></rect>`;
+    svg+=`<text class="val" x="${x+bw/2}" y="${base-h1-h2-8}" text-anchor="middle">${copCorto(c.totalDe(k))}</text><text class="${hoy?'hoy':''}" x="${x+bw/2}" y="${H-7}" text-anchor="middle">${hoy?mesCorto(k)+' (al '+c.D+')':mesCorto(k)}</text>`;});
+  svg+='</svg>';
+  let esc='';
+  if(c.ant){
+    const restos=c.otros.map(k=>({k,v:c.totalDe(k)-c.hasta(k)})).filter(x=>x.v>0);
+    const prom=restos.length?suma(restos,x=>x.v)/restos.length:0, flojo=restos.length?restos.reduce((a,b)=>b.v<a.v?b:a):null;
+    const rAnt=c.totalDe(c.ant)-c.hasta(c.ant), r100=v=>cop(Math.round(v/1e5)*1e5);
+    esc=`<div class="esc"><h4>¿En cuánto puede cerrar ${mesMin(r.k)}?</h4>
+      <div class="escr"><span>Si el resto del mes es como el de ${mesMin(c.ant)}</span><b>≈ ${r100(r.entro+rAnt)}</b></div>
+      ${restos.length>1?`<div class="escr"><span>Si es como el promedio de los meses anteriores</span><b>≈ ${r100(r.entro+prom)}</b></div>`:''}
+      ${flojo&&flojo.k!==c.ant?`<div class="escr"><span>Si es flojo, como el de ${mesMin(flojo.k)}</span><b>≈ ${r100(r.entro+flojo.v)}</b></div>`:''}
+      ${!r.sinGastos&&porPagar(r)?`<div class="escr"><span><b>Para no perder plata</b> necesita llegar a</span><b>≈ ${r100(r.salio+porPagar(r))}</b></div>`:''}
+    </div>`;
+  }
+  $('#cardEgresos').style.gridColumn='1/-1';
+  $('#cardEgresos').innerHTML=`<h3>Cómo va frente a otros meses</h3><div class="sub">Lo que entró cada mes. Oscuro: del 1 al ${c.D}. Claro: el resto del mes.</div><div class="cmp">${svg}<div class="leyenda"><span><i style="background:#5A4A3A"></i>Del 1 al ${c.D}</span><span><i style="background:#D6C6AE"></i>Resto del mes</span></div></div>${esc}`;
+}
+
 /* ---------- pintar todo ---------- */
 function pintar(){
   if(!mes){$('#filaTop').innerHTML='<div class="card vacio" style="grid-column:1/-1">Todavía no hay meses cargados.</div>';return;}
   const r=resumen(mes),ant=anterior(mes),i=meses.indexOf(mes);
   $('#mesNom').textContent=mesNombre(mes);$('#btnPrev').disabled=i<=0;$('#btnNext').disabled=i>=meses.length-1;
-  $('#headSub').textContent=`Cómo le fue a la clínica en ${mesMin(mes)}`;
+  $('#headSub').textContent=r.enCurso?`Cómo va ${mesMin(mes)}, al día ${+r.corte.split('-')[2]}`:`Cómo le fue a la clínica en ${mesMin(mes)}`;
   pintarTop(r,ant);pintarIngresos(r,ant);pintarEgresos(r,ant);pintarInsights(r,ant);pintarListas(r);pintarCfo(r,ant);pintarTend(mes);
   $('#foot').innerHTML=`${r.pacientes} personas pagaron algo · ${r.valoraciones} citas de valoración · ${r.enTratamiento} personas en tratamiento · ${r.mv.length} pagos registrados${r.m.fuente?` · Fuente: ${esc(r.m.fuente)}`:''}.`;
 }
