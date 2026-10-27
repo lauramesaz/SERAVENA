@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-26",
+  "actualizado": "2026-10-27",
   "articulos": [
+    {
+      "fecha": "2026-10-27",
+      "titulo": "Dolor de espalda y piernas pesadas: ¿están relacionados?",
+      "slug": "dolor-espalda-piernas-pesadas",
+      "categoria": "Síntomas",
+      "keyword": "dolor de espalda y piernas pesadas",
+      "seo": 100,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/dolor-espalda-piernas-pesadas",
+      "nota": "Racimo 'sintomas'. Explica cuándo el dolor de espalda baja y la pesadez en las piernas vienen de la misma causa (postura compensatoria por insuficiencia venosa o por cómo el lipedema puede alterar la marcha, como hipótesis prudente, no hecho probado) y cuándo son dos cosas distintas (ciática/compresión nerviosa). Fuentes: MedlinePlus, estudio DOAJ sobre edema crónico y disfunción sacroilíaca, editorial PMC/Cureus sobre lipedema y marcha, UC Davis Health (señales de TVP), NHS Scotland (síndrome de cauda equina y claudicación neurogénica vs. vascular). Médico: APROBADO CON CORRECCIÓN (se corrigió el post-note: se quitó 'falta de aire' del combo de señales de cauda equina —es síntoma de embolia pulmonar, no de compresión lumbar— y se añadió 'adormecimiento en la zona de la silla de montar'). SEO: 100/100, APTO (el Juez reescribió meta description/og/twitter para que no repitiera el molde de otro artículo, reescribió la apertura del post-lead por el mismo motivo, convirtió un párrafo en lista y añadió un enlace interno a contacto). Policía humanizador: 9/10, HUMANO (turno de reescritura) y LISTO PARA PUBLICAR en el control final tras las correcciones de Médico y SEO. Enlaces de vuelta añadidos en los 3 hermanos del racimo sintomas (guia-sintomas-mala-circulacion, piernas-cansadas-causas, calambres-piernas-noche)."
+    },
     {
       "fecha": "2026-10-26",
       "titulo": "Celulitis o lipedema: cómo diferenciarlos a simple vista",

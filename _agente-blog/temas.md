@@ -195,7 +195,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Lipedema en cadera y glúteos: cómo se reconoce — lipedema en cadera y glúteos — lipedema-cadera-gluteos — racimo: lipedema
 - [publicado] Celulitis o lipedema: cómo diferenciarlos a simple vista — celulitis o lipedema — celulitis-o-lipedema — racimo: lipedema
 - [publicado] Yoga y pilates si tienes piernas pesadas o várices: qué considerar — yoga para la circulación — yoga-pilates-circulacion-piernas — racimo: situaciones
-- [pendiente] Dolor de espalda baja y piernas pesadas: ¿están relacionados? — dolor de espalda y piernas pesadas — dolor-espalda-piernas-pesadas — racimo: sintomas
+- [publicado] Dolor de espalda baja y piernas pesadas: ¿están relacionados? — dolor de espalda y piernas pesadas — dolor-espalda-piernas-pesadas — racimo: sintomas
 - [pendiente] Lipedema después de una cirugía bariátrica: qué cambia y qué no — lipedema cirugía bariátrica — lipedema-cirugia-bariatrica — racimo: lipedema
 - [pendiente] Medias de compresión en el posparto: cuánto tiempo seguir usándolas — medias de compresión posparto — medias-compresion-posparto — racimo: tratamiento
 
