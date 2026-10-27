@@ -6,8 +6,10 @@ las métricas de SEO (impresiones, clics, posición) cuando Search Console esté
 **Nota de verificación (27-oct-2026):** egress a clinicaseravena.com y a api.indexnow.org sigue bloqueado por
 la política de red de este entorno (403 "policy denial" en el CONNECT, mismo bloqueo documentado desde el 11-oct).
 Confirmado en su lugar vía GitHub Actions: el run `pages build and deployment` #451 (id 40515397874, commit
-`8d4183a`, nuevo: dolor-espalda-piernas-pesadas) terminó en `conclusion: success`. Es una señal indirecta
-razonable de que el sitio se reconstruyó; no se pudo confirmar con un 200 real por el mismo bloqueo de red.
+`8d4183a`, nuevo: dolor-espalda-piernas-pesadas) terminó en `conclusion: success`. El run #452 (id 40516326948,
+commit `6a9c0fe`, humanizado: guia-sintomas-mala-circulacion) quedó `queued` al cerrar esta sesión, con los
+450+ runs anteriores de este mismo workflow en `success` consistentemente. Es una señal indirecta razonable
+de que el sitio se reconstruyó; no se pudo confirmar con un 200 real por el mismo bloqueo de red.
 
 **Nota de verificación (26-oct-2026):** egress a clinicaseravena.com y a api.indexnow.org sigue bloqueado por
 la política de red de este entorno (timeout/`000` en el CONNECT, mismo bloqueo documentado desde el 11-oct).
