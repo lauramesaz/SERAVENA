@@ -3,7 +3,12 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
-**Nota de verificación (27-oct-2026):** egress a clinicaseravena.com y a api.indexnow.org sigue bloqueado por
+**Nota de verificación (28-oct-2026):** rutina diaria automática. Nuevo artículo: lipedema-cirugia-bariatrica
+(racimo lipedema). Médico: APROBADO CON CORRECCIÓN (se corrigió un orden cronológico implícito mal expresado
+entre dos revisiones citadas -"Una revisión posterior" → "Otra revisión"-, sin tocar ningún dato ni cifra).
+SEO: 96/100, APTO (el Juez quitó una frase-puente de relleno y mejoró un texto ancla). Humanizado también
+blog/ejercicios-circulacion-casa.html (ver humanizados.md), Verificador médico APROBADO sin correcciones.
+Egress a clinicaseravena.com y a api.indexnow.org sigue bloqueado por
 la política de red de este entorno (403 "policy denial" en el CONNECT, mismo bloqueo documentado desde el 11-oct).
 Confirmado en su lugar vía GitHub Actions: el run `pages build and deployment` #451 (id 40515397874, commit
 `8d4183a`, nuevo: dolor-espalda-piernas-pesadas) terminó en `conclusion: success`. El run #452 (id 40516326948,
@@ -81,6 +86,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-28 | lipedema-cirugia-bariatrica | Lipedema después de una cirugía bariátrica: qué cambia y qué no | lipedema cirugía bariátrica | publicado | — | — | — |
 | 2026-10-27 | dolor-espalda-piernas-pesadas | Dolor de espalda y piernas pesadas: ¿están relacionados? | dolor de espalda y piernas pesadas | publicado | — | — | — |
 | 2026-10-26 | celulitis-o-lipedema | Celulitis o lipedema: cómo diferenciarlos a simple vista | celulitis o lipedema | publicado | — | — | — |
 | 2026-10-25 | yoga-pilates-circulacion-piernas | Yoga para la circulación si tienes várices o piernas pesadas | yoga para la circulación | publicado | — | — | — |

@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-27",
+  "actualizado": "2026-10-28",
   "articulos": [
+    {
+      "fecha": "2026-10-28",
+      "titulo": "Lipedema después de una cirugía bariátrica: qué cambia y qué no",
+      "slug": "lipedema-cirugia-bariatrica",
+      "categoria": "Lipedema",
+      "keyword": "lipedema cirugía bariátrica",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/lipedema-cirugia-bariatrica",
+      "nota": "Racimo 'lipedema'. Explica qué sí mejora con la cirugía bariátrica (la grasa común y comorbilidades metabólicas) y qué no desaparece (el tejido lipedémico, resistente a dieta y cirugía, con dolor que según varios estudios no mejora o incluso sube levemente pese a pérdidas de peso grandes), por qué muchas pacientes y médicos no diferencian ambas cosas, señales de lipedema residual, manejo conservador (compresión, drenaje linfático manual, ejercicio de bajo impacto) y cuándo consultar en Medellín. Fuentes: Cornely et al. 2022 (serie de 13 pacientes, SOARD), Zevallos et al. 2025 (scoping review, 49 casos), Pajaziti et al. 2026 (revisión sistemática), Pouwels et al. 2018, consenso italiano SISMeS/SIF sobre ejercicio (PMC11522091), StatPearls y Obesity Medicine Association. Médico: APROBADO CON CORRECCIÓN (se corrigió un orden cronológico implícito mal expresado entre dos revisiones citadas, sin tocar ningún dato ni cifra). SEO: 96/100, APTO (el Juez quitó una frase-puente de relleno -misma familia ya multada en lipedema-y-menopausia.html- y mejoró un texto ancla; longitud quedó ~1182 palabras, algo por encima del rango habitual, sin recortarla para no arriesgar contenido médico). Imagen de portada hero-manos-movil-video.webp, antes sin usar por ningún artículo. Enlaces de vuelta añadidos en los 3 hermanos del racimo lipedema (dieta-y-lipedema, lipedema-resistencia-insulina, lipedema-tiene-cura)."
+    },
     {
       "fecha": "2026-10-27",
       "titulo": "Dolor de espalda y piernas pesadas: ¿están relacionados?",

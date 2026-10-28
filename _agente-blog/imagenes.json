@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-10-27",
+  "actualizado": "2026-10-28",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "lipedema-cirugia-bariatrica": {
+      "imagen": "hero-manos-movil-video.webp",
+      "alt": "Manos apoyadas con suavidad sobre el abdomen, gesto de cuidado del cuerpo después de un cambio de peso importante"
+    },
     "dolor-espalda-piernas-pesadas": {
       "imagen": "hero-manos-movil.webp",
       "alt": "Manos revisando con cuidado la zona de la pierna, en el contexto de piernas pesadas y molestia lumbar"
