@@ -991,3 +991,70 @@ Ya son 7 semanas con mensajes listos sin enviar y esta semana no hay hallazgo nu
 pasada (Doctoralia): sigue en pie lo que dejé el 14-oct — completar el perfil de Doctoralia del médico
 con el enlace a la web y crear el perfil de la clínica— y sigue en pie que el trabajo pendiente es
 revisar y enviar (o descartar) los 11 mensajes ya redactados, no que yo siga sumando más.
+
+---
+
+## Semana del 2026-10-28
+
+· Sitios revisados: 7 (las 3 búsquedas objetivo en Google — "várices Medellín", "flebólogo Medellín",
+"eco doppler venoso Medellín" —, búsqueda general de "Seravena Medellín lipedema várices" y de
+"Seravena" clínica El Poblado/Medellín, intento de localizar un perfil de *centro* de Seravena en
+Doctoralia — no solo el del médico —, prensa local buscando cobertura de lipedema en 2026 — El
+Colombiano, Minuto30, Vivir en El Poblado —, panorama general de directorios médicos/IPS gratuitos en
+Colombia) + revisión directa del código fuente de las 22 páginas `.html` del sitio que mencionan la
+dirección
+· Seravena aparece en: 1 (sin cambio frente al 14-oct — ver abajo)
+
+### Nombre/dirección/teléfono: sin incoherencias nuevas
+
+Revisé el código fuente de las 22 páginas `.html` del sitio que mencionan la dirección (ya no son 20:
+el sitio sigue creciendo). Las 22, sin excepción, usan **Calle 2 Sur #46-159, Torre Médica Salud
+Vegas, consultorio 1316** — la misma dirección que confirman las instrucciones de esta semana contra
+la ficha del edificio en Google. Nada que corregir en la web. No volví a revisar esta semana el ruido
+ya conocido de terceros sobre la dirección del edificio (Clínica Las Vegas con 46-55, Unidad Médica
+Las Vegas con otra variante): está todo registrado en semanas anteriores y no cambia semana a semana.
+
+### El hallazgo de Doctoralia (14-oct) sigue exactamente igual
+
+Repetí la búsqueda del perfil del médico (doctoralia.co/perfil/jose-david-puerta-rojas): sigue
+existiendo, sigue mencionando a Seravena con el mismo texto de marca, sigue dando la dirección
+correcta, y sigue sin un enlace visible a www.clinicaseravena.com. Busqué además, de forma específica,
+si ya existe un perfil de **centro** (clínica, no médico) para Seravena en Doctoralia — el paso B.2 del
+kit que sigue pendiente — y no encontré ninguno. Sin cambios frente al 21-oct: no lo cuento como
+hallazgo nuevo.
+
+Dato nuevo, menor: al buscar "Seravena" en general, los resultados ahora incluyen **los propios issues
+de este repositorio de GitHub** (los avisos semanales de este agente, que son públicos). No es una
+mención externa real — es este mismo proceso citándose a sí mismo — así que no la cuento como
+mención ni como incoherencia. Lo anoto solo porque confirma, una vez más, que fuera de Doctoralia y de
+este repositorio, Seravena sigue sin ninguna huella real en internet.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre, sin ningún nombre nuevo frente a lo ya
+registrado en semanas anteriores (Doctoralia, Top Doctors, Vasculab, Variclinic, Franco Vascular,
+Centrolab, Cardiovas IPS, Clínica Medellín/QuirónSalud, dopplervenosomedellin.com). No encontré ninguna
+nota de prensa nueva de 2026 sobre lipedema en El Colombiano, Minuto30 ni Vivir en El Poblado. Revisé
+también el panorama general de directorios médicos/IPS "gratuitos" en Colombia buscando algo que no
+estuviera ya cubierto por los 11 mensajes acumulados: lo que aparece son directorios médicos de cada
+EPS o aseguradora (Nueva EPS, Sura, Comfenalco Valle) — no aplican a Seravena, que solo atiende
+particular, sin EPS ni prepagada — y ningún directorio nacional nuevo, gratuito y editorial que no
+esté ya cubierto.
+
+### Esta semana no encontré ninguna oportunidad nueva que valga la pena
+
+Ningún directorio, gremio, medio ni aliado nuevo esta semana que no esté ya cubierto por los 11
+mensajes acumulados entre esta bitácora y `kit-backlinks.md`. No redacto mensajes nuevos solo por
+llenar el cupo de 3: sería relleno, y esta semana la investigación genuinamente no dio nada nuevo —
+tercera semana seguida en ese punto (21-oct, 14-oct en parte, y ahora 28-oct).
+
+· Mensajes listos para enviar: 0 esta semana (11 mensajes de semanas anteriores siguen pendientes de
+envío, repartidos entre esta bitácora y `kit-backlinks.md` — ver semanas anteriores y ese archivo)
+
+### Para Laura, en una línea
+
+Van **9 semanas** con los mismos 11 mensajes listos y ninguno enviado, y 3 semanas seguidas sin
+encontrar nada genuinamente nuevo que investigar — la parte de descubrimiento ya está agotada con el
+terreno actual. No voy a seguir repitiendo este aviso cada semana de la misma forma: si para la
+próxima revisión (4-nov) sigue sin haber movimiento en el envío, dejaré de insistir en el cuello de
+botella y me limitaré a confirmar que no hay cambios, salvo que aparezca algo genuinamente nuevo.
