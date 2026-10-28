@@ -26,7 +26,8 @@ los demás agentes** para que no repitan los mismos vicios. Lee `../INSTRUCCIONE
 5. Al menos una señal real: algo de `../voz-real.md` o contexto verdadero de Medellín.
 6. Admite un límite con honestidad (qué NO resuelve algo, a quién no aplica).
 7. Habla como en consulta: tú, palabras de paciente ("se me hinchan las piernas"), no de folleto.
-8. Title, meta y primer párrafo no se parecen a otro artículo del blog (compara con 5 al azar).
+8. Title, meta y primer párrafo no se parecen a otro artículo del blog (compara con los que saca
+   `buscar-gemelos.py` para ese tema, no con 5 al azar).
 9. Nada suena a traducción ni a plantilla ("En el mundo actual…", "Descubre…").
 10. Cierre útil y concreto (qué hacer mañana), no un resumen de lo ya dicho.
 
@@ -48,7 +49,7 @@ recientes; si un vicio ya no aparece en 2 semanas, muévelo a "Resueltas".
 ## Limpieza del archivo (artículos ya publicados)
 
 Cada ejecución diaria, además del artículo nuevo, reescribe **1 artículo viejo**: el primero de
-`../humanizados.md` en estado `[pendiente]`. Pasa por el Verificador médico (confirma que el fondo
+`../humanizados.md` en estado `[pendiente]` (salta los `[fusionado …]`: ahora son redirecciones). Pasa por el Verificador médico (confirma que el fondo
 quedó idéntico) antes de publicarse. Conserva slug, URL, fecha de publicación y enlaces; actualiza
 solo `dateModified`. Márcalo `[humanizado AAAA-MM-DD]` con la nota de la prueba (antes → después).
 

@@ -27,9 +27,45 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
 2. **Prioriza las guías madre.** Si al racimo elegido le faltan 3 o más artículos hijos, escribe
    primero los hijos; cuando el racimo tenga 4+ artículos, escribe su guía madre (más larga,
    1500–2000 palabras, enlazando a todos sus hijos).
-3. **Anticanibalización.** Antes de escribir, revisa en `registro.md` que ninguna keyword publicada
-   se parezca demasiado a la nueva. Si se parecen, NO escribas otro artículo: **actualiza el que
-   ya existe** y marca el tema como descartado explicando por qué.
+3. **Anticanibalización por intención (regla de gemelos, cambió el 20-oct-2026).** Comparar
+   keywords en `registro.md` NO basta: así se colaron 5 gemelos que Google ignoraba. Antes de
+   escribir, aplica la prueba del gemelo de `INSTRUCCIONES.md` §3b: corre
+   `python3 _agente-blog/buscar-gemelos.py "<título>" "<keyword>"`, lee título, descripción y primer
+   párrafo de los parecidos y pregúntate si la misma persona quedaría satisfecha con lo que ya
+   existe, aunque use otras palabras. Si sí, NO escribas otro artículo: **mejora el que ya existe**
+   y marca el tema como `[descartado → mejorado <slug>]` explicando por qué.
+
+### Artículos fusionados (NO volver a crearlos)
+
+Eran gemelos: respondían la misma búsqueda y Google ignoraba uno. El 20-oct-2026 cada par se juntó
+en el artículo que mejor posicionaba. La dirección vieja sigue viva como redirección al principal.
+Lo nuevo sobre estos temas se añade al principal; nunca se vuelve a crear el slug viejo.
+Publicado en línea el 28-oct-2026 (el arreglo del 20-oct había quedado sin subir). Estas 4 páginas son
+redirecciones, no artículos: no se humanizan, no se auditan y no van en el sitemap ni en `blog/index.html`.
+
+| Dirección vieja (redirige) | Artículo principal (el que se mejora) |
+|---|---|
+| `varices-tratamiento-sin-cirugia` | `guia-tratamientos-varices` |
+| `medias-de-compresion-guia` | `medias-compresion-colombia-comprar` |
+| `piernas-hinchadas-calor` | `piernas-viaje-tierra-caliente` (ahora cubre calor en Medellín y viajes) |
+| `cuidar-piernas-trabajo-de-pie` | `sedentarismo-piernas-venas` (ahora cubre trabajo sentada y de pie) |
+
+### Ángulos ya repartidos (parientes: no pisarse)
+
+Grupos del mismo tema donde cada artículo tiene su propia búsqueda. Un tema nuevo cerca de estos
+debe tener un ángulo distinto a los tres, o mejorar el que corresponda.
+
+- **¿Tengo lipedema?** `como-saber-si-tengo-lipedema` = la paciente, en casa, antes de la cita ·
+  `diagnostico-lipedema` = qué revisa el médico en la consulta · `senales-lipedema-primer-contacto`
+  = para médicos generales (y `../guia-lipedema-medicos` es la hoja rápida para médicos).
+- **Primera cita:** `preparar-valoracion-vascular` = qué pasa dentro de la consulta, paso a paso ·
+  `primera-cita-varices-medellin` = lo práctico en Seravena (qué llevar, cómo agendar, dónde) ·
+  `preguntas-primera-cita-piernas` = la lista de preguntas para llevar en el celular.
+- **Movimiento:** `ejercicio-para-varices` = deporte y gimnasio si ya tienes várices ·
+  `ejercicios-circulacion-casa` = rutina corta sin equipo · `habitos-mejorar-circulacion` =
+  costumbres del día, no ejercicios.
+- **Trabajo:** `sedentarismo-piernas-venas` = venas y jornada (sentada o de pie) ·
+  `lipedema-y-trabajo` = la jornada cuando hay lipedema (ajustes, talento humano).
 
 ### Regla 4 (desde 28-sep-2026): foco LOCAL
 
@@ -66,16 +102,16 @@ colombiana real (Minsalud, Supersalud, INVIMA). Si no, el artículo explica "de 
 ## Salud vascular / venas / várices  ·  racimos: `sintomas`, `tratamiento`, `diagnostico`
 
 - [publicado] Piernas hinchadas al final del día: cuándo preocuparse — piernas hinchadas — piernas-hinchadas-cuando-preocuparse
-- [publicado] Várices: por qué aparecen y cómo se tratan hoy sin cirugía — tratamiento de várices sin cirugía — varices-tratamiento-sin-cirugia
+- [fusionado 2026-10-20 en guia-tratamientos-varices] Várices: por qué aparecen y cómo se tratan hoy sin cirugía — tratamiento de várices sin cirugía — varices-tratamiento-sin-cirugia
 - [publicado] Arañitas vasculares en las piernas: causas y soluciones — arañas vasculares — aranitas-vasculares-piernas
 - [publicado] Qué es el eco doppler venoso y por qué es clave — eco doppler venoso — eco-doppler-venoso-que-es
 - [publicado] Piernas cansadas y pesadas: causas frecuentes — piernas cansadas — piernas-cansadas-causas
 - [publicado] Várices en el embarazo: por qué salen y qué hacer — várices en el embarazo — varices-en-el-embarazo
-- [publicado] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
+- [fusionado 2026-10-20 en medias-compresion-colombia-comprar] Medias de compresión: para qué sirven y cómo elegirlas — medias de compresión — medias-de-compresion-guia
 - [publicado] Insuficiencia venosa crónica: síntomas que no debes ignorar — insuficiencia venosa síntomas — insuficiencia-venosa-sintomas
 - [publicado] Calambres nocturnos en las piernas: posibles causas — calambres en las piernas — calambres-piernas-noche
 - [publicado] Trombosis venosa: señales de alarma que debes conocer — trombosis venosa síntomas — trombosis-venosa-senales
-- [publicado] Cómo cuidar tus piernas si trabajas muchas horas de pie — cuidado de piernas de pie — cuidar-piernas-trabajo-de-pie
+- [fusionado 2026-10-20 en sedentarismo-piernas-venas] Cómo cuidar tus piernas si trabajas muchas horas de pie — cuidado de piernas de pie — cuidar-piernas-trabajo-de-pie
 - [publicado] Escleroterapia: en qué consiste el tratamiento de várices — escleroterapia — escleroterapia-que-es
 - [publicado] Hormigueo y picor en las piernas: cuándo es circulatorio — picor en las piernas — picor-piernas-circulacion
 - [publicado] Manchas oscuras en tobillos: qué pueden indicar — manchas en los tobillos — manchas-tobillos-causas
@@ -98,7 +134,7 @@ colombiana real (Minsalud, Supersalud, INVIMA). Si no, el artículo explica "de 
 - [publicado] 7 hábitos diarios para mejorar la circulación de tus piernas — mejorar circulación piernas — habitos-mejorar-circulacion
 - [publicado] Alimentación que favorece la salud vascular — alimentación circulación — alimentacion-salud-vascular
 - [publicado] Viajes largos: cómo cuidar tus piernas en avión o carro — piernas en viajes largos — cuidar-piernas-viajes-largos
-- [publicado] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
+- [fusionado 2026-10-20 en piernas-viaje-tierra-caliente] Calor y piernas hinchadas: por qué empeora en verano — piernas hinchadas por calor — piernas-hinchadas-calor
 - [publicado] Ejercicios sencillos para activar la circulación en casa — ejercicios circulación piernas — ejercicios-circulacion-casa
 
 ## Para profesionales de la salud

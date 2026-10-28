@@ -32,6 +32,13 @@ Un artículo no avanza a publicación con nota < 85. Lee `../INSTRUCCIONES.md` (
 - `BreadcrumbList` presente y correcto. (4)
 - Sin errores que rompan el rich result. (3)
 
+**Freno previo: prueba del gemelo (antes de puntuar)**
+- Corre `python3 _agente-blog/buscar-gemelos.py "<title>" "<keyword>"` y lee los artículos con
+  puntaje ≥ 0,30. Si alguno ya responde la misma búsqueda (aunque con otras palabras), el veredicto
+  es **DEVUELTO sin nota**: no se publica otro artículo, se mejora el existente (`../INSTRUCCIONES.md` §3b).
+- Si es pariente, comprueba que título, H1, descripción y primer párrafo dejen claro un ángulo
+  distinto y que el primer párrafo enlace al pariente. Si no, −10 y corrección obligatoria.
+
 **F. Descuentos por "texto en serie" (hasta −15)**
 - −2 por cada huella de IA de `../INSTRUCCIONES.md` §1.1 que siga en el texto (máx. −10).
 - −5 si no hay ninguna "señal de persona real" (§1.1): el texto podría ser de cualquier web.

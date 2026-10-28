@@ -137,12 +137,54 @@ pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colomb
 - Rellena bien el `alt` de las imágenes (describe la imagen, con contexto).
 - Mantén el JSON-LD (`MedicalWebPage` + `BreadcrumbList`) con la fecha y título correctos.
 
+## 3b. Regla de gemelos: una búsqueda = un artículo (desde 20-oct-2026)
+
+**Por qué:** en la revisión de Search Console del 19-oct-2026, 5 artículos estaban casi invisibles
+porque tenían un "gemelo": otro artículo nuestro que respondía **la misma búsqueda con otras
+palabras** ("piernas hinchadas por calor en Medellín" y "piernas hinchadas por calor en viajes a
+tierra caliente"; "cuidado de piernas de pie" y "¿trabajas sentada?"; dos guías de "tratamiento de
+várices sin cirugía"; dos de "cómo elegir medias de compresión"). Google escoge uno, ignora al otro
+y a veces no sube ninguno. La regla vieja solo comparaba la keyword exacta en `registro.md`, y por
+eso se colaron. El 20-oct-2026 se fusionaron (lista en `temas.md`, "Artículos fusionados").
+
+**Antes de escribir un artículo nuevo (obligatorio; lo hace el Redactor y lo confirma el Juez SEO):**
+1. Escribe en una frase **la pregunta que la lectora teclea en Google**, no la keyword.
+   Ej.: "¿por qué se me hinchan las piernas con el calor y qué hago?".
+2. Corre `python3 _agente-blog/buscar-gemelos.py "<título propuesto>" "<keyword>"` y **lee el
+   título, la descripción y el primer párrafo** de cada artículo con puntaje ≥ 0,30. Mirar solo
+   `registro.md` no basta. El puntaje ordena la lectura; quien decide eres tú, leyendo.
+3. Hazte la pregunta del gemelo: **si esa misma persona cae en el artículo que ya existe, ¿queda
+   satisfecha?** Son gemelos aunque cambien las palabras: sinónimos (calor / tierra caliente;
+   trabajo / jornada / turno; cita / consulta / valoración), la misma situación en otro lugar o
+   momento ("calor en Medellín" / "calor al viajar"), "guía" / "guía completa", el mismo consejo
+   para otra postura (sentada / de pie).
+4. **Si es gemelo, NO escribas uno nuevo:** mejora el que existe (la sección que faltaba, una
+   pregunta frecuente, el ángulo nuevo), actualiza su `dateModified` y su `lastmod`, pásalo por el
+   Verificador médico y marca el tema en `temas.md` como `[descartado → mejorado <slug>]` con una
+   línea de por qué. Eso cuenta como el trabajo del día.
+5. **Si es pariente (mismo racimo, otra intención):** sí se escribe, pero con un ángulo que no se
+   pise. Título, H1, descripción y primer párrafo dicen para quién y para qué es (en casa / en la
+   consulta / para médicos; deporte / rutina en casa / hábitos del día), y el primer párrafo enlaza
+   al pariente ("si lo que buscas es X, está en …").
+6. **Nunca** vuelvas a crear un slug de "Artículos fusionados" (`temas.md`): esas direcciones ya
+   llevan al artículo principal. Lo nuevo sobre ese tema se añade al principal.
+
+**Fusionar dos artículos que ya existen** (lo propone el Analista semanal en su informe; se hace
+con el visto bueno de Laura): el que mejor posiciona queda como principal y absorbe lo bueno del
+otro (sin inventar nada: solo se mueve texto ya verificado). El absorbido **no se borra**: su archivo
+se reemplaza por una página de redirección (copiar el modelo de `blog/piernas-hinchadas-calor.html`:
+`meta refresh` + `canonical` al principal), se quita su tarjeta de `blog/index.html` y su `<url>`
+del `sitemap.xml`, se cambian los enlaces internos que apuntaban a él y se añade a la lista de
+"Artículos fusionados" de `temas.md`. Las páginas de redirección no son artículos: no se humanizan,
+no se auditan como artículos y no cuentan en el total.
+
 ## 4. Pasos EXACTOS para publicar un artículo
 
 Trabaja siempre dentro de `web/` (donde está el repositorio git).
 
 1. **Elige el tema:** abre `_agente-blog/temas.md`, toma el primer tema con estado `pendiente`
-   que NO se repita con algo ya publicado (revisa `_agente-blog/registro.md`).
+   y pásale la **prueba del gemelo (§3b)**: `buscar-gemelos.py` + leer los parecidos. Si ya existe
+   un artículo que responde la misma búsqueda, mejora ese en vez de crear uno nuevo.
 2. **Crea el archivo** `blog/<slug>.html` copiando la estructura de
    `_agente-blog/plantilla-post.html` y rellenando TODOS los `{{...}}`.
    - **Imagen de portada — regla nueva, sustituye a la anterior:** abre
@@ -189,7 +231,8 @@ Si `temas.md` se queda con menos de 5 temas pendientes, **genera 10 temas nuevos
 - [ ] ¿Hay bloque de aviso médico (`post-note`) y autoría del equipo?
 - [ ] ¿1–2 enlaces internos y 1 llamada a la acción (agendar valoración / WhatsApp)?
 - [ ] ¿Nada inventado, ninguna promesa de cura, tono cálido?
-- [ ] ¿El slug no choca con uno ya publicado?
+- [ ] ¿El slug no choca con uno ya publicado ni con uno de "Artículos fusionados"?
+- [ ] ¿Pasó la prueba del gemelo (§3b)? Ningún artículo vivo responde ya la misma búsqueda.
 
 ## 6. Cómo avisar a Laura
 

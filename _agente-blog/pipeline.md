@@ -25,7 +25,9 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 
 ```
         ┌─────────────────────────────────────────────────────────┐
-        │  1. INVESTIGADOR-REDACTOR  → borrador + fuentes          │
+        │  1. INVESTIGADOR-REDACTOR  → prueba del gemelo (§3b) +   │
+        │     borrador + fuentes (si es gemelo: mejora el que ya   │
+        │     existe en vez de escribir uno nuevo)                 │
         └─────────────────────────────────────────────────────────┘
                               │
         ┌─────────────────────────────────────────────────────────┐
@@ -73,6 +75,10 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 ```
 
 ## Controles de aprobación (gates)
+
+- **Gate gemelo (desde 20-oct-2026):** no se escribe un artículo nuevo si ya existe uno que responde
+  la misma búsqueda, aunque use otras palabras (`INSTRUCCIONES.md` §3b, `buscar-gemelos.py`). Se mejora
+  el existente. El Juez SEO lo vuelve a comprobar y devuelve el artículo si es gemelo.
 
 - **Gate humano:** el artículo NO avanza si la prueba de humanidad del Policía (1c) es < 8/10.
   Devuelve al Editor.

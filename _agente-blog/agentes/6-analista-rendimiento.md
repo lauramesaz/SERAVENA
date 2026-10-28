@@ -23,8 +23,15 @@ Recorre `blog/*.html` y `registro.md` y detecta:
       redactor lo priorice esta semana.
 
 **Calidad**
-- [ ] **Canibalización:** dos artículos peleando por la misma keyword. Decide cuál es el bueno,
-      refuerza ese y reenfoca el otro a una intención distinta (nunca borres).
+- [ ] **Canibalización / gemelos:** corre `python3 _agente-blog/buscar-gemelos.py --todos` y lee
+      los pares que salgan (y en Search Console, búsquedas que reparten apariciones entre 2-3 de
+      nuestros artículos). Si son parientes, refuerza el bueno y dale al otro un ángulo distinto
+      (título, H1, descripción, primer párrafo). Si son **gemelos** (la misma búsqueda), propón en el
+      informe a Laura **fusionarlos** como se hizo el 20-oct-2026 (`../INSTRUCCIONES.md` §3b): el
+      absorbido no se borra, queda como redirección al principal. Nunca borres.
+- [ ] **Páginas de redirección** (`blog/*.html` con `http-equiv="refresh"`, lista en `../temas.md`
+      "Artículos fusionados"): no son artículos. No se auditan como tales, no cuentan en el total y
+      no van en el sitemap; solo confirma que siguen llevando a su principal.
 - [ ] **Artículos flojos:** menos de 700 palabras, sin FAQ, sin imagen propia, sin llamada a la
       acción, o con más de 6 meses sin tocar.
 - [ ] **Títulos y descripciones:** `<title>` de más de 60 caracteres (Google los corta) o

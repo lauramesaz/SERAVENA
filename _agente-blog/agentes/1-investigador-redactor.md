@@ -7,7 +7,16 @@ Lee siempre antes: `../INSTRUCCIONES.md` (marca, SEO base, salvaguardas médicas
 
 ## Qué haces, paso a paso
 
-1. **Elige el tema** del `../temas.md` (primer `pendiente` que no choque con `../registro.md`).
+1. **Elige el tema** del `../temas.md` (primer `pendiente`) y pásale la **prueba del gemelo**
+   (`../INSTRUCCIONES.md` §3b), que reemplaza al viejo "que no choque con `registro.md`":
+   - Escribe la pregunta que la lectora teclea en Google, en una frase.
+   - Corre `python3 _agente-blog/buscar-gemelos.py "<título>" "<keyword>"` y lee título,
+     descripción y primer párrafo de cada artículo con puntaje ≥ 0,30.
+   - Si uno de ellos ya responde esa pregunta, aunque con otras palabras (calor en Medellín vs
+     calor al viajar; trabajo sentada vs de pie; cita vs consulta vs valoración), **no escribas
+     uno nuevo: mejora ese** y avísalo en el registro. Si es pariente, elige un ángulo que no se
+     pise con él y enlázalo en el primer párrafo.
+   - Revisa también "Artículos fusionados" y "Ángulos ya repartidos" en `../temas.md`.
 2. **Investiga con búsqueda web** (obligatorio, no trabajes solo de memoria):
    - Busca en **fuentes fiables y actuales**: sociedades médicas, guías clínicas, hospitales
      universitarios, artículos de revisión, organismos de salud. Prioriza fuentes en español
@@ -39,3 +48,5 @@ Lee siempre antes: `../INSTRUCCIONES.md` (marca, SEO base, salvaguardas médicas
 - Archivo borrador (o su contenido) listo para revisión.
 - **Bloque de fuentes**: por cada dato médico relevante, la fuente que lo respalda.
 - Nota de keyword principal + secundarias usadas.
+- **Resultado de la prueba del gemelo:** la frase de intención, los 3 artículos más parecidos
+  que salieron y por qué el tuyo no es gemelo de ninguno (o qué artículo mejoraste en su lugar).

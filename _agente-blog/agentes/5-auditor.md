@@ -7,6 +7,9 @@ control: nada se da por cerrado si tú encuentras un fallo. Lee `../pipeline.md`
 
 **Archivos e integración**
 - [ ] Existe `blog/<slug>.html` y abre sin errores.
+- [ ] El slug no es uno de "Artículos fusionados" de `temas.md` (esas direcciones son redirecciones
+      a su artículo principal y no se reescriben). Al revisar el blog completo, las páginas con
+      `http-equiv="refresh"` son redirecciones, no artículos: no les exijas FAQ, JSON-LD ni tarjeta.
 - [ ] La tarjeta del post aparece en `blog/index.html` y su enlace apunta al slug correcto.
 - [ ] El post está en `sitemap.xml` con `lastmod` de hoy; `/blog/` también actualizado.
 - [ ] Fila añadida en `registro.md` y tema marcado `publicado` en `temas.md`.
