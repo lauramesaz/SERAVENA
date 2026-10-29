@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-28",
+  "actualizado": "2026-10-29",
   "articulos": [
+    {
+      "fecha": "2026-10-29",
+      "titulo": "Medias de compresión en el posparto: cuánto tiempo seguir usándolas",
+      "slug": "medias-compresion-posparto",
+      "categoria": "Tratamientos",
+      "keyword": "medias de compresión posparto",
+      "seo": 98,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/medias-compresion-posparto",
+      "nota": "Racimo 'tratamiento'. Pariente de medias-compresion-embarazo.html (0,43 en buscar-gemelos.py, no gemelo): ese artículo cubre cuándo EMPEZAR a usarlas en el embarazo, este cubre cuánto tiempo SEGUIR usándolas y cuándo dejarlas tras el parto. Explica la diferencia entre la media de compresión de uso diario por piernas hinchadas/várices y la media de profilaxis de trombosis indicada por el médico tras una cesárea (mayor presión, decisión clínica, nunca autoindicada), cuánto dura la hinchazón fisiológica normal del posparto y las señales de alarma de trombosis venosa profunda/embolia pulmonar en las primeras 6 semanas. Fuentes: SMFM Consult Series #51 (profilaxis de TEV en cesárea), MDedge/OBG Management (evidencia limitada de medias antiembolismo salvo uso terapéutico en síndrome postrombótico), consenso general sobre curva de hinchazón posparto. Médico: APROBADO sin correcciones (confirmó que la profilaxis de trombosis queda claramente separada de la media de uso diario, sin autoindicación, sin cifras inventadas, con el post-note y el post-faq/JSON-LD FAQPage correctos). SEO: 98/100, APTO (el Juez SEO encontró y corrigió que el artículo no estaba en sitemap.xml ni tenía tarjeta en blog/index.html ni fila en registro.md/temas.md -quedaba huérfano del flujo de indexación pese a tener el contenido listo-, y añadió un CTA a la meta description). Policía humanizador: prueba de humanidad 10/10, HUMANO (incluye criterio propio marcado de Seravena y admisión honesta de límite). Enlaces en los dos sentidos con los 3 hermanos del racimo tratamiento (medias-compresion-embarazo, medias-compresion-colombia-comprar, medias-compresion-para-volar). Imagen de portada 9165651.webp (no usada antes en el racimo tratamiento). Pendiente menor no bloqueante: cuerpo ~1176 palabras, algo por encima del rango habitual 700-1100."
+    },
     {
       "fecha": "2026-10-28",
       "titulo": "Lipedema después de una cirugía bariátrica: qué cambia y qué no",
