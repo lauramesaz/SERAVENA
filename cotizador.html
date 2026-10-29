@@ -670,6 +670,7 @@ const CODIGO = "111";
 const VIGENCIA_DIAS = 30;
 const ESPECIALISTA = "Jose David Puerta";
 const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
+const ESTETICA = { nombre: "Valeria Enciso", especialidad: "Médica estética" }; // quien hace celulitis (28-oct)
 const COMERCIAL = { nombre: "Federico", whatsapp: "573006397083" }; // a quien le llega "Enviar al comercial"
 const SITIO = "https://www.clinicaseravena.com/cotizador";
 const ENVIO_INGRESO = "https://seravena-cotizador-correo.vercel.app/api/ingreso"; // fila en el Google Sheets de ingresos + correo
@@ -748,23 +749,23 @@ const PROGRAMAS = {
   },
   /* ganancia: el precio es lo que cuesta + 30% para el consultorio (pedido de Laura 28-oct) */
   celulitis: {
-    foto: "assets/media/skin-detail.webp", frase: "Tratamiento HAUSFORM", familia: "celulitis", solo: "hf", ganancia: 0.30,
+    foto: "assets/media/skin-detail.webp", frase: "Tratamiento HAUSFORM", familia: "celulitis", solo: "hf", esp: ESTETICA, ganancia: 0.30,
     nombre: "HAUSFORM Sculptra", corto: "Sculptra", resumen: "Ampollas de Sculptra · glúteos", titulo: "Celulitis · HAUSFORM con Sculptra", duracion: "", pagos: null,
     plan: { sculptra: 2, proc_gluteos: 1 }, muestra: ["sculptra", "proc_gluteos", "aparatologia_hf"],
   },
   celulitis_sveltia: {
-    oculto: true, familia: "celulitis", solo: "hf", ganancia: 0.30,
+    oculto: true, familia: "celulitis", solo: "hf", esp: ESTETICA, ganancia: 0.30,
     nombre: "HAUSFORM Sveltia", corto: "Sveltia", resumen: "Ampollas de Sveltia · glúteos", titulo: "Celulitis · HAUSFORM con Sveltia", duracion: "", pagos: null,
     plan: { sveltia: 2, proc_gluteos: 1 }, muestra: ["sveltia", "proc_gluteos", "aparatologia_hf"],
   },
   celulitis_advance: {
-    oculto: true, familia: "celulitis", solo: "hf",
+    oculto: true, familia: "celulitis", solo: "hf", esp: ESTETICA,
     nombre: "HAUSFORM Advance", corto: "Advance", resumen: "Venufill + PRP", titulo: "Celulitis · HAUSFORM Advance", precio: 3500000, duracion: "", pagos: null,
     plan: { venufill: 1, prp: 1, medico: 1, insumos: [1, 95000], indirectos: [1, 180000] },
     muestra: ["sculptra", "venufill", "prp", "medico", "insumos", "indirectos", "aparatologia_hf"],
   },
   celulitis_prestige: {
-    oculto: true, familia: "celulitis", solo: "hf",
+    oculto: true, familia: "celulitis", solo: "hf", esp: ESTETICA,
     nombre: "HAUSFORM Prestige", corto: "Prestige", resumen: "Sculptra + Venufill", titulo: "Celulitis · HAUSFORM Prestige", precio: 5800000, duracion: "", pagos: null,
     plan: { sculptra: 2, venufill: 1, medico: 1, insumos: [1, 115000], indirectos: [1, 210000] },
     muestra: ["sculptra", "venufill", "prp", "medico", "insumos", "indirectos", "aparatologia_hf"],
@@ -958,6 +959,8 @@ document.querySelectorAll("#programas button").forEach(b => b.onclick = () => po
 
 function ponerPrograma(id){
   PROG = id;
+  const e = P().esp; // cada programa trae su especialista (celulitis = médica estética)
+  $("#esp").value = e ? e.nombre : ESPECIALISTA; $("#espec").value = e ? e.especialidad : ESPECIALIDAD; pintarEsp();
   const fam = P().familia;
   document.body.classList.toggle("desc-libre-on", !!P().descuentoLibre);
   document.querySelectorAll("#programas button").forEach(b => b.classList.toggle("activa", b.dataset.prog === id || (!!fam && PROGRAMAS[b.dataset.prog].familia === fam)));
