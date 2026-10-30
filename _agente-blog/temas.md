@@ -238,3 +238,16 @@ distintos tipos de búsqueda. Ideas por formato:
 ## Tema fijado por Laura (22-sep-2026)
 
 - [publicado] Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir — clínica de lipedema en Medellín — como-elegir-clinica-lipedema-medellin
+
+## Temas nuevos (añadidos por el orquestador el 30-oct-2026 — no quedaba ningún tema pendiente; racimo más flojo según registro.md: `diagnostico`)
+
+- [pendiente] Cómo leer el informe de tu eco doppler venoso: qué significan sus términos — informe eco doppler venoso — leer-informe-eco-doppler-venoso — racimo: diagnostico
+- [pendiente] Qué preguntar antes de hacerte un eco doppler venoso en Medellín — eco doppler venoso dudas — dudas-antes-eco-doppler-venoso — racimo: diagnostico
+- [pendiente] Flebectomía ambulatoria: en qué consiste y cuándo se recomienda — flebectomía ambulatoria — flebectomia-ambulatoria-que-es — racimo: tratamiento
+- [pendiente] Escleroterapia con espuma: en qué se diferencia de la tradicional — escleroterapia con espuma — escleroterapia-con-espuma — racimo: tratamiento
+- [pendiente] Tipos de lipedema según la zona afectada: I, II, III, IV y V — tipos de lipedema — tipos-de-lipedema-zonas — racimo: lipedema
+- [pendiente] Vendaje multicapa para lipedema: qué es y cuándo se usa — vendaje multicapa lipedema — vendaje-multicapa-lipedema — racimo: lipedema
+- [pendiente] Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna — lipedema calor Medellín — lipedema-dias-calor-medellin — racimo: lipedema
+- [pendiente] Pies fríos y piernas pesadas: ¿circulación arterial o venosa? — pies fríos circulación piernas — pies-frios-circulacion-arterial-venosa — racimo: sintomas
+- [pendiente] Piel brillante y tensa en las piernas: qué puede significar — piel tensa y brillante piernas — piel-tensa-brillante-piernas — racimo: sintomas
+- [pendiente] Muchas horas en el carro por el tráfico de Medellín: cómo cuidar tus piernas — piernas hinchadas tráfico Medellín — piernas-trafico-medellin-carro — racimo: situaciones
