@@ -362,6 +362,10 @@
     "yoga-pilates-circulacion-piernas": {
       "imagen": "skin-detail.webp",
       "alt": "Primer plano de la piel de dos piernas de distinto tono, una junto a la otra, la misma atención al cuerpo que conviene llevar a una clase de yoga o pilates si tienes várices o piernas pesadas"
+    },
+    "leer-informe-eco-doppler-venoso": {
+      "imagen": "sede-cabina.webp",
+      "alt": "Consultorio de Seravena en El Poblado, Medellín, donde se revisa el resultado del eco doppler venoso con la paciente"
     }
   }
 }
