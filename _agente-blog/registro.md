@@ -86,6 +86,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-30 | leer-informe-eco-doppler-venoso | Cómo leer el informe de tu eco doppler venoso: qué significan sus términos | informe eco doppler venoso | publicado | — | — | — |
 | 2026-10-29 | medias-compresion-posparto | Medias de compresión en el posparto: cuánto tiempo seguir usándolas | medias de compresión posparto | publicado | — | — | — |
 | 2026-10-28 | lipedema-cirugia-bariatrica | Lipedema después de una cirugía bariátrica: qué cambia y qué no | lipedema cirugía bariátrica | publicado | — | — | — |
 | 2026-10-27 | dolor-espalda-piernas-pesadas | Dolor de espalda y piernas pesadas: ¿están relacionados? | dolor de espalda y piernas pesadas | publicado | — | — | — |

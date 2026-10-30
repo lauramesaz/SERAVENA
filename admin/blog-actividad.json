@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-10-29",
+  "actualizado": "2026-10-30",
   "articulos": [
+    {
+      "fecha": "2026-10-30",
+      "titulo": "Cómo leer el informe de tu eco doppler venoso: qué significan sus términos",
+      "slug": "leer-informe-eco-doppler-venoso",
+      "categoria": "Diagnóstico",
+      "keyword": "informe eco doppler venoso",
+      "seo": 99,
+      "medico": "aprobado con corrección",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/leer-informe-eco-doppler-venoso",
+      "nota": "Racimo 'diagnostico' (el más flojo del blog). Pariente de eco-doppler-venoso-que-es.html (0,48 en buscar-gemelos.py, no gemelo): ese explica qué es la prueba y qué detecta; este explica cómo leer el INFORME ESCRITO que entrega el laboratorio (reflujo, tiempo de reflujo, insuficiencia/incompetencia valvular, safena interna/magna y externa/parva, venas perforantes, compresibilidad/permeabilidad, 'sin signos de TVP', diámetro venoso). Fuentes: protocolo US Venous Insufficiency de UT Southwestern, diccionario médico de la Clínica Universidad de Navarra, comunicación SERAM sobre compresibilidad venosa, Revista Mexicana de Angiología sobre perforantes. Médico: APROBADO CON CORRECCIÓN (unificó que la safena interna/magna es la vena superficial más larga DEL CUERPO -no 'de la pierna'- en el cuerpo, FAQ visible y JSON-LD; confirmó el umbral de reflujo >0,5s en venas superficiales con fuente real y prudencia suficiente). SEO: 99/100, APTO (añadió enlaces de vuelta desde los 3 hermanos del racimo diagnostico -eco-doppler-venoso-que-es, eco-doppler-paso-a-paso, guia-diagnostico-problema-venoso- y actualizó su dateModified/lastmod). Policía humanizador: prueba de humanidad 10/10, HUMANO (reescribió la apertura para no generalizar un patrón de pacientes sin respaldo en voz-real.md; 1 multa nueva anotada en notas-humanizador.md). Imagen de portada sede-cabina.webp (sin usar antes en el racimo diagnostico; el banco de 42 imágenes ya no tiene ninguna libre sin reasignar, se avisa en el resumen del día)."
+    },
     {
       "fecha": "2026-10-29",
       "titulo": "Medias de compresión en el posparto: cuánto tiempo seguir usándolas",
