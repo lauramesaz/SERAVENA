@@ -3,6 +3,26 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (31-oct-2026):** rutina diaria automática. Nuevo artículo: dudas-antes-eco-doppler-venoso
+(racimo diagnostico, el más flojo del blog). Prueba del gemelo: pariente de eco-doppler-venoso-que-es.html
+(0,39 en buscar-gemelos.py) y de como-elegir-clinica-lipedema-medellin.html (0,35); ninguno llega a 0,50, y
+ambos responden preguntas distintas (qué detecta el examen / cómo elegir clínica) a la de este artículo (qué
+preguntar y preparar antes de la cita), así que no es gemelo: se escribió el artículo nuevo. Fuentes: Cleveland
+Clinic ("Upper or Lower Venous Extremity Ultrasound" y "Vascular Ultrasound"), Ohio State Wexner Medical Center
+("Venous Duplex"), Quirónsalud y Clínica Universidad de Navarra sobre preparación general del eco doppler.
+Médico: APROBADO sin correcciones (confirmó que ninguna fuente pide ayuno ni suspender anticoagulantes por
+cuenta propia, que la duración varía razonablemente entre 30 y 90 minutos según las fuentes citadas, y que el
+post-note y el post-faq/JSON-LD FAQPage no afirman nada no verificable). SEO: 91/100, APTO (3 enlaces a
+hermanos del racimo diagnostico -eco-doppler-venoso-que-es, eco-doppler-paso-a-paso, leer-informe-eco-doppler-venoso-
+más 1 a la página de servicio ../eco-doppler-venoso-medellin y 1 a ../contacto, keyword natural en title/h1/
+primer párrafo/un h2/meta, title 59 car., meta 149 car.). Policía humanizador: prueba de humanidad 9/10, HUMANO
+(apertura por situación real, 0 huellas de IA, criterio propio marcado, límite honesto explícito sobre no decidir
+a distancia si se suspende un anticoagulante, cierre con acción concreta por WhatsApp/contacto; no llega a 10 por
+no poder comparar contra los ~90 artículos del blog uno por uno). Imagen de portada sede-consultorio.webp (sin
+usar antes en el racimo diagnostico). Enlaces de vuelta añadidos en los 3 hermanos (ver "Historial de acciones
+SEO"). Egress a clinicaseravena.com y a api.indexnow.org: se intenta tras el push y se deja constancia del
+resultado en el resumen del día.
+
 **Nota de verificación (28-oct-2026):** rutina diaria automática. Nuevo artículo: lipedema-cirugia-bariatrica
 (racimo lipedema). Médico: APROBADO CON CORRECCIÓN (se corrigió un orden cronológico implícito mal expresado
 entre dos revisiones citadas -"Una revisión posterior" → "Otra revisión"-, sin tocar ningún dato ni cifra).
@@ -86,6 +106,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-10-31 | dudas-antes-eco-doppler-venoso | Dudas antes de tu eco doppler venoso en Medellín | dudas antes de un eco doppler venoso | publicado | — | — | — |
 | 2026-10-30 | leer-informe-eco-doppler-venoso | Cómo leer el informe de tu eco doppler venoso: qué significan sus términos | informe eco doppler venoso | publicado | — | — | — |
 | 2026-10-29 | medias-compresion-posparto | Medias de compresión en el posparto: cuánto tiempo seguir usándolas | medias de compresión posparto | publicado | — | — | — |
 | 2026-10-28 | lipedema-cirugia-bariatrica | Lipedema después de una cirugía bariátrica: qué cambia y qué no | lipedema cirugía bariátrica | publicado | — | — | — |

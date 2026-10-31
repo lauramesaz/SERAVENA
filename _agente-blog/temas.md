@@ -242,7 +242,7 @@ distintos tipos de búsqueda. Ideas por formato:
 ## Temas nuevos (añadidos por el orquestador el 30-oct-2026 — no quedaba ningún tema pendiente; racimo más flojo según registro.md: `diagnostico`)
 
 - [publicado] Cómo leer el informe de tu eco doppler venoso: qué significan sus términos — informe eco doppler venoso — leer-informe-eco-doppler-venoso — racimo: diagnostico
-- [pendiente] Qué preguntar antes de hacerte un eco doppler venoso en Medellín — eco doppler venoso dudas — dudas-antes-eco-doppler-venoso — racimo: diagnostico
+- [publicado] Qué preguntar antes de hacerte un eco doppler venoso en Medellín — eco doppler venoso dudas — dudas-antes-eco-doppler-venoso — racimo: diagnostico
 - [pendiente] Flebectomía ambulatoria: en qué consiste y cuándo se recomienda — flebectomía ambulatoria — flebectomia-ambulatoria-que-es — racimo: tratamiento
 - [pendiente] Escleroterapia con espuma: en qué se diferencia de la tradicional — escleroterapia con espuma — escleroterapia-con-espuma — racimo: tratamiento
 - [pendiente] Tipos de lipedema según la zona afectada: I, II, III, IV y V — tipos de lipedema — tipos-de-lipedema-zonas — racimo: lipedema
