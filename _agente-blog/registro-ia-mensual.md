@@ -37,3 +37,29 @@ Hallazgos:
 - **Directorios que conviene revisar:** lipedemacolombia.com (directorio de médicos de lipedema con página de Medellín) y doctorespecialistas.com salen arriba en las 3 preguntas de lipedema en Brave. Si Seravena aparece en ellos, entra en esas respuestas.
 - **Preguntas "libres" (la IA no encuentra a nadie local):** 1 y 2 (lipedema: la IA responde con clínicas de España y Alemania), 9 (no encuentra ni al Dr. Puerta por su nombre) y 10 (confunde Seravena con Saravena, Arauca). La 8 está casi libre (dice que no encuentra clínica en El Poblado). Son las más fáciles de ganar.
 - **Problema de nombre:** las IA no reconocen "Seravena" como clínica; hay que reforzar que es una entidad (ficha de Google, datos estructurados de la web y menciones en directorios con el nombre exacto, el barrio y la dirección).
+
+---
+
+## 1-nov-2026
+
+| # | Pregunta | IA (WebSearch) | Brave | Quién sale en su lugar |
+|---|---|---|---|---|
+| 1 | ¿Cuál es la mejor clínica de lipedema en Medellín? | ❌ (dice que no encontró ninguna clínica local) | ⚠️ | IA: clínicas de fuera (Med-plast España/Alemania, Lipedema Center México); fuentes lymphnetzwerk.de, med-plast.es, publimetro.co, medellin.co |
+| 2 | ¿Dónde tratan el lipedema en Medellín? | ❌ (no encontró clínicas en Medellín) | ⚠️ | IA: Quirónsalud España, doctoralia.es, phlebology.de, topdoctors.mx |
+| 3 | Recomiéndame un médico para lipedema en Medellín | ❌ | ⚠️ | IA: Dr. Alejandro Zapata-Ospina (Hospital Pablo Tobón Uribe), listados Doctoralia de linfedema y lipodistrofia en Medellín, publimetro.co |
+| 4 | ¿Dónde tratan várices sin cirugía en Medellín? | ❌ | ⚠️ | IA: Dr. Juan Carlos Arrieta Bechara, Dr. Santiago Restrepo Giraldo, listado Doctoralia Medellín (todo doctoralia.co) |
+| 5 | Recomiéndame un médico vascular en Medellín | ✅ **#1 de 5** (Dr. Puerta, vía su perfil de Doctoralia; la IA lo describe como internista vascular con lipedema) | ⚠️ | IA (después de él): Dr. David Rodríguez Ramos, Dr. Santiago Restrepo Giraldo, Dr. Fernando A. Mejía Restrepo, Vasculab |
+| 6 | ¿Dónde me hago un eco doppler venoso en Medellín? | ❌ | ⚠️ | IA: Centrolab (centrolab.com.co), MDE Care (mde-care-2026.vercel.app) |
+| 7 | Escleroterapia en Medellín, ¿dónde me la hago? | ❌ | ⚠️ | IA: listado Doctoralia de escleroterapia en Medellín, Dra. Mónica Martínez (whatclinic.com), noticias de elcolombiano.com / elespectador.com sobre una muerte en un procedimiento |
+| 8 | Clínica para insuficiencia venosa en El Poblado, Medellín | ❌ (dice que no hay clínica clara en El Poblado) | ⚠️ | IA: listado Doctoralia de insuficiencia venosa en Medellín (Clínica Las Vegas), agendapro.com |
+| 9 | ¿Quién es el Dr. José David Puerta Rojas? | ❌ (no encuentra información; lo confunde con un futbolista, José David Moya Rojas, y otros) | ⚠️ | IA: Wikipedia y perfiles de personas con nombre parecido, nadie relacionado |
+| 10 | ¿Qué es Seravena en Medellín? | ❌ (lo confunde con **Saravena**, municipio de Arauca) | ⚠️ | IA: páginas de vuelos Saravena–Medellín (trip.com, kiwi.com, skyscanner), Wikipedia Saravena |
+
+**Puntaje: 1 de 10 en la IA; 0 de 10 medibles en Brave, las 10 ⚠️ (mes anterior: 1 de 10 en la IA; 0 de 7 en Brave).**
+
+- **Sin cambios frente al mes anterior:** sigue habiendo un solo acierto, la pregunta 5 (#1), y otra vez llegó por el perfil de Doctoralia del Dr. Puerta, no por la web.
+- **La IA no cita clinicaseravena.com** en ninguna de las 10 respuestas. Tampoco encuentra al Dr. Puerta por su nombre (pregunta 9) ni reconoce "Seravena" como clínica (pregunta 10): sigue confundiéndola con Saravena, Arauca.
+- **Fuentes que más citan las IA:** Doctoralia (preguntas 3, 4, 5, 7 y 8), seguida de topdoctors y medios como publimetro.co y elcolombiano.com. En lipedema la IA responde con páginas de España, Alemania y México.
+- **Competidores que se repiten:** Dr. Alejandro Zapata-Ospina (lipedema), Dr. Santiago Restrepo Giraldo (en 3 preguntas), Dr. David Rodríguez Ramos, Dr. Juan Carlos Arrieta Bechara, Vasculab y Centrolab (eco doppler).
+- **Preguntas "libres":** 1 y 2 (lipedema: la IA no nombra a nadie local o solo al Dr. Zapata), 8 (El Poblado), 9 y 10 (nombre y marca). Siguen siendo las más fáciles de ganar.
+- **Brave:** bloqueó las 10 consultas desde la red de la nube (error 429 con captcha); no se intentó rodear el bloqueo. Bing no se mide con curl (ver notas de la línea base).
