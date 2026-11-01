@@ -3,6 +3,31 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (1-nov-2026):** rutina diaria automática. Nuevo artículo: flebectomia-ambulatoria-que-es
+(racimo tratamiento). Prueba del gemelo: `buscar-gemelos.py "Flebectomía ambulatoria: en qué consiste y cuándo
+se recomienda" "flebectomía ambulatoria"` solo encuentra al propio artículo ya escrito (0,88, esperable al
+compararse contra sí mismo); el siguiente más cercano es cuando-derivar-especialista-vascular.html con 0,17,
+muy por debajo del umbral, y responde una pregunta distinta (cuándo remitir al especialista, no en qué consiste
+el procedimiento). Ningún artículo vivo responde ya la misma búsqueda: no es gemelo. Fuentes: RadiologyInfo.org
+/ ACR-RSNA (ablación y procedimientos venosos ambulatorios), Cigna (ficha de microflebectomía/flebectomía
+ambulatoria) y ASDS (American Society for Dermatologic Surgery, sobre retiro de várices tributarias con
+mini-incisiones). Médico: APROBADO sin correcciones (confirmó que no se prometen resultados, que la
+combinación con ablación/escleroterapia cuando el origen es la vena safena está bien planteada como práctica
+clínica prudente y no como dato inventado, y que el post-note cubre señales de alarma incluyendo trombosis).
+SEO: 97/100, APTO (keyword "flebectomía ambulatoria" natural en title, h1, primer párrafo, un h2 y meta
+description; 3 enlaces a hermanos del racimo tratamiento -guia-tratamientos-varices, varices-cirugia-o-sin-cirugia,
+cuidados-despues-escleroterapia- más 1 a ../escleroterapia-medellin y 1 a ../contacto; title 58 car., meta 157
+car.; FAQPage con las 4 preguntas idénticas al post-faq). Policía humanizador: prueba de humanidad 10/10, HUMANO
+(apertura por la situación real de la paciente que ya probó tapar la várice con maquillaje, opinión clara de la
+clínica marcada con blockquote sobre no proponer la flebectomía como primer paso si el origen es la safena,
+límite honesto explícito -no resuelve la insuficiencia venosa de fondo-, frases de largo variado y varias de una
+sola línea, 0 huellas de IA). Imagen de portada band-veins.webp (sin usar antes en el racimo tratamiento).
+Enlaces de vuelta añadidos en los 3 hermanos, tanto en el cuerpo del texto como en su bloque "Sigue leyendo"
+(ver "Historial de acciones SEO"); en guia-tratamientos-varices.html y varices-cirugia-o-sin-cirugia.html se
+sustituyó el enlace relacionado menos relevante del bloque por el nuevo, y se actualizó su dateModified/lastmod
+a hoy por la edición. Egress a clinicaseravena.com y a api.indexnow.org: se intenta tras el push y se deja
+constancia del resultado en el resumen del día.
+
 **Nota de verificación (31-oct-2026):** rutina diaria automática. Nuevo artículo: dudas-antes-eco-doppler-venoso
 (racimo diagnostico, el más flojo del blog). Prueba del gemelo: pariente de eco-doppler-venoso-que-es.html
 (0,39 en buscar-gemelos.py) y de como-elegir-clinica-lipedema-medellin.html (0,35); ninguno llega a 0,50, y
