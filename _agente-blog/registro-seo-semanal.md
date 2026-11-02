@@ -262,3 +262,65 @@ Excluidos aunque cumplían cifras: los 5 del 19-oct (hasta el 9-nov); los 5 del 
 madurar); anticonceptivos-y-varices y ropa-comoda-lipedema (en observación); medias-compresion-colombia-comprar,
 medias-compresion-embarazo y mitos-medias-compresion (tienen borrador local sin publicar de la fusión de "medias";
 no pisarlo); cuando-derivar-especialista-vascular y piel-y-cuidados-lipedema (editados el 25 y 26-oct).
+
+## Semana del 2-nov-2026
+
+### Cifras (4 al 31-oct, 28 días)
+
+- Clics: 42 · Impresiones: 4.051 · Posición media: 27,2
+
+| País | Clics | Impresiones | Posición |
+|---|---|---|---|
+| Colombia | 28 | 613 | 24,6 |
+| España | 10 | 2.260 | 33,1 |
+| México | 1 | 278 | 17,0 |
+| Argentina | 1 | 144 | 19,3 |
+| Estados Unidos | 0 | 152 | 18,1 |
+
+### Top 10 páginas (28 días)
+
+| Página | Clics | Impr. | Posición |
+|---|---|---|---|
+| / (inicio) | 23 | 132 | 2,8 |
+| blog/manchas-tobillos-causas | 2 | 323 | 11,1 |
+| contacto | 2 | 83 | 4,7 |
+| dr-jose-david-puerta-rojas | 2 | 14 | 2,9 |
+| blog/anticonceptivos-y-varices.html | 1 | 468 | 9,3 |
+| blog/senales-lipedema-primer-contacto | 1 | 279 | 59,5 |
+| blog/lipedema-y-sueno | 1 | 84 | 5,7 |
+| blog/precio-tratamiento-varices-colombia | 1 | 76 | 9,1 |
+| blog/eco-doppler-paso-a-paso | 1 | 73 | 18,8 |
+| blog/medias-compresion-colombia-comprar | 1 | 70 | 15,5 |
+
+### Top 10 búsquedas (28 días)
+
+| Búsqueda | Clics | Impr. | Posición |
+|---|---|---|---|
+| seravena clinica | 7 | 23 | 1,7 |
+| seravena | 4 | 45 | 3,6 |
+| cómo saber si tengo lipedema | 1 | 57 | 54,3 |
+| lipedema como identificar | 0 | 57 | 59,7 |
+| como saber si tengo lipedema | 0 | 50 | 55,3 |
+| como diagnosticar lipedema | 0 | 47 | 51,2 |
+| como saber si tienes lipedema | 0 | 45 | 59,4 |
+| picor en las piernas | 0 | 44 | 29,0 |
+| lipedema psicológico | 0 | 37 | 32,0 |
+| piernas cansadas | 0 | 35 | 56,9 |
+
+Búsquedas nuevas: "picor en las piernas" (44, pos. 29), "flebitis" (28, pos. 29,6), "flebitis brazo" (23).
+
+### Indexación
+
+- 113 páginas en el sitemap: 105 en Google, 8 todavía no (4 "Google no reconoce esta URL": escleroterapia-con-espuma,
+  flebectomia-ambulatoria-que-es, lipedema-cirugia-bariatrica, lipedema-en-adolescentes; 4 "Descubierta, sin indexar":
+  leer-informe-eco-doppler-venoso, medias-compresion-posparto, medias-compresion-para-volar, lipedema-y-trabajo).
+
+### Títulos y descripciones cambiados hoy (no tocar antes del 23-nov-2026)
+
+| Artículo | Título nuevo | Antes |
+|---|---|---|
+| lipedema-y-sueno | ¿Te duelen las piernas al acostarte? Lipedema y sueño | Lipedema y sueño: por qué te duelen las piernas de noche |
+| compresion-para-lipedema | Medias para lipedema: por qué no sirven las de várices | Medias para lipedema: no son iguales a las de várices |
+| tabaco-alcohol-circulacion | Cigarrillo y trago: lo que le hacen a tus piernas | Cigarrillo, trago y circulación: qué pasa en tus piernas |
+| lipedema-y-embarazo | Lipedema y embarazo: ¿qué pasa con tus piernas? | Lipedema y embarazo: qué esperar y cómo cuidarte |
+| drenaje-linfatico-medellin | Drenaje linfático en Medellín: ¿cuándo sí sirve? | Drenaje linfático en Medellín: cuándo sirve |
