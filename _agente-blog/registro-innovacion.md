@@ -251,3 +251,32 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   las tienen completas; sin ellas, al compartir esas páginas por WhatsApp —el canal que más se usa en
   Colombia para recomendar una clínica— el enlace llega sin título, sin imagen y sin descripción.
   Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-11-02 · 2 propuestas nuevas (W45-1, W45-2) + 2 propuestas caducadas (W40-1, W40-2).**
+  Hice `git checkout main` + `git pull` (el checkout local estaba en HEAD separado tras el commit
+  más reciente del blog; se actualizó sin tocar nada en producción). Repetí las 5 búsquedas
+  objetivo: Seravena sigue sin aparecer en ninguna; los resultados de hoy fueron en general más
+  genéricos (mucha literatura médica y turismo, poco local real), y donde sí apareció algo de
+  Medellín se repite lo ya visto en semanas anteriores (Doctoralia como directorio dominante,
+  Centrolab para eco doppler venoso, y un competidor nuevo de turismo médico, mde-care-2026.vercel.app,
+  con páginas en inglés para cirugía vascular en Medellín). Antes de proponer comprobé en el código
+  el estado de las 10 propuestas pendientes (W40-1 tel: en index.html, W40-2 JSON-LD duplicado en
+  insuficiencia-venosa.html, W41-1 lang="es" en index.html, W41-2 precio del eco doppler, W42-1
+  canibalización del artículo de eco doppler, W42-2 medicalSpecialty inválido, W43-1 títulos largos,
+  W43-2 Open Graph, W44-1 flebólogo, W44-2 lastmod del sitemap): ninguna repetida. Hallazgo aparte
+  (no cuenta como propuesta, lo anoto para que Laura lo confirme): W43-2 (etiquetas Open Graph en
+  `vascular.html` y `lipedema.html`) parece ya implementada — confirmé hoy 7 etiquetas `og:` completas
+  en las dos páginas — aunque sigue en estado `propuesta` porque no le toca aún un mes y no me
+  corresponde marcarla `hecha`. W40-1 y W40-2 (28-sep) llevan 35 días en `propuesta` sin aprobarse
+  ni implementarse (comprobé hoy: `index.html` sigue sin ningún `tel:`, `insuficiencia-venosa.html`
+  sigue con 2 bloques `MedicalClinic`), así que las marqué `caducada` con una nota cada una; ambas
+  siguen teniendo sentido, solo caduca el plazo. Encontré dos huecos nuevos y verificables, ninguno
+  repetido: (1) revisando la ficha real del único médico con nombre que tiene el sitio
+  (`dr-jose-david-puerta-rojas.html`, ya usada como `reviewedBy` en `clinica-lipedema-medellin.html`)
+  vi que su propia meta description dice literalmente que atiende "várices e insuficiencia venosa"
+  —2 de las 5 búsquedas objetivo—, pero ninguna de las 5 páginas vasculares lo nombra ni lo enlaza:
+  las 5 siguen firmadas por la organización genérica "Equipo médico de Seravena"; (2) con grep conté
+  las menciones de "El Poblado" (el barrio real del consultorio) en las 5 páginas vasculares:
+  `varices-medellin.html` (6), `escleroterapia-medellin.html` (1) y `eco-doppler-venoso-medellin.html`
+  (1) sí lo mencionan en la misma frase de cierre con la dirección completa; `vascular.html` —la
+  página pilar de todo el racimo— e `insuficiencia-venosa.html` tienen 0. Aviso a Laura: nota en
+  GitHub con etiqueta `propuestas`.

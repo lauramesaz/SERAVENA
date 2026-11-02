@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-10-26",
+  "actualizado": "2026-11-02",
   "propuestas": [
+    {
+      "id": "2026-W45-1",
+      "fecha": "2026-11-02",
+      "titulo": "Usar al Dr. José David Puerta Rojas como autor/revisor de las 5 páginas vasculares, igual que ya hace la página de lipedema",
+      "categoria": "Contenido",
+      "que": "En las 5 páginas construidas para las búsquedas objetivo (`vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`), cambiar el `\"author\"`/`\"reviewedBy\"` del JSON-LD (hoy `{\"@type\": \"Organization\", \"name\": \"Equipo médico de Seravena\"}` en 3 de las 5, y un simple `meta name=\"author\" content=\"Seravena\"` sin JSON-LD de autor en insuficiencia-venosa.html) por una referencia `{\"@id\": \"https://www.clinicaseravena.com/dr-jose-david-puerta-rojas#medico\"}` — el mismo patrón que ya está en producción, probado, en `clinica-lipedema-medellin.html` (líneas 101 y 124). Además, añadir en cada página un párrafo o tarjeta visible con su nombre y enlace a su perfil (replicando la tarjeta 'medico' que ya existe en `clinica-lipedema-medellin.html`, línea 292), cerca del bloque de FAQ o de la sección de contacto. No se inventa nada nuevo: el médico y su ficha ya existen y ya se usan en el racimo de lipedema.",
+      "porque": "Comprobé hoy en el código: ninguna de las 5 páginas vasculares nombra ni enlaza al Dr. José David Puerta Rojas — su `author`/`reviewedBy` es la organización genérica 'Equipo médico de Seravena' (o solo 'Seravena' en el meta `author` de insuficiencia-venosa.html), mientras que `clinica-lipedema-medellin.html` ya usa, en producción, la referencia `@id` a su perfil como `reviewedBy` y lo muestra con nombre y foto en el propio cuerpo de la página. Y el propio perfil del médico (`dr-jose-david-puerta-rojas.html`, meta description) dice literalmente: 'Atiende lipedema, **várices e insuficiencia venosa** en Seravena, Medellín' — dos de las 5 búsquedas objetivo de la misión, nombradas en su propia ficha — pero ninguna de las páginas hechas para esas dos búsquedas lo menciona. De los 85+ artículos del blog, solo 1 enlaza a su perfil. Para contenido de salud (YMYL), Google pondera de forma explícita quién firma y revisa; hoy existe la única pieza real de autoría con nombre y registro que tiene el sitio, y no se está usando donde más pesa.",
+      "esfuerzo": "medio",
+      "impacto": "alto",
+      "quien": "Claude",
+      "como_se_mide": "Comprobación directa en el código: que las 5 páginas usen la referencia `@id` al Dr. Puerta Rojas en `reviewedBy` y muestren su nombre en el texto visible (hoy ninguna lo hace). Si Search Console está conectado, vigilar en 4-8 semanas si alguna de las 5 empieza a recibir impresiones para su búsqueda objetivo (hoy ninguna aparece).",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W45-2",
+      "fecha": "2026-11-02",
+      "titulo": "Mencionar 'El Poblado' en vascular.html e insuficiencia-venosa.html, igual que ya hacen sus tres páginas hermanas",
+      "categoria": "Local",
+      "que": "En `vascular.html` e `insuficiencia-venosa.html` —las dos páginas construidas para 'várices Medellín' e 'insuficiencia venosa Medellín' que hoy tienen 0 menciones de 'El Poblado'— añadir en la sección de contacto/cierre la misma frase que ya usan sus tres páginas hermanas (`varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`), adaptada a cada una: '[Atendemos/Hacemos...] en Medellín, en la Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316, en El Poblado, y recibimos pacientes de toda el área metropolitana y de Antioquia.' No es una frase nueva: es copiar el patrón ya escrito, verificado y en producción en las otras tres.",
+      "porque": "Comprobé hoy con grep cuántas veces aparece 'El Poblado' en cada una de las 5 páginas vasculares: `varices-medellin.html` (6), `escleroterapia-medellin.html` (1) y `eco-doppler-venoso-medellin.html` (1) sí lo mencionan, siempre en la misma frase de cierre con la dirección completa; `vascular.html` e `insuficiencia-venosa.html` tienen 0 menciones, ni en el título, ni en el cuerpo, ni en la sección de contacto. El Poblado es el barrio real donde está el consultorio, y es justo el tipo de modificador hiperlocal que usa la competencia que hoy sale en los resultados (varios perfiles de Doctoralia dan la dirección por barrio o centro comercial, ej. 'Centro Comercial Obelisco, Medellín'). `vascular.html` es además la página pilar de todo el racimo de várices, y hoy es la única de las 5 sin ninguna referencia de barrio.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Comprobación directa: que las 5 páginas vasculares mencionen 'El Poblado' al menos una vez (hoy son 3 de 5). No se puede aislar un efecto propio sobre el ranking; es consistencia hiperlocal, no una señal que por sí sola mueva el primer puesto.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W44-1",
       "fecha": "2026-10-26",
@@ -110,26 +136,30 @@
       "fecha": "2026-09-28",
       "titulo": "Añadir el botón de llamada directa (tel:) que falta en la portada (index.html)",
       "categoria": "Local",
+      "estado": "caducada",
+      "caducada_el": "2026-11-02",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobado hoy en el código, `index.html` sigue con 0 enlaces `tel:`. Lleva 35 días en `propuesta` sin que nadie la apruebe ni implemente; caduca solo el plazo de repetirla cada semana, no la idea.",
       "que": "En `index.html`, añadir un enlace `<a href=\"tel:+573052088204\">` con la etiqueta 'Llamar' junto a los botones de WhatsApp que ya existen: en el bloque `cta-actions` de la sección final ('Agenda tu valoración', junto al botón WhatsApp de la línea 322), en el enlace de contacto del pie de página (línea 356, junto a 'WhatsApp · +57 305 208 8204') y, si es posible sin romper el diseño, como segundo botón flotante junto al `wa-float` (línea 368). Usar el mismo patrón de botón `tel:` que ya existe, probado, en `contacto.html` (líneas 137-139: `<a class=\"contact-method\" href=\"tel:+573052088204\">`) y en las otras 10 páginas raíz.",
       "porque": "Comprobado hoy en el código: de las 12 páginas raíz del sitio (los 8 originales + `sobre.html` + las 3 páginas nuevas de tratamiento creadas el 24-sep — `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`), `index.html` —la portada, la página con más tráfico de toda la web— es la ÚNICA que no tiene ningún enlace `href=\"tel:\"`: tiene 4 botones de WhatsApp (incluido el flotante `wa-float`) pero cero de llamada directa. Es un vacío que quedó de la propuesta W37-2 ('Añadir botón de llamada directa en contacto.html y el resto de páginas raíz'), que nombraba explícitamente `index.html` entre las páginas a corregir y que se marcó `hecha` el 22-sep: el botón llegó a las otras 11 páginas raíz, pero no a esta.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Que `index.html` tenga al menos un enlace `tel:` visible (comprobación directa en el código, no depende de datos externos). Si se instala el evento de clic sugerido en W37-2, comparar clics a 'Llamar' contra clics a 'WhatsApp' en la portada frente al resto del sitio, en 2-3 semanas.",
-      "estado": "propuesta"
+      "como_se_mide": "Que `index.html` tenga al menos un enlace `tel:` visible (comprobación directa en el código, no depende de datos externos). Si se instala el evento de clic sugerido en W37-2, comparar clics a 'Llamar' contra clics a 'WhatsApp' en la portada frente al resto del sitio, en 2-3 semanas."
     },
     {
       "id": "2026-W40-2",
       "fecha": "2026-09-28",
       "titulo": "Corregir el bloque de datos estructurados duplicado e incompleto en insuficiencia-venosa.html",
       "categoria": "Técnico",
+      "estado": "caducada",
+      "caducada_el": "2026-11-02",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobado hoy en el código, `insuficiencia-venosa.html` sigue con 2 bloques `MedicalClinic` en su JSON-LD. Lleva 35 días en `propuesta` sin que nadie la apruebe ni implemente; caduca solo el plazo de repetirla cada semana, no la idea.",
       "que": "En `insuficiencia-venosa.html`, el bloque `MedicalWebPage` (líneas 49-68) trae anidado un `publisher` de tipo `MedicalClinic` incompleto (sin `address`, sin `geo`, sin `availableService`, sin `legalName` ni `taxID`, sin `@id`); más abajo (líneas 85-119) hay un SEGUNDO bloque `MedicalClinic` completo, tampoco con `@id`. Corregir para seguir el mismo patrón que ya usan las otras 11 páginas raíz: añadir `\"@id\": \"https://www.clinicaseravena.com/#clinica\"` al bloque `MedicalClinic` completo, y reemplazar el `publisher` incompleto del `MedicalWebPage` por `\"about\": { \"@id\": \"https://www.clinicaseravena.com/#clinica\" }` (igual que en `index.html`, `vascular.html`, `lipedema.html` y el resto).",
       "porque": "Comprobado hoy en el código, campo por campo: de las 12 páginas raíz, `insuficiencia-venosa.html` es la única con 2 bloques `MedicalClinic` (las otras 11 tienen exactamente 1); es también la única cuyo `MedicalWebPage` no usa el patrón `\"about\": { \"@id\": \".../#clinica\" }` que sí usan, por ejemplo, `index.html`, `vascular.html`, `lipedema.html` y las 3 páginas nuevas de tratamiento. Al bloque duplicado (`publisher`) le faltan justo los campos de negocio local que en las últimas semanas se han ido añadiendo con cuidado al resto del sitio —`address`, `geo`, `availableService`— y que sí están en el segundo bloque. Es la página construida para 'insuficiencia venosa Medellín', una de las 5 búsquedas objetivo de la misión, con un marcado estructurado inconsistente que ninguna otra página del sitio tiene hoy.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Que `insuficiencia-venosa.html` pase el Google Rich Results Test mostrando un único `MedicalClinic` completo (hoy muestra dos, uno incompleto), igual que el resto del sitio. No es una señal que por sí sola mueva el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1 (ya hechas en el resto de páginas).",
-      "estado": "propuesta"
+      "como_se_mide": "Que `insuficiencia-venosa.html` pase el Google Rich Results Test mostrando un único `MedicalClinic` completo (hoy muestra dos, uno incompleto), igual que el resto del sitio. No es una señal que por sí sola mueva el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1 (ya hechas en el resto de páginas)."
     },
     {
       "id": "2026-W39-1",
