@@ -3,6 +3,44 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (2-nov-2026):** rutina diaria automática. Nuevo artículo: escleroterapia-con-espuma
+(racimo tratamiento). Prueba del gemelo: `buscar-gemelos.py "Escleroterapia con espuma: en qué se diferencia
+de la tradicional" "escleroterapia con espuma"` dio máximo 0,22 con escleroterapia-que-es.html y
+escleroterapia-vs-laser.html, por debajo del umbral 0,30: son parientes del racimo, no gemelos (el primero
+explica la escleroterapia en general, el segundo la compara contra el láser; ninguno trata la diferencia
+técnica espuma vs líquida). No es gemelo: se escribió el artículo nuevo, con el primer párrafo, title y meta
+description dejando claro el ángulo distinto, y enlazando a ambos hermanos en el cuerpo. Fuentes: Phlebolymphology/
+PubMed 15099313 (técnica de Tessari), revisión Cochrane CD001732 (eficacia espuma vs líquida, certeza de
+evidencia baja/muy baja), Murcia Salud/Preevid 18831 (mayor eficacia en vena safena, sin ventaja en
+telangiectasias), Fortis Healthcare (diferencias de uso, riesgos/beneficios) y guía S2k DGP/PMC8692296
+(efectos secundarios de la espuma: alteraciones visuales, migraña, uso de CO2). Médico: APROBADO sin
+correcciones (confirmó con búsqueda web adicional que las 5 fuentes respaldan cada afirmación, que no hay
+promesas de cura ni indicaciones personalizadas, y que el post-note cubre correctamente las señales de alarma
+reales tras una escleroterapia con espuma). SEO: 97/100, APTO (keyword "escleroterapia con espuma" natural en
+title, h1, primer párrafo, un h2 y meta description; 3 enlaces a hermanos del racimo tratamiento
+-escleroterapia-que-es, escleroterapia-vs-laser, guia-tratamientos-varices- más 1 a ../escleroterapia-medellin
+y 1 a ../contacto; title 58 car., meta 143 car.; FAQPage con las preguntas idénticas al post-faq; JSON-LD
+validado sin errores de sintaxis). Policía humanizador: prueba de humanidad 10/10, HUMANO (apertura por la
+situación real de salir del eco doppler en El Poblado con la palabra "espuma" en la cabeza, criterio propio
+marcado -"en Seravena no elegimos la técnica mirando la várice a simple vista"-, límite honesto explícito sobre
+la certeza baja de la evidencia Cochrane, frases de largo variado con párrafo de una línea, 0 huellas de IA).
+Imagen de portada 6643071.webp (sin usar antes en el racimo tratamiento; el banco de imágenes ya no tiene
+ninguna 100% libre, se usó una del fondo común no repetida dentro del racimo). Enlaces de vuelta añadidos en
+los 3 hermanos del bloque "Sigue leyendo" (escleroterapia-que-es, escleroterapia-vs-laser,
+flebectomia-ambulatoria-que-es), sin quitar los que ya tenían. Multas anotadas en notas-humanizador.md:
+familia "te explicamos" repetida en las 4 copias de description, molde de apertura compartido con el hermano
+escleroterapia-vs-laser.html, y una misma idea repetida 3 veces seguidas (ya corregidas en este artículo).
+
+**Nota de verificación (2-nov-2026):** limpieza diaria del Policía humanizador sobre artículo viejo:
+piernas-no-solo-estetico.html (primer [pendiente] de humanizados.md). Prueba de humanidad: antes ~5/10
+(récord de 9 rayas largas, variante "te lo explicamos con calma", primer párrafo clonando el post-lead, sin
+párrafo de una línea, límite honesto no explícito, cierre sin acción concreta) → después 9/10 (0 rayas largas,
+"te lo explicamos con calma" quitado, primer párrafo reescrito, párrafo de una línea añadido, límite honesto
+explícito tras la lista de señales, cierre con acción concreta de autoobservación antes del CTA). Verificador
+médico: APROBADO sin correcciones (confirmó por diff que post-note, post-faq/JSON-LD FAQPage, enlaces,
+firma, CTA y datePublished quedaron idénticos; las 2 frases nuevas son coherentes, sin autodiagnóstico ni
+indicación de tratamiento). dateModified y sitemap (lastmod) actualizados a 2026-11-02.
+
 **Nota de verificación (1-nov-2026):** rutina diaria automática. Nuevo artículo: flebectomia-ambulatoria-que-es
 (racimo tratamiento). Prueba del gemelo: `buscar-gemelos.py "Flebectomía ambulatoria: en qué consiste y cuándo
 se recomienda" "flebectomía ambulatoria"` solo encuentra al propio artículo ya escrito (0,88, esperable al

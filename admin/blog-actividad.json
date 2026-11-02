@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-11-01",
+  "actualizado": "2026-11-02",
   "articulos": [
+    {
+      "fecha": "2026-11-02",
+      "titulo": "Escleroterapia con espuma: en qué se diferencia de la tradicional",
+      "slug": "escleroterapia-con-espuma",
+      "categoria": "Tratamiento",
+      "keyword": "escleroterapia con espuma",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/escleroterapia-con-espuma",
+      "nota": "Racimo 'tratamiento'. Diferencia técnica entre escleroterapia líquida y con espuma (técnica de Tessari), para qué calibre de vena sirve cada una, evidencia Cochrane de certeza baja/muy baja y efectos secundarios propios de la espuma. Fuentes: Phlebolymphology/PubMed 15099313, Cochrane CD001732, Murcia Salud/Preevid 18831, Fortis Healthcare, guía S2k DGP/PMC8692296. Médico: APROBADO sin correcciones. Policía humanizador: 10/10, HUMANO. Enlaces en los dos sentidos con los 3 hermanos (escleroterapia-que-es, escleroterapia-vs-laser, flebectomia-ambulatoria-que-es). Imagen de portada 6643071.webp (sin repetir dentro del racimo tratamiento)."
+    },
     {
       "fecha": "2026-11-01",
       "titulo": "Flebectomía ambulatoria: en qué consiste y cuándo se recomienda",
