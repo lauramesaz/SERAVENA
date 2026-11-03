@@ -245,7 +245,7 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Qué preguntar antes de hacerte un eco doppler venoso en Medellín — eco doppler venoso dudas — dudas-antes-eco-doppler-venoso — racimo: diagnostico
 - [publicado] Flebectomía ambulatoria: en qué consiste y cuándo se recomienda — flebectomía ambulatoria — flebectomia-ambulatoria-que-es — racimo: tratamiento
 - [publicado] Escleroterapia con espuma: en qué se diferencia de la tradicional — escleroterapia con espuma — escleroterapia-con-espuma — racimo: tratamiento
-- [pendiente] Tipos de lipedema según la zona afectada: I, II, III, IV y V — tipos de lipedema — tipos-de-lipedema-zonas — racimo: lipedema
+- [publicado] Tipos de lipedema según la zona afectada: I, II, III, IV y V — tipos de lipedema — tipos-de-lipedema-zonas — racimo: lipedema
 - [pendiente] Vendaje multicapa para lipedema: qué es y cuándo se usa — vendaje multicapa lipedema — vendaje-multicapa-lipedema — racimo: lipedema
 - [pendiente] Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna — lipedema calor Medellín — lipedema-dias-calor-medellin — racimo: lipedema
 - [pendiente] Pies fríos y piernas pesadas: ¿circulación arterial o venosa? — pies fríos circulación piernas — pies-frios-circulacion-arterial-venosa — racimo: sintomas

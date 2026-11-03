@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-02",
+  "actualizado": "2026-11-03",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -378,6 +378,10 @@
     "leer-informe-eco-doppler-venoso": {
       "imagen": "sede-cabina.webp",
       "alt": "Consultorio de Seravena en El Poblado, Medellín, donde se revisa el resultado del eco doppler venoso con la paciente"
+    },
+    "tipos-de-lipedema-zonas": {
+      "imagen": "6643063.webp",
+      "alt": "Piel de la pierna y el muslo mostrando distintas texturas, útil para explicar cómo se distribuyen las zonas del lipedema"
     }
   }
 }

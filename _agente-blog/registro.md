@@ -169,6 +169,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-11-03 | tipos-de-lipedema-zonas | Tipos de lipedema según la zona afectada: del I al V | tipos de lipedema | publicado | — | — | — |
 | 2026-10-31 | dudas-antes-eco-doppler-venoso | Dudas antes de tu eco doppler venoso en Medellín | dudas antes de un eco doppler venoso | publicado | — | — | — |
 | 2026-10-30 | leer-informe-eco-doppler-venoso | Cómo leer el informe de tu eco doppler venoso: qué significan sus términos | informe eco doppler venoso | publicado | — | — | — |
 | 2026-10-29 | medias-compresion-posparto | Medias de compresión en el posparto: cuánto tiempo seguir usándolas | medias de compresión posparto | publicado | — | — | — |
