@@ -495,10 +495,13 @@ if (form) {
 
     // Si la visita llegó desde el anuncio de Google, el formulario saluda igual que los botones
     // (marca y texto: ver MSG_ANUNCIO en el bloque de medición, más abajo).
-    let deGoogle = false;
-    try { deGoogle = sessionStorage.getItem('seravena_anuncio') === '1'; } catch (err) {}
+    let deGoogle = false, temaGoogle = 'venas';
+    try {
+      deGoogle = sessionStorage.getItem('seravena_anuncio') === '1';
+      temaGoogle = sessionStorage.getItem('seravena_anuncio_tema') || 'venas';
+    } catch (err) {}
     const texto =
-      (deGoogle ? 'Hola Seravena, vengo de Google (venas) y quiero agendar una valoración.\n\n'
+      (deGoogle ? 'Hola Seravena, vengo de Google (' + temaGoogle + ') y quiero agendar una valoración.\n\n'
                 : 'Hola Seravena, vengo de la página web y quiero agendar una cita.\n\n') +
       'Nombre: ' + nombre + '\n' +
       'Correo: ' + email + '\n' +
@@ -591,13 +594,25 @@ if (CLARITY_ID && !ES_LOCAL) {
   // al cargar y otra vez en el clic (por si un enlace se arma o se cambia después). El número no se toca.
   // Solo los enlaces de agendar a nuestro número: "referir un paciente", "sugerir un recurso" y el
   // botón de compartir el test (wa.me sin número) se quedan como están. Sin la marca, nada cambia.
-  var TEMA_ANUNCIO = 'venas';  // la pauta de Google hoy es solo la de insuficiencia venosa
-  var MSG_ANUNCIO = 'Hola Seravena, vengo de Google (' + TEMA_ANUNCIO + ') y quiero agendar una valoración';
+  // Tema del anuncio: lo marca la campaña con ?tema=lipedema (sufijo de URL final en Google Ads).
+  // Si no viene, se deduce de la página donde aterrizó el clic ("lipedema" en la dirección → lipedema).
+  // Todo lo demás sigue siendo "venas". Se guarda en la visita: si pasa a otras páginas, el saludo no cambia.
   var deAnuncio = /[?&](gclid|gbraid|wbraid|gad_source)=/.test(location.search);
+  var TEMA_ANUNCIO = 'venas';
+  if (deAnuncio) {
+    var temaUrl = ((location.search.match(/[?&]tema=([a-z]+)/i) || [])[1] || '').toLowerCase();
+    TEMA_ANUNCIO = (temaUrl === 'lipedema' || temaUrl === 'venas') ? temaUrl
+                 : (/lipedema/i.test(location.pathname) ? 'lipedema' : 'venas');
+  }
   try {
-    if (deAnuncio) sessionStorage.setItem('seravena_anuncio', '1');
+    if (deAnuncio) {
+      sessionStorage.setItem('seravena_anuncio', '1');
+      sessionStorage.setItem('seravena_anuncio_tema', TEMA_ANUNCIO);
+    }
     deAnuncio = deAnuncio || sessionStorage.getItem('seravena_anuncio') === '1';
+    TEMA_ANUNCIO = sessionStorage.getItem('seravena_anuncio_tema') || TEMA_ANUNCIO;
   } catch (e) {}
+  var MSG_ANUNCIO = 'Hola Seravena, vengo de Google (' + TEMA_ANUNCIO + ') y quiero agendar una valoración';
   function saludoAnuncio(a) {
     var h = a.getAttribute('href') || '';
     if (!/wa\.me\/\d/.test(h)) return;
