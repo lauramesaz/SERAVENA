@@ -1089,7 +1089,7 @@ function pintarWow(s){
 }
 
 /* simulador de cuotas: anticipo 50% + el resto en cuotas mensuales */
-const MAX_CUOTAS = 24;
+const MAX_CUOTAS = 3;   // máximo 3 meses para pagar (decisión de Laura, 3-nov-2026)
 let CUOTAS = 0, INICIAL = null, mN = 3;   // INICIAL null = sin plan (valor inicial del 50%)
 const anticipoDe = p => INICIAL != null ? Math.min(INICIAL, p) : Math.round(p / 2);
 /* el total se divide en cuotas iguales; lo que se paga hoy se descuenta de la primera cuota (y si sobra, de la siguiente) */
