@@ -3,6 +3,28 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (4-nov-2026):** rutina diaria automática. Nuevo artículo: vendaje-multicapa-lipedema
+(racimo lipedema). Prueba del gemelo: `buscar-gemelos.py "Vendaje multicapa para lipedema: qué es y cuándo
+se usa" "vendaje multicapa lipedema"` dio máximo 0,28 (celulitis-o-lipedema, drenaje-linfatico-lipedema,
+lipedema-en-los-brazos, que-es-el-lipedema), por debajo del umbral 0,30: ninguno responde la misma búsqueda
+(uno es diferenciación con celulitis, otro es drenaje linfático manual —otra herramienta—, los otros dos son
+diagnóstico diferencial). No es gemelo: se escribió el artículo nuevo, centrado en el vendaje multicapa como
+parte de la fase intensiva de la terapia descongestiva compleja, distinto de la media de compresión de
+mantenimiento (compresion-para-lipedema.html) y del drenaje linfático manual (drenaje-linfatico-lipedema.html),
+enlazando a ambos y a etapas-del-lipedema.html, con enlace bidireccional en los tres. Fuentes: Universitätsspital
+Zürich (fases de descongestión y mantenimiento), Hospital Universitario 12 de Octubre/Madrid (terapia
+descongestiva compleja), revisión PMC5891656 (Schaverien et al., Seminars in Plastic Surgery 2018, sobre
+linfedema), Navarro-Brazález y Sánchez-Sánchez 2014 (Universidad de Alcalá, composición del vendaje
+multicapa). Médico: APROBADO sin correcciones (confirmó que el matiz "evidencia extrapolada de linfedema, no
+de lipedema" queda claro y prudente, que no hay cifras inventadas de reducción de volumen —se evitó a
+propósito el 80,2% de un estudio de 3 casos no generalizable—, que no hay indicación de autotratamiento sin
+supervisión profesional, y que las 4 preguntas del post-faq coinciden palabra por palabra con su JSON-LD
+FAQPage). SEO: 97/100, APTO (keyword "vendaje multicapa lipedema" natural en title, h1, primer párrafo, un h2
+y meta description; el Juez SEO corrigió el `<title>` de 66 a 57 caracteres y reescribió la apertura porque
+repetía el molde de otro artículo del racimo, sin tocar nada médico). Policía humanizador: 10/10, HUMANO (quitó
+un párrafo que generalizaba un patrón de pacientes sin respaldo en voz-real.md; multa anotada en
+notas-humanizador.md). Imagen de portada: hero-manos.webp (no usada antes en el racimo lipedema).
+
 **Nota de verificación (2-nov-2026):** rutina diaria automática. Nuevo artículo: escleroterapia-con-espuma
 (racimo tratamiento). Prueba del gemelo: `buscar-gemelos.py "Escleroterapia con espuma: en qué se diferencia
 de la tradicional" "escleroterapia con espuma"` dio máximo 0,22 con escleroterapia-que-es.html y
