@@ -382,6 +382,10 @@
     "tipos-de-lipedema-zonas": {
       "imagen": "6643063.webp",
       "alt": "Piel de la pierna y el muslo mostrando distintas texturas, útil para explicar cómo se distribuyen las zonas del lipedema"
+    },
+    "vendaje-multicapa-lipedema": {
+      "imagen": "hero-manos.webp",
+      "alt": "Manos ajustando un vendaje de compresión alrededor de la pantorrilla, revisando cómo quedó puesto"
     }
   }
 }
