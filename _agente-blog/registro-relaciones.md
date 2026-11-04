@@ -1058,3 +1058,54 @@ encontrar nada genuinamente nuevo que investigar — la parte de descubrimiento 
 terreno actual. No voy a seguir repitiendo este aviso cada semana de la misma forma: si para la
 próxima revisión (4-nov) sigue sin haber movimiento en el envío, dejaré de insistir en el cuello de
 botella y me limitaré a confirmar que no hay cambios, salvo que aparezca algo genuinamente nuevo.
+
+---
+
+## Semana del 2026-11-04
+
+· Sitios revisados: 7 (las 3 búsquedas objetivo en Google — "várices Medellín", "flebólogo Medellín",
+"eco doppler venoso Medellín" —, búsqueda general de "Seravena Medellín lipedema várices" y de
+"Seravena" + clinicaseravena.com, perfil de Doctoralia del médico y nuevo intento de localizar un
+perfil de *centro*, búsqueda de Seravena en Instagram/Facebook, prensa local — El Colombiano,
+Minuto30, Vivir en El Poblado — buscando cobertura de lipedema en 2026, directorios médicos
+colombianos con registro gratuito) + verificación directa, con `grep`, de la dirección y el
+teléfono en las 23 páginas `.html` del sitio que los mencionan
+· Seravena aparece en: 1 (Doctoralia, perfil del médico — sin cambio frente al 14-oct)
+
+### Nombre/dirección/teléfono: sin incoherencias
+
+Verifiqué con `grep` las 23 páginas del sitio que mencionan la dirección: las 23, sin excepción,
+usan **Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316** — la dirección confirmada
+hoy contra la ficha del edificio en Google. El teléfono aparece en dos formatos de escritura
+(`+57 305 208 8204` y `+573052088204`) pero es el mismo número en los dos casos: no es una
+incoherencia, es solo presencia o ausencia de espacios. Nada que corregir.
+
+### Esta semana, cuarta semana seguida, no apareció nada nuevo
+
+Repetí las 3 búsquedas objetivo: dominan exactamente los mismos de siempre (Doctoralia, Top Doctors,
+Vasculab, Variclinic, Franco Vascular, Centrolab, Cardiovas IPS, Clínica Medellín/QuirónSalud,
+dopplervenosomedellin.com), sin ningún nombre nuevo. El perfil de Doctoralia del médico
+(doctoralia.co/perfil/jose-david-puerta-rojas), hallado el 14-oct, sigue existiendo y sigue
+mencionando a Seravena con el mismo texto, pero sigo sin poder confirmar si ya enlaza a la web (el
+entorno bloquea el acceso directo al dominio); por búsqueda no encontré todavía un perfil de
+*centro* de Seravena en Doctoralia. No encontré ninguna cuenta de Instagram ni Facebook de Seravena
+por búsqueda general (lo cual no significa que no existan: Instagram y Facebook están bloqueados
+para este agente desde este entorno, así que esto es una limitación de búsqueda, no una confirmación
+de que no existen — el kit de backlinks del 28-sep ya daba @seravena_clinica como cuenta real de
+Instagram). No encontré ninguna nota de prensa nueva de 2026 sobre lipedema en El Colombiano,
+Minuto30 ni Vivir en El Poblado, ni ningún directorio médico colombiano de registro gratuito que no
+esté ya cubierto por los 11 mensajes acumulados entre esta bitácora y `kit-backlinks.md`.
+
+Como dije la semana pasada: la parte de descubrimiento sigue agotada con el terreno actual, y esta
+semana lo confirma por cuarta vez consecutiva. No redacto mensajes nuevos solo por llenar el cupo de
+3 — sería relleno — y, como anuncié el 28-oct, dejo de repetir cada semana el aviso del cuello de
+botella de envío: lo dejo dicho una última vez en una línea, abajo, y en las próximas semanas solo lo
+retomaré si cambia algo real (un envío, una respuesta, o una oportunidad nueva).
+
+· Mensajes listos para enviar: 0 esta semana (11 mensajes de semanas anteriores siguen pendientes de
+envío — ver semanas anteriores y `kit-backlinks.md`)
+
+### Para Laura, en una línea
+
+Sin cambios desde el 28-oct: los 11 mensajes siguen listos y sin enviar, la web sigue sin
+incoherencias, y la investigación de esta semana no encontró nada nuevo que valga la pena.
