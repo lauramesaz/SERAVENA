@@ -3,6 +3,32 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (5-nov-2026):** rutina diaria automática. Nuevo artículo: lipedema-dias-calor-medellin
+(racimo lipedema). Prueba del gemelo: `buscar-gemelos.py "Lipedema y los días de más calor en Medellín: por
+qué se siente peor la pierna" "lipedema calor Medellín"` dio máximo 0,28 entre los artículos ya publicados
+(celulitis-o-lipedema, drenaje-linfatico-lipedema, lipedema-en-los-brazos, que-es-el-lipedema), por debajo
+del umbral 0,30: ninguno responde la misma búsqueda sobre calor y lipedema. No es gemelo: se escribió el
+artículo nuevo, centrado en por qué el calor empeora la hinchazón del lipedema y qué hacer en los días más
+calurosos de Medellín o en viajes a tierra caliente, enlazando a dolor-lipedema-manejo.html,
+drenaje-linfatico-lipedema.html y compresion-para-lipedema.html (enlace bidireccional en los tres) y, como
+pariente de otro racimo, a piernas-viaje-tierra-caliente.html. Fuentes: Kamamoto et al. 2024 (J Vasc Bras,
+PMC11758576, edema relacionado con ortostatismo/calor/actividad física y disfunción microvascular temprana
+en lipedema), Herbst et al. 2021 (Phlebology, "Standard of care for lipedema", PMC8652358, compresión y
+ejercicio progresivo — no menciona el calor de forma explícita, dato que el artículo reconoce con honestidad),
+WikEM "Heat edema" (mecanismo de vasodilatación/edema por calor y manejo con elevación, sin diuréticos),
+Mayo Clinic (señales de alarma de trombosis venosa profunda para el post-note), Lipedema Foundation (relato
+de pacientes sobre el verano) y datos climáticos de dominio público (Medellín ~22-23 °C de media vía
+IDEAM/Wikipedia; Santa Fe de Antioquia ~28-33 °C). Verificador médico: APROBADO sin correcciones — cada
+afirmación quedó respaldada y con lenguaje prudente ("no es, todavía, un punto formal de consenso", "no
+cambia el fondo del lipedema"), sin promesas de cura, sin cifras ni estudios inventados, con el aviso de
+alarma de TVP correctamente diferenciado del edema por calor. Policía humanizador: 9/10, HUMANO (apertura
+con escena real, 0 rayas largas, 2 párrafos de una línea, criterio propio marcado en el blockquote, límite
+honesto explícito, cierre con acción concreta de autoobservación antes de la cita). Ninguna multa nueva:
+el borrador se escribió ya evitando los vicios activos de `notas-humanizador.md`. Juez SEO: 96/100, APTO
+(keyword en title/h1/primer párrafo/h2/meta, 1013 palabras de cuerpo, 3 enlaces hermanos + 1 pariente + 1
+a `../lipedema` + 1 a `../contacto`, FAQPage idéntica palabra por palabra al bloque visible). Imagen de
+portada: `skin-detail.webp` (no usada antes por ningún artículo del racimo lipedema).
+
 **Nota de verificación (4-nov-2026):** rutina diaria automática. Nuevo artículo: vendaje-multicapa-lipedema
 (racimo lipedema). Prueba del gemelo: `buscar-gemelos.py "Vendaje multicapa para lipedema: qué es y cuándo
 se usa" "vendaje multicapa lipedema"` dio máximo 0,28 (celulitis-o-lipedema, drenaje-linfatico-lipedema,
@@ -191,6 +217,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-11-05 | lipedema-dias-calor-medellin | Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna | lipedema calor Medellín | publicado | — | — | — |
 | 2026-11-03 | tipos-de-lipedema-zonas | Tipos de lipedema según la zona afectada: del I al V | tipos de lipedema | publicado | — | — | — |
 | 2026-10-31 | dudas-antes-eco-doppler-venoso | Dudas antes de tu eco doppler venoso en Medellín | dudas antes de un eco doppler venoso | publicado | — | — | — |
 | 2026-10-30 | leer-informe-eco-doppler-venoso | Cómo leer el informe de tu eco doppler venoso: qué significan sus términos | informe eco doppler venoso | publicado | — | — | — |

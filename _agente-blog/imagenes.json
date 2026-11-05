@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-11-03",
+  "actualizado": "2026-11-05",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "lipedema-dias-calor-medellin": {
+      "imagen": "skin-detail.webp",
+      "alt": "Primer plano de la piel de la pierna en un día caluroso, mostrando la tensión que deja el aumento de la hinchazón"
+    },
     "escleroterapia-con-espuma": {
       "imagen": "6643071.webp",
       "alt": "Piernas con várices medianas visibles, del tipo que suele tratarse con escleroterapia con espuma"
