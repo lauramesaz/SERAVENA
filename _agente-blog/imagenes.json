@@ -390,6 +390,10 @@
     "vendaje-multicapa-lipedema": {
       "imagen": "hero-manos.webp",
       "alt": "Manos ajustando un vendaje de compresión alrededor de la pantorrilla, revisando cómo quedó puesto"
+    },
+    "pies-frios-circulacion-arterial-venosa": {
+      "imagen": "vascular-veins.webp",
+      "alt": "Pierna y pie descalzo con várices visibles, apoyado sobre tela clara, en el contexto de piernas pesadas y pies fríos"
     }
   }
 }

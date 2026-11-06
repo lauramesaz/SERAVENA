@@ -3,6 +3,29 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (6-nov-2026):** rutina diaria automática. Nuevo artículo: pies-frios-circulacion-arterial-venosa
+(racimo sintomas). Prueba del gemelo: `buscar-gemelos.py "Pies fríos y piernas pesadas: ¿circulación arterial
+o venosa?" "pies fríos circulación piernas"` dio máximo 0,52 con yoga-pilates-circulacion-piernas.html (ángulo:
+posturas de yoga/pilates, no el diferencial arterial/venoso) y 0,21 con diabetes-circulacion-piernas.html
+(ángulo: señal de alarma de diabetes, no el diferencial general); ninguno responde la misma búsqueda. No es
+gemelo: se escribió el artículo nuevo, centrado en diferenciar la causa arterial (enfermedad arterial
+periférica: claudicación, pie frío comparado con el otro, pulso débil) de la causa venosa (insuficiencia
+venosa: piernas pesadas que mejoran al elevarlas) de los pies fríos y las piernas pesadas, y en cómo se
+diferencian en consulta con pulsos, índice tobillo-brazo y eco doppler arterial vs. venoso, enlazando a
+piernas-cansadas-causas.html, insuficiencia-venosa-sintomas.html y diabetes-circulacion-piernas.html (enlace
+bidireccional en los tres). Fuentes: Mayo Clinic (índice tobillo-brazo; enfermedad arterial periférica,
+síntomas y causas), Cleveland Clinic (isquemia aguda de extremidad; insuficiencia venosa crónica), Society
+for Vascular Surgery (guía para pacientes sobre isquemia aguda), Healthline y WebMD (diferencias PAD vs.
+insuficiencia venosa). Verificador médico: APROBADO sin correcciones — el rango del ITB (1,0-1,4 normal;
+0,90-0,99 límite; <0,90 enfermedad arterial periférica), los síntomas arteriales y venosos y la señal de
+alarma de isquemia aguda (pierna fría, pálida y dolorosa de forma súbita, con pulso débil o ausente = urgencia)
+quedaron verificados contra fuente primaria, sin promesas de cura, sin indicaciones personalizadas. Juez SEO:
+96/100, APTO (lista `<ul>` añadida en la sección de síntomas arteriales para mejorar escaneabilidad, sin tocar
+ningún dato). Policía humanizador: 10/10, HUMANO (apertura con la pregunta diagnóstica real, 0 rayas largas,
+criterio propio marcado en blockquote, límite honesto explícito sobre el frío de clima/viaje y sobre no
+reemplazar el examen físico, cierre con acción concreta de autoobservación de 3 días antes de la cita). Imagen
+de portada vascular-veins.webp (sin repetir dentro del racimo sintomas).
+
 **Nota de verificación (5-nov-2026):** rutina diaria automática. Nuevo artículo: lipedema-dias-calor-medellin
 (racimo lipedema). Prueba del gemelo: `buscar-gemelos.py "Lipedema y los días de más calor en Medellín: por
 qué se siente peor la pierna" "lipedema calor Medellín"` dio máximo 0,28 entre los artículos ya publicados
