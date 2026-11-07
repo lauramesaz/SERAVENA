@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05",
+  "actualizado": "2026-11-07",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
@@ -394,6 +394,10 @@
     "pies-frios-circulacion-arterial-venosa": {
       "imagen": "vascular-veins.webp",
       "alt": "Pierna y pie descalzo con várices visibles, apoyado sobre tela clara, en el contexto de piernas pesadas y pies fríos"
+    },
+    "piel-tensa-brillante-piernas": {
+      "imagen": "9775219.webp",
+      "alt": "Primer plano de una pierna con la piel visiblemente tersa y brillante, mientras unas manos aplican una crema"
     }
   }
 }

@@ -3,6 +3,30 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (7-nov-2026):** rutina diaria automática. Nuevo artículo: piel-tensa-brillante-piernas
+(racimo sintomas). Prueba del gemelo: `buscar-gemelos.py "Piel brillante y tensa en las piernas: qué puede
+significar" "piel tensa y brillante piernas"` dio máximo 0,22 con piel-y-cuidados-lipedema.html (ángulo:
+rutina de cuidado de piel en lipedema) y 0,19 con piel-de-naranja-lipedema.html (ángulo: textura de "piel de
+naranja" propia del lipedema); ninguno responde la misma búsqueda. No es gemelo: se escribió el artículo
+nuevo, centrado en la piel tensa/brillante como señal de edema (casi siempre insuficiencia venosa, también
+linfedema u otras causas de retención de líquidos) y en el diagnóstico diferencial urgente con celulitis/
+erisipela y trombosis venosa profunda, enlazando a piernas-hinchadas-cuando-preocuparse.html,
+manchas-tobillos-causas.html y trombosis-venosa-senales.html (enlace bidireccional en los tres). Fuentes:
+Vascular Institute of Chattanooga, HealthPartners y British Journal of Nursing/Phlebolymphology
+(lipodermatosclerosis e insuficiencia venosa crónica), HealthPartners y LymphNet (piel tensa/brillante por
+fibrosis en linfedema), DermNet y RCEM Learning (celulitis/erisipela vs. edema venoso), MedlinePlus, WebMD y
+Center for Vein (señales de trombosis venosa profunda). Verificador médico: APROBADO sin correcciones —
+confirmó de forma independiente (con búsqueda propia, no solo las fuentes del Redactor) el mecanismo de
+edema venoso y linfático, el patrón diferencial de celulitis/erisipela (unilateral, caliente, con fiebre) y
+de TVP (hinchazón súbita unilateral con dolor), sin promesas de cura ni indicaciones personalizadas. Juez
+SEO: 98/100, APTO (corrigió un texto ancla que no coincidía con el destino del enlace, sin tocar fondo ni
+voz). Policía humanizador: 9/10, HUMANO (evitó calcar el molde de título del hermano piel-de-naranja-
+lipedema.html, quitó una generalización de patrón de consulta sin respaldo en voz-real.md, 1 sola raya larga,
+criterio propio marcado explícitamente sobre pedir eco doppler antes de asumir la causa, cierre con acción
+concreta de autoobservación). Imagen de portada 9775219.webp (pierna con piel visiblemente brillante/tersa,
+libre dentro del racimo sintomas). También se humanizó el artículo viejo mitos-lipedema.html (turno de
+limpieza del Policía 1c): ver nota de humanización más abajo.
+
 **Nota de verificación (6-nov-2026):** rutina diaria automática. Nuevo artículo: pies-frios-circulacion-arterial-venosa
 (racimo sintomas). Prueba del gemelo: `buscar-gemelos.py "Pies fríos y piernas pesadas: ¿circulación arterial
 o venosa?" "pies fríos circulación piernas"` dio máximo 0,52 con yoga-pilates-circulacion-piernas.html (ángulo:
@@ -240,6 +264,7 @@ Formato:
 
 | Fecha | Slug | Título | Keyword | Estado | Impr. | Clics | Pos. |
 |-------|------|--------|---------|--------|-------|-------|------|
+| 2026-11-07 | piel-tensa-brillante-piernas | Piel tensa y brillante en las piernas: qué puede significar | piel tensa y brillante piernas | publicado | — | — | — |
 | 2026-11-05 | lipedema-dias-calor-medellin | Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna | lipedema calor Medellín | publicado | — | — | — |
 | 2026-11-03 | tipos-de-lipedema-zonas | Tipos de lipedema según la zona afectada: del I al V | tipos de lipedema | publicado | — | — | — |
 | 2026-10-31 | dudas-antes-eco-doppler-venoso | Dudas antes de tu eco doppler venoso en Medellín | dudas antes de un eco doppler venoso | publicado | — | — | — |

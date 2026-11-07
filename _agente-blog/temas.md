@@ -249,5 +249,5 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Vendaje multicapa para lipedema: cuándo usarlo — vendaje multicapa lipedema — vendaje-multicapa-lipedema — racimo: lipedema
 - [publicado] Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna — lipedema calor Medellín — lipedema-dias-calor-medellin — racimo: lipedema
 - [publicado] Pies fríos y piernas pesadas: ¿circulación arterial o venosa? — pies fríos circulación piernas — pies-frios-circulacion-arterial-venosa — racimo: sintomas
-- [pendiente] Piel brillante y tensa en las piernas: qué puede significar — piel tensa y brillante piernas — piel-tensa-brillante-piernas — racimo: sintomas
+- [publicado] Piel brillante y tensa en las piernas: qué puede significar — piel tensa y brillante piernas — piel-tensa-brillante-piernas — racimo: sintomas
 - [pendiente] Muchas horas en el carro por el tráfico de Medellín: cómo cuidar tus piernas — piernas hinchadas tráfico Medellín — piernas-trafico-medellin-carro — racimo: situaciones
