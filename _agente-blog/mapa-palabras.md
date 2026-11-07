@@ -59,6 +59,7 @@ su dueña desde el primer párrafo, pero nunca ponerlas en esos cuatro lugares.
 - insuficiencia venosa en Medellín
 - bajar de peso en Medellín · programa para bajar de peso · médico para bajar de peso · cuánto cuesta un programa para bajar de peso
 - precios de Seravena · lipedema en Colombia · lipedema en Bogotá (y otras ciudades)
+- especialista(s) en lipedema · médico vascular para lipedema · qué médico trata el lipedema (son de `/clinica-lipedema-medellin`, con o sin Medellín)
 
 ## 3. Búsquedas informativas grandes y su artículo dueño
 
@@ -73,7 +74,7 @@ los demás países.
 | medias de compresión (cuáles, tallas, dónde comprar en Colombia) · medias médicas · medias ortopédicas | `medias-compresion-colombia-comprar` | embarazo = `medias-compresion-embarazo` · lipedema = `compresion-para-lipedema` · avión = `medias-compresion-para-volar` · posparto = `medias-compresion-posparto` · mitos = `mitos-medias-compresion` | **la búsqueda no de marca más grande de Colombia**: "medias de compresion" 21 (pos. 20) + "medias de compresión" 21 (pos. 14); "medias medicas" 2 (pos. 9); "medias de compresión colombia" 1 (pos. 17) |
 | flebitis · síntomas de flebitis · flebitis en la pierna · tromboflebitis superficial | `flebitis-superficial-sintomas` | flebitis en el brazo = artículo nuevo de la cola (`flebitis-en-el-brazo`) | "flebitis pierna" 2, "síntomas de flebitis" 1, "flebitis consecuencias" 1 (España "flebitis" 42, pos. 34) |
 | picor · rasquiña · picazón en las piernas | `picor-piernas-circulacion` | — | "rasquiña en las piernas" 2 (pos. 65), "picazon en las piernas" 1 (España: cerca de 300 apar. en variantes de "picor") |
-| calambres en las piernas (de noche, en la pantorrilla, causas) | `calambres-piernas-noche` | dolor de piernas por dentro en la noche = artículo nuevo de la cola (`dolor-piernas-noche-por-dentro`) · lipedema y dolor nocturno = `lipedema-y-sueno` | unas 10 apar. en 9 variantes ("calambres en las piernas causas" pos. 8) |
+| calambres en las piernas (de noche, en la pantorrilla, causas) · dolor de piernas en la noche | `calambres-piernas-noche` | lipedema y dolor nocturno = `lipedema-y-sueno` (va en posición 16 para "porque duelen las piernas por dentro en la noche"). El dolor nocturno que no es calambre se responde dentro de `calambres-piernas-noche` (banco de mejoras), no en un artículo nuevo: `dolor-piernas-noche-por-dentro` se descartó el 7-nov por gemelo (0,52) | unas 10 apar. en 9 variantes ("calambres en las piernas causas" pos. 8) |
 | especialidad vascular · angiología · cirugía vascular · angiólogo o flebólogo · cómo se llama el médico de las venas | `medico-vascular-o-cirujano-colombia` | `como-elegir-especialista-vascular` (gemelo posible, 0,64 en buscar-gemelos del 28-oct: lo revisa el analista) | unas 65 apar. ("especialidad vascular" 24, "cirugía vascular especialidad" 11, "angiología especialidad" 8, "cirugía vascular y angiología" 8), pos. 35-84 |
 | qué es el doppler venoso · ecografía doppler de vasos venosos de miembros inferiores (el nombre de la orden) | `eco-doppler-venoso-que-es` | con precio, valor o Medellín = `/eco-doppler-venoso-medellin` | unas 40 apar. a este artículo en 20 variantes (pos. 25-92); el nombre de la orden, unas 10 |
 | cómo se hace / cómo se realiza el doppler venoso de miembros inferiores · eco doppler piernas | `eco-doppler-paso-a-paso` | preparación, ayuno, medicamentos = `dudas-antes-eco-doppler-venoso` · el informe = `leer-informe-eco-doppler-venoso` | unas 13 apar., pos. 44-74 |
@@ -85,7 +86,7 @@ los demás países.
 | ejercicios para la circulación de las piernas | `ejercicios-circulacion-casa` | deporte con várices = `ejercicio-para-varices` · hábitos = `habitos-mejorar-circulacion` | unas 8 apar. (pos. 20-57) |
 | cirugía de várices · varicectomía | `varices-cirugia-o-sin-cirugia` = cómo decidir · **varicectomía = artículo nuevo de la cola** (`varicectomia-que-es`) | `flebectomia-ambulatoria-que-es` | "varicectomia" 2 (pos. 51), "cirugia de vena varice" 1 |
 | venas o várices (venas que se notan) | **sin dueño**: artículo nuevo de la cola (`venas-marcadas-o-varices`) | `varices-vs-aranitas` = várices frente a arañitas | 2 apar. (pos. 77-89) |
-| qué médico trata el lipedema · especialistas en lipedema | **sin dueño**: artículo nuevo de la cola (`que-medico-trata-el-lipedema`) | con "Medellín" = `/dr-jose-david-puerta-rojas` y `/clinica-lipedema-medellin` | 4 apar. |
+| especialistas en lipedema · médico vascular para lipedema · qué médico trata el lipedema | `/clinica-lipedema-medellin` (página que vende; ningún artículo la toma) | el médico = `/dr-jose-david-puerta-rojas` · la guía para médicos de primer contacto = `/guia-lipedema-medicos` (recibe "lipedema que medico lo trata", solo España) | "especialistas en lipedema" 2 y "medico vascular lipedema" 2 (posición 5, con la página de la clínica). Nadie en Colombia buscó "qué médico trata el lipedema" tal cual. `que-medico-trata-el-lipedema` salió de la cola el 7-nov |
 
 ## 4. Búsquedas sin página dueña (de aquí sale el artículo nuevo cuando la cola se vacía)
 
@@ -95,13 +96,13 @@ artículo, la fila pasa a la sección 3 con su dueño.
 | Búsqueda | Dato (Colombia, 90 días) | Estado |
 |---|---|---|
 | exámenes para la circulación de las piernas | 6 apar. | en la cola: `examenes-circulacion-piernas` |
-| qué médico trata el lipedema | 4 apar. (más 3 de "especialista en lipedema en bogotá") | en la cola: `que-medico-trata-el-lipedema` |
 | flebitis en el brazo | 2 apar. (36 en todos los países) | en la cola: `flebitis-en-el-brazo` |
 | varicectomía | 3 apar. | en la cola: `varicectomia-que-es` |
 | venas o várices | 2 apar. | en la cola: `venas-marcadas-o-varices` |
-| dolor de piernas en la noche | 2 apar. (18 en todos los países) | en la cola: `dolor-piernas-noche-por-dentro` |
 
 Si todas están "en la cola" o "publicado" y la cola no tiene pendientes, el día es de mejora.
+
+Salieron de esta tabla en la revisión del 7-nov-2026 y **no se escriben**: "qué médico trata el lipedema" (sus búsquedas en Colombia, "especialistas en lipedema" y "medico vascular lipedema", son de `/clinica-lipedema-medellin`, sección 3) y "dolor de piernas en la noche" (gemelo de `calambres-piernas-noche`; es una mejora del banco, sección 5).
 
 ## 5. Banco de mejoras con búsquedas de Colombia (para los días de mejora)
 
@@ -123,7 +124,7 @@ forzada); revisar los enlaces internos; si el artículo está en `revisados-medi
 | `medias-compresion-colombia-comprar` | "medias de compresión" 42 apar. (pos. 14-20), "medias medicas" (pos. 9), "medias ortopedicas", "medias compresivas" | sección "Medias médicas, ortopédicas o antiembólicas: ¿son lo mismo?" | 22-nov |
 | `eco-doppler-venoso-que-es` | el nombre de la orden "ecografía doppler de vasos venosos de miembros inferiores": unas 10 apar. (más 5 con "valor" o "costo", que son de la página de servicio) | explicar ese nombre y la pregunta "¿es lo mismo que el eco doppler venoso?"; nada de precio (es de la página de servicio) | 28-nov (título y descripción cambiados el 7-nov) |
 | `eco-doppler-paso-a-paso` | "cómo se realiza un doppler venoso de miembros inferiores" 4, "eco doppler piernas" 4, "cómo se hace un doppler venoso" 2 | usar esas palabras en un H2 o una pregunta frecuente | 20-nov |
-| `calambres-piernas-noche` | "porque dan calambres en la pantorrilla" 2, "calambres en las piernas causas" (pos. 8) | causas generales en la pantorrilla, sin perder el foco nocturno | ya |
+| `calambres-piernas-noche` | "porque dan calambres en la pantorrilla" 2, "calambres en las piernas causas" (pos. 8), "dolor de piernas en la noche" 2 (pos. 52) y, en otros países, "porque duelen las piernas por dentro en la noche" | causas generales en la pantorrilla, sin perder el foco nocturno, y una sección corta "¿Y si no es un calambre?" para el dolor nocturno por dentro, que enlace a `lipedema-y-sueno` sin repetir su título | ya |
 | `ejercicios-circulacion-casa` | "ejercicios para la circulación de las piernas" y variantes: unas 8 apar. | usar esa frase en un H2 | 18-nov |
 | `picor-piernas-circulacion` | "rasquiña en las piernas" 2, "picazon en las piernas" 1 | la palabra colombiana "rasquiña" en el texto y en una pregunta | ya |
 | `flebitis-superficial-sintomas` | "flebitis pierna" 2, "síntomas de flebitis" 1 | enlace a `flebitis-en-el-brazo` cuando exista | después de que lo humanicen (está `[pendiente]`) |
