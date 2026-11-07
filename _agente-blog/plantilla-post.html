@@ -44,6 +44,11 @@
 <link rel="icon" type="image/png" href="../assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
 
+<!-- AUTORÍA Y REVISIÓN (INSTRUCCIONES §2, regla 5): author y reviewedBy = la organización.
+     SOLO si el artículo está en _agente-blog/revisados-medico.md, reviewedBy pasa a
+     { "@type": "Person", "@id": "https://www.clinicaseravena.com/dr-jose-david-puerta-rojas#medico", "name": "José David Puerta Rojas" },
+     se añade "lastReviewed": "<fecha de esa lista>" y se activa la línea visible "Revisado por..." de post-meta.
+     FUENTES (regla 7): "citation" lleva las mismas 2 a 5 fuentes del bloque post-sources, una por objeto. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,6 +63,10 @@
   "about": { "@type": "MedicalCondition", "name": "{{CONDICION}}" },
   "author": { "@type": "Organization", "name": "Equipo médico de Seravena" },
   "reviewedBy": { "@type": "Organization", "name": "Equipo médico de Seravena" },
+  "citation": [
+    { "@type": "CreativeWork", "name": "{{FUENTE_1_TITULO}}", "url": "{{FUENTE_1_URL}}" },
+    { "@type": "CreativeWork", "name": "{{FUENTE_2_TITULO}}", "url": "{{FUENTE_2_URL}}" }
+  ],
   "publisher": {
     "@type": "MedicalClinic",
     "name": "Seravena",
@@ -143,6 +152,9 @@
         <span>·</span>
         <span>{{MINUTOS}} min de lectura</span>
       </div>
+      <!-- SOLO si el artículo está en _agente-blog/revisados-medico.md (si no, borra este comentario y nada más):
+      <p class="post-meta">Revisado por el <a href="../dr-jose-david-puerta-rojas">Dr. José David Puerta Rojas</a>, médico internista con subespecialidad en medicina vascular · {{FECHA_REVISION_LEGIBLE}}</p>
+      -->
     </header>
 
     <img class="post-cover" fetchpriority="high" src="../assets/media/{{IMAGEN}}" alt="{{ALT_DESCRIPTIVO_DE_LA_IMAGEN}}">
@@ -177,6 +189,17 @@
           <p>{{RESPUESTA_3}}</p>
         </details>
       </div>
+
+      <!-- OBLIGATORIO desde el 7-nov-2026 (INSTRUCCIONES §2, regla 7): de 2 a 5 fuentes reales.
+           El Verificador médico abre cada enlace y confirma que dice lo que el artículo afirma.
+           Nada de fuentes inventadas ni enlaces adivinados. Son las mismas del "citation" del JSON-LD. -->
+      <section class="post-sources" aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes</h2>
+        <ol>
+          <li><a href="{{FUENTE_1_URL}}" target="_blank" rel="noopener">{{FUENTE_1_TITULO}}</a>. {{FUENTE_1_ENTIDAD_O_REVISTA}}, {{FUENTE_1_AÑO}}.</li>
+          <li><a href="{{FUENTE_2_URL}}" target="_blank" rel="noopener">{{FUENTE_2_TITULO}}</a>. {{FUENTE_2_ENTIDAD_O_REVISTA}}, {{FUENTE_2_AÑO}}.</li>
+        </ol>
+      </section>
 
     </div>
 

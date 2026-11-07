@@ -1,7 +1,57 @@
 # Plan de temas del blog · Seravena
 
 Cola de temas para el agente. Formato: `- [estado] Título orientativo — keyword principal — slug sugerido`
-Estados: `pendiente`, `publicado`.
+Estados: `pendiente`, `publicado`, `descartado`, `fusionado`, `en reserva` (no se escribe solo; ver la Reserva).
+
+## LO PRIMERO (desde el 7-nov-2026): la cola sale de búsquedas reales de Colombia
+
+Hasta octubre, cuando la cola se vaciaba el robot inventaba 10 temas generales. Esos artículos los leían
+sobre todo en España y no traían pacientes de Medellín. Por eso, desde hoy:
+
+1. **El artículo nuevo sale SOLO de la sección "Cola con búsquedas reales de Colombia"** (justo debajo).
+   Cada tema de esa cola lleva la búsqueda de Search Console que lo respalda: qué buscó la gente en
+   Colombia, cuántas veces apareció la web y en qué posición.
+2. **Prohibido inventar temas.** Si la cola no tiene pendientes, toma el siguiente de "Búsquedas sin
+   página dueña" en `mapa-palabras.md`. Si tampoco hay, ese día es **día de mejora**
+   (`INSTRUCCIONES.md` §4b). Nunca añadas temas tú.
+3. **Quién puede añadir temas:** Claude en una sesión con Laura, o la revisión SEO de los lunes, y solo
+   con una búsqueda de Colombia que salga en Search Console (`gsc.py`, `seguimiento-busquedas.py` o
+   `registro-seo-semanal.md`). Se anota la búsqueda, el número de apariciones, la posición y las fechas.
+4. **Antes de escribir:** mira en `mapa-palabras.md` que la búsqueda del tema no tenga ya página dueña
+   y que el título no use una frase de la lista "Frases que un artículo NO puede usar". Después, la
+   prueba del gemelo de siempre (§3b de `INSTRUCCIONES.md`).
+5. Los temas de la **Reserva** no los toma la rutina diaria. Entran a la cola cuando aparezca su búsqueda
+   en Colombia o cuando Claude los escriba en sesión con el dato que les falta.
+
+## Cola con búsquedas reales de Colombia (armada el 7-nov-2026)
+
+Datos: Search Console con el usuario robot, filtro país = Colombia, 8-ago a 5-nov-2026 (90 días).
+"Apar." = veces que la web apareció en Google para esa búsqueda; "pos." = posición media.
+Volúmenes pequeños pero reales: en Colombia las búsquedas que no son la marca suman pocas apariciones.
+Se escriben en este orden (rota racimos). Cada línea dice qué pariente leer y enlazar en el primer párrafo.
+
+- [pendiente] Exámenes para revisar la circulación de las piernas: cuál pide el médico y para qué sirve cada uno — exámenes para la circulación de las piernas — examenes-circulacion-piernas — racimo: diagnostico · Búsqueda real (Colombia): "estudio de las venas" 4 apar. (pos. 98), "examenes para la circulacion sanguinea" 2 (pos. 80), "eco doppler vascular" 2 (pos. 74), "ecodoppler vascular" 1, "examen doopler" 1 (pos. 11); hoy Google muestra /proceso, que no responde eso · Parientes: `eco-doppler-venoso-que-es`, `guia-diagnostico-problema-venoso`, `pies-frios-circulacion-arterial-venosa` (ya explica el índice tobillo-brazo) · Enlace del primer párrafo: `../eco-doppler-venoso-medellin` · Cuidado: en Seravena solo está confirmado el eco doppler venoso en el consultorio; los demás exámenes se explican en general, sin decir que se hacen allí.
+- [pendiente] ¿Qué médico trata el lipedema? Las especialidades que pueden ayudarte — qué médico trata el lipedema — que-medico-trata-el-lipedema — racimo: lipedema · Búsqueda real (Colombia): "especialistas en lipedema" 2 apar. (pos. 44-64), "medico vascular lipedema" 2 (pos. 5, hoy la gana `/clinica-lipedema-medellin`), "especialista en lipedema en bogotá" 3 (pos. 17-53) · Parientes: `diagnostico-lipedema` (qué revisa el médico), `como-elegir-clinica-lipedema-medellin` (qué preguntar antes de elegir) · Enlaces del primer párrafo: `../dr-jose-david-puerta-rojas` y `../clinica-lipedema-medellin` · Cuidado: sin "Medellín" en el título ni en el H1 (esas búsquedas son de la página del médico y de la clínica); del Dr. Puerta solo lo que dice su página (internista con subespecialidad en medicina vascular).
+- [pendiente] Flebitis en el brazo: por qué aparece (a veces después de un suero) y cuándo consultar — flebitis en el brazo — flebitis-en-el-brazo — racimo: sintomas · Búsqueda real: Colombia "flebitis en brazo" 2 apar. (pos. 61), "ecografía doppler de vasos venosos de miembros superiores" 1; en todos los países "flebitis brazo" 27 y "flebitis en brazo" 9 (hoy cae en `flebitis-superficial-sintomas`, que habla de las piernas) · Pariente: `flebitis-superficial-sintomas` (enlazarlo en el primer párrafo y que él enlace a este) · Enlace a página: `../vascular` · Cuidado: señales de alarma claras (fiebre, cordón rojo que sube, hinchazón de todo el brazo) en el post-note.
+- [pendiente] Varicectomía: qué es, cómo es la recuperación y qué otras opciones existen — varicectomía — varicectomia-que-es — racimo: tratamiento · Búsqueda real (Colombia): "varicectomia" 2 apar. (pos. 51), "cirugia de vena varice" 1 (pos. 63); hoy cae en `varices-cirugia-o-sin-cirugia`, que nunca usa la palabra · Parientes: `varices-cirugia-o-sin-cirugia` (cómo decidir), `flebectomia-ambulatoria-que-es` · Enlace del primer párrafo: `../varices-medellin` · Cuidado: Seravena no opera; el artículo explica la cirugía y dice con honestidad cuándo se indica. Precios solo los publicados en `../precios`.
+- [pendiente] ¿Venas marcadas o várices? Cómo saber si las venas que se te notan son un problema — venas o várices — venas-marcadas-o-varices — racimo: sintomas · Búsqueda real (Colombia): "venas o varices" 2 apar. (pos. 77-89, hoy cae en `varices-vs-aranitas`) · Parientes: `varices-vs-aranitas` (várices frente a arañitas), `quitar-varices-para-siempre` · Enlace del primer párrafo: `../varices-medellin`.
+- [pendiente] ¿Por qué duelen las piernas por dentro en la noche? Causas que no son calambres — dolor de piernas en la noche — dolor-piernas-noche-por-dentro — racimo: sintomas · Búsqueda real: Colombia "dolor de piernas en la noche" 2 apar. (pos. 52, hoy cae en `calambres-piernas-noche`); en todos los países "porque duelen las piernas por dentro en la noche" 11 y "dolor tobillos por la noche" 4 · Parientes: `calambres-piernas-noche` (calambres) y `lipedema-y-sueno` (solo lipedema; puntaje de gemelo 0,50: el ángulo de este es general y los enlaza a los dos) · Enlace a página: `../insuficiencia-venosa`.
+
+## Reserva: temas del plan de 90 días sin búsqueda real todavía (la rutina diaria NO los toma)
+
+Vienen del plan del 7-nov-2026. Search Console de Colombia (8-ago a 5-nov) no muestra ninguna búsqueda que
+los respalde, o ya hay una página que responde esa búsqueda. Pasan a la cola cuando aparezca la búsqueda en
+Colombia, o cuando Claude los escriba en una sesión con el dato que falta (SER-25, SER-26, SER-28, SER-33).
+
+- [en reserva] Por qué vuelve el peso después de la dieta — racimo: lipedema/peso · Sin búsquedas en Colombia: `/obesidad-medellin` todavía no sale en Google. Enlace a `../obesidad-medellin`. Lo puede escribir Claude en sesión (SER-28).
+- [en reserva] Si bajo de peso, ¿baja el lipedema? — Ojo: pariente fuerte de `dieta-y-lipedema` ("por qué la dieta sola no basta") y de `lipedema-cirugia-bariatrica`; pasar la prueba del gemelo antes de escribirlo (SER-28).
+- [en reserva] Medicamentos para bajar de peso con control médico en Colombia: qué preguntar (sin marcas ni dosis) — sin búsquedas en Colombia (SER-28).
+- [en reserva] Qué hace distinto un internista con el peso — sin búsquedas en Colombia (SER-28).
+- [en reserva] Endoláser (láser endovenoso): cómo es el día y la recuperación — las búsquedas de láser que trae la web vienen de España ("tratamiento de venas con laser" 16 apar.) y caen en `escleroterapia-vs-laser`. Además falta saber dónde se hace, quién lo hace y cuántos días de incapacidad da (pregunta al Dr. Puerta, SER-39). La búsqueda comercial será de `../endolaser-varices-medellin` (SER-25).
+- [en reserva] Dos temas de duda sobre endoláser o espuma — sin búsquedas en Colombia. La espuma ya tiene artículo (`escleroterapia-con-espuma`, que SER-26 retitula) y su precio va en `../escleroterapia-medellin#espuma`.
+- [en reserva] Pago por partes y qué incluye el tratamiento (2 temas) — sin búsquedas en Colombia, y esa duda es de `../precios` y `../precio-lipedema-medellin`: un artículo competiría con ellas. Mejor como pregunta frecuente en esas páginas.
+- [en reserva] Pacientes de otras ciudades (lipedema en Bogotá) — la búsqueda es real ("lipedema bogota" 30 apar. en Colombia, pos. 60), pero hoy ya la reparten 3 páginas propias (`lipedema-valoracion-particular`, `../lipedema`, `../lipedema-colombia`). Un artículo sería la cuarta. Se responde con la sección "Si no vives en Medellín" de `../lipedema-colombia` (SER-33).
+- [en reserva] Muchas horas en el carro por el tráfico de Medellín: cómo cuidar tus piernas — piernas-trafico-medellin-carro — racimo: situaciones · Lo añadió el orquestador el 30-oct sin búsqueda que lo respalde; pariente de `cuidar-piernas-viajes-largos` (0,30) y de `sedentarismo-piernas-venas`.
 
 ## ESTRATEGIA: racimos temáticos (leer antes de elegir tema)
 
@@ -18,6 +68,10 @@ mucho mejor "esta clínica sabe de várices" cuando ve 8 artículos conectados q
 | `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema`, `../clinica-lipedema-medellin`, `../precio-lipedema-medellin` o `../lipedema-colombia` (peso: `../obesidad-medellin`) |
 
 ### Regla de elección del tema (IMPORTANTE — cambió el 6-ago-2026)
+
+> Desde el 7-nov-2026 manda "LO PRIMERO" (arriba): se toma el primer `[pendiente]` de la cola con
+> búsquedas reales, que ya viene ordenada para rotar racimos. Si ese tema rompe la regla de "nunca 3 días
+> seguidos del mismo racimo", toma el siguiente pendiente de esa misma cola. Las reglas 2 y 3 siguen igual.
 
 Antes se tomaba "el primer pendiente", y eso dejó **10 artículos de venas y CERO de lipedema**,
 aunque el lipedema es la mitad del negocio. A partir de ahora:
@@ -262,4 +316,4 @@ distintos tipos de búsqueda. Ideas por formato:
 - [publicado] Lipedema y los días de más calor en Medellín: por qué se siente peor la pierna — lipedema calor Medellín — lipedema-dias-calor-medellin — racimo: lipedema
 - [publicado] Pies fríos y piernas pesadas: ¿circulación arterial o venosa? — pies fríos circulación piernas — pies-frios-circulacion-arterial-venosa — racimo: sintomas
 - [publicado] Piel brillante y tensa en las piernas: qué puede significar — piel tensa y brillante piernas — piel-tensa-brillante-piernas — racimo: sintomas
-- [pendiente] Muchas horas en el carro por el tráfico de Medellín: cómo cuidar tus piernas — piernas hinchadas tráfico Medellín — piernas-trafico-medellin-carro — racimo: situaciones
+- [en reserva desde el 7-nov-2026: sin búsqueda real que lo respalde; ver "Reserva" arriba] Muchas horas en el carro por el tráfico de Medellín: cómo cuidar tus piernas — piernas hinchadas tráfico Medellín — piernas-trafico-medellin-carro — racimo: situaciones

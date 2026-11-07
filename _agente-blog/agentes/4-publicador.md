@@ -30,11 +30,16 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
 9. Publica con git (esto lo pone online vía GitHub Pages):
    > **Direcciones limpias (desde 24-sep-2026):** los enlaces NUNCA terminan en `.html` (`../lipedema`, `otro-articulo`, `https://www.clinicaseravena.com/blog/<slug>`). El archivo sí se llama `<slug>.html`. Antes del commit corre SIEMPRE `python3 _agente-blog/limpiar-enlaces.py` (corrige cualquier `.html` que se haya colado en enlaces, canonical, JSON-LD y sitemap).
 
+   Desde el 7-nov-2026: **nunca `git add -A`**. Añade solo los archivos que tocó la cadena (ver la
+   lista de `../INSTRUCCIONES.md` §4 paso 6) y revisa `git status --short` antes del commit.
+
    ```
    python3 _agente-blog/limpiar-enlaces.py
-   git add -A
+   git status --short
+   git add blog/<slug>.html blog/index.html sitemap.xml admin/blog-actividad.json <los demás que tocaste>
    git commit -m "blog: <título>"
-   git push
+   git pull --rebase
+   git push origin HEAD:main
    ```
 10. **Avisa a Google del contenido nuevo** cuando sea posible (ping al sitemap / solicitud de
     indexación en Search Console, una vez esté conectado). Mientras tanto, el sitemap actualizado
@@ -46,7 +51,9 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
 
 - **NO publiques** nada que no tenga el visto médico + SEO ≥ 85 + (en fase manual) el OK de Laura.
 - No toques el diseño global (`styles.css`) ni otras páginas más allá del menú/sitemap.
-- Nunca inventes rutas de imágenes; usa las que existen en `../assets/media/`.
+- Nunca inventes rutas de imágenes; usa las que existen en `../assets/media/`. La portada se elige con
+  el registro `../imagenes.json` (`../INSTRUCCIONES.md` §4 paso 2): una que no use otro artículo del
+  mismo racimo, y te anotas en el registro.
 
 ## Avisar a Bing (IndexNow) — después del git push
 

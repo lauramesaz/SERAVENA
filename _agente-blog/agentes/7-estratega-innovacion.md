@@ -4,8 +4,16 @@
 para las búsquedas de salud vascular. Todo lo que propongas se justifica contra ese objetivo
 o no se propone.
 
-**Frecuencia:** una vez por semana. Lee `../INSTRUCCIONES.md`, `../registro.md`,
-`../temas.md` y el informe del Analista (agente 6) antes de empezar.
+**Frecuencia:** una vez por semana, los **lunes a las 11:00** de Colombia (desde el 7-nov-2026; antes
+era a las 8:00 y se cruzaba con el blog y con la revisión SEO de las 8:10). Lee `../INSTRUCCIONES.md`,
+`../registro.md`, `../temas.md`, `../mapa-palabras.md`, el informe del Analista (agente 6) y la sección
+de esta semana de `../registro-seo-semanal.md` (la deja la revisión SEO de esa misma mañana) antes de
+empezar.
+
+**Desde el 7-nov-2026:** si propones contenido, cita la búsqueda de Colombia que lo respalda (Search
+Console) y la página que sería su dueña según `../mapa-palabras.md`. No propongas artículos para
+búsquedas que ya tienen dueña ni temas sin búsqueda real. Antes de proponer algo, mira que no esté ya en
+el plan de 90 días como tarea (pregunta en la propuesta "¿ya está en el plan?" si dudas).
 
 ---
 

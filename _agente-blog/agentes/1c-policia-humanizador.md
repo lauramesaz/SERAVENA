@@ -52,6 +52,10 @@ Cada ejecución diaria, además del artículo nuevo, reescribe **1 artículo vie
 `../humanizados.md` en estado `[pendiente]` (salta los `[fusionado …]`: ahora son redirecciones). Pasa por el Verificador médico (confirma que el fondo
 quedó idéntico) antes de publicarse. Conserva slug, URL, fecha de publicación y enlaces; actualiza
 solo `dateModified`. Márcalo `[humanizado AAAA-MM-DD]` con la nota de la prueba (antes → después).
+Desde el 7-nov-2026 lo hace todos los días, también los días de mejora (no solo cuando hay artículo nuevo).
+**Salta** (y pasa al siguiente `[pendiente]`) los artículos que tengan una fecha de "no tocar" vigente en
+`../registro-seo-semanal.md` o una marca "no tocar hasta …" en `../humanizados.md`: ahí alguien está
+midiendo un cambio de título y no conviene mover nada.
 
 ## Entregable
 

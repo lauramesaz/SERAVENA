@@ -12,9 +12,12 @@ Este archivo es el **conocimiento compartido** por el equipo de agentes del blog
 clínica de **lipedema y salud vascular** (Colombia). El flujo de trabajo (quién hace qué y en qué
 orden) está en `pipeline.md`, y cada agente tiene su rol en `agentes/`.
 
-**Objetivo del equipo: mínimo 1 artículo nuevo al día**, real, útil para pacientes y bien
-posicionado en Google. Todos los agentes de este equipo deben respetar las reglas de marca (§1),
-las salvaguardas médicas (§2) y las reglas SEO (§3) de este documento.
+**Ritmo del equipo (desde el 7-nov-2026, con el sí de Laura): 3 artículos nuevos por semana
+(lunes, miércoles y viernes) y 4 días de mejora (martes, jueves, sábado y domingo).** Los artículos
+nuevos atraían sobre todo lectoras de España; mejorar lo que ya sale en Google trae más pacientes de
+Medellín. Detalle en §4 y §4b. Todo artículo tiene que ser real, útil para pacientes y bien posicionado.
+Todos los agentes de este equipo deben respetar las reglas de marca (§1), las salvaguardas médicas (§2)
+y las reglas SEO (§3) de este documento.
 
 En fase manual se publica con aprobación de Laura; después, de forma automática con red de
 seguridad (se publica y se avisa, y todo queda registrado para poder revertir).
@@ -56,9 +59,9 @@ Lo que nos diferencia es sonar a la clínica de verdad. Por eso:
 - Admitir límites con honestidad ("esto no lo resuelve una media", "no todas las pacientes…").
 - Frases de largo variado, algún párrafo de una sola línea, preguntas directas a la lectora.
 
-**Autoría:** cuando exista página de equipo médico con nombres y registro reales, el artículo
-lo firma/revisa esa persona (Person en JSON-LD con enlace a su perfil). Mientras no exista, se
-mantiene "Equipo médico de Seravena". Nunca inventar un autor.
+**Autoría:** el autor es siempre la organización, "Equipo médico de Seravena". La revisión del
+Dr. José David Puerta Rojas solo se muestra en los artículos que están en `revisados-medico.md`
+(ver §2, regla 5). Nunca inventar un autor ni un revisor.
 
 ## 2. Reglas de ORO médicas (imprescindibles — es contenido de salud "YMYL")
 
@@ -67,8 +70,33 @@ mantiene "Equipo médico de Seravena". Nunca inventar un autor.
 3. **No des dosis, medicamentos concretos ni indicaciones de tratamiento personalizadas.**
 4. Incluye SIEMPRE el bloque `<div class="post-note">` con el aviso de señales de alarma + que
    el artículo es informativo y no sustituye consulta médica.
-5. Autoría = **"Equipo médico de Seravena"** (no inventes un nombre propio de doctor).
+5. **Autoría y revisión (desde el 7-nov-2026).** El autor sigue siendo la organización: en el JSON-LD
+   `"author": { "@type": "Organization", "name": "Equipo médico de Seravena" }` y la firma visible "Por
+   Equipo médico de Seravena". `reviewedBy` también es la organización, **salvo** que el artículo esté en
+   `_agente-blog/revisados-medico.md`: solo entonces `reviewedBy` lleva al Dr. José David Puerta Rojas
+   (`{ "@type": "Person", "@id": "https://www.clinicaseravena.com/dr-jose-david-puerta-rojas#medico",
+   "name": "José David Puerta Rojas" }`), se añade `lastReviewed` con la fecha de esa lista y la línea visible
+   "Revisado por el Dr. José David Puerta Rojas, médico internista con subespecialidad en medicina vascular
+   · <fecha>" con enlace a `../dr-jose-david-puerta-rojas`. Nunca pongas su nombre en un artículo que no
+   está en esa lista, aunque te parezca que él estaría de acuerdo. No inventes nombres de médicos.
 6. Ante cualquier duda de seguridad médica, elige la redacción más prudente.
+7. **Sección "Fuentes" obligatoria (desde el 7-nov-2026).** Todo artículo nuevo, y todo artículo que se
+   mejore, termina el cuerpo con el bloque `<section class="post-sources">` de la plantilla: de 2 a 5
+   referencias reales (guías clínicas, sociedades médicas, Minsalud, INVIMA, revisiones con DOI o PubMed),
+   con título, entidad o revista, año y enlace. Reglas:
+   - El Verificador médico **abre cada enlace** y confirma que existe y que dice lo que el artículo afirma.
+     Si no abre, o no dice eso, la fuente sale (y la afirmación que dependía de ella también).
+   - Nada de fuentes inventadas, enlaces adivinados ni DOI de memoria. Mejor 2 fuentes comprobadas que 5 dudosas.
+   - No sirven como fuente: blogs de otras clínicas, foros, Wikipedia, ni páginas de la propia Seravena.
+   - Las mismas fuentes van en el JSON-LD `MedicalWebPage` como `"citation"` (lista de objetos
+     `CreativeWork` con `name` y `url`).
+8. **Si el tema es plata** (precio, cuánto cuesta, pago, qué incluye): enlaza a `../precios` (o a
+   `../precio-lipedema-medellin` en lipedema) y usa solo las cifras que esas páginas publican, copiadas
+   tal cual, con la aclaración de que el valor exacto sale después de la valoración. Nunca escribas que
+   "no damos precios" ni inventes descuentos, cuotas o coberturas.
+9. **Enlaces internos que existan.** Antes de publicar corre `python3 _agente-blog/revisar-enlaces.py`
+   (lo crea la tarea SER-05). Mientras ese archivo no exista, comprueba a mano que cada enlace interno
+   nuevo apunte a un archivo que está en el repositorio (`../x` → `x.html`, `y` → `blog/y.html`).
 
 ## 2b. Enfoque LOCAL: Medellín y Colombia (obligatorio desde 28-sep-2026)
 
@@ -214,9 +242,17 @@ no se auditan como artículos y no cuentan en el total.
 
 Trabaja siempre dentro de `web/` (donde está el repositorio git).
 
-1. **Elige el tema:** abre `_agente-blog/temas.md`, toma el primer tema con estado `pendiente`
-   y pásale la **prueba del gemelo (§3b)**: `buscar-gemelos.py` + leer los parecidos. Si ya existe
-   un artículo que responde la misma búsqueda, mejora ese en vez de crear uno nuevo.
+0. **¿Toca artículo nuevo hoy?** Solo lunes, miércoles y viernes (hora de Colombia). Martes, jueves,
+   sábado y domingo son días de mejora: sigue §4b y no escribas un artículo nuevo.
+1. **Elige el tema:** abre `_agente-blog/temas.md` y toma el primer `[pendiente]` de la sección
+   **"Cola con búsquedas reales de Colombia"** (no de las secciones viejas ni de la Reserva). Confirma
+   en `_agente-blog/mapa-palabras.md` que su búsqueda no tiene ya página dueña y que el título no usa
+   una frase de la lista prohibida (sección 2 del mapa). Después pásale la **prueba del gemelo (§3b)**:
+   `buscar-gemelos.py` + leer los parecidos. Si ya existe un artículo que responde la misma búsqueda,
+   mejora ese en vez de crear uno nuevo.
+   **Si la cola no tiene pendientes:** toma la primera búsqueda de la sección 4 del mapa ("Búsquedas sin
+   página dueña") que no esté en la cola ni publicada. Si no hay ninguna, hoy es día de mejora (§4b).
+   **Prohibido inventar temas** o añadirlos a `temas.md` por tu cuenta.
 2. **Crea el archivo** `blog/<slug>.html` copiando la estructura de
    `_agente-blog/plantilla-post.html` y rellenando TODOS los `{{...}}`.
    - **Imagen de portada — regla nueva, sustituye a la anterior:** abre
@@ -239,11 +275,19 @@ Trabaja siempre dentro de `web/` (donde está el repositorio git).
 6. **Publica:** haz commit y push:
    > **Direcciones limpias (desde 24-sep-2026):** los enlaces NUNCA terminan en `.html` (`../lipedema`, `otro-articulo`, `https://www.clinicaseravena.com/blog/<slug>`). El archivo sí se llama `<slug>.html`. Antes del commit corre SIEMPRE `python3 _agente-blog/limpiar-enlaces.py` (corrige cualquier `.html` que se haya colado en enlaces, canonical, JSON-LD y sitemap).
 
+   Haz `git add` **solo de los archivos que tocaste** (nunca `git add -A` ni `git add .`: el repositorio
+   puede tener cosas de otras sesiones que no se deben subir). Normalmente son: `blog/<slug>.html`,
+   `blog/index.html`, `sitemap.xml`, `admin/blog-actividad.json`, los 3 artículos de "Sigue leyendo" que
+   editaste y los archivos de `_agente-blog/` que cambiaste (`temas.md`, `registro.md`, `imagenes.json`,
+   `notas-humanizador.md`, `humanizados.md`).
+
    ```
    python3 _agente-blog/limpiar-enlaces.py
-   git add -A
+   git status --short          # revisa que solo aparezca lo tuyo
+   git add blog/<slug>.html blog/index.html sitemap.xml admin/blog-actividad.json <los demás que tocaste>
    git commit -m "blog: <título del artículo>"
-   git push
+   git pull --rebase
+   git push origin HEAD:main
    ```
 7. **Verifica que quedó EN VIVO de verdad** (paso obligatorio, no opcional): espera 1–3 min y
    comprueba que `https://www.clinicaseravena.com/blog/<slug>` responde **200**. Un push
@@ -253,8 +297,39 @@ Trabaja siempre dentro de `web/` (donde está el repositorio git).
 8. **Avisa a Laura** (ver sección 6) con el título y el enlace
    `https://www.clinicaseravena.com/blog/<slug>`.
 
-Si `temas.md` se queda con menos de 5 temas pendientes, **genera 10 temas nuevos** relevantes
-(basados en dudas reales de pacientes de lipedema y salud vascular) y añádelos al final.
+**Si la cola se acaba, NO generes temas nuevos** (regla cambiada el 7-nov-2026; antes decía "genera 10
+temas nuevos" y así salieron decenas de artículos generales que se leían en España). El orden es: cola de
+`temas.md` → sección 4 de `mapa-palabras.md` → día de mejora. Si la cola queda con menos de 3 pendientes,
+dilo en el aviso del día para que Claude o la revisión de los lunes la llenen con búsquedas reales.
+
+## 4b. Día de mejora (martes, jueves, sábado y domingo; o cuando no hay tema)
+
+Un artículo que ya sale en Google suele rendir más con un empujón que uno nuevo desde cero. Ese día:
+
+1. **Elige UN artículo** de la sección 5 de `mapa-palabras.md` ("Banco de mejoras"), de arriba abajo, el
+   primero que cumpla todo esto:
+   - su `dateModified` (JSON-LD) es de hace 21 días o más. No uses `git log`: los cambios del pie de página
+     tocan todos los archivos a la vez;
+   - no tiene fecha de "no tocar" vigente en `registro-seo-semanal.md` (si la tiene, puedes mejorar el
+     cuerpo, pero no el `<title>`, la descripción ni el H1);
+   - no está entre los 3 primeros `[pendiente]` de `humanizados.md`;
+   - no es una redirección de "Artículos fusionados".
+   Si el banco no tiene ninguno que cumpla, toma el artículo con más apariciones en Colombia según el
+   último registro de `registro-seo-semanal.md` (o `seguimiento-busquedas.py` si existe) que cumpla lo mismo.
+2. **Qué le haces** (fondo real, no cosmética):
+   - la sección "Fuentes" (§2, regla 7) si no la tiene, con 2 a 5 referencias que el verificador abre;
+   - un enlace desde el primer párrafo a su página que vende (la de su racimo en `temas.md`), con texto
+     descriptivo;
+   - la búsqueda de Colombia que el banco dice que no atiende, usada con naturalidad en un H2, una pregunta
+     frecuente (repetida palabra por palabra en el FAQPage) o el cuerpo;
+   - `revisar-enlaces.py` (§2, regla 9);
+   - si el artículo está en `revisados-medico.md`, la firma del médico (§2, regla 5). Si no está, no.
+3. Actualiza `dateModified` y el `lastmod` del sitemap; `datePublished` no se toca.
+4. Pasa los cambios por el Policía humanizador y el Verificador médico (subagentes). Sin APROBADO del
+   médico no se publica: se descarta el cambio y se anota.
+5. Publica igual que en §4 paso 6 (solo tus archivos, `git pull --rebase`, `git push origin HEAD:main`),
+   comprueba el 200 y anota en `registro.md` una línea "mejora: <slug> · qué se hizo · búsqueda de Colombia".
+6. Los días de mejora también se humaniza 1 artículo viejo, igual que siempre.
 
 ## 5. Calidad antes de publicar (checklist mental)
 
@@ -265,6 +340,11 @@ Si `temas.md` se queda con menos de 5 temas pendientes, **genera 10 temas nuevos
 - [ ] ¿Nada inventado, ninguna promesa de cura, tono cálido?
 - [ ] ¿El slug no choca con uno ya publicado ni con uno de "Artículos fusionados"?
 - [ ] ¿Pasó la prueba del gemelo (§3b)? Ningún artículo vivo responde ya la misma búsqueda.
+- [ ] ¿El tema salió de la cola con búsquedas reales (o de la sección 4 del mapa) y el título no usa una
+      frase prohibida de `mapa-palabras.md`?
+- [ ] ¿Tiene la sección "Fuentes" con 2 a 5 referencias que el verificador abrió, y las mismas en `citation`?
+- [ ] ¿`reviewedBy` es la organización, salvo que el artículo esté en `revisados-medico.md`?
+- [ ] Si habla de plata, ¿enlaza a `../precios` y usa solo cifras publicadas?
 
 ## 6. Cómo avisar a Laura
 

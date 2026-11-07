@@ -42,9 +42,28 @@ Recorre `blog/*.html` y `registro.md` y detecta:
 - [ ] Todos están en `sitemap.xml`.
 - [ ] Todas las URLs responden 200 en producción (no basta con que el archivo exista).
 
-## Parte 2 · Mejora UN artículo (el peor de la lista)
+**Búsquedas repartidas (desde el 7-nov-2026)**
+- [ ] Con Search Console (`python3 _agente-blog/gsc.py https://www.clinicaseravena.com/ --sin-indexacion`
+      y, si existe, `seguimiento-busquedas.py`), busca búsquedas donde salen **2 o más páginas propias**.
+      Compáralas con `mapa-palabras.md`: si la que sale no es la dueña, anota en el informe qué enlace o
+      qué cambio de ángulo le falta a la dueña. Si son gemelas, **propón** la fusión con redirección; no
+      la hagas sin el sí de Laura.
+- [ ] Si encuentras una búsqueda de Colombia nueva, que ninguna página responde, anótala en el informe
+      como candidata para la sección 4 de `mapa-palabras.md` (la añade la revisión de los lunes o Claude).
 
-Elige el artículo con más problemas y arréglalo de verdad, no cosmética:
+## Parte 2 · Mejora UN artículo
+
+Desde el 7-nov-2026 el robot diario hace 4 días de mejora por semana, así que elige con cuidado para no
+pisarle el trabajo:
+- primero una página que vende o el artículo con más apariciones en Colombia que esté entre la posición
+  8 y la 20 (sección 5 de `mapa-palabras.md` o el último registro de `registro-seo-semanal.md`);
+- nunca un artículo con `dateModified` de hace menos de 21 días (incluye lo que el robot mejoró esa misma
+  mañana: míralo en `registro.md`), ni uno con fecha de "no tocar" vigente para lo que vas a cambiar;
+- si es una página que vende (raíz del sitio), solo título, descripción, una pregunta frecuente al
+  final o un enlace interno, sin mover ni renombrar elementos: `contenido.js` guarda los textos por
+  posición y se borraría lo editado en el panel.
+
+Y arréglalo de verdad, no cosmética:
 
 1. Amplía lo que esté corto, con información real y verificable.
 2. Añade o mejora las preguntas frecuentes (y su JSON-LD).
@@ -53,6 +72,10 @@ Elige el artículo con más problemas y arréglalo de verdad, no cosmética:
 5. **Actualiza `dateModified` en el JSON-LD** y el `lastmod` del sitemap. Deja `datePublished`
    como estaba: la fecha original es parte de su historial.
 6. Pasa el artículo mejorado por el **Verificador médico** antes de publicar. Sin excepción.
+7. Si no tiene la sección "Fuentes" (`../INSTRUCCIONES.md` §2, regla 7), añádela: 2 a 5 referencias que
+   el verificador abre una por una, las mismas en `citation`.
+8. Publica con `git add` solo de los archivos que tocaste (nunca `git add -A`), `git pull --rebase` y
+   `git push origin HEAD:main`.
 
 ## Parte 3 · Informe para Laura
 

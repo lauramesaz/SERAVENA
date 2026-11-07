@@ -39,6 +39,16 @@ Un artículo no avanza a publicación con nota < 85. Lee `../INSTRUCCIONES.md` (
 - Si es pariente, comprueba que título, H1, descripción y primer párrafo dejen claro un ángulo
   distinto y que el primer párrafo enlace al pariente. Si no, −10 y corrección obligatoria.
 
+**Freno previo 2: mapa de palabras y fuentes (desde el 7-nov-2026)**
+- Si el `<title>`, el `<h1>`, `og:title` o `headline` usan una frase de la sección 2 de
+  `../mapa-palabras.md` (búsquedas de páginas de servicio), el veredicto es **DEVUELTO**: se cambia el
+  título por uno de duda o informativo.
+- Si el tema no viene de la cola con búsquedas reales de `../temas.md` ni de la sección 4 del mapa,
+  **DEVUELTO**: no se publican temas inventados.
+- Si falta la sección "Fuentes" (2 a 5) o no coincide con `citation` del JSON-LD, −10 y corrección
+  obligatoria.
+- El primer párrafo debe enlazar a la página dueña que indica la línea del tema; si no, −5.
+
 **F. Descuentos por "texto en serie" (hasta −15)**
 - −2 por cada huella de IA de `../INSTRUCCIONES.md` §1.1 que siga en el texto (máx. −10).
 - −5 si no hay ninguna "señal de persona real" (§1.1): el texto podría ser de cualquier web.

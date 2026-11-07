@@ -92,12 +92,19 @@ Conocimiento compartido por todos: `INSTRUCCIONES.md` (marca, SEO base, salvagua
 - **Gate implementación:** si el Auditor encuentra fallos (enlaces rotos, plantilla mal,
   datos estructurados inválidos), se corrige antes de dar por cerrado.
 
+- **Gate fuentes (desde 7-nov-2026):** el artículo NO avanza sin la sección "Fuentes" con 2 a 5
+  referencias que el Verificador médico abrió una por una (`INSTRUCCIONES.md` §2, regla 7).
+- **Gate tema (desde 7-nov-2026):** el tema sale de la cola con búsquedas reales de `temas.md` o de la
+  sección 4 de `mapa-palabras.md`. Nadie inventa temas; si no hay, el día es de mejora.
+
 ## Cómo se ejecuta
 
-- **Fase manual (ahora):** se corre el pipeline artículo a artículo; Laura aprueba antes de publicar.
-- **Fase automática (después):** una rutina en la nube ejecuta este mismo pipeline 1 vez/día,
-  publica y avisa. Una rutina semanal ejecuta el análisis SEO (ver `INSTRUCCIONES.md` §Análisis)
-  y manda a ACTUALIZAR (no borrar) los artículos flojos.
+- **Rutina diaria en la nube (8:00 Colombia, trig_016HHgMhbStnTpx3Xc2me56C), desde el 7-nov-2026:**
+  lunes, miércoles y viernes ejecuta esta cadena para 1 artículo nuevo; martes, jueves, sábado y domingo
+  hace un día de mejora (`INSTRUCCIONES.md` §4b) con el Policía y el Verificador como subagentes. Todos
+  los días humaniza 1 artículo viejo. Publica sola (sin gate de Laura) y deja el resumen.
+- **Semanales:** analista (domingo 10:00), revisión SEO con Search Console (lunes 8:10), estratega
+  (lunes 11:00) y relacionista (miércoles 10:00). Se ACTUALIZA, nunca se borra.
 
 ## "Actualizado en la vida real"
 

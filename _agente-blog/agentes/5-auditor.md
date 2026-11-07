@@ -15,7 +15,10 @@ control: nada se da por cerrado si tú encuentras un fallo. Lee `../pipeline.md`
 - [ ] Fila añadida en `registro.md` y tema marcado `publicado` en `temas.md`.
 
 **Enlaces y recursos**
-- [ ] Todos los enlaces internos (`../lipedema.html`, `../contacto.html`, etc.) existen y funcionan.
+- [ ] Todos los enlaces internos (`../lipedema`, `../contacto`, etc.) existen y funcionan. Corre
+      `python3 _agente-blog/revisar-enlaces.py` (lo crea SER-05); mientras no exista, comprueba a mano
+      que cada enlace nuevo apunte a un archivo del repositorio.
+- [ ] El primer párrafo enlaza a la página dueña que indica la línea del tema en `temas.md`.
 - [ ] La imagen de portada y el `alt` existen y cargan; rutas `../assets/...` correctas.
 - [ ] Los CSS (`../styles.css`, `blog.css`) cargan; el post se ve en marca.
 
@@ -41,11 +44,25 @@ control: nada se da por cerrado si tú encuentras un fallo. Lee `../pipeline.md`
   curl -s -X POST -H "Authorization: token $TOKEN" https://api.github.com/repos/lauramesaz/SERAVENA/pages/builds
   ```
   Si tras relanzar sigue en `errored`, **avisa a Laura explícitamente** en el reporte del día.
+  Si no tienes token para la API de GitHub (pasa en la nube), haz lo que funcionó el 6-nov-2026: un
+  commit vacío `git commit --allow-empty -m "Volver a publicar (la entrega de GitHub Pages falló)"`,
+  `git pull --rebase`, `git push origin HEAD:main`, espera 3 minutos y vuelve a comprobar el 200.
 
 **Contenido**
 - [ ] Bloque `post-note` de aviso médico presente.
 - [ ] Firma "Equipo médico de Seravena" presente.
 - [ ] Llamada a la acción presente.
+- [ ] Sección "Fuentes" (`post-sources`) con 2 a 5 referencias, las mismas que `citation` del JSON-LD, y
+      el veredicto del Verificador dice que abrió cada una.
+- [ ] `reviewedBy` = la organización, salvo que el slug esté en `revisados-medico.md`. Si aparece el
+      nombre del Dr. Puerta en un artículo que no está en esa lista → INCIDENCIA.
+- [ ] El tema salió de la cola con búsquedas reales de `temas.md` (o de la sección 4 de
+      `mapa-palabras.md`) y el `<title>`/`<h1>` no usa una frase prohibida de ese mapa.
+
+**Commit**
+- [ ] El commit solo trae archivos de la cadena (`git show --stat HEAD`). Si entró algo ajeno
+      (`equipo/`, `_finanzas/`, `.github/`, páginas que nadie tocó), es una INCIDENCIA: se revierte ese
+      archivo con un commit nuevo y se avisa en el resumen.
 
 ## Cómo verificar
 

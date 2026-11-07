@@ -18,9 +18,11 @@ Todo esto es investigación y preparación. Hazlo entero cada semana:
    salud, universidades con programas afines y prensa local de Medellín. Comprueba una por una
    si Seravena aparece.
 2. **Coherencia del nombre, la dirección y el teléfono.** Búscalos por internet y verifica que
-   en todos los sitios digan exactamente lo mismo que la web: *Seravena · Calle 2 Sur
-   No. 46-55, Of. 1316, Medellín, Antioquia · +57 305 208 8204*. Una dirección escrita de dos
-   formas distintas hace dudar a Google de que seas la misma clínica. Anota cada diferencia.
+   en todos los sitios digan exactamente lo mismo que la web: *Seravena · Calle 2 Sur #46-159,
+   Torre Médica Salud Vegas, consultorio 1316, El Poblado, Medellín, Antioquia · +57 305 208 8204*.
+   (Corregido el 7-nov-2026: este manual decía "46-55", que es la dirección de la Clínica Las Vegas,
+   no la de Seravena; la buena es la que publica la web en `contacto.html`.) Una dirección escrita de
+   dos formas distintas hace dudar a Google de que seas la misma clínica. Anota cada diferencia.
 3. **De dónde sacan sus enlaces los que van por delante.** Mira qué clínicas salen primero en
    Medellín para las búsquedas objetivo y averigua quién las enlaza. Eso es el mapa de dónde
    debería estar Seravena.
@@ -28,7 +30,14 @@ Todo esto es investigación y preparación. Hazlo entero cada semana:
    que existe: ya te conocen.
 5. **Redacta los mensajes**, uno por uno, listos para enviar: a quién, a qué dirección, asunto
    y texto completo, en español de Colombia y con el tono de Laura — claro, directo, sin jerga
-   de marketing y sin adular.
+   de marketing y sin adular. Antes de escribir mensajes nuevos, mira cuántos hay ya listos y sin
+   enviar en `registro-relaciones.md`: si son 10 o más, no escribas más; dedica la semana a vigilar
+   (punto 6) y a poner al día los que ya existen.
+6. **Vigila lo que ya existe (desde el 7-nov-2026, solo lectura):** cómo aparece Seravena en Google
+   Maps (cuántas fichas salen al buscar "Seravena Medellín", número de reseñas y nota), Doctoralia
+   del Dr. Puerta (si ya tiene foto, servicios u opiniones), Bing Places si existe, y el dominio viejo
+   `seravena.com.co` (si responde, a dónde lleva y hasta cuándo está registrado: vence el 19-feb-2027).
+   Anota solo lo que viste, con la fecha; si una página no carga desde la nube, dilo y sigue.
 
 ## Qué NO haces nunca
 
