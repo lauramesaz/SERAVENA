@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" as="image" href="assets/media/sede-fachada.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/media/sede-fachada.webp" imagesrcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" imagesizes="(max-width: 600px) 200px, 1672px" fetchpriority="high">
 <link rel="stylesheet" href="styles.css?v=20260929a">
 <style>
 /* Banner del inicio con fotos reales de la sede: se turnan solas con un zoom muy lento */
@@ -66,6 +66,9 @@
   .hm-slide:nth-child(1) { object-position: 62% 50%; }
   .hm-slide:nth-child(3) { animation-name: hmSlide; transform-origin: 50% 50%; }
 }
+/* Sin JavaScript las fotos 2 a 4 no se piden: queda fija la primera */
+html:not(.js) .hm-slide:not(:first-child) { display: none; }
+html:not(.js) .hm-slide:first-child { animation: none; opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .hm-slide, .hm-cap { animation: none; transform: none; }
   .hm-slide:nth-child(1), .hm-cap:nth-child(1) { opacity: 1; }
@@ -153,11 +156,14 @@
 
 <!-- Banner del inicio: fotos reales de la sede que se turnan + sello de Google -->
 <section class="hero hero-home hero-mov hm-fotos" id="top">
+  <!-- Velocidad: la primera foto carga con prioridad; las otras 3 las pide script.js cuando la página ya cargó.
+       En celular (hasta 600 px) se usa un recorte vertical de 800 px de cada foto: el mismo encuadre que se ve, con menos de la mitad del peso.
+       El sizes de 200px es a propósito: así cualquier celular, aun con pantalla de alta densidad, elige el recorte. -->
   <div class="hm-media hm-slides">
-    <img class="hm-slide" src="assets/media/sede-fachada.webp" alt="Entrada de Seravena en la Torre Médica Salud Vegas, con la recepción y el logo" fetchpriority="high">
-    <img class="hm-slide" src="assets/media/sede-consultorio.webp" alt="Consultorio de Seravena con ventanal y vista a Medellín" decoding="async">
-    <img class="hm-slide" src="assets/media/sede-recepcion.webp" alt="Recepción de Seravena con pared en madera y el logo de la marca" decoding="async">
-    <img class="hm-slide" src="assets/media/sede-cabina.webp" alt="Cabina de tratamiento de Seravena con camilla y equipo de presoterapia" decoding="async">
+    <img class="hm-slide" src="assets/media/sede-fachada.webp" srcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Entrada de Seravena en la Torre Médica Salud Vegas, con la recepción y el logo" fetchpriority="high">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-consultorio.webp" data-srcset="assets/media/sede-consultorio-800.webp 800w, assets/media/sede-consultorio.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Consultorio de Seravena con ventanal y vista a Medellín" decoding="async">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-recepcion.webp" data-srcset="assets/media/sede-recepcion-800.webp 800w, assets/media/sede-recepcion.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Recepción de Seravena con pared en madera y el logo de la marca" decoding="async">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-cabina.webp" data-srcset="assets/media/sede-cabina-800.webp 800w, assets/media/sede-cabina.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Cabina de tratamiento de Seravena con camilla y equipo de presoterapia" decoding="async">
   </div>
   <div class="hm-veil"></div>
   <div class="hl-grain" aria-hidden="true"></div>
@@ -187,7 +193,7 @@
   <!-- Sello circular (estilo "dato" de las referencias): la nota de Google cuenta hasta 4,9 -->
   <a class="hm-badge reveal" href="https://www.google.com/maps/place/?q=place_id:ChIJ21RBQgBQBUsRTS_qkIQTuJ4" target="_blank" rel="noopener" aria-label="4,9 de 5 en Google">
     <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="hm-ring-bg" cx="60" cy="60" r="54"/><circle class="hm-ring" cx="60" cy="60" r="54"/></svg>
-    <span class="hm-badge-num" data-hasta="4.9">0,0</span>
+    <span class="hm-badge-num" data-hasta="4.9">4,9</span>
     <span class="hm-badge-txt">en Google</span>
   </a>
 
@@ -371,7 +377,7 @@
     </div>
     <div class="h-blog-grid" id="homeBlog">
       <a class="h-post reveal" href="blog/piel-y-cuidados-lipedema"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/7479558.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Piel y lipedema: cuidados básicos que ayudan</h3></a>
-      <a class="h-post reveal" href="blog/como-elegir-clinica-lipedema-medellin"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/professionals.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir</h3></a>
+      <a class="h-post reveal" href="clinica-lipedema-medellin"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/professionals.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Clínica de lipedema en Medellín: cómo elegirla</h3></a>
       <a class="h-post reveal" href="blog/compresion-para-lipedema"><div class="h-post-media"><img loading="lazy" decoding="async" src="assets/media/band-veins.webp" alt=""></div><span class="h-post-tag">Lipedema</span><h3>Compresión para lipedema: en qué se diferencia de la de várices</h3></a>
     </div>
   </div>
@@ -408,6 +414,9 @@
     </div>
     <nav class="footer-nav">
       <a href="lipedema">Lipedema</a>
+      <a href="clinica-lipedema-medellin">Clínica de lipedema</a>
+      <a href="precio-lipedema-medellin">Precio del lipedema</a>
+      <a href="lipedema-colombia">Lipedema en Colombia</a>
       <a href="vascular">Salud vascular</a>
       <a href="varices-medellin">Várices</a>
       <a href="insuficiencia-venosa">Insuficiencia venosa</a>
@@ -439,7 +448,7 @@
 <a class="wa-float" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.748-.985zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
-<script src="script.js?v=20260925c"></script>
+<script src="script.js?v=20261107a"></script>
 <script src="contenido.js?v=9"></script>
 </body>
 </html>

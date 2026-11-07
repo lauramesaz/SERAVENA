@@ -4,6 +4,13 @@
    Piedra #F9F9F8 · Pardo #1A1A1A · Tipografía: Plus Jakarta Sans
    ============================================================ */
 
+/* Letra de respaldo con las medidas de Plus Jakarta Sans. Mientras llega la letra de la marca (Google Fonts,
+   display=swap) el texto se pinta con Arial o Roboto ajustadas a su mismo ancho y alto, así que cuando
+   cambia a la letra real el texto no se mueve (antes daba un salto: CLS 0,214 en /obesidad-medellin).
+   Medidas sacadas del archivo de la fuente: ascent 1,038 · descent 0,222 · ancho medio 0,48 em. */
+@font-face { font-family: 'Jakarta respaldo'; src: local('Arial'), local('ArialMT'), local('Helvetica'); size-adjust: 105.28%; ascent-override: 98.6%; descent-override: 21.09%; line-gap-override: 0%; }
+@font-face { font-family: 'Jakarta respaldo Android'; src: local('Roboto'), local('Roboto-Regular'); size-adjust: 106.01%; ascent-override: 97.91%; descent-override: 20.94%; line-gap-override: 0%; }
+
 :root {
   --chocolate: #4B412D;
   --chocolate-deep: #3a3222;
@@ -17,7 +24,7 @@
   --pardo: #1A1A1A;
   --muted: #6e6450;
   --white: #ffffff;
-  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font: 'Plus Jakarta Sans', 'Jakarta respaldo', 'Jakarta respaldo Android', -apple-system, BlinkMacSystemFont, sans-serif;
   --radius: 8px;
   --radius-md: 14px;
   --radius-lg: 16px;

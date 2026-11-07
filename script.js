@@ -759,13 +759,33 @@ if (hl && !reduceMotion) {
     ['touchstart', 'scroll'].forEach(function (ev) { window.addEventListener(ev, arranca, { once: true, passive: true }); });
     v.load();
   }
-  // Sello: la nota sube de 0,0 a 4,9 cuando arranca la entrada
+  // Banner de fotos de la sede: la primera carga con prioridad; las otras 3 se piden cuando la página
+  // termina de cargar (o a los 3 s, lo que pase primero) para no quitarle velocidad a la primera.
+  // La rotación (CSS) no cambia. Con "menos movimiento" solo se ve la primera, así que no se piden.
+  var resto = hero.querySelectorAll('.hm-slide[data-src]');
+  if (resto.length && !reduceMotion) {
+    var cargadas = false;
+    var cargaResto = function () {
+      if (cargadas) return; cargadas = true;
+      Array.prototype.forEach.call(resto, function (img) {
+        if (!img.dataset.src || (img.getAttribute('src') || '').indexOf('data:') !== 0) return; // ya la cambió el CMS
+        if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src'); img.removeAttribute('data-srcset');
+      });
+    };
+    if (document.readyState === 'complete') cargaResto();
+    else window.addEventListener('load', cargaResto);
+    setTimeout(cargaResto, 3000);
+  }
+  // Sello: la nota sube de 0,0 a 4,9 cuando arranca la entrada. En el HTML va la cifra real (4,9),
+  // para buscadores y lectores sin JavaScript; aquí se pone en 0,0 antes de que el sello aparezca y se anima.
   var num = hero.querySelector('.hm-badge-num');
   if (num) {
     var hasta = parseFloat(num.dataset.hasta) || 0;
     var pinta = function (x) { num.textContent = x.toFixed(1).replace('.', ','); };
     if (reduceMotion) pinta(hasta);
-    else setTimeout(function () {
+    else { pinta(0); setTimeout(function () {
       var t0 = null;
       (function paso(t) {
         if (!t0) t0 = t;
@@ -773,7 +793,7 @@ if (hl && !reduceMotion) {
         pinta(hasta * e);
         if (k < 1) requestAnimationFrame(paso);
       })(performance.now());
-    }, 1900);
+    }, 1900); }
   }
   // Círculos de "ruido": cientos de puntitos granulados a lo largo de cada círculo, con leve
   // desorden (como grano de película). Aparecen en orden, como si se dibujaran, y algunos titilan.

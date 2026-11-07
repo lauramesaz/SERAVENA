@@ -87,7 +87,8 @@ pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colomb
 **Reglas para TODOS los artículos (nuevos y los que se actualicen):**
 1. **Elige keywords con intención local o colombiana** cuando existan: "en Medellín", "en Colombia",
    "EPS", "precio en Colombia", "dónde hacerse…", "especialista en…". Si la keyword es general,
-   el artículo igual debe ser inconfundiblemente colombiano (puntos 2 a 5).
+   el artículo igual debe ser inconfundiblemente colombiano (puntos 2 a 5). **Excepción:** las
+   búsquedas de la tabla del punto 8 son de una página de servicio; el artículo no las usa como keyword.
 2. **Medellín o Colombia aparece de forma natural** en el primer párrafo, en al menos un `<h2>` y en
    la meta description. Nunca a la fuerza ni repetido (máx. 3–4 veces en todo el texto).
 3. **Contexto colombiano real:** EPS y medicina prepagada, INVIMA, pesos colombianos (COP), el clima
@@ -98,15 +99,41 @@ pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colomb
    Prohibido vocabulario de España: "vosotros", "ordenador", "móvil", "coger", "ambulatorio", "euros".
 5. **Cada artículo enlaza a UNA página de servicio local** del racimo (además de lo de §3):
    `../varices-medellin`, `../escleroterapia-medellin`, `../eco-doppler-venoso-medellin`,
-   `../lipedema`, `../insuficiencia-venosa`. Con texto de enlace descriptivo y local
-   (ej. "tratamiento de várices en Medellín"), no "haz clic aquí".
-6. **Título:** si la búsqueda tiene intención local, "Medellín" o "Colombia" va en el `<title>`.
+   `../lipedema`, `../clinica-lipedema-medellin`, `../precio-lipedema-medellin`, `../lipedema-colombia`,
+   `../insuficiencia-venosa`, `../obesidad-medellin`, `../precios`. Con texto de enlace descriptivo y local
+   (ej. "tratamiento de várices en Medellín"), no "haz clic aquí". Si el tema es el costo, el enlace va a
+   `../precios` (o a `../precio-lipedema-medellin` en lipedema) y las cifras se copian tal cual de esa página:
+   nunca escribas que "no damos precios". Si el tema es peso, obesidad o metabolismo, enlaza `../obesidad-medellin`.
+6. **Título:** si la búsqueda tiene intención local, "Medellín" o "Colombia" va en el `<title>`,
+   salvo que esa búsqueda sea de una página de servicio (tabla del punto 8): entonces el título va con
+   enfoque de duda o informativo, sin "en Medellín".
    Si es informativa pura (ej. "mitos de las medias"), no se fuerza en el título, pero sí en la
    meta description.
 7. **JSON-LD:** `"inLanguage": "es-CO"`.
 8. **Anticanibalización con las páginas de servicio:** un artículo NUNCA ataca la misma keyword
    que una página de servicio (ej. "escleroterapia en Medellín" es de `escleroterapia-medellin`).
-   El artículo responde una duda alrededor y enlaza a esa página.
+   El artículo responde una duda alrededor y enlaza a esa página **desde el primer párrafo**.
+   Estas búsquedas (y sus variantes con "Medellín", "El Poblado", "precio", "mejor", "dónde") son de la
+   página de servicio y ningún `<title>`, `<h1>`, `og:title` ni `headline` de un artículo las lleva
+   (actualizado el 7-nov-2026, tras arreglar 4 artículos que les quitaban la búsqueda):
+
+   | Búsqueda comercial local | Es de la página |
+   |---|---|
+   | eco doppler venoso en Medellín | `../eco-doppler-venoso-medellin` |
+   | clínica de lipedema en Medellín / dónde tratar el lipedema en Medellín | `../clinica-lipedema-medellin` |
+   | precio del tratamiento de lipedema / cuánto cuesta el lipedema en Medellín | `../precio-lipedema-medellin` |
+   | lipedema en Medellín (diagnóstico y tratamiento) | `../lipedema` |
+   | lipedema en Colombia (recursos, apoyo) | `../lipedema-colombia` |
+   | tratamiento de várices en Medellín / várices sin cirugía en Medellín | `../varices-medellin` |
+   | escleroterapia en Medellín | `../escleroterapia-medellin` |
+   | insuficiencia venosa en Medellín | `../insuficiencia-venosa` |
+   | bajar de peso / programa de obesidad en Medellín | `../obesidad-medellin` |
+   | precios de lipedema, várices y peso en Medellín | `../precios` |
+
+   Ejemplos de cómo quedaron los artículos que competían: `eco-doppler-venoso-que-es` = "Qué es el eco
+   doppler venoso y para qué sirve"; `dudas-antes-eco-doppler-venoso` = "Dudas antes de tu eco doppler
+   venoso"; `como-elegir-clinica-lipedema-medellin` = "Antes de elegir dónde tratar tu lipedema";
+   `guia-tratamientos-varices` = "Opciones para tratar las várices: cómo se elige". No se cambian sus URLs.
 
 ## 3. Reglas SEO (cómo posicionar)
 

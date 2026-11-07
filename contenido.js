@@ -71,7 +71,11 @@
         var pageI = svPage();
         svImages(document).forEach(function (img) {
           var k = 'img::' + svKey(pageI, img);
-          if (c[k]) img.src = c[k];
+          if (c[k]) {
+            // si la foto tiene versiones por tamaño (srcset) o carga diferida (data-src), la del CMS manda
+            img.removeAttribute('srcset'); img.removeAttribute('data-srcset'); img.removeAttribute('data-src');
+            img.src = c[k];
+          }
         });
       } catch (e) {}
 

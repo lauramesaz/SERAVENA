@@ -12,10 +12,10 @@ mucho mejor "esta clínica sabe de várices" cuando ve 8 artículos conectados q
 | Racimo | De qué va | Guía madre | Página de servicio |
 |--------|-----------|-----------|--------------------|
 | `sintomas` | Qué siente la paciente: pesadez, hinchazón, calambres, dolor | Guía completa de síntomas de mala circulación | `../varices-medellin` |
-| `tratamiento` | Qué se puede hacer: escleroterapia, láser, compresión | Guía de tratamientos de várices sin cirugía | `../escleroterapia-medellin` o `../insuficiencia-venosa` |
+| `tratamiento` | Qué se puede hacer: escleroterapia, láser, compresión | Opciones para tratar las várices (`guia-tratamientos-varices`) | `../varices-medellin`, `../escleroterapia-medellin` o `../insuficiencia-venosa` (costo: `../precios`) |
 | `diagnostico` | Cómo se estudia: eco doppler, consulta, señales de alarma | Cómo se diagnostica un problema venoso | `../eco-doppler-venoso-medellin` |
 | `situaciones` | Embarazo, trabajo de pie, viajes, calor, menopausia | Tus piernas según tu momento de vida | `../vascular.html` |
-| `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema` |
+| `lipedema` | Todo lo de lipedema | Guía completa del lipedema | `../lipedema`, `../clinica-lipedema-medellin`, `../precio-lipedema-medellin` o `../lipedema-colombia` (peso: `../obesidad-medellin`) |
 
 ### Regla de elección del tema (IMPORTANTE — cambió el 6-ago-2026)
 
@@ -34,6 +34,18 @@ aunque el lipedema es la mitad del negocio. A partir de ahora:
    párrafo de los parecidos y pregúntate si la misma persona quedaría satisfecha con lo que ya
    existe, aunque use otras palabras. Si sí, NO escribas otro artículo: **mejora el que ya existe**
    y marca el tema como `[descartado → mejorado <slug>]` explicando por qué.
+
+### Búsquedas que son de una página de servicio (NO escribir artículos para ellas)
+
+Desde el 7-nov-2026. Estas búsquedas comerciales locales las responde una página de servicio. Un
+artículo nuevo NO las toma como keyword ni las pone en su título o H1: se queda con una duda alrededor
+y enlaza a la página desde el primer párrafo. La tabla completa está en `INSTRUCCIONES.md` §2, punto 8.
+
+- "eco doppler venoso en Medellín" → `eco-doppler-venoso-medellin` (los artículos de eco doppler son de dudas: qué es, cómo prepararse, cómo leer el informe)
+- "clínica de lipedema en Medellín", "dónde tratar el lipedema en Medellín" → `clinica-lipedema-medellin`
+- "precio / cuánto cuesta el tratamiento de lipedema" → `precio-lipedema-medellin`
+- "tratamiento de várices en Medellín", "várices sin cirugía en Medellín" → `varices-medellin`
+- "escleroterapia en Medellín" → `escleroterapia-medellin` · "bajar de peso en Medellín" → `obesidad-medellin` · "precios" → `precios`
 
 ### Artículos fusionados (NO volver a crearlos)
 
@@ -237,7 +249,7 @@ distintos tipos de búsqueda. Ideas por formato:
 
 ## Tema fijado por Laura (22-sep-2026)
 
-- [publicado] Cómo elegir una clínica de lipedema en Medellín: qué preguntar antes de decidir — clínica de lipedema en Medellín — como-elegir-clinica-lipedema-medellin
+- [publicado] Antes de elegir dónde tratar tu lipedema: qué preguntar y qué revisar (antes "Cómo elegir una clínica de lipedema en Medellín"; retitulado el 7-nov-2026 porque esa búsqueda es de `clinica-lipedema-medellin`) — dónde tratar el lipedema — como-elegir-clinica-lipedema-medellin
 
 ## Temas nuevos (añadidos por el orquestador el 30-oct-2026 — no quedaba ningún tema pendiente; racimo más flojo según registro.md: `diagnostico`)
 

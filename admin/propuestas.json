@@ -90,7 +90,9 @@
       "impacto": "medio",
       "quien": "Claude",
       "como_se_mide": "Que el `<title>` y el `<h1>` del artículo ya no coincidan con los de la página de servicio (comprobación directa en el código). Si Search Console se conecta, vigilar si `eco-doppler-venoso-medellin.html` —no el artículo— empieza a aparecer para 'eco doppler venoso Medellín' en las 4-6 semanas siguientes; hoy ninguna de las dos páginas aparece.",
-      "estado": "propuesta"
+      "estado": "hecha",
+      "fecha_hecha": "2026-11-07",
+      "nota_ejecucion": "Hecha el 7-nov-2026 en la rama laura/seo-canibalizacion-portada (sin publicar hasta que Laura la apruebe): el artículo pasó a 'Qué es el eco doppler venoso y para qué sirve' (title, h1, og, twitter, headline y migas), el primer párrafo enlaza a eco-doppler-venoso-medellin y se actualizaron los textos de enlace en todo el blog. Lo mismo se hizo con dudas-antes-eco-doppler-venoso, como-elegir-clinica-lipedema-medellin y guia-tratamientos-varices."
     },
     {
       "id": "2026-W42-2",
