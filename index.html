@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" as="image" href="assets/media/sede-fachada.webp" imagesrcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" imagesizes="(max-width: 600px) 200px, 1672px" fetchpriority="high">
+<link rel="preload" as="image" href="assets/media/sede-fachada.webp" imagesrcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" imagesizes="(max-width: 480px) 200px, 1672px" fetchpriority="high">
 <link rel="stylesheet" href="styles.css?v=20260929a">
 <style>
 /* Banner del inicio con fotos reales de la sede: se turnan solas con un zoom muy lento */
@@ -157,13 +157,14 @@ html:not(.js) .hm-slide:first-child { animation: none; opacity: 1; }
 <!-- Banner del inicio: fotos reales de la sede que se turnan + sello de Google -->
 <section class="hero hero-home hero-mov hm-fotos" id="top">
   <!-- Velocidad: la primera foto carga con prioridad; las otras 3 las pide script.js cuando la página ya cargó.
-       En celular (hasta 600 px) se usa un recorte vertical de 800 px de cada foto: el mismo encuadre que se ve, con menos de la mitad del peso.
+       En celular (hasta 480 px) se usa un recorte vertical de 800 px de cada foto: el mismo encuadre que se ve, con menos de la mitad del peso.
+       (Entre 481 y 767 px la caja de la foto es más ancha que el recorte y se vería con zoom, por eso ahí va la foto completa.)
        El sizes de 200px es a propósito: así cualquier celular, aun con pantalla de alta densidad, elige el recorte. -->
   <div class="hm-media hm-slides">
-    <img class="hm-slide" src="assets/media/sede-fachada.webp" srcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Entrada de Seravena en la Torre Médica Salud Vegas, con la recepción y el logo" fetchpriority="high">
-    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-consultorio.webp" data-srcset="assets/media/sede-consultorio-800.webp 800w, assets/media/sede-consultorio.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Consultorio de Seravena con ventanal y vista a Medellín" decoding="async">
-    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-recepcion.webp" data-srcset="assets/media/sede-recepcion-800.webp 800w, assets/media/sede-recepcion.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Recepción de Seravena con pared en madera y el logo de la marca" decoding="async">
-    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-cabina.webp" data-srcset="assets/media/sede-cabina-800.webp 800w, assets/media/sede-cabina.webp 1672w" sizes="(max-width: 600px) 200px, 1672px" alt="Cabina de tratamiento de Seravena con camilla y equipo de presoterapia" decoding="async">
+    <img class="hm-slide" src="assets/media/sede-fachada.webp" srcset="assets/media/sede-fachada-800.webp 800w, assets/media/sede-fachada.webp 1672w" sizes="(max-width: 480px) 200px, 1672px" alt="Entrada de Seravena en la Torre Médica Salud Vegas, con la recepción y el logo" fetchpriority="high">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-consultorio.webp" data-srcset="assets/media/sede-consultorio-800.webp 800w, assets/media/sede-consultorio.webp 1672w" sizes="(max-width: 480px) 200px, 1672px" alt="Consultorio de Seravena con ventanal y vista a Medellín" decoding="async">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-recepcion.webp" data-srcset="assets/media/sede-recepcion-800.webp 800w, assets/media/sede-recepcion.webp 1672w" sizes="(max-width: 480px) 200px, 1672px" alt="Recepción de Seravena con pared en madera y el logo de la marca" decoding="async">
+    <img class="hm-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/media/sede-cabina.webp" data-srcset="assets/media/sede-cabina-800.webp 800w, assets/media/sede-cabina.webp 1672w" sizes="(max-width: 480px) 200px, 1672px" alt="Cabina de tratamiento de Seravena con camilla y equipo de presoterapia" decoding="async">
   </div>
   <div class="hm-veil"></div>
   <div class="hl-grain" aria-hidden="true"></div>

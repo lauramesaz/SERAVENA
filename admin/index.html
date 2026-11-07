@@ -298,6 +298,7 @@ function pickImage(img, key){
       if(up.error){ toast('No se pudo subir ('+up.error.message+')', true); return; }
       var url=sb.storage.from('imagenes').getPublicUrl(path).data.publicUrl;
       await sb.from('contenido').upsert({clave:key, valor:url});
+      img.removeAttribute('srcset'); img.removeAttribute('data-srcset'); img.removeAttribute('data-src'); // si la foto tiene versiones por tamaño, la nueva manda en la vista previa
       img.src=url; toast('✓ Foto actualizada');
     }catch(e){ toast('No se pudo subir la foto', true); }
   };

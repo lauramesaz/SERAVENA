@@ -91,6 +91,11 @@ pacientes de Medellín, del Valle de Aburrá, de Antioquia y del resto de Colomb
    búsquedas de la tabla del punto 8 son de una página de servicio; el artículo no las usa como keyword.
 2. **Medellín o Colombia aparece de forma natural** en el primer párrafo, en al menos un `<h2>` y en
    la meta description. Nunca a la fuerza ni repetido (máx. 3–4 veces en todo el texto).
+   **Excepción:** en los artículos que giran alrededor de una búsqueda de la tabla del punto 8 (por ejemplo
+   `eco-doppler-venoso-que-es`, `dudas-antes-eco-doppler-venoso`, `como-elegir-clinica-lipedema-medellin`
+   y `guia-tratamientos-varices`), Medellín basta en el primer párrafo, dentro del enlace a la página de
+   servicio, y en el cuerpo. Al actualizarlos o humanizarlos no se vuelve a poner en el `<title>`, el `<h1>`,
+   los `<h2>` ni la meta description.
 3. **Contexto colombiano real:** EPS y medicina prepagada, INVIMA, pesos colombianos (COP), el clima
    de Medellín (primavera todo el año, calor de tierra caliente en viajes a la costa o a Santa Fe de
    Antioquia), subir lomas, el Metro, trabajos de pie en comercio y salud. Solo datos verdaderos;
