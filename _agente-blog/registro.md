@@ -3,6 +3,30 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (8-nov-2026):** rutina automática. Hoy domingo = día de mejora (§4b), no artículo
+nuevo. mejora: `medico-vascular-o-cirujano-colombia` · búsqueda de Colombia: "especialidad vascular" y
+familia (unas 65 apariciones en 90 días, posición 35-84, según `mapa-palabras.md` §5) · Qué se hizo: se
+añadió la sección "Fuentes" (obligatoria desde el 7-nov) con 2 referencias oficiales colombianas abiertas
+por el Verificador médico — Decreto 4192 de 2010 (ReTHUS) y el "Consenso para la normalización de las
+denominaciones de las especialidades médico-quirúrgicas en Colombia" (Ministerio de Salud y Ministerio de
+Educación, junio 2022) — con las mismas fuentes en el JSON-LD `citation`; un enlace desde el primer párrafo
+a `../vascular`; un párrafo nuevo y honesto sobre médicos internistas con subespecialidad en medicina
+vascular como segundo camino de formación, con enlace a `../dr-jose-david-puerta-rojas` (describiéndolo
+exactamente como dice su propia ficha: internista con subespecialidad en medicina vascular, no cirujano
+vascular); y la frase "especialidad vascular" + la pregunta "¿cómo se llama el médico de las venas?" usadas
+con naturalidad en el cuerpo. `dateModified` (JSON-LD) y `lastmod` (sitemap.xml) actualizados a 2026-11-08;
+`datePublished` (2026-10-04) intacto. Investigación: 3 búsquedas web (especialidad de cirugía vascular y
+angiología en Colombia, qué es el ReTHUS, consenso de denominaciones médico-quirúrgicas del Minsalud) más
+la apertura directa de los 2 PDF/HTML de las fuentes. Policía humanizador: 9/10, HUMANO (corrigió un molde
+"la respuesta es..." cercano al ya multado "la respuesta corta es", y una repetición de "subespecialidad en
+medicina vascular" en el párrafo nuevo; confirmó que el resto del artículo no se tocó). Verificador médico:
+APROBADO — abrió las 2 fuentes él mismo (la del Minsalud como PDF binario, extraído con `pdftotext`: fila 15
+de la tabla confirma "Cirugía vascular periférica" como denominación consensuada, con "Cirugía vascular y
+angiología" entre sus denominaciones equivalentes reconocidas), confirmó la ficha del Dr. Puerta contra
+`dr-jose-david-puerta-rojas.html`, y confirmó que `post-note`, `post-faq`/JSON-LD `FAQPage`, la firma, el
+CTA y `reviewedBy` (sigue siendo la Organización; el slug no está en `revisados-medico.md`) quedaron
+intactos. Anotado como "hecho" en el Banco de mejoras de `mapa-palabras.md`.
+
 **Nota de verificación (7-nov-2026):** rutina diaria automática. Nuevo artículo: piel-tensa-brillante-piernas
 (racimo sintomas). Prueba del gemelo: `buscar-gemelos.py "Piel brillante y tensa en las piernas: qué puede
 significar" "piel tensa y brillante piernas"` dio máximo 0,22 con piel-y-cuidados-lipedema.html (ángulo:
