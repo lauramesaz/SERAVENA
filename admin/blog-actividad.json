@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-11-07",
+  "actualizado": "2026-11-09",
   "articulos": [
+    {
+      "fecha": "2026-11-09",
+      "titulo": "Exámenes para la circulación de las piernas: cuál pide el médico",
+      "slug": "examenes-circulacion-piernas",
+      "categoria": "Diagnóstico",
+      "keyword": "exámenes para la circulación de las piernas",
+      "seo": 96,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/examenes-circulacion-piernas",
+      "nota": "Generado por la rutina automática del equipo de agentes. Racimo 'diagnostico'. Tema salido de la cola con búsquedas reales de Colombia (temas.md). Médico: APROBADO sin correcciones, 3 fuentes abiertas (MedlinePlus/NIH, NHLBI/NIH, CDC). SEO: 96/100, APTO. Policía humanizador: 9/10, HUMANO. Enlaces en los dos sentidos con eco-doppler-venoso-que-es, guia-diagnostico-problema-venoso y pies-frios-circulacion-arterial-venosa."
+    },
     {
       "fecha": "2026-11-07",
       "titulo": "Piel tensa y brillante en las piernas: qué puede significar",

@@ -78,7 +78,7 @@ los demás países.
 | especialidad vascular · angiología · cirugía vascular · angiólogo o flebólogo · cómo se llama el médico de las venas | `medico-vascular-o-cirujano-colombia` | `como-elegir-especialista-vascular` (gemelo posible, 0,64 en buscar-gemelos del 28-oct: lo revisa el analista) | unas 65 apar. ("especialidad vascular" 24, "cirugía vascular especialidad" 11, "angiología especialidad" 8, "cirugía vascular y angiología" 8), pos. 35-84 |
 | qué es el doppler venoso · ecografía doppler de vasos venosos de miembros inferiores (el nombre de la orden) | `eco-doppler-venoso-que-es` | con precio, valor o Medellín = `/eco-doppler-venoso-medellin` | unas 40 apar. a este artículo en 20 variantes (pos. 25-92); el nombre de la orden, unas 10 |
 | cómo se hace / cómo se realiza el doppler venoso de miembros inferiores · eco doppler piernas | `eco-doppler-paso-a-paso` | preparación, ayuno, medicamentos = `dudas-antes-eco-doppler-venoso` · el informe = `leer-informe-eco-doppler-venoso` | unas 13 apar., pos. 44-74 |
-| exámenes para la circulación · estudio de las venas | **sin dueño**: artículo nuevo de la cola (`examenes-circulacion-piernas`) | hoy lo muestra `/proceso`, que no responde eso | 6 apar. (pos. 80-98) |
+| exámenes para la circulación · estudio de las venas · examen doopler | `examenes-circulacion-piernas` (publicado 9-nov-2026) | `eco-doppler-venoso-que-es` = qué es y para qué sirve el eco doppler venoso · `guia-diagnostico-problema-venoso` = el proceso diagnóstico completo · `pies-frios-circulacion-arterial-venosa` = cuando el síntoma apunta a arterias, no a venas | "estudio de las venas" 4 apar. (pos. 98), "examenes para la circulacion sanguinea" 2 (pos. 80), "eco doppler vascular" 2 (pos. 74), "ecodoppler vascular" 1, "examen doopler" 1 (pos. 11) |
 | drenaje linfático en Medellín · quién hace drenaje linfático | `drenaje-linfatico-medellin` (no tocar antes del 23-nov) | drenaje en el lipedema = `drenaje-linfatico-lipedema` | 5 apar. (pos. 24) + "quien hace drenaje linfatico" 2 (pos. 9,5) |
 | ¿la EPS cubre las várices / la escleroterapia? | `varices-eps-o-particular` | lipedema = `lipedema-valoracion-particular` | 3 apar. (pos. 3-14) |
 | úlceras venosas | `ulceras-venosas-piernas` | — | 5 apar. (pos. 68-86) |
@@ -95,7 +95,6 @@ artículo, la fila pasa a la sección 3 con su dueño.
 
 | Búsqueda | Dato (Colombia, 90 días) | Estado |
 |---|---|---|
-| exámenes para la circulación de las piernas | 6 apar. | en la cola: `examenes-circulacion-piernas` |
 | flebitis en el brazo | 2 apar. (36 en todos los países) | en la cola: `flebitis-en-el-brazo` |
 | varicectomía | 3 apar. | en la cola: `varicectomia-que-es` |
 | venas o várices | 2 apar. | en la cola: `venas-marcadas-o-varices` |

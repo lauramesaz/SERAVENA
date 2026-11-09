@@ -3,6 +3,50 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (9-nov-2026):** rutina automática. Hoy lunes = artículo nuevo (§4). Tema: primer
+`[pendiente]` de la cola con búsquedas reales de `temas.md` — "Exámenes para revisar la circulación de las
+piernas: cuál pide el médico y para qué sirve cada uno" (keyword: "exámenes para la circulación de las
+piernas", slug `examenes-circulacion-piernas`, racimo `diagnostico`). Confirmado en `mapa-palabras.md` que
+la búsqueda no tenía página dueña (sección 4) y que el título no usa ninguna frase prohibida (sección 2).
+**Prueba del gemelo:** `python3 _agente-blog/buscar-gemelos.py "Exámenes para revisar la circulación de las
+piernas: cuál pide el médico y para qué sirve cada uno" "exámenes para la circulación de las piernas"` →
+el más parecido fue `como-elegir-especialista-vascular.html` con 0,26 (por debajo del umbral 0,30); se leyó
+su título/descripción/primer párrafo y responde a una pregunta distinta (a qué especialista acudir, no qué
+examen pide el médico). No es gemelo.
+**Investigación (mínimo 3 búsquedas web, hechas):** (1) "ankle brachial index guideline peripheral artery
+disease diagnosis test"; (2) "duplex ultrasound venous reflux diagnosis chronic venous disease guideline
+ESVS"; (3) "guía práctica clínica Colombia insuficiencia venosa várices Minsalud diagnóstico"; más 2
+búsquedas dirigidas a fuentes oficiales: "MedlinePlus índice tobillo-brazo enfermedad arterial periférica
+examen" y "MedlinePlus ecografía dúplex venosa piernas para qué sirve".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/spanish/ency/article/003433.htm` (MedlinePlus/NIH, "Ecografía dúplex") — abierta
+  y confirma: combina ecografía tradicional y doppler, ayuda a diagnosticar coágulos, várices e
+  insuficiencia venosa, no requiere preparación especial, no hay riesgos.
+- `https://www.nhlbi.nih.gov/es/salud/arteriopatia-periferica/diagnostico` (NHLBI/NIH, "Arteriopatía
+  periférica: Diagnóstico") — abierta y confirma: el índice tobillo-brazo (ITB) es indoloro, usa manguito
+  de presión + ultrasonido, ≥1,00 normal, <0,90 probable enfermedad arterial periférica, <0,40 grave.
+- `https://www.cdc.gov/blood-clots/es/testing-diagnosis/pruebas-y-diagnostico-del-tromboembolismo-venoso.html`
+  (CDC, "Pruebas y diagnóstico del tromboembolismo venoso") — abierta y confirma: la ecografía dúplex es
+  "la prueba por imágenes estándar" para trombosis venosa profunda; el dímero D negativo sugiere que no hay
+  coágulo.
+**Veredictos:** Verificador médico: **APROBADO sin correcciones** (las 3 fuentes abiertas confirman cada
+afirmación; no se prometen curas, no hay indicaciones personalizadas, `reviewedBy` queda en la organización
+porque el slug no está en `revisados-medico.md`). Juez SEO: **96/100, APTO** (keyword en title/h1/primer
+párrafo/un h2/meta; title 55 car. + " | Seravena"; meta description 153 car.; 762 palabras en el cuerpo;
+JSON-LD `MedicalWebPage`+`BreadcrumbList`+`FAQPage` válidos; 0 huellas de IA de la lista §1.1; primer párrafo
+enlaza a la página dueña `../eco-doppler-venoso-medellin`). Policía humanizador: **9/10, HUMANO** (abre con
+pregunta real, 0 rayas largas, ritmo variado con 2 párrafos de una línea, criterio propio marcado
+explícitamente sobre empezar siempre por el eco doppler venoso, límite honesto explícito sobre que el ITB
+no se hace en el consultorio, contexto real de Medellín/El Poblado/EPS, cierre con acción concreta para la
+próxima cita). Los 3 gates se cumplieron en el primer intento.
+**Publicado:** "Exámenes para la circulación de las piernas: cuál pide el médico"
+(`examenes-circulacion-piernas`) — keyword "exámenes para la circulación de las piernas" — racimo
+`diagnostico`. Imagen de portada: `29648636.webp` (usada antes solo por `escleroterapia-que-es`, racimo
+`tratamiento`; ninguna imagen del racimo `diagnostico` quedaba libre, así que se tomó del fondo común, como
+indica la regla cuando el racimo propio está agotado). Enlaces en los dos sentidos con los 3 hermanos
+(`eco-doppler-venoso-que-es`, `guia-diagnostico-problema-venoso`, `pies-frios-circulacion-arterial-venosa`).
+`mapa-palabras.md`: la fila pasó de la sección 4 a la sección 3 con dueño `examenes-circulacion-piernas`.
+
 **Nota de verificación (8-nov-2026):** rutina automática. Hoy domingo = día de mejora (§4b), no artículo
 nuevo. mejora: `medico-vascular-o-cirujano-colombia` · búsqueda de Colombia: "especialidad vascular" y
 familia (unas 65 apariciones en 90 días, posición 35-84, según `mapa-palabras.md` §5) · Qué se hizo: se
