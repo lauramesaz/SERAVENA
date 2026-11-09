@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-11-02",
+  "actualizado": "2026-11-09",
   "propuestas": [
+    {
+      "id": "2026-W46-1",
+      "fecha": "2026-11-09",
+      "titulo": "Dejar de cederle a insuficiencia-venosa.html contenido de escleroterapia que hoy le resta posición a su propia página dueña (confirmado con Search Console)",
+      "categoria": "Técnico",
+      "que": "En `insuficiencia-venosa.html`: (1) en el paso 'Plan a tu medida' (línea 328, que menciona 'escleroterapia, láser u otras técnicas mínimamente invasivas') y en la pregunta frecuente '¿Cuánto cuesta el tratamiento?' (línea 376, que da precios detallados de escleroterapia, espuma y endoláser) añadir un enlace explícito, con texto descriptivo, hacia `escleroterapia-medellin.html` (ej. 'escleroterapia en Medellín') — el mismo principio de anticanibalización que el manual del blog ya exige entre artículos y páginas de servicio (`_agente-blog/INSTRUCCIONES.md`, §2b.8), aplicado aquí entre dos páginas de servicio hermanas. No se borra el contenido médico (la insuficiencia venosa sí puede tratarse con escleroterapia): se le dice a Google, con un enlace, cuál de las dos páginas debe rankear para esa palabra. (2) Quitar 'escleroterapia' de la meta `keywords` de la línea 20, que hoy mete las 5 búsquedas objetivo de la misión en una sola etiqueta (Google no la usa para posicionar, pero delata que la página no tiene un foco claro).",
+      "porque": "Dato real de Search Console (Colombia, 90 días, leído el 7-nov-2026 en `_agente-blog/mapa-palabras.md`, fila 7): 'escleroterapia en medellin' aparece en posición 5 y 68; 'escleroterapia medellin' en posición 32 y 69 — con la nota explícita del propio archivo: 'la segunda posición de cada una es /insuficiencia-venosa: hay que reforzar la dueña'. Es decir: `/escleroterapia-medellin` YA está en posición 5 para 'escleroterapia en Medellín' —una de las 5 búsquedas objetivo de la misión, y la más cerca de la primera página que he visto en todas las semanas que llevo revisando esto—, pero su página hermana `/insuficiencia-venosa` también aparece para la misma búsqueda, mucho peor posicionada, y le resta foco en lugar de enlazarla. Comprobé hoy en el código por qué pasa: `insuficiencia-venosa.html` declara 'Escleroterapia' como `MedicalProcedure` en su JSON-LD, la nombra en el paso 'Plan a tu medida' y da precios exactos de escleroterapia/espuma/endoláser en una pregunta frecuente — todo sin un solo enlace hacia `escleroterapia-medellin.html` (comprobado con grep: 0 coincidencias). La misma fila de `mapa-palabras.md` confirma el problema en espejo, fila 12: la búsqueda propia de esta página, 'insuficiencia venosa Medellín', solo tuvo 2 apariciones en 90 días, y el propio archivo anota que fueron 'por escleroterapia, no por su búsqueda' — ni siquiera está compitiendo bien por su propia keyword.",
+      "esfuerzo": "bajo",
+      "impacto": "alto",
+      "quien": "Claude",
+      "como_se_mide": "A las 4-6 semanas, en Search Console (filtro Colombia), comprobar si `/escleroterapia-medellin` consolida posición para 'escleroterapia en Medellín' (mejora desde compartir la búsqueda con `/insuficiencia-venosa` en 5/32 y 68/69) y si `/insuficiencia-venosa` empieza a recibir impresiones por su propia búsqueda, 'insuficiencia venosa Medellín', en vez de por escleroterapia. Comprobación inmediata, sin esperar datos: que `insuficiencia-venosa.html` enlace a `escleroterapia-medellin.html` donde menciona escleroterapia (hoy, cero enlaces).",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W46-2",
+      "fecha": "2026-11-09",
+      "titulo": "Añadir el campo priceRange al JSON-LD MedicalClinic, con el rango de precios que la propia web ya publica en precios.html",
+      "categoria": "Técnico",
+      "que": "Añadir `\"priceRange\": \"$300.000 - $10.000.000 COP\"` (o el formato exacto que Laura prefiera, mientras sea el rango real) al bloque JSON-LD `MedicalClinic` que se repite en las páginas raíz (index, vascular, varices-medellin, escleroterapia-medellin, eco-doppler-venoso-medellin, insuficiencia-venosa, lipedema, contacto, proceso, preguntas, profesionales, sobre, precios, entre otras). El rango usa cifras que `precios.html` YA publica, sin inventar nada: $300.000 es la más baja del sitio (escleroterapia, línea 237) y $10.000.000 la más alta de várices (endoláser dos piernas, línea 241). Si Laura prefiere un rango que cubra también lipedema (hasta $9.000.000, línea 228), puede ampliarse; lo importante es que sea una cifra real, copiada, no calculada.",
+      "porque": "Comprobado hoy con grep en todo el repositorio: el campo `priceRange` no aparece en ningún archivo `.html` del sitio — ninguna de las páginas con JSON-LD `MedicalClinic` lo declara. Es un campo estándar de schema.org para negocios locales (incluido el tipo `MedicalClinic`) que Google puede mostrar en resultados de búsqueda y en el Perfil de Empresa para que la paciente vea el nivel de precio sin entrar a la página. Hoy la web ya hace el trabajo difícil de ser transparente con el precio —`precios.html` publica 7 cifras exactas en pesos colombianos—, pero esa transparencia no está declarada en los datos estructurados, que es donde también cuenta para Google. No es una propuesta sobre contenido visible ni sobre un precio nuevo: es declarar, en el formato que Google lee, un dato que la propia clínica ya decidió hacer público.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Que el JSON-LD de las páginas pase el Google Rich Results Test mostrando el campo `priceRange` (hoy el validador no muestra ninguno). No se puede aislar un efecto propio sobre el ranking: es la misma corrección de consistencia de datos estructurados que `geo` (W38-2) y `availableService` (W39-1), ya hechas en el sitio.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W45-1",
       "fecha": "2026-11-02",
@@ -112,26 +138,30 @@
       "fecha": "2026-10-05",
       "titulo": "Corregir el idioma declarado de la portada: dice 'es', debería decir 'es-CO' como el resto del sitio",
       "categoria": "Técnico",
+      "estado": "caducada",
+      "caducada_el": "2026-11-09",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobado hoy en el código, `index.html` sigue con `lang=\"es\"` genérico. Lleva 35 días en `propuesta` sin que nadie la apruebe ni implemente; caduca solo el plazo de repetirla cada semana, no la idea.",
       "que": "En `index.html`, cambiar el atributo `<html lang=\"es\">` a `<html lang=\"es-CO\">`. Es el único cambio: no toca ningún otro atributo ni el diseño visible.",
       "porque": "Comprobado hoy en el código, página por página: de las 19 páginas raíz del sitio, `index.html` —la portada, la página con más tráfico— es la ÚNICA que declara `lang=\"es\"` genérico en vez de `lang=\"es-CO\"`; las otras 18 (incluidas `vascular.html`, `insuficiencia-venosa.html` y las 3 páginas de tratamiento) ya usan `es-CO`. La propia portada ya declara `\"inLanguage\": \"es-CO\"` en su JSON-LD, así que hoy se contradice a sí misma: le dice a Google una cosa en el `<html>` y otra en los datos estructurados. Es justo el tipo de señal de idioma/región que importa para el problema que el equipo diagnosticó el 28-sep-2026 (868 de 1.410 apariciones en Google fueron en España, solo 242 en Colombia) — no lo va a resolver por sí sola, pero es una inconsistencia real, verificable y gratuita de corregir, justo en la página de entrada.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Que las 19 páginas raíz, sin excepción, declaren `lang=\"es-CO\"` (comprobación directa en el código). Si Search Console vuelve a conectarse, vigilar si baja la proporción de apariciones en España frente a Colombia en las semanas siguientes — aunque ese cambio no se puede atribuir solo a este ajuste.",
-      "estado": "propuesta"
+      "como_se_mide": "Que las 19 páginas raíz, sin excepción, declaren `lang=\"es-CO\"` (comprobación directa en el código). Si Search Console vuelve a conectarse, vigilar si baja la proporción de apariciones en España frente a Colombia en las semanas siguientes — aunque ese cambio no se puede atribuir solo a este ajuste."
     },
     {
       "id": "2026-W41-2",
       "fecha": "2026-10-05",
       "titulo": "Publicar el precio real del eco doppler venoso en su página (es un examen de precio fijo, no un tratamiento personalizado)",
       "categoria": "Local",
+      "estado": "caducada",
+      "caducada_el": "2026-11-09",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse para el eco doppler: comprobado hoy en el código, `eco-doppler-venoso-medellin.html` sigue sin ninguna cifra en pesos. Pero encontré algo nuevo que hay que anotar: desde esta propuesta (5-oct), `insuficiencia-venosa.html` y `precios.html` SÍ publicaron precios reales de escleroterapia ($300.000), espuma ($1.500.000-$3.000.000) y endoláser ($6.500.000-$10.000.000) — es decir, la transparencia de precio sí avanzó en el sitio, solo que no en el único servicio de precio fijo que esta propuesta pedía. Lleva 35 días en `propuesta`; caduca el plazo de repetirla, no la idea.",
       "que": "En `eco-doppler-venoso-medellin.html`, añadir una mención visible del precio real del eco doppler venoso que se hace en el consultorio de El Poblado (una cifra en pesos colombianos, la misma que ya se cobra hoy en recepción), en el cuerpo del texto y, si cabe sin romper el patrón del resto de preguntas, como una pregunta frecuente nueva tipo '¿Cuánto cuesta el eco doppler venoso en Seravena?'. Laura tiene que confirmar primero la cifra exacta: no se inventa ni se calcula.",
       "porque": "Comprobado hoy en el código: ninguna de las páginas de servicio del sitio (`vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `contacto.html`) menciona un precio, ni en pesos ni como rango — cero coincidencias de '$' o 'COP'. Repitiendo hoy la búsqueda 'eco doppler venoso Medellín' encontré que dos competidores publican el precio exacto de ese mismo examen: Cardiovas IPS ($275.000) y Centrolab ($316.000, 30 minutos). A diferencia del tratamiento de várices —que el propio blog de esta semana ('precio-tratamiento-varices-colombia', 3-oct) explica con razón que no tiene tarifa fija porque depende del caso—, el eco doppler es 'un estudio propio que se cobra de forma independiente' (cita literal de ese mismo artículo): un examen puntual con un precio que sí es fijo y conocido de antemano. No es un gancho promocional: es la misma transparencia de precio que el propio manual señala como una de las cosas que tienen las clínicas que hoy salen primero, aplicada solo al único servicio del sitio donde el precio no varía por paciente.",
       "esfuerzo": "bajo",
       "impacto": "alto",
       "quien": "ambos",
-      "como_se_mide": "Impresiones y posición de 'eco doppler venoso Medellín' y 'precio eco doppler Medellín' en Search Console para esa URL en las 4-6 semanas siguientes a publicarse (hoy la página no aparece en los resultados para ninguna de las dos). Señal más simple e inmediata: que la cifra esté visible en la página y coincida con la que de verdad se cobra en recepción.",
-      "estado": "propuesta"
+      "como_se_mide": "Impresiones y posición de 'eco doppler venoso Medellín' y 'precio eco doppler Medellín' en Search Console para esa URL en las 4-6 semanas siguientes a publicarse (hoy la página no aparece en los resultados para ninguna de las dos). Señal más simple e inmediata: que la cifra esté visible en la página y coincida con la que de verdad se cobra en recepción."
     },
     {
       "id": "2026-W40-1",

@@ -280,3 +280,32 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   (1) sí lo mencionan en la misma frase de cierre con la dirección completa; `vascular.html` —la
   página pilar de todo el racimo— e `insuficiencia-venosa.html` tienen 0. Aviso a Laura: nota en
   GitHub con etiqueta `propuestas`.
+- **2026-11-09 · 2 propuestas nuevas (W46-1, W46-2) + 2 propuestas caducadas (W41-1, W41-2).**
+  Esta semana, por primera vez, tuve datos reales de Search Console (`_agente-blog/mapa-palabras.md`,
+  leído el 7-nov-2026, Colombia, 90 días) en vez de solo búsqueda web y lectura de código. Repetí
+  también las 5 búsquedas objetivo en Google: Seravena sigue sin aparecer en ninguna, mismo panorama
+  de siempre (Doctoralia, Top Doctors y las clínicas de otras semanas), aunque hoy 3 de las 5 búsquedas
+  devolvieron sobre todo literatura médica y no listados locales, sin competidor nuevo. El hallazgo
+  real vino de los propios datos de Google: la tabla de `mapa-palabras.md` muestra que
+  `/escleroterapia-medellin` YA está en posición 5 para 'escleroterapia en medellin' —la mejor posición
+  que he visto en toda la misión para una de las 5 búsquedas objetivo—, pero su página hermana
+  `/insuficiencia-venosa` también aparece para la misma búsqueda, mucho peor posicionada (68-69), porque
+  tiene contenido real de escleroterapia (un `MedicalProcedure` en su JSON-LD, un paso del proceso y una
+  pregunta frecuente con precios) sin un solo enlace hacia la página dueña; lo confirmé con grep en el
+  código. De espejo, la propia búsqueda de `/insuficiencia-venosa` ('insuficiencia venosa Medellín') casi
+  no aparece, y cuando aparece es "por escleroterapia, no por su búsqueda" (cita literal del archivo). De
+  ahí salió W46-1. Buscando con grep en todo el repositorio confirmé que el campo `priceRange` no existe
+  en ningún archivo del sitio, pese a que `precios.html` ya publica 7 cifras reales en pesos colombianos
+  (de $300.000 a $10.000.000); de ahí W46-2, que solo pide declarar en el JSON-LD lo que la web ya hace
+  público, sin inventar ningún precio nuevo. Antes de proponer comprobé en el código el estado de las 9
+  propuestas pendientes (W41-1 lang="es" en index.html, W41-2 precio del eco doppler, W42-2
+  medicalSpecialty inválido, W43-1 títulos largos, W43-2 Open Graph, W44-1 flebólogo, W44-2 lastmod del
+  sitemap, W45-1 Dr. Puerta Rojas en las páginas vasculares, W45-2 'El Poblado' en vascular.html e
+  insuficiencia-venosa.html): ninguna se ha implementado todavía. Dos de ellas, W41-1 y W41-2, llevan 35
+  días en `propuesta`, más de un mes, así que las marqué `caducada` con una nota cada una en vez de
+  repetirlas; en W41-2 anoté que, aunque el eco doppler sigue sin precio publicado, sí se publicó precio
+  real de escleroterapia/espuma/endoláser en `insuficiencia-venosa.html` y `precios.html` desde que se
+  propuso el 5-oct — un avance parcial que vale la pena que Laura conozca. También noté, sin que cuente
+  como propuesta, que W43-2 (Open Graph) sigue confirmándose como ya implementada en `vascular.html` y
+  `lipedema.html` (7 etiquetas `og:` cada una), igual que la semana pasada; sigue en `propuesta` porque no
+  me corresponde marcarla `hecha`. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
