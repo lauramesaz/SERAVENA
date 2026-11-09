@@ -324,3 +324,65 @@ Búsquedas nuevas: "picor en las piernas" (44, pos. 29), "flebitis" (28, pos. 29
 | tabaco-alcohol-circulacion | Cigarrillo y trago: lo que le hacen a tus piernas | Cigarrillo, trago y circulación: qué pasa en tus piernas |
 | lipedema-y-embarazo | Lipedema y embarazo: ¿qué pasa con tus piernas? | Lipedema y embarazo: qué esperar y cómo cuidarte |
 | drenaje-linfatico-medellin | Drenaje linfático en Medellín: ¿cuándo sí sirve? | Drenaje linfático en Medellín: cuándo sirve |
+
+
+---
+
+## Semana del 9-nov-2026
+
+### Cifras (11-oct al 7-nov, 28 días)
+
+- Clics: 51 · Impresiones: 3.591 · Posición media: 23,1 (semana anterior: 42 · 4.051 · 27,2)
+
+| País | Clics | Impresiones | Posición |
+|---|---|---|---|
+| Colombia | 40 | 681 | 22,2 |
+| España | 7 | 1.685 | 29,3 |
+| México | 1 | 280 | 14,3 |
+| Argentina | 1 | 136 | 15,4 |
+| Estados Unidos | 0 | 158 | 15,0 |
+
+### Top 10 páginas (28 días)
+
+| Página | Clics | Impr. | Posición |
+|---|---|---|---|
+| / (inicio) | 31 | 146 | 2,5 |
+| contacto | 4 | 93 | 4,2 |
+| dr-jose-david-puerta-rojas | 4 | 23 | 2,7 |
+| blog/anticonceptivos-y-varices.html | 1 | 459 | 9,1 |
+| blog/senales-lipedema-primer-contacto | 1 | 288 | 58,4 |
+| blog/manchas-tobillos-causas | 1 | 242 | 8,5 |
+| blog/medias-compresion-colombia-comprar | 1 | 107 | 15,3 |
+| blog/medias-compresion-embarazo | 1 | 95 | 28,7 |
+| blog/lipedema-y-sueno | 1 | 82 | 5,6 |
+| blog/piernas-hinchadas-menstruacion | 1 | 66 | 9,6 |
+
+### Top 10 búsquedas (28 días)
+
+| Búsqueda | Clics | Impr. | Posición |
+|---|---|---|---|
+| seravena clinica | 13 | 34 | 1,5 |
+| seravena | 4 | 39 | 3,6 |
+| cómo saber si tengo lipedema | 1 | 59 | 56,8 |
+| lipedema como identificar | 0 | 53 | 60,2 |
+| como saber si tengo lipedema | 0 | 48 | 60,1 |
+| picor en las piernas | 0 | 47 | 29,2 |
+| como saber si tienes lipedema | 0 | 44 | 63,6 |
+| como diagnosticar lipedema | 0 | 41 | 60,3 |
+| flebitis | 0 | 41 | 35,5 |
+| test para saber si tengo lipedema | 0 | 37 | 19,0 |
+
+### Indexación
+
+- 122 páginas en el sitemap: 112 en Google, 10 todavía no (examenes-circulacion-piernas y medias-compresion-para-volar "no reconocidas"; vendaje-multicapa-lipedema, tipos-de-lipedema-zonas, escleroterapia-con-espuma, flebectomia-ambulatoria-que-es, medias-compresion-posparto, lipedema-cirugia-bariatrica, lipedema-en-adolescentes y lipedema-y-trabajo "descubiertas, sin indexar").
+- `seguimiento-busquedas.py` todavía no existe: no hay tabla de las 15 búsquedas objetivo ni de clics sin marca (los 17 clics de "seravena" son de marca; el resto, 34).
+
+### Cambios de hoy (no tocar antes del 30-nov-2026)
+
+| Página | Qué se añadió (pregunta frecuente al final, también en el FAQPage) |
+|---|---|
+| clinica-lipedema-medellin (página que vende) | ¿Necesito un eco doppler para saber si tengo lipedema? (antes: 6 preguntas) |
+| blog/varices-eps-o-particular | ¿La EPS cubre la escleroterapia de las várices? (sin afirmar coberturas) |
+| blog/medias-compresion-embarazo | ¿Existen medias de compresión para embarazadas? |
+
+Búsquedas nuevas de Colombia sin dueña: ninguna esta semana (sin seguimiento no hay dato nuevo).
