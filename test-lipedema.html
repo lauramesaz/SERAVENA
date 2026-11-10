@@ -71,6 +71,9 @@
   .tl-disclaimer { font-size: .85rem; color: rgba(255,255,255,.62); margin: 0 auto 22px; max-width: 480px; }
   .tl-actions { display: flex; flex-direction: column; gap: 10px; max-width: 380px; margin: 0 auto; }
   .tl-actions .btn { width: 100%; padding: 15px 20px; font-family: var(--font); font-size: .95rem; }
+  /* Ronda 3: en el resultado solo quedan dos botones; precio y compartir pasan a enlaces de texto (misma posición y misma clave del editor) */
+  .tl-actions .btn.tl-link, .tl-actions .btn.tl-link:hover { width: auto; align-self: center; min-height: 44px; padding: 10px 12px; border: 0; border-radius: 0; background: none; box-shadow: none; transform: none; color: var(--camel-on-dark); font-size: .92rem; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+  .tl-actions .btn.tl-link + .btn.tl-link { margin-top: -10px; }
   #tlResult:focus { outline: none; }
   .tl-share-alt { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin: 14px 0 4px; font-size: .88rem; }
   .tl-share-alt a, .tl-share-alt button { color: var(--camel-on-dark); background: none; border: none; font-family: var(--font); font-size: .88rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 4px 0; }
@@ -99,7 +102,7 @@
   .tl-embed h2 { font-size: clamp(1.35rem, 3vw, 1.7rem); color: var(--chocolate); margin-bottom: 10px; }
   .tl-embed p { color: var(--muted); margin-bottom: 16px; }
   .tl-code { display: block; width: 100%; background: var(--piedra); border: 1px solid var(--arena-deep); border-radius: var(--radius); padding: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .82rem; color: var(--pardo); white-space: pre-wrap; word-break: break-all; margin-bottom: 14px; }
-  .tl-copy { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 999px; background: var(--chocolate); color: var(--white); border: none; font-family: var(--font); font-weight: 600; font-size: .92rem; cursor: pointer; }
+  .tl-copy { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 999px; background: var(--chocolate); color: var(--white); border: none; font-family: var(--font); font-weight: 600; font-size: .92rem; cursor: pointer; }
   .tl-copy-msg { display: inline-block; margin-left: 12px; font-size: .88rem; color: var(--camel-on-light); }
 
   @media (max-width: 480px) {
@@ -269,8 +272,8 @@
         <div class="tl-actions">
           <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" data-test-wa="agendar" target="_blank" rel="noopener" class="btn btn-primary">Agendar valoración por WhatsApp</a>
           <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web.%20%C2%BFMe%20env%C3%ADan%20mi%20resultado%20por%20WhatsApp%3F" data-test-wa="guia" data-c="test_guia_wa" target="_blank" rel="noopener" class="btn btn-ghost">Envíame mi resultado por WhatsApp</a>
-          <a href="precio-lipedema-medellin" data-c="test_ver_precio" class="btn btn-ghost">Ver precio del tratamiento</a>
-          <button type="button" class="btn btn-ghost" id="tlShare">Compartir el test</button>
+          <a href="precio-lipedema-medellin" data-c="test_ver_precio" class="btn btn-ghost tl-link">Ver precio del tratamiento</a>
+          <button type="button" class="btn btn-ghost tl-link" id="tlShare">Compartir el test</button>
         </div>
         <div class="tl-share-alt">
           <a id="tlShareWa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>

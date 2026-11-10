@@ -1189,3 +1189,13 @@ a.hero-bar-item:hover { color: var(--white); }
 @media (max-width: 640px) {
   .home .areas-3 .area-card { aspect-ratio: 4 / 5; }
 }
+
+/* ===== Ronda 3 (nov-2026): arreglos en celular, sin cambio de diseño ===== */
+/* Galería "Nuestra sede": en pantallas de 480 px o menos el margen del contenedor es 22 px (no 32); con -32 se salía 10 px por cada lado */
+@media (max-width: 480px) { .h-sede-grid { margin: 0 -22px; padding: 0 22px 8px; scroll-padding: 0 22px; } }
+/* Pie: ".container { padding: 0 22px }" borraba en celular el aire entre los datos de contacto y la línea del copyright */
+@media (max-width: 480px) { .footer .footer-inner { padding-bottom: 44px; } .footer .footer-bottom { padding-top: 26px; } }
+/* Zona de toque de 44 px como mínimo (invisible: no cambia el tamaño que se ve) */
+.nav-toggle, .bm-chip, .et-tick { position: relative; }
+.nav-toggle::after, .bm-chip::after, .et-tick::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px; min-width: 44px; transform: translateY(-50%); }
+.nav-toggle::after { left: -1px; right: -1px; }
