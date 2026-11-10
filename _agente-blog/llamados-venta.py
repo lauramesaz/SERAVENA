@@ -5,7 +5,9 @@ Qué hace en cada blog/<slug>.html que sea un artículo (los que solo redirigen 
   1. Pone el tema en <article class="post" data-tema="...">: lipedema | venas | peso | medicos.
      Si el artículo ya lo trae, lo respeta (así el redactor puede fijarlo a mano).
   2. Inserta UN llamado a mitad del artículo (aside.post-cta), después de la segunda sección H2.
-  3. Cambia el cierre (section.cta) por el que corresponde al tema.
+  3. Cambia el cierre (section.cta) por el que corresponde al tema. Lipedema lleva además
+     "Ver precio del tratamiento" (/precio-lipedema-medellin) y venas "Ver precios de várices" (/precios).
+     Si aquí se cambian los botones de un tema, al volver a correrlo se actualizan en todos los artículos.
 Se puede correr las veces que haga falta: lo que ya está hecho no se repite.
 
 Uso (desde la raíz de la web):  python3 _agente-blog/llamados-venta.py            # todos
@@ -23,7 +25,8 @@ WA = 'https://wa.me/573052088204?text='
 def wa(texto):
     return WA + quote(texto, safe='')
 
-# Texto y botones por tema. Sin precios, horarios ni promesas: solo el siguiente paso.
+# Texto y botones por tema. Sin cifras, horarios ni promesas: solo el siguiente paso
+# (los precios viven en /precios y /precio-lipedema-medellin; aquí solo se enlazan).
 TEMAS = {
     'lipedema': {
         'msg': 'Hola Seravena, estoy leyendo el blog sobre lipedema y quiero agendar mi valoración',
@@ -32,6 +35,7 @@ TEMAS = {
         'cierre': 'Haz el test de lipedema y, si te reconoces en las señales, agenda tu valoración especializada.',
         'btn1': 'Agendar valoración de lipedema',
         'btn2': ('../test-lipedema', 'Hacer el test'),
+        'btn3': ('../precio-lipedema-medellin', 'Ver precio del tratamiento'),
     },
     'venas': {
         'msg': 'Hola Seravena, estoy leyendo el blog sobre várices y circulación y quiero agendar mi valoración vascular',
@@ -39,7 +43,7 @@ TEMAS = {
         'medio_btn': 'Agendar valoración vascular por WhatsApp →',
         'cierre': 'Agenda tu valoración vascular con eco doppler y sal de dudas con acompañamiento profesional.',
         'btn1': 'Agendar valoración vascular',
-        'btn2': ('../precios', 'Ver precios'),
+        'btn2': ('../precios', 'Ver precios de várices'),
     },
     'peso': {
         'msg': 'Hola Seravena, vengo del blog y quiero información del programa para bajar de peso',
@@ -113,6 +117,15 @@ def llamado_medio(tema):
             '        <a data-c="blog_medio_%s_btn" data-wa="pagina" href="%s" target="_blank" rel="noopener">%s</a>\n'
             '      </aside>\n\n      ') % (tema, t['medio'], tema, wa(t['msg']), t['medio_btn'])
 
+def botones_cierre(tema):
+    t = TEMAS[tema]
+    b = ('<div class="cta-actions reveal">\n'
+         '      <a href="%s" data-wa="pagina" target="_blank" rel="noopener" class="btn btn-primary">%s</a>\n'
+         '      <a href="%s" class="btn btn-ghost">%s</a>\n') % (wa(t['msg']), t['btn1'], t['btn2'][0], t['btn2'][1])
+    if t.get('btn3'):   # botón añadido después: lleva data-c para no depender de la posición (contenido.js)
+        b += '      <a href="%s" class="btn btn-ghost" data-c="blog_cierre_%s_btn3">%s</a>\n' % (t['btn3'][0], tema, t['btn3'][1])
+    return b + '    </div>'
+
 def procesar(ruta):
     html = open(ruta, encoding='utf-8').read()
     m = re.search(r'<article class="post"([^>]*)>', html)
@@ -145,18 +158,17 @@ def procesar(ruta):
             hecho.append('SIN-LUGAR-PARA-EL-LLAMADO')
 
     c = re.search(r'<section class="cta">.*?</section>', html, re.S)
-    if c and 'data-wa="pagina"' not in c.group(0):
+    if c:
         t = TEMAS[tema]
         sec = c.group(0)
-        sec = re.sub(r'<p class="reveal">Agenda tu valoración con eco [^<]*</p>',
-                     '<p class="reveal">%s</p>' % t['cierre'], sec, count=1)
-        botones = ('<div class="cta-actions reveal">\n'
-                   '      <a href="%s" data-wa="pagina" target="_blank" rel="noopener" class="btn btn-primary">%s</a>\n'
-                   '      <a href="%s" class="btn btn-ghost">%s</a>\n'
-                   '    </div>') % (wa(t['msg']), t['btn1'], t['btn2'][0], t['btn2'][1])
-        sec2 = re.sub(r'<div class="cta-actions reveal">.*?</div>', lambda _: botones, sec, count=1, flags=re.S)
-        if sec2 != c.group(0):
-            html = html.replace(c.group(0), sec2, 1)
+        botones = botones_cierre(tema)
+        if 'data-wa="pagina"' not in sec:             # cierre original de la plantilla
+            sec = re.sub(r'<p class="reveal">Agenda tu valoración con eco [^<]*</p>',
+                         '<p class="reveal">%s</p>' % t['cierre'], sec, count=1)
+        if botones not in sec:                        # nuevo, o los botones del tema cambiaron
+            sec = re.sub(r'<div class="cta-actions reveal">.*?</div>', lambda _: botones, sec, count=1, flags=re.S)
+        if sec != c.group(0):
+            html = html.replace(c.group(0), sec, 1)
             hecho.append('cierre')
 
     if hecho:

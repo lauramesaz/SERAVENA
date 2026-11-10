@@ -340,7 +340,8 @@ Un artículo que ya sale en Google suele rendir más con un empujón que uno nue
 - [ ] ¿`<article class="post" data-tema="…">` tiene el tema correcto (`lipedema`, `venas`, `peso` o
       `medicos`) y corriste `python3 _agente-blog/llamados-venta.py blog/<slug>.html`? Ese script pone
       el llamado a mitad del artículo (después de la segunda sección H2) y el cierre que corresponde al
-      tema: lipedema → test + valoración de lipedema; venas → valoración vascular con eco doppler;
+      tema: lipedema → valoración de lipedema + test + "Ver precio del tratamiento"
+      (/precio-lipedema-medellin); venas → valoración vascular con eco doppler + "Ver precios de várices" (/precios);
       peso → programa; medicos → referir paciente + guía. No inventes otro cierre ni otro mensaje de
       WhatsApp: el mensaje con el título del artículo lo arma `script.js` solo.
 - [ ] ¿Nada inventado, ninguna promesa de cura, tono cálido?
