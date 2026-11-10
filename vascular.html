@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="styles.css?v=20260924p">
+<link rel="stylesheet" href="styles.css?v=20261109a">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
 <script type="application/ld+json">
@@ -145,6 +145,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Conviene pedir una valoración si los síntomas se repiten o van empeorando, si ya notas várices, arañitas o hinchazón visible, si aparecen cambios en el color o la textura de la piel cerca del tobillo, o si la pesadez afecta tu día a día. Si la hinchazón aparece de forma repentina en una sola pierna, con dolor, calor o enrojecimiento, busca atención médica sin demora."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta tratar las várices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de lo que muestre el eco doppler. Como referencia: escleroterapia desde $300.000 por sesión, espuma desde $1.500.000 por pierna y endoláser desde $6.500.000 una pierna. En espuma y endoláser las medias de compresión van incluidas."
       }
     }
   ]
@@ -288,6 +296,7 @@
       <div class="qa-card"><h3>¿Se pueden tratar las várices sin cirugía?</h3><p>Hoy buena parte de los casos se resuelve con procedimientos mínimamente invasivos, que suelen hacerse de forma ambulatoria, con anestesia local y una vuelta rápida a la vida normal. Cuál corresponde en tu caso lo define el diagnóstico, porque no todas las várices se tratan igual.</p></div>
       <div class="qa-card"><h3>¿Duele el eco doppler venoso?</h3><p>No. Es un procedimiento tranquilo y sin anestesia: te acuestas o te pones de pie, el profesional aplica un gel sobre la piel de la pierna y desliza el transductor por distintos segmentos de la vena, presionando suavemente en algunos puntos.</p></div>
       <div class="qa-card"><h3>¿Cuándo debo consultar a un especialista vascular?</h3><p>Conviene pedir una valoración si los síntomas se repiten o van empeorando, si ya notas várices, arañitas o hinchazón visible, si aparecen cambios en el color o la textura de la piel cerca del tobillo, o si la pesadez afecta tu día a día. Si la hinchazón aparece de forma repentina en una sola pierna, con dolor, calor o enrojecimiento, busca atención médica sin demora.</p></div>
+      <div class="qa-card"><h3 data-c="vascular_faq_precio_q">¿Cuánto cuesta tratar las várices?</h3><p data-c="precio_venas_faq_r">Depende de lo que muestre el eco doppler. Como referencia: escleroterapia desde $300.000 por sesión, espuma desde $1.500.000 por pierna y endoláser desde $6.500.000 una pierna. En espuma y endoláser las medias de compresión van incluidas.</p></div>
     </div>
   </div>
 </section>
@@ -332,6 +341,32 @@
     </div>
   </div>
 </section>
+
+<!-- ¿Cuánto cuesta? Mismos valores de precios.html: si cambian allá, cambiar aquí. (aside y no section: no mueve las claves por posición de contenido.js) -->
+<aside class="section sv-precio" id="precio" aria-labelledby="precio-titulo">
+  <div class="container sv-precio-grid">
+    <div class="section-head">
+      <p class="eyebrow reveal" data-c="vascular_precio_eyebrow">Precios de referencia</p>
+      <h2 class="reveal" id="precio-titulo" data-c="vascular_precio_titulo">¿Cuánto cuestan los tratamientos de várices?</h2>
+      <p class="lead reveal" data-c="vascular_precio_lead">Depende de lo que muestre el eco doppler. Como referencia, estos son los valores de hoy; después de valorarte te entregamos el plan por escrito con su costo exacto.</p>
+    </div>
+    <div class="sv-precio-box reveal">
+      <ul class="precio-lista">
+        <li data-c="precio_venas_esclero">Escleroterapia (arañitas) <b>desde $300.000</b><span class="sr-only"> por sesión</span></li>
+        <li data-c="precio_venas_espuma_trib">Espuma de tributarias <b>$1.500.000</b></li>
+        <li data-c="precio_venas_espuma_safena">Espuma de safena <b>$3.000.000</b></li>
+        <li data-c="precio_venas_endo1">Endoláser, una pierna <b>$6.500.000</b></li>
+        <li data-c="precio_venas_endo2">Endoláser, dos piernas <b>$10.000.000</b></li>
+      </ul>
+      <p class="precio-nota" data-c="precio_venas_nota">Escleroterapia: precio por sesión. Espuma: precio por pierna. En espuma y endoláser las medias de compresión van incluidas.</p>
+      <p class="precio-nota" data-c="precio_venas_legal">Precios de referencia a noviembre de 2026. El valor final depende de tu valoración. Atención particular, sin convenio con EPS ni prepagada.</p>
+      <div class="sv-precio-actions">
+        <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vi%20los%20precios%20de%20v%C3%A1rices%20en%20la%20web%20y%20quiero%20agendar%20mi%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary" data-c="vascular_precio_wa">Agendar valoración por WhatsApp</a>
+        <a href="precios" class="link-arrow">Ver todos los precios <i>→</i></a>
+      </div>
+    </div>
+  </div>
+</aside>
 
 <!-- Salud vascular en Medellín -->
 <section class="section editorial section-alt" id="medellin">

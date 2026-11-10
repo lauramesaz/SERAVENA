@@ -41,7 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="styles.css?v=20260924p">
+<link rel="stylesheet" href="styles.css?v=20261109a">
 <link rel="icon" type="image/png" href="assets/isotype-chocolate.png">
 <script>document.documentElement.classList.add('js');window.addEventListener('DOMContentLoaded',function(){document.body.classList.add('loaded')});</script>
 
@@ -78,7 +78,8 @@
     { "@type": "Question", "name": "¿Cómo se diagnostica la insuficiencia venosa?", "acceptedAnswer": { "@type": "Answer", "text": "Con un eco doppler venoso: un estudio que observa el flujo de la sangre por dentro, sin dolor y sin radiación, para saber en qué estado están tus venas." } },
     { "@type": "Question", "name": "¿El tratamiento de várices duele?", "acceptedAnswer": { "@type": "Answer", "text": "Son técnicas mínimamente invasivas y muy bien toleradas. La mayoría de personas siente molestias mínimas, y la valoración con eco doppler es totalmente indolora." } },
     { "@type": "Question", "name": "¿Puedo hacer vida normal después del tratamiento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Al ser un procedimiento ambulatorio, puedes retomar tus actividades pronto, siguiendo indicaciones sencillas para cuidar el resultado." } },
-    { "@type": "Question", "name": "¿El tratamiento de várices es seguro?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos técnicas modernas realizadas por especialistas y siempre partimos de un diagnóstico previo con eco doppler." } }
+    { "@type": "Question", "name": "¿El tratamiento de várices es seguro?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos técnicas modernas realizadas por especialistas y siempre partimos de un diagnóstico previo con eco doppler." } },
+    { "@type": "Question", "name": "¿Cuánto cuesta el tratamiento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de lo que muestre el eco doppler. Como referencia: escleroterapia desde $300.000 por sesión, espuma desde $1.500.000 por pierna y endoláser desde $6.500.000 una pierna. Se paga por partes, máximo en 3 meses." } }
   ]
 }
 </script>
@@ -355,6 +356,32 @@ body{--clay:#B85C38}                 /* acento de atención reservado: cálido p
     </div>
   </div>
 </section>
+
+<!-- ¿Cuánto cuesta? Mismos valores de precios.html: si cambian allá, cambiar aquí. (aside y no section: no mueve las claves por posición de contenido.js) -->
+<aside class="section sv-precio" id="precio" aria-labelledby="precio-titulo">
+  <div class="container sv-precio-grid">
+    <div class="section-head">
+      <p class="eyebrow reveal" data-c="insuf_precio_eyebrow">Precios de referencia</p>
+      <h2 class="reveal" id="precio-titulo" data-c="insuf_precio_titulo">¿Cuánto cuesta tratar la insuficiencia venosa?</h2>
+      <p class="lead reveal" data-c="insuf_precio_lead">Depende de lo que muestre el eco doppler. Como referencia, estos son los valores de hoy; después de valorarte te entregamos el plan por escrito con su costo exacto.</p>
+    </div>
+    <div class="sv-precio-box reveal">
+      <ul class="precio-lista">
+        <li data-c="precio_venas_esclero">Escleroterapia (arañitas) <b>desde $300.000</b><span class="sr-only"> por sesión</span></li>
+        <li data-c="precio_venas_espuma_trib">Espuma de tributarias <b>$1.500.000</b></li>
+        <li data-c="precio_venas_espuma_safena">Espuma de safena <b>$3.000.000</b></li>
+        <li data-c="precio_venas_endo1">Endoláser, una pierna <b>$6.500.000</b></li>
+        <li data-c="precio_venas_endo2">Endoláser, dos piernas <b>$10.000.000</b></li>
+      </ul>
+      <p class="precio-nota" data-c="precio_venas_nota">Escleroterapia: precio por sesión. Espuma: precio por pierna. En espuma y endoláser las medias de compresión van incluidas.</p>
+      <p class="precio-nota" data-c="precio_venas_legal">Precios de referencia a noviembre de 2026. El valor final depende de tu valoración. Atención particular, sin convenio con EPS ni prepagada.</p>
+      <div class="sv-precio-actions">
+        <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vi%20los%20precios%20de%20v%C3%A1rices%20en%20la%20web%20y%20quiero%20agendar%20mi%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary" data-c="insuf_precio_wa">Agendar valoración por WhatsApp</a>
+        <a href="precios" class="link-arrow">Ver todos los precios <i>→</i></a>
+      </div>
+    </div>
+  </div>
+</aside>
 
 <!-- ===== Preguntas frecuentes (SEO + objeciones) ===== -->
 <section class="section qa">
