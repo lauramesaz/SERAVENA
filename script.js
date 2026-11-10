@@ -930,6 +930,7 @@ if (hl && !reduceMotion) {
       if (cargadas) return; cargadas = true;
       Array.prototype.forEach.call(resto, function (img) {
         if (!img.dataset.src || (img.getAttribute('src') || '').indexOf('data:') !== 0) return; // ya la cambió el CMS
+        img.setAttribute('fetchpriority', 'low'); // no compiten con lo que aún esté cargando
         if (img.dataset.srcset) img.srcset = img.dataset.srcset;
         img.src = img.dataset.src;
         img.removeAttribute('data-src'); img.removeAttribute('data-srcset');

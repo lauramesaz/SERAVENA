@@ -204,7 +204,8 @@
 </header>
 
 <section class="page-hero">
-  <div class="page-hero-media"><img src="assets/media/sede-consultorio.webp" fetchpriority="high" alt="" data-parallax-bg></div>
+  <!-- Recorte para celular: mismo encuadre del object-position 32% (empieza en x=279 de la foto completa). Si cambia ese 32%, rehacer el recorte. -->
+  <div class="page-hero-media"><img src="assets/media/sede-consultorio.webp" srcset="assets/media/sede-consultorio-800p.webp 800w, assets/media/sede-consultorio.webp 1672w" sizes="(max-width: 430px) 200px, 1672px" fetchpriority="high" alt="" data-parallax-bg></div>
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-inner">
     <p class="breadcrumb"><a href="./">Inicio</a> / <a href="precios">Precios</a> / Lipedema</p>
@@ -281,7 +282,7 @@
 <section class="section editorial" id="ubicacion">
   <div class="container editorial-grid">
     <div class="editorial-media">
-      <div class="media-frame reveal-media"><img loading="lazy" decoding="async" src="assets/media/sede-cabina.webp" alt="Cabina de tratamiento de Seravena en El Poblado, Medellín"></div>
+      <div class="media-frame reveal-media"><img loading="lazy" decoding="async" src="assets/media/sede-cabina.webp" srcset="assets/media/sede-cabina-960.webp 960w, assets/media/sede-cabina.webp 1672w" sizes="(max-width: 640px) 240px, 1672px" alt="Cabina de tratamiento de Seravena en El Poblado, Medellín"></div>
     </div>
     <div class="editorial-text">
       <p class="eyebrow reveal">Quién te atiende</p>
@@ -358,7 +359,7 @@
 
 <!-- CTA -->
 <section class="cta">
-  <img src="assets/isotype-white.webp" alt="" class="cta-mark">
+  <img src="assets/isotype-white.webp" alt="" class="cta-mark" loading="lazy" decoding="async">
   <div class="container cta-inner">
     <p class="eyebrow reveal">Da el primer paso</p>
     <h2 class="reveal">¿Cuánto costaría tu caso?</h2>
