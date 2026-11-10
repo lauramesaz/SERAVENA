@@ -791,7 +791,7 @@ if (CLARITY_ID && !ES_LOCAL) {
     var num = svNumeroWa();
     document.querySelectorAll('a[data-test-wa]').forEach(function (a) {
       var guia = a.getAttribute('data-test-wa') === 'guia';
-      var texto = guia ? 'Hola Seravena. ' + resumen + lista + '. ¿Me envían mi resultado y la guía por WhatsApp?'
+      var texto = guia ? 'Hola Seravena. ' + resumen + lista + '. ¿Me envían mi resultado por WhatsApp?'
                        : 'Hola Seravena. ' + resumen + '. Quiero agendar mi valoración';
       a.setAttribute('href', 'https://wa.me/' + num + '?text=' + encodeURIComponent(texto));
       a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
