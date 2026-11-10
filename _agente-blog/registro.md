@@ -3,6 +3,38 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (10-nov-2026):** rutina automática. Hoy martes = día de mejora (§4b), no artículo
+nuevo. mejora: `picor-piernas-circulacion` · búsqueda de Colombia: "rasquiña en las piernas" (2 apar.) y
+"picazón en las piernas" (1 apar.), según `mapa-palabras.md` §5 · Qué se hizo: se añadió la sección
+"Fuentes" (obligatoria desde el 7-nov) con 3 referencias reales abiertas por el Verificador médico —
+MedlinePlus/NIH "Stasis dermatitis and ulcers" (review 2024, actualización editorial 2026), Mayrovitz,
+Aoki y Colon "Chronic Venous Insufficiency With Emphasis on the Geriatric Population" (Cureus, 2023) y
+Merck Manual Professional Edition "Chronic Venous Insufficiency and Post-Thrombotic Syndrome" (2026) —
+con las mismas 3 fuentes en el JSON-LD `citation`; un enlace desde el primer párrafo a `../varices-medellin`;
+la palabra colombiana "rasquiña" usada con naturalidad en el primer párrafo y en una nueva pregunta
+frecuente ("¿La rasquiña en las piernas es siempre por mala circulación?"), repetida palabra por palabra
+en el JSON-LD FAQPage. **Investigación (mínimo 3 búsquedas web, hechas):** (1) "stasis dermatitis chronic
+venous insufficiency itching MedlinePlus"; (2) "Mayo Clinic venous insufficiency symptoms itching skin";
+(3) "chronic venous insufficiency pruritus review PubMed". **Fuentes que el Verificador médico abrió una
+por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/ency/article/000834.htm` (MedlinePlus/NIH, "Stasis dermatitis and ulcers") —
+  abierta y confirma: la fuga de líquido por la acumulación venosa "may lead to itching and inflammation";
+  rascarse puede irritar o agrietar la piel ("The skin may become irritated or crack if you scratch it").
+- `https://pmc.ncbi.nlm.nih.gov/articles/PMC10358300` (Mayrovitz, Aoki, Colon, Cureus 2023) — abierta y
+  confirma: en alrededor del 20% de los pacientes con insuficiencia venosa crónica aparece prurito o
+  parestesia, y describe la dermatitis por estasis asociada.
+- `https://www.merckmanuals.com/professional/cardiovascular-disorders/peripheral-venous-disorders/chronic-venous-insufficiency-and-post-thrombotic-syndrome`
+  (Merck Manual Professional Edition) — abierta y confirma: "Pruritus may accompany skin changes" y lo
+  incluye en la escala de Villalta; las úlceras por estasis aparecen cuando la piel afectada "is scratched
+  or injured".
+**Veredictos:** Verificador médico: **APROBADO** (las 3 fuentes abiertas confirman cada afirmación; no se
+prometen curas, no hay indicaciones personalizadas, `reviewedBy` queda en la organización porque el slug
+no está en `revisados-medico.md`). Policía humanizador: **10/10, HUMANO** (corrigió la frase nueva sobre
+"rasquiña" para que fuera un hecho de lenguaje local verificable —"así le decimos a esto en Medellín"— en
+vez de un patrón de consulta sin respaldo en `voz-real.md`, vicio ya multado antes y anotado de nuevo en
+`notas-humanizador.md`). `dateModified` y el `lastmod` del sitemap actualizados a 2026-11-10 (`datePublished`
+sin tocar). `mapa-palabras.md` §5: la fila de `picor-piernas-circulacion` quedó marcada "hecho".
+
 **Nota de verificación (9-nov-2026):** rutina automática. Hoy lunes = artículo nuevo (§4). Tema: primer
 `[pendiente]` de la cola con búsquedas reales de `temas.md` — "Exámenes para revisar la circulación de las
 piernas: cuál pide el médico y para qué sirve cada uno" (keyword: "exámenes para la circulación de las
