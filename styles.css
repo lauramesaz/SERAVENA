@@ -1173,3 +1173,19 @@ a.hero-bar-item:hover { color: var(--white); }
   .sv-precio-grid { grid-template-columns: 1fr; }
   .sv-precio-actions .btn { width: 100%; }
 }
+
+/* ===== Portada: tres áreas (lipedema, vascular, bajar de peso) ===== */
+.areas-grid.areas-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home .areas-grid.areas-3 { gap: clamp(18px, 2vw, 28px); }
+.home .areas-3 .area-card { aspect-ratio: 4 / 5.4; }
+.areas-3 .area-card-content { padding: clamp(22px, 2.2vw, 34px); }
+.areas-3 .area-card h3 { font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+.areas-3 .area-card p { font-size: .95rem; }
+.areas-3 .area-go { width: 44px; height: 44px; top: 22px; right: 22px; bottom: auto; }   /* arriba: en tres columnas no pisa el texto */
+@media (max-width: 1020px) {
+  .areas-grid.areas-3, .home .areas-grid.areas-3 { grid-template-columns: 1fr; gap: 20px; }
+  .home .areas-3 .area-card { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 640px) {
+  .home .areas-3 .area-card { aspect-ratio: 4 / 5; }
+}
