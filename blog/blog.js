@@ -42,7 +42,7 @@
       '<span>Una valoración con eco doppler aclara qué pasa con tus piernas.</span>' +
     '</div>' +
     '<a class="blog-cta-btn" target="_blank" rel="noopener" ' +
-      'href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita">' +
+      'href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20estoy%20viendo%20el%20blog%20y%20quiero%20agendar%20mi%20valoraci%C3%B3n">' +
       'Agendar por WhatsApp</a>';
 
   function pintar() {

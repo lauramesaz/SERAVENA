@@ -15,6 +15,9 @@ perfectamente legible para Google. Trabaja dentro de `web/`. Lee `../INSTRUCCION
 ## Integración en la web
 
 5. Guarda el post en `blog/<slug>.html`.
+5b. Corre `python3 _agente-blog/llamados-venta.py blog/<slug>.html` (desde la raíz de la web). Si el
+    Redactor ya lo hizo, responde "ya estaba"; si no, pone el tema, el llamado a mitad del artículo y
+    el cierre según el tema. Comprueba que el `data-tema` que quedó es el correcto.
 6. Inserta la **tarjeta** del post en `blog/index.html`, justo debajo de `<!-- INICIO_POSTS -->`
    (el más nuevo primero), con el formato de `../plantilla-post.html`.
 7. Añade el `<url>` al `sitemap.xml` y actualiza el `lastmod` de `/blog/` a hoy.

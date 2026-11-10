@@ -144,7 +144,7 @@
   </div>
 </header>
 
-<article class="post">
+<article class="post" data-tema="lipedema">
   <div class="container post-wrap">
 
     <a href="./" class="post-back">← Volver al blog</a>
@@ -190,7 +190,8 @@
             <p class="q2-rcount" id="q2rcount"></p>
             <p class="q2-rmsg" id="q2rmsg"></p>
             <div class="cta-actions">
-              <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary">Agendar por WhatsApp</a>
+              <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" data-test-wa="agendar" target="_blank" rel="noopener" class="btn btn-primary">Agendar por WhatsApp</a>
+              <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web.%20%C2%BFMe%20env%C3%ADan%20mi%20resultado%20y%20la%20gu%C3%ADa%20por%20WhatsApp%3F" data-test-wa="guia" data-c="blog_test_guia_wa" target="_blank" rel="noopener" class="btn btn-ghost">Envíame mi resultado y la guía por WhatsApp</a>
             </div>
             <button type="button" class="q2-restart" id="q2restart">Volver a empezar</button>
           </div>
@@ -230,6 +231,12 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Llamado a mitad del artículo (lo pone _agente-blog/llamados-venta.py; no duplicar) -->
+      <aside class="post-service post-cta">
+        <p data-c="blog_medio_lipedema_txt"><strong>¿Te reconoces en lo que vas leyendo?</strong> Una valoración de lipedema te dice si lo es y qué puedes hacer.</p>
+        <a data-c="blog_medio_lipedema_btn" data-wa="pagina" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20estoy%20leyendo%20el%20blog%20sobre%20lipedema%20y%20quiero%20agendar%20mi%20valoraci%C3%B3n" target="_blank" rel="noopener">Agendar valoración de lipedema por WhatsApp →</a>
+      </aside>
 
       <h2>Test rápido en casa: tres cosas que puedes revisar hoy</h2>
       <p>No necesitas ningún aparato. Estas tres observaciones sencillas te dan, en pocos minutos, una idea de si tus señales van en la dirección del lipedema:</p>
@@ -323,10 +330,10 @@
   <div class="container cta-inner">
     <p class="eyebrow reveal">¿Te reconoces en estas señales?</p>
     <h2 class="reveal">Aclara tus dudas con una valoración profesional</h2>
-    <p class="reveal">Agenda tu valoración con eco doppler y sal de dudas con acompañamiento profesional.</p>
+    <p class="reveal">Haz el test de lipedema y, si te reconoces en las señales, agenda tu valoración especializada.</p>
     <div class="cta-actions reveal">
-      <a href="../contacto" class="btn btn-primary">Agendar una valoración</a>
-      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
+      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20estoy%20leyendo%20el%20blog%20sobre%20lipedema%20y%20quiero%20agendar%20mi%20valoraci%C3%B3n" data-wa="pagina" target="_blank" rel="noopener" class="btn btn-primary">Agendar valoración de lipedema</a>
+      <a href="../test-lipedema" class="btn btn-ghost">Hacer el test</a>
     </div>
   </div>
 </section>

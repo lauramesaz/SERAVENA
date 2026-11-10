@@ -261,7 +261,17 @@ if (quizGrid) {
       msg.innerHTML = 'Marcaste <strong>' + n + '</strong> señales. Varias coinciden con el lipedema; te recomendamos una valoración especializada.';
       cta.hidden = false;
     }
+    // El resultado viaja en el mensaje de WhatsApp. Aquí no hay "final" del test: se mide una sola vez,
+    // cuando la persona deja de marcar por unos segundos (ver svTestResultado, más abajo).
+    clearTimeout(quizAviso);
+    if (n > 0 && window.svTestResultado) {
+      const r = { nivel: n <= 1 ? 'baja' : (n <= 3 ? 'moderada' : 'alta'), si: n, total: chips.length,
+        senales: chips.filter(c => c.classList.contains('on')).map(c => c.textContent.replace(/\s+/g, ' ').trim()) };
+      window.svTestResultado(Object.assign({ medir: false }, r));
+      if (!quizMedido) quizAviso = setTimeout(() => { quizMedido = true; window.svTestResultado(r); }, 4000);
+    }
   }
+  let quizAviso = null, quizMedido = false;
   chips.forEach(c => c.addEventListener('click', () => { c.classList.toggle('on'); updateQuiz(); }));
 }
 
@@ -371,6 +381,8 @@ if (quiz2) {
     else if(yes<=3)m='Algunas señales coinciden. Vale la pena una valoración para tener claridad.';
     else m='Varias señales coinciden con el lipedema. Te recomendamos una valoración especializada.';
     document.getElementById('q2rmsg').textContent=m;
+    // El resultado viaja en el mensaje de WhatsApp y se mide "test_terminado" (ver svTestResultado, más abajo)
+    if (window.svTestResultado) window.svTestResultado({ nivel: yes<=1 ? 'baja' : (yes<=3 ? 'moderada' : 'alta'), si: yes, total: Q.length });
   }
   document.getElementById('q2si').addEventListener('click',()=>q2answer(1));
   document.getElementById('q2no').addEventListener('click',()=>q2answer(0));
@@ -544,6 +556,123 @@ if (form) {
 if (!reduceMotion) updateParallax(window.scrollY);
 
 /* ============================================================
+   WHATSAPP CON CONTEXTO (ventas, nov-2026)
+   ------------------------------------------------------------
+   Antes casi todos los botones (y todos los artículos) escribían "vengo de la página web y quiero
+   agendar una cita": quien responde el chat no sabía qué estaba mirando la persona. Ahora:
+   1. Cada enlace a nuestro WhatsApp con ese mensaje genérico (o marcado data-wa="pagina") dice de
+      qué página viene; en el blog, qué artículo leyó. Los mensajes que ya eran específicos
+      (precios, obesidad, test, Instagram, referir paciente…) no se tocan.
+   2. "Agendar cita" del menú y los enlaces marcados data-wa-directo abren WhatsApp directo;
+      si el JavaScript falla siguen llevando al formulario de /contacto, como antes.
+   3. Las páginas de servicio de SV_BARRA_EN tienen en celular la misma barra fija "Llamar / WhatsApp"
+      que ya usan las páginas de pauta (.lp-sticky).
+   El número no se fija aquí: contenido.js reescribe después todos los wa.me con el del panel.
+   Para una página nueva de servicio: añádela a SV_PAGINAS (y a SV_BARRA_EN si debe llevar barra).
+   ============================================================ */
+const SV_PAGINAS = {
+  'index': 'su página web',
+  'lipedema': 'la página de lipedema',
+  'clinica-lipedema-medellin': 'la página de la clínica de lipedema',
+  'lipedema-colombia': 'la página de lipedema en Colombia',
+  'test-lipedema': 'la página del test de lipedema',
+  'vascular': 'la página de salud vascular',
+  'varices-medellin': 'la página de várices',
+  'insuficiencia-venosa': 'la página de insuficiencia venosa',
+  'escleroterapia-medellin': 'la página de escleroterapia',
+  'eco-doppler-venoso-medellin': 'la página de eco doppler venoso',
+  'obesidad-medellin': 'la página del programa para bajar de peso',
+  'precios': 'la página de precios',
+  'precio-lipedema-medellin': 'la página del precio del tratamiento de lipedema',
+  'proceso': 'la página de cómo es el proceso',
+  'preguntas': 'la página de preguntas frecuentes',
+  'sobre': 'la página sobre Seravena',
+  'dr-jose-david-puerta-rojas': 'la página del Dr. José David Puerta',
+  'profesionales': 'la página para profesionales',
+  'guia-lipedema-medicos': 'la guía de lipedema para médicos',
+  'contacto': 'la página de contacto'
+};
+const SV_BARRA_EN = ['lipedema', 'vascular', 'varices-medellin', 'escleroterapia-medellin', 'eco-doppler-venoso-medellin'];
+const svArchivo = (location.pathname.replace(/\/+$/, '').split('/').pop() || 'index').replace(/\.html$/, '') || 'index';
+const svEnBlog = /\/blog(\/|$)/.test(location.pathname);
+const svArticulo = svEnBlog ? document.querySelector('article.post') : null;
+// Páginas privadas o de trabajo: aquí no se cambia nada.
+const svPrivada = /^(cotizador|aliados|alianza-cali|alianza-cali-plan|resena)$/.test(svArchivo) || /\/(equipo|admin)\//.test(location.pathname);
+
+/* Tema del artículo: lo trae <article data-tema> (lo pone _agente-blog/llamados-venta.py).
+   Si un artículo no lo trae, se deduce igual que allá: por dirección y categoría. */
+function svTema() {
+  if (!svArticulo) return '';
+  const t = svArticulo.getAttribute('data-tema');
+  if (t) return t;
+  const cat = (svArticulo.querySelector('.post-head .blog-tag')?.textContent || '').toLowerCase();
+  if (svArchivo.indexOf('lipedema') > -1 || cat.indexOf('lipedema') > -1) return 'lipedema';
+  if (/obesidad|bajar-de-peso|sobrepeso|adelgaz/.test(svArchivo) || /obesidad|peso/.test(cat)) return 'peso';
+  return 'venas';
+}
+function svMensajePagina() {
+  if (svArticulo) {
+    const titulo = (svArticulo.querySelector('.post-head h1')?.textContent || '').replace(/\s+/g, ' ').trim();
+    const leyo = titulo ? 'leí «' + titulo + '»' : 'estoy leyendo el blog';
+    const cola = { lipedema: 'quiero agendar mi valoración de lipedema', venas: 'quiero agendar mi valoración vascular',
+      peso: 'quiero información del programa para bajar de peso', medicos: 'quiero referir una paciente' }[svTema()] || 'quiero agendar mi valoración';
+    return 'Hola Seravena, ' + leyo + ' y ' + cola;
+  }
+  if (svEnBlog) return 'Hola Seravena, estoy viendo el blog y quiero agendar mi valoración';
+  return 'Hola Seravena, estoy viendo ' + (SV_PAGINAS[svArchivo] || SV_PAGINAS.index) + ' y quiero agendar mi valoración';
+}
+function svNumeroWa() {
+  const enlace = document.querySelector('a[href*="wa.me/"]');
+  const m = enlace && (enlace.getAttribute('href') || '').match(/wa\.me\/(\d{8,15})/);
+  return (m && m[1]) || '573052088204';
+}
+function svTextoWa(a) {
+  const m = (a.getAttribute('href') || '').match(/[?&]text=([^&]*)/);
+  try { return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) { return ''; }
+}
+function svPonTextoWa(a, texto) {
+  const h = a.getAttribute('href') || '', t = 'text=' + encodeURIComponent(texto);
+  a.setAttribute('href', /[?&]text=/.test(h) ? h.replace(/([?&])text=[^&]*/, '$1' + t) : h + (h.indexOf('?') > -1 ? '&' : '?') + t);
+}
+const SV_GENERICO = /^Hola Seravena, vengo (de la página web|del blog) y quiero agendar una (cita|valoración)\.?$/i;
+/* Un enlace a nuestro WhatsApp con el mensaje genérico pasa a decir de qué página viene.
+   Se llama al cargar y otra vez en el clic (por si el enlace se armó después, como la tarjeta del blog). */
+function svContextoWa(a) {
+  if (svPrivada || !a || !/wa\.me\/\d/.test(a.getAttribute('href') || '')) return;
+  if (a.hasAttribute('data-test-wa')) return;                       // los del test llevan su propio mensaje
+  if (a.getAttribute('data-wa') === 'pagina' || SV_GENERICO.test(svTextoWa(a))) svPonTextoWa(a, svMensajePagina());
+}
+if (!svPrivada) {
+  // 2. Menú y portada: directo a WhatsApp (el formulario sigue en /contacto y en el pie de página)
+  $$('a.nav-cta, a[data-wa-directo]').forEach(a => {
+    if (!/(^|\/)contacto(\.html)?$/.test(a.getAttribute('href') || '')) return;
+    a.setAttribute('href', 'https://wa.me/' + svNumeroWa() + '?text=' + encodeURIComponent(svMensajePagina()));
+    a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
+  });
+  // 1. Mensaje con contexto en todos los enlaces genéricos
+  $$('a[href*="wa.me/"]').forEach(svContextoWa);
+  // 3. Barra fija "Llamar / WhatsApp" en celular (mismo componente .lp-sticky de las páginas de pauta).
+  //    Los estilos van aquí para que la barra nunca aparezca sin ellos por caché (igual que la del blog).
+  if (!svEnBlog && SV_BARRA_EN.indexOf(svArchivo) > -1 && !document.querySelector('.lp-sticky')) {
+    const css = document.createElement('style');
+    css.textContent =
+      '.btn-wa{background:#25D366;color:#0b3d24;border:none}.btn-wa:hover{background:#1fbe5a;color:#0b3d24}' +
+      '.lp-sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));' +
+        'background:rgba(249,249,248,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(75,65,45,.12)}' +
+      '.lp-sticky .btn{flex:1;padding:14px 8px;font-size:.98rem;text-align:center;justify-content:center;display:flex;align-items:center;gap:8px}' +
+      '.lp-sticky .btn-ghost{color:var(--chocolate);border:1px solid rgba(75,65,45,.28);background:transparent}' +
+      '@media(max-width:760px){.lp-sticky{display:flex}body{padding-bottom:76px}.wa-float{display:none}}';
+    document.head.appendChild(css);
+    const barra = document.createElement('div');
+    barra.className = 'lp-sticky';
+    barra.innerHTML =
+      '<a href="tel:+573052088204" class="btn btn-ghost" data-c="barra_llamar">Llamar</a>' +
+      '<a href="https://wa.me/' + svNumeroWa() + '?text=' + encodeURIComponent(svMensajePagina()) + '" target="_blank" rel="noopener" class="btn btn-wa" data-c="barra_whatsapp">WhatsApp</a>';
+    document.body.appendChild(barra);   // al final del body: no mueve las claves por posición de contenido.js
+  }
+}
+
+/* ============================================================
    MICROSOFT CLARITY — mapas de calor y grabaciones (toda la web)
    ------------------------------------------------------------
    Proyecto "Seravena" en clarity.microsoft.com (gratis, sin límite).
@@ -619,7 +748,9 @@ if (CLARITY_ID && !ES_LOCAL) {
     var m = h.match(/[?&]text=([^&]*)/), actual = '';
     try { actual = m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : ''; } catch (e) {}
     if (m && actual.indexOf('agendar') < 0) return;
-    var txt = 'text=' + encodeURIComponent(MSG_ANUNCIO);
+    // Si la persona hizo el test, su resultado va después del saludo del anuncio (data-wa-extra)
+    var extra = a.getAttribute('data-wa-extra');
+    var txt = 'text=' + encodeURIComponent(MSG_ANUNCIO + (extra ? '. ' + extra : ''));
     a.setAttribute('href', m ? h.replace(/([?&])text=[^&]*/, '$1' + txt) : h + (h.indexOf('?') > -1 ? '&' : '?') + txt);
   }
   if (deAnuncio) {
@@ -633,6 +764,7 @@ if (CLARITY_ID && !ES_LOCAL) {
     var href = (a.getAttribute('href') || '').toLowerCase();
     var label = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
     if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp') > -1) {
+      svContextoWa(a);                 // mensaje con la página o el artículo (si era el genérico)
       if (deAnuncio) saludoAnuncio(a);
       track('clic_whatsapp', { boton: label, pagina: location.pathname });
       track('generate_lead', { metodo: 'whatsapp', pagina: location.pathname });
@@ -645,6 +777,28 @@ if (CLARITY_ID && !ES_LOCAL) {
       track('clic_correo', { pagina: location.pathname });
     }
   }, true);
+
+  /* Test de lipedema (los cuatro: inicio, /lipedema, /test-lipedema y el artículo del blog).
+     Cuando la persona termina, el resultado viaja en el mensaje de WhatsApp de los enlaces marcados
+     data-test-wa ("agendar" o "guia") y se mide el evento test_terminado con el nivel, igual que
+     clic_whatsapp (GA4 + Clarity). r = { nivel: 'baja'|'moderada'|'alta', si, total,
+     etiqueta: 'probabilidad alta' (solo el test largo), senales: [...], medir: false para no medir }. */
+  window.svTestResultado = function (r) {
+    if (!r) return;
+    var resumen = 'Hice el test de lipedema en la web: ' +
+      (r.etiqueta ? 'me salió ' + r.etiqueta + ', ' : '') + 'marqué ' + r.si + ' de ' + r.total + ' señales';
+    var lista = (r.senales && r.senales.length) ? ' (' + r.senales.join(', ').toLowerCase() + ')' : '';
+    var num = svNumeroWa();
+    document.querySelectorAll('a[data-test-wa]').forEach(function (a) {
+      var guia = a.getAttribute('data-test-wa') === 'guia';
+      var texto = guia ? 'Hola Seravena. ' + resumen + lista + '. ¿Me envían mi resultado y la guía por WhatsApp?'
+                       : 'Hola Seravena. ' + resumen + '. Quiero agendar mi valoración';
+      a.setAttribute('href', 'https://wa.me/' + num + '?text=' + encodeURIComponent(texto));
+      a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
+      if (!guia) a.setAttribute('data-wa-extra', resumen);
+    });
+    if (r.medir !== false) track('test_terminado', { nivel: r.nivel, senales: r.si, de: r.total, pagina: location.pathname });
+  };
 
   // Interés alto: la persona llegó al bloque final de contacto (una sola vez por visita)
   try {
@@ -699,7 +853,9 @@ if (hl && !reduceMotion) {
   window.addEventListener('scroll', () => requestAnimationFrame(hlScroll), { passive: true });
 }
 
-/* Blog y artículos en celular: barra fija abajo con "¿Tengo lipedema?" + "Agendar por WhatsApp".
+/* Blog y artículos en celular: barra fija abajo con el siguiente paso según el tema + WhatsApp.
+   Lipedema (y el listado): "¿Tengo lipedema?" · venas: "Ver precios de várices" · peso: el programa ·
+   artículos para médicos: la guía. El tema sale de <article data-tema> (ver svTema).
    Casi todo el tráfico del blog viene de Instagram en celular y se va tras ver una sola página
    (Clarity, sep-2026): así el siguiente paso queda siempre a la vista. Reemplaza el botón redondo.
    Los estilos van aquí mismo para que la barra nunca aparezca sin ellos por caché. */
@@ -725,11 +881,16 @@ if (hl && !reduceMotion) {
   document.head.appendChild(css);
   var bar = document.createElement('div');
   bar.className = 'blog-bar';
+  var paso = {
+    venas: ['../precios', 'Ver precios de várices', 'Agendar valoración'],
+    peso: ['../obesidad-medellin', 'Ver el programa', 'Pedir información'],
+    medicos: ['../guia-lipedema-medicos', 'Guía para médicos', 'Referir paciente']
+  }[svTema()] || ['como-saber-si-tengo-lipedema#test', '¿Tengo lipedema?', 'Agendar valoración'];
   bar.innerHTML =
-    '<a class="bb-test" href="como-saber-si-tengo-lipedema#test">¿Tengo lipedema?</a>' +
-    '<a class="bb-wa" target="_blank" rel="noopener" href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20vengo%20del%20blog%20y%20quiero%20agendar%20una%20valoraci%C3%B3n">' +
+    '<a class="bb-test" href="' + paso[0] + '">' + paso[1] + '</a>' +
+    '<a class="bb-wa" target="_blank" rel="noopener" href="https://wa.me/' + svNumeroWa() + '?text=' + encodeURIComponent(svMensajePagina()) + '">' +
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>' +
-      'Agendar valoración</a>';
+      paso[2] + '</a>';
   document.body.appendChild(bar);
   document.body.classList.add('has-blog-bar');
   // Con el menú abierto la barra se esconde para no tapar los enlaces

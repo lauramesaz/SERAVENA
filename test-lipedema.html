@@ -267,7 +267,8 @@
         <p class="tl-extra" id="tlExtra" hidden></p>
         <p class="tl-disclaimer">Resultado orientativo, no es un diagnóstico. El lipedema solo lo confirma un profesional con historia clínica y examen físico.</p>
         <div class="tl-actions">
-          <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary">Agendar valoración por WhatsApp</a>
+          <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" data-test-wa="agendar" target="_blank" rel="noopener" class="btn btn-primary">Agendar valoración por WhatsApp</a>
+          <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web.%20%C2%BFMe%20env%C3%ADan%20mi%20resultado%20y%20la%20gu%C3%ADa%20por%20WhatsApp%3F" data-test-wa="guia" data-c="test_guia_wa" target="_blank" rel="noopener" class="btn btn-ghost">Envíame mi resultado y la guía por WhatsApp</a>
           <button type="button" class="btn btn-ghost" id="tlShare">Compartir el test</button>
         </div>
         <div class="tl-share-alt">
@@ -356,7 +357,7 @@
     <h2 class="reveal">Sal de dudas con una valoración</h2>
     <p class="reveal">Te atendemos en El Poblado, Medellín. Escríbenos y buscamos contigo la cita.</p>
     <div class="cta-actions reveal">
-      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener" class="btn btn-primary">Agendar por WhatsApp</a>
+      <a href="https://wa.me/573052088204?text=Hola%20Seravena%2C%20hice%20el%20test%20de%20lipedema%20en%20la%20web%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" data-test-wa="agendar" target="_blank" rel="noopener" class="btn btn-primary">Agendar por WhatsApp</a>
       <a href="tel:+573052088204" class="btn btn-ghost">Llamar</a>
     </div>
   </div>
@@ -484,6 +485,9 @@
       extra.textContent = 'Dijiste que no logras levantar la piel sobre el segundo dedo del pie. Eso puede indicar un componente linfático (linfedema), que a veces acompaña al lipedema. Coméntalo en la valoración.';
       extra.hidden = false;
     } else { extra.hidden = true; }
+
+    // El resultado viaja en el mensaje de WhatsApp y se mide "test_terminado" (lo hace script.js)
+    if (window.svTestResultado) window.svTestResultado({ nivel: nivel, etiqueta: R[0].toLowerCase(), si: si, total: PUNTUABLES, senales: marcadas });
 
     card.hidden = true; result.hidden = false;
     try { result.focus({ preventScroll: true }); } catch (e) {}

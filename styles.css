@@ -1150,3 +1150,12 @@ a.hero-bar-item:hover { color: var(--white); }
   .h-sede-grid::-webkit-scrollbar { display: none; }
   .h-sede-item, .h-sede-big, .h-sede-item:nth-child(4) { flex: 0 0 84%; aspect-ratio: 4 / 5; scroll-snap-align: start; }
 }
+
+/* ===== Ventas tanda 1 (nov-2026): botón de WhatsApp en la primera pantalla de las páginas de servicio ===== */
+.page-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+.page-hero-actions .btn, .btn[data-test-wa] { text-align: center; }
+@media (max-width: 480px) { .page-hero-actions .btn { padding: 15px 24px; } }
+/* Inicio: el formulario queda como camino secundario, discreto, bajo el botón de WhatsApp */
+.hero-alt { display: inline-block; margin-top: 16px; color: rgba(255,255,255,.82); font-size: .86rem; text-underline-offset: 3px; }
+.hero-alt:hover { color: #fff; }
+.hero-mov.go .hero-alt { transition-delay: 1.55s; }

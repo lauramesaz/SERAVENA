@@ -36,7 +36,10 @@ Lee siempre antes: `../INSTRUCCIONES.md` (marca, SEO base, salvaguardas médicas
    - 700–1100 palabras, tono cálido y claro (tuteo), español de Colombia.
    - Estructura con `<h2>`/`<h3>`, listas, un `<blockquote>` y el bloque `post-note` de aviso.
    - Keyword principal en title, h1, primer párrafo, un h2 y la meta description.
-   - 1–2 enlaces internos y 1 llamada a la acción (agendar valoración / WhatsApp).
+   - 1–2 enlaces internos. La llamada a la acción ya no se escribe a mano: pon el tema en
+     `<article class="post" data-tema="…">` (`lipedema`, `venas`, `peso` o `medicos`) y corre
+     `python3 _agente-blog/llamados-venta.py blog/<slug>.html`; el script pone el llamado a mitad
+     del artículo y el cierre que corresponde al tema.
 4. **Entrega:** el borrador + la lista de fuentes + la keyword principal y secundarias.
 
 ## Reglas que NO puedes romper
