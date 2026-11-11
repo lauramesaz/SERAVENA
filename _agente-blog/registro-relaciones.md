@@ -1109,3 +1109,95 @@ envío — ver semanas anteriores y `kit-backlinks.md`)
 
 Sin cambios desde el 28-oct: los 11 mensajes siguen listos y sin enviar, la web sigue sin
 incoherencias, y la investigación de esta semana no encontró nada nuevo que valga la pena.
+
+---
+
+## Semana del 2026-11-11
+
+· Sitios/fuentes revisados: 9 (Google Maps — búsqueda de "Seravena Medellín" —, Bing Maps/Bing
+Places, perfil de Doctoralia del médico vía lectura directa de la página, dominio viejo
+`seravena.com.co` vía lectura directa, Instagram @seravena_clinica, búsqueda general de "Seravena"
+Medellín lipedema várices fuera del propio dominio, `kit-backlinks.md`) + las 3 búsquedas objetivo
+en Google ("várices Medellín", "flebólogo Medellín", "eco doppler venoso Medellín") + verificación
+directa con `grep` de la dirección y el teléfono en las 24 páginas `.html` del sitio que los
+mencionan
+· Seravena aparece en: 1 (Doctoralia, perfil del médico — sin cambio frente al 14-oct)
+
+### Cambio de régimen esta semana: toca vigilar, no redactar
+
+El manual de este agente, actualizado el 7-nov-2026, dice que si ya hay 10 o más mensajes listos
+sin enviar, la semana se dedica a vigilar lo que ya existe (punto 6, antes solo lectura) en vez de
+redactar mensajes nuevos. Hoy hay **11 mensajes acumulados** entre esta bitácora y
+`kit-backlinks.md`, así que por primera vez aplico esa regla de forma explícita: esta semana no
+redacto ningún mensaje nuevo, encuentre o no terreno nuevo. Dicho esto, tampoco encontré ningún
+directorio, gremio o medio nuevo que mereciera uno: ver más abajo.
+
+### Nombre/dirección/teléfono: sin incoherencias
+
+Verifiqué con `grep` las 24 páginas del sitio que mencionan la dirección: las 24, sin excepción,
+usan **Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316** — la dirección confirmada
+hoy contra la ficha del edificio en Google. El teléfono aparece, como siempre, en dos formatos de
+escritura (con espacios y sin espacios) pero es el mismo número en todos los casos. Nada que
+corregir.
+
+### Vigilancia de lo que ya existe (punto 6 del manual)
+
+- **Google Maps** — busqué "Seravena Medellín" y no obtuve resultados de negocio: ni por búsqueda
+  general (los resultados fueron sobre restaurantes y guías turísticas de Medellín, nada de
+  Seravena) ni al intentar leer directamente `google.com/maps/search/...` (la página de Maps se
+  renderiza con JavaScript y no devuelve contenido legible para este agente, la misma limitación de
+  siempre con mapas interactivos). No puedo confirmar desde aquí cuántas fichas salen, ni reseñas ni
+  nota. Sigue siendo, como con el REPS en su momento, una revisión de dos minutos que solo Laura
+  puede hacer abriendo Google Maps de verdad.
+- **Doctoralia, perfil del médico** (doctoralia.co/perfil/jose-david-puerta-rojas) — esta vez sí pude
+  leer la página directamente (antes el entorno bloqueaba el acceso). Confirmo, sin ambigüedad: el
+  perfil sigue sin ningún enlace a clinicaseravena.com, sigue sin servicios ni precios cargados
+  ("Sin información sobre servicios y precios") y sigue sin ninguna reseña ("Pronto se publicarán
+  opiniones"). Da la dirección correcta (Calle 2 Sur 46-159, consultorio 1316) y menciona a Seravena
+  en el texto con el mismo tono de marca ya registrado el 14-oct. Exactamente igual que hace 4
+  semanas: sigue pendiente que alguien entre con la cuenta del médico y complete el enlace, los
+  servicios y, si procede, cree el perfil de *centro* (paso B.2 del kit, sigue sin existir).
+- **Bing Places** — ni la búsqueda general ni la lectura directa de Bing Maps devolvieron ningún
+  negocio llamado Seravena. Igual que con Google Maps, Bing Maps se renderiza con JavaScript y no da
+  contenido legible para este agente: no puedo confirmar si existe o no una ficha, solo que no la
+  encontré por búsqueda normal.
+- **Dominio viejo `seravena.com.co`** — esta semana sí pude leerlo directamente (antes solo tenía el
+  dato de la fecha de vencimiento, del 19-feb-2027, sin haberlo visto cargar). Confirmo: hoy es un
+  **dominio aparcado en Hostinger** ("Parked Domain name on Hostinger DNS system"), con publicidad
+  del propio Hostinger (hosting, creador de sitios con IA, VPS, correo empresarial) y un enlace para
+  que el propietario lo gestione desde su cuenta. No redirige a clinicaseravena.com ni a ningún otro
+  sitio, y no muestra ningún contenido de la clínica. Si Laura es la propietaria y decide renovarlo
+  en febrero, hoy ese dominio no está haciendo nada por el posicionamiento de la clínica — ni daño ni
+  beneficio, simplemente no apunta a ningún lado. No es una acción que me corresponda proponer, solo
+  un dato de vigilancia.
+- **Instagram @seravena_clinica** — sigue bloqueado para este agente desde este entorno; no pude
+  confirmar si la cuenta existe, cuántos seguidores tiene ni si enlaza a la web. Limitación de
+  búsqueda, no una confirmación de nada.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre, sin ningún nombre nuevo frente a lo
+ya registrado en semanas anteriores (Doctoralia, Top Doctors, Vasculab, Variclinic, Centrolab,
+Cardiovas IPS, Efrén Cantillo Orozco y Diana Patricia Giraldo Mendez como especialistas individuales
+en Doctoralia). No encontré ninguna mención nueva de Seravena, con o sin enlace, en ningún sitio
+fuera de Doctoralia: la búsqueda general de "Seravena Medellín lipedema várices" solo devolvió,
+otra vez, el mismo perfil del médico y estudios académicos sin relación con la clínica.
+
+### Esta semana no encontré ninguna oportunidad nueva de enlace
+
+Ningún directorio, gremio, medio ni aliado nuevo que no esté ya cubierto por los 11 mensajes
+acumulados entre esta bitácora y `kit-backlinks.md`. Con el cambio de régimen de esta semana (vigilar
+en vez de redactar), esto importa menos que otras semanas: aunque hubiera encontrado algo nuevo, no
+tocaría redactarlo todavía.
+
+· Mensajes listos para enviar: 0 esta semana, por la regla del manual explicada arriba (11 mensajes
+de semanas anteriores siguen pendientes de envío — ver semanas anteriores y `kit-backlinks.md`)
+
+### Para Laura, en una línea
+
+Esta semana cambié de modo: con 11 mensajes ya listos, el manual me pide vigilar en vez de seguir
+redactando. Lo único nuevo y confirmado de primera mano: el perfil de Doctoralia del médico sigue sin
+enlace, servicios ni reseñas (4 semanas igual), y el dominio viejo `seravena.com.co` está aparcado en
+Hostinger, sin redirigir a ningún lado. Google Maps y Bing Places no los pude verificar desde aquí
+(se renderizan con JavaScript); si tienes dos minutos, vale la pena que los abras tú misma, igual que
+con el REPS.
