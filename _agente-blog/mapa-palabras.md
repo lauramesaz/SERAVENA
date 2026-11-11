@@ -72,7 +72,8 @@ los demás países.
 | cómo saber si tengo lipedema · lipedema cómo identificar · cómo diagnosticar lipedema · test de lipedema | `como-saber-si-tengo-lipedema` (provisional hasta SER-15) | `/test-lipedema` = el test de 10 preguntas · `diagnostico-lipedema` = cómo lo confirma el médico · `senales-lipedema-primer-contacto` = para médicos | 2 apar. (España: más de 600, posición 51-73) |
 | etapas · fases · grados del lipedema | `etapas-del-lipedema` | `tipos-de-lipedema-zonas` = tipos según la zona | sin datos (España "fases del lipedema" 15, pos. 65) |
 | medias de compresión (cuáles, tallas, dónde comprar en Colombia) · medias médicas · medias ortopédicas | `medias-compresion-colombia-comprar` | embarazo = `medias-compresion-embarazo` · lipedema = `compresion-para-lipedema` · avión = `medias-compresion-para-volar` · posparto = `medias-compresion-posparto` · mitos = `mitos-medias-compresion` | **la búsqueda no de marca más grande de Colombia**: "medias de compresion" 21 (pos. 20) + "medias de compresión" 21 (pos. 14); "medias medicas" 2 (pos. 9); "medias de compresión colombia" 1 (pos. 17) |
-| flebitis · síntomas de flebitis · flebitis en la pierna · tromboflebitis superficial | `flebitis-superficial-sintomas` | flebitis en el brazo = artículo nuevo de la cola (`flebitis-en-el-brazo`) | "flebitis pierna" 2, "síntomas de flebitis" 1, "flebitis consecuencias" 1 (España "flebitis" 42, pos. 34) |
+| flebitis · síntomas de flebitis · flebitis en la pierna · tromboflebitis superficial | `flebitis-superficial-sintomas` | flebitis en el brazo = `flebitis-en-el-brazo` (publicado 2026-11-11) | "flebitis pierna" 2, "síntomas de flebitis" 1, "flebitis consecuencias" 1 (España "flebitis" 42, pos. 34) |
+| flebitis en el brazo · flebitis después de un suero/catéter | `flebitis-en-el-brazo` (publicado 2026-11-11) | `flebitis-superficial-sintomas` = la misma condición pero en la pierna | "flebitis en brazo" 2 apar. (pos. 61) en Colombia; "flebitis brazo" 27 y "flebitis en brazo" 9 en todos los países |
 | picor · rasquiña · picazón en las piernas | `picor-piernas-circulacion` | — | "rasquiña en las piernas" 2 (pos. 65), "picazon en las piernas" 1 (España: cerca de 300 apar. en variantes de "picor") |
 | calambres en las piernas (de noche, en la pantorrilla, causas) · dolor de piernas en la noche | `calambres-piernas-noche` | lipedema y dolor nocturno = `lipedema-y-sueno` (va en posición 16 para "porque duelen las piernas por dentro en la noche"). El dolor nocturno que no es calambre se responde dentro de `calambres-piernas-noche` (banco de mejoras), no en un artículo nuevo: `dolor-piernas-noche-por-dentro` se descartó el 7-nov por gemelo (0,52) | unas 10 apar. en 9 variantes ("calambres en las piernas causas" pos. 8) |
 | especialidad vascular · angiología · cirugía vascular · angiólogo o flebólogo · cómo se llama el médico de las venas | `medico-vascular-o-cirujano-colombia` | `como-elegir-especialista-vascular` (gemelo posible, 0,64 en buscar-gemelos del 28-oct: lo revisa el analista) | unas 65 apar. ("especialidad vascular" 24, "cirugía vascular especialidad" 11, "angiología especialidad" 8, "cirugía vascular y angiología" 8), pos. 35-84 |
@@ -95,7 +96,6 @@ artículo, la fila pasa a la sección 3 con su dueño.
 
 | Búsqueda | Dato (Colombia, 90 días) | Estado |
 |---|---|---|
-| flebitis en el brazo | 2 apar. (36 en todos los países) | en la cola: `flebitis-en-el-brazo` |
 | varicectomía | 3 apar. | en la cola: `varicectomia-que-es` |
 | venas o várices | 2 apar. | en la cola: `venas-marcadas-o-varices` |
 

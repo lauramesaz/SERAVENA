@@ -3,6 +3,77 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**Nota de verificación (11-nov-2026):** rutina automática. Hoy miércoles = artículo nuevo (§4) + humanización
+diaria (§4c). Tema: primer `[pendiente]` de la cola con búsquedas reales de `temas.md` — "Flebitis en el
+brazo: por qué aparece (a veces después de un suero) y cuándo consultar" (keyword: "flebitis en el brazo",
+slug `flebitis-en-el-brazo`, racimo `sintomas`). Confirmado en `mapa-palabras.md` que la búsqueda no tenía
+página dueña (sección 4) y que el título no usa ninguna frase prohibida (sección 2).
+**Prueba del gemelo:** `python3 _agente-blog/buscar-gemelos.py "Flebitis en el brazo: por qué aparece y
+cuándo consultar" "flebitis en el brazo"` → los más parecidos fueron `lipedema-en-los-brazos.html` (0,28) y
+`flebitis-superficial-sintomas.html` (0,26), ambos por debajo del umbral 0,30; se leyeron título, descripción
+y primer párrafo de los dos: ninguno responde la pregunta sobre flebitis en el brazo (uno es sobre lipedema
+en brazos, el otro sobre flebitis pero en la pierna, asociada a várices). No es gemelo; el pariente directo
+(`flebitis-superficial-sintomas`) quedó enlazado en el primer párrafo, con ángulo explícitamente distinto
+(brazo/catéteres-sueros vs. pierna/várices), y él enlaza de vuelta en su "Sigue leyendo".
+**Investigación (mínimo 3 búsquedas web, hechas):** (1) "phlebitis arm after IV cannula peripheral venous
+catheter signs symptoms MedlinePlus"; (2) "MedlinePlus thrombophlebitis superficial site:medlineplus.gov";
+(3) "Cleveland Clinic phlebitis causes symptoms treatment"; (4) "peripheral IV phlebitis risk factors
+prevention review Cureus PubMed".
+**Fuentes que el Verificador médico (el propio orquestador) abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/ency/article/000199.htm` (MedlinePlus/NIH, "Superficial thrombophlebitis",
+  revisado 6/4/2026) — abierta y confirma: ocurre tras medicamentos administrados por vía intravenosa o
+  catéter ("may also occur after having medicines given into your veins"; el catéter "will likely be
+  removed if it is the cause"); síntomas de enrojecimiento, sensibilidad/dolor a lo largo de la vena,
+  calor y endurecimiento de la vena ("hardening of the vein"); la trombosis venosa profunda como
+  complicación rara ("complications are rare"); manejo con compresas tibias, elevación del miembro y
+  antiinflamatorios.
+- `https://my.clevelandclinic.org/health/diseases/17523-superficial-thrombophlebitis` (Cleveland Clinic,
+  revisado 08/05/2022) — abierta y confirma: vía intravenosa para medicamentos o líquidos como causa;
+  inmovilidad, embarazo/posparto y anticonceptivos hormonales/terapia hormonal como factores de riesgo;
+  piel roja/decolorada y caliente; manejo con compresas tibias, elevación y antiinflamatorios (AINE).
+- `https://my.clevelandclinic.org/health/diseases/23311-thrombophlebitis` (Cleveland Clinic, revisado
+  06/12/2022) — abierta y confirma: la tromboflebitis superficial ocurre en venas más pequeñas de brazos
+  o piernas y rara vez es tan grave como la trombosis venosa profunda; el dolor en el pecho o la
+  dificultad para respirar son señal de llamar a emergencias de inmediato; un coágulo superficial puede
+  indicar riesgo de progresar a una vena más profunda.
+**Veredictos:** Verificador médico: **APROBADO** (las 3 fuentes abiertas confirman las afirmaciones
+centrales —causa por catéter/vía intravenosa, síntomas, manejo conservador, señal de alarma de dolor
+torácico/dificultad respiratoria y progresión poco frecuente a vena profunda—; la mención de fiebre como
+señal de alarma se mantuvo como prudencia clínica general, igual que en el artículo hermano ya publicado;
+no se prometen curas, no hay dosis ni indicaciones personalizadas, `reviewedBy` queda en la organización
+porque el slug no está en `revisados-medico.md`; ninguna cifra de precio). Juez SEO: **~91/100, APTO**
+(keyword en title/h1/primer párrafo/dos h2/meta; title 58 car. + " | Seravena"; meta description 157 car.;
+1037 palabras en el cuerpo; JSON-LD `MedicalWebPage`+`BreadcrumbList`+`FAQPage` válidos con `citation` igual
+a las 3 Fuentes visibles; 2-3 enlaces al racimo `sintomas` + 1 a `../vascular` + 1 a `../contacto`; 0 huellas
+de IA de la lista §1.1). Policía humanizador: **9/10, HUMANO** (abre con la escena real del suero/toma de
+sangre, no con definición de enciclopedia; 0 rayas largas; ritmo variado con varios párrafos de una línea;
+criterio propio marcado explícitamente sobre confirmar con eco doppler antes de dar tranquilidad del todo;
+límite honesto de que en el brazo casi nunca hay várices de fondo, a diferencia de la pierna; contexto real
+de Medellín/Colombia; cierre con acción concreta de autoobservación antes de la próxima cita). Los 3 gates
+se cumplieron en el primer intento.
+**Publicado:** "Flebitis en el brazo: por qué aparece y cuándo consultar" (`flebitis-en-el-brazo`) — keyword
+"flebitis en el brazo" — racimo `sintomas`. Imagen de portada: `7006873.webp` (ya usada en el racimo
+`lipedema`/`diagnostico` —hablar-en-familia-lipedema, eco-doppler-venoso-que-es, eco-doppler-paso-a-paso—
+pero ninguna del racimo `sintomas` quedaba sin repetir salvo esta del fondo común; se tomó del fondo común,
+como indica la regla cuando el racimo propio está agotado). Enlaces en los dos sentidos con los 3 hermanos
+del racimo `sintomas` (`flebitis-superficial-sintomas`, `trombosis-venosa-senales`,
+`insuficiencia-venosa-sintomas`). `mapa-palabras.md`: la búsqueda "flebitis en el brazo" pasó de la sección 4
+a la sección 3 con dueño `flebitis-en-el-brazo`. Tema marcado `[publicado 2026-11-11]` en `temas.md`.
+
+**Nota de verificación (11-nov-2026):** limpieza diaria del Policía humanizador sobre artículo viejo:
+flebitis-superficial-sintomas.html (primer `[pendiente]` de `humanizados.md` que no tenía fecha de "no
+tocar" vigente en `registro-seo-semanal.md`; se saltó `lipedema-tiene-cura.html`, el primer `[pendiente]`,
+porque su título/descripción están protegidos hasta el 16-nov-2026). Prueba de humanidad: antes ~6/10
+("Te contamos" en el post-lead, ningún párrafo de una sola línea, criterio propio sin marcar explícitamente,
+cierre sin acción concreta) → después 9/10 ("Te contamos" quitado, 2 párrafos de una sola línea añadidos
+para variar el ritmo, criterio propio marcado explícitamente sobre no diagnosticar "a ojo", cierre reescrito
+con acción concreta de autoobservación antes de la próxima cita). Verificador médico (el propio orquestador):
+APROBADO sin correcciones (confirmó por diff que los síntomas, la diferenciación con trombosis venosa
+profunda, los factores de riesgo, el post-note, el post-faq/JSON-LD FAQPage, los enlaces, la firma y
+datePublished -2026-09-15- quedaron idénticos; las 2 frases nuevas son prudentes, sin dato médico nuevo ni
+indicación de tratamiento). dateModified y sitemap (lastmod) actualizados a 2026-11-11. Publicado por
+separado (commit `813bb35`) antes del artículo nuevo del día; verificado en vivo con 200 tras el push.
+
 **Nota de verificación (10-nov-2026):** rutina automática. Hoy martes = día de mejora (§4b), no artículo
 nuevo. mejora: `picor-piernas-circulacion` · búsqueda de Colombia: "rasquiña en las piernas" (2 apar.) y
 "picazón en las piernas" (1 apar.), según `mapa-palabras.md` §5 · Qué se hizo: se añadió la sección
