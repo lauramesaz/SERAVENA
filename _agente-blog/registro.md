@@ -3,6 +3,42 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: trombosis-venosa-senales (12-nov-2026, jueves = día de mejora):** elegido de la sección 5
+("Banco de mejoras") de `mapa-palabras.md`, de arriba abajo, el primero disponible: `dateModified` de
+2026-10-03 (más de 21 días), sin fecha de "no tocar" vigente en `registro-seo-semanal.md`, no entre los
+3 primeros `[pendiente]` de `humanizados.md`, y no es una redirección.
+**Búsqueda de Colombia que no atendía:** "trombosis venosa profunda sintomas" (2 apar.) y "como empieza
+una trombosis" (1 apar.), según `mapa-palabras.md`.
+**Búsquedas web hechas (mínimo 3, con WebSearch):** 1) "deep vein thrombosis symptoms signs guideline
+2024 2025"; 2) "trombosis venosa profunda síntomas cómo empieza Minsalud OR Medlineplus"; 3) "superficial
+thrombophlebitis vs deep vein thrombosis clinical features review".
+**Qué se hizo:** (1) nueva sección "Fuentes" (3 referencias) con su `citation` igual en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../varices-medellin` (texto
+descriptivo: "várices que se tratan en Medellín sin cirugía"), distinguiendo la trombosis de un síntoma
+de várices común; (3) nueva pregunta frecuente "¿Cómo empieza una trombosis?" en el `.post-faq` visible
+y, palabra por palabra, en el JSON-LD `FAQPage`; (4) `dateModified` → 2026-11-12 y `lastmod` del sitemap
+actualizado (datePublished sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy` sigue
+siendo la organización.
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/spanish/ency/article/000156.htm` (MedlinePlus/NIH, "Trombosis venosa
+  profunda") — abierta y confirma hinchazón, dolor/sensibilidad, piel caliente, enrojecimiento en una
+  sola pierna, y las señales de alarma de embolia pulmonar (dolor torácico, dificultad respiratoria,
+  expectoración con sangre) que exigen ir a urgencias.
+- `https://www.merckmanuals.com/es-us/professional/.../trombosis-venosa-profunda` (Merck Manual, edición
+  profesional) — abierta y confirma que la TVP "puede ser asintomática" (sobre todo en pacientes
+  hospitalizados de alto riesgo) y describe dolor, edema y eritema como síntomas inespecíficos; para la
+  embolia pulmonar, disnea y dolor torácico pleurítico.
+- `https://www.nhlbi.nih.gov/es/salud/tromboembolia-venosa/sintomas` (NHLBI/NIH, "Tromboembolia venosa:
+  síntomas") — abierta y confirma hinchazón y sensibilidad en la pierna, y que "a veces el TEV no causa
+  síntomas hasta que ocurren complicaciones graves" (respalda la FAQ nueva sobre el inicio sin síntomas).
+**Veredictos:** Verificador médico: **APROBADO** (las 3 fuentes abiertas confirman lo que el artículo
+afirma; la frase nueva sobre várices no promete nada ni resta urgencia a la trombosis; por diff, ningún
+otro dato médico, factor de riesgo ni el post-note cambiaron). Policía humanizador: ajustó solo forma
+(partió una frase larga en dos, corrigió una concordancia de género y cambió un paréntesis con raya larga
+por paréntesis normal); confirmó que las 2 copias de la FAQ nueva (HTML y JSON-LD) quedan idénticas.
+**Publicado:** mejora de "Trombosis venosa: síntomas y señales de alarma que no debes ignorar"
+(`trombosis-venosa-senales`) — racimo `sintomas`.
+
 **Nota de verificación (11-nov-2026):** rutina automática. Hoy miércoles = artículo nuevo (§4) + humanización
 diaria (§4c). Tema: primer `[pendiente]` de la cola con búsquedas reales de `temas.md` — "Flebitis en el
 brazo: por qué aparece (a veces después de un suero) y cuándo consultar" (keyword: "flebitis en el brazo",

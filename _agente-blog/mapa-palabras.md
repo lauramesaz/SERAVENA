@@ -129,7 +129,7 @@ forzada); revisar los enlaces internos; si el artículo está en `revisados-medi
 | `flebitis-superficial-sintomas` | "flebitis pierna" 2, "síntomas de flebitis" 1 | enlace a `flebitis-en-el-brazo` cuando exista | después de que lo humanicen (está `[pendiente]`) |
 | `ulceras-venosas-piernas` | "ulceras venosas" 3, "caracteristicas ulcera venosa" 1 | Fuentes y una pregunta "¿cómo es una úlcera venosa?" | después de que lo humanicen |
 | `varices-eps-o-particular` | "la escleroterapia la cubre la eps" (pos. 14), "la eps lo cubre" (pos. 4) | pregunta frecuente sobre escleroterapia y EPS, sin afirmar coberturas | 9-nov |
-| `trombosis-venosa-senales` | "trombosis venosa profunda sintomas" 2, "como empieza una trombosis" 1 | Fuentes y la pregunta "¿cómo empieza una trombosis?" | ya |
+| `trombosis-venosa-senales` | "trombosis venosa profunda sintomas" 2, "como empieza una trombosis" 1 | **Hecho 2026-11-12** (día de mejora): sección Fuentes (MedlinePlus/NIH, Merck Manual edición profesional, NHLBI/NIH) con las mismas 3 fuentes en el JSON-LD `citation`; enlace desde el primer párrafo a `../varices-medellin`; nueva pregunta frecuente "¿Cómo empieza una trombosis?" en el post-faq y el FAQPage. Verificador médico: APROBADO (abrió las 3 fuentes). Policía: ajustó solo forma. | hecho |
 | `medias-compresion-embarazo` | "medias de compresion para embarazadas" 3 | usar esa frase en un H2 o una pregunta | 9-nov |
 | `cuidados-despues-escleroterapia` | "hematomas despues de escleroterapia" (pos. 34) | reforzar la parte de moretones | 22-nov (título protegido hasta el 16-nov) |
 | `varices-cirugia-o-sin-cirugia` | "cirugia de vena varice" 1 | enlace a `varicectomia-que-es` cuando exista | 22-nov |
