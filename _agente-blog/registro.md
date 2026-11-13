@@ -3,6 +3,56 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**artículo nuevo: varicectomia-que-es (13-nov-2026, viernes = día de artículo nuevo):**
+**Título:** "Varicectomía: qué es, cómo es la recuperación y qué otras opciones hay" · **Keyword:** varicectomía ·
+**Racimo:** tratamiento · **Tema:** primer `[pendiente]` de la "Cola con búsquedas reales de Colombia" de
+`temas.md`. **Búsqueda real de Colombia:** "varicectomia" 2 apar. (pos. 51), "cirugia de vena varice" 1 apar.
+(pos. 63); antes caía en `varices-cirugia-o-sin-cirugia`, que nunca usa la palabra.
+**Prueba del gemelo:** `buscar-gemelos.py "Varicectomía: qué es, cómo es la recuperación y qué otras opciones
+hay" "varicectomía"` → score máximo 0,14/0,17 (bajo el umbral 0,30, confirmado dos veces, antes y después del
+Policía). No es gemelo de ningún artículo vivo.
+**Búsquedas web hechas por el Investigador-Redactor (5, mínimo 3):** 1) "varicectomy ambulatory phlebectomy
+stab avulsion venous surgery guidelines vein stripping indications"; 2) "varicose vein surgery recovery
+complications stripping vs endovenous ablation Society for Vascular Surgery guidelines"; 3) "ambulatory
+phlebectomy recovery time risks bleeding bruising wound infection"; 4) "'2022 clinical practice guidelines'
+varicose veins Society for Vascular Surgery American Venous Forum American Vein Lymphatic Society pubmed";
+5) "site:vascular.org varicose veins patient treatment phlebectomy stripping ablation".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- CIRSE/SIR, "Multi-disciplinary Quality Improvement Guidelines for the Treatment of Lower Extremity
+  Superficial Venous Insufficiency with Ambulatory Phlebectomy" (J Vasc Interv Radiol 2010) — abierta (PDF,
+  extraído con pdftotext) y confirma: Tabla 4 lista como indicaciones "symptomatic varicose veins" y
+  complicaciones (tromboflebitis, sangrado) o falta de respuesta a medidas conservadoras; clasifica la
+  mayoría de complicaciones como menores (hematomas, parestesias leves).
+- Society for Vascular Surgery (SVS Perioperative Management Guide), "Lower Extremity Venous Disease and
+  Treatment of Post-Thrombotic Syndrome" — abierta y confirma que las venas "muy grandes o tortuosas, o con
+  varicosidades subcutáneas extensas" se adaptan mejor a ligadura con stripping y/o flebectomía.
+- "Endovenous laser ablation versus conventional surgery (ligation and stripping)... systematic review and
+  meta-analysis" (Annals of Medicine and Surgery, 2023, PMC10473384) — abierta y confirma resultados clínicos
+  comparables a 1, 2 y 5 años; menos hematomas con ablación láser (OR 0,43 y 0,35, p<0,0001); sin diferencia
+  clara en tiempo de vuelta al trabajo.
+**Veredictos de cada subagente:** Investigador-Redactor → borrador con fuentes; Editor de estilo + Policía
+humanizador → HUMANO 10/10 (sin frases marcadas para el médico); Verificador médico → **APROBADO** sin
+cambios (confirmó que Seravena NO aparece haciendo safenectomía en quirófano, solo microflebectomía
+ambulatoria con anestesia local, consistente con `flebectomia-ambulatoria-que-es.html`; `reviewedBy`/`author`
+= organización; sin cifras de precio); Juez SEO → **APTO, 97/100** (añadió enlaces recíprocos de "Sigue
+leyendo" en `flebectomia-ambulatoria-que-es.html`, `varices-cirugia-o-sin-cirugia.html` y
+`guia-tratamientos-varices.html`, sin tocar fondo médico).
+**Imagen de portada:** `6643065.webp` (moretón sobre la piel), no usada antes por ningún artículo del racimo
+`tratamiento`; registrada en `imagenes.json`.
+**Publicación:** tarjeta en `blog/index.html`, `<url>` en `sitemap.xml` (priority 0.7, lastmod 2026-11-13),
+tema marcado `[publicado 2026-11-13]` en `temas.md`, fila movida de la sección 4 a la 3 de `mapa-palabras.md`
+con su nuevo dueño.
+
+**humanizado: anticonceptivos-y-varices (13-nov-2026):** primer `[pendiente]` disponible de `humanizados.md`
+tras saltar `lipedema-tiene-cura.html` (protegido por "no tocar antes del 16-nov-2026" en
+`registro-seo-semanal.md`). Policía humanizador: quitó "no estás sola", "te explicamos" y el molde "La
+respuesta corta es/Respuesta corta:" (repetido en las 4 copias de la descripción), partió el primer párrafo
+para dar ritmo, marcó el blockquote como criterio explícito de la clínica y añadió un cierre con acción
+concreta. Verificador médico: **APROBADO** sin correcciones (post-note, las 5 preguntas/FAQPage, todos los
+enlaces, `datePublished` y la firma quedaron idénticos; solo cambió la forma y `dateModified` → 2026-11-13).
+Multa nueva anotada en `notas-humanizador.md` (molde "Respuesta corta:" repetido en meta descriptions).
+Publicado y verificado 200 en vivo.
+
 **mejora: trombosis-venosa-senales (12-nov-2026, jueves = día de mejora):** elegido de la sección 5
 ("Banco de mejoras") de `mapa-palabras.md`, de arriba abajo, el primero disponible: `dateModified` de
 2026-10-03 (más de 21 días), sin fecha de "no tocar" vigente en `registro-seo-semanal.md`, no entre los

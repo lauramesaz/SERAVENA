@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-11-07",
+  "actualizado": "2026-11-13",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "varicectomia-que-es": {
+      "imagen": "6643065.webp",
+      "alt": "Un moretón pequeño sobre la piel de la pierna, el tipo de marca que puede quedar unos días después de retirar una várice por varicectomía"
+    },
     "flebitis-en-el-brazo": {
       "imagen": "7006873.webp",
       "alt": "Nervadura de una hoja iluminada a contraluz, como una red de venas ramificada, para ilustrar la flebitis en una vena del brazo"

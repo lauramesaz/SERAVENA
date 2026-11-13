@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-11-11",
+  "actualizado": "2026-11-13",
   "articulos": [
+    {
+      "fecha": "2026-11-13",
+      "titulo": "Varicectomía: qué es, cómo es la recuperación y qué otras opciones hay",
+      "slug": "varicectomia-que-es",
+      "categoria": "Tratamiento",
+      "keyword": "varicectomía",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/varicectomia-que-es",
+      "nota": "Generado por la rutina automática del equipo de agentes. Racimo 'tratamiento'. Tema salido de la cola con búsquedas reales de Colombia (temas.md). Explica la diferencia entre microflebectomía (lo que ofrece Seravena en consultorio, anestesia local) y safenectomía/stripping (cirugía mayor que Seravena no hace). Médico: APROBADO sin correcciones, 3 fuentes abiertas (CIRSE/SIR 2010, Society for Vascular Surgery, revisión sistemática 2023 PMC). SEO: 97/100, APTO. Policía humanizador: 10/10, HUMANO. Enlaces en los dos sentidos con flebectomia-ambulatoria-que-es, varices-cirugia-o-sin-cirugia y guia-tratamientos-varices. También se humanizó el artículo viejo anticonceptivos-y-varices.html en esta misma rutina."
+    },
     {
       "fecha": "2026-11-11",
       "titulo": "Flebitis en el brazo: por qué aparece y cuándo consultar",
