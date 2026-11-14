@@ -3,6 +3,49 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: manchas-tobillos-causas (14-nov-2026, sábado = día de mejora):** ningún artículo de la sección 5
+("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: comprobé el `dateModified` real de
+los 9 candidatos no marcados "hecho" (medias-compresion-colombia-comprar 2026-11-01, eco-doppler-venoso-que-es
+2026-11-07, eco-doppler-paso-a-paso 2026-10-30, calambres-piernas-noche 2026-11-08, ejercicios-circulacion-casa
+2026-10-28, varices-eps-o-particular 2026-11-09, medias-compresion-embarazo 2026-11-09,
+cuidados-despues-escleroterapia 2026-11-01, varices-cirugia-o-sin-cirugia 2026-11-01; flebitis-superficial-sintomas
+y ulceras-venosas-piernas siguen "después de que lo humanicen"; drenaje-linfatico-medellin tiene no-tocar
+vigente hasta 23-nov) y todos tenían menos de 21 días desde su último `dateModified`. Según la regla de
+`INSTRUCCIONES.md` §4b, pasé al último registro de `registro-seo-semanal.md` ("Semana del 9-nov-2026", Top 10
+páginas) y tomé el artículo del blog con más apariciones que cumpliera las mismas condiciones:
+`anticonceptivos-y-varices` (459 impr.) tenía `dateModified` de hoy mismo (cambiado por el plan orgánico del
+13-nov) y `senales-lipedema-primer-contacto` (288 impr.) de 2026-11-04 — ambos por debajo de 21 días.
+`manchas-tobillos-causas` (242 impr., `dateModified` 2026-10-07 → 38 días) sí cumplía: sin fecha de "no tocar"
+vigente para el cuerpo (su título/descripción están protegidos hasta el 24-nov-2026, pero no los toqué), no
+está entre los 3 primeros `[pendiente]` de `humanizados.md` (lipedema-tiene-cura, varices-hereditarias-genetica,
+ropa-comoda-lipedema) y no es una redirección.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con su `citation` igual en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../insuficiencia-venosa` (texto
+descriptivo: "insuficiencia venosa"); (3) `dateModified` → 2026-11-14 y `lastmod` del sitemap actualizado
+(`datePublished` 2026-08-10 sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy` sigue
+siendo la organización. No se encontró en Search Console una búsqueda de Colombia específica sin atender para
+este artículo (no estaba en el "Banco de mejoras"), así que no se forzó ninguna keyword nueva; se mantuvo el
+contexto local ya existente (El Poblado, Medellín).
+**Búsquedas web hechas (3, con WebSearch):** 1) "stasis dermatitis hemosiderin staining chronic venous
+insufficiency MedlinePlus"; 2) "ocher dermatitis venous stasis skin changes Merck Manual professional";
+3) "hyperpigmentation ankle chronic venous insufficiency review 2023 2024 Cureus OR PubMed".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/spanish/ency/article/000834.htm` (MedlinePlus/NIH, "Dermatitis y úlceras por
+  estasis") — abierta y confirma que la dermatitis por estasis es consecuencia de la insuficiencia venosa
+  crónica, que la piel desarrolla lentamente coloración marrón/castaño oscuro, y que medias de compresión +
+  elevar las piernas (3-4 veces/día, ~15 min) son parte del manejo.
+- `https://www.merckmanuals.com/es-us/professional/trastornos-dermatológicos/dermatitis/dermatitis-por-estasis`
+  (Merck Manual, ed. profesionales, "Dermatitis por estasis") — abierta y confirma el mecanismo de
+  hemosiderina (depósito en la dermis → color pardo), la insuficiencia venosa crónica como causa principal, y
+  que "a menudo se indica elevación y compresión de la pierna".
+**Veredictos de cada subagente:** Policía humanizador → **HUMANO** (sin ediciones: sin huellas de IA
+prohibidas, enlace con texto descriptivo, sección Fuentes bien formada); Verificador médico → **APROBADO**
+sin correcciones (confirmó por `git diff` que el post-note, el post-faq/JSON-LD FAQPage, la firma, el CTA,
+`datePublished` y las cifras quedaron idénticos; la cláusula nueva es prudente y coherente con el resto del
+artículo).
+**Enlaces internos:** `revisar-enlaces.py` todavía no existe; comprobé a mano que `../insuficiencia-venosa`
+apunta a un archivo que existe en el repositorio.
+
 **artículo nuevo: varicectomia-que-es (13-nov-2026, viernes = día de artículo nuevo):**
 **Título:** "Varicectomía: qué es, cómo es la recuperación y qué otras opciones hay" · **Keyword:** varicectomía ·
 **Racimo:** tratamiento · **Tema:** primer `[pendiente]` de la "Cola con búsquedas reales de Colombia" de
