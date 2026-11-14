@@ -23,6 +23,48 @@ sobre todo en España y no traían pacientes de Medellín. Por eso, desde hoy:
 5. Los temas de la **Reserva** no los toma la rutina diaria. Entran a la cola cuando aparezca su búsqueda
    en Colombia o cuando Claude los escriba en sesión con el dato que les falta.
 
+## ORDEN del 13-nov-2026: primero lo que trae pacientes de Colombia (intención de compra)
+
+Por qué: en Search Console (11-oct a 7-nov) hubo 51 clics y 17 fueron de la marca. Casi la mitad de las
+3.591 apariciones vino de España, con artículos informativos generales que no traen pacientes a Medellín.
+Esta orden no reemplaza "LO PRIMERO" (sigue prohibido inventar temas): dice **en qué orden** se toman.
+
+1. **Orden de prioridad al elegir tema o mejora.** Entre los `[pendiente]` de la cola, las filas de
+   "Búsquedas sin página dueña" y el banco de mejoras de `mapa-palabras.md`, va primero lo que tenga
+   intención de compra y sea de Colombia. De mayor a menor:
+   1. precio: "cuánto cuesta", "precio", "valor", "costo", "se puede pagar por partes";
+   2. lugar: "dónde", "en Medellín", "en El Poblado", "en Colombia", "cerca";
+   3. elección: "mejor clínica", "cómo elegir", "qué médico", "especialista";
+   4. sistema de salud: "EPS", "prepagada", "particular", "remisión", "orden médica";
+   5. decisión de tratamiento: "sirve", "cuántas sesiones", "recuperación", "antes y después de";
+   6. al final, lo informativo general (qué es, causas, síntomas).
+   La regla de no repetir racimo 3 días seguidos sigue igual.
+2. **Lo informativo general que solo se busca en España no se escribe ni se mejora.** Si la búsqueda que
+   respalda el tema no aparece con filtro país = Colombia, se queda en la Reserva.
+3. **Cada artículo nuevo o mejorado lleva dos salidas a la venta:** el enlace a su página que vende en el
+   primer párrafo (ya era regla) y, antes del primer H2, un bloque `<aside class="post-service">` con una
+   línea de texto, el enlace a la página que vende y el enlace de WhatsApp (copiar el modelo de
+   `blog/piernas-hinchadas-menstruacion.html`). Sin cifras que no estén en `/precios`.
+4. **Los precios y el "dónde" de un servicio son de la página que vende** (sección 2 de `mapa-palabras.md`).
+   El blog no les quita el título: escribe el artículo de apoyo (qué mueve el precio, qué preguntar antes
+   de pagar, EPS o particular) y manda a la lectora a la página que vende.
+5. **Revisión de los lunes:** además de lo de siempre, filtra en Search Console país = Colombia y busca
+   consultas que contengan `precio`, `cuesta`, `valor`, `costo`, `donde`, `medellin`, `colombia`, `mejor`,
+   `clinica`, `eps`, `particular`, `especialista`. Cada una que no tenga dueña en `mapa-palabras.md` entra
+   a la cola con su dato y sube al primer lugar.
+6. **Candidatos con intención de compra (en reserva hasta tener el dato de Colombia; no escribir sin él):**
+   - [en reserva] Cuánto cuesta una valoración vascular particular en Colombia y qué incluye. Falta: el
+     valor de la valoración de Seravena publicado en `/precios` (lo decide Laura).
+   - [en reserva] Eco doppler venoso por EPS o particular: tiempos, orden médica y qué preguntar. Pariente:
+     `varices-eps-o-particular`; enlace a `../eco-doppler-venoso-medellin`.
+   - [en reserva] Lipedema por EPS en Colombia: qué se puede pedir y qué no. Pariente:
+     `lipedema-valoracion-particular` (pasar la prueba del gemelo); enlace a `../precio-lipedema-medellin`.
+   - [en reserva] Cuántas sesiones de escleroterapia se necesitan y cómo se calcula el costo total.
+     Pariente: `precio-tratamiento-varices-colombia`; enlace a `../escleroterapia-medellin`.
+   - [en reserva] Medias de compresión en Medellín: dónde medirse y cuánto cuestan. Pariente fuerte:
+     `medias-compresion-colombia-comprar` (dueño de "medias de compresión", 42 apar. en Colombia): es más
+     probable que sea una mejora de ese artículo que uno nuevo.
+
 ## Cola con búsquedas reales de Colombia (armada el 7-nov-2026)
 
 Datos: Search Console con el usuario robot, filtro país = Colombia, 8-ago a 5-nov-2026 (90 días).

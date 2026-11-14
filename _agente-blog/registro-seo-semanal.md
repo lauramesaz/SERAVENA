@@ -386,3 +386,83 @@ Búsquedas nuevas: "picor en las piernas" (44, pos. 29), "flebitis" (28, pos. 29
 | blog/medias-compresion-embarazo | ¿Existen medias de compresión para embarazadas? |
 
 Búsquedas nuevas de Colombia sin dueña: ninguna esta semana (sin seguimiento no hay dato nuevo).
+
+---
+
+## Plan orgánico 13-nov-2026
+
+> Sesión de Claude (encargo de Laura): estudiar a la competencia de Colombia y mejorar lo que ya existe.
+> Base: Search Console 11-oct a 7-nov (51 clics, 3.591 apariciones, posición 23,1).
+> **No tocar título ni descripción de las páginas de la primera tabla antes del 4-dic-2026.**
+
+### Títulos y descripciones cambiados (no tocar antes del 4-dic-2026)
+
+| Página | Antes | Después |
+|---|---|---|
+| eco-doppler-venoso-medellin (título) | Eco doppler venoso en Medellín: qué detecta y cómo es | Eco doppler venoso en Medellín: sin remisión ni ayuno |
+| eco-doppler-venoso-medellin (descripción) | Eco doppler venoso en Medellín: el examen indoloro y sin radiación que muestra si tus venas devuelven la sangre. Qué detecta, cómo se hace y cómo prepararte. | Eco doppler venoso (ecografía doppler de las venas de las piernas) en El Poblado, Medellín. No duele y no pide ayuno ni remisión. Agenda por WhatsApp. |
+| lipedema-colombia (título) | Lipedema en Colombia: recursos, apoyo y orientación | Lipedema en Colombia: dónde tratarlo, costos y apoyo |
+| lipedema-colombia (descripción) | Comunidades, sociedades médicas, guías serias y una lista para preparar tu valoración de lipedema en Colombia, con enlaces verificados en septiembre de 2026. | Dónde tratan el lipedema en Colombia, cuánto cuesta el manejo médico, EPS o particular, y las comunidades y guías serias para orientarte. Enlaces verificados. |
+| blog/piernas-hinchadas-menstruacion (título) | Piernas hinchadas antes de la menstruación | Piernas hinchadas antes de la menstruación: ¿es normal? |
+| blog/piernas-hinchadas-menstruacion (descripción) | Piernas hinchadas antes de la menstruación: síntoma premenstrual frecuente, casi siempre hormonal. En Medellín, así se diferencia de un problema venoso. | Casi siempre es retención de líquidos por las hormonas y baja cuando llega el periodo. Lo que sí hay que revisar: una sola pierna, dolor, calor o piel roja. |
+| escleroterapia-medellin (solo descripción; el título no se tocó porque va en posición 5) | Escleroterapia en Medellín para arañitas y várices pequeñas: qué es, cómo es, cuidados y cuándo no es la opción. Valoración con eco doppler en Seravena. | Escleroterapia en Medellín desde $300.000 por sesión, para arañitas y várices pequeñas. Cómo es, cuidados, cuándo no sirve y valoración con eco doppler. |
+
+Total: 3 títulos (el tope eran 8). El H1 de las tres páginas quedó igual.
+
+**Títulos que NO se cambiaron y por qué.** `anticonceptivos-y-varices`, `manchas-tobillos-causas` y
+`precio-tratamiento-varices-colombia` recibieron título y descripción nuevos el **3-nov-2026** (commit
+7490638) y ese cambio no estaba anotado en este registro. Las cifras de 11-oct a 7-nov son casi todas del
+título viejo, así que todavía no se sabe si el nuevo funciona. **No tocar sus títulos antes del 24-nov-2026.**
+Además, a `anticonceptivos-y-varices` el Policía le reescribió la descripción hoy (13-nov).
+
+### Qué más se cambió (sin tocar títulos)
+
+| Página | Qué se añadió |
+|---|---|
+| blog/como-saber-si-tengo-lipedema (dueña de "cómo saber si tengo lipedema") | 2 preguntas nuevas, también en el FAQPage: "¿Cómo identificar el lipedema en las piernas?" y "¿Cómo se diagnostica el lipedema?"; una frase con 2 rayas largas pasó a paréntesis; enlace a tipos-de-lipedema-zonas |
+| 21 artículos de lipedema que no la enlazaban | enlace "Cómo saber si tengo lipedema: señales y test rápido" en "Sigue leyendo" (ahora la enlazan 36 páginas; antes 13) |
+| precio-lipedema-medellin y lipedema-colombia | enlace a la dueña con el texto "Cómo saber si tengo lipedema" |
+| blog/anticonceptivos-y-varices, manchas-tobillos-causas, piernas-hinchadas-menstruacion | bloque `aside.post-service` antes del primer H2: página que vende (várices / insuficiencia venosa / eco doppler) + WhatsApp |
+| varices-medellin | 3 preguntas (qué pasa si no me trato, qué médico las trata, EPS), enlaces en el texto a escleroterapia-medellin y eco-doppler-venoso-medellin, 2 artículos más en "Sigue leyendo" |
+| escleroterapia-medellin | 2 preguntas (espuma con su precio publicado y ancla `#espuma`; remisión o examen antes), 1 artículo más |
+| eco-doppler-venoso-medellin | 3 preguntas (cuánto cuesta: se responde sin cifra porque no hay precio publicado; orden médica y el nombre largo del examen; cuánto dura), 2 artículos más |
+| vascular | 1 pregunta: "¿Necesito un cirujano vascular o un médico vascular?" |
+| insuficiencia-venosa | enlaces en el texto a escleroterapia-medellin (el mapa pedía reforzar a la dueña) y a eco-doppler-venoso-medellin |
+| lipedema-colombia | bloque nuevo "Dónde tratar el lipedema en Colombia y cuánto cuesta" (4 preguntas) + FAQPage (no tenía). Va como `<div>` para no mover las claves por posición de contenido.js |
+| lipedema | 2 artículos más en "Sigue leyendo" (tipos según la zona, adolescentes) |
+| sitemap.xml | lastmod 2026-11-13 en las 12 páginas con cambio de contenido |
+
+Todas las preguntas nuevas de las páginas que venden llevan `data-c` y van al final de su lista.
+
+### Páginas sin indexar: enlaces nuevos desde páginas que sí están en Google
+
+| Sin indexar | Ahora la enlazan también |
+|---|---|
+| examenes-circulacion-piernas | eco-doppler-venoso-medellin, eco-doppler-paso-a-paso, preparar-valoracion-vascular |
+| leer-informe-eco-doppler-venoso | eco-doppler-venoso-medellin, preparar-valoracion-vascular |
+| escleroterapia-con-espuma | varices-medellin, escleroterapia-medellin, precio-tratamiento-varices-colombia, guia-tratamientos-varices, aranitas-vasculares-piernas, quitar-varices-para-siempre |
+| flebectomia-ambulatoria-que-es | varices-medellin, escleroterapia-medellin, escleroterapia-vs-laser, quitar-varices-para-siempre, precio-tratamiento-varices-colombia |
+| medias-compresion-para-volar | cuidar-piernas-viajes-largos, mitos-medias-compresion, piernas-viaje-tierra-caliente |
+| medias-compresion-posparto | varices-en-el-embarazo, mitos-medias-compresion |
+| vendaje-multicapa-lipedema | guia-completa-lipedema, lipedema-vs-linfedema, dolor-lipedema-manejo |
+| tipos-de-lipedema-zonas | lipedema, que-es-el-lipedema, guia-completa-lipedema, diagnostico-lipedema, como-saber-si-tengo-lipedema |
+| lipedema-cirugia-bariatrica | que-es-el-lipedema, guia-completa-lipedema, mitos-lipedema |
+| lipedema-en-adolescentes | lipedema, que-es-el-lipedema, etapas-del-lipedema, hablar-en-familia-lipedema, prevencion-del-lipedema |
+| lipedema-y-trabajo | lipedema-dias-calor-medellin, lipedema-y-menopausia |
+
+### Qué hace la competencia de Colombia (Google con país = Colombia, 13-nov)
+
+- "eco doppler venoso Medellín": dopplervenosomedellin.com pone el precio en el título ("$275.000") y ofrece
+  consulta y examen el mismo día. Seravena no tiene precio publicado del eco doppler ni de la valoración.
+- "várices Medellín": francovascular.com tiene una página por técnica; variclinicmedellin.com muestra
+  contadores de pacientes atendidos. Seravena no tiene página de endoláser (SER-25 sigue pendiente).
+- "escleroterapia Medellín": clinicasomos.co responde precio, espuma, complicaciones y cuidados en preguntas.
+- "tratamiento lipedema Medellín" y "lipedema Colombia": el primer lugar es el directorio de
+  lipedemacolombia.com, donde Seravena no aparece.
+- "cirujano vascular Medellín": directorios (Doctoralia, Top Doctors) y páginas con el nombre del médico.
+- "cómo saber si tengo lipedema": los primeros son clínicas de España; ninguno tiene test ni tabla. La
+  página dueña ya los tiene; lo que le faltaba eran enlaces internos.
+
+### Respetado
+
+No se tocó ninguna página de las tablas "no tocar antes del 16-nov, 23-nov y 30-nov" (ni título ni cuerpo).
