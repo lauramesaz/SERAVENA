@@ -74,6 +74,17 @@ Formato: fecha · agente · vicio · ejemplo corto.
 
 - 2026-11-13 · Redactor/Editor (archivo viejo, turno de limpieza) · el molde ya multado el 2026-10-25 ("La respuesta corta es/La respuesta corta:") seguía pendiente en este artículo, Y ADEMÁS aparecía repetido en las 4 copias de la descripción (meta, og:description, twitter:description) con el texto exacto "Respuesta corta:", patrón no detectado antes en meta descriptions · anticonceptivos-y-varices.html (el Policía lo reescribió en las 4 copias sin el molde, manteniendo la keyword y 140-160 caracteres; quedan pendientes los otros 5 de la lista del 2026-10-25 por si repiten el mismo patrón en sus meta descriptions: compresion-para-lipedema.html, guia-tratamientos-varices.html, medias-compresion-para-volar.html, varices-hereditarias-genetica.html, varices-vs-aranitas.html)
 
+- 2026-11-14 · Redactor (archivo viejo, turno de limpieza) · el molde ya multado el 2026-10-25 ("La respuesta
+  corta es") seguía pendiente en el primer párrafo del cuerpo, repitiendo además casi el mismo mensaje del
+  post-lead ("Te contamos..."), sin ningún párrafo de una sola línea en todo el cuerpo, sin criterio propio de
+  Seravena marcado explícitamente como tal, y cierre genérico sin acción concreta para antes de la próxima
+  cita · varices-hereditarias-genetica.html (el Policía quitó "Te contamos" del post-lead y "La respuesta
+  corta es" del primer párrafo, partiéndolo en dos -uno de una sola línea con la keyword-; marcó como criterio
+  propio explícito la preferencia por el eco doppler temprano; añadió una acción concreta de autoobservación
+  -anotar antecedentes familiares de várices antes de la próxima cita-. Quedan pendientes de este molde los
+  otros 4 de la lista del 2026-10-25: compresion-para-lipedema.html, guia-tratamientos-varices.html,
+  medias-compresion-para-volar.html, varices-vs-aranitas.html)
+
 ## Resueltas
 - 2026-10-10 · Redactor (archivo viejo) · 4 rayas largas (—) como muletilla en un mismo artículo (clasificación en etapas, tamaño de los nódulos en etapa 2, hinchazón en etapa 4 y el factor hormonal) · etapas-del-lipedema.html (sin recurrencia literal en 2 semanas; el vicio general de rayas largas se sigue vigilando aparte en entradas más recientes, última el 2026-10-23)
 - 2026-10-10 · Redactor (archivo viejo) · frase-puente de relleno "Vale la pena aclarar algo importante:" antes de dar el dato, en vez de decirlo directo · etapas-del-lipedema.html (sin recurrencia literal en 2 semanas; la familia de frases-puente se sigue vigilando aparte, última el 2026-10-23 en guia-tratamientos-varices.html)
