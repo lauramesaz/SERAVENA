@@ -3,6 +3,54 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: cuidar-piernas-viajes-largos (15-nov-2026, domingo = día de mejora):** ningún artículo de la
+sección 5 ("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: comprobé el `dateModified`
+real de los candidatos no marcados "hecho" (medias-compresion-colombia-comprar 2026-11-01,
+eco-doppler-venoso-que-es 2026-11-07, eco-doppler-paso-a-paso 2026-10-30, calambres-piernas-noche 2026-11-08,
+ejercicios-circulacion-casa 2026-10-28, varices-eps-o-particular 2026-11-09, medias-compresion-embarazo
+2026-11-09, cuidados-despues-escleroterapia 2026-11-01, varices-cirugia-o-sin-cirugia 2026-11-01;
+flebitis-superficial-sintomas y ulceras-venosas-piernas siguen "después de que lo humanicen";
+drenaje-linfatico-medellin tiene no-tocar vigente hasta 23-nov) y todos tenían menos de 21 días desde su
+último `dateModified`. Según la regla de `INSTRUCCIONES.md` §4b, pasé al último registro de
+`registro-seo-semanal.md` ("Semana del 9-nov-2026", Top 10 páginas) y revisé el `dateModified` real de cada
+candidato con apariciones consistentes: `anticonceptivos-y-varices`, `senales-lipedema-primer-contacto`,
+`manchas-tobillos-causas` y `piernas-hinchadas-menstruacion` quedaron todos por debajo de 21 días (varios
+tocados esta misma semana por el plan orgánico del 13-nov o la mejora de ayer). `cuidar-piernas-viajes-largos`
+(2, 25 y 32 impr. en 3 semanas seguidas de Top 10, posición 9,5-11,9; `dateModified` 2026-10-21 → 25 días) sí
+cumplía: sin fecha de "no tocar" vigente en `registro-seo-semanal.md`, no está entre los 3 primeros
+`[pendiente]` de `humanizados.md` (lipedema-tiene-cura, varices-hereditarias-genetica, ropa-comoda-lipedema)
+y no es una redirección de "Artículos fusionados".
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con su `citation` igual en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../vascular` (texto descriptivo:
+"valoración de salud vascular"), mencionando Medellín de forma natural; (3) nuevo `<h2>` "Viajes largos desde
+Medellín: a la costa o por carretera" sobre un párrafo ya existente, para cumplir la regla de §2b de tener
+Medellín/Colombia en al menos un `<h2>` (la meta description ya lo tenía); (4) `dateModified` → 2026-11-15 y
+`lastmod` del sitemap actualizado (`datePublished` 2026-08-24 sin tocar). El artículo no está en
+`revisados-medico.md`: `reviewedBy` sigue siendo la organización. No encontré en el "Banco de mejoras" una
+búsqueda de Colombia específica asignada a este artículo (salió del fallback, no del Banco), así que no forcé
+ninguna keyword con cifras inventadas; reforcé el contexto local ya real del artículo (rutas desde Medellín a
+tierra caliente) en vez de inventar un dato de búsqueda.
+**Búsquedas web hechas (3, con WebSearch):** 1) "CDC travel deep vein thrombosis blood clots during travel";
+2) "Cochrane review compression stockings prevent DVT flights"; 3) "trombosis venosa viajes largos Colombia
+Minsalud OR sociedad médica" (sin resultado oficial colombiano específico; se mantuvieron las 2 fuentes
+internacionales ya verificadas).
+**Fuentes que el Verificador médico abrió y lo que confirmó:**
+- `https://www.cdc.gov/blood-clots/risk-factors/travel.html` (CDC, "Understanding Your Risk for Blood Clots
+  with Travel") — abierta directamente y confirma el umbral de 4+ horas de viaje (avión, carro, bus, tren),
+  la inmovilidad prolongada como causa principal, y los factores de riesgo adicionales (cirugía/lesión
+  reciente, anticonceptivos con estrógenos, embarazo/posparto, antecedentes de coágulos, trastornos
+  hereditarios de coagulación, várices) ya presentes en el artículo.
+- `https://doi.org/10.1002/14651858.CD004002.pub4` (Cochrane, "Compression stockings for preventing deep vein
+  thrombosis in airline passengers", 2021) — el DOI resuelve (redirige a doi.wiley.com/cochranelibrary.com),
+  pero ambos devolvieron 403 por bloqueo de bots. Se confirmó la fuente por vía alternativa: American Family
+  Physician "Cochrane for Clinicians" (`https://www.aafp.org/pubs/afp/issues/2022/0100/p23.html`), que cita
+  textualmente la referencia completa (Clarke MJ, Broderick C, Hopewell S, et al., Cochrane Database Syst Rev
+  2021;(4):CD004002) y reporta el hallazgo (reducción de TVP asintomática en vuelos de 4+ horas, certeza
+  alta), coincidente con lo que el artículo afirma; y PubMed (PMID 33878207) confirmó título, autores y año.
+**Veredicto médico:** APROBADO (sin correcciones). **Policía humanizador:** HUMANO 9/10 (corrigió una
+oración nueva que quedó demasiado larga por unir 3 ideas con coma en vez de punto; multa anotada en
+`notas-humanizador.md` por ser el mismo vicio ya multado el 2026-11-12).
+
 **mejora: manchas-tobillos-causas (14-nov-2026, sábado = día de mejora):** ningún artículo de la sección 5
 ("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: comprobé el `dateModified` real de
 los 9 candidatos no marcados "hecho" (medias-compresion-colombia-comprar 2026-11-01, eco-doppler-venoso-que-es

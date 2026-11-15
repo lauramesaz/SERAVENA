@@ -85,6 +85,8 @@ Formato: fecha · agente · vicio · ejemplo corto.
   otros 4 de la lista del 2026-10-25: compresion-para-lipedema.html, guia-tratamientos-varices.html,
   medias-compresion-para-volar.html, varices-vs-aranitas.html)
 
+- 2026-11-15 · Redactor/Editor (día de mejora) · mismo vicio multado el 2026-11-12 en trombosis-venosa-senales.html: la frase nueva añadida al primer párrafo del cuerpo (con el enlace a ../vascular) se pegó con coma+"ya sea que..." a la oración anterior en vez de punto, alargando la oración en una sola frase con dos puntos y dos cláusulas más, rompiendo el ritmo (punto 3 de la prueba de humanidad) — reaparece 3 días después en otro artículo distinto, mismo patrón de "día de mejora" · cuidar-piernas-viajes-largos.html (el Policía la partió en dos oraciones -"...que vale la pena entender. Si viajas seguido, una valoración de salud vascular puede aclarar qué tan expuesta estás."- sin tocar el enlace, la keyword ni ningún dato médico)
+
 ## Resueltas
 - 2026-10-10 · Redactor (archivo viejo) · 4 rayas largas (—) como muletilla en un mismo artículo (clasificación en etapas, tamaño de los nódulos en etapa 2, hinchazón en etapa 4 y el factor hormonal) · etapas-del-lipedema.html (sin recurrencia literal en 2 semanas; el vicio general de rayas largas se sigue vigilando aparte en entradas más recientes, última el 2026-10-23)
 - 2026-10-10 · Redactor (archivo viejo) · frase-puente de relleno "Vale la pena aclarar algo importante:" antes de dar el dato, en vez de decirlo directo · etapas-del-lipedema.html (sin recurrencia literal en 2 semanas; la familia de frases-puente se sigue vigilando aparte, última el 2026-10-23 en guia-tratamientos-varices.html)
