@@ -299,7 +299,7 @@ function pintarHero(r){
 function pintarPaquetes(r){const meta=(DATA.meta||{}).paquetesMes||23,p=r.paquetes;
   if(p==null){$('#pqN').innerHTML='—';$('#pqT').textContent='Paquetes nuevos vendidos';$('#pqP').textContent='Este mes no tiene el conteo de paquetes nuevos (se lleva desde julio).';$('#pqBar').style.width='0';$('#pqL').textContent=`La meta es ${meta} al mes.`;return;}
   $('#pqN').innerHTML=`${p}<small> / ${meta}</small>`;
-  const ok=p>=meta;$('#pqT').textContent=ok?'Paquetes nuevos: se cumplió la meta':`Paquetes nuevos: faltaron ${meta-p}`;
+  const ok=p>=meta;$('#pqT').textContent=ok?'Paquetes nuevos: se cumplió la meta':(r.enCurso?`Paquetes nuevos: van ${p}, faltan ${meta-p}`:`Paquetes nuevos: faltaron ${meta-p}`);
   $('#pqP').textContent=`Para no perder plata se necesitan unos ${meta} paquetes nuevos al mes. En ${mesMin(r.k)}${r.enCurso?' (va al día '+(+r.corte.split('-')[2])+')':''} se vendieron ${p}. ${r.citas} personas vinieron a valoración.`;
   $('#pqBar').style.width=Math.min(100,p/meta*100).toFixed(1)+'%';$('#pqBar').style.background=ok?'var(--pos)':'var(--neg)';
   $('#pqL').textContent=ok?'Bien: así el tarro se llena.':'Cada paquete que no se vende son unos $3,1 millones que no entran en los siguientes 4 meses.';}
