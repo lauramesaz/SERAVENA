@@ -466,3 +466,28 @@ Todas las preguntas nuevas de las páginas que venden llevan `data-c` y van al f
 ### Respetado
 
 No se tocó ninguna página de las tablas "no tocar antes del 16-nov, 23-nov y 30-nov" (ni título ni cuerpo).
+
+---
+
+## Semana del 16-nov-2026
+
+### Cifras (18-oct al 14-nov, 28 días)
+
+- 56 clics · 4.198 impresiones · posición media 22,8 (semana pasada: 51 clics, 3.591 impresiones, 23,1).
+- Colombia: 43 clics, 771 impresiones (pos. 22,5). España: 8 clics, 1.840 impresiones. México 325, EE. UU. 209, Argentina 188.
+- Clics de la marca: "seravena clinica" 12 y "seravena" 7 (19 de 56). `seguimiento-busquedas.py` todavía no existe: sin tabla de las 15 búsquedas.
+- Top páginas: portada 32 clics; dr-jose-david-puerta-rojas 4; piernas-hinchadas-menstruacion 2; contacto 2; sobre 2; anticonceptivos-y-varices 1 (445 impresiones); manchas-tobillos-causas 1 (291); senales-lipedema-primer-contacto 1 (228); medias-compresion-embarazo 1 (143); precio-tratamiento-varices-colombia 1 (123).
+- Top búsquedas: seravena clinica 12, seravena 7, cómo saber si tengo lipedema 1 (50 apar., pos. 58); sin clics: flebitis, lipedema como identificar, cuidados despues de esclerosar varices, picor en las piernas, flebitis brazo, lipedema psicológico, medias de compresión, como saber si tengo lipedema.
+- Indexación: 124 en el sitemap, 115 en Google, 9 no (5 "Google no reconoce", 4 "descubierta sin indexar"; las mismas de la semana pasada).
+
+### Cambios de hoy (no tocar antes del 7-dic-2026)
+
+Las páginas que venden (precio-lipedema, obesidad, precios, clínica) se tocaron hace menos de 3 semanas: no se tocaron.
+
+| Página | Antes | Después |
+|---|---|---|
+| blog/etapas-del-lipedema (descripción) | El lipedema va de piel lisa con nódulos (etapa 1) a pliegues firmes y lipo-linfedema (etapa 4). Cómo reconocer cada etapa y cuándo consultar en Medellín. | ¿En qué etapa está tu lipedema? De la piel lisa con nódulos a los pliegues firmes: cómo reconocer cada etapa y cuándo pedir valoración en Medellín. |
+| blog/tacones-y-varices (descripción) | Tacones y várices sí tienen relación, aunque el zapato no es la causa: qué dice la evidencia sobre calzado y circulación, y qué tacón conviene en Medellín. | ¿Los tacones causan várices? No, pero influyen. Qué dice la evidencia sobre calzado y circulación, y qué señales piden consultar en Medellín. |
+| blog/piel-de-naranja-lipedema (título) | Piel de naranja en el lipedema: qué significa | Piel de naranja en las piernas: ¿es lipedema? |
+
+Búsquedas nuevas de Colombia sin dueña: ninguna (sin seguimiento no hay dato nuevo).
