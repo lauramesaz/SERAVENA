@@ -1,8 +1,12 @@
 {
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-16",
   "fuente": "Pexels · licencia libre para uso comercial, sin atribución obligatoria",
   "nota": "El id del archivo es el id de la foto en Pexels: pexels.com/photo/<id>",
   "asignaciones": {
+    "venas-marcadas-o-varices": {
+      "imagen": "29648636.webp",
+      "alt": "Profesional de salud con guantes examinando de cerca la pierna de una paciente, el tipo de revisión que confirma si lo que se nota es una vena normal o una várice"
+    },
     "varicectomia-que-es": {
       "imagen": "6643065.webp",
       "alt": "Un moretón pequeño sobre la piel de la pierna, el tipo de marca que puede quedar unos días después de retirar una várice por varicectomía"

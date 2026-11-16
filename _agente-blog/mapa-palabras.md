@@ -87,7 +87,7 @@ los demás países.
 | ejercicios para la circulación de las piernas | `ejercicios-circulacion-casa` | deporte con várices = `ejercicio-para-varices` · hábitos = `habitos-mejorar-circulacion` | unas 8 apar. (pos. 20-57) |
 | cirugía de várices | `varices-cirugia-o-sin-cirugia` = cómo decidir | `flebectomia-ambulatoria-que-es` | — |
 | varicectomía (microflebectomía vs. safenectomía) | `varicectomia-que-es` (publicado 13-nov-2026) | `varices-cirugia-o-sin-cirugia`, `flebectomia-ambulatoria-que-es` | "varicectomia" 2 (pos. 51), "cirugia de vena varice" 1 |
-| venas o várices (venas que se notan) | **sin dueño**: artículo nuevo de la cola (`venas-marcadas-o-varices`) | `varices-vs-aranitas` = várices frente a arañitas | 2 apar. (pos. 77-89) |
+| venas o várices (venas que se notan) | `venas-marcadas-o-varices` (publicado 2026-11-16) | `varices-vs-aranitas` = várices frente a arañitas · `guia-diagnostico-problema-venoso` = el proceso clínico completo (distinto del autoexamen en casa) | 2 apar. (pos. 77-89) |
 | especialistas en lipedema · médico vascular para lipedema · qué médico trata el lipedema | `/clinica-lipedema-medellin` (página que vende; ningún artículo la toma) | el médico = `/dr-jose-david-puerta-rojas` · la guía para médicos de primer contacto = `/guia-lipedema-medicos` (recibe "lipedema que medico lo trata", solo España) | "especialistas en lipedema" 2 y "medico vascular lipedema" 2 (posición 5, con la página de la clínica). Nadie en Colombia buscó "qué médico trata el lipedema" tal cual. `que-medico-trata-el-lipedema` salió de la cola el 7-nov |
 
 ## 4. Búsquedas sin página dueña (de aquí sale el artículo nuevo cuando la cola se vacía)
@@ -97,7 +97,8 @@ artículo, la fila pasa a la sección 3 con su dueño.
 
 | Búsqueda | Dato (Colombia, 90 días) | Estado |
 |---|---|---|
-| venas o várices | 2 apar. | en la cola: `venas-marcadas-o-varices` |
+
+(Vacía el 16-nov-2026: "venas o várices" ya tiene dueña, `venas-marcadas-o-varices`, pasó a la sección 3.)
 
 Si todas están "en la cola" o "publicado" y la cola no tiene pendientes, el día es de mejora.
 

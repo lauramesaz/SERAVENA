@@ -3,6 +3,73 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**artículo nuevo: venas-marcadas-o-varices (16-nov-2026, lunes = día de artículo nuevo):**
+**Título:** "¿Venas o várices? Cómo saber si las que se te notan son un problema" · **Keyword:** venas o
+várices · **Racimo:** sintomas · **Tema:** único `[pendiente]` que quedaba en la "Cola con búsquedas reales
+de Colombia" de `temas.md`. **Búsqueda real de Colombia:** "venas o varices" 2 apar. (pos. 77-89, hoy caía
+en `varices-vs-aranitas`), confirmada en la sección 4 de `mapa-palabras.md` ("sin página dueña").
+**Prueba del gemelo:** `buscar-gemelos.py "¿Venas marcadas o várices?..." "venas o várices"` → primer intento
+0,40 pariente con `guia-diagnostico-problema-venoso` (no gemelo); el Juez SEO la repitió sobre el título final
+y dio 0,51 con el mismo artículo (el script agrupa "problema"/"vena" como mismo concepto). Se leyó completo:
+`guia-diagnostico-problema-venoso` explica el proceso clínico formal (racimo `diagnostico`) para quien YA
+tiene síntomas; este artículo es el autoexamen visual/táctil en casa para quien solo nota una vena marcada,
+antes de decidir si consulta. Ángulos distintos, no gemelos; se añadió de todos modos un enlace explícito
+de deslinde hacia `guia-diagnostico-problema-venoso` para blindar la diferencia.
+**Búsquedas web hechas por el Investigador-Redactor (3, con WebSearch, más 5 lecturas de verificación con
+WebFetch):** 1) "diferencia clínica venas normales telangiectasias varices CEAP classification signs";
+2) "varicose veins vs spider veins signs symptoms when to see a doctor Society for Vascular Surgery";
+3) "chronic venous insufficiency early signs guideline CEAP classification varicose veins review PubMed".
+Descartados por no cargar contenido real tras verificación de navegador: PubMed y NCBI Bookshelf/StatPearls;
+descartada Cleveland Clinic por ser "blog de otra clínica" (prohibido por INSTRUCCIONES.md §2 regla 7).
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- Society for Vascular Surgery, "Varicose Versus Spider Veins: Understand the Difference and Know When to
+  Seek Treatment Help" (vascular.org, 2020) — abierta y confirma que las várices son "venas grandes y
+  abultadas" que pueden verse justo bajo la piel o más profundas, con síntomas (picazón, ardor, pesadez,
+  hinchazón) que típicamente empeoran a lo largo del día.
+- MSD Manual, tabla "Clinical Classification of Chronic Venous Insufficiency" (clasificación CEAP) — abierta
+  y confirma que C1 = telangiectasias/venas reticulares y C2 = várices; NO confirmaba la cifra de "más de 3
+  milímetros de diámetro" que el borrador le atribuía (esa tabla no menciona milímetros), así que el
+  Verificador la quitó de los 3 lugares donde aparecía (cuerpo, FAQ visible y JSON-LD FAQPage), dejando solo
+  la distinción cualitativa que la fuente sí respalda.
+- MedlinePlus/NIH, "Várices" (actualizado 22-may-2023) — abierta y confirma el mecanismo de válvulas venosas
+  dañadas y los factores de riesgo (antecedentes familiares, obesidad, sedentarismo, sexo femenino, edad).
+**Veredictos de cada subagente:** Investigador-Redactor → borrador con fuentes reales (747 palabras de
+cuerpo inicial); Editor de estilo/Policía humanizador → sin huellas de IA prohibidas (0 rayas largas, 0 "te
+contamos", 0 moldes multados), 2 señales de persona real o más (contexto de El Poblado/clima de Medellín,
+criterio propio marcado, admisión de límites, párrafo de una sola línea); Verificador médico → **APROBADO
+CON CORRECCIÓN** (quitó la cifra de milímetros no respaldada por su fuente; confirmó post-note con las 3
+señales de alarma pedidas, sin promesas de cura, sin indicaciones de tratamiento personalizadas, sin cifras
+de dinero, datos locales exactos —Seravena solo particular, eco doppler en el mismo consultorio de El
+Poblado—, autoría = organización, FAQ visible = JSON-LD palabra por palabra); Juez SEO → **97/100, APTO**
+(corrigió el llamado de mitad de artículo y el cierre con `llamados-venta.py`, que faltaban; descontó 3
+puntos de prudencia propia por el 0,51 de la prueba del gemelo, resuelto con el enlace de deslinde).
+**Imagen de portada:** `29648636.webp` (profesional examinando la pierna), no usada por ningún otro
+artículo del racimo `sintomas` (el banco de imágenes de ese racimo está agotado: las fotos de "piel de
+pierna/venas" ya las usan todos sus hermanos); registrada en `imagenes.json`.
+**Publicación:** tarjeta en `blog/index.html`, `<url>` en `sitemap.xml` (priority 0.7, lastmod 2026-11-16),
+tema marcado `[publicado 2026-11-16]` en `temas.md`, fila movida de la sección 4 a la 3 de `mapa-palabras.md`
+con su nuevo dueño. Enlaces en los dos sentidos con los 3 hermanos del racimo `sintomas`
+(`varices-vs-aranitas`, `piernas-hinchadas-cuando-preocuparse`, `insuficiencia-venosa-sintomas`).
+**Aviso:** la cola de `temas.md` ("Cola con búsquedas reales de Colombia") queda en 0 pendientes tras este
+artículo — hace falta que la revisión SEO de los lunes o una sesión con Laura la llene con búsquedas reales
+nuevas de Search Console.
+
+**humanizado: sedentarismo-piernas-venas (16-nov-2026, turno de limpieza del día):** primer `[pendiente]`
+disponible de `humanizados.md` tras saltar `lipedema-tiene-cura.html` (no tocar antes del 16-nov-2026,
+protección que vence justo hoy, se prefirió esperar un día más por prudencia) y `lipedema-y-embarazo.html`
+(no tocar antes del 23-nov-2026) en `registro-seo-semanal.md`; `compresion-para-lipedema.html` también
+protegido hasta el 23-nov. Policía humanizador: quitó el molde "el vínculo entre [keyword] es real, y se
+nota..." (misma familia ya multada como "la relación entre [keyword] es real, aunque...", reaparece por
+cuarta vez — multa nueva anotada en `notas-humanizador.md`), fusionó dos párrafos redundantes sobre el
+mecanismo de la bomba muscular (sentada/de pie) sin perder ningún dato, y recortó el cuerpo de ~1659 a
+~1530 palabras (sigue sobre 700-1100, vicio de archivo viejo ya conocido, no se sacrificó contenido clínico
+solo por la métrica). Verificador médico: **APROBADO CON CORRECCIÓN propia** del Policía (restauró varios
+matices de prudencia que sus propias reescrituras habían perdido: "tiende a ser mayor", "ayuda a
+reactivar", "pueden dificultar", etc.); confirmó por diff que mecanismos, 5 factores de riesgo, 5 síntomas,
+8 ejercicios, post-note y las 5 preguntas/FAQPage quedaron idénticos en significado; `reviewedBy` sigue en
+la organización. `dateModified` → 2026-11-16 y `lastmod` del sitemap actualizado por el orquestador.
+Publicado y verificado 200 en vivo.
+
 **mejora: cuidar-piernas-viajes-largos (15-nov-2026, domingo = día de mejora):** ningún artículo de la
 sección 5 ("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: comprobé el `dateModified`
 real de los candidatos no marcados "hecho" (medias-compresion-colombia-comprar 2026-11-01,

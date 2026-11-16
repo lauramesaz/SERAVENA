@@ -1,6 +1,18 @@
 {
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-16",
   "articulos": [
+    {
+      "fecha": "2026-11-16",
+      "titulo": "¿Venas o várices? Cómo saber si las que se te notan son un problema",
+      "slug": "venas-marcadas-o-varices",
+      "categoria": "Salud vascular",
+      "keyword": "venas o várices",
+      "seo": 97,
+      "medico": "aprobado",
+      "estado": "publicado",
+      "url": "https://www.clinicaseravena.com/blog/venas-marcadas-o-varices",
+      "nota": "Generado por la rutina automática del equipo de agentes. Racimo 'sintomas'. Único tema pendiente de la cola con búsquedas reales de Colombia (temas.md). Autoexamen en casa para distinguir una vena marcada (telangiectasia) de una várice real: tamaño, color, relieve y si cambia con el día. Médico: APROBADO CON CORRECCIÓN (quitó una cifra de milímetros no respaldada por la fuente citada), 3 fuentes abiertas (Society for Vascular Surgery, MSD Manual/CEAP, MedlinePlus-NIH). SEO: 97/100, APTO. Enlaces en los dos sentidos con varices-vs-aranitas, piernas-hinchadas-cuando-preocuparse e insuficiencia-venosa-sintomas. También se humanizó el artículo viejo sedentarismo-piernas-venas.html en esta misma rutina."
+    },
     {
       "fecha": "2026-11-13",
       "titulo": "Varicectomía: qué es, cómo es la recuperación y qué otras opciones hay",
