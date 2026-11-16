@@ -309,3 +309,35 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   como propuesta, que W43-2 (Open Graph) sigue confirmándose como ya implementada en `vascular.html` y
   `lipedema.html` (7 etiquetas `og:` cada una), igual que la semana pasada; sigue en `propuesta` porque no
   me corresponde marcarla `hecha`. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-11-16 · 2 propuestas nuevas (W47-1, W47-2) + 1 propuesta caducada (W42-2).** Repetí las 5
+  búsquedas objetivo: Seravena sigue sin aparecer en ninguna; esta semana casi no salió competencia local
+  nueva ni de siempre, los resultados fueron sobre todo literatura médica, tesis y Doctoralia (apareció,
+  entre otros, el propio perfil de Doctoralia del Dr. José David Puerta Rojas para 'eco doppler venoso
+  Medellín', pero ese hallazgo ya lo sigue el agente relacionista desde el 19-oct, no lo repito). Antes de
+  proponer leí la sección "Semana del 16-nov-2026" que la revisión SEO de esta misma mañana dejó en
+  `registro-seo-semanal.md` y comprobé en el código el estado de las 9 propuestas pendientes (W42-2
+  medicalSpecialty inválido, W43-1 títulos largos, W43-2 Open Graph, W44-1 flebólogo, W44-2 lastmod del
+  sitemap, W45-1 Dr. Puerta Rojas en páginas vasculares, W45-2 'El Poblado', W46-1 insuficiencia-venosa.html
+  cediéndole posición a escleroterapia, W46-2 priceRange): ninguna repetida. Hallazgo aparte sobre W46-1
+  (no cuenta como propuesta nueva): confirmé con grep que el enlace a `escleroterapia-medellin` en el paso
+  'Plan a tu medida' de `insuficiencia-venosa.html` YA existe, lo añadió la sesión de Laura del 13-nov (ver
+  `registro-seo-semanal.md`, "Plan orgánico 13-nov-2026") sin que nadie marcara la propuesta como `hecha`,
+  así que sigue en `propuesta`, pero Laura puede confirmarlo y cerrarla. También confirmé que las etiquetas
+  Open Graph de W43-2 ya están completas en `contacto.html`, `preguntas.html`, `proceso.html` y
+  `profesionales.html` (3 etiquetas cada una), además de `vascular.html` y `lipedema.html`: esa propuesta
+  parece enteramente implementada, aunque no me toca marcarla `hecha`. W42-2 (medicalSpecialty inválido,
+  12-oct) lleva 35 días en `propuesta` sin aprobarse ni implementarse, comprobé hoy que las mismas páginas
+  siguen con `"Vascular"` en vez de `"Cardiovascular"`, así que la marqué `caducada` con una nota; sigue
+  teniendo sentido, solo caduca el plazo. Encontré dos huecos nuevos y verificables en el código, ninguno
+  repetido con lo pendiente: (1) el sitio ya muestra en su propia portada y en `vascular.html` una
+  calificación real de Google de 4,9 (el sello "4,9 en Google" de `index.html`, línea 198, y el bloque
+  "Opiniones reales de Google" de `vascular.html`, línea 385, ambos enlazados a la ficha real de Seravena
+  en Google Maps), pero ese dato no está en ningún JSON-LD: confirmé con grep que `aggregateRating` no
+  aparece en ningún archivo del sitio. De ahí salió W47-1, que no inventa el número de reseñas (falta y
+  solo Laura lo puede confirmar en su ficha de Google Empresa) y solo declara el 4,9 que la propia web ya
+  publica; (2) confirmé con grep que ni el texto visible de `contacto.html` ni ningún JSON-LD
+  `MedicalClinic` del sitio mencionan un horario de atención (0 coincidencias de "openingHours",
+  "horario", "a.m." o "p.m." en los 20 archivos raíz), el mismo hueco que propuse el 31-ago (W36-1) y que
+  caducó el 5-oct sin aprobarse; desde entonces esa página sí recibió el botón de llamada y el mapa
+  embebido (parte de la misma propuesta vieja), pero el horario nunca se escribió, y han pasado 11 semanas
+  desde el primer aviso. De ahí salió W47-2. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.

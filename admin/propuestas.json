@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-11-09",
+  "actualizado": "2026-11-16",
   "propuestas": [
+    {
+      "id": "2026-W47-1",
+      "fecha": "2026-11-16",
+      "titulo": "Declarar en el JSON-LD la calificación real de Google (4,9) que la web ya muestra, pidiendo a Laura el número de reseñas para completarla",
+      "categoria": "Local",
+      "que": "Añadir el bloque `aggregateRating` al JSON-LD `MedicalClinic` de las páginas raíz que ya lo declaran (`index.html`, `vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `lipedema.html`, `contacto.html`, entre otras), con `\"ratingValue\": \"4.9\"` —el mismo dato real que la web ya muestra visualmente— y `\"reviewCount\"` con el número real de reseñas de la ficha de Google de Seravena. Ese número no está publicado en ningún archivo del sitio ni se puede deducir: antes de escribir el campo, Laura tiene que confirmarlo mirando su ficha de Google Empresa (o buscando 'Seravena clínica' en Google Maps, donde aparece el conteo junto a la estrella). En cuanto Laura dé la cifra, Claude agrega `aggregateRating` en las páginas que tienen `MedicalClinic`.",
+      "porque": "Confirmé hoy con grep en todo el repositorio que el campo `aggregateRating` no existe en ningún archivo `.html` del sitio. Pero el dato SÍ es real y ya está publicado visualmente, no inventado: `index.html` (línea 198, `<span class=\"hm-badge-num\" data-hasta=\"4.9\">4,9</span>`, el sello 'en Google' que enlaza a la ficha real de Seravena en Google Maps) y `vascular.html` (línea 385, bloque 'Opiniones reales de Google', `<p class=\"h-score-num\" data-c=\"resenas_nota_num\">4,9</p>`). El propio manual del estratega dice que en búsquedas locales 'el primer puesto se decide sobre todo por señales locales — ficha de empresa, reseñas...' y hoy esa calificación, aunque ya es un argumento visible para la paciente en la propia web, no está declarada en los datos estructurados que Google usa para mostrar estrellas en el resultado de búsqueda. No propongo inventar el número de reseñas —eso rompería la regla de 'nunca inventes datos'—: lo pido como el único dato que falta y que solo Laura puede confirmar desde la ficha real.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "ambos",
+      "como_se_mide": "Que el JSON-LD de esas páginas pase el Google Rich Results Test mostrando `aggregateRating` sin errores (hoy el validador no muestra ninguno). No se puede aislar un efecto propio sobre el ranking: es la misma corrección de consistencia de datos estructurados que `geo` (W38-2), `availableService` (W39-1) y `priceRange` (W46-2, todavía pendiente), ya hechas o propuestas antes en el sitio.",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W47-2",
+      "fecha": "2026-11-16",
+      "titulo": "Publicar el horario de atención: visible en contacto.html y declarado en el JSON-LD (openingHours)",
+      "categoria": "Local",
+      "que": "En `contacto.html`, añadir un quinto bloque junto a los cuatro métodos de contacto ya existentes (WhatsApp, Correo, Llamar, Dónde estamos — líneas 140 a 156) con el horario real de atención de Seravena. Declarar ese mismo horario en el JSON-LD `MedicalClinic` de `contacto.html` con `openingHoursSpecification` (días y horas) y replicarlo en el `MedicalClinic` de las demás páginas raíz que lo declaran (`index.html`, `vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `lipedema.html`, entre otras). El horario exacto lo da Laura (días y rango de horas reales del consultorio); nadie lo inventa ni lo calcula.",
+      "porque": "Confirmé hoy con grep en todo el repositorio: ni el texto visible de `contacto.html` ni ningún JSON-LD `MedicalClinic` del sitio mencionan un horario de atención (0 coincidencias de 'openingHours', 'horario', 'a.m.' o 'p.m.' en los 20 archivos raíz). Es el mismo hueco que ya se propuso el 31-ago-2026 (W36-1) y que caducó el 5-oct-2026 por pasar el mes sin que nadie lo aprobara; desde entonces esa misma página sí recibió el botón de llamada directa y el mapa de Google embebido (parte de la misma propuesta vieja), pero el horario nunca se escribió. Han pasado 11 semanas desde el primer aviso y el campo sigue sin existir en ningún archivo. El propio manual del estratega señala la coherencia de la ficha de empresa y los datos locales como la señal que más pesa en el primer puesto de Google; además resuelve una duda real antes de escribir por WhatsApp ('¿atienden hoy?', '¿hasta qué hora?').",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "ambos",
+      "como_se_mide": "Que `contacto.html` muestre el horario de forma visible y que el Google Rich Results Test reconozca `openingHoursSpecification` en el `MedicalClinic` (hoy no existe ninguno). También, que el horario de la web coincida con el de la ficha de Google Empresa (coherencia de nombre-dirección-horario, una de las señales locales que cita el propio manual).",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W46-1",
       "fecha": "2026-11-09",
@@ -125,13 +151,15 @@
       "fecha": "2026-10-12",
       "titulo": "Corregir el valor inválido 'Vascular' por 'Cardiovascular' en el campo medicalSpecialty del JSON-LD, en las páginas que lo usan",
       "categoria": "Técnico",
+      "estado": "caducada",
+      "caducada_el": "2026-11-16",
+      "nota_caducidad": "Sigue teniendo sentido y sigue sin hacerse: comprobé hoy con grep que las mismas páginas (incluidas `vascular.html`, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html` con sus 2 apariciones) siguen declarando `\"medicalSpecialty\": \"Vascular\"`. Lleva 35 días en `propuesta` sin que nadie la apruebe ni implemente; caduca solo el plazo de repetirla cada semana, no la idea.",
       "que": "En las páginas que hoy declaran `\"medicalSpecialty\": \"Vascular\"` en su JSON-LD `MedicalClinic` o `MedicalWebPage` (`index.html`, `vascular.html`, `insuficiencia-venosa.html` —aparece 2 veces—, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `lipedema.html`, `contacto.html`, `proceso.html`, `preguntas.html`, `profesionales.html`, `sobre.html`, `test-lipedema.html`, `guia-lipedema-medicos.html`), cambiar ese valor por `\"medicalSpecialty\": \"Cardiovascular\"`. Es un cambio de texto en el mismo campo, en cada archivo; no toca ningún otro dato ni el diseño visible.",
       "porque": "Comprobado hoy: 'Vascular' no es un valor de la enumeración oficial `MedicalSpecialty` de schema.org (verificado en schema.org y sus espejos); el valor correcto para esta especialidad es 'Cardiovascular', que sí está en la lista oficial y que schema.org define como la rama de la medicina que trata los trastornos del corazón y del sistema vascular. Hoy las páginas del sitio que declaran esta especialidad —incluidas las 3 páginas de tratamiento y `vascular.html`, construidas justo para competir por las 5 búsquedas objetivo de la misión— usan el valor inválido. Un valor de enumeración que Google no reconoce se descarta al validar los datos estructurados: hoy esas páginas no le están confirmando a Google, de forma válida, cuál es la especialidad médica de la clínica.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Que esas páginas pasen el Google Rich Results Test mostrando 'Cardiovascular' como `medicalSpecialty` válido (hoy el validador no reconoce 'Vascular'). No se puede aislar un efecto propio sobre el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1, ya hechas en el sitio.",
-      "estado": "propuesta"
+      "como_se_mide": "Que esas páginas pasen el Google Rich Results Test mostrando 'Cardiovascular' como `medicalSpecialty` válido (hoy el validador no reconoce 'Vascular'). No se puede aislar un efecto propio sobre el ranking: es la misma corrección de consistencia técnica que W38-2 y W39-1, ya hechas en el sitio."
     },
     {
       "id": "2026-W41-1",
