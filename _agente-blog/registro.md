@@ -3,6 +3,59 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: piernas-cansadas-causas (17-nov-2026, martes = día de mejora):** ningún artículo de la sección 5
+("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: `medico-vascular-o-cirujano-colombia`
+y `picor-piernas-circulacion` y `trombosis-venosa-senales` ya están "hecho"; `medias-compresion-colombia-comprar`
+(se puede desde 22-nov), `eco-doppler-venoso-que-es` (28-nov), `eco-doppler-paso-a-paso` (20-nov),
+`ejercicios-circulacion-casa` (18-nov), `cuidados-despues-escleroterapia` y `varices-cirugia-o-sin-cirugia`
+(22-nov) y `drenaje-linfatico-medellin` (23-nov, con no-tocar vigente) siguen bloqueados por fecha;
+`flebitis-superficial-sintomas` y `ulceras-venosas-piernas` siguen "después de que lo humanicen"; y
+`calambres-piernas-noche` (dateModified 2026-11-08), `varices-eps-o-particular` (2026-11-09) y
+`medias-compresion-embarazo` (2026-11-09) —aunque la tabla los marca "se puede desde: ya/9-nov"— ya se
+mejoraron esos mismos días (sin que alguien les pusiera la nota "hecho" en el mapa) y tienen menos de 21 días
+desde su `dateModified`. Según la regla de `INSTRUCCIONES.md` §4b, pasé al último registro de
+`registro-seo-semanal.md` ("Semana del 16-nov-2026") y recorrí los artículos con más apariciones: `anticonceptivos-y-varices`
+(445 impr., dateModified 2026-11-14), `manchas-tobillos-causas` (291 impr., 2026-11-14 tras la mejora del
+14-nov), `senales-lipedema-primer-contacto` (228 impr., 2026-11-04), `medias-compresion-embarazo` (143 impr.,
+2026-11-09) y `precio-tratamiento-varices-colombia` (123 impr., 2026-11-07) tenían todos menos de 21 días desde
+su `dateModified`. `piernas-hinchadas-menstruacion` (2026-11-13) también quedó fuera por lo mismo. Bajé entonces
+a la búsqueda no-marca más constante de las últimas semanas en el registro ("piernas cansadas", 1.º o 2.º lugar
+en Top búsquedas de varias semanas seguidas, 56-62 impr., posición 57-61, sin clics) y encontré que el artículo
+dueño, `piernas-cansadas-causas`, no aparece ni en la sección 5 del mapa ni en ninguna fecha de "no tocar": su
+`dateModified` era 2026-09-28 (50 días), no está entre los 3 primeros `[pendiente]` de `humanizados.md`
+(lipedema-tiene-cura, lipedema-y-embarazo, como-elegir-clinica-lipedema-medellin) y no es una redirección.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con su `citation` igual en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../varices-medellin` (texto
+descriptivo: "várices en Medellín"); (3) `dateModified` → 2026-11-17 y `lastmod` del sitemap actualizado
+(`datePublished` 2026-08-01 sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy` sigue siendo
+la organización. No encontré en los registros una búsqueda de Colombia específica "no atendida" para este
+artículo (no estaba en el "Banco de mejoras", así que el mapa no documenta ninguna); no se forzó ninguna
+keyword nueva para no inventar un dato de Search Console que no tengo. El Verificador médico señaló aparte
+(sin bloquear la publicación) que una frase preexistente del cuerpo ("Mejoran al elevar las piernas o al
+caminar...") no se tocó hoy y conviene que el Redactor la revise en un próximo pase, porque el Manual MSD dice
+que caminar/estar de pie empeora los síntomas de insuficiencia venosa, y solo el reposo + la elevación los
+alivian.
+**Búsquedas web hechas (3, con WebSearch):** 1) "heavy tired legs venous insufficiency causes MedlinePlus";
+2) "chronic venous insufficiency leg heaviness symptoms Merck Manual professional"; 3) "insuficiencia venosa
+crónica Merck Manual edición profesional español síntomas pesadez" (más una 4.ª específica en español para
+confirmar la versión MedlinePlus: "insuficiencia venosa MedlinePlus en español síntomas causas").
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/spanish/ency/article/000203.htm` (MedlinePlus/NIH, "Insuficiencia venosa") —
+  abierta y confirma pesadez, hinchazón y calambres como síntomas, que empeoran al estar de pie y mejoran al
+  elevar las piernas, y los factores de riesgo (edad, antecedentes familiares, sexo femenino, embarazo, estar
+  mucho tiempo de pie o sentada).
+- `https://www.msdmanuals.com/es-es/professional/trastornos-cardiovasculares/enfermedades-de-las-venas-perif%C3%A9ricas/insuficiencia-venosa-cr%C3%B3nica-y-s%C3%ADndrome-posfleb%C3%ADtico`
+  (Manual MSD, ed. profesionales, "Insuficiencia venosa crónica y síndrome postrombótico") — abierta y
+  confirma la sensación de pesadez, cansancio y hormigueo, que empeoran de pie o caminando y se alivian con
+  reposo y elevación del miembro.
+**Veredictos de cada subagente:** Policía humanizador → **9/10** (corrigió una coleta de relleno con "vale la
+pena" al final de la frase nueva del primer párrafo —multa anotada en `notas-humanizador.md`— dejando el
+mismo enlace y dato; sin cambios en la sección Fuentes, que ya seguía el formato de la plantilla); Verificador
+médico → **APROBADO** sin correcciones (confirmó las 2 fuentes abiertas, que `reviewedBy` sigue en la
+organización, que no hay cifras de dinero que conciliar, y que ninguna fuente es blog/foro/Wikipedia).
+**Enlaces internos:** `revisar-enlaces.py` todavía no existe; comprobé a mano que `../varices-medellin` apunta
+a un archivo que existe en el repositorio.
+
 **artículo nuevo: venas-marcadas-o-varices (16-nov-2026, lunes = día de artículo nuevo):**
 **Título:** "¿Venas o várices? Cómo saber si las que se te notan son un problema" · **Keyword:** venas o
 várices · **Racimo:** sintomas · **Tema:** único `[pendiente]` que quedaba en la "Cola con búsquedas reales
