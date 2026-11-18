@@ -3,6 +3,50 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: ejercicios-circulacion-casa (18-nov-2026, miércoles = día de artículo nuevo, pero sin tema):**
+hoy tocaba artículo nuevo, pero la sección "Cola con búsquedas reales de Colombia" de `temas.md` no tiene
+ningún `[pendiente]` (sus 4 líneas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin
+página dueña") está vacía desde el 16-nov-2026. Por la regla de `INSTRUCCIONES.md` §4 ("si tampoco hay, hoy es
+día de mejora"), pasé a §4b. En el "Banco de mejoras" de `mapa-palabras.md` (sección 5), de arriba abajo:
+`medico-vascular-o-cirujano-colombia`, `picor-piernas-circulacion` y `trombosis-venosa-senales` ya están
+"hecho"; `medias-compresion-colombia-comprar` (se puede desde 22-nov), `eco-doppler-venoso-que-es` (28-nov) y
+`eco-doppler-paso-a-paso` (20-nov) siguen bloqueados por fecha; `calambres-piernas-noche` tiene `dateModified`
+2026-11-08 (solo 10 días, no llega a los 21 que pide la regla); `ejercicios-circulacion-casa` tenía
+`dateModified` 2026-10-28 (exactamente 21 días), no está entre los 3 primeros `[pendiente]` de
+`humanizados.md` (`lipedema-y-embarazo`, `como-elegir-clinica-lipedema-medellin`, `compresion-para-lipedema`),
+no tiene fecha de "no tocar" vigente en `registro-seo-semanal.md` y no es una redirección: cumple todo.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias académicas) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo a `../vascular` (texto descriptivo: "problema de
+salud vascular"); (3) la búsqueda de Colombia que el banco señala como desatendida ("ejercicios para la
+circulación de las piernas", ~8 apariciones) ahora está palabra por palabra en el segundo `<h2>`
+("Ejercicios para la circulación de las piernas: la rutina de 6 movimientos en casa"); (4) `dateModified` →
+2026-11-18 y `lastmod` del sitemap actualizado (`datePublished` 2026-08-31 sin tocar). El artículo no está en
+`revisados-medico.md`: `reviewedBy` sigue siendo la organización. `revisar-enlaces.py` todavía no existe:
+comprobé a mano que `../vascular` apunta a `vascular.html`, que existe en el repositorio.
+**Búsquedas web hechas (3, con WebSearch):** 1) "calf muscle pump venous return exercise chronic venous
+insufficiency review MedlinePlus NIH"; 2) "ankle pump exercise venous blood flow effectiveness study"; 3)
+"exercise recommendations chronic venous disease guideline avoid high impact valsalva" (esta última no dio
+una fuente nueva verificable: las páginas que devolvió eran blogs de otras clínicas, así que no se usó
+ninguna; el artículo se quedó con las 2 fuentes académicas de las búsquedas 1 y 2, dentro del rango 2-5).
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://pmc.ncbi.nlm.nih.gov/articles/PMC8147883/` (Jornal Vascular Brasileiro, 2021, revisión sistemática
+  sobre entrenamiento con ejercicio y la función de la bomba de la pantorrilla en insuficiencia venosa
+  crónica) — abierta y confirma que el entrenamiento mejora la función de la bomba muscular, incluso en
+  pacientes ya diagnosticados con la enfermedad en etapas avanzadas.
+- `https://pmc.ncbi.nlm.nih.gov/articles/PMC4793034/` (Toya et al., Journal of Physical Therapy Science,
+  2016, sobre posición del tobillo y pausas entre repeticiones en el flujo de la vena femoral común durante
+  el bombeo de tobillo) — abierta; confirma que la posición de la pierna cambia la velocidad del flujo, pero
+  **no** confirmaba una frase inicial sobre que las pausas "no importan" (en ese estudio la diferencia entre
+  pausas no fue estadísticamente significativa, dato distinto); el Verificador corrigió la frase él mismo con
+  Edit antes de aprobar, dejándola fiel al estudio.
+**Veredictos de cada subagente:** Policía humanizador → **9/10** (sin ediciones: cero rayas largas, cero
+fórmulas prohibidas en las frases nuevas; marcó para el Médico que "mejora su funcionamiento" había perdido el
+matiz de prudencia del original "puede mejorar su funcionamiento"); Verificador médico → **APROBADO CON
+CORRECCIÓN** (corrigió la frase de la fuente 2 descrita arriba; confirmó que el post-note, el post-faq y su
+JSON-LD FAQPage, los demás enlaces, `datePublished` 2026-08-31, la firma y el CTA quedaron idénticos, y que
+`reviewedBy` sigue en la organización). El orquestador aplicó además la corrección de prudencia que señaló el
+Policía, devolviendo "puede mejorar su funcionamiento" (regla de oro #2: no afirmar resultados sin matiz).
+
 **mejora: piernas-cansadas-causas (17-nov-2026, martes = día de mejora):** ningún artículo de la sección 5
 ("Banco de mejoras") de `mapa-palabras.md` cumplía las condiciones hoy: `medico-vascular-o-cirujano-colombia`
 y `picor-piernas-circulacion` y `trombosis-venosa-senales` ya están "hecho"; `medias-compresion-colombia-comprar`
