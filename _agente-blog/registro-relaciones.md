@@ -1201,3 +1201,88 @@ enlace, servicios ni reseñas (4 semanas igual), y el dominio viejo `seravena.co
 Hostinger, sin redirigir a ningún lado. Google Maps y Bing Places no los pude verificar desde aquí
 (se renderizan con JavaScript); si tienes dos minutos, vale la pena que los abras tú misma, igual que
 con el REPS.
+
+---
+
+## Semana del 2026-11-18
+
+· Sitios/fuentes revisados: 8 (búsqueda general de "Seravena Medellín clínica lipedema várices",
+perfil de Doctoralia del médico vía lectura directa, dominio viejo `seravena.com.co` vía lectura
+directa, Google Maps/reseñas por búsqueda, Bing Places por búsqueda, Instagram @seravena_clinica por
+búsqueda, prensa local — El Colombiano, Vivir en El Poblado, Minuto30 — buscando cobertura de
+lipedema/várices en 2026, `kit-backlinks.md` para confirmar que no hay envíos nuevos) + las 3
+búsquedas objetivo en Google ("várices Medellín", "flebólogo Medellín", "eco doppler venoso
+Medellín") + verificación directa con `grep` de la dirección y el teléfono en las 24 páginas `.html`
+del sitio que los mencionan
+· Seravena aparece en: 1 (Doctoralia, perfil del médico — sin cambio frente al 14-oct)
+
+### Sigue el régimen de vigilancia: 11 mensajes acumulados, ninguno enviado
+
+Confirmé en el historial de git que no hubo ningún commit nuevo a `kit-backlinks.md` ni a esta
+bitácora entre el 11-nov y hoy fuera del aviso de la semana pasada: los 11 mensajes acumulados
+(8 de `kit-backlinks.md` + 3 de esta bitácora: Infolocal, Vivir en El Poblado, LF Provider Directory)
+siguen exactamente igual, sin que ninguno se haya enviado. Como siguen siendo 10 o más, esta semana
+tampoco redacto mensajes nuevos, encuentre o no terreno nuevo (regla del manual, 7-nov): corresponde
+vigilar lo que ya existe, punto 6.
+
+### Nombre/dirección/teléfono: sin incoherencias
+
+Verifiqué con `grep` las 24 páginas del sitio que mencionan la dirección: las 24, sin excepción,
+usan **Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316** — la dirección confirmada
+hoy contra la ficha del edificio en Google. El teléfono sigue apareciendo en los mismos dos formatos
+de siempre (con espacios y sin espacios), que es el mismo número, no una incoherencia. Nada que
+corregir.
+
+### Vigilancia de lo que ya existe (punto 6 del manual)
+
+- **Doctoralia, perfil del médico** (doctoralia.co/perfil/jose-david-puerta-rojas) — leí la página
+  directamente hoy. Sin cambios frente al 11-nov: sigue sin foto de perfil (imagen genérica), sigue
+  sin servicios ni precios ("Sin información sobre servicios y precios"), sigue sin ninguna reseña
+  ("Pronto se publicarán opiniones"), y sigue sin ningún enlace a clinicaseravena.com (el único
+  enlace externo del perfil es a Google Maps). Sí menciona a Seravena en el texto, con el mismo tono
+  de marca de siempre ("En Seravena integramos medicina vascular, tecnología médica y bienestar...")
+  y da la dirección correcta. Van ya 5 semanas (14-oct, 21-oct, 28-oct, 4-nov, 11-nov, hoy) sin que
+  nadie entre con la cuenta del médico a completarlo.
+- **Dominio viejo `seravena.com.co`** — leí la página directamente hoy. Sigue exactamente igual que
+  el 11-nov: dominio aparcado en Hostinger ("Parked Domain name on Hostinger DNS system"), con
+  publicidad del propio proveedor (hosting, creador de sitios con IA, VPS, correo empresarial) y sin
+  ningún contenido de la clínica ni redirección a clinicaseravena.com. Vence el 19-feb-2027; sigue sin
+  hacer ni daño ni beneficio al posicionamiento.
+- **Google Maps** — repetí la búsqueda de "Seravena Medellín" y de "Seravena clínica Medellín reseñas
+  Google Maps opiniones": ningún resultado de negocio, solo el mismo perfil de Doctoralia y sitios sin
+  relación. Sigue sin poder leerse Google Maps directamente desde este entorno (se renderiza con
+  JavaScript). No puedo confirmar cuántas fichas salen, reseñas ni nota — sigue siendo la revisión de
+  dos minutos que solo Laura puede hacer abriendo Google Maps de verdad.
+- **Bing Places** — repetí la búsqueda; ningún resultado de negocio llamado Seravena, igual que
+  semanas anteriores. Misma limitación: Bing Maps se renderiza con JavaScript y no da contenido
+  legible para este agente.
+- **Instagram @seravena_clinica** — sigue bloqueado para este agente desde este entorno (confirmado
+  de nuevo hoy con una búsqueda `site:instagram.com`, sin resultado). Limitación de búsqueda, no
+  confirmación de que la cuenta no exista.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos perfiles individuales de Doctoralia de siempre
+(Efrén Cantillo Orozco, Diana Patricia Giraldo Méndez, Santiago Restrepo Giraldo, Juan Carlos Arrieta
+Bechara) y TopDoctors, sin ningún nombre nuevo frente a lo ya registrado en semanas anteriores. No
+encontré ninguna nota de prensa nueva de 2026 sobre lipedema o várices escrita desde Medellín en El
+Colombiano, Vivir en El Poblado ni Minuto30 (los resultados sobre el tema fueron de medios nacionales
+— Blu Radio, El Tiempo — y estudios académicos, sin relación con Medellín en particular ni con
+Seravena).
+
+### Esta semana no encontré ninguna oportunidad nueva de enlace
+
+Ningún directorio, gremio, medio ni aliado nuevo que no esté ya cubierto por los 11 mensajes
+acumulados entre esta bitácora y `kit-backlinks.md`. Con el régimen de vigilancia vigente, esto
+importa menos que otras semanas: aunque hubiera encontrado algo nuevo, no tocaría redactarlo todavía.
+
+· Mensajes listos para enviar: 0 esta semana, por la regla del manual explicada arriba (11 mensajes
+de semanas anteriores siguen pendientes de envío — ver semanas anteriores y `kit-backlinks.md`)
+
+### Para Laura, en una línea
+
+Sin cambios reales desde el 11-nov: los 11 mensajes siguen listos y sin enviar, la web sigue sin
+incoherencias, el perfil de Doctoralia del médico lleva 5 semanas igual (sin enlace, servicios ni
+reseñas) y el dominio viejo sigue aparcado sin hacer nada. Lo único que sigue pendiente de que
+alguien lo revise con sus propios ojos: Google Maps y Bing Places (este agente no puede leerlos) y,
+si procede, completar el perfil de Doctoralia del médico con el enlace a la web.
