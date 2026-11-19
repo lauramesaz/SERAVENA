@@ -3,6 +3,60 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: aranitas-vasculares-piernas (19-nov-2026, jueves = día de mejora):** la cola de `temas.md`
+("Cola con búsquedas reales de Colombia") sigue en 0 pendientes y la sección 4 de `mapa-palabras.md`
+("Búsquedas sin página dueña") sigue vacía, así que hoy también tocaba §4b directo. En el "Banco de
+mejoras" de `mapa-palabras.md` (sección 5), de arriba abajo: `medico-vascular-o-cirujano-colombia`,
+`ejercicios-circulacion-casa`, `picor-piernas-circulacion` y `trombosis-venosa-senales` ya están "hecho";
+`medias-compresion-colombia-comprar` (22-nov), `eco-doppler-venoso-que-es` (28-nov), `eco-doppler-paso-a-paso`
+(20-nov), `cuidados-despues-escleroterapia` y `varices-cirugia-o-sin-cirugia` (22-nov) y
+`drenaje-linfatico-medellin` (23-nov) siguen bloqueados por fecha; `calambres-piernas-noche` (dateModified
+2026-11-08, 11 días) sigue por debajo de los 21 días que pide la regla; `flebitis-superficial-sintomas`
+(2026-11-11) y `ulceras-venosas-piernas` (2026-11-10) ya se humanizaron y ahora cumplen "después de que lo
+humanicen", pero sus `dateModified` también quedaron a menos de 21 días de la propia humanización;
+`varices-eps-o-particular` y `medias-compresion-embarazo` (ambos 2026-11-09) igual. Ningún artículo del banco
+cumplía. Según `INSTRUCCIONES.md` §4b, pasé al último registro de `registro-seo-semanal.md` ("Semana del
+16-nov-2026"): de las páginas de blog con más apariciones (`anticonceptivos-y-varices` 445, `manchas-tobillos-causas`
+291, `senales-lipedema-primer-contacto` 228, `medias-compresion-embarazo` 143, `precio-tratamiento-varices-colombia`
+123), las 4 primeras tenían `dateModified` de menos de 21 días (11-13, 11-14, 11-04 y 11-09) y la última
+está protegida de título/descripción hasta el 24-nov-2026 (aunque el cuerpo sí se podría tocar, su
+`dateModified` de 2026-11-07 tampoco llega a los 21 días). Bajé entonces a `aranitas-vasculares-piernas`,
+que en los registros de varias semanas seguidas (19-oct: 173 apariciones, posición 51; 26-oct: mismas cifras)
+aparece repetido como "más apariciones sin clics" y no está en la sección 5 del mapa ni en ninguna fecha de
+"no tocar": su `dateModified` era 2026-09-28 (52 días), no está entre los 3 primeros `[pendiente]` de
+`humanizados.md` (`como-elegir-clinica-lipedema-medellin`, `compresion-para-lipedema`, `piel-y-cuidados-lipedema`)
+y no es una redirección.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../varices-medellin` (texto
+descriptivo: "valoración de várices en Medellín"); (3) no encontré en los registros una búsqueda de
+Colombia "no atendida" específica para este artículo (no estaba en el "Banco de mejoras", así que el mapa
+no documenta ninguna); usé en su lugar la variante coloquial real "arañitas en las piernas" —que aparece
+seguido en `registro-seo-semanal.md` como búsqueda de Colombia sin clics (24-30 apariciones, posición ~50-51
+en varias semanas)— en el párrafo que ya hablaba del clima de Medellín, sin forzarla; (4) `dateModified` →
+2026-11-19 y `lastmod` del sitemap actualizado (`datePublished` 2026-07-30 sin tocar). El artículo no está en
+`revisados-medico.md`: `reviewedBy` sigue siendo la organización. `revisar-enlaces.py` todavía no existe:
+comprobé a mano que `../varices-medellin` apunta a `varices-medellin.html`, que existe en el repositorio.
+**Búsquedas web hechas (3, con WebSearch):** 1) "telangiectasias spider veins treatment sclerotherapy review
+guideline"; 2) "MedlinePlus spider veins telangiectasia causes"; 3) "laser sclerotherapy leg telangiectasia
+systematic review PMC".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/ency/article/003284.htm` (MedlinePlus, National Library of Medicine/NIH,
+  "Telangiectasia") — abierta y confirma: "Telangiectasias are small, widened blood vessels on the skin" y
+  "They are usually harmless, but may be associated with several diseases."
+- `https://pmc.ncbi.nlm.nih.gov/articles/PMC8507602` (Nakano LCU, Cacione DG, et al., "Treatment for
+  telangiectasias and reticular veins", Cochrane Database of Systematic Reviews, 2021) — abierta y confirma
+  que ninguno de los 35 ensayos incluidos midió recurrencia ("None of the 35 included studies reported on
+  the outcomes of recurrence or time to resolution"), lo que respalda por vacío de evidencia la frase
+  prudente ya existente en el artículo ("No hay una fórmula que elimine el riesgo de que te salgan nuevas
+  arañas vasculares"), sin que esta se afirme de más.
+**Veredictos de cada subagente:** Policía humanizador → **9/10** (corrigió la frase nueva del primer párrafo,
+de "consultas más comunes que recibimos en nuestra valoración..." —sonaba corporativo— a "dudas más comunes
+que escuchamos en nuestra valoración...", mismo enlace y keyword; marcó como vicio nuevo a vigilar, sin multa
+formal todavía, el molde "es una de las dudas/consultas que recibimos/escuchamos en nuestra valoración +
+enlace" si reaparece igual en otro día de mejora); Verificador médico → **APROBADO** sin correcciones (abrió
+las 2 fuentes, confirmó que ningún otro dato médico, cifra ni nombre de médico se tocó, y que `reviewedBy`
+sigue en la organización).
+
 **mejora: ejercicios-circulacion-casa (18-nov-2026, miércoles = día de artículo nuevo, pero sin tema):**
 hoy tocaba artículo nuevo, pero la sección "Cola con búsquedas reales de Colombia" de `temas.md` no tiene
 ningún `[pendiente]` (sus 4 líneas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin
