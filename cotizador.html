@@ -1145,7 +1145,7 @@ $("#m-quitar").onclick = () => { CUOTAS = 0; INICIAL = null; calcular(); cerrarM
 let totalVisto = null;
 function animarTotal(v){
   const t = $("#total"), m = $("#total-m");
-  if (totalVisto === null || totalVisto === v){ totalVisto = v; t.textContent = m.textContent = fmt(v); return; }
+  if (totalVisto === null || totalVisto === v){ cancelAnimationFrame(animarTotal.f); t.classList.remove("cambia"); totalVisto = v; t.textContent = m.textContent = fmt(v); return; }
   const de = totalVisto, ini = performance.now(); totalVisto = v;
   t.classList.add("cambia");
   cancelAnimationFrame(animarTotal.f);
@@ -1388,7 +1388,7 @@ $("#enviar").onclick = () => {
     if (num.length < 11){ $("#contacto").closest(".campo").classList.add("error"); aviso("Falta el celular de la paciente", true); $("#datos").scrollIntoView({ behavior: "smooth" }); return; }
     const link = SITIO + "#p=" + empacar();
     abrirWhatsApp(num,
-      `Hola ${s.nombre.split(" ")[0]} 🤍 Te comparto tu plan de ${P().nombre} en Seravena.\n\n` +
+      `Hola ${s.nombre.split(" ")[0]}, te comparto tu plan de ${P().nombre} en Seravena.\n\n` +
       `Inversión: ${fmt(s.precio)} (valor inicial: ${fmt(anticipoDe(s.precio))})` +
       (CUOTAS ? `\nPlan de pago: ${textoPlan(s.precio)}` : "") + `\n\nAquí puedes ver todo lo que incluye y descargar tu cotización:\n${link}\n\n` +
       `Cualquier duda, aquí estoy.`);
