@@ -955,7 +955,13 @@ let PROG = "lipedema";
 const P = () => PROGRAMAS[PROG];
 $("#programas").innerHTML = Object.entries(PROGRAMAS).filter(([, p]) => !p.oculto).map(([id, p]) =>
   `<button type="button" class="prog-card" data-prog="${id}"><div class="foto" style="background-image:url('${p.foto}')"></div><b>${p.familia ? p.familia[0].toUpperCase() + p.familia.slice(1) : p.nombre}</b><small>${p.frase}</small></button>`).join("");
-document.querySelectorAll("#programas button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.prog));
+/* cambiar de programa borra lo armado: la paciente no puede, tocar el mismo no hace nada y Fede confirma */
+function cambiarPrograma(id){
+  if (MODO === "paciente" || id === PROG) return;
+  if (MODO === "comercial" && !confirm("Si cambias de programa se pierde lo que armó el doctor. ¿Cambiar?")) return;
+  ponerPrograma(id);
+}
+document.querySelectorAll("#programas button").forEach(b => b.onclick = () => { const f = PROGRAMAS[b.dataset.prog].familia; if (f && f === P().familia) return; cambiarPrograma(b.dataset.prog); }); // tarjeta grande de la familia ya elegida: no reinicia
 
 function ponerPrograma(id){
   PROG = id;
@@ -967,7 +973,7 @@ function ponerPrograma(id){
   const vars = fam ? Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam) : [];
   $("#variantes").innerHTML = vars.map(([k, p]) => `<button type="button" data-v="${k}" class="${k === id ? "activa" : ""}"><b>${p.corto}</b><small>${p.resumen}</small>${p.etiqueta === "" ? "" : `<span>${p.etiqueta || fmt(p.precio)}</span>`}</button>`).join("");
   $("#variantes").classList.toggle("oculto", !vars.length);
-  $("#variantes").querySelectorAll("button").forEach(b => b.onclick = () => ponerPrograma(b.dataset.v));
+  $("#variantes").querySelectorAll("button").forEach(b => b.onclick = () => cambiarPrograma(b.dataset.v));
   $("#pendiente").textContent = P().pendiente || "";
   $("#pendiente").classList.toggle("oculto", !P().pendiente);
   $("#ayuda-precio").textContent = P().precio
@@ -1109,7 +1115,7 @@ function textoPlan(total, corto){
 function pintarPlanPago(s){
   const pp = $("#plan-pago");
   if (!CUOTAS || !s.precio){ pp.classList.add("oculto"); return; }
-  pp.innerHTML = `Plan de pago en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas"} de <b>${fmt(s.precio / CUOTAS)}</b>: ${textoPlan(s.precio)}`;
+  pp.innerHTML = `Plan de pago en ${CUOTAS} ${CUOTAS === 1 ? "cuota" : "cuotas"} de <b>${fmt(s.precio / CUOTAS)}</b>${anticipoDe(s.precio) ? ": " + textoPlan(s.precio) : ""}`; // sin abono no repite "3 cuotas de…"
   pp.classList.remove("oculto");
 }
 function pintarModal(){
@@ -1206,6 +1212,8 @@ const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto"
 const fecha = d => d.getDate() + " de " + MESES[d.getMonth()] + " de " + d.getFullYear();
 const dos = n => String(n).padStart(2, "0");
 
+/* en el PDF el ícono va con tamaño y color fijos: html2canvas no pinta "currentColor" ni el tamaño por CSS */
+const icoPDF = k => ico(k).replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" ').replace(/currentColor/g, "#4B412D");
 function armarPDF(s, numero, hoy, vence){
   const filas = s.items.filter(x => !x.interno && x.n);
   const pagos = P().pagos || PAGOS_BASE;
@@ -1234,7 +1242,7 @@ function armarPDF(s, numero, hoy, vence){
       <div class="cols">
         <div class="lista">
           <p class="sec">Lo que incluye tu plan</p>
-          ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${ico(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
+          ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${icoPDF(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
         </div>
         <div>
           <p class="sec">Tu inversión</p>
