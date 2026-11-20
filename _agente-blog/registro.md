@@ -3,6 +3,46 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: eco-doppler-paso-a-paso (20-nov-2026, viernes = día de artículo nuevo, pero sin tema):**
+hoy tocaba artículo nuevo, pero la sección "Cola con búsquedas reales de Colombia" de `temas.md` sigue en
+0 pendientes (sus 4 líneas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin página
+dueña") sigue vacía desde el 16-nov-2026. Por `INSTRUCCIONES.md` §4 ("si tampoco hay, hoy es día de mejora"),
+pasé a §4b. **Aviso para Laura: la cola de temas quedó en 0 pendientes** (menos de 3), hace falta que la
+revisión SEO de los lunes o una sesión con Laura la llene con búsquedas reales de Colombia. En el "Banco de
+mejoras" de `mapa-palabras.md` (sección 5), de arriba abajo: `medico-vascular-o-cirujano-colombia`,
+`ejercicios-circulacion-casa`, `picor-piernas-circulacion` y `trombosis-venosa-senales` ya están "hecho";
+`medias-compresion-colombia-comprar` (22-nov) y `eco-doppler-venoso-que-es` (28-nov) siguen bloqueados por
+fecha; `eco-doppler-paso-a-paso` se podía desde hoy mismo (20-nov) y cumplía todo: `dateModified` 2026-10-30
+(21 días exactos), no está entre los 2 `[pendiente]` de `humanizados.md` (`compresion-para-lipedema`,
+`piel-y-cuidados-lipedema`), no tiene fecha de "no tocar" vigente en `registro-seo-semanal.md` (no aparece en
+ninguna tabla de títulos/descripciones protegidos) y no es una redirección.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../eco-doppler-venoso-medellin`
+(texto descriptivo: "eco doppler venoso en Medellín"); (3) la búsqueda de Colombia que el banco señala como
+desatendida ("cómo se realiza/se hace un doppler venoso de miembros inferiores", "eco doppler piernas") ahora
+está en una nueva pregunta frecuente ("¿Cómo se hace un doppler venoso de miembros inferiores?"), repetida
+palabra por palabra en el JSON-LD `FAQPage`; (4) `dateModified` → 2026-11-20 y `lastmod` del sitemap
+actualizado (`datePublished` 2026-08-25 sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy`
+sigue siendo la organización. `revisar-enlaces.py` todavía no existe: comprobé a mano que
+`../eco-doppler-venoso-medellin` apunta a un archivo que existe en la raíz del repositorio.
+**Búsquedas web hechas (3, con WebSearch):** 1) "doppler venoso de miembros inferiores cómo se realiza el
+examen guía clínica"; 2) "venous duplex ultrasound procedure patient information MedlinePlus"; 3)
+"RadiologyInfo doppler ultrasound vascular how the test is performed".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/ency/article/003775.htm` (MedlinePlus, National Library of Medicine/NIH, "Doppler
+  ultrasound exam of an arm or leg", revisado 13-ene-2026) — abierta y confirma: gel conductor sobre un
+  transductor de mano, "some people may feel slight pain from the pressure" (consistente con "no duele, como
+  mucho presión suave"), sin agujas, "there are no risks from this procedure".
+- `https://www.radiologyinfo.org/en/info/vascularus` (RadiologyInfo.org, RSNA/ACR, "Ultrasound - Vascular",
+  revisado 15-jul-2026) — abierta y confirma: transductor con gel, "it is safe and painless", sin radiación
+  ("ultrasound exams do not use radiation").
+**Veredictos de cada subagente:** Policía humanizador → **HUMANO** (corrigió la apertura de la nueva respuesta
+de la FAQ, de "Es el mismo examen que explicamos..." a "Son los mismos pasos que acabas de leer...", porque
+repetía la misma fórmula que el enlace nuevo del primer párrafo; multa anotada en `notas-humanizador.md`);
+Verificador médico → **APROBADO** sin correcciones (abrió las 2 fuentes, confirmó que respaldan la nueva
+pregunta frecuente y que el resto del artículo —post-note de trombosis venosa profunda, las otras 3 preguntas
+del FAQ, enlaces, firma— quedó idéntico).
+
 **mejora: aranitas-vasculares-piernas (19-nov-2026, jueves = día de mejora):** la cola de `temas.md`
 ("Cola con búsquedas reales de Colombia") sigue en 0 pendientes y la sección 4 de `mapa-palabras.md`
 ("Búsquedas sin página dueña") sigue vacía, así que hoy también tocaba §4b directo. En el "Banco de
