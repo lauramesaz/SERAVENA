@@ -59,8 +59,9 @@ correcto, sin cifras de precio, el párrafo nuevo no añade dato médico ni prom
 `registro-seo-semanal.md` (título y descripción en medición desde el 2-nov). Se saltó sin tocar el archivo,
 siguiendo la regla del manual del Policía. **Aviso para Laura: la cola de `humanizados.md` queda en 0
 pendientes disponibles** hasta el 23-nov-2026; ese día de limpieza no se hizo hoy.
-**Publicación:** commit + push a `main`; verificado 200 en producción tras esperar el build de GitHub Pages
-(ver más abajo el resultado exacto).
+**Publicación:** commit `d277518` + `git push origin HEAD:main` → **ÉXITO**. Verificado con curl tras esperar
+el build de GitHub Pages: `https://www.clinicaseravena.com/blog/guia-sintomas-mala-circulacion` responde
+**200**.
 
 ---
 
