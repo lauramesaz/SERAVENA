@@ -3,6 +3,67 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: guia-sintomas-mala-circulacion (21-nov-2026, sábado = día de mejora):**
+Hoy tocaba día de mejora por el ritmo semanal (sábado). Recorrí el "Banco de mejoras" de `mapa-palabras.md`
+(sección 5) de arriba abajo y **ninguna fila cumplía las 2 condiciones a la vez** (dateModified ≥21 días Y
+sin bloqueo de fecha): `medico-vascular-o-cirujano-colombia`, `ejercicios-circulacion-casa`,
+`picor-piernas-circulacion`, `trombosis-venosa-senales` y `eco-doppler-paso-a-paso` ya están "hecho" en los
+últimos 1 a 13 días; `calambres-piernas-noche` decía "ya" disponible pero su `dateModified` real es
+2026-11-08 (13 días, no 21); `varices-eps-o-particular` y `medias-compresion-embarazo` tienen `dateModified`
+2026-11-09; `flebitis-superficial-sintomas` y `ulceras-venosas-piernas` ya se humanizaron el 10/11-nov
+(dateModified reciente); `medias-compresion-colombia-comprar` (22-nov), `eco-doppler-venoso-que-es` (28-nov),
+`cuidados-despues-escleroterapia` (22-nov), `varices-cirugia-o-sin-cirugia` (22-nov) y
+`drenaje-linfatico-medellin` (23-nov) siguen bloqueados por fecha. Banco agotado por hoy.
+Seguí la regla de respaldo de `INSTRUCCIONES.md` §4b ("toma el artículo con más apariciones en Colombia
+según el último registro de `registro-seo-semanal.md`"). **Limitación de datos, para que Laura lo sepa:**
+`registro-seo-semanal.md` no tiene desglose por página filtrado a Colombia (solo agregados del país y "Top
+10 páginas" global); revisando ese Top 10 de la semana del 16-nov, **todas** las páginas del blog que
+aparecen ahí (`piernas-hinchadas-menstruacion`, `anticonceptivos-y-varices`, `manchas-tobillos-causas`,
+`senales-lipedema-primer-contacto`, `medias-compresion-embarazo`) tienen `dateModified` de los últimos 8 a 17
+días: tampoco cumplen el filtro de 21 días. Elegí `guia-sintomas-mala-circulacion.html` (guía madre del
+racimo `sintomas`, dateModified 2026-10-27 = 25 días) porque es el mejor dato de Colombia disponible para un
+artículo que sí cumple todo: en la semana del 5-oct-2026 de `registro-seo-semanal.md`, la búsqueda "mala
+circulacion pierna" rankeaba posición 2,7 (casi primera página) y "sintomas de la mala circulacion" en
+posición 15,5 con 22 impresiones, ambas del tema central de este artículo. No tiene fecha de "no tocar"
+vigente, no está entre los `[pendiente]` de `humanizados.md` (solo había uno, `compresion-para-lipedema`,
+protegido hasta el 23-nov) y no es una redirección.
+**Qué se hizo:** (1) nueva sección "Fuentes" (3 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`; (2) enlace nuevo desde el primer párrafo del cuerpo a `../varices-medellin` (texto
+descriptivo: "valoración de várices y circulación en Medellín"), página de servicio del racimo `sintomas`;
+(3) la frase "síntomas de la mala circulación en las piernas" (cerca de la búsqueda real "sintomas de la
+mala circulacion", pos. 15,5) usada con naturalidad en el nuevo párrafo del cuerpo; (4) `dateModified` →
+2026-11-21 y `lastmod` del sitemap actualizado (`datePublished` 2026-08-30 sin tocar). El artículo no está
+en `revisados-medico.md`: `reviewedBy` sigue siendo la organización. `revisar-enlaces.py` todavía no existe:
+comprobé a mano que `../varices-medellin` apunta a un archivo que existe en la raíz del repositorio.
+**Búsquedas web hechas (3, con WebSearch):** 1) "chronic venous insufficiency symptoms MedlinePlus NIH"; 2)
+"Cleveland Clinic chronic venous insufficiency CVI symptoms causes"; 3) "peripheral artery disease vs venous
+insufficiency leg symptoms difference NIH".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- `https://medlineplus.gov/spanish/ency/article/000203.htm` (MedlinePlus, NIH/Biblioteca Nacional de
+  Medicina de EE. UU., "Insuficiencia venosa") — abierta y confirma: pesadez, calambres, hinchazón,
+  picazón/hormigueo, cambios de piel y úlceras venosas, igual que describe el artículo.
+- `https://my.clevelandclinic.org/health/diseases/16872-chronic-venous-insufficiency-cvi` (Cleveland
+  Clinic, "Chronic Venous Insufficiency (CVI)", actualizada 2022) — abierta y confirma: piernas pesadas,
+  calambres nocturnos, hormigueo/ardor, hinchazón, cambios de color en la piel, úlceras, várices y arañitas
+  vasculares como parte de la clasificación de insuficiencia venosa.
+- `https://www.cdc.gov/heart-disease/about/peripheral-arterial-disease.html` (CDC, "About Peripheral
+  Arterial Disease (PAD)", 2024) — abierta y confirma: dolor al caminar que mejora con el reposo, y relación
+  con tabaquismo, hipertensión, diabetes y colesterol alto, la distinción arterial que ya hace el artículo.
+**Veredictos de cada subagente:** Policía humanizador → **DEVUELTO (7/10)** por una apertura "si te
+reconoces en" repetida en serie con otra frase ya existente más abajo en el mismo artículo; el propio
+Policía la reescribió y quedó **HUMANO (9/10)**; multa anotada en `notas-humanizador.md` (21-nov-2026).
+Verificador médico → **APROBADO** sin correcciones (las 3 fuentes abiertas y confirmadas, `reviewedBy`
+correcto, sin cifras de precio, el párrafo nuevo no añade dato médico ni promesa).
+**Humanización del día (turno de limpieza, §1c):** se intentó con `compresion-para-lipedema.html`, el único
+`[pendiente]` de `humanizados.md`, pero tiene "no tocar antes del 23-nov-2026" vigente en
+`registro-seo-semanal.md` (título y descripción en medición desde el 2-nov). Se saltó sin tocar el archivo,
+siguiendo la regla del manual del Policía. **Aviso para Laura: la cola de `humanizados.md` queda en 0
+pendientes disponibles** hasta el 23-nov-2026; ese día de limpieza no se hizo hoy.
+**Publicación:** commit + push a `main`; verificado 200 en producción tras esperar el build de GitHub Pages
+(ver más abajo el resultado exacto).
+
+---
+
 **mejora: eco-doppler-paso-a-paso (20-nov-2026, viernes = día de artículo nuevo, pero sin tema):**
 hoy tocaba artículo nuevo, pero la sección "Cola con búsquedas reales de Colombia" de `temas.md` sigue en
 0 pendientes (sus 4 líneas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin página
