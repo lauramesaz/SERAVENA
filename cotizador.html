@@ -118,6 +118,13 @@ html.nav[data-dir="back"] .step.on{animation-name:stepInBack}
 .tile.on .badge{opacity:1;transform:none}
 .tile.on .tq{opacity:1;transform:none;pointer-events:auto}
 .tile.pop{animation:pop .55s var(--spring)}
+.tile .tv{display:none;flex-direction:column;align-items:center;gap:4px;margin:-4px 0 16px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);cursor:text}
+.tile.on .tv{display:flex}
+.tile .tv-in{display:flex;align-items:center;gap:2px;height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(157,128,81,.35)}
+.tile .tv-in:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(157,128,81,.18)}
+.tile .tv-in i{font-style:normal;font-weight:600;color:var(--accent-ink)}
+.tile .it-precio{width:104px;border:0;background:transparent;font:inherit;font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums;outline:0}
+body.paciente .tile .tv{display:none!important}
 @keyframes pop{35%{transform:scale(1.05)}}
 .inc-zone{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .inc-chip{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;border:1px dashed var(--accent);font-size:15px;color:var(--ink);background:rgba(255,255,255,.6)}
@@ -788,10 +795,10 @@ const CATALOGO = [
   { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: COSTO_APARATOLOGIA, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
   { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
   /* VENAS — precios de venta que dio Laura (15-oct); aquí "u" es el precio, no el costo */
-  { id: "escleroterapia", n: "Sesiones de escleroterapia", u: 300000, t: "Sesiones de escleroterapia", d: "Dale + para sumar sesiones" },
-  { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna" },
-  { id: "espuma_safena",  n: "Espuma de safena (por pierna)", u: 3000000, t: "Espuma de safena", d: "Por pierna", max: 2, unidad: "pierna" },
-  { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "Por pierna", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 } },
+  { id: "escleroterapia", n: "Sesiones de escleroterapia", u: 300000, t: "Sesiones de escleroterapia", d: "Dale + para sumar sesiones", precioLibre: true },
+  { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna", precioLibre: true },
+  { id: "espuma_safena",  n: "Espuma de safena (por pierna)", u: 3000000, t: "Espuma de safena", d: "Por pierna", max: 2, unidad: "pierna", precioLibre: true },
+  { id: "endolaser",      n: "Endoláser (por pierna)", u: 6500000, t: "Endoláser", d: "Por pierna", max: 2, unidad: "pierna", tabla: { 1: 6500000, 2: 10000000 }, precioLibre: true },
   { id: "medias_v",       n: "Medias de compresión", u: 0, t: "Medias de compresión", d: "Incluidas en el tratamiento", incluido: true },
   { id: "rivaroxaban",    n: "Rivaroxabán 10 mg", u: 60000, t: "Rivaroxabán 10 mg", d: "Medicamento" },
   /* HAUSFORM (celulitis) — costos que dio Laura el 28-oct (Sculptra: 2 ampollas = 2.334.000) */
@@ -1131,7 +1138,7 @@ function cargarPlantilla(){
     .sort((a, b) => a.gi - b.gi || a.ci - b.ci)
     .forEach(({ c }, k) => {
       const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
-      agregarItem({ id: c.id, n: c.n, t: c.t, q: String(q), u, interno: c.interno, on: v != null, max: c.max, incluido: c.incluido, k });
+      agregarItem({ id: c.id, n: c.n, t: c.t, q: String(q), u, interno: c.interno, on: v != null, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad, k });
     });
   $("#descuento").value = ""; $("#desc-libre").value = ""; $("#manual-v").value = ""; $("#manual-nota").value = "";
   $("#nota-med").value = ""; $("#nota-med").classList.remove("vacia");
@@ -1161,6 +1168,15 @@ function agregarItem(it){
     <div class="tq">${esNum
       ? `<button type="button" class="mn" data-d="-1" aria-label="Menos ${esc(it.t)}">−</button><input type="text" class="it-q" inputmode="decimal" value="${esc(q)}" aria-label="Cantidad de ${esc(it.t)}"><button type="button" class="pl" data-d="1" aria-label="Más ${esc(it.t)}">+</button>`
       : `<input type="text" class="it-q lbl" value="${esc(q)}" readonly tabindex="-1">`}</div>`;
+  if (it.precioLibre){
+    d.classList.add("precio-libre");
+    d.insertAdjacentHTML("beforeend", `<label class="tv"><span>Valor por ${esc(it.unidad || "sesión")}</span><span class="tv-in"><i>$</i><input type="text" class="it-precio" inputmode="numeric" data-dinero value="${Number(it.u || 0).toLocaleString("es-CO")}" aria-label="Valor por ${esc(it.unidad || "sesión")} de ${esc(it.t)}"></span></label>`);
+    const pi = d.querySelector(".it-precio");
+    pi.addEventListener("click", e => e.stopPropagation());
+    pi.addEventListener("focus", () => setTimeout(() => pi.select()));
+    pi.addEventListener("input", () => { if (MODO === "paciente") return; d.dataset.u = num(pi.value); calcular(); });
+    pi.addEventListener("blur", () => { if (!num(pi.value)){ d.dataset.u = it.u || 0; pi.value = Number(it.u || 0).toLocaleString("es-CO"); calcular(); } });
+  }
   const ch = d.querySelector(".check"), inp = d.querySelector(".it-q");
   const bloqueadoNo = () => MODO === "comercial" && d.classList.contains("bloqueado") && !confirm("El doctor recomienda que esto no se quite. ¿Quitarlo igual?");
   const poner = v => { ch.checked = v; pop(d); calcular(); };
@@ -1277,7 +1293,7 @@ function leer(){
   const items = ITEMS().map(x => {
     const n = x.dataset.n || "", q = x.querySelector(".it-q").value.trim(), u = Number(x.dataset.u) || 0;
     const cat = CATALOGO.find(k => k.n === n), mq = mult(q);
-    const costo = cat && cat.tabla && cat.tabla[mq] != null ? cat.tabla[mq] : u * mq;
+    const costo = cat && cat.tabla && cat.tabla[mq] != null && u === cat.u ? cat.tabla[mq] : u * mq;
     const nt = x.querySelector(".it-nota") || (cat && cat.id === "tirzepatida" ? $("#nota-med") : null);
     return { id: cat ? cat.id : "", n, q, u, nota: nt ? nt.value.trim() : "", costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
   });
