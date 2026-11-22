@@ -46,8 +46,8 @@ independiente (ver abajo).
   especificaciones distintas a las de compresión graduada ambulatoria. Confirmó que post-note, post-faq,
   JSON-LD FAQPage, la firma "Equipo médico de Seravena" y `datePublished` quedaron intactos, y que
   `reviewedBy` sigue en la organización (el slug no está en `revisados-medico.md`).
-**Publicado:** sí (ver commit de hoy). **200 verificado:** ver nota de verificación más abajo en esta
-misma entrada o en la entrada de humanización del día.
+**Publicado:** sí (commit 315455e, push a main). **200 verificado:** sí — `https://www.clinicaseravena.com/blog/medias-compresion-colombia-comprar` respondió HTTP 200 tras esperar el despliegue de GitHub Pages.
+**Nota técnica:** al llegar a este turno el repositorio local estaba en HEAD "detached" por encima de `main` (que apuntaba a un commit viejo, 2fe6d64); tras `git fetch` se vio que `origin/main` ya estaba en `f724b73` (las sesiones anteriores sí habían publicado bien). Se hizo `git push origin HEAD:main` desde el estado detached y después `git checkout main` + `git merge --ff-only origin/main` para que la rama local `main` quedara alineada y el árbol de trabajo no quedara con archivos viejos.
 
 **humanización del día (22-nov-2026):** se intentó con `compresion-para-lipedema.html`, el único
 `[pendiente]` de `humanizados.md`, pero sigue con "no tocar antes del 23-nov-2026" vigente en
