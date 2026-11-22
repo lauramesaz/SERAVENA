@@ -3,6 +3,59 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: medias-compresion-colombia-comprar (22-nov-2026, domingo = día de mejora):**
+Hoy tocaba día de mejora por el ritmo semanal (domingo). La cola de `temas.md` ("Cola con búsquedas reales
+de Colombia") tiene 0 `[pendiente]` y la sección 4 de `mapa-palabras.md` ("Búsquedas sin página dueña")
+también está vacía, así que de todas formas tocaba mejora. Recorrí el "Banco de mejoras" de
+`mapa-palabras.md` (sección 5) de arriba abajo: `medico-vascular-o-cirujano-colombia`,
+`eco-doppler-paso-a-paso`, `ejercicios-circulacion-casa`, `picor-piernas-circulacion` y
+`trombosis-venosa-senales` ya están "hecho"; `eco-doppler-venoso-que-es` sigue bloqueado hasta el 28-nov;
+`calambres-piernas-noche`, `varices-eps-o-particular` y `medias-compresion-embarazo` tienen `dateModified`
+de menos de 21 días (9-nov y 8-nov); `flebitis-superficial-sintomas` y `ulceras-venosas-piernas` siguen
+reservados para después de humanizarlos; `cuidados-despues-escleroterapia` y `varices-cirugia-o-sin-cirugia`
+se podían desde hoy pero quedaban después en la lista; `drenaje-linfatico-medellin` se puede desde el
+23-nov. Elegí `medias-compresion-colombia-comprar` (primera fila que decía "se puede desde: 22-nov",
+`dateModified` 2026-11-01 = 21 días exactos, sin fecha de "no tocar" vigente en `registro-seo-semanal.md`,
+no está entre los `[pendiente]` de `humanizados.md` y no es una redirección).
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: MedlinePlus "Compression stockings" (NIH, revisado 2024) y el artículo de revisión
+"Graduated compression stockings" de Lim & Davies, *CMAJ* 2014;186(10):E391-E398; (2) enlace nuevo desde
+el primer párrafo del cuerpo a `../varices-medellin` (texto: "valoración de várices en Medellín"); (3)
+nueva sección `<h2>¿Medias médicas, ortopédicas o antiembólicas: son lo mismo?</h2>` que usa con
+naturalidad las 3 frases de Colombia que el banco señalaba sin atender: "medias médicas", "medias
+ortopédicas" y "medias compresivas"; (4) `dateModified` → 2026-11-22 y `lastmod` del sitemap actualizado
+(`datePublished` 2026-10-06 sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy` sigue
+siendo la organización. `revisar-enlaces.py` todavía no existe: comprobé a mano que `../varices-medellin`
+apunta a un archivo que existe en la raíz del repositorio.
+**Búsquedas web hechas (3, con WebSearch):** 1) "graduated compression stockings vs antiembolism
+stockings difference medical"; 2) "MedlinePlus compression stockings how to choose size mmHg"; 3) "medias
+antiembólicas vs medias de compresión terapéutica diferencia clínica". Con WebFetch confirmé el contenido
+exacto de las 2 fuentes antes de redactar, y el Verificador médico las volvió a abrir de forma
+independiente (ver abajo).
+**Veredictos de cada subagente (Task):**
+- **Policía humanizador (1c):** HUMANO (9/10). Antes 6/10 (un guion corto "-...-" usado como inciso,
+  evadiendo el filtro literal de raya larga; frase nueva del primer párrafo con cierre de relleno
+  "es parte de la misma valoración:"). Partió la frase del primer párrafo en dos oraciones y cambió el
+  guion-inciso por paréntesis, sin tocar ningún dato, enlace ni keyword. Multa nueva anotada en
+  `notas-humanizador.md` (2026-11-22): variante del guion corto como inciso, mismo efecto que la raya
+  larga ya multada desde el 2026-09-23 pero con un carácter distinto.
+- **Verificador médico (2):** **APROBADO**, sin correcciones. Abrió las 2 fuentes con WebFetch: MedlinePlus
+  "abierta y confirma" que existen medias de distinta presión y que se recomienda medir la pierna/consultar
+  a un profesional para la talla (Review Date 7/15/2024); CMAJ "abierta y confirma" (autores, revista, año y
+  DOI verificados) que las medias antiembólicas son para pacientes hospitalizados/inmóviles con
+  especificaciones distintas a las de compresión graduada ambulatoria. Confirmó que post-note, post-faq,
+  JSON-LD FAQPage, la firma "Equipo médico de Seravena" y `datePublished` quedaron intactos, y que
+  `reviewedBy` sigue en la organización (el slug no está en `revisados-medico.md`).
+**Publicado:** sí (ver commit de hoy). **200 verificado:** ver nota de verificación más abajo en esta
+misma entrada o en la entrada de humanización del día.
+
+**humanización del día (22-nov-2026):** se intentó con `compresion-para-lipedema.html`, el único
+`[pendiente]` de `humanizados.md`, pero sigue con "no tocar antes del 23-nov-2026" vigente en
+`registro-seo-semanal.md` (protección de título/descripción cambiados el 2-nov). No hay otro `[pendiente]`
+en la lista, así que hoy tampoco se humanizó ningún artículo viejo, igual que el 21-nov-2026. **Aviso para
+Laura: la cola de `humanizados.md` sigue en 0 disponibles** hasta que se libere `compresion-para-lipedema`
+(desde el 23-nov) o se añadan más artículos a la lista.
+
 **mejora: guia-sintomas-mala-circulacion (21-nov-2026, sábado = día de mejora):**
 Hoy tocaba día de mejora por el ritmo semanal (sábado). Recorrí el "Banco de mejoras" de `mapa-palabras.md`
 (sección 5) de arriba abajo y **ninguna fila cumplía las 2 condiciones a la vez** (dateModified ≥21 días Y
