@@ -644,6 +644,7 @@ const SALA_ORTOPEDIA = 120000;      // por visita
 const AMPOLLA_HIALURONICO = 175000; // 2 por rodilla, en 2 visitas
 const APLICACION_PRP = 325000;      // 3 por rodilla, 1 por semana (3 visitas)
 const REPARTO_MANUEL = 0.40;
+const FISIO_ORTOPEDIA = 720000;      // 23-nov: paquete de 8 sesiones a domicilio con Estabilizar (lo que le cuesta a Seravena)
 
 /* costo real de una sesión de aparatología (28-oct: 2 personas tiempo completo, 7 pacientes al día) */
 const COSTO_APARATOLOGIA = 39000;
@@ -695,10 +696,12 @@ const CATALOGO = [
   { id: "me_crio",      n: "Criolipólisis (sesión por zona)", u: 540000, ci: 200000, t: "Criolipólisis", d: "$540.000 · Sesión por zona · elimina la grasa localizada con frío, sin cirugía" },
   /* ORTOPEDIA de rodilla (Dr. Manuel) — "u" es el PRECIO de venta; "ci" / "citabla" = lo que le cuesta a la clínica (nunca sale en pantalla ni en el PDF) */
   { id: "or_deporte",     n: "Valoración con deportología", u: 300000, ci: 300000, t: "Valoración con deportología", d: "Revisamos tu rodilla y cómo te mueves para cuidar tu resultado" },
-  { id: "or_hialuronico", n: "Ácido hialurónico en rodilla (por rodilla)", u: 2000000, t: "Ácido hialurónico en rodilla", d: "2 aplicaciones por rodilla · lubrica la articulación y alivia el dolor", max: 2, unidad: "rodilla", tabla: { 1: 2000000, 2: 3800000 }, precioLibre: true,
+  { id: "or_hialuronico", n: "Ácido hialurónico en rodilla (por rodilla)", u: 2200000, t: "Ácido hialurónico en rodilla", d: "2 aplicaciones por rodilla · lubrica la articulación y alivia el dolor", max: 2, unidad: "rodilla", tabla: { 1: 2200000, 2: 4200000 }, precioLibre: true, /* 23-nov Laura: total con deportología 2.500.000 una rodilla / 4.500.000 las dos */
     citabla: { 1: 2 * AMPOLLA_HIALURONICO + 2 * SALA_ORTOPEDIA, 2: 4 * AMPOLLA_HIALURONICO + 2 * SALA_ORTOPEDIA } },
   { id: "or_prp",         n: "Plasma rico en plaquetas en rodilla (por rodilla)", u: 2400000, t: "Plasma rico en plaquetas en rodilla", d: "3 aplicaciones por rodilla, 1 por semana · con tu propia sangre", max: 2, unidad: "rodilla", precioLibre: true,
     citabla: { 1: 3 * APLICACION_PRP + 3 * SALA_ORTOPEDIA, 2: 6 * APLICACION_PRP + 3 * SALA_ORTOPEDIA } },
+  /* fisioterapia opcional ("+ Agregar") en las dos técnicas: precio 1.048.000 = tarifa regular de Estabilizar (131.000 × 8), editable; cuesta 720.000 */
+  { id: "or_fisio",       n: "Fisioterapia a domicilio (8 sesiones)", u: 1048000, ci: FISIO_ORTOPEDIA, t: "Fisioterapia a domicilio", d: "8 sesiones en tu casa · recuperas fuerza y movimiento en la rodilla", max: 1, unidad: "paquete", precioLibre: true },
   /* lo que trae cada tratamiento de estética (sin costo para la paciente) */
   { id: "me_diseno",    n: "Diseño personalizado de tu tratamiento", u: 0, t: "Diseño personalizado de tu tratamiento", d: "La doctora analiza tu rostro y define contigo las zonas y la dosis justa", incluido: true },
   { id: "me_fotos",     n: "Registro fotográfico de tu antes y después", u: 0, t: "Registro fotográfico antes y después", d: "Para que veas con tus propios ojos cómo cambia tu piel", incluido: true },
@@ -773,12 +776,12 @@ PROGRAMAS.estetica = {
 PROGRAMAS.ortopedia = {
   foto: "assets/media/rodilla-manuel-retrato.webp", frase: "Rodilla sin cirugía", familia: "ortopedia", solo: "or", sinCostos: true, esp: ORTOPEDIA, reparto: REPARTO_MANUEL,
   nombre: "Ácido hialurónico", corto: "Ácido hialurónico", titulo: "Ortopedia · Ácido hialurónico en rodilla", precio: 0, duracion: "", pagos: null,
-  plan: { or_deporte: 1, or_hialuronico: 1 }, muestra: ["or_deporte", "or_hialuronico"],
+  plan: { or_deporte: 1, or_hialuronico: 1 }, muestra: ["or_deporte", "or_hialuronico", "or_fisio"],
 };
 PROGRAMAS.ortopedia_prp = {
   oculto: true, familia: "ortopedia", solo: "or", sinCostos: true, esp: ORTOPEDIA, reparto: REPARTO_MANUEL,
   nombre: "Plasma rico en plaquetas", corto: "Plasma rico en plaquetas", titulo: "Ortopedia · Plasma rico en plaquetas en rodilla", precio: 0, duracion: "", pagos: null,
-  plan: { or_deporte: 1, or_prp: 1 }, muestra: ["or_deporte", "or_prp"],
+  plan: { or_deporte: 1, or_prp: 1 }, muestra: ["or_deporte", "or_prp", "or_fisio"],
 };
 const FACTOR_SIN_PLANTILLA = 1 / 0.6; // si no hay precio de lista: el costo es el 60% del precio
 const PAGOS_BASE = PROGRAMAS.lipedema.pagos;
@@ -862,7 +865,7 @@ const ICO = {
   reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 };
 const ico = (k, c = "") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k] || ICO.check}</svg>`;
-Object.assign(ICO, { or_deporte: ICO.deportologia, or_hialuronico: ICO.me_toxina, or_prp: ICO.me_cuidados });
+Object.assign(ICO, { or_deporte: ICO.deportologia, or_hialuronico: ICO.me_toxina, or_prp: ICO.me_cuidados, or_fisio: ICO.aparatologia });
 document.querySelectorAll("[data-ico]").forEach(el => el.insertAdjacentHTML("afterbegin", ico(el.dataset.ico)));
 
 /* ---- grupos de servicios ---- */
@@ -874,7 +877,7 @@ const GRUPOS = [
   { id: "me", t: "Tratamientos de medicina estética", i: "brillo", ids: ["me_toxina", "me_labios", "me_mandibula", "me_lyft", "me_sculptra", "me_radiesse", "me_nanopore", "me_adn"] },
   { id: "mi", t: "Viene incluido en tu tratamiento", i: "corazon", ids: ["me_diseno", "me_fotos", "me_revision", "me_whatsapp", "me_cuidados"] },
   { id: "cr", t: "Criolipólisis", i: "brillo", ids: ["me_crio"] },
-  { id: "or", t: "Tratamiento de rodilla", i: "general", ids: ["or_deporte", "or_hialuronico", "or_prp"] },
+  { id: "or", t: "Tratamiento de rodilla", i: "general", ids: ["or_deporte", "or_hialuronico", "or_prp", "or_fisio"] },
 ];
 
 /* ---- CRIOLIPÓLISIS: croquis del cuerpo (frente y espalda) para marcar zonas ----
@@ -1009,7 +1012,7 @@ const SI = {
   tirzepatida:'<rect x="20" y="4" width="8" height="30" rx="3"/><path d="M20 12h8M24 34v8M22 24h4"/>',
   enfermeria:'<path d="M24 40S8 30 8 19a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 11-16 21-16 21Z"/><path d="M24 20v10M19 25h10"/>',
   medias:stocking, medias_v:stocking,
-  aparatologia:machine, aparatologia_hf:machine,
+  aparatologia:machine, aparatologia_hf:machine, or_fisio:machine,
   drenaje:'<path d="M18 8s-8 10-8 16a8 8 0 0 0 16 0c0-6-8-16-8-16Z"/><path d="M34 22s-5 6-5 10a5 5 0 0 0 10 0c0-4-5-10-5-10Z"/>',
   escleroterapia:syringe, me_toxina:syringe,
   rivaroxaban:'<path d="M14.1 33.9a7 7 0 0 1 0-9.9L24 14.1a7 7 0 0 1 9.9 9.9L24 33.9a7 7 0 0 1-9.9 0Z"/><path d="M19 19l10 10"/>',
@@ -1033,7 +1036,7 @@ const SHORT = {psicologia:"Psicología",nutriologa:"Nutrióloga",nutricionista:"
   espuma_trib:"Espuma tributarias",espuma_safena:"Espuma safena",endolaser:"Endoláser",sculptra:"Sculptra",sveltia:"Sveltia",proc_gluteos:"Procedimiento",
   aparatologia_hf:"Aparatología",venufill:"Venufill",prp:"PRP",medico:"Procedimiento",insumos:"Materiales",me_toxina:"Toxina",me_labios:"Labios",me_mandibula:"Mandíbula",
   me_lyft:"Sustentación",me_sculptra:"Sculptra",me_radiesse:"Radiesse",me_nanopore:"Nanopore",me_adn:"ADN de salmón",me_crio:"Criolipólisis",
-  or_deporte:"Deportología",or_hialuronico:"Ácido hialurónico",or_prp:"Plasma (PRP)"};
+  or_deporte:"Deportología",or_hialuronico:"Ácido hialurónico",or_prp:"Plasma (PRP)",or_fisio:"Fisioterapia · 8 sesiones"};
 const svg = (p, cls = "") => `<svg class="${cls}" viewBox="0 0 48 48" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 
 
@@ -1098,7 +1101,7 @@ const UNI = {
   espuma_trib: ["pierna", "piernas"], espuma_safena: ["pierna", "piernas"], endolaser: ["pierna", "piernas"], rivaroxaban: ["unidad", "unidades"],
   sculptra: ["ampolla", "ampollas"], sveltia: ["ampolla", "ampollas"], venufill: ["frasco", "frascos"], prp: ["sesión", "sesiones"],
   proc_gluteos: ["proced.", "proced."], medico: ["proced.", "proced."], insumos: ["kit", "kits"],
-  or_deporte: ["cita", "citas"], or_hialuronico: ["rodilla", "rodillas"], or_prp: ["rodilla", "rodillas"],
+  or_deporte: ["cita", "citas"], or_hialuronico: ["rodilla", "rodillas"], or_prp: ["rodilla", "rodillas"], or_fisio: ["paquete", "paquetes"],
 };
 const unidadDe = (id, q) => { const u = UNI[id] || (/^me_/.test(id) ? ["sesión", "sesiones"] : ["", ""]); return mult(q) === 1 ? u[0] : u[1]; };
 
