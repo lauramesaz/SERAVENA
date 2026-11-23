@@ -8,7 +8,7 @@
  */
 
 const PESTANA = 'Leads';
-const AVISAR_POR_CORREO = true; // un correo por cada lead nuevo al dueño de la hoja
+const AVISAR_POR_CORREO = false; // Laura NO quiere correos: los leads se ven en la hoja
 
 const COLUMNAS = [
   ['fecha', 'Fecha'], ['puntaje', 'Puntaje'], ['servicio', 'Servicio'], ['nombre', 'Nombre'], ['whatsapp', 'WhatsApp'],
