@@ -79,7 +79,7 @@ body.paciente .pasos{display:none}
 
 /* ---------- paso 1 ---------- */
 .p1{justify-content:center}
-.progs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .prog{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 10px;border-radius:24px;background:#fff;border:1px solid var(--line);text-align:center;transition:border-color .25s,background .25s}
 .prog:hover{border-color:#cfc6b7}
 .prog .ic{width:52px;height:52px;border-radius:50%;background:var(--piedra);display:grid;place-items:center}
@@ -622,11 +622,21 @@ const VIGENCIA_DIAS = 30;
 const ESPECIALISTA = "Jose David Puerta";
 const ESPECIALIDAD = "Médico Internista – Subespecialista en Medicina Vascular";
 const ESTETICA = { nombre: "Valeria Enciso", especialidad: "Médica estética" }; // quien hace celulitis (28-oct)
+const ORTOPEDIA = { nombre: "Dr. Manuel", especialidad: "Ortopedista · Subespecialista en cirugía de rodilla" }; // ortopedia de rodilla (23-nov)
 const COMERCIAL = { nombre: "Federico", whatsapp: "573006397083" }; // a quien le llega "Enviar al comercial"
 const SITIO = "https://www.clinicaseravena.com/cotizador";
 const ENVIO_INGRESO = "https://seravena-cotizador-correo.vercel.app/api/ingreso"; // fila en el Google Sheets de ingresos + correo
 const ENVIO_COPIA = "https://seravena-cotizador-correo.vercel.app/api/enviar"; // proyecto ~/seravena-cotizador-correo (Vercel + Resend) → clinicaseravena@gmail.com y lauramesazuluaga@gmail.com
 const FRASE = "Estamos aquí para acompañarte a cuidar tu salud y lograr el cuerpo de tus sueños.";
+
+/* ORTOPEDIA (23-nov-2026, Laura): reparto 60 clínica / 40 Dr. Manuel sobre lo que queda DESPUÉS de los costos.
+   Costos: ampolla de ácido hialurónico 175.000 · aplicación de PRP 325.000 (Laura dio 260.000 o 325.000: se usa la más alta)
+   + uso de sala por cada visita (sala, enfermería, material estéril, esterilización, aseo y facturación)
+   + valoración con deportología a 300.000 (a la clínica le cuesta 200.000). */
+const SALA_ORTOPEDIA = 120000;      // por visita
+const AMPOLLA_HIALURONICO = 175000; // 2 por rodilla, en 2 visitas
+const APLICACION_PRP = 325000;      // 3 por rodilla, 1 por semana (3 visitas)
+const REPARTO_MANUEL = 0.40;
 
 /* costo real de una sesión de aparatología (28-oct: 2 personas tiempo completo, 7 pacientes al día) */
 const COSTO_APARATOLOGIA = 39000;
@@ -676,6 +686,12 @@ const CATALOGO = [
   /* CRIOLIPÓLISIS (23-nov-2026, Laura): se vende $540.000 la sesión por zona; costo interno $200.000 por sesión (ci, nunca sale en pantalla ni en el PDF).
      Las zonas se marcan en el croquis del cuerpo; cantidad = zonas × sesiones por zona. */
   { id: "me_crio",      n: "Criolipólisis (sesión por zona)", u: 540000, ci: 200000, t: "Criolipólisis", d: "$540.000 · Sesión por zona · elimina la grasa localizada con frío, sin cirugía" },
+  /* ORTOPEDIA de rodilla (Dr. Manuel) — "u" es el PRECIO de venta; "ci" / "citabla" = lo que le cuesta a la clínica (nunca sale en pantalla ni en el PDF) */
+  { id: "or_deporte",     n: "Valoración con deportología", u: 300000, ci: 300000, t: "Valoración con deportología", d: "Revisamos tu rodilla y cómo te mueves para cuidar tu resultado" },
+  { id: "or_hialuronico", n: "Ácido hialurónico en rodilla (por rodilla)", u: 2000000, t: "Ácido hialurónico en rodilla", d: "2 aplicaciones por rodilla · lubrica la articulación y alivia el dolor", max: 2, unidad: "rodilla", tabla: { 1: 2000000, 2: 3800000 }, precioLibre: true,
+    citabla: { 1: 2 * AMPOLLA_HIALURONICO + 2 * SALA_ORTOPEDIA, 2: 4 * AMPOLLA_HIALURONICO + 2 * SALA_ORTOPEDIA } },
+  { id: "or_prp",         n: "Plasma rico en plaquetas en rodilla (por rodilla)", u: 2400000, t: "Plasma rico en plaquetas en rodilla", d: "3 aplicaciones por rodilla, 1 por semana · con tu propia sangre", max: 2, unidad: "rodilla", precioLibre: true,
+    citabla: { 1: 3 * APLICACION_PRP + 3 * SALA_ORTOPEDIA, 2: 6 * APLICACION_PRP + 3 * SALA_ORTOPEDIA } },
   /* lo que trae cada tratamiento de estética (sin costo para la paciente) */
   { id: "me_diseno",    n: "Diseño personalizado de tu tratamiento", u: 0, t: "Diseño personalizado de tu tratamiento", d: "La doctora analiza tu rostro y define contigo las zonas y la dosis justa", incluido: true },
   { id: "me_fotos",     n: "Registro fotográfico de tu antes y después", u: 0, t: "Registro fotográfico antes y después", d: "Para que veas con tus propios ojos cómo cambia tu piel", incluido: true },
@@ -745,6 +761,17 @@ PROGRAMAS.estetica = {
   foto: "assets/media/care-hands.webp", frase: "Toxina, rellenos y bioestimuladores", solo: ["me", "mi", "cr"], sinCostos: true, esp: ESTETICA,
   nombre: "Medicina estética", titulo: "Medicina estética", precio: 0, duracion: "", pagos: null,
   plan: { me_diseno: "Incluido", me_fotos: "Incluido", me_revision: "Incluida", me_whatsapp: "Incluido", me_cuidados: "Incluida" },
+};
+/* ORTOPEDIA: dos técnicas (ácido hialurónico o plasma); el total es la suma de los precios */
+PROGRAMAS.ortopedia = {
+  foto: "assets/media/rodilla-manuel-retrato.webp", frase: "Rodilla sin cirugía", familia: "ortopedia", solo: "or", sinCostos: true, esp: ORTOPEDIA, reparto: REPARTO_MANUEL,
+  nombre: "Ácido hialurónico", corto: "Ácido hialurónico", titulo: "Ortopedia · Ácido hialurónico en rodilla", precio: 0, duracion: "", pagos: null,
+  plan: { or_deporte: 1, or_hialuronico: 1 }, muestra: ["or_deporte", "or_hialuronico"],
+};
+PROGRAMAS.ortopedia_prp = {
+  oculto: true, familia: "ortopedia", solo: "or", sinCostos: true, esp: ORTOPEDIA, reparto: REPARTO_MANUEL,
+  nombre: "Plasma rico en plaquetas", corto: "Plasma rico en plaquetas", titulo: "Ortopedia · Plasma rico en plaquetas en rodilla", precio: 0, duracion: "", pagos: null,
+  plan: { or_deporte: 1, or_prp: 1 }, muestra: ["or_deporte", "or_prp"],
 };
 const FACTOR_SIN_PLANTILLA = 1 / 0.6; // si no hay precio de lista: el costo es el 60% del precio
 const PAGOS_BASE = PROGRAMAS.lipedema.pagos;
@@ -828,6 +855,7 @@ const ICO = {
   reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
 };
 const ico = (k, c = "") => `<svg class="ico ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[k] || ICO.check}</svg>`;
+Object.assign(ICO, { or_deporte: ICO.deportologia, or_hialuronico: ICO.me_toxina, or_prp: ICO.me_cuidados });
 document.querySelectorAll("[data-ico]").forEach(el => el.insertAdjacentHTML("afterbegin", ico(el.dataset.ico)));
 
 /* ---- grupos de servicios ---- */
@@ -839,6 +867,7 @@ const GRUPOS = [
   { id: "me", t: "Tratamientos de medicina estética", i: "brillo", ids: ["me_toxina", "me_labios", "me_mandibula", "me_lyft", "me_sculptra", "me_radiesse", "me_nanopore", "me_adn"] },
   { id: "mi", t: "Viene incluido en tu tratamiento", i: "corazon", ids: ["me_diseno", "me_fotos", "me_revision", "me_whatsapp", "me_cuidados"] },
   { id: "cr", t: "Criolipólisis", i: "brillo", ids: ["me_crio"] },
+  { id: "or", t: "Tratamiento de rodilla", i: "general", ids: ["or_deporte", "or_hialuronico", "or_prp"] },
 ];
 
 /* ---- CRIOLIPÓLISIS: croquis del cuerpo (frente y espalda) para marcar zonas ----
@@ -952,6 +981,7 @@ const PI = {
   obesidad:'<rect x="7" y="9" width="34" height="32" rx="10"/><path d="M15 21a9 9 0 0 1 18 0"/><path d="M24 21l4-5"/><path d="M17 33h14"/>',
   venas:'<path d="M24 4v10c0 5-7 7-7 14v16"/><path d="M24 14c0 5 7 7 7 13 0 4-3 6-3 10"/><path d="M17 30c-4 1-7 3-8 7M31 27c3-1 6 0 8 3"/>',
   celulitis:'<path d="M6 16c4-4 8-4 12 0s8 4 12 0 8-4 12 0"/><path d="M6 26c4-4 8-4 12 0s8 4 12 0 8-4 12 0"/><path d="M6 36c4-4 8-4 12 0s8 4 12 0 8-4 12 0"/>',
+  ortopedia:'<path d="M15 4c1 8 4 13 9 17"/><path d="M31 4c0 6 1 11 3 15"/><circle cx="28" cy="24" r="5"/><path d="M23 28c-2 5-3 9-3 15M33 28c1 5 1 10 0 15"/>',
   estetica:'<path d="M22 6c1.5 8 4 10.5 12 12-8 1.5-10.5 4-12 12-1.5-8-4-10.5-12-12 8-1.5 10.5-4 12-12Z"/><path d="M36 30c.8 3.6 2 4.8 5.6 5.6-3.6.8-4.8 2-5.6 5.6-.8-3.6-2-4.8-5.6-5.6 3.6-.8 4.8-2 5.6-5.6Z"/>'
 };
 /* íconos de línea (servicios) */
@@ -988,13 +1018,15 @@ const SI = {
   me_lyft:'<path d="M24 40c-7 0-12-7-12-16S17 8 24 8s12 7 12 16-5 16-12 16Z"/><path d="M17 27l3-4 3 4M25 27l3-4 3 4"/>',
   me_nanopore:'<circle cx="14" cy="14" r="2.5"/><circle cx="24" cy="14" r="2.5"/><circle cx="34" cy="14" r="2.5"/><circle cx="14" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/><circle cx="34" cy="24" r="2.5"/><circle cx="14" cy="34" r="2.5"/><circle cx="24" cy="34" r="2.5"/><circle cx="34" cy="34" r="2.5"/>',
   me_crio:'<path d="M24 5v38M7.5 14.5l33 19M7.5 33.5l33-19"/><path d="M19 9l5 4 5-4M19 39l5-4 5 4M8 21l6.5-1.5L12.5 13M40 27l-6.5 1.5 2 6.5M8 27l6.5 1.5-2 6.5M40 21l-6.5-1.5 2-6.5"/>',
+  or_deporte:'<path d="M14 16v16M34 16v16M8 20v8M40 20v8M14 24h20"/>', or_hialuronico:syringe, or_prp:drop + '<path d="M24 24v10M19 29h10"/>',
   me_adn:'<path d="M16 6c0 10 16 10 16 18s-16 8-16 18"/><path d="M32 6c0 10-16 10-16 18s16 8 16 18"/><path d="M19 12h10M19 36h10M21 24h6"/>'
 };
 const SHORT = {psicologia:"Psicología",nutriologa:"Nutrióloga",nutricionista:"Nutricionista",deportologia:"Deportología",interna:"Medicina interna",general:"Control semanal",
   tirzepatida:"Medicamento",enfermeria:"Enfermería",medias:"Medias",aparatologia:"Aparatología",drenaje:"Drenaje",escleroterapia:"Escleroterapia",rivaroxaban:"Rivaroxabán",
   espuma_trib:"Espuma tributarias",espuma_safena:"Espuma safena",endolaser:"Endoláser",sculptra:"Sculptra",sveltia:"Sveltia",proc_gluteos:"Procedimiento",
   aparatologia_hf:"Aparatología",venufill:"Venufill",prp:"PRP",medico:"Procedimiento",insumos:"Materiales",me_toxina:"Toxina",me_labios:"Labios",me_mandibula:"Mandíbula",
-  me_lyft:"Sustentación",me_sculptra:"Sculptra",me_radiesse:"Radiesse",me_nanopore:"Nanopore",me_adn:"ADN de salmón",me_crio:"Criolipólisis"};
+  me_lyft:"Sustentación",me_sculptra:"Sculptra",me_radiesse:"Radiesse",me_nanopore:"Nanopore",me_adn:"ADN de salmón",me_crio:"Criolipólisis",
+  or_deporte:"Deportología",or_hialuronico:"Ácido hialurónico",or_prp:"Plasma (PRP)"};
 const svg = (p, cls = "") => `<svg class="${cls}" viewBox="0 0 48 48" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 
 
@@ -1035,9 +1067,9 @@ let totalVisto = null; // compatibilidad con el código de precio manual
 const S = { step: 1, elegido: false, incOpen: false, espAbierto: false };
 let PROG = "lipedema";
 const P = () => PROGRAMAS[PROG];
-const FRASE_CARD = { lipedema: "Manejo integral · 3 meses", obesidad: "Manejo médico · 3 meses", venas: "Escleroterapia, espuma, endoláser", celulitis: "Bioestimuladores y textura", estetica: "Toxina, rellenos, crio" };
-const VNAME = { celulitis: "Sculptra", celulitis_sveltia: "Sveltia", celulitis_advance: "Advance", celulitis_prestige: "Prestige" };
-const VSHORT = { venas: "Por sesiones", venas_espuma: "Tributarias o safena", venas_endolaser: "Una o dos piernas", celulitis: "Con Sculptra", celulitis_sveltia: "Con Sveltia", celulitis_advance: "Venufill + PRP", celulitis_prestige: "Sculptra + Venufill" };
+const FRASE_CARD = { lipedema: "Manejo integral · 3 meses", obesidad: "Manejo médico · 3 meses", venas: "Escleroterapia, espuma, endoláser", celulitis: "Bioestimuladores y textura", estetica: "Toxina, rellenos, crio", ortopedia: "Rodilla sin cirugía" };
+const VNAME = { ortopedia: "Ácido hialurónico", ortopedia_prp: "Plasma rico en plaquetas", celulitis: "Sculptra", celulitis_sveltia: "Sveltia", celulitis_advance: "Advance", celulitis_prestige: "Prestige" };
+const VSHORT = { ortopedia: "2 aplicaciones por rodilla", ortopedia_prp: "3 aplicaciones por rodilla", venas: "Por sesiones", venas_espuma: "Tributarias o safena", venas_endolaser: "Una o dos piernas", celulitis: "Con Sculptra", celulitis_sveltia: "Con Sveltia", celulitis_advance: "Venufill + PRP", celulitis_prestige: "Sculptra + Venufill" };
 const MESES_C = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
 const CK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
 const CHEV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
@@ -1059,6 +1091,7 @@ const UNI = {
   espuma_trib: ["pierna", "piernas"], espuma_safena: ["pierna", "piernas"], endolaser: ["pierna", "piernas"], rivaroxaban: ["unidad", "unidades"],
   sculptra: ["ampolla", "ampollas"], sveltia: ["ampolla", "ampollas"], venufill: ["frasco", "frascos"], prp: ["sesión", "sesiones"],
   proc_gluteos: ["proced.", "proced."], medico: ["proced.", "proced."], insumos: ["kit", "kits"],
+  or_deporte: ["cita", "citas"], or_hialuronico: ["rodilla", "rodillas"], or_prp: ["rodilla", "rodillas"],
 };
 const unidadDe = (id, q) => { const u = UNI[id] || (/^me_/.test(id) ? ["sesión", "sesiones"] : ["", ""]); return mult(q) === 1 ? u[0] : u[1]; };
 
@@ -1105,7 +1138,7 @@ function cambiarPrograma(id){
 
 /* ---- paso 2: el tablero (cada servicio es una fila) ---- */
 function cargarPlantilla(){
-  const grupos = GRUPOS.filter(g => P().solo ? [].concat(P().solo).includes(g.id) : !["hf", "vn", "me", "mi", "cr"].includes(g.id));
+  const grupos = GRUPOS.filter(g => P().solo ? [].concat(P().solo).includes(g.id) : !["hf", "vn", "me", "mi", "cr", "or"].includes(g.id));
   const permitidos = P().muestra || grupos.flatMap(g => g.ids);
   $("#tiles").innerHTML = ""; $("#incList").innerHTML = "";
   CATALOGO.map((c, ci) => { const gi = GRUPOS.findIndex(g => g.ids.includes(c.id)); return { c, ci, gi: gi < 0 ? 1 : gi }; })
@@ -1644,7 +1677,11 @@ async function enviarCopia(s, r, tipo = "descarga"){
   const ini = anticipoDe(s.precio), resto = s.precio - ini;
   /* en estética el costo interno solo se manda si TODO lo cobrado lo tiene (hoy: criolipólisis, 200.000 por sesión) */
   const cobrados = s.items.filter(x => !x.interno && x.n && x.u), catId = id => CATALOGO.find(k => k.id === id) || {};
-  const ci = cobrados.length && cobrados.every(x => catId(x.id).ci != null) ? cobrados.reduce((t, x) => t + catId(x.id).ci * mult(x.q), 0) : null;
+  const ciDe = (c, q) => c.citabla && c.citabla[mult(q)] != null ? c.citabla[mult(q)] : c.ci * mult(q);
+  const tieneCi = c => c.ci != null || !!c.citabla;
+  const ci = cobrados.length && cobrados.every(x => tieneCi(catId(x.id))) ? cobrados.reduce((t, x) => t + ciDe(catId(x.id), x.q), 0) : null;
+  /* ortopedia: de lo que queda después de costos, 40% es del Dr. Manuel → "le queda a Seravena" = solo el 60% */
+  const rep = P().reparto && ci != null ? Math.round((s.precio - ci) * P().reparto) : 0;
   const datos = {
     tipo, numero: r.numero, fecha: fecha(r.hoy), vence: fecha(r.vence), modo: MODO,
     programa: s.programa, paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
@@ -1654,7 +1691,7 @@ async function enviarCopia(s, r, tipo = "descarga"){
       return { n: (c ? c.t : x.n) + zn, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
     lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.manual ? 0 : s.descuento, total: s.precio, manual: s.manual,
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
-    costo: P().sinCostos ? ci : s.costo, queda: P().sinCostos ? (ci == null ? null : s.precio - ci) : s.queda,
+    costo: P().sinCostos ? (ci == null ? null : ci + rep) : s.costo, queda: P().sinCostos ? (ci == null ? null : s.precio - ci - rep) : s.queda,
     link: SITIO + "#c=" + empacar(),
   };
   if (r.doc){ datos.archivo = r.archivo; datos.pdf = r.doc.output("datauristring").split(",")[1]; }
