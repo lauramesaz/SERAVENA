@@ -239,6 +239,12 @@ body.paciente .ajustes,body.paciente #segCuo{display:none}
 .resu .fr span{color:var(--muted)}
 .resu .fr b{text-align:right}
 .resu .fr:last-child{border:0}
+.resu .fr-in{align-items:center;cursor:text}
+.resu .fr-in input{flex:1;min-width:0;text-align:right;border:0;outline:0;background:transparent;font:inherit;font-weight:700;color:var(--pardo);padding:4px 0}
+.resu .fr-in input::placeholder{color:#bdb5a8;font-weight:500}
+.resu .fr-in:focus-within{border-bottom-color:var(--pardo)}
+.resu .fr-in.falta{border-bottom:1.5px solid var(--error)}
+.resu .fr-in.falta input::placeholder{color:var(--error);font-weight:600}
 .resu .tot{font-size:28px;font-weight:800;letter-spacing:-.03em}
 .envios{display:grid;gap:10px;align-content:start}
 .envio{display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;text-align:left;padding:15px 18px;border-radius:22px;background:#fff;border:1px solid var(--line);transition:border-color .2s}
@@ -530,7 +536,7 @@ body:not(.comercial) #abrir-ingreso{display:none!important}
     <div class="marco alto p3">
       <div class="titulo"><p class="eyebrow">Paso 3 de 3</p><h1>Revisa y envía</h1><p class="guia">Confirma los datos y elige cómo enviar la cotización.</p></div>
       <div class="dos">
-        <div class="carta resu" id="resu"></div>
+        <div class="carta resu"><label class="fr fr-in" id="fr-nombre3"><span>Paciente</span><input id="nombre3" type="text" autocomplete="off" placeholder="Escribe el nombre aquí"></label><label class="fr fr-in"><span>Celular</span><input id="cel3" type="text" inputmode="tel" autocomplete="off" placeholder="300 000 0000"></label><div id="resu"></div></div>
         <div class="envios">
           <button type="button" class="envio prin" id="enviar-correo"><span class="lbl">Enviar a Federico</span><small>Le llega por correo para negociarla</small><i class="ic" data-ico="correo"></i></button>
           <button type="button" class="envio" id="enviar"><span class="lbl" id="enviar-txt">WhatsApp a Federico</span><small id="enviar-sub">Le llega el link por WhatsApp</small><i class="ic" data-ico="me_whatsapp"></i></button>
@@ -1493,8 +1499,9 @@ function pintarResumen(s){
   const inc = s.items.filter(x => !x.interno && x.n && !(CATALOGO.find(k => k.n === x.n) || {}).incluido);
   const cif = esPrograma() ? [[cantDe(s, ["general"]), "controles"], [cantDe(s, ESPECIALISTAS), "citas"], [cantDe(s, SESIONES), "sesiones"]].filter(x => x[0]).map(([v, t]) => v + " " + t).join(" · ")
     : inc.map(x => (CATALOGO.find(k => k.n === x.n) || {}).t || x.n).join(", ");
+  [["#nombre3", "#nombre"], ["#cel3", "#contacto"]].forEach(([a, b]) => { if (document.activeElement !== $(a)) $(a).value = $(b).value; });
+  $("#fr-nombre3").classList.toggle("falta", !s.nombre);
   $("#resu").innerHTML = `
-    <div class="fr"><span>Paciente</span><b>${esc(s.nombre) || "<span style='color:var(--error)'>Falta el nombre</span>"}</b></div>
     <div class="fr"><span>Programa</span><b>${esc($("#s2eb").textContent)}</b></div>
     <div class="fr"><span>Incluye</span><b>${esc(cif) || "—"}</b></div>
     <div class="fr"><span>Forma de pago</span><b>${CUOTAS ? esc(textoPlan(s.precio, true)) : "Valor inicial " + fmt(anticipoDe(s.precio))}</b></div>
@@ -1539,7 +1546,9 @@ function irA(n){
 const next = () => irA(Math.min(3, S.step + 1));
 const prev = () => irA(Math.max(1, S.step - 1));
 /* cuando falta un dato, lleva al paso de la paciente */
-function irDatos(){ if (MODO === "paciente") return; if (S.step !== 1) irA(1); setTimeout(() => $("#nombre").focus(), 300); }
+function irDatos(){ if (MODO === "paciente") return;
+  if (S.step === 3){ $("#fr-nombre3").classList.add("falta"); $("#nombre3").focus(); return; }
+  if (S.step !== 1) irA(1); setTimeout(() => $("#nombre").focus(), 300); }
 function elegirProg(id){
   const fam = PROGRAMAS[id].familia;
   const mismo = S.elegido && (id === PROG || (fam && fam === P().familia));
@@ -1576,6 +1585,10 @@ document.addEventListener("keydown", e => {
   else if (e.target.id === "num-id"){ e.preventDefault(); next(); }
 });
 
+/* el nombre y el celular también se pueden escribir en el paso 3 */
+$("#nombre3").addEventListener("input", e => { $("#nombre").value = e.target.value; $("#nombre").closest(".campo").classList.remove("error"); });
+$("#cel3").addEventListener("input", e => { $("#contacto").value = e.target.value; });
+$("#nombre3").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); $("#cel3").focus(); } });
 document.addEventListener("input", calcular);
 document.addEventListener("change", e => { if (e.target.matches("input,select")) calcular(); });
 
