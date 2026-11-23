@@ -16,359 +16,294 @@
   "u" = costo por unidad (solo lo ves tú, nunca sale en el PDF) · interno:true = costo que no sale en el PDF.
 -->
 <style>
-:root{--black:#1D1D1F;--spring:cubic-bezier(.2,1.35,.35,1);--ease:cubic-bezier(.3,.7,.2,1);color-scheme:light}
+/* ====== DISEÑO "ACOMPAÑAMIENTO MÉDICO" (aprobado por Laura el 23-nov-2026) ======
+   Solo colores del manual: piedra, arena y pardo; camel apenas de detalle. Mucho aire a los lados. */
+:root{--piedra:#F9F9F8;--arena:#EDE2D0;--arena-2:#F4EDE2;--pardo:#1A1A1A;--muted:#706A61;--line:#E8E3DA;--top:64px;--fila-h:44px;
+  --black:#1D1D1F;--ink:#1A1A1A;--ease:cubic-bezier(.3,.7,.2,1);--spring:cubic-bezier(.2,1.35,.35,1);
+  --marfil:#F6F1E8;--blanco:#FFFDF9;--linea:#E6DCCB;--texto:#1F1B14;--tenue:#7A6E5A;--choco:#4B412D;--camel:#9D8051;--camel-osc:#806733;--error:#A23B3B;color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{font-family:var(--f-body);font-size:17px;line-height:1.45;color:var(--ink);background:var(--bg);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-button,input{font:inherit;color:inherit}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:16px;line-height:1.45;color:var(--pardo);background:var(--piedra);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .38 0 0 0 0 .3 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer;background:none;border:0;-webkit-tap-highlight-color:transparent}
-:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:999px}
+:focus-visible{outline:2px solid var(--pardo);outline-offset:3px;border-radius:12px}
 [hidden]{display:none!important}
+.oculto{display:none!important}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-h1,h2,.t{font-family:var(--f-title);font-weight:var(--t-weight);letter-spacing:var(--t-track);line-height:1.04}
-.glass{background:var(--glass);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border:1px solid var(--glass-border);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 24px 50px -32px rgba(60,48,30,.32)}
-.eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:var(--eb-weight)}
+.ico{width:20px;height:20px;flex:none;display:block}
+svg{display:block}
+.marco{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 clamp(24px,7vw,120px)}
+.eyebrow,.et{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.link{font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:underline;text-underline-offset:4px;text-decoration-color:#d4ccbf}
+.link:hover{color:var(--pardo)}
 
-/* barra de avance */
-.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:var(--line)}
-.progress i{display:block;height:100%;width:0;background:var(--accent);border-radius:0 3px 3px 0;transition:width .7s var(--spring)}
+/* ---------- arriba: logo y pasos ---------- */
+.top{position:sticky;top:0;z-index:20;height:var(--top);background:rgba(249,249,248,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.top .marco{height:100%;display:flex;align-items:center;justify-content:center}
+.top .logo{position:absolute;left:clamp(24px,7vw,120px);height:19px}
+.pasos{display:flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.pb{display:flex;align-items:center;gap:9px;padding:7px 16px 7px 7px;border-radius:999px;font-size:14px;font-weight:600;color:var(--muted);transition:background .25s,color .25s}
+.pb .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;background:var(--piedra);border:1px solid var(--line)}
+.pb .n svg{width:13px;height:13px}
+.pb.hecho{color:var(--pardo)}
+.pb.hecho .n{background:var(--arena);border-color:var(--arena)}
+.pb.ahora{background:var(--pardo);color:#fff}
+.pb.ahora .n{background:#fff;color:var(--pardo);border-color:#fff}
+body.paciente .pasos{display:none}
 
-/* cabecera */
-.top{position:relative;z-index:20;max-width:1240px;margin:0 auto;padding:26px 36px 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
-.logo{display:flex;align-items:center;min-height:46px}
-.tools,.pv-bar{display:flex;gap:8px;justify-content:flex-end}
-.pv-bar{display:none;align-items:center;grid-column:3}
-.icon-pill{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;font-size:15px;white-space:nowrap;color:var(--muted);transition:background .25s,color .25s}
-.icon-pill svg{width:18px;height:18px;flex:none}
-.icon-pill:hover,.icon-pill[aria-pressed="true"]{background:rgba(255,255,255,.75);color:var(--ink)}
-.crumbs{display:flex;align-items:center;gap:6px}
-.crumb{display:flex;align-items:center;gap:8px;height:40px;padding:0 10px 0 4px;border-radius:999px;font-size:14.5px;color:var(--muted);transition:background .25s,color .25s}
-.crumb .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;border:1.5px solid var(--line-2);transition:all .45s var(--spring)}
-.crumb .n svg{width:13px;height:13px}
-.crumb:hover:not([disabled]){background:rgba(255,255,255,.6)}
-.crumb.done .n{background:var(--accent);border-color:var(--accent);color:#fff}
-.crumb.now{color:var(--ink)}
-.crumb.now .n{background:var(--black);border-color:var(--black);color:#fff}
-.crumb[disabled]{opacity:.42;cursor:default}
-.crumb-sep{width:14px;height:1.5px;background:var(--line-2);border-radius:2px}
+/* franja del comercial */
+.franja{margin:4px auto 0;max-width:760px;padding:10px 22px;border-radius:999px;background:var(--arena-2);border:1px solid var(--line);text-align:center;font-size:14px;line-height:1.4}
+.franja b{font-weight:700}
 
-/* escenario centrado */
-.stage{position:relative;z-index:10;max-width:1040px;margin:0 auto;padding:40px 24px 170px;view-transition-name:stage;overflow-x:clip}
-.step{display:none;text-align:center}
-.step.on{display:block}
-html.nav .step.on{animation:stepIn .6s var(--spring) both}
-html.instant .step.on,html.vt .step.on{animation:none}
-@keyframes stepIn{from{opacity:0;transform:translateX(40px)}}
-html.nav[data-dir="back"] .step.on{animation-name:stepInBack}
-@keyframes stepInBack{from{opacity:0;transform:translateX(-40px)}}
-.qh{font-size:clamp(34px,4.3vw,60px);max-width:21ch;margin:14px auto 0}
-.qs{font-size:18px;color:var(--muted);margin-top:16px}
+/* ---------- abajo: píldora flotante ---------- */
+.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 24px 40px -28px rgba(26,26,26,.45);max-width:calc(100vw - 24px)}
+.dock .atras{padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600;color:var(--muted)}
+.dock .atras:hover{background:var(--piedra)}
+.dock .cual{padding:0 12px;font-size:13px;color:var(--muted);white-space:nowrap}
+.dock .vi{display:flex;align-items:center;gap:6px;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:600;background:var(--arena);white-space:nowrap}
+.dock .vi svg{width:14px;height:14px}
+.dock .sig{display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--pardo);color:#fff;font-size:14.5px;font-weight:700;white-space:nowrap}
+.dock .sig svg{width:16px;height:16px}
 
-/* paso 1 · programas */
-.progs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;max-width:960px;margin:64px auto 0}
-.prog{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;transition:transform .55s var(--spring),background .35s,color .35s,box-shadow .35s}
-.prog:hover{transform:translateY(-6px)}
-.prog:active{transform:scale(.97)}
-.prog .ic{display:grid;place-items:center;border-radius:50%;background:var(--tint-2);transition:background .35s,transform .6s var(--spring)}
-.prog .ic svg{width:46%;height:46%;stroke:var(--icon);transition:stroke .35s}
-.prog .tx2{color:var(--ink)}
-.prog .tx2 b{display:block;font-family:var(--f-title);font-weight:var(--t-weight);letter-spacing:var(--t-track);line-height:1.1}
-.prog .tx2 span{display:block;font-size:14.5px;color:var(--muted);line-height:1.35;margin-top:6px}
-.prog.sel{background:var(--fill);border-color:transparent}
-.prog.sel .tx2{color:var(--on-fill)}
-.prog.sel .tx2 span{color:var(--on-fill-soft)}
-.prog.sel .ic{background:var(--ic-sel);transform:scale(1.05) rotate(-4deg)}
-.prog.sel .ic svg{stroke:var(--on-fill)}
+/* ---------- pantallas ---------- */
+.pant{display:none;position:relative;z-index:1}
+.pant.ver{display:block;animation:entra .4s ease}
+@keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.alto{min-height:calc(100svh - var(--top));display:flex;flex-direction:column;padding-top:clamp(10px,3vh,34px);padding-bottom:96px}
+.titulo{text-align:center;margin-bottom:clamp(12px,2.6vh,26px)}
+.titulo .eyebrow{color:var(--camel)}
+.pant h1{font-size:clamp(26px,3vw,40px);letter-spacing:-.035em;line-height:1.08;font-weight:700;margin-top:8px}
+.guia{color:var(--muted);font-size:14.5px;margin-top:8px}
+.guia b{color:var(--pardo);font-weight:600}
 
-/* paso 2 · técnicas */
-.vars{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:880px;margin:60px auto 0}
-.var{flex:0 1 400px;display:flex;align-items:center;gap:18px;padding:14px 28px 14px 14px;min-height:92px;text-align:left;transition:transform .5s var(--spring),background .35s,color .35s}
-.var:hover{transform:translateY(-4px)}
-.var .dot{width:62px;height:62px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--tint-2)}
-.var .dot svg{width:28px;height:28px;stroke:var(--icon)}
-.var .vt{color:var(--ink)}
-.var .vt b{display:block;font-family:var(--f-title);font-weight:var(--t-weight);letter-spacing:var(--t-track);font-size:22px;line-height:1.1}
-.var .vt span{font-size:15px;color:var(--muted)}
-.var.sel{background:var(--fill)}
-.var.sel .vt{color:var(--on-fill)}.var.sel .vt span{color:var(--on-fill-soft)}
-.var.sel .dot{background:var(--ic-sel)}.var.sel .dot svg{stroke:var(--on-fill)}
+/* ---------- paso 1 ---------- */
+.p1{justify-content:center}
+.progs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.prog{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 10px;border-radius:24px;background:#fff;border:1px solid var(--line);text-align:center;transition:border-color .25s,background .25s}
+.prog:hover{border-color:#cfc6b7}
+.prog .ic{width:52px;height:52px;border-radius:50%;background:var(--piedra);display:grid;place-items:center}
+.prog .ic svg{width:27px;height:27px;stroke:var(--pardo)}
+.prog b{font-size:15px}
+.prog span{font-size:12px;color:var(--muted);line-height:1.3}
+.prog.sel{background:var(--arena-2);border-color:var(--pardo)}
+.prog.sel .ic{background:var(--pardo)}
+.prog.sel .ic svg{stroke:#fff}
+.vars-zona{margin-top:16px;text-align:center}
+.vars-zona .et{margin-bottom:10px}
+.vars{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.var{display:flex;flex-direction:column;align-items:flex-start;padding:10px 18px;border-radius:18px;background:#fff;border:1px solid var(--line);text-align:left;transition:border-color .2s,background .2s}
+.var b{font-size:14.5px}
+.var span{font-size:12px;color:var(--muted)}
+.var.sel{background:var(--arena-2);border-color:var(--pardo)}
+.campos{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:12px;margin-top:24px}
+.campo{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px 16px;transition:border-color .2s}
+.campo:focus-within{border-color:var(--pardo)}
+.campo small,.campo label{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.campo input{display:block;width:100%;border:0;outline:0;background:transparent;font-size:16.5px;font-weight:600;margin-top:2px}
+.campo input::placeholder{color:#bdb5a8;font-weight:500}
+.campo select{border:0;outline:0;background:transparent;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;cursor:pointer;padding-right:4px}
+.campo.error{border-color:var(--error)}
+.especialista{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px;font-size:14px}
+.especialista .ini{width:34px;height:34px;border-radius:50%;background:var(--arena);display:grid;place-items:center;font-size:12.5px;font-weight:700;flex:none}
+.especialista b{font-weight:600}
+.especialista span{color:var(--muted)}
+.especialista .tx span::before{content:" · "}
+#esp-editar{grid-template-columns:1fr 1fr 1fr;margin-top:12px}
 
-/* paso 3 · tarjetas de servicio */
-.tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:960px;margin:60px auto 0}
-.tiles .tile{flex:0 0 calc((100% - 60px) / 4);min-width:0}
-.tile{position:relative;display:flex;flex-direction:column;align-items:center;transition:transform .55s var(--spring),background .35s,color .35s,box-shadow .35s,border-color .35s}
-.tile:hover{transform:translateY(-4px)}
-.tile .tm{display:flex;flex-direction:column;align-items:center;width:100%;padding:26px 14px 6px;border-radius:inherit}
-.tile .ic{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--tint-2);transition:background .35s,transform .6s var(--spring)}
-.tile .ic svg{width:36px;height:36px;stroke:var(--icon);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
-.tile .nm{margin-top:16px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
-.tile .pr{display:block;margin-top:4px;font-size:14px;color:var(--accent-ink);font-variant-numeric:tabular-nums}
-.tile .badge{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--black);color:#fff;opacity:0;transform:scale(.4);transition:opacity .25s,transform .5s var(--spring)}
-.tile .badge svg{width:14px;height:14px}
-.tile .tq{display:flex;align-items:center;justify-content:center;gap:4px;height:58px;padding-bottom:14px;opacity:0;transform:translateY(8px) scale(.9);pointer-events:none;transition:opacity .3s,transform .5s var(--spring)}
-.tile .tq button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--step-bg);font-size:21px;line-height:1;transition:transform .3s var(--spring)}
-.tile .tq button:active{transform:scale(.85)}
-.tile .tq button[disabled]{opacity:.35}
-.tile .tq output{min-width:34px;text-align:center;font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
-.tile .tq .lbl{font-size:14px;padding:0 14px;height:34px;display:flex;align-items:center;border-radius:999px;background:var(--step-bg)}
-.tile.on{background:var(--fill);border-color:transparent;color:var(--on-fill);box-shadow:0 26px 44px -30px rgba(60,48,30,.65)}
-.tile.on .ic{background:var(--ic-sel);transform:scale(1.06)}
-.tile.on .ic svg{stroke:var(--on-fill)}
-.tile.on .pr{color:var(--on-fill-soft)}
-.tile.on .badge{opacity:1;transform:none}
-.tile.on .tq{opacity:1;transform:none;pointer-events:auto}
-.tile.pop{animation:pop .55s var(--spring)}
-.tile .tv{display:none;flex-direction:column;align-items:center;gap:4px;margin:-4px 0 16px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-ink);cursor:text}
-.tile.on .tv{display:flex}
-.tile .tv-in{display:flex;align-items:center;gap:2px;height:38px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(157,128,81,.35)}
-.tile .tv-in:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(157,128,81,.18)}
-.tile .tv-in i{font-style:normal;font-weight:600;color:var(--accent-ink)}
-.tile .it-precio{width:104px;border:0;background:transparent;font:inherit;font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums;outline:0}
-body.paciente .tile .tv{display:none!important}
-@keyframes pop{35%{transform:scale(1.05)}}
-.inc-zone{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.inc-chip{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;border:1px dashed var(--accent);font-size:15px;color:var(--ink);background:rgba(255,255,255,.6)}
-.inc-chip svg{width:16px;height:16px;transition:transform .4s var(--spring)}
-.inc-chip[aria-expanded="true"] svg{transform:rotate(45deg)}
-.inc-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:720px}
-.inc-list span{font-size:14px;padding:7px 14px;border-radius:999px;background:var(--tint);animation:inUp .45s var(--spring) both}
-@keyframes inUp{from{opacity:0;transform:translateY(8px) scale(.92)}}
+/* ---------- paso 2: el acompañamiento en una sola pantalla ---------- */
+.tablero{background:#fff;border:1px solid var(--line);border-radius:28px;padding:0 26px 0 22px}
+.tablero .cabeza,.fila{display:grid;grid-template-columns:minmax(150px,1fr) 190px 2fr;align-items:stretch}
+.tablero:not(.con-rail) .cabeza,.tablero:not(.con-rail) .fila{grid-template-columns:minmax(170px,1.15fr) 190px 1.6fr}
+.cabeza .h{display:flex;align-items:flex-end;padding:12px 0 8px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+.cabeza .h.col{justify-content:center;background:var(--arena);color:var(--pardo);border-radius:18px 18px 0 0;border-bottom-color:transparent;margin-top:10px}
+.cabeza .h.der{padding-left:18px}
+.cabeza .sem{display:block;padding-left:8px;padding-right:8px}
+.sem .fil{display:grid;grid-template-columns:repeat(12,1fr);text-align:center;font-size:10.5px;letter-spacing:.02em;color:#A39C91}
+.sem .fil span:nth-child(1),.sem .fil span:nth-child(6),.sem .fil span:nth-child(12){color:var(--pardo)}
+.fila{height:var(--fila-h);transition:opacity .25s}
+.fila>div{display:flex;align-items:center;min-width:0;border-bottom:1px solid var(--line)}
+.fila.ultima>div{border-bottom:0}
+.fila.interno,.fila.sub-esp.cerrada{display:none!important}
+.c-serv{gap:11px;position:relative;padding-right:6px}
+.c-serv .ic{width:28px;height:28px;border-radius:50%;background:var(--piedra);display:grid;place-items:center;flex:none}
+.c-serv .ic svg{width:16px;height:16px;stroke:var(--pardo)}
+.c-serv .tx{min-width:0}
+.c-serv b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-serv small{display:block;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.sub-esp .c-serv{padding-left:18px}
+.sub-esp .c-serv b{font-weight:500}
+.fila.apagado .c-serv,.fila.apagado .c-pista{opacity:.42}
+/* la columna de cantidades, en arena y centrada */
+.c-cant{justify-content:center;background:var(--arena);border-bottom-color:rgba(26,26,26,.06)!important}
+.fila.ultima .c-cant{border-radius:0 0 18px 18px}
+.stp{display:flex;align-items:center;gap:4px}
+.stp button,.stp .vacio{width:25px;height:25px;flex:none}
+.stp button{border-radius:50%;background:#fff;font-size:15px;font-weight:600;display:grid;place-items:center;box-shadow:0 1px 2px rgba(26,26,26,.08);transition:background .2s,color .2s}
+.stp button:hover{background:var(--pardo);color:#fff}
+.stp button:disabled{opacity:.35;pointer-events:none}
+.stp button svg{width:13px;height:13px}
+.num{min-width:96px;display:flex;align-items:baseline;justify-content:center;gap:4px;white-space:nowrap}
+.num input.it-q{width:2.4ch;border:0;background:transparent;text-align:center;font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;outline:0;padding:0}
+.num input.it-q:focus{background:rgba(255,255,255,.75);border-radius:6px}
+.num input.lbl{width:9ch;font-size:13.5px;font-weight:700}
+.num b{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+.num b.zb{font-size:13.5px;font-weight:700}
+.num .un{font-size:12px;color:#5c554b;font-weight:500}
+.agregar{font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:999px;background:#fff;box-shadow:0 1px 2px rgba(26,26,26,.08)}
+.fila.on .agregar,.fila.apagado .stp{display:none}
+.grupo .abre svg{transition:transform .25s}
+.grupo.abierto .abre svg{transform:rotate(180deg)}
+/* candado del doctor */
+.candado{margin-left:auto;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--muted);opacity:0;pointer-events:none;transition:opacity .2s}
+.candado .ico{width:13px;height:13px}
+body.doctor .fila.on .candado{opacity:.35;pointer-events:auto}
+body.doctor .fila.on .candado:hover{opacity:1}
+.fila.on.bloqueado .candado{opacity:1!important;background:var(--pardo);color:#fff}
+/* el recorrido de 12 semanas */
+.c-pista{padding:0 8px}
+.rail{position:relative;width:100%;height:100%}
+.rail .lin{position:absolute;left:0;right:0;top:50%;height:1.5px;background:#E4DED3}
+.rail .pts{position:absolute;inset:0}
+.pt{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--pardo);opacity:.35}
+.pt.gr{width:14px;height:14px;margin:-7px 0 0 -7px;background:#fff;border:2.5px solid var(--pardo)}
+.pt.nuevo{animation:pop .45s var(--spring)}
+@keyframes pop{from{transform:scale(0)}to{transform:none}}
+.continuo{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:repeating-linear-gradient(90deg,var(--pardo) 0 5px,transparent 5px 10px);opacity:.35}
+/* detalle (programas sin recorrido: venas, celulitis, estética) */
+.det{display:flex;align-items:center;gap:12px;width:100%;padding-left:18px;min-width:0}
+.det .pr{font-size:13.5px;font-weight:700;white-space:nowrap}
+.det .dtx{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tv{display:none;align-items:center;gap:8px;margin-left:auto;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+.fila.on .tv{display:flex}
+.tv-in{display:flex;align-items:center;gap:2px;height:32px;padding:0 12px;border-radius:999px;background:var(--piedra);border:1px solid var(--line)}
+.tv-in:focus-within{border-color:var(--pardo)}
+.tv-in i{font-style:normal;font-weight:700}
+.it-precio{width:92px;border:0;background:transparent;font-size:14.5px;font-weight:700;text-align:center;outline:0;font-variant-numeric:tabular-nums}
+.fila.precio-libre.on .dtx{display:none}
+/* debajo del tablero */
+.bajo{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:13px}
+.inc-zone{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.inc-zone .et{font-size:10.5px}
+.inc-chip{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--arena-2);font-size:12.5px;font-weight:600}
+.inc-chip svg{width:13px;height:13px}
+.inc-list{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.inc-b{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--arena-2);font-size:12.5px}
+.inc-b svg{width:12px;height:12px}
+.inc-it.apagado .inc-b{background:transparent;box-shadow:inset 0 0 0 1px var(--line);color:var(--muted);text-decoration:line-through}
+.inc-it.apagado .inc-b svg{display:none}
+body:not(.doctor) .restaurar{display:none}
 
-/* paso 4 */
-.fields{margin:56px auto 0;display:grid;gap:34px;max-width:520px;text-align:left}
-.field input{display:block;width:100%;margin-top:8px;background:transparent;border:0;border-bottom:2px solid var(--line-2);padding:6px 0 12px;
-  font-family:var(--f-title);font-weight:var(--t-weight);letter-spacing:var(--t-track);font-size:clamp(28px,3vw,40px);line-height:1.1;outline:none;border-radius:0;transition:border-color .3s}
-.field input::placeholder{color:var(--ph)}
-.field input:focus{border-color:var(--accent)}
+/* ---------- inversión (bajando) ---------- */
+.inv{scroll-margin-top:var(--top);padding:20px 0 130px}
+.dos{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;max-width:960px;margin:0 auto;width:100%}
+.carta{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px}
+.carta .v{font-size:clamp(38px,4.6vw,56px);font-weight:800;letter-spacing:-.045em;line-height:1.05;margin-top:8px;font-variant-numeric:tabular-nums}
+.carta>p{color:var(--muted);margin-top:8px;font-size:14px}
+.carta h3{font-size:17px;font-weight:700}
+.carta .row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted);margin-top:8px}
+.carta .row b{color:var(--pardo)}
+.chips-c{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chips-c span{background:var(--arena-2);border-radius:999px;padding:7px 14px;font-size:13px;color:#4f483f}
+.chips-c b{color:var(--pardo);font-size:15px;margin-right:4px}
+.p-man{margin-top:14px;font-size:13.5px;color:var(--muted);background:var(--arena-2);border-radius:16px;padding:10px 14px;line-height:1.45}
+.p-man b{color:var(--pardo)}
+.nota-zone{margin-top:18px}
+.nota-zone textarea{display:block;width:100%;margin-top:8px;border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-size:14px;line-height:1.45;background:var(--piedra);resize:vertical;min-height:56px;outline:0}
+.nota-zone textarea:focus{border-color:var(--pardo)}
+.nota-zone textarea.vacia{color:var(--muted)}
+.seg{display:flex;align-items:center;gap:4px;margin-top:14px;background:var(--piedra);border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg>span{padding:0 8px 0 12px;font-size:12.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+.seg button{flex:1;padding:9px 6px;border-radius:999px;font-size:13px;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed=true]{background:var(--pardo);color:#fff;font-weight:700}
+.seg-libre{display:none}
+body.desc-libre-on .seg-desc{display:none}
+body.desc-libre-on .seg-libre{display:flex}
+.pct-in{display:flex;align-items:center;gap:4px;margin-left:auto;padding:4px 12px;border-radius:999px;background:#fff}
+.pct-in input{width:52px;border:0;outline:0;text-align:right;font-size:15px;font-weight:700;background:transparent}
+.pct-in i{font-style:normal;font-weight:700;color:var(--muted)}
+.cal{display:grid;gap:6px;margin-top:14px}
+.cal div{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-radius:14px;background:var(--piedra);font-size:13.5px}
+.cal div.hoy{background:var(--arena);font-weight:700}
+.cal b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.nota{font-size:12.5px;color:var(--muted);margin-top:10px}
+.ajustes{margin-top:6px}
+.ajustes .links{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+.mini{font-size:13px;color:var(--muted);text-decoration:underline;text-underline-offset:4px;text-decoration-color:#d4ccbf;font-weight:600}
+.mini.activo{color:var(--pardo);text-decoration-color:var(--camel)}
+body.paciente .ajustes,body.paciente #segCuo{display:none}
 
-/* dock inferior */
-.dock{position:fixed;left:50%;bottom:26px;z-index:40;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 8px 8px 12px;border-radius:999px;max-width:calc(100vw - 24px)}
-.back{height:48px;padding:0 14px;border-radius:999px;font-size:15.5px;color:var(--muted);display:flex;align-items:center;gap:6px}
-.back svg{width:17px;height:17px}
-.back:hover{color:var(--ink)}
-.back[disabled]{display:none}
-.tot{position:relative;display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;border-radius:999px;background:var(--tint-2);white-space:nowrap}
-.tot .tn{font-size:14.5px;color:var(--muted)}
-.tot .odo{font-family:var(--f-title);font-weight:var(--t-weight);font-size:24px;letter-spacing:-.02em}
-.next{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 26px;border-radius:999px;background:var(--black);color:#fff;font-size:16px;font-weight:600;box-shadow:0 14px 28px -14px rgba(0,0,0,.55);transition:transform .35s var(--spring),opacity .25s}
-.next svg{width:17px;height:17px}
-.next:active{transform:scale(.96)}
-.next[disabled]{opacity:.32;pointer-events:none}
-.delta{position:absolute;left:50%;bottom:calc(100% + 12px);padding:6px 13px;border-radius:999px;background:var(--black);color:#fff;font-size:14px;font-weight:600;white-space:nowrap;
-  opacity:0;transform:translate(-50%,8px);pointer-events:none;font-variant-numeric:tabular-nums}
-.delta.show{animation:delta 1.9s var(--ease) forwards}
-@keyframes delta{0%{opacity:0;transform:translate(-50%,10px) scale(.85)}14%{opacity:1;transform:translate(-50%,0) scale(1.04)}22%{transform:translate(-50%,0)}78%{opacity:1}100%{opacity:0;transform:translate(-50%,-12px)}}
+/* ---------- paso 3 ---------- */
+.p3{justify-content:center}
+.resu .fr{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.resu .fr span{color:var(--muted)}
+.resu .fr b{text-align:right}
+.resu .fr:last-child{border:0}
+.resu .tot{font-size:28px;font-weight:800;letter-spacing:-.03em}
+.envios{display:grid;gap:10px;align-content:start}
+.envio{display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;text-align:left;padding:15px 18px;border-radius:22px;background:#fff;border:1px solid var(--line);transition:border-color .2s}
+.envio:hover{border-color:var(--pardo)}
+.envio .ic{grid-row:1/3;width:40px;height:40px;border-radius:50%;background:var(--piedra);display:grid;place-items:center}
+.envio .ic .ico{width:19px;height:19px}
+.envio .lbl{font-size:15px;font-weight:700}
+.envio small{font-size:12.5px;color:var(--muted)}
+.envio.prin,body.comercial #enviar{background:var(--pardo);border-color:var(--pardo);color:#fff}
+.envio.prin .ic,body.comercial #enviar .ic{background:rgba(255,255,255,.14)}
+.envio.prin small,body.comercial #enviar small{color:rgba(255,255,255,.7)}
+.envio:disabled{opacity:.6;cursor:wait}
+#compartir-pdf{display:none}
+body.comercial #compartir-pdf.puede{display:grid}
+body.comercial #enviar-correo{display:none!important}
+body:not(.comercial) #abrir-ingreso{display:none!important}
+.nueva{display:block;margin:22px auto 0}
 
-/* odómetro */
-.odo{display:inline-flex;align-items:flex-start;font-variant-numeric:tabular-nums;white-space:nowrap}
-.odo .ch{display:inline-block;height:1.12em;line-height:1.12em}
-.odo .dg{display:inline-block;height:1.12em;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent)}
-.odo .st{display:block;transition:transform 1s cubic-bezier(.16,1.18,.3,1)}
-.odo .st span{display:block;height:1.12em;line-height:1.12em;text-align:center}
-html.instant .odo .st{transition:none!important}
+/* ---------- paciente (link #p=) ---------- */
+body.paciente .stp button,body.paciente .stp .vacio,body.paciente .agregar,body.paciente .candado,body.paciente .restaurar{display:none!important}
+body.paciente .fila.apagado,body.paciente .inc-it.apagado{display:none!important}
+body.paciente .tv{display:none!important}
+body.paciente .fila.precio-libre.on .dtx{display:block}
 
-/* paso 5 · el plan que se imprime */
-.print-zone{max-width:640px;margin:0 auto;position:relative;text-align:left}
-.printer{position:relative;z-index:3;height:60px;border-radius:999px;display:flex;align-items:center;gap:12px;padding:0 24px}
-.printer .led{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--led-halo)}
-.printing-on .printer .led{animation:blink .5s steps(2) infinite}
-@keyframes blink{50%{opacity:.25}}
-.printer .pt{font-size:14.5px;color:var(--muted)}
-.printer .slot{position:absolute;left:28px;right:28px;bottom:-5px;height:10px;border-radius:10px;background:linear-gradient(#2a2620,#4a4339);box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
-.feed{position:relative;z-index:2;overflow:hidden;margin:0 -34px;padding:0 34px 48px}
-.paper-wrap{position:relative;margin:0 22px;filter:drop-shadow(0 30px 34px rgba(60,48,30,.2)) drop-shadow(0 2px 3px rgba(60,48,30,.12))}
-.paper{position:relative;background:var(--paper);padding:46px 44px 54px;border-radius:0 0 6px 6px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .42 0 0 0 0 .3 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
-  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 11px) no-repeat,radial-gradient(circle at 50% 100%,transparent 6.5px,#000 7px) bottom/18px 11px repeat-x;
-  mask:linear-gradient(#000 0 0) top/100% calc(100% - 11px) no-repeat,radial-gradient(circle at 50% 100%,transparent 6.5px,#000 7px) bottom/18px 11px repeat-x}
-.printing .paper-wrap{animation:feed 2s linear both}
-@keyframes feed{0%{transform:translateY(-100%)}10%{transform:translateY(-90%)}13%{transform:translateY(-89%)}26%{transform:translateY(-70%)}29%{transform:translateY(-69%)}
-  44%{transform:translateY(-46%)}47%{transform:translateY(-45%)}64%{transform:translateY(-22%)}67%{transform:translateY(-21%)}86%{transform:translateY(-3%)}100%{transform:translateY(0)}}
-.printing .rv{animation:rowIn .55s var(--ease) both;animation-delay:calc(.5s + var(--i,0) * 85ms)}
-@keyframes rowIn{from{opacity:0;transform:translateY(8px);filter:blur(3px)}}
-.p-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.p-date{text-align:right;font-size:14px;color:var(--muted);line-height:1.4}
-.p-hello{font-size:clamp(34px,4.6vw,50px);margin:40px 0 10px;max-width:12ch}
-.p-sub{font-size:17px;color:var(--muted)}
-.p-sub b{color:var(--ink);font-weight:var(--b-weight)}
-.p-sec{margin-top:36px}
-.p-sec .eyebrow{display:flex;align-items:center;gap:12px}
-.p-sec .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
-.p-list{list-style:none;margin-top:10px}
-.p-list li{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line-2)}
-.p-list li:last-child{border-bottom:0}
-.p-list .bul{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:9px;flex:none}
-.p-list .tx{flex:1;min-width:0}
-.p-list b{display:block;font-weight:var(--b-weight);font-size:17px;line-height:1.3}
-.p-list small{display:block;font-size:14.5px;color:var(--muted);line-height:1.35}
-.p-list .qt{font-size:15px;font-weight:600;white-space:nowrap;line-height:1.6}
-.p-list .qt.inc{font-size:12.5px;padding:1px 10px;border-radius:999px;background:var(--tint);letter-spacing:.06em}
-.p-list .qt em{font-style:normal;display:block;text-align:right;color:var(--muted);font-weight:500;font-size:14px}
-.tl{list-style:none;margin-top:16px;position:relative;padding-left:30px}
-.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),var(--line))}
-.tl li{position:relative;padding:0 0 22px}
-.tl li:last-child{padding-bottom:0}
-.tl li::before{content:"";position:absolute;left:-30px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
-.tl li.end::before{background:var(--accent)}
-.tl .w{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
-.tl b{display:block;font-size:17px;font-weight:var(--b-weight);margin-top:2px}
-.tl small{display:block;font-size:14.5px;color:var(--muted)}
-.p-total{margin-top:38px;padding-top:24px;border-top:2px solid var(--ink)}
-.p-total .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:16px;color:var(--muted);padding:3px 0}
-.p-total .row b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
-.p-total .grand{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:8px 0 18px}
-.p-total .grand .t{font-size:clamp(38px,5vw,56px);line-height:1}
-.p-total .grand .lab{font-size:16px;padding-bottom:8px}
-.p-ini{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-radius:999px;background:var(--tint)}
-.p-ini span{font-size:15.5px}
-.p-ini b{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums}
-.cal{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.cal .m{flex:1 1 0;min-width:98px;border-radius:22px;border:1px solid var(--line-2);overflow:hidden;text-align:center;background:#fff;animation:inUp .5s var(--spring) both}
-.cal .m .mh{background:var(--ink);color:#fff;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 0;font-weight:600}
-.cal .m.today .mh{background:var(--accent-ink)}
-.cal .m .d{font-family:var(--f-title);font-weight:var(--t-weight);font-size:30px;line-height:1.1;padding-top:6px}
-.cal .m .l{font-size:13px;color:var(--muted)}
-.cal .m .v{font-size:15px;font-weight:700;padding:2px 6px 10px;font-variant-numeric:tabular-nums}
-.cal .m.zero .v{font-weight:500;color:var(--muted);font-size:13.5px}
-.cal-note{font-size:14px;color:var(--muted);margin-top:10px}
-.p-foot{margin-top:40px;font-size:13.5px;color:var(--muted)}
-.actions{max-width:640px;margin:6px auto 0;display:grid;gap:12px;padding:14px;border-radius:34px;text-align:left}
-.act-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.seg{display:flex;align-items:center;gap:4px;padding:4px 4px 4px 16px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid var(--line);flex:1 1 260px}
-.seg .sl{font-size:14.5px;margin-right:auto;display:flex;align-items:center;gap:8px;white-space:nowrap}
-.seg .sl svg{width:18px;height:18px}
-.seg button{height:40px;min-width:46px;padding:0 13px;border-radius:999px;font-size:15px;color:var(--muted);transition:background .3s,color .3s,transform .35s var(--spring)}
-.seg button[aria-pressed="true"]{background:var(--black);color:#fff}
-.seg button:active{transform:scale(.92)}
-.pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:48px;padding:0 22px;border-radius:999px;font-size:15.5px;white-space:nowrap;transition:transform .35s var(--spring),background .25s;flex:1 1 200px}
-.pill svg{width:18px;height:18px;flex:none}
-.pill:active{transform:scale(.96)}
-.pill.primary{background:var(--black);color:#fff;box-shadow:0 14px 28px -14px rgba(0,0,0,.55)}
-.pill.ghost{background:rgba(255,255,255,.8);border:1px solid var(--line)}
-.pill.sent{background:var(--tint)}
+/* avisos */
+#aviso{position:fixed;left:50%;top:24px;z-index:96;padding:14px 22px;border-radius:999px;background:var(--black);color:#fff;font-size:15px;line-height:1.35;text-align:center;transform:translate(-50%,-30px);opacity:0;pointer-events:none;transition:transform .45s var(--spring),opacity .3s;max-width:calc(100vw - 32px)}
+#aviso.ver{transform:translate(-50%,0);opacity:1}
+#aviso.mal{background:#6E2C22}
 
-/* ver todo en una página */
-html.all .step{display:block!important;animation:none!important;padding:56px 0;border-bottom:1px solid var(--line)}
-html.all .step:first-child{padding-top:0}
-html.all .step.na{display:none!important}
-html.all .back,html.all .next{display:none}
-html.all .dock{padding:8px}
+/* ventanas (cuotas, precio manual, ingreso) */
+.modal input[type=text],.modal select{width:100%;padding:13px 18px;border:1px solid var(--linea);border-radius:999px;background:#fff;outline:none;font:inherit;font-size:16px;color:var(--ink);transition:border-color .2s}
+.modal select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A6E5A' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 18px center;padding-right:40px}
+.modal input:focus,.modal select:focus{border-color:var(--camel)}
+.dinero{position:relative}
+.dinero input{padding-left:32px!important;font-variant-numeric:tabular-nums}
+.dinero::before{content:"$";position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--tenue)}
+.caja-modal{font-size:16px}
 
-/* vista de la paciente */
-html.pv .progress,html.pv .crumbs,html.pv .dock,html.pv .actions,html.pv .tools{display:none!important}
-html.pv .step{display:none!important}
-html.pv #s5{display:block!important;border:0;padding-top:0}
-html.pv .pv-bar{display:flex}
-.pv-tag{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 14px;border-radius:999px;font-size:14px;background:var(--tint)}
-.pv-tag svg{width:16px;height:16px}
-
-/* aviso */
-.toast{position:fixed;left:50%;top:24px;z-index:90;display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--black);color:#fff;font-size:15.5px;
-  transform:translate(-50%,-30px);opacity:0;pointer-events:none;transition:transform .55s var(--spring),opacity .3s;max-width:calc(100vw - 32px)}
-.toast.show{transform:translate(-50%,0);opacity:1}
-.toast svg{width:18px;height:18px;flex:none}
-.plane{position:fixed;z-index:95;width:26px;height:26px;pointer-events:none;color:var(--ink)}
-
-/* transiciones de vista */
-::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
-::view-transition-old(stage){animation:vtOut .32s var(--ease) both}
-::view-transition-new(stage){animation:vtIn .62s var(--spring) both}
-html[data-dir="back"]::view-transition-old(stage){animation-name:vtOutB}
-html[data-dir="back"]::view-transition-new(stage){animation-name:vtInB}
-@keyframes vtOut{to{opacity:0;transform:translateX(-60px) scale(.98)}}
-@keyframes vtIn{from{opacity:0;transform:translateX(70px)}}
-@keyframes vtOutB{to{opacity:0;transform:translateX(60px) scale(.98)}}
-@keyframes vtInB{from{opacity:0;transform:translateX(-70px)}}
-
+/* pantallas bajitas de portátil */
+@media (max-height:760px) and (min-width:761px){
+  :root{--top:56px}
+  .alto{padding-bottom:84px}
+  .pant h1{font-size:28px;margin-top:4px}.guia{font-size:13.5px;margin-top:4px}
+  .cabeza .h{padding:8px 0 6px}
+  .c-serv .ic{width:24px;height:24px}.c-serv .ic svg{width:14px;height:14px}
+  .c-serv b{font-size:13.5px}.c-serv small{display:none}
+  .stp button,.stp .vacio{width:22px;height:22px;font-size:14px}.num b,.num input.it-q{font-size:15.5px}
+  .dock{bottom:12px}
+  .prog{padding:14px 8px}.prog .ic{width:44px;height:44px}.campos{margin-top:16px}
+}
 /* celular */
-@media (max-width:900px){
-  .top{grid-template-columns:1fr auto;padding:16px 16px 0;gap:10px}
-  .crumbs{grid-column:1 / -1;grid-row:2;justify-content:center;gap:2px}
-  .crumb{padding:0 4px 0 2px;gap:6px}
-  .crumb .l{display:none}
-  .crumb.now .l{display:inline}
-  .crumb-sep{width:10px}
-  .icon-pill{width:44px;padding:0;justify-content:center;background:rgba(255,255,255,.6)}
-  .icon-pill .l{display:none}
-  .stage{padding:30px 16px 150px}
-  .qh{font-size:34px}
-  .qs{font-size:17px;margin-top:12px}
-  .progs{margin-top:34px;gap:12px}
-  .vars{margin-top:34px;gap:12px}
-  .var{flex-basis:100%;min-height:82px}
-  .tiles{gap:12px;margin-top:34px}
-  .tiles .tile{flex-basis:calc((100% - 12px) / 2)}
-  .tile .tm{padding:20px 10px 4px}
-  .tile .ic{width:64px;height:64px}
-  .tile .ic svg{width:30px;height:30px}
-  .tile .nm{margin-top:12px;font-size:16px}
-  .tile .tq{height:62px;padding-bottom:12px;gap:2px}
-  .tile .tq button{width:44px;height:44px}
-  .tile .tq output{min-width:26px}
-  .tile .badge{top:10px;right:10px}
-  .fields{margin-top:36px;gap:26px}
-  .dock{left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));transform:none;max-width:none;padding:6px;gap:6px;justify-content:center}
-  .back{padding:0 8px;height:48px}
-  .back .l{display:none}
-  .tot{flex:1;justify-content:center;padding:0 12px;min-width:0}
-  .tot .tn{display:none}
-  .tot .odo{font-size:20px}
-  .next{height:50px;padding:0 20px}
-  html.all .dock{left:50%;right:auto;transform:translateX(-50%)}
-  .print-zone{margin-top:0}
-  .printer{height:54px;padding:0 20px}
-  .feed{margin:0 -16px;padding:0 16px 36px}
-  .paper-wrap{margin:0 10px}
-  .paper{padding:30px 22px 44px}
-  .p-hello{margin-top:28px;font-size:36px}
-  .p-total .grand .t{font-size:38px}
-  .p-ini{padding:14px 18px;border-radius:26px}
-  .p-ini b{font-size:19px}
-  .actions{padding:10px;border-radius:30px}
-  .seg{flex-basis:100%}
-  html.pv .stage{padding-bottom:30px}
-  html.pv .pv-tag .l{display:none}
-}
-
-:root{--bg:#F9F9F8;--ink:#1A1A1A;--muted:#6B6150;--accent:#9D8051;--accent-ink:#7A633B;--fill:#4B412D;--on-fill:#F4EBDD;--on-fill-soft:rgba(244,235,221,.74);
-  --tint:#EDE2D0;--tint-2:#F2EBDF;--line:rgba(75,65,45,.12);--line-2:rgba(75,65,45,.24);--paper:#FFFDF9;--icon:#4B412D;--ic-sel:rgba(255,255,255,.14);
-  --step-bg:rgba(255,255,255,.16);--glass:rgba(255,255,255,.66);--glass-border:rgba(255,255,255,.95);--ph:rgba(107,97,80,.35);--led-halo:rgba(157,128,81,.2);
-  --f-title:"Plus Jakarta Sans",system-ui,sans-serif;--f-body:"Plus Jakarta Sans",system-ui,sans-serif;--t-weight:700;--t-track:-.035em;--eb-weight:600;--b-weight:600}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .36 0 0 0 0 .27 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-body::after{content:"";position:fixed;inset:-20vh -20vw;pointer-events:none;z-index:0;
-  background:radial-gradient(36vw 36vw at 85% 6%,rgba(237,226,208,.9),transparent 70%),radial-gradient(30vw 30vw at 8% 94%,rgba(157,128,81,.13),transparent 70%)}
-.deco{display:none}
-.logo img{height:30px;display:block}
-.prog{min-height:300px;padding:14px 14px 30px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid #fff;box-shadow:0 26px 50px -36px rgba(60,48,30,.45)}
-.prog .ic{width:100%;aspect-ratio:1;max-width:150px;margin-bottom:10px}
-.prog .tx2 b{font-size:20px}
-.prog .tx2 span{padding:0 6px}
-.prog.sel{box-shadow:0 30px 50px -28px rgba(60,48,30,.6)}
-.var{border-radius:999px;background:rgba(255,255,255,.72);border:1px solid #fff;box-shadow:0 20px 40px -32px rgba(60,48,30,.4)}
-.tile{border-radius:34px;background:rgba(255,255,255,.74);border:1px solid #fff;box-shadow:0 20px 40px -32px rgba(60,48,30,.4)}
-.tile .nm{font-weight:600;font-size:17px;letter-spacing:-.01em}
-.tile.on{background:#EDE2D0;color:var(--ink);border-color:rgba(157,128,81,.55);box-shadow:0 22px 40px -30px rgba(75,65,45,.55)}
-.tile.on .ic{background:var(--fill)}
-.tile.on .ic svg{stroke:#F4EBDD}
-.tile.on .pr{color:var(--accent-ink)}
-.tile.on .tq button{background:#fff;box-shadow:0 2px 6px -2px rgba(60,48,30,.25)}
-.tile.on .tq .lbl{background:#fff}
-.p-logo img{height:24px;display:block}
-.p-arch{display:none}
-@media (max-width:900px){
-  .logo img{height:24px}
-  .progs{grid-template-columns:minmax(0,1fr)}
-  .prog{min-height:0;flex-direction:row;text-align:left;padding:10px 22px 10px 10px;gap:16px}
-  .prog .ic{width:68px;max-width:68px;margin:0;flex:none}
-  .prog .tx2{flex:1}
-  .prog .tx2 span{padding:0;margin-top:3px}
-  .prog:hover{transform:none}
-  .tile{border-radius:28px}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition-duration:.001ms!important}
-  ::view-transition-old(stage),::view-transition-new(stage){animation:none!important}
+@media (max-width:760px){
+  .top .logo{display:none}
+  .pb{padding:6px 12px 6px 6px;font-size:13px}
+  .alto{padding-bottom:120px}
+  .progs{grid-template-columns:1fr 1fr}
+  .campos,#esp-editar{grid-template-columns:1fr}
+  .tablero{padding:0 12px 0 14px}
+  .tablero .cabeza,.fila,.tablero:not(.con-rail) .cabeza,.tablero:not(.con-rail) .fila{grid-template-columns:minmax(0,1fr) auto}
+  .cabeza .h:nth-child(3),.c-pista{display:none!important}
+  .fila{height:auto}.fila>div{padding:9px 0}
+  .num{min-width:74px}.num .un{font-size:11px}
+  .dos{grid-template-columns:1fr}
+  .dock .cual{display:none}.dock .vi{padding:12px 14px}.dock .vi .t{display:none}.dock .atras{padding:12px 12px}.dock .sig{padding:12px 18px}
+  .franja{border-radius:20px}
 }
 
 /* candado */
@@ -427,109 +362,6 @@ body:not(.comercial) #abrir-ingreso{display:none!important}
 .m-botones .no{background:#fff;border:1px solid var(--linea);color:var(--choco)}
 
 
-
-/* ====== piezas del cotizador real (20-nov-2026) ====== */
-:root{--marfil:#F6F1E8;--blanco:#FFFDF9;--linea:#E6DCCB;--linea-2:#D9CBB4;--texto:#1F1B14;--tenue:#7A6E5A;--choco:#4B412D;--camel:#9D8051;--camel-osc:#806733;--error:#A23B3B}
-.oculto{display:none!important}
-.ico{width:20px;height:20px;flex:none;display:block}
-.link-sutil{border:0;background:none;color:var(--accent-ink);font-size:15px;font-weight:600;cursor:pointer;padding:6px 0;border-bottom:1px solid currentColor}
-
-/* tarjetas = renglones del plan */
-.item.interno{display:none!important}
-.tile .tq input.it-q{width:46px;border:0;background:transparent;text-align:center;font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;outline:none;padding:0;color:inherit}
-.tile .tq input.it-q:focus{background:rgba(255,255,255,.8);border-radius:10px}
-.tile .tq input.lbl{width:auto;min-width:96px;max-width:140px;font-size:14px;font-weight:600;height:34px;border-radius:999px;background:#fff;padding:0 14px}
-.tile .candado{position:absolute;top:12px;left:12px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--muted);background:rgba(255,255,255,.9);opacity:0;transform:scale(.6);transition:opacity .25s,transform .45s var(--spring),background .25s;pointer-events:none}
-.tile .candado .ico{width:15px;height:15px}
-body.doctor .tile.on .candado{opacity:.45;transform:none;pointer-events:auto}
-body.doctor .tile.on .candado:hover{opacity:1}
-.tile.on.bloqueado .candado{opacity:1!important;transform:none;background:var(--fill);color:#F4EBDD}
-.hint{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:15px;color:var(--muted)}
-.hint .ico{width:16px;height:16px}
-body.paciente .hint{display:none}
-
-/* incluidos */
-.inc-list .inc-b{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 16px;border-radius:999px;background:var(--tint);font-size:15px;color:var(--ink);transition:background .25s,color .25s;animation:inUp .45s var(--spring) both}
-.inc-list .inc-b svg{width:15px;height:15px;flex:none}
-.inc-list .inc-b span{padding:0;background:none;animation:none;font-size:15px}
-.inc-it.apagado .inc-b{background:transparent;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--muted);text-decoration:line-through}
-.inc-it.apagado .inc-b svg{opacity:0;width:0}
-
-/* nota del medicamento y volver al plan */
-.nota-zone{max-width:560px;margin:30px auto 0;text-align:left}
-.nota-zone textarea{display:block;width:100%;margin-top:8px;border:1px solid var(--line-2);border-radius:24px;padding:14px 18px;font:inherit;font-size:16px;line-height:1.45;color:var(--ink);background:rgba(255,255,255,.8);resize:vertical;min-height:64px;outline:none}
-.nota-zone textarea:focus{border-color:var(--accent)}
-.restaurar{margin-top:30px}
-body:not(.doctor) .restaurar{display:none}
-
-/* paso 4 · datos */
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.row2 input,.row2 select,#campo-dur input{display:block;width:100%;margin-top:6px;background:transparent;border:0;border-bottom:2px solid var(--line-2);padding:6px 0 10px;font:inherit;font-size:20px;font-weight:600;color:var(--ink);outline:none;border-radius:0;appearance:none;-webkit-appearance:none}
-.row2 select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236B6150' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 4px center;padding-right:28px;cursor:pointer}
-.row2 input:focus,.row2 select:focus,#campo-dur input:focus{border-color:var(--accent)}
-.row2 input::placeholder{color:var(--ph)}
-.campo.error input{border-color:var(--error)!important}
-.especialista{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.75);border:1px solid #fff;border-radius:999px;padding:8px 24px 8px 8px;box-shadow:0 20px 40px -32px rgba(60,48,30,.4)}
-.especialista .ini{width:50px;height:50px;border-radius:50%;background:var(--fill);color:#F4EBDD;display:grid;place-items:center;font-weight:700;font-size:18px;flex:none}
-.especialista b{display:block;font-size:16.5px;font-weight:600;line-height:1.25}
-.especialista span{font-size:14px;color:var(--muted);line-height:1.3;display:block}
-.especialista button{margin-left:auto;flex:none}
-
-/* paso 5 · acciones reales */
-.seg-libre{display:none}
-body.desc-libre-on #segDesc{display:none}
-body.desc-libre-on .seg-libre{display:flex}
-.pct-in{display:flex;align-items:center;gap:4px;height:40px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid var(--line)}
-.pct-in input{width:60px;border:0;outline:none;text-align:right;font:inherit;font-size:16px;font-weight:700;background:transparent}
-.pct-in i{font-style:normal;font-weight:700;color:var(--muted)}
-.act-links{display:flex;flex-wrap:wrap;gap:2px 22px;justify-content:center}
-.mini{height:40px;padding:0 4px;font-size:15px;color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--line-2)}
-.mini.activo{color:var(--ink);text-decoration-color:var(--accent)}
-.pill.ingreso{background:var(--fill);color:#F4EBDD}
-.pill:disabled{opacity:.6;cursor:wait}
-body:not(.comercial) #abrir-ingreso{display:none!important}
-#compartir-pdf{display:none}
-body.comercial #compartir-pdf.puede{display:inline-flex}
-body.comercial #enviar-correo{display:none!important}
-.link-claro{display:block;margin:2px auto 0;height:40px;font-size:15px;color:var(--muted);text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--line-2)}
-.p-man{margin-top:14px;font-size:14.5px;color:var(--muted);background:var(--tint);border-radius:20px;padding:10px 16px;line-height:1.45}
-.p-man b{color:var(--ink)}
-.p-list small.p-nota{color:var(--accent-ink)}
-
-/* paciente (link #p=) */
-html.pv body.paciente .actions{display:grid!important}
-body.paciente .actions > :not(.act-row.final),body.paciente .act-row.final > :not(#descargar){display:none!important}
-body.paciente #pvExit{display:none}
-
-/* franja del comercial */
-.franja{position:relative;z-index:15;max-width:720px;margin:20px auto 0;padding:14px 28px;border-radius:999px;text-align:center;font-size:16px;line-height:1.4;color:var(--ink)}
-.franja b{font-weight:700}
-
-/* avisos */
-#aviso{position:fixed;left:50%;top:24px;z-index:96;padding:14px 22px;border-radius:999px;background:var(--black);color:#fff;font-size:15.5px;line-height:1.35;text-align:center;transform:translate(-50%,-30px);opacity:0;pointer-events:none;transition:transform .55s var(--spring),opacity .3s;max-width:calc(100vw - 32px)}
-#aviso.ver{transform:translate(-50%,0);opacity:1}
-#aviso.mal{background:#6E2C22}
-
-/* ventanas (cuotas, precio manual, ingreso) */
-.modal input[type=text],.modal select{width:100%;padding:13px 18px;border:1px solid var(--linea);border-radius:999px;background:#fff;outline:none;font:inherit;font-size:16px;color:var(--ink);transition:border-color .2s}
-.modal select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A6E5A' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 18px center;padding-right:40px}
-.modal input:focus,.modal select:focus{border-color:var(--camel)}
-.dinero{position:relative}
-.dinero input{padding-left:32px!important;font-variant-numeric:tabular-nums}
-.dinero::before{content:"$";position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--tenue)}
-.caja-modal{font-size:16px}
-
-@media (max-width:900px){
-  .row2{gap:18px}
-  .especialista{padding-right:18px}
-  .franja{margin:14px 16px 0;border-radius:26px;font-size:15px;padding:12px 18px}
-  .tile .candado{top:8px;left:8px}
-  .cal .m{min-width:80px}
-  .cal{gap:8px}
-}
-@media (max-width:520px){ .row2{grid-template-columns:1fr} }
-.tile .nm{white-space:normal;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
-.hint{justify-content:center;text-align:center;font-size:14.5px}
 
 /* ---------- criolipólisis: croquis del cuerpo para elegir zonas ---------- */
 #modal-crio{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -636,114 +468,88 @@ body.paciente #pvExit{display:none}
 </div>
 
 
-<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+<header class="top"><div class="marco"><img class="logo" src="assets/wordmark-pardo.png" alt="Seravena"><nav class="pasos" id="pasos" aria-label="Pasos"></nav></div></header>
+<div class="marco"><div class="franja oculto" id="franja"></div></div>
 
-<header class="top">
-  <div class="logo"><img src="assets/wordmark-pardo.png" alt="Seravena"></div>
-  <nav class="crumbs" id="crumbs" aria-label="Pasos"></nav>
-  <div class="tools">
-    <button class="icon-pill" id="allBtn" aria-pressed="false" aria-label="Ver todo en una página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="l" id="allTx">Todo junto</span></button>
-    <button class="icon-pill" id="pvBtn" aria-label="Vista de la paciente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span class="l">Vista paciente</span></button>
-  </div>
-  <div class="pv-bar">
-    <span class="pv-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span class="l" id="pvTag">Solo lectura</span></span>
-    <button class="icon-pill" id="pvExit" style="background:rgba(255,255,255,.75);color:var(--ink)">Editar</button>
-  </div>
-</header>
-
-<div class="franja glass oculto" id="franja"></div>
-
-<main class="stage" id="stage">
-  <section class="step" id="s1" data-n="1" aria-labelledby="h1">
-    <p class="eyebrow">Consulta</p>
-    <h1 class="qh" id="h1">¿Qué vamos a tratar hoy?</h1>
-    <div class="progs" id="progs"></div>
-  </section>
-
-  <section class="step" id="s2" data-n="2" aria-labelledby="h2">
-    <p class="eyebrow" id="s2eb"></p>
-    <h1 class="qh" id="h2">¿Qué técnica?</h1>
-    <p class="qs">Cada técnica, un plan distinto</p>
-    <div class="vars" id="vars"></div>
-  </section>
-
-  <section class="step" id="s3" data-n="3" aria-labelledby="h3">
-    <p class="eyebrow" id="s3eb"></p>
-    <h1 class="qh" id="h3">Armemos tu plan</h1>
-    <p class="qs">Toca para sumar o quitar</p>
-    <p class="hint" id="s3hint"></p>
-    <div class="tiles" id="tiles"></div>
-    <div class="inc-zone" id="incZone">
-      <button type="button" class="inc-chip" id="incChip" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span id="incTx"></span></button>
-      <div class="inc-list" id="incList"></div>
-    </div>
-    <div class="nota-zone" id="notaZone" hidden>
-      <label for="nota-med" class="eyebrow">Nota del medicamento</label>
-      <textarea class="it-nota" id="nota-med" rows="2" placeholder="Dosis, cambios de dosis, indicaciones…"></textarea>
-    </div>
-    <button type="button" class="link-sutil restaurar" id="restaurar">Volver al plan original</button>
-  </section>
-
-  <section class="step" id="s4" data-n="4" aria-labelledby="h4">
-    <p class="eyebrow">Paciente</p>
-    <h1 class="qh" id="h4">¿Para quién es?</h1>
-    <div class="fields">
-      <div class="field campo"><label for="nombre" class="eyebrow">Nombre completo</label><input id="nombre" type="text" autocomplete="off" placeholder="Nombre y apellido"></div>
-      <div class="field campo"><label for="contacto" class="eyebrow">Celular</label><input id="contacto" type="text" inputmode="tel" autocomplete="off" placeholder="300 000 0000"></div>
-      <div class="row2">
-        <div class="campo"><label for="tipo-id" class="eyebrow">Documento</label>
-          <select id="tipo-id"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></div>
-        <div class="campo"><label for="num-id" class="eyebrow">Número</label><input id="num-id" type="text" inputmode="numeric" autocomplete="off" placeholder="Número"></div>
+<main id="stage">
+  <!-- PASO 1 · programa y paciente -->
+  <section class="pant" data-paso="1" id="s1">
+    <div class="marco alto p1">
+      <div class="titulo"><p class="eyebrow">Paso 1 de 3</p><h1>¿Qué vamos a tratar?</h1><p class="guia">Elige el programa y escribe los datos de la paciente.</p></div>
+      <div class="progs" id="progs"></div>
+      <div class="vars-zona" id="varsZona" hidden><p class="et">¿Qué técnica?</p><div class="vars" id="vars"></div></div>
+      <div class="campos">
+        <label class="campo"><small>Nombre y apellido</small><input id="nombre" type="text" autocomplete="off" placeholder="Nombre y apellido"></label>
+        <label class="campo"><small>Celular</small><input id="contacto" type="text" inputmode="tel" autocomplete="off" placeholder="300 000 0000"></label>
+        <div class="campo"><select id="tipo-id" aria-label="Tipo de documento"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select><input id="num-id" type="text" inputmode="numeric" autocomplete="off" placeholder="Número" aria-label="Número de documento"></div>
       </div>
-      <div class="campo" id="campo-dur"><label for="duracion" class="eyebrow">Duración del programa</label><input id="duracion" type="text"></div>
-      <div class="especialista" id="esp-tarjeta">
-        <div class="ini">JD</div>
-        <div><b id="esp-nombre"></b><span id="esp-espec"></span></div>
-        <button type="button" class="link-sutil" id="esp-cambiar">Cambiar</button>
-      </div>
-      <div class="row2 oculto" id="esp-editar">
-        <div class="campo"><label for="esp" class="eyebrow">Especialista</label><input id="esp" type="text"></div>
-        <div class="campo"><label for="espec" class="eyebrow">Especialidad</label><input id="espec" type="text"></div>
+      <div class="especialista" id="esp-tarjeta"><span class="ini">JD</span><span class="tx"><b id="esp-nombre"></b><span id="esp-espec"></span></span><button type="button" class="link" id="esp-cambiar">Cambiar</button></div>
+      <div class="campos oculto" id="esp-editar">
+        <label class="campo"><small>Especialista</small><input id="esp" type="text"></label>
+        <label class="campo"><small>Especialidad</small><input id="espec" type="text"></label>
+        <label class="campo" id="campo-dur"><small>Duración del programa</small><input id="duracion" type="text"></label>
       </div>
     </div>
   </section>
 
-  <section class="step" id="s5" data-n="5" aria-labelledby="h5">
-    <h1 class="sr" id="h5">Tu plan</h1>
-    <div class="print-zone" id="pz">
-      <div class="printer glass"><span class="led"></span><span class="pt" id="pt">Plan impreso</span><span class="slot"></span></div>
-      <div class="feed"><div class="paper-wrap"><article class="paper" id="paper"></article></div></div>
+  <!-- PASO 2 · el acompañamiento médico (cabe en una pantalla) + la inversión (bajando) -->
+  <section class="pant" data-paso="2" id="s2">
+    <div class="marco alto p2">
+      <div class="titulo" id="tit2"><p class="eyebrow" id="s2eb"></p><h1 id="h2"></h1><p class="guia" id="guia2"></p></div>
+      <div class="tablero" id="tablero"><div class="cabeza" id="cabeza"></div><div class="filas" id="tiles"></div></div>
+      <div class="bajo" id="bajo">
+        <div class="inc-zone" id="incZone"><span class="et">Incluido sin costo</span>
+          <button type="button" class="inc-chip" id="incChip" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span id="incTx"></span></button>
+          <div class="inc-list" id="incList"></div></div>
+        <button type="button" class="link restaurar" id="restaurar">Volver al plan original</button>
+      </div>
     </div>
-    <div class="actions glass" id="actions">
-      <div class="act-row">
-        <div class="seg" id="segDesc" role="group" aria-label="Descuento"><span class="sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>Descuento</span>
-          <button type="button" data-p="0" aria-pressed="true">Sin</button><button type="button" data-p="3" aria-pressed="false">3 %</button><button type="button" data-p="5" aria-pressed="false">5 %</button></div>
-        <div class="seg seg-libre" role="group" aria-label="Descuento"><span class="sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg>Descuento</span>
-          <span class="pct-in"><input id="desc-libre" type="text" inputmode="decimal" placeholder="0" maxlength="5" aria-label="Porcentaje de descuento"><i>%</i></span></div>
-        <div class="seg" role="group" aria-label="Cuotas"><span class="sl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Cuotas</span>
-          <button type="button" data-cuo="0" aria-pressed="true">No</button><button type="button" data-cuo="1" aria-pressed="false">1</button><button type="button" data-cuo="2" aria-pressed="false">2</button><button type="button" data-cuo="3" aria-pressed="false">3</button></div>
+    <div class="marco inv" id="inversion"><div class="dos">
+      <div class="carta">
+        <p class="et">Inversión total</p><div class="v" id="total"></div><p id="inv-prog"></p>
+        <div id="pDisc"></div><div class="chips-c" id="cifras"></div><div id="pMan"></div>
+        <div class="nota-zone" id="notaZone" hidden><label for="nota-med" class="et">Nota del medicamento</label><textarea class="it-nota" id="nota-med" rows="2" placeholder="Dosis, cambios de dosis, indicaciones…"></textarea></div>
+      </div>
+      <div class="carta">
+        <h3>¿Cómo quiere pagar?</h3>
+        <div class="seg" id="segCuo" role="group" aria-label="Cuotas"><button type="button" data-cuo="0" aria-pressed="true">Sin cuotas</button><button type="button" data-cuo="1" aria-pressed="false">1 cuota</button><button type="button" data-cuo="2" aria-pressed="false">2 cuotas</button><button type="button" data-cuo="3" aria-pressed="false">3 cuotas</button></div>
+        <div class="cal" id="pCal"></div>
+        <p class="nota" id="pNota"></p>
+        <div class="ajustes">
+          <div class="seg seg-desc" id="segDesc" role="group" aria-label="Descuento"><span>Descuento</span><button type="button" data-p="0" aria-pressed="true">Sin</button><button type="button" data-p="3" aria-pressed="false">3 %</button><button type="button" data-p="5" aria-pressed="false">5 %</button></div>
+          <div class="seg seg-libre" role="group" aria-label="Descuento"><span>Descuento</span><span class="pct-in"><input id="desc-libre" type="text" inputmode="decimal" placeholder="0" maxlength="5" aria-label="Porcentaje de descuento"><i>%</i></span></div>
+          <div class="links"><button type="button" class="mini" id="abrir-cuotas">Cambiar valor inicial</button><button type="button" class="mini" id="abrir-manual"><span>Precio manual</span></button></div>
+        </div>
         <input id="descuento" type="hidden" value=""><input type="hidden" id="manual-v" value=""><input type="hidden" id="manual-nota" value="">
       </div>
-      <div class="act-links">
-        <button type="button" class="mini" id="abrir-cuotas">Cambiar valor inicial</button>
-        <button type="button" class="mini" id="abrir-manual"><span>Precio manual</span></button>
+    </div></div>
+  </section>
+
+  <!-- PASO 3 · revisar y enviar -->
+  <section class="pant" data-paso="3" id="s3">
+    <div class="marco alto p3">
+      <div class="titulo"><p class="eyebrow">Paso 3 de 3</p><h1>Revisa y envía</h1><p class="guia">Confirma los datos y elige cómo enviar la cotización.</p></div>
+      <div class="dos">
+        <div class="carta resu" id="resu"></div>
+        <div class="envios">
+          <button type="button" class="envio prin" id="enviar-correo"><span class="lbl">Enviar a Federico</span><small>Le llega por correo para negociarla</small><i class="ic" data-ico="correo"></i></button>
+          <button type="button" class="envio" id="enviar"><span class="lbl" id="enviar-txt">WhatsApp a Federico</span><small id="enviar-sub">Le llega el link por WhatsApp</small><i class="ic" data-ico="me_whatsapp"></i></button>
+          <button type="button" class="envio" id="compartir-pdf"><span class="lbl">Enviar el PDF</span><small>Compartir el archivo desde el celular</small><i class="ic" data-ico="enviar"></i></button>
+          <button type="button" class="envio" id="descargar"><span class="lbl txt-desc">Descargar PDF</span><small>Para imprimir o mostrar en consulta</small><i class="ic" data-ico="descargar"></i></button>
+          <button type="button" class="envio" id="abrir-ingreso"><span class="lbl">Paciente ingresó al programa</span><small>Registra el abono en la hoja de ingresos</small><i class="ic" data-ico="check"></i></button>
+        </div>
       </div>
-      <div class="act-row final">
-        <button type="button" class="pill ingreso" id="abrir-ingreso"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Paciente ingresó al programa</span></button>
-        <button type="button" class="pill ghost" id="enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5Z"/></svg><span id="enviar-txt">WhatsApp a Federico</span></button>
-        <button type="button" class="pill ghost" id="enviar-correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m21.5 7.5-9.5 6-9.5-6"/></svg><span>Correo a Federico</span></button>
-        <button type="button" class="pill ghost" id="compartir-pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg><span>Enviar el PDF</span></button>
-        <button type="button" class="pill primary" id="descargar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14"/></svg><span class="txt-desc">Descargar PDF</span></button>
-      </div>
-      <button type="button" class="link-claro" id="nueva">Empezar una cotización nueva</button>
+      <button type="button" class="link nueva" id="nueva">Empezar una cotización nueva</button>
     </div>
   </section>
 </main>
 
-<div class="dock glass" id="dock">
-  <button class="back" id="backBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg><span class="l">Atrás</span></button>
-  <div class="tot" id="tot" aria-live="polite"><span class="tn" id="dName"></span><span class="odo" id="odo1"></span><span class="delta" id="delta"></span></div>
-  <button class="next" id="nextBtn"><span id="nextTx">Seguir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+<div class="dock" id="dock">
+  <button type="button" class="atras" id="backBtn">Atrás</button>
+  <span class="cual" id="cual"></span>
+  <button type="button" class="vi" id="vi" aria-label="Ver la inversión"><span class="t">Ver la inversión</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+  <button type="button" class="sig" id="nextBtn"><span id="nextTx">Siguiente</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <button type="button" class="sig" id="pacDesc" hidden>Descargar mi cotización</button>
 </div>
 
 <div id="modal-ingreso" class="modal">
@@ -1218,48 +1024,71 @@ class Odo{
 }
 
 
-/* ================= INTERFAZ (rediseño aprobado por Laura el 20-nov-2026) ================= */
+/* ================= INTERFAZ (diseño "acompañamiento médico", aprobado por Laura el 23-nov-2026) =================
+   3 pasos: 1 Programa y paciente · 2 Plan (cabe en una pantalla; bajando, la inversión) · 3 Revisar y enviar.
+   El MOTOR no cambió: CATALOGO, PROGRAMAS, leer(), PDF, correos, links #c= / #p=, cuotas, precio manual, criolipólisis. */
 const root = document.documentElement;
 const $$ = s => [...document.querySelectorAll(s)];
 const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let MODO = "doctor";
 let totalVisto = null; // compatibilidad con el código de precio manual
-const S = { step: 1, elegido: false, all: false, pv: false, incOpen: false };
+const S = { step: 1, elegido: false, incOpen: false, espAbierto: false };
 let PROG = "lipedema";
 const P = () => PROGRAMAS[PROG];
-const FRASE_CARD = { lipedema: "Manejo integral · 3 meses", obesidad: "Manejo médico · 3 meses", venas: "Escleroterapia, espuma, endoláser", celulitis: "Bioestimuladores y textura", estetica: "Toxina, rellenos, bioestimuladores" };
+const FRASE_CARD = { lipedema: "Manejo integral · 3 meses", obesidad: "Manejo médico · 3 meses", venas: "Escleroterapia, espuma, endoláser", celulitis: "Bioestimuladores y textura", estetica: "Toxina, rellenos, crio" };
 const VNAME = { celulitis: "Sculptra", celulitis_sveltia: "Sveltia", celulitis_advance: "Advance", celulitis_prestige: "Prestige" };
 const VSHORT = { venas: "Por sesiones", venas_espuma: "Tributarias o safena", venas_endolaser: "Una o dos piernas", celulitis: "Con Sculptra", celulitis_sveltia: "Con Sveltia", celulitis_advance: "Venufill + PRP", celulitis_prestige: "Sculptra + Venufill" };
-const STEP_NAMES = ["Programa", "Técnica", "Plan", "Paciente", "Tu plan"];
 const MESES_C = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
 const CK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const CHEV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
 const claveProg = id => PROGRAMAS[id].familia || id;
 const nombreProg = id => { const p = PROGRAMAS[id]; return p.familia ? p.familia[0].toUpperCase() + p.familia.slice(1) : p.nombre; };
 const hasFamily = () => S.elegido && !!P().familia;
 const isEst = () => PROG === "estetica";
+const esPrograma = () => !!P().duracion; // lipedema y obesidad: recorrido de 12 semanas
 /* los renglones siempre en el mismo orden de antes (así los links #c= / #p= viejos siguen abriendo bien) */
 const ITEMS = () => [...document.querySelectorAll(".item")].sort((a, b) => a.dataset.k - b.dataset.k);
 const pop = el => { el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); };
+const ESP_IDS = ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"];
 
-/* ---- programas ---- */
+/* cómo se llama cada cantidad ("2 citas", "12 controles", "20 sesiones") */
+const UNI = {
+  psicologia: ["cita", "citas"], nutriologa: ["cita", "citas"], nutricionista: ["cita", "citas"], deportologia: ["cita", "citas"], interna: ["cita", "citas"],
+  general: ["control", "controles"], tirzepatida: ["dosis", "dosis"], enfermeria: ["vez", "veces"], medias: ["par", "pares"],
+  aparatologia: ["sesión", "sesiones"], aparatologia_hf: ["sesión", "sesiones"], drenaje: ["sesión", "sesiones"], escleroterapia: ["sesión", "sesiones"],
+  espuma_trib: ["pierna", "piernas"], espuma_safena: ["pierna", "piernas"], endolaser: ["pierna", "piernas"], rivaroxaban: ["unidad", "unidades"],
+  sculptra: ["ampolla", "ampollas"], sveltia: ["ampolla", "ampollas"], venufill: ["frasco", "frascos"], prp: ["sesión", "sesiones"],
+  proc_gluteos: ["proced.", "proced."], medico: ["proced.", "proced."], insumos: ["kit", "kits"],
+};
+const unidadDe = (id, q) => { const u = UNI[id] || (/^me_/.test(id) ? ["sesión", "sesiones"] : ["", ""]); return mult(q) === 1 ? u[0] : u[1]; };
+
+/* dónde cae cada punto en las 12 semanas: especialistas al inicio y a la mitad; lo demás repartido */
+function posiciones(id, q){
+  const n = Math.min(40, Math.round(mult(q)));
+  if (!(n > 0)) return [];
+  if (ESP_IDS.includes(id)) return [4, 50, 96, 27, 73, 15, 85, 38, 62].slice(0, n);
+  if (n === 1) return [4];
+  return Array.from({ length: n }, (_, i) => 4 + i * (92 / (n - 1)));
+}
+const puntosHTML = (id, q, nuevo) => posiciones(id, q).map(x => `<i class="pt${ESP_IDS.includes(id) ? " gr" : ""}${nuevo ? " nuevo" : ""}" style="left:${x}%"></i>`).join("");
+
+/* ---- paso 1: programas y técnicas ---- */
 function renderProgs(){
   $("#progs").innerHTML = Object.entries(PROGRAMAS).filter(([, p]) => !p.oculto).map(([id, p]) => {
     const k = claveProg(id), sel = S.elegido && claveProg(PROG) === k;
     return `<button type="button" class="prog ${sel ? "sel" : ""}" data-prog="${id}" aria-pressed="${sel}">
-      <span class="ic" aria-hidden="true">${svg(PI[k] || PI.estetica)}</span>
-      <span class="tx2"><b>${esc(nombreProg(id))}</b><span>${FRASE_CARD[k] || esc(p.frase)}</span></span></button>`;
+      <span class="ic" aria-hidden="true">${svg(PI[k] || PI.estetica)}</span><b>${esc(nombreProg(id))}</b><span>${FRASE_CARD[k] || esc(p.frase)}</span></button>`;
   }).join("");
 }
 function renderVars(){
   const fam = S.elegido && P().familia;
+  $("#varsZona").hidden = !fam;
   if (!fam){ $("#vars").innerHTML = ""; return; }
-  $("#s2eb").textContent = nombreProg(PROG);
   $("#vars").innerHTML = Object.entries(PROGRAMAS).filter(([, p]) => p.familia === fam).map(([k, p]) => `
-    <button type="button" class="var ${k === PROG ? "sel" : ""}" data-v="${k}" aria-pressed="${k === PROG}">
-      <span class="dot">${svg(PI[fam])}</span><span class="vt"><b>${esc(VNAME[k] || p.corto || p.nombre)}</b><span>${esc(VSHORT[k] || p.resumen || "")}</span></span></button>`).join("");
+    <button type="button" class="var ${k === PROG ? "sel" : ""}" data-v="${k}" aria-pressed="${k === PROG}"><b>${esc(VNAME[k] || p.corto || p.nombre)}</b><span>${esc(VSHORT[k] || p.resumen || "")}</span></button>`).join("");
 }
 function ponerPrograma(id){
-  PROG = id; S.incOpen = false;
+  PROG = id; S.incOpen = false; S.espAbierto = false;
   const e = P().esp; // cada programa trae su especialista (celulitis y estética = médica estética)
   $("#esp").value = e ? e.nombre : ESPECIALISTA; $("#espec").value = e ? e.especialidad : ESPECIALIDAD; pintarEsp();
   document.body.classList.toggle("desc-libre-on", !!P().descuentoLibre);
@@ -1273,6 +1102,8 @@ function cambiarPrograma(id){
   ponerPrograma(id); S.elegido = true; renderProgs(); renderVars(); calcular();
   return true;
 }
+
+/* ---- paso 2: el tablero (cada servicio es una fila) ---- */
 function cargarPlantilla(){
   const grupos = GRUPOS.filter(g => P().solo ? [].concat(P().solo).includes(g.id) : !["hf", "vn", "me", "mi", "cr"].includes(g.id));
   const permitidos = P().muestra || grupos.flatMap(g => g.ids);
@@ -1284,6 +1115,7 @@ function cargarPlantilla(){
       const v = P().plan[c.id], [q, u] = v == null ? [1, c.u] : Array.isArray(v) ? v : [v, c.u];
       agregarItem({ id: c.id, n: c.n, t: c.t, q: String(q), u, interno: c.interno, on: v != null, max: c.max, incluido: c.incluido, precioLibre: c.precioLibre, unidad: c.unidad, k });
     });
+  pintarTablero();
   $("#descuento").value = ""; $("#desc-libre").value = ""; $("#manual-v").value = ""; $("#manual-nota").value = "";
   $("#nota-med").value = ""; $("#nota-med").classList.remove("vacia");
   $("#duracion").value = P().duracion;
@@ -1302,23 +1134,25 @@ function agregarItem(it){
     $("#incList").appendChild(d);
     return;
   }
-  const esNum = /^\d/.test(q);
-  d.className = "item tile" + (it.interno ? " interno" : "");
+  const c = CATALOGO.find(k => k.id === it.id) || {}, crio = it.id === CRIO, esNum = /^\d/.test(q);
+  d.className = "item fila" + (it.interno ? " interno" : "") + (esPrograma() && ESP_IDS.includes(it.id) ? " sub-esp" : "");
+  const cant = crio
+    ? `<div class="stp"><span class="vacio"></span><span class="num"><input type="hidden" class="it-q" value="${on ? esc(q) : "0"}"><b class="zb">Elegir zonas</b></span><button type="button" class="zbtn" aria-label="Elegir zonas de criolipólisis" title="Elegir zonas">${ico("lapiz")}</button></div>`
+    : esNum
+    ? `<div class="stp"><button type="button" class="mn" data-d="-1" aria-label="Menos ${esc(it.t)}">−</button><span class="num"><input type="text" class="it-q" inputmode="decimal" value="${esc(q)}" aria-label="Cantidad de ${esc(it.t)}"><span class="un"></span></span><button type="button" class="pl" data-d="1" aria-label="Más ${esc(it.t)}">+</button></div>`
+    : `<div class="stp"><span class="vacio"></span><span class="num"><input type="text" class="it-q lbl" value="${esc(q)}" readonly tabindex="-1"></span><button type="button" class="quitar" aria-label="Quitar ${esc(it.t)}">×</button></div>`;
+  let det = c.d || ""; const m = det.match(/^\$[\d.]+\s·\s(.*)$/); if (m) det = m[1];
+  const tercera = esPrograma()
+    ? `<div class="rail"><span class="lin"></span><span class="pts"></span></div>`
+    : `<div class="det">${isEst() ? `<b class="pr">${fmt(it.u)}</b>` : ""}<span class="dtx">${esc(det)}</span>${it.precioLibre ? `<label class="tv"><span>Valor por ${esc(it.unidad || "sesión")}</span><span class="tv-in"><i>$</i><input type="text" class="it-precio" inputmode="numeric" data-dinero value="${Number(it.u || 0).toLocaleString("es-CO")}" aria-label="Valor por ${esc(it.unidad || "sesión")} de ${esc(it.t)}"></span></label>` : ""}</div>`;
   d.innerHTML = check + `
-    <button type="button" class="tm" aria-pressed="${on}" aria-label="${esc(it.t)}"><span class="ic" aria-hidden="true">${svg(SI[it.id] || PI.estetica)}</span>
-      <span class="nm">${esc(SHORT[it.id] || it.t)}</span>${isEst() ? `<span class="pr">${fmt(it.u)}${it.id === CRIO ? " / zona" : ""}</span>` : ""}</button>
-    <span class="badge" aria-hidden="true">${CK}</span>
-    <button type="button" class="candado" aria-label="El doctor recomienda no quitar" title="El doctor recomienda que esto no se quite">${ico("candado")}</button>
-    <div class="tq">${it.id === CRIO
-      ? `<input type="hidden" class="it-q" value="${on ? esc(q) : "0"}"><button type="button" class="zb">Elegir zonas</button>`
-      : esNum
-      ? `<button type="button" class="mn" data-d="-1" aria-label="Menos ${esc(it.t)}">−</button><input type="text" class="it-q" inputmode="decimal" value="${esc(q)}" aria-label="Cantidad de ${esc(it.t)}"><button type="button" class="pl" data-d="1" aria-label="Más ${esc(it.t)}">+</button>`
-      : `<input type="text" class="it-q lbl" value="${esc(q)}" readonly tabindex="-1">`}</div>`;
+    <div class="c-serv"><span class="ic" aria-hidden="true">${svg(SI[it.id] || PI.estetica)}</span><span class="tx"><b>${esc(SHORT[it.id] || it.t)}</b></span>
+      <button type="button" class="candado" aria-label="El doctor recomienda no quitar" title="El doctor recomienda que esto no se quite">${ico("candado")}</button></div>
+    <div class="c-cant">${cant}<button type="button" class="agregar">+ Agregar</button></div>
+    <div class="c-pista">${tercera}</div>`;
   if (it.precioLibre){
     d.classList.add("precio-libre");
-    d.insertAdjacentHTML("beforeend", `<label class="tv"><span>Valor por ${esc(it.unidad || "sesión")}</span><span class="tv-in"><i>$</i><input type="text" class="it-precio" inputmode="numeric" data-dinero value="${Number(it.u || 0).toLocaleString("es-CO")}" aria-label="Valor por ${esc(it.unidad || "sesión")} de ${esc(it.t)}"></span></label>`);
     const pi = d.querySelector(".it-precio");
-    pi.addEventListener("click", e => e.stopPropagation());
     pi.addEventListener("focus", () => setTimeout(() => pi.select()));
     pi.addEventListener("input", () => { if (MODO === "paciente") return; d.dataset.u = num(pi.value); calcular(); });
     pi.addEventListener("blur", () => { if (!num(pi.value)){ d.dataset.u = it.u || 0; pi.value = Number(it.u || 0).toLocaleString("es-CO"); calcular(); } });
@@ -1326,15 +1160,15 @@ function agregarItem(it){
   const ch = d.querySelector(".check"), inp = d.querySelector(".it-q");
   const bloqueadoNo = () => MODO === "comercial" && d.classList.contains("bloqueado") && !confirm("El doctor recomienda que esto no se quite. ¿Quitarlo igual?");
   const poner = v => { ch.checked = v; pop(d); calcular(); };
-  d.querySelector(".tm").onclick = () => {
+  d.querySelector(".agregar").onclick = () => {
     if (MODO === "paciente") return;
-    if (it.id === CRIO && !(ch.checked && mult(inp.value) > 0)) return abrirCrio(); // criolipólisis: primero se eligen las zonas
-    if (ch.checked && mult(inp.value) > 0 && bloqueadoNo()) return;
-    if (!ch.checked || mult(inp.value) === 0){ if (mult(inp.value) === 0) inp.value = "1"; return poner(true); }
-    poner(false);
+    if (crio) return abrirCrio();
+    if (mult(inp.value) === 0) inp.value = "1";
+    poner(true);
   };
-  const zb = d.querySelector(".zb"); if (zb) zb.onclick = e => { e.stopPropagation(); abrirCrio(); };
-  d.querySelectorAll(".tq button[data-d]").forEach(b => b.onclick = () => {
+  const quitar = d.querySelector(".quitar"); if (quitar) quitar.onclick = () => { if (MODO === "paciente" || bloqueadoNo()) return; poner(false); };
+  if (crio){ d.querySelector(".zbtn").onclick = abrirCrio; d.querySelector(".zb").onclick = abrirCrio; }
+  d.querySelectorAll(".stp button[data-d]").forEach(b => b.onclick = () => {
     if (MODO === "paciente") return;
     const n = parseFloat(String(inp.value).replace(",", "."));
     const nuevo = Math.min(Number(d.dataset.max) || 999, Math.max(0, (isNaN(n) ? 1 : n) + Number(b.dataset.d)));
@@ -1344,16 +1178,34 @@ function agregarItem(it){
   d.querySelector(".candado").onclick = e => { e.stopPropagation(); if (MODO !== "doctor") return; d.classList.toggle("bloqueado"); };
   $("#tiles").appendChild(d);
 }
+/* cabecera del tablero y la fila que agrupa a los especialistas */
+function pintarTablero(){
+  const prog = esPrograma();
+  $("#tablero").classList.toggle("con-rail", prog);
+  $("#cabeza").innerHTML = `<div class="h">Servicio</div><div class="h col">¿Cuántas?</div>` + (prog
+    ? `<div class="h sem"><div class="fil">${Array.from({ length: 12 }, (_, i) => `<span>${i === 0 ? "Inicio" : i === 5 ? "Mitad" : i === 11 ? "Cierre" : "S" + (i + 1)}</span>`).join("")}</div></div>`
+    : `<div class="h der">${isEst() ? "Precio y detalle" : "Detalle"}</div>`);
+  const primera = ITEMS().find(x => x.classList.contains("sub-esp"));
+  if (prog && primera){
+    const g = document.createElement("div"); g.className = "fila grupo on";
+    g.innerHTML = `<div class="c-serv"><span class="ic" aria-hidden="true">${svg(SI.interna)}</span><span class="tx"><b>Especialistas</b><small id="g-n"></small></span></div>
+      <div class="c-cant"><div class="stp"><span class="vacio"></span><span class="num"><b id="g-q"></b><span class="un" id="g-u"></span></span><button type="button" class="abre" aria-label="Ajustar cada especialista" title="Ajustar cada especialista">${CHEV}</button></div></div>
+      <div class="c-pista"><div class="rail"><span class="lin"></span><span class="pts" id="g-pts"></span></div></div>`;
+    g.querySelector(".abre").onclick = () => { S.espAbierto = !S.espAbierto; pintarItems(); ajustarAlto(); };
+    g.querySelector(".c-serv").onclick = g.querySelector(".abre").onclick;
+    primera.before(g);
+  }
+}
 function renderInc(){
   const inc = [...$("#incList").children];
   $("#incZone").hidden = !inc.length;
   if (!inc.length) return;
-  const many = inc.length > 1;
+  const many = inc.length > 2;
   $("#incChip").hidden = !many;
   $("#incChip").setAttribute("aria-expanded", S.incOpen);
-  $("#incTx").textContent = `${inc.length} incluidos`;
+  $("#incTx").textContent = S.incOpen ? "Ocultar" : `Ver ${inc.length}`;
   $("#incList").hidden = many && !S.incOpen;
-  if (!many){ const x = inc[0], q = x.querySelector(".it-q").value, c = CATALOGO.find(k => k.n === x.dataset.n); x.querySelector(".inc-b span").textContent = (c ? c.t : x.dataset.n) + (/^\d/.test(q) ? "" : " " + q.toLowerCase()); }
+  ajustarAlto();
 }
 
 $("#esp").value = ESPECIALISTA; $("#espec").value = ESPECIALIDAD;
@@ -1522,234 +1374,173 @@ $("#m-quitar").onclick = () => { CUOTAS = 0; INICIAL = null; calcular(); cerrarM
 
 
 /* ---- pintar todo después de cada cambio ---- */
-const odo1 = new Odo($("#odo1"));
-let odo2 = null, lastTotal = null;
+let lastTotal = null, totAnim = 0;
+function animarTotal(v){
+  const el = $("#total"), desde = el.dataset.v != null ? Number(el.dataset.v) : v;
+  el.dataset.v = v; cancelAnimationFrame(totAnim); // cancela la animación anterior (si no, la vieja pisa el valor nuevo)
+  if (REDUCE || desde === v){ el.textContent = fmt(v); return; }
+  const t0 = performance.now();
+  const paso = t => { const k = Math.min(1, (t - t0) / 450), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(desde + (v - desde) * e); if (k < 1) totAnim = requestAnimationFrame(paso); else el.textContent = fmt(v); };
+  totAnim = requestAnimationFrame(paso);
+}
 function pintarItems(){
+  const prog = esPrograma();
   ITEMS().forEach(x => {
-    const q = x.querySelector(".it-q").value, on = x.querySelector(".check").checked && mult(q) > 0;
+    const inp = x.querySelector(".it-q"), q = inp.value, on = x.querySelector(".check").checked && mult(q) > 0;
     x.classList.toggle("on", on); x.classList.toggle("apagado", !on);
-    const b = x.querySelector(".tm, .inc-b"); if (b) b.setAttribute("aria-pressed", on);
+    const b = x.querySelector(".inc-b"); if (b) b.setAttribute("aria-pressed", on);
     const pl = x.querySelector(".pl"); if (pl) pl.disabled = !!x.dataset.max && mult(q) >= Number(x.dataset.max);
+    const un = x.querySelector(".un"); if (un) un.textContent = unidadDe(x.dataset.id, q);
+    if (inp.type === "text" && !inp.classList.contains("lbl")) inp.style.width = (Math.max(1, String(q).length) + 0.6) + "ch";
+    const pts = x.querySelector(".pts");
+    if (pts){
+      const clave = on ? (/^\d/.test(q) ? q : "lbl") : "0";
+      if (pts.dataset.q !== clave){
+        const nuevo = pts.dataset.q != null; pts.dataset.q = clave;
+        pts.innerHTML = !on ? "" : /^\d/.test(q) ? puntosHTML(x.dataset.id, q, nuevo) : `<i class="continuo"></i>`;
+      }
+    }
+    if (x.classList.contains("sub-esp")) x.classList.toggle("cerrada", prog && !S.espAbierto);
   });
+  const g = $("#tiles .grupo");
+  if (g){
+    const act = ITEMS().filter(x => x.classList.contains("sub-esp") && x.classList.contains("on"));
+    const qs = act.map(x => mult(x.querySelector(".it-q").value)), citas = qs.reduce((t, v) => t + v, 0), maxi = Math.max(0, ...qs);
+    $("#g-q").textContent = citas; $("#g-u").textContent = citas === 1 ? "cita" : "citas";
+    $("#g-n").textContent = `${act.length} ${act.length === 1 ? "especialista" : "especialistas"}`;
+    const gp = $("#g-pts"), k = String(maxi);
+    if (gp.dataset.q !== k){ gp.dataset.q = k; gp.innerHTML = puntosHTML("interna", maxi, false); }
+    g.classList.toggle("abierto", S.espAbierto);
+  }
+  /* la última fila visible redondea la columna de arena */
+  const visibles = $$("#tiles .fila").filter(x => !x.classList.contains("interno") && !x.classList.contains("cerrada") && !(MODO === "paciente" && x.classList.contains("apagado")));
+  $$("#tiles .fila.ultima").forEach(x => x.classList.remove("ultima"));
+  if (visibles.length) visibles[visibles.length - 1].classList.add("ultima");
   const tz = ITEMS().find(x => x.dataset.id === "tirzepatida");
   $("#notaZone").hidden = !(tz && tz.classList.contains("on"));
+}
+/* el plan cabe en UNA pantalla: el alto de cada fila se reparte en lo que queda libre */
+function ajustarAlto(){
+  if (matchMedia("(max-width:760px)").matches || S.step !== 2) return;
+  const filas = $$("#tiles .fila").filter(x => getComputedStyle(x).display !== "none").length || 1;
+  const arriba = $(".top").offsetHeight + ($("#franja").classList.contains("oculto") ? 0 : $("#franja").offsetHeight + 4);
+  const alto = $(".p2"), cs = getComputedStyle(alto);
+  const libre = innerHeight - arriba - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - $("#tit2").offsetHeight
+    - parseFloat(getComputedStyle($("#tit2")).marginBottom) - $("#cabeza").offsetHeight - ($("#bajo").offsetHeight ? $("#bajo").offsetHeight + 12 : 0) - 4;
+  root.style.setProperty("--fila-h", Math.max(24, Math.min(58, Math.floor(libre / filas))) + "px");
+}
+addEventListener("resize", ajustarAlto);
+function pintarTitulo(s){
+  const f = s.nombre.split(/\s+/)[0] || "", first = f ? f.charAt(0).toUpperCase() + f.slice(1) : "";
+  $("#h2").textContent = first ? `${first}, este es tu acompañamiento médico` : "Este es tu acompañamiento médico";
+  const tec = P().familia ? (VNAME[PROG] || P().corto || P().nombre) : "";
+  $("#s2eb").textContent = [nombreProg(PROG), tec, s.duracion].filter(Boolean).join(" · ");
+  $("#guia2").innerHTML = MODO === "paciente"
+    ? (esPrograma() ? "Cada punto es una cita o una sesión en las 12 semanas de tu programa." : "Esto es lo que incluye tu tratamiento.")
+    : `<b>Toca + o −</b> para ajustar.` + (esPrograma() ? " Cada punto es una cita en las 12 semanas." : "");
+}
+function pintarInversion(s){
+  animarTotal(s.precio);
+  $("#inv-prog").textContent = s.programa + (s.duracion ? " · " + s.duracion + " de acompañamiento" : "");
+  $("#pDisc").innerHTML = s.descuento && !s.manual ? `<div class="row"><span>Valor del plan</span><b>${fmt(s.lista)}</b></div><div class="row"><span>Descuento ${String(s.pct).replace(".", ",")} %</span><b>− ${fmt(s.descuento)}</b></div>` : "";
+  $("#pMan").innerHTML = s.manual && MODO !== "paciente" ? `<p class="p-man"><b>Precio manual</b> · el calculado era ${fmt(s.manual.antes)}${s.manual.nota ? `<br>Motivo: ${esc(s.manual.nota)}` : ""}</p>` : "";
+  const cif = esPrograma() ? [[cantDe(s, ["general"]), "controles semanales"], [cantDe(s, ESPECIALISTAS), "citas con especialistas"], [cantDe(s, SESIONES), "sesiones para tu cuerpo"]].filter(x => x[0]) : [];
+  $("#cifras").innerHTML = cif.map(([v, t]) => `<span><b>${v}</b>${t}</span>`).join("");
+  const ini = anticipoDe(s.precio);
+  let cal = `<div class="hoy"><span>Hoy · valor inicial${INICIAL != null ? "" : " (50 %)"}</span><b>${fmt(ini)}</b></div>`;
+  if (CUOTAS && s.precio){
+    const { cuotas } = repartir(s.precio, ini, CUOTAS), d = new Date();
+    cuotas.forEach((v, i) => { const m = new Date(d.getFullYear(), d.getMonth() + i + 1, Math.min(d.getDate(), 28));
+      cal += `<div><span>Cuota ${i + 1} · ${m.getDate()} de ${MESES[m.getMonth()]}</span><b>${Math.round(v) ? fmt(v) : "Cubierta con el abono"}</b></div>`; });
+  } else if (s.precio - ini > 0) cal += `<div><span>Saldo</span><b>${fmt(s.precio - ini)}</b></div>`;
+  $("#pCal").innerHTML = cal;
+  $("#pNota").textContent = CUOTAS && ini ? "Lo que paga hoy se descuenta de la primera cuota." : "";
+}
+function pintarResumen(s){
+  const inc = s.items.filter(x => !x.interno && x.n && !(CATALOGO.find(k => k.n === x.n) || {}).incluido);
+  const cif = esPrograma() ? [[cantDe(s, ["general"]), "controles"], [cantDe(s, ESPECIALISTAS), "citas"], [cantDe(s, SESIONES), "sesiones"]].filter(x => x[0]).map(([v, t]) => v + " " + t).join(" · ")
+    : inc.map(x => (CATALOGO.find(k => k.n === x.n) || {}).t || x.n).join(", ");
+  $("#resu").innerHTML = `
+    <div class="fr"><span>Paciente</span><b>${esc(s.nombre) || "<span style='color:var(--error)'>Falta el nombre</span>"}</b></div>
+    <div class="fr"><span>Programa</span><b>${esc($("#s2eb").textContent)}</b></div>
+    <div class="fr"><span>Incluye</span><b>${esc(cif) || "—"}</b></div>
+    <div class="fr"><span>Forma de pago</span><b>${CUOTAS ? esc(textoPlan(s.precio, true)) : "Valor inicial " + fmt(anticipoDe(s.precio))}</b></div>
+    <div class="fr"><span>Inversión total</span><b class="tot">${fmt(s.precio)}</b></div>`;
 }
 function calcular(){
   const s = leer();
   pintarItems();
-  odo1.set(s.precio);
-  if (lastTotal != null && s.precio !== lastTotal){
-    const d = s.precio - lastTotal, el = $("#delta");
-    el.textContent = (d > 0 ? "+ " : "− ") + fmt(Math.abs(d));
-    el.classList.remove("show"); void el.offsetWidth; el.classList.add("show");
-  }
-  lastTotal = s.precio;
-  $("#tot").hidden = !S.elegido;
-  $("#dName").textContent = S.elegido ? nombreProg(PROG) : "";
+  pintarTitulo(s);
+  pintarInversion(s);
   $$("[data-p]").forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.p) === s.pct));
   $$("[data-cuo]").forEach(b => b.setAttribute("aria-pressed", Number(b.dataset.cuo) === CUOTAS));
   $("#abrir-manual span").textContent = s.manual ? "Editar precio manual" : "Precio manual";
   $("#abrir-manual").classList.toggle("activo", !!s.manual);
   $("#abrir-cuotas").classList.toggle("activo", INICIAL != null);
   $("#campo-dur").hidden = !P().duracion && !$("#duracion").value;
-  if (S.all) renderPaper(s); else renderTotals(s);
+  if (S.step === 3) pintarResumen(s);
+  lastTotal = s.precio;
   return s;
 }
 
-/* ---- el plan "impreso" ---- */
-function timeline(s){
-  if (!s.duracion) return "";
-  const idOf = x => (CATALOGO.find(k => k.n === x.n) || {}).id, cat = id => CATALOGO.find(k => k.id === id);
-  const on = id => s.items.some(x => idOf(x) === id), q = id => cantDe(s, [id]);
-  const ids = ["interna", "nutriologa", "psicologia", "deportologia", "nutricionista"].filter(on);
-  const lst = a => a.length > 1 ? a.slice(0, -1).join(", ") + " y " + a[a.length - 1] : a[0];
-  const sem = q("general") || 12, rows = [];
-  if (ids.length) rows.push(["Semana 1", "Arrancamos", `Valoración con ${lst(ids.map(id => cat(id).t.toLowerCase()))}`]);
-  if (q("general")) rows.push([`Semanas 1 a ${sem}`, "Te vemos cada semana", `${q("general")} controles de medicina general`]);
-  if (on("tirzepatida")) rows.push(["Cada semana", "Tu medicamento", cat("tirzepatida").d]);
-  const ses = []; if (q("aparatologia")) ses.push(`${q("aparatologia")} de aparatología`); if (q("drenaje")) ses.push(`${q("drenaje")} de drenaje linfático`);
-  if (ses.length) rows.push(["Durante el programa", "Sesiones para tu cuerpo", lst(ses)]);
-  if (ids.some(id => q(id) >= 2)) rows.push(["Mitad del programa", "Segunda cita con especialistas", "Revisamos cómo vas"]);
-  rows.push([`Semana ${sem}`, "Cierre", "Medimos tus resultados"]);
-  return `<section class="p-sec"><p class="eyebrow rv">Tu camino · ${esc(s.duracion)}</p><ol class="tl">${rows.map((r, i) =>
-    `<li class="rv ${i === rows.length - 1 ? "end" : ""}"><span class="w">${r[0]}</span><b>${r[1]}</b><small>${esc(r[2])}</small></li>`).join("")}</ol></section>`;
-}
-function renderPaper(s){
-  s = s || leer();
-  const paper = $("#paper"), d = new Date();
-  const f = s.nombre.split(/\s+/)[0] || "", first = f ? f.charAt(0).toUpperCase() + f.slice(1) : "";
-  const list = s.items.filter(x => !x.interno && x.n).sort(incAlFinal).map(x => {
-    const c = CATALOGO.find(k => k.n === x.n) || {};
-    let det = c.d || ""; const m = det.match(/^\$[\d.]+\s·\s(.*)$/); if (m) det = m[1];
-    let q;
-    if (c.incluido) q = `<span class="qt inc">${esc(String(x.q).toUpperCase())}</span>`;
-    else if (isEst()) q = `<span class="qt">${fmt(x.costo)}${mult(x.q) > 1 ? `<em>${c.id === CRIO ? plural(mult(x.q), "sesión", "sesiones") : "× " + esc(x.q)}</em>` : ""}</span>`;
-    else q = `<span class="qt">${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span>`;
-    let extra = "";
-    if (c.id === CRIO && x.zonas && x.zonas.length){
-      det = listaY(detalleZonas(x.sesZ));
-      extra = `<span class="p-crio">${vistasDe(x.zonas).map(v => croquisSVG(v, x.sesZ, 60)).join("")}</span>`;
-    }
-    return `<li class="rv"><span class="bul"></span><span class="tx"><b>${esc(c.t || x.n)}</b>${det ? `<small>${esc(det)}</small>` : ""}${extra}${x.nota ? `<small class="p-nota">Nota: ${esc(x.nota)}</small>` : ""}</span>${q}</li>`;
-  });
-  paper.innerHTML = `
-    <header class="p-head rv"><div class="p-logo"><img src="assets/wordmark-pardo.png" alt="Seravena"></div><div class="p-date">${d.getDate()} de ${MESES[d.getMonth()]}<br>${d.getFullYear()}</div></header>
-    <h2 class="t p-hello rv">${first ? esc(first) + ", este es tu plan" : "Este es tu plan"}</h2>
-    <p class="p-sub rv"><b>${esc(s.programa)}</b> · con ${esc(s.esp)}${s.contacto ? ` · <span style="white-space:nowrap">Cel. ${esc(s.contacto)}</span>` : ""}</p>
-    <section class="p-sec"><p class="eyebrow rv">Lo que incluye</p><ul class="p-list">${list.join("") || `<li><span class="tx"><small>Aún no hay servicios.</small></span></li>`}</ul></section>
-    ${timeline(s)}
-    <section class="p-total rv" id="pTotal"></section>
-    <footer class="p-foot rv">Clínica Seravena · Medellín · Válida por ${VIGENCIA_DIAS} días</footer>`;
-  paper.querySelectorAll(".rv").forEach((el, i) => el.style.setProperty("--i", i));
-  odo2 = null; renderTotals(s);
-}
-function renderTotals(s){
-  const box = $("#pTotal"); if (!box) return;
-  s = s || leer();
-  if (!odo2 || !box.contains(odo2.el)){
-    box.innerHTML = `<div id="pDisc"></div><div class="grand"><span class="lab">Total</span><span class="t"><span class="odo" id="odo2"></span></span></div>
-      <div class="p-ini"><span id="pIniT"></span><b id="pIni"></b></div><div id="pCal"></div><div id="pMan"></div>`;
-    odo2 = new Odo($("#odo2"));
-  }
-  odo2.set(s.precio);
-  const ini = anticipoDe(s.precio);
-  $("#pIniT").textContent = INICIAL != null ? "Valor inicial" : "Valor inicial (50\u00a0%)";
-  $("#pIni").textContent = fmt(ini);
-  $("#pDisc").innerHTML = s.descuento && !s.manual ? `<div class="row"><span>Valor del plan</span><b>${fmt(s.lista)}</b></div><div class="row"><span>Descuento ${String(s.pct).replace(".", ",")} %</span><b>− ${fmt(s.descuento)}</b></div>` : "";
-  $("#pMan").innerHTML = s.manual && MODO !== "paciente" && !S.pv ? `<p class="p-man"><b>Precio manual</b> · el calculado era ${fmt(s.manual.antes)}${s.manual.nota ? `<br>Motivo: ${esc(s.manual.nota)}` : ""}</p>` : "";
-  const cal = $("#pCal");
-  if (CUOTAS && s.precio){
-    const { base, cuotas } = repartir(s.precio, ini, CUOTAS), d = new Date();
-    const cell = (mh, day, l, val, cls) => `<div class="m ${cls}"><div class="mh">${mh}</div><div class="d">${day}</div><div class="l">${l}</div><div class="v">${val}</div></div>`;
-    let html = ini ? cell("Hoy", d.getDate(), "Valor inicial", fmt(ini), "today") : "";
-    cuotas.forEach((val, i) => {
-      const m = new Date(d.getFullYear(), d.getMonth() + i + 1, Math.min(d.getDate(), 28));
-      html += cell(MESES_C[m.getMonth()], m.getDate(), `Cuota ${i + 1}`, Math.round(val) ? fmt(val) : "Cubierta", Math.round(val) ? "" : "zero");
-    });
-    cal.innerHTML = `<p class="eyebrow" style="margin-top:22px">${CUOTAS === 1 ? "Un pago" : CUOTAS + " cuotas"} de ${fmt(base)}</p><div class="cal">${html}</div>${ini ? `<p class="cal-note">Lo de hoy se descuenta de la primera cuota.</p>` : ""}`;
-  } else cal.innerHTML = "";
-}
-let printTimer;
-function printPaper(){
-  renderPaper();
-  const pz = $("#pz");
-  if (REDUCE || root.classList.contains("instant") || S.all){ pz.classList.remove("printing", "printing-on"); $("#pt").textContent = "Plan impreso"; return; }
-  pz.classList.remove("printing"); void pz.offsetWidth;
-  pz.classList.add("printing", "printing-on"); $("#pt").textContent = "Imprimiendo…";
-  clearTimeout(printTimer);
-  printTimer = setTimeout(() => { pz.classList.remove("printing-on"); $("#pt").textContent = "Plan impreso"; }, 2100);
-}
-
 /* ---- pasos ---- */
-const reach = n => MODO === "paciente" ? n === 5 : n === 1 ? true : n === 2 ? hasFamily() : S.elegido;
-function renderCrumbs(){
-  $("#crumbs").innerHTML = STEP_NAMES.map((nm, i) => {
-    const n = i + 1;
-    if (n === 2 && S.elegido && !P().familia) return "";
-    const done = reach(n) && (n < S.step || S.all) && n !== S.step, now = n === S.step && !S.all;
-    return (i ? `<span class="crumb-sep" aria-hidden="true"></span>` : "") +
-      `<button type="button" class="crumb ${now ? "now" : ""} ${done ? "done" : ""}" data-go="${n}" ${reach(n) ? "" : "disabled"} ${now ? 'aria-current="step"' : ""}><span class="n">${done ? CK : n}</span><span class="l">${nm}</span></button>`;
-  }).join("");
-  const vis = [1, hasFamily() || !S.elegido ? 2 : null, 3, 4, 5].filter(Boolean), pos = vis.indexOf(S.step) + 1;
-  $("#bar").style.width = (S.all ? 100 : (pos / vis.length) * 100) + "%";
+const PASOS = [{ t: "Programa", sig: "Siguiente: armar el plan" }, { t: "Plan", sig: "Siguiente: enviar" }, { t: "Enviar", sig: "" }];
+function irA(n){
+  if (MODO === "paciente") n = 2;
+  if (n > 1 && !S.elegido){ aviso("Primero elige un programa", true); n = 1; }
+  S.step = n;
+  $("#pasos").innerHTML = PASOS.map((p, i) => { const k = i + 1, c = k === n ? "ahora" : k < n ? "hecho" : "";
+    return `<button type="button" class="pb ${c}" data-go="${k}" ${k === n ? 'aria-current="step"' : ""}><span class="n">${k < n ? CK : k}</span>${p.t}</button>`; }).join("");
+  $$(".pant").forEach(p => p.classList.toggle("ver", Number(p.dataset.paso) === n));
+  const pac = MODO === "paciente";
+  $("#backBtn").hidden = n === 1 || pac;
+  $("#nextBtn").hidden = n === 3 || pac;
+  $("#nextTx").textContent = PASOS[n - 1].sig;
+  $("#vi").hidden = n !== 2;
+  $("#cual").hidden = n === 2 || pac; $("#cual").textContent = `Paso ${n} de 3`;
+  $("#pacDesc").hidden = !pac;
+  window.scrollTo({ top: 0 });
+  calcular(); ajustarAlto();
+  if (n === 1 && MODO === "doctor" && !$("#nombre").value) setTimeout(() => $("#nombre").focus({ preventScroll: true }), 250);
 }
-function applyStep(){
-  $$(".step").forEach(s => { s.classList.toggle("on", +s.dataset.n === S.step); s.classList.toggle("na", s.id === "s2" && !hasFamily()); });
-  const p = S.elegido ? nombreProg(PROG) : "";
-  $("#s3eb").textContent = S.elegido ? (P().familia ? `${p} · ${VNAME[PROG] || P().corto || P().nombre}` : (P().duracion ? `${p} · ${P().duracion}` : p)) : "";
-  $("#backBtn").disabled = S.step === 1;
-  $("#dock").hidden = (S.step === 5 && !S.all) || (S.step === 1 && !S.elegido && !S.all);
-  $("#nextTx").textContent = S.step === 4 ? "Imprimir plan" : "Seguir";
-  $("#nextBtn").disabled = S.step === 1 && !S.elegido;
-  renderCrumbs();
-}
-const nextOf = n => n === 1 ? (hasFamily() ? 2 : 3) : Math.min(5, n + 1);
-const prevOf = n => n === 3 ? (hasFamily() ? 2 : 1) : Math.max(1, n - 1);
-function go(n, dir){
-  if (!reach(n) || n === S.step) return;
-  if (S.all){ S.step = n; applyStep(); const el = $("#s" + n); el && el.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" }); return; }
-  root.dataset.dir = dir || (n > S.step ? "fwd" : "back"); root.classList.add("nav");
-  const swap = () => {
-    S.step = n; applyStep();
-    if (n === 4) setTimeout(() => $("#nombre").focus({ preventScroll: true }), 350);
-    if (n === 5) printPaper();
-    window.scrollTo({ top: 0 });
-  };
-  if (document.startViewTransition && !REDUCE && !root.classList.contains("instant")){
-    root.classList.add("vt");
-    let done = false; const run = () => { if (done) return; done = true; swap(); };
-    const t = document.startViewTransition(run);
-    [t.ready, t.finished, t.updateCallbackDone].forEach(p => p && p.catch(() => {}));
-    t.finished.then(() => root.classList.remove("vt"), () => root.classList.remove("vt"));
-    setTimeout(() => { if (!done){ try { t.skipTransition(); } catch (_) {} root.classList.remove("vt"); run(); } }, 320);
-  } else swap();
-}
-const next = () => { if (S.step === 1 && !S.elegido) return aviso("Elige un programa"); if (S.step < 5) go(nextOf(S.step), "fwd"); };
-const prev = () => { if (S.step > 1) go(prevOf(S.step), "back"); };
+const next = () => irA(Math.min(3, S.step + 1));
+const prev = () => irA(Math.max(1, S.step - 1));
 /* cuando falta un dato, lleva al paso de la paciente */
-function irDatos(){ if (S.pv && MODO !== "paciente") setPv(false); if (S.step !== 4) go(4, "back"); setTimeout(() => $("#nombre").focus(), 420); }
-function setAll(on){
-  S.all = on; root.classList.toggle("all", on);
-  $("#allBtn").setAttribute("aria-pressed", on);
-  $("#allTx").textContent = on ? "Paso a paso" : "Todo junto";
-  applyStep(); renderPaper();
-}
-function setPv(on){
-  if (on && !S.elegido) return aviso("Primero elige un programa");
-  S.pv = on; root.classList.toggle("pv", on); window.scrollTo({ top: 0 });
-  if (on) printPaper(); else { applyStep(); renderTotals(); }
-}
+function irDatos(){ if (MODO === "paciente") return; if (S.step !== 1) irA(1); setTimeout(() => $("#nombre").focus(), 300); }
 function elegirProg(id){
   const fam = PROGRAMAS[id].familia;
   const mismo = S.elegido && (id === PROG || (fam && fam === P().familia));
   if (!mismo && !cambiarPrograma(id)) return;
-  applyStep();
-  const b = $(`.prog[data-prog="${id}"]`); b && b.focus({ preventScroll: true });
-  if (!S.all) setTimeout(() => go(nextOf(1), "fwd"), 380);
+  S.elegido = true; renderProgs(); renderVars();
 }
 function elegirVar(k){
   if (k !== PROG && !cambiarPrograma(k)) return;
-  applyStep();
-  if (!S.all) setTimeout(() => go(3, "fwd"), 380);
+  renderVars();
 }
 
 /* ---- eventos ---- */
 document.addEventListener("click", e => {
   const pr = e.target.closest(".prog"); if (pr) return elegirProg(pr.dataset.prog);
-  const va = e.target.closest(".var"); if (va) return elegirVar(va.dataset.v);
-  const cr = e.target.closest(".crumb"); if (cr && !cr.disabled) return go(+cr.dataset.go);
+  const va = e.target.closest(".var[data-v]"); if (va) return elegirVar(va.dataset.v);
+  const pb = e.target.closest(".pb[data-go]"); if (pb) return irA(+pb.dataset.go);
   if (e.target.closest("#incChip")){ S.incOpen = !S.incOpen; renderInc(); return; }
-  const dp = e.target.closest("[data-p]");
+  const dp = e.target.closest("button[data-p]");
   if (dp){ $("#descuento").value = dp.dataset.p === "0" ? "" : dp.dataset.p; calcular(); return; }
-  const cu = e.target.closest("[data-cuo]");
+  const cu = e.target.closest("button[data-cuo]");
   if (cu){ CUOTAS = +cu.dataset.cuo; if (!CUOTAS) INICIAL = null; calcular(); return; }
 });
 $("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
 $("#nextBtn").onclick = next; $("#backBtn").onclick = prev;
-$("#allBtn").onclick = () => setAll(!S.all);
-$("#pvBtn").onclick = () => setPv(true); $("#pvExit").onclick = () => setPv(false);
+$("#vi").onclick = () => $("#inversion").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" });
+$("#pacDesc").onclick = () => $("#descargar").click();
 $("#restaurar").onclick = () => { if (confirm("¿Volver al plan original de " + P().nombre + "?")) cargarPlantilla(); };
 $("#nota-med").addEventListener("input", e => { const t = e.target; t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; });
-/* atajos (no se muestran): 1–5 elegir, Enter seguir, ← → pasos, Esc salir de la vista paciente */
+/* Enter en los datos de la paciente pasa al siguiente campo */
 document.addEventListener("keydown", e => {
-  if (e.metaKey || e.ctrlKey || e.altKey) return;
-  if (document.querySelector(".modal.ver") || !$("#candado").classList.contains("oculto")) return;
-  if (S.pv){ if (e.key === "Escape" && MODO !== "paciente") setPv(false); return; }
-  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
-  if (e.key === "Enter"){
-    if (e.target.id === "nombre"){ e.preventDefault(); $("#contacto").focus(); return; }
-    if (S.all || e.target.tagName === "TEXTAREA" || e.target.tagName === "BUTTON") return;
-    if (typing && S.step !== 4) return;
-    e.preventDefault(); next(); return;
-  }
-  if (typing || S.all) return;
-  if (e.key === "ArrowRight"){ e.preventDefault(); next(); }
-  else if (e.key === "ArrowLeft"){ e.preventDefault(); prev(); }
-  else if (/^[1-9]$/.test(e.key)){
-    const n = +e.key - 1;
-    if (S.step === 1){ const ids = Object.keys(PROGRAMAS).filter(k => !PROGRAMAS[k].oculto); if (ids[n]) elegirProg(ids[n]); }
-    else if (S.step === 2 && hasFamily()){ const ids = Object.keys(PROGRAMAS).filter(k => PROGRAMAS[k].familia === P().familia); if (ids[n]) elegirVar(ids[n]); }
-  }
+  if (e.key !== "Enter" || document.querySelector(".modal.ver")) return;
+  if (e.target.id === "nombre"){ e.preventDefault(); $("#contacto").focus(); }
+  else if (e.target.id === "contacto"){ e.preventDefault(); $("#num-id").focus(); }
+  else if (e.target.id === "num-id"){ e.preventDefault(); next(); }
 });
 
 document.addEventListener("input", calcular);
@@ -1975,36 +1766,29 @@ $("#enviar").onclick = () => {
 
 /* ---- modos: doctor (normal) · comercial (#c=) · paciente (#p=) ---- */
 function ponerModo(){
-  root.classList.add("instant");
   const h = location.hash, c = h.startsWith("#c="), pa = h.startsWith("#p=");
   MODO = c ? "comercial" : pa ? "paciente" : "doctor";
   document.body.classList.toggle("comercial", c); document.body.classList.toggle("paciente", pa); document.body.classList.toggle("doctor", !c && !pa);
   const d = (c || pa) ? desempacar(h.slice(3)) : null;
-  if (d){ cargar(d); S.elegido = true; S.step = 5; }
+  if (d){ cargar(d); S.elegido = true; S.step = 2; }
   else { if (MODO !== "doctor"){ MODO = "doctor"; document.body.classList.remove("comercial", "paciente"); document.body.classList.add("doctor"); } ponerPrograma("lipedema"); S.elegido = false; S.step = 1; }
-  const lock = ico("candado");
   if (MODO === "comercial"){
     const fr = $("#franja");
     fr.innerHTML = `Cotización armada por <b>${esc($("#esp").value)}</b> para <b>${esc($("#nombre").value.trim())}</b>. Ajústala con la paciente y envíasela.`;
     fr.classList.remove("oculto");
-    $("#enviar-txt").textContent = "Enviar a la paciente por WhatsApp";
-    $("#h3").textContent = "Negocia el plan";
-    $("#s3hint").innerHTML = `${lock}Con candado: el doctor recomienda no quitarlo`;
+    $("#enviar-txt").textContent = "WhatsApp a la paciente";
+    $("#enviar-sub").textContent = "Le llega el link con su plan y su cotización";
   } else if (MODO === "paciente"){
     abrir();
-    S.pv = true; root.classList.add("pv");
-    $("#pvTag").textContent = "Tu plan";
     $(".txt-desc").textContent = "Descargar mi cotización";
     $$(".it-q, .it-nota").forEach(i => { i.readOnly = true; i.tabIndex = -1; });
     document.title = "Tu plan · Seravena";
   } else {
     $("#enviar-txt").textContent = "WhatsApp a " + COMERCIAL.nombre;
-    $("#s3hint").innerHTML = `${lock}El candado marca lo que no se debe quitar`;
+    $("#enviar-sub").textContent = "Le llega el link por WhatsApp";
   }
-  renderProgs(); renderVars(); applyStep();
-  if (S.step === 5) renderPaper();
-  lastTotal = null; calcular();
-  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("instant")));
+  renderProgs(); renderVars();
+  lastTotal = null; irA(S.step);
 }
 window.addEventListener("hashchange", () => location.reload());
 
@@ -2015,7 +1799,7 @@ $("#nueva").onclick = () => {
   $("#tipo-id").selectedIndex = 0;
   $$(".campo.error").forEach(c => c.classList.remove("error"));
   CUOTAS = 0; INICIAL = null; S.elegido = false;
-  ponerPrograma("lipedema"); go(1, "back");
+  ponerPrograma("lipedema"); irA(1);
 };
 
 ponerModo();
