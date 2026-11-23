@@ -131,6 +131,7 @@ body.paciente .pasos{display:none}
 .c-serv .tx{min-width:0}
 .c-serv b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .c-serv small{display:block;font-size:11.5px;color:var(--muted);white-space:nowrap}
+.c-serv small.sub-nota{white-space:normal;line-height:1.25}
 .sub-esp .c-serv{padding-left:18px}
 .sub-esp .c-serv b{font-weight:500}
 .fila.apagado .c-serv,.fila.apagado .c-pista{opacity:.42}
@@ -659,8 +660,8 @@ const CATALOGO = [
   { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000, e: "💉", t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
   { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000, e: "👩‍⚕️", t: "Enfermería", d: "Acompañamiento cuando lo necesites" },
   { id: "medias",        n: "Medias de compresión", u: 370000, e: "🧦", t: "Medias de compresión", d: "Para el día a día" },
-  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: COSTO_APARATOLOGIA, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia" },
-  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia" },
+  { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: COSTO_APARATOLOGIA, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia · algunas sesiones se hacen con fisioterapia, según la necesidad médica de cada paciente", sub: "Algunas con fisioterapia, según necesidad médica" },
+  { id: "drenaje",       n: "Drenaje linfático con fisioterapia", u: 70000, e: "💆‍♀️", t: "Drenaje linfático", d: "Con fisioterapia", interno: true }, /* 23-nov Laura: la fisio va DENTRO de aparatología (no sale aparte); su costo sigue contando → mismo precio */
   /* VENAS — precios de venta que dio Laura (15-oct); aquí "u" es el precio, no el costo */
   { id: "escleroterapia", n: "Sesiones de escleroterapia", u: 300000, t: "Sesiones de escleroterapia", d: "Dale + para sumar sesiones", precioLibre: true },
   { id: "espuma_trib",    n: "Espuma de tributarias (por pierna)", u: 1500000, t: "Espuma de tributarias", d: "Inyección del medicamento · por pierna", max: 2, unidad: "pierna", precioLibre: true },
@@ -1185,7 +1186,7 @@ function agregarItem(it){
     ? `<div class="rail"><span class="lin"></span><span class="pts"></span></div>`
     : `<div class="det">${isEst() ? `<b class="pr">${fmt(it.u)}</b>` : ""}<span class="dtx">${esc(det)}</span>${it.precioLibre ? `<label class="tv"><span>Valor por ${esc(it.unidad || "sesión")}</span><span class="tv-in"><i>$</i><input type="text" class="it-precio" inputmode="numeric" data-dinero value="${Number(it.u || 0).toLocaleString("es-CO")}" aria-label="Valor por ${esc(it.unidad || "sesión")} de ${esc(it.t)}"></span></label>` : ""}</div>`;
   d.innerHTML = check + `
-    <div class="c-serv"><span class="ic" aria-hidden="true">${svg(SI[it.id] || PI.estetica)}</span><span class="tx"><b>${esc(SHORT[it.id] || it.t)}</b></span>
+    <div class="c-serv"><span class="ic" aria-hidden="true">${svg(SI[it.id] || PI.estetica)}</span><span class="tx"><b>${esc(SHORT[it.id] || it.t)}</b>${c.sub ? `<small class="sub-nota">${esc(c.sub)}</small>` : ""}</span>
       <button type="button" class="candado" aria-label="El doctor recomienda no quitar" title="El doctor recomienda que esto no se quite">${ico("candado")}</button></div>
     <div class="c-cant">${cant}<button type="button" class="agregar">+ Agregar</button></div>
     <div class="c-pista">${tercera}</div>`;
@@ -1353,7 +1354,7 @@ function leer(){
 }
 
 const ESPECIALISTAS = ["psicologia", "nutriologa", "nutricionista", "deportologia", "interna"];
-const SESIONES = ["aparatologia", "drenaje"];
+const SESIONES = ["aparatologia"];
 function cantDe(s, ids){ return s.items.filter(x => { const c = CATALOGO.find(k => k.n === x.n); return c && ids.includes(c.id); }).reduce((t, x) => t + mult(x.q), 0); }
 
 /* simulador de cuotas: anticipo 50% + el resto en cuotas mensuales */
@@ -1615,7 +1616,7 @@ function armarPDF(s, numero, hoy, vence){
   const cant = q => /^\d/.test(q) ? "× " + q : q;
   const stats = [
     [cantDe(s, ["general"]), "semanas de seguimiento"], [cantDe(s, ESPECIALISTAS), "citas con especialistas"],
-    [cantDe(s, ["aparatologia"]), "sesiones de aparatología"], [cantDe(s, ["drenaje"]), "drenajes linfáticos"],
+    [cantDe(s, ["aparatologia"]), "sesiones de aparatología"],
   ].filter(x => x[0]);
   const ini = anticipoDe(s.precio), plan = CUOTAS ? repartir(s.precio, ini, CUOTAS) : null;
   const calendario = !plan ? "" : CUOTAS <= 6
