@@ -3,6 +3,57 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: varices-cirugia-o-sin-cirugia (23-nov-2026, lunes = día de artículo nuevo, pero sin tema):**
+Hoy era lunes (toca artículo nuevo), pero la cola de `temas.md` ("Cola con búsquedas reales de Colombia")
+tiene 0 `[pendiente]` (sus 4 filas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin
+página dueña") también está vacía desde el 16-nov. Según la regla de `INSTRUCCIONES.md` §0/§4, sin tema
+pendiente el día se convierte en día de mejora (§4b). Recorrí el "Banco de mejoras" de `mapa-palabras.md`
+(sección 5) de arriba abajo: `medico-vascular-o-cirujano-colombia`, `medias-compresion-colombia-comprar`,
+`eco-doppler-paso-a-paso`, `ejercicios-circulacion-casa`, `picor-piernas-circulacion`,
+`trombosis-venosa-senales` y `cuidados-despues-escleroterapia` ya están "hecho"; `eco-doppler-venoso-que-es`
+sigue bloqueado hasta el 28-nov; `calambres-piernas-noche` (dateModified 2026-11-08, 15 días),
+`varices-eps-o-particular` y `medias-compresion-embarazo` (ambos 2026-11-09, 14 días) no llegan a los 21 días
+exigidos; `flebitis-superficial-sintomas` y `ulceras-venosas-piernas` siguen reservados para después de
+humanizarlos. Elegí `varices-cirugia-o-sin-cirugia` (dateModified 2026-11-01 = 22 días, "se puede desde
+22-nov", sin fecha de "no tocar" vigente en `registro-seo-semanal.md`, no está entre los `[pendiente]` de
+`humanizados.md` —que hoy solo tiene `compresion-para-lipedema.html`— y no es una redirección de "Artículos
+fusionados"). `drenaje-linfatico-medellin` (se puede desde hoy, 23-nov) quedó después en la lista para un
+próximo turno.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: "Várices" del National Heart, Lung, and Blood Institute (NIH), 2024, y "Venas varicosas"
+del Merck Manual (edición para profesionales), 2024; (2) enlace nuevo desde el primer párrafo del cuerpo a
+`../varices-medellin` (texto: "tratamiento de várices en Medellín"); (3) en la sección "Cuándo la cirugía
+convencional sigue siendo necesaria", una frase nueva que usa con naturalidad la búsqueda de Colombia
+"cirugía de vena várice" (1 apar. en `mapa-palabras.md`) y enlaza a `varicectomia-que-es` (que ya existía
+también en "Sigue leyendo"); (4) `dateModified` → 2026-11-23 y `lastmod` del sitemap actualizado
+(`datePublished` 2026-10-11 sin tocar). El artículo no está en `revisados-medico.md`: `reviewedBy` sigue
+siendo la organización. Comprobé a mano que `../varices-medellin` y `varicectomia-que-es` apuntan a archivos
+que existen en el repositorio (`revisar-enlaces.py` todavía no existe).
+**Búsquedas web hechas (3, con WebSearch):** 1) "Society for Vascular Surgery clinical practice guidelines
+varicose veins treatment ablation vs surgery 2023"; 2) "NICE guidance varicose veins endothermal ablation
+first line surgery"; 3) "cirugía de várices recurrencia venas nuevas después de tratamiento evidencia". Para
+las 2 fuentes finales confirmé el contenido exacto con WebFetch antes de redactar (NICE devolvió 403 al
+intentar abrirlo directamente, por eso se usaron NHLBI y Merck Manual, ambas sí accesibles), y el Verificador
+médico las volvió a abrir de forma independiente (ver abajo).
+**Veredictos de cada subagente (Task):**
+- **Policía humanizador (1c):** HUMANO (10/10). Revisó las 3 piezas nuevas (enlace del primer párrafo, frase
+  de "cirugía de vena várice", sección Fuentes) contra `notas-humanizador.md` (el vicio de coma+conector
+  pegando la frase nueva a la anterior, repetido en varios días de mejora de esta semana) y no lo encontró:
+  la frase nueva ya es oración propia, separada por punto. 0 rayas largas, 0 "te contamos"/"es importante" en
+  todo el archivo. No se necesitó ninguna corrección ni multa nueva.
+- **Verificador médico (2):** **APROBADO**, sin correcciones. Abrió las 2 fuentes con WebFetch: NHLBI
+  "abierta y confirma" la ablación térmica (láser/radiofrecuencia), la escleroterapia y la cirugía de
+  ligadura y extirpación como opciones establecidas, y que "pueden formarse várices nuevas incluso después
+  del tratamiento" (respalda el blockquote ya existente sobre recurrencia); Merck Manual "abierta y confirma"
+  lo mismo y añade textualmente que, independientemente del tratamiento, las várices a menudo recurren y la
+  terapia debe repetirse. Confirmó que la frase sobre "cirugía de vena várice"/varicectomía no afirma nada
+  médico incorrecto (coherente con `varicectomia-que-es.html`, leído completo), que post-note, post-faq y su
+  JSON-LD FAQPage quedaron idénticos, que `reviewedBy` sigue en la organización (no está en
+  `revisados-medico.md`) y que las URLs de las 2 fuentes son idénticas entre el bloque "Fuentes" visible y el
+  `citation` del JSON-LD.
+**Publicado:** sí (ver commit de hoy, push a main). **200 verificado:** pendiente de confirmar tras el
+despliegue de GitHub Pages (ver aviso).
+
 **mejora: medias-compresion-colombia-comprar (22-nov-2026, domingo = día de mejora):**
 Hoy tocaba día de mejora por el ritmo semanal (domingo). La cola de `temas.md` ("Cola con búsquedas reales
 de Colombia") tiene 0 `[pendiente]` y la sección 4 de `mapa-palabras.md` ("Búsquedas sin página dueña")
