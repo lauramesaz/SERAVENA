@@ -491,3 +491,29 @@ Las páginas que venden (precio-lipedema, obesidad, precios, clínica) se tocaro
 | blog/piel-de-naranja-lipedema (título) | Piel de naranja en el lipedema: qué significa | Piel de naranja en las piernas: ¿es lipedema? |
 
 Búsquedas nuevas de Colombia sin dueña: ninguna (sin seguimiento no hay dato nuevo).
+
+---
+
+## Semana del 23-nov-2026
+
+### Cifras (25-oct al 21-nov, 28 días)
+
+- 72 clics · 5.815 impresiones · posición media 18,0 (semana pasada: 56 clics, 4.198 impresiones, 22,8).
+- Colombia: 46 clics, 1.064 impresiones (pos. 18,0). España: 14 clics, 2.254 impresiones (pos. 24,2). Argentina 313, México 447, EE. UU. 352.
+- Clics de la marca: "seravena clinica" 12 y "seravena" 10 (22 de 72). Sin marca: 50.
+- Top 10 páginas: portada 32 clics; flebitis-en-el-brazo 7 (618 apar.); sobre 3; contacto 3; dr-jose-david-puerta-rojas 3; medias-compresion-embarazo 2 (272); cuidados-despues-escleroterapia 2 (262); piernas-hinchadas-menstruacion 2; lipedema-y-sueno 2; piel-de-naranja-lipedema 2.
+- Top 10 búsquedas: seravena clinica 12, seravena 10, flebitis en el brazo por suero 2 (47 apar.), cómo saber si tengo lipedema 1 (33 apar., pos. 60,7), flebitis en el brazo 1, hematomas despues de escleroterapia 1; sin clics: flebitis (50 apar.), medias de compresión (48), flebitis brazo (45), medias de compresion (43).
+- `seguimiento-busquedas.py` todavía no existe: no hay tabla de las 15 búsquedas objetivo.
+- Indexación: 125 en el sitemap, 118 en Google, 7 no (las mismas de siempre: vendaje-multicapa-lipedema, medias-compresion-posparto y lipedema-en-adolescentes "descubiertas, sin indexar"; tipos-de-lipedema-zonas, lipedema-cirugia-bariatrica, medias-compresion-para-volar y lipedema-y-trabajo "no reconocidas").
+
+### Cambios de hoy (no tocar antes del 14-dic-2026)
+
+Las páginas que venden (precio-lipedema-medellin 4-nov, precios 3-nov, clinica-lipedema-medellin, lipedema, varices-medellin, vascular) se tocaron hace menos de 3 semanas: no se tocaron. Tampoco los títulos del 3-nov (hasta el 24-nov).
+
+| Página | Antes | Después |
+|---|---|---|
+| blog/ejercicio-para-varices | 5 preguntas | + "¿Puedo usar medias de compresión para hacer ejercicio si tengo várices?" (también en el FAQPage) |
+| blog/lipedema-cadera-gluteos | 4 preguntas | + "¿Por qué el lipedema en cadera y glúteos aparece en cambios hormonales?" (también en el FAQPage) |
+| blog/lipedema-resistencia-insulina | 4 preguntas | + "¿Cómo sé si tengo resistencia a la insulina?" (también en el FAQPage) |
+
+Búsquedas nuevas de Colombia sin dueña: ninguna (sin seguimiento no hay dato nuevo).
