@@ -531,6 +531,32 @@ body.paciente #pvExit{display:none}
 .tile .nm{white-space:normal;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
 .hint{justify-content:center;text-align:center;font-size:14.5px}
 
+/* ---------- criolipólisis: croquis del cuerpo para elegir zonas ---------- */
+#modal-crio{position:fixed;inset:0;z-index:92;background:rgba(31,27,20,.45);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+#modal-crio.ver{opacity:1;pointer-events:auto}
+#modal-crio .caja-modal{max-width:560px}
+#modal-crio.ver .caja-modal{transform:none}
+.croquis{display:flex;justify-content:center;gap:34px;margin-top:2px}
+.croquis figure{display:flex;flex-direction:column;align-items:center;gap:8px}
+.croquis figcaption{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--tenue);font-weight:600}
+.croquis svg{width:132px;height:auto;overflow:visible}
+.croquis .zona{cursor:pointer;transition:fill .25s,fill-opacity .25s}
+.croquis .zona:not(.sel):hover{fill:#9D8051;fill-opacity:.35}
+.zchips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:18px}
+.zchip{padding:7px 13px;border-radius:999px;border:1px solid var(--linea);background:#fff;font-size:13px;color:var(--choco);transition:background .2s,color .2s,border-color .2s}
+.zchip[aria-pressed=true]{background:var(--choco);border-color:var(--choco);color:#fff}
+.crio-ses{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.crio-ses .zs{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--marfil);border-radius:999px;padding:5px 5px 5px 18px;font-size:14px;font-weight:600;color:var(--choco)}
+.crio-ses .paso{display:flex;align-items:center;gap:6px}
+.crio-ses button{width:34px;height:34px;border-radius:50%;background:#fff;font-size:18px;line-height:1;color:var(--choco);box-shadow:0 1px 3px rgba(75,65,45,.15)}
+.crio-ses button:hover{background:var(--choco);color:#fff}
+.crio-ses b{min-width:20px;text-align:center;font-size:17px;font-variant-numeric:tabular-nums}
+#modal-crio .m-label{text-align:center}
+.tile .tq button.zb{width:auto;height:36px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:600;line-height:1}
+.p-crio{display:flex;gap:6px;margin-top:8px}
+.p-crio svg{width:60px;height:auto}
+@media (max-width:520px){ .croquis{gap:18px} .croquis svg{width:112px} }
+
 /* ---------- PDF: 1 hoja carta exacta (816 × 1056 px) ---------- */
 #pdf-caja{position:absolute;left:-10000px;top:0}
 #pdf{width:816px;background:#fff;color:#1A1A1A;font:12px/1.45 "Plus Jakarta Sans",sans-serif}
@@ -563,6 +589,12 @@ body.paciente #pvExit{display:none}
 #pdf .fila small{display:block;font-size:9.5px;color:#6e6450;line-height:1.3}
 #pdf .fila .nota{margin-top:2px;background:#F5EFE5;border-radius:5px;padding:2px 7px;color:#806733;font-size:9.5px}
 #pdf .fila .q{font-size:12px;font-weight:700;color:#4B412D;white-space:nowrap}
+#pdf .crio-pdf{display:flex;align-items:center;gap:14px;margin-top:6px;background:#FBF8F3;border:1px solid #EDE2D0;border-radius:10px;padding:8px 12px}
+#pdf .crio-pdf .figs{display:flex;gap:8px;flex:none}
+#pdf .crio-pdf .figs div{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:#806733;font-weight:700}
+#pdf .crio-dat{display:grid;gap:5px;font-size:10.5px}
+#pdf .crio-dat span{display:block;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#6e6450}
+#pdf .crio-dat b{display:block;font-size:11px;font-weight:600;line-height:1.3}
 #pdf .total{background:#9D8051;color:#fff;border-radius:14px;padding:14px 18px}
 #pdf .total span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
 #pdf .total b{display:block;font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-top:2px}
@@ -731,6 +763,19 @@ body.paciente #pvExit{display:none}
     <div class="m-botones"><button type="button" class="no" id="mi-cancelar">Cancelar</button><button type="button" class="si" id="mi-guardar">Registrar ingreso</button></div>
   </div>
 </div>
+<div id="modal-crio" class="modal">
+  <div class="caja-modal">
+    <button type="button" class="cerrar" id="cerrar-crio" aria-label="Cerrar">×</button>
+    <h3>Criolipólisis · zonas</h3>
+    <p class="ayuda" id="crio-ayuda"></p>
+    <div class="croquis" id="crio-fig"></div>
+    <div class="zchips" id="crio-chips"></div>
+    <p class="m-label" id="crio-ses-t">Sesiones de cada zona</p>
+    <div class="crio-ses" id="crio-ses"></div>
+    <div class="m-resta"><span id="crio-res"></span><b id="crio-val"></b></div>
+    <div class="m-botones"><button type="button" class="no" id="crio-quitar">Quitar criolipólisis</button><button type="button" class="si" id="crio-usar">Usar estas zonas</button></div>
+  </div>
+</div>
 <div id="modal-manual" class="modal">
   <div class="caja-modal">
     <button type="button" class="cerrar" id="cerrar-manual" aria-label="Cerrar">×</button>
@@ -822,6 +867,9 @@ const CATALOGO = [
   { id: "me_radiesse",  n: "Radiesse (1 jeringa)", u: 1900000, t: "Radiesse", d: "$1.900.000 · Bioestimulador con hidroxiapatita de calcio, 1 jeringa · firmeza y contorno" },
   { id: "me_nanopore",  n: "Protocolo Nanopore", u: 750000, t: "Protocolo Nanopore", d: "$750.000 · Microagujas con activos que renuevan la textura y el brillo de tu piel" },
   { id: "me_adn",       n: "ADN de salmón (PDRN)", u: 800000, t: "ADN de salmón", d: "$800.000 · Regenera la piel desde adentro: más luminosa, hidratada y uniforme" },
+  /* CRIOLIPÓLISIS (23-nov-2026, Laura): se vende $540.000 la sesión por zona; costo interno $200.000 por sesión (ci, nunca sale en pantalla ni en el PDF).
+     Las zonas se marcan en el croquis del cuerpo; cantidad = zonas × sesiones por zona. */
+  { id: "me_crio",      n: "Criolipólisis (sesión por zona)", u: 540000, ci: 200000, t: "Criolipólisis", d: "$540.000 · Sesión por zona · elimina la grasa localizada con frío, sin cirugía" },
   /* lo que trae cada tratamiento de estética (sin costo para la paciente) */
   { id: "me_diseno",    n: "Diseño personalizado de tu tratamiento", u: 0, t: "Diseño personalizado de tu tratamiento", d: "La doctora analiza tu rostro y define contigo las zonas y la dosis justa", incluido: true },
   { id: "me_fotos",     n: "Registro fotográfico de tu antes y después", u: 0, t: "Registro fotográfico antes y después", d: "Para que veas con tus propios ojos cómo cambia tu piel", incluido: true },
@@ -888,7 +936,7 @@ const PROGRAMAS = {
 };
 /* MEDICINA ESTÉTICA: una sola tarjeta; la doctora marca uno o varios tratamientos y el total es la suma de sus precios */
 PROGRAMAS.estetica = {
-  foto: "assets/media/care-hands.webp", frase: "Toxina, rellenos y bioestimuladores", solo: ["me", "mi"], sinCostos: true, esp: ESTETICA,
+  foto: "assets/media/care-hands.webp", frase: "Toxina, rellenos y bioestimuladores", solo: ["me", "mi", "cr"], sinCostos: true, esp: ESTETICA,
   nombre: "Medicina estética", titulo: "Medicina estética", precio: 0, duracion: "", pagos: null,
   plan: { me_diseno: "Incluido", me_fotos: "Incluido", me_revision: "Incluida", me_whatsapp: "Incluido", me_cuidados: "Incluida" },
 };
@@ -925,6 +973,7 @@ const ICO = {
   me_radiesse: '<path d="M14.5 2v17.5a2.5 2.5 0 0 1-5 0V2"/><path d="M8.5 2h7M14.5 9h-5M14.5 15h-5"/>',
   me_nanopore: '<circle cx="6" cy="6" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="18" cy="6" r="1"/><circle cx="6" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="6" cy="18" r="1"/><circle cx="12" cy="18" r="1"/><circle cx="18" cy="18" r="1"/>',
   me_adn: '<path d="M7 2c0 6 10 8 10 14v6M17 2c0 6-10 8-10 14v6M8 6h8M7.5 18h9M9 10h6"/>',
+  me_crio: '<path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7"/><path d="m9.5 3.5 2.5 2 2.5-2M9.5 20.5l2.5-2 2.5 2"/>',
   me_diseno: '<path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>',
   me_fotos: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z"/><circle cx="12" cy="13" r="3"/>',
   me_revision: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/>',
@@ -983,7 +1032,101 @@ const GRUPOS = [
   { id: "hf", t: "Tratamiento HAUSFORM", i: "brillo", ids: ["sculptra", "sveltia", "proc_gluteos", "venufill", "prp", "medico", "insumos", "indirectos", "aparatologia_hf"] },
   { id: "me", t: "Tratamientos de medicina estética", i: "brillo", ids: ["me_toxina", "me_labios", "me_mandibula", "me_lyft", "me_sculptra", "me_radiesse", "me_nanopore", "me_adn"] },
   { id: "mi", t: "Viene incluido en tu tratamiento", i: "corazon", ids: ["me_diseno", "me_fotos", "me_revision", "me_whatsapp", "me_cuidados"] },
+  { id: "cr", t: "Criolipólisis", i: "brillo", ids: ["me_crio"] },
 ];
+
+/* ---- CRIOLIPÓLISIS: croquis del cuerpo (frente y espalda) para marcar zonas ----
+   derecha/izquierda = de la paciente (de frente su derecha queda a nuestra izquierda; de espalda, igual que la nuestra) */
+const CRIO = "me_crio";
+const ZONAS = [
+  { id: "papada",       n: "Papada",               v: "f", e: [60, 36.5, 7, 3.6] },
+  { id: "brazo_d",      n: "Brazo derecho",        v: "f", e: [32.6, 88, 4.2, 12] },
+  { id: "brazo_i",      n: "Brazo izquierdo",      v: "f", e: [87.4, 88, 4.2, 12] },
+  { id: "abdomen",      n: "Abdomen",              v: "f", e: [60, 129, 12, 14] },
+  { id: "flanco_d",     n: "Flanco derecho",       v: "f", e: [43.6, 127, 3.6, 10] },
+  { id: "flanco_i",     n: "Flanco izquierdo",     v: "f", e: [76.4, 127, 3.6, 10] },
+  { id: "pierna_d",     n: "Pierna derecha",       v: "f", e: [46.5, 186, 8.5, 17] },
+  { id: "pierna_i",     n: "Pierna izquierda",     v: "f", e: [73.5, 186, 8.5, 17] },
+  { id: "rodilla_d",    n: "Rodilla derecha",      v: "f", e: [50, 221, 4.2, 6] },
+  { id: "rodilla_i",    n: "Rodilla izquierda",    v: "f", e: [70, 221, 4.2, 6] },
+  { id: "espalda",      n: "Espalda",              v: "a", e: [60, 99, 17, 7.5] },
+  { id: "cartuchera_i", n: "Cartuchera izquierda", v: "a", e: [38, 158, 4, 10] },
+  { id: "cartuchera_d", n: "Cartuchera derecha",   v: "a", e: [82, 158, 4, 10] },
+];
+/* media silueta (lado izquierdo del dibujo); la otra mitad es su espejo */
+const MEDIO_CUERPO = "M60.6 38H55C55 44 54 47 52 48C46 50 38 51 34 55C30 59 29 66 29 74C28 90 26 104 25 116C24 130 22 144 21 156C20 162 20 168 23 170C26 171 27 166 28 160C29 148 31 134 33 120C34 108 36 96 37 82C38 92 39 104 41 116C41 126 37 136 35 148C33 162 34 180 37 200C38 210 38 216 39 222C39 240 40 256 43 272C44 280 43 286 41 290C41 294 50 294 53 291C54 284 54 276 54 270C55 254 56 238 55 222C55 206 57 186 58 172L60.6 168Z";
+/* el croquis lleva colores fijos en atributos: así también sale bien en el PDF */
+function croquisSVG(vista, sel, ancho){
+  const zs = ZONAS.filter(z => z.v === vista);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 300" width="${ancho}" height="${Math.round(ancho * 2.5)}" role="img" aria-label="${vista === "f" ? "Cuerpo de frente" : "Cuerpo de espalda"}">
+    <ellipse cx="60" cy="22" rx="12" ry="15" fill="#EDE2D0"/>
+    <path d="${MEDIO_CUERPO}" fill="#EDE2D0"/><path d="${MEDIO_CUERPO}" fill="#EDE2D0" transform="matrix(-1 0 0 1 120 0)"/>
+    ${vista === "a" ? `<path d="M60 52V146" stroke="#D9CBB3" stroke-width="1" fill="none"/>` : `<circle cx="60" cy="135" r="1.2" fill="#CDBC9E"/>`}
+    ${zs.map(z => { const on = sel.has(z.id), [cx, cy, rx, ry] = z.e;
+      const fs = Math.min(7.5, ry * 1.6);
+      return `<ellipse class="zona${on ? " sel" : ""}" data-z="${z.id}" cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${on ? "#9D8051" : "#FFFFFF"}" fill-opacity="${on ? 0.92 : 0.6}" stroke="${on ? "#4B412D" : "#9D8051"}" stroke-width="${on ? 1 : 0.8}"${on ? "" : ` stroke-dasharray="2 1.6"`}><title>${z.n}</title></ellipse>` +
+        (on ? `<text x="${cx}" y="${cy + fs * 0.36}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="${fs}" font-weight="700" fill="#FFFFFF" pointer-events="none">${sel.get(z.id)}</text>` : ""); }).join("")}
+  </svg>`;
+}
+/* vistas que hacen falta: siempre el frente; la espalda solo si hay zonas de espalda */
+const vistasDe = ids => ["f"].concat(ZONAS.some(z => z.v === "a" && ids.includes(z.id)) ? ["a"] : []);
+const ordenZonas = ids => ZONAS.map(z => z.id).filter(id => ids.includes(id));
+const nombresZonas = ids => ZONAS.filter(z => ids.includes(z.id)).map(z => z.n);
+const listaY = a => a.length > 1 ? a.slice(0, -1).join(", ") + " y " + a[a.length - 1] : (a[0] || "");
+const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+/* lo que se cobra va antes que lo incluido (así la criolipólisis no queda de última) */
+const incAlFinal = (a, b) => !!(CATALOGO.find(k => k.id === a.id) || {}).incluido - !!(CATALOGO.find(k => k.id === b.id) || {}).incluido;
+const crioEl = () => document.querySelector(`.item[data-id="${CRIO}"]`);
+/* el renglón guarda "zona:sesiones,zona:sesiones" (ej. "abdomen:2,pierna_d:1"): cada zona con sus propias sesiones */
+const sesZonas = txt => new Map(String(txt || "").split(",").filter(Boolean).map(p => { const [id, n] = p.split(":"); return [id, Math.max(1, Number(n) || 1)]; }));
+const zonasDe = el => [...sesZonas(el && el.dataset.zonas).keys()];
+const detalleZonas = m => ZONAS.filter(z => m.has(z.id)).map(z => `${z.n} (${plural(m.get(z.id), "sesión", "sesiones")})`);
+const totalSes = m => [...m.values()].reduce((t, n) => t + n, 0);
+let crioSel = new Map();
+function pintarCrioModal(){
+  const el = crioEl(), u = el ? Number(el.dataset.u) || 0 : 0;
+  $("#crio-ayuda").textContent = `Toca en el cuerpo las zonas a tratar. Cada sesión por zona: ${fmt(u)}.`;
+  $("#crio-fig").innerHTML = ["f", "a"].map(v => `<figure>${croquisSVG(v, crioSel, 132)}<figcaption>${v === "f" ? "Frente" : "Espalda"}</figcaption></figure>`).join("");
+  $("#crio-chips").innerHTML = ZONAS.map(z => `<button type="button" class="zchip" data-z="${z.id}" aria-pressed="${crioSel.has(z.id)}">${z.n}</button>`).join("");
+  const n = crioSel.size, ses = totalSes(crioSel);
+  $("#crio-ses-t").hidden = !n;
+  $("#crio-ses").innerHTML = ZONAS.filter(z => crioSel.has(z.id)).map(z => `<div class="zs"><span>${z.n}</span><span class="paso">
+    <button type="button" data-zm="${z.id}" data-d="-1" aria-label="Menos sesiones de ${z.n}">−</button><b>${crioSel.get(z.id)}</b><button type="button" data-zm="${z.id}" data-d="1" aria-label="Más sesiones de ${z.n}">+</button></span></div>`).join("");
+  $("#crio-res").textContent = n ? `${plural(n, "zona", "zonas")} · ${plural(ses, "sesión", "sesiones")} en total` : "Aún no hay zonas marcadas";
+  $("#crio-val").textContent = fmt(ses * u);
+}
+function abrirCrio(){
+  const el = crioEl(); if (!el || MODO === "paciente") return;
+  crioSel = el.querySelector(".check").checked ? sesZonas(el.dataset.zonas) : new Map();
+  pintarCrioModal(); $("#modal-crio").classList.add("ver");
+}
+function pintarCrioTile(el){
+  const b = el && el.querySelector(".zb"); if (!b) return;
+  const m = sesZonas(el.dataset.zonas), n = m.size, ses = totalSes(m);
+  b.textContent = n ? plural(n, "zona", "zonas") + (ses > n ? ` · ${ses} ses.` : "") : "Elegir zonas";
+}
+function ponerCrio(el, m){
+  const ids = ordenZonas([...m.keys()]);
+  el.dataset.zonas = ids.map(id => id + ":" + m.get(id)).join(",");
+  el.querySelector(".it-q").value = String(totalSes(m));
+  el.querySelector(".check").checked = ids.length > 0;
+  pintarCrioTile(el); pop(el); calcular();
+}
+const cerrarCrio = () => $("#modal-crio").classList.remove("ver");
+$("#cerrar-crio").onclick = cerrarCrio;
+$("#modal-crio").addEventListener("click", e => {
+  if (e.target.id === "modal-crio") return cerrarCrio();
+  const b = e.target.closest("[data-zm]");
+  if (b){ const id = b.dataset.zm; crioSel.set(id, Math.min(10, Math.max(1, crioSel.get(id) + Number(b.dataset.d)))); return pintarCrioModal(); }
+  const z = e.target.closest("[data-z]"); if (!z) return;
+  const id = z.dataset.z; crioSel.has(id) ? crioSel.delete(id) : crioSel.set(id, 1); pintarCrioModal();
+});
+$("#crio-usar").onclick = () => {
+  if (!crioSel.size){ aviso("Toca al menos una zona del cuerpo", true); return; }
+  ponerCrio(crioEl(), crioSel); cerrarCrio(); aviso("Criolipólisis agregada: " + plural(crioSel.size, "zona", "zonas"));
+};
+$("#crio-quitar").onclick = () => { const el = crioEl(); if (el) ponerCrio(el, new Map()); cerrarCrio(); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarCrio(); });
 
 
 /* ---- candado ---- */
@@ -1038,13 +1181,14 @@ const SI = {
   me_mandibula:'<path d="M12 18c0-8 5-12 12-12s12 4 12 12v6c0 9-6 16-12 16s-12-7-12-16Z"/><path d="M14 30c3 6 6 8 10 8s7-2 10-8"/>',
   me_lyft:'<path d="M24 40c-7 0-12-7-12-16S17 8 24 8s12 7 12 16-5 16-12 16Z"/><path d="M17 27l3-4 3 4M25 27l3-4 3 4"/>',
   me_nanopore:'<circle cx="14" cy="14" r="2.5"/><circle cx="24" cy="14" r="2.5"/><circle cx="34" cy="14" r="2.5"/><circle cx="14" cy="24" r="2.5"/><circle cx="24" cy="24" r="2.5"/><circle cx="34" cy="24" r="2.5"/><circle cx="14" cy="34" r="2.5"/><circle cx="24" cy="34" r="2.5"/><circle cx="34" cy="34" r="2.5"/>',
+  me_crio:'<path d="M24 5v38M7.5 14.5l33 19M7.5 33.5l33-19"/><path d="M19 9l5 4 5-4M19 39l5-4 5 4M8 21l6.5-1.5L12.5 13M40 27l-6.5 1.5 2 6.5M8 27l6.5 1.5-2 6.5M40 21l-6.5-1.5 2-6.5"/>',
   me_adn:'<path d="M16 6c0 10 16 10 16 18s-16 8-16 18"/><path d="M32 6c0 10-16 10-16 18s16 8 16 18"/><path d="M19 12h10M19 36h10M21 24h6"/>'
 };
 const SHORT = {psicologia:"Psicología",nutriologa:"Nutrióloga",nutricionista:"Nutricionista",deportologia:"Deportología",interna:"Medicina interna",general:"Control semanal",
   tirzepatida:"Medicamento",enfermeria:"Enfermería",medias:"Medias",aparatologia:"Aparatología",drenaje:"Drenaje",escleroterapia:"Escleroterapia",rivaroxaban:"Rivaroxabán",
   espuma_trib:"Espuma tributarias",espuma_safena:"Espuma safena",endolaser:"Endoláser",sculptra:"Sculptra",sveltia:"Sveltia",proc_gluteos:"Procedimiento",
   aparatologia_hf:"Aparatología",venufill:"Venufill",prp:"PRP",medico:"Procedimiento",insumos:"Materiales",me_toxina:"Toxina",me_labios:"Labios",me_mandibula:"Mandíbula",
-  me_lyft:"Sustentación",me_sculptra:"Sculptra",me_radiesse:"Radiesse",me_nanopore:"Nanopore",me_adn:"ADN de salmón"};
+  me_lyft:"Sustentación",me_sculptra:"Sculptra",me_radiesse:"Radiesse",me_nanopore:"Nanopore",me_adn:"ADN de salmón",me_crio:"Criolipólisis"};
 const svg = (p, cls = "") => `<svg class="${cls}" viewBox="0 0 48 48" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 
 
@@ -1130,7 +1274,7 @@ function cambiarPrograma(id){
   return true;
 }
 function cargarPlantilla(){
-  const grupos = GRUPOS.filter(g => P().solo ? [].concat(P().solo).includes(g.id) : !["hf", "vn", "me", "mi"].includes(g.id));
+  const grupos = GRUPOS.filter(g => P().solo ? [].concat(P().solo).includes(g.id) : !["hf", "vn", "me", "mi", "cr"].includes(g.id));
   const permitidos = P().muestra || grupos.flatMap(g => g.ids);
   $("#tiles").innerHTML = ""; $("#incList").innerHTML = "";
   CATALOGO.map((c, ci) => { const gi = GRUPOS.findIndex(g => g.ids.includes(c.id)); return { c, ci, gi: gi < 0 ? 1 : gi }; })
@@ -1162,10 +1306,12 @@ function agregarItem(it){
   d.className = "item tile" + (it.interno ? " interno" : "");
   d.innerHTML = check + `
     <button type="button" class="tm" aria-pressed="${on}" aria-label="${esc(it.t)}"><span class="ic" aria-hidden="true">${svg(SI[it.id] || PI.estetica)}</span>
-      <span class="nm">${esc(SHORT[it.id] || it.t)}</span>${isEst() ? `<span class="pr">${fmt(it.u)}</span>` : ""}</button>
+      <span class="nm">${esc(SHORT[it.id] || it.t)}</span>${isEst() ? `<span class="pr">${fmt(it.u)}${it.id === CRIO ? " / zona" : ""}</span>` : ""}</button>
     <span class="badge" aria-hidden="true">${CK}</span>
     <button type="button" class="candado" aria-label="El doctor recomienda no quitar" title="El doctor recomienda que esto no se quite">${ico("candado")}</button>
-    <div class="tq">${esNum
+    <div class="tq">${it.id === CRIO
+      ? `<input type="hidden" class="it-q" value="${on ? esc(q) : "0"}"><button type="button" class="zb">Elegir zonas</button>`
+      : esNum
       ? `<button type="button" class="mn" data-d="-1" aria-label="Menos ${esc(it.t)}">−</button><input type="text" class="it-q" inputmode="decimal" value="${esc(q)}" aria-label="Cantidad de ${esc(it.t)}"><button type="button" class="pl" data-d="1" aria-label="Más ${esc(it.t)}">+</button>`
       : `<input type="text" class="it-q lbl" value="${esc(q)}" readonly tabindex="-1">`}</div>`;
   if (it.precioLibre){
@@ -1182,11 +1328,13 @@ function agregarItem(it){
   const poner = v => { ch.checked = v; pop(d); calcular(); };
   d.querySelector(".tm").onclick = () => {
     if (MODO === "paciente") return;
+    if (it.id === CRIO && !(ch.checked && mult(inp.value) > 0)) return abrirCrio(); // criolipólisis: primero se eligen las zonas
     if (ch.checked && mult(inp.value) > 0 && bloqueadoNo()) return;
     if (!ch.checked || mult(inp.value) === 0){ if (mult(inp.value) === 0) inp.value = "1"; return poner(true); }
     poner(false);
   };
-  d.querySelectorAll(".tq button").forEach(b => b.onclick = () => {
+  const zb = d.querySelector(".zb"); if (zb) zb.onclick = e => { e.stopPropagation(); abrirCrio(); };
+  d.querySelectorAll(".tq button[data-d]").forEach(b => b.onclick = () => {
     if (MODO === "paciente") return;
     const n = parseFloat(String(inp.value).replace(",", "."));
     const nuevo = Math.min(Number(d.dataset.max) || 999, Math.max(0, (isNaN(n) ? 1 : n) + Number(b.dataset.d)));
@@ -1295,7 +1443,8 @@ function leer(){
     const cat = CATALOGO.find(k => k.n === n), mq = mult(q);
     const costo = cat && cat.tabla && cat.tabla[mq] != null && u === cat.u ? cat.tabla[mq] : u * mq;
     const nt = x.querySelector(".it-nota") || (cat && cat.id === "tirzepatida" ? $("#nota-med") : null);
-    return { id: cat ? cat.id : "", n, q, u, nota: nt ? nt.value.trim() : "", costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
+    const zonas = cat && cat.id === CRIO ? zonasDe(x) : null, sesZ = cat && cat.id === CRIO ? sesZonas(x.dataset.zonas) : null;
+    return { id: cat ? cat.id : "", n, q, u, zonas, sesZ, nota: nt ? nt.value.trim() : "", costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
   });
   const sel = items.filter(x => x.on && (x.n || x.u));
   const costo = sel.reduce((s, x) => s + x.costo, 0);
@@ -1429,14 +1578,19 @@ function renderPaper(s){
   s = s || leer();
   const paper = $("#paper"), d = new Date();
   const f = s.nombre.split(/\s+/)[0] || "", first = f ? f.charAt(0).toUpperCase() + f.slice(1) : "";
-  const list = s.items.filter(x => !x.interno && x.n).map(x => {
+  const list = s.items.filter(x => !x.interno && x.n).sort(incAlFinal).map(x => {
     const c = CATALOGO.find(k => k.n === x.n) || {};
     let det = c.d || ""; const m = det.match(/^\$[\d.]+\s·\s(.*)$/); if (m) det = m[1];
     let q;
     if (c.incluido) q = `<span class="qt inc">${esc(String(x.q).toUpperCase())}</span>`;
-    else if (isEst()) q = `<span class="qt">${fmt(x.costo)}${mult(x.q) > 1 ? `<em>× ${esc(x.q)}</em>` : ""}</span>`;
+    else if (isEst()) q = `<span class="qt">${fmt(x.costo)}${mult(x.q) > 1 ? `<em>${c.id === CRIO ? plural(mult(x.q), "sesión", "sesiones") : "× " + esc(x.q)}</em>` : ""}</span>`;
     else q = `<span class="qt">${esc(/^\d/.test(x.q) ? "× " + x.q : x.q)}</span>`;
-    return `<li class="rv"><span class="bul"></span><span class="tx"><b>${esc(c.t || x.n)}</b>${det ? `<small>${esc(det)}</small>` : ""}${x.nota ? `<small class="p-nota">Nota: ${esc(x.nota)}</small>` : ""}</span>${q}</li>`;
+    let extra = "";
+    if (c.id === CRIO && x.zonas && x.zonas.length){
+      det = listaY(detalleZonas(x.sesZ));
+      extra = `<span class="p-crio">${vistasDe(x.zonas).map(v => croquisSVG(v, x.sesZ, 60)).join("")}</span>`;
+    }
+    return `<li class="rv"><span class="bul"></span><span class="tx"><b>${esc(c.t || x.n)}</b>${det ? `<small>${esc(det)}</small>` : ""}${extra}${x.nota ? `<small class="p-nota">Nota: ${esc(x.nota)}</small>` : ""}</span>${q}</li>`;
   });
   paper.innerHTML = `
     <header class="p-head rv"><div class="p-logo"><img src="assets/wordmark-pardo.png" alt="Seravena"></div><div class="p-date">${d.getDate()} de ${MESES[d.getMonth()]}<br>${d.getFullYear()}</div></header>
@@ -1618,7 +1772,7 @@ const dos = n => String(n).padStart(2, "0");
 /* en el PDF el ícono va con tamaño y color fijos: html2canvas no pinta "currentColor" ni el tamaño por CSS */
 const icoPDF = k => ico(k).replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" ').replace(/currentColor/g, "#4B412D");
 function armarPDF(s, numero, hoy, vence){
-  const filas = s.items.filter(x => !x.interno && x.n);
+  const filas = s.items.filter(x => !x.interno && x.n).sort(incAlFinal);
   const pagos = P().pagos || PAGOS_BASE;
   const catDe = x => CATALOGO.find(k => k.n === x.n) || {};
   const cant = q => /^\d/.test(q) ? "× " + q : q;
@@ -1645,7 +1799,11 @@ function armarPDF(s, numero, hoy, vence){
       <div class="cols">
         <div class="lista">
           <p class="sec">Lo que incluye tu plan</p>
-          ${filas.map(f => { const c = catDe(f); return `<div class="fila"><span class="ic">${icoPDF(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
+          ${filas.map(f => { const c = catDe(f);
+            if (c.id === CRIO && f.zonas && f.zonas.length) return `<div class="fila"><span class="ic">${icoPDF(c.id)}</span><div><b>${esc(c.t)}</b><small>${fmt(f.u)} por sesión en cada zona</small>
+              <div class="crio-pdf"><div class="figs">${vistasDe(f.zonas).map(v => `<div>${croquisSVG(v, f.sesZ, 44)}${v === "f" ? "Frente" : "Espalda"}</div>`).join("")}</div>
+              <div class="crio-dat"><div><span>Zonas y sesiones</span>${detalleZonas(f.sesZ).map(t => `<b>${esc(t)}</b>`).join("")}</div><div><span>Total</span><b>${plural(f.sesZ.size, "zona", "zonas")} · ${plural(mult(f.q), "sesión", "sesiones")}</b></div><div><span>Valor</span><b>${fmt(f.costo)}</b></div></div></div></div><span class="q">× ${esc(f.q)}</span></div>`;
+            return `<div class="fila"><span class="ic">${icoPDF(c.id)}</span><div><b>${esc(c.t || f.n)}</b>${c.d ? `<small>${esc(c.d)}</small>` : ""}${f.nota ? `<div class="nota">Nota: ${esc(f.nota)}</div>` : ""}</div><span class="q">${esc(cant(f.q))}</span></div>`; }).join("")}
         </div>
         <div>
           <p class="sec">Tu inversión</p>
@@ -1693,14 +1851,19 @@ async function hacerPDF(s){
 /* copia por correo de cada PDF descargado */
 async function enviarCopia(s, r, tipo = "descarga"){
   const ini = anticipoDe(s.precio), resto = s.precio - ini;
+  /* en estética el costo interno solo se manda si TODO lo cobrado lo tiene (hoy: criolipólisis, 200.000 por sesión) */
+  const cobrados = s.items.filter(x => !x.interno && x.n && x.u), catId = id => CATALOGO.find(k => k.id === id) || {};
+  const ci = cobrados.length && cobrados.every(x => catId(x.id).ci != null) ? cobrados.reduce((t, x) => t + catId(x.id).ci * mult(x.q), 0) : null;
   const datos = {
     tipo, numero: r.numero, fecha: fecha(r.hoy), vence: fecha(r.vence), modo: MODO,
     programa: s.programa, paciente: s.nombre, tipoId: s.tipoId, documento: s.numId, celular: s.contacto,
     especialista: s.esp, duracion: s.duracion,
-    servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n); return { n: c ? c.t : x.n, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
+    servicios: s.items.filter(x => !x.interno && x.n).map(x => { const c = CATALOGO.find(k => k.n === x.n);
+      const zn = x.zonas && x.zonas.length ? ` · ${listaY(detalleZonas(x.sesZ))}` : "";
+      return { n: (c ? c.t : x.n) + zn, q: x.q, nota: x.nota, lock: x.el.classList.contains("bloqueado") }; }),
     lista: s.lista, pct: String(s.pct).replace(".", ","), descuento: s.manual ? 0 : s.descuento, total: s.precio, manual: s.manual,
     inicial: ini, cuotas: CUOTAS, valorCuota: CUOTAS ? s.precio / CUOTAS : 0, planTexto: CUOTAS ? textoPlan(s.precio) : "",
-    costo: P().sinCostos ? null : s.costo, queda: P().sinCostos ? null : s.queda,
+    costo: P().sinCostos ? ci : s.costo, queda: P().sinCostos ? (ci == null ? null : s.precio - ci) : s.queda,
     link: SITIO + "#c=" + empacar(),
   };
   if (r.doc){ datos.archivo = r.archivo; datos.pdf = r.doc.output("datauristring").split(",")[1]; }
@@ -1743,6 +1906,7 @@ function empacar(){
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
     nm: ($(".it-nota") || {}).value || "",
   };
+  const ce = crioEl(); if (ce && ce.dataset.zonas) d.cz = ce.dataset.zonas; // zonas de criolipólisis con sus sesiones ("abdomen:2,pierna_d:1")
   return btoa(unescape(encodeURIComponent(JSON.stringify(d)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 function desempacar(txt){
@@ -1754,6 +1918,7 @@ function cargar(d){
   (d.i || []).forEach(([q, on, lock, pu], k) => { const x = items[k]; if (!x) return;
     if (pu && x.classList.contains("precio-libre")){ x.dataset.u = pu; x.querySelector(".it-precio").value = Number(pu).toLocaleString("es-CO"); }
     x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
+  const ce = crioEl(); if (ce){ ce.dataset.zonas = d.cz || ""; pintarCrioTile(ce); }
   $("#manual-v").value = d.pm || ""; $("#manual-nota").value = d.pmn || "";
   CUOTAS = Number(d.cu) || 0; INICIAL = CUOTAS && d.ini != null && d.ini !== 0 ? Number(d.ini) : (CUOTAS && d.ini === 0 ? 0 : null);
   $("#nombre").value = d.n || ""; $("#contacto").value = d.c || ""; $("#num-id").value = d.id || "";
