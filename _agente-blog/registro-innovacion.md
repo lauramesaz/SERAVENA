@@ -309,6 +309,38 @@ Las propuestas vivas están en `../admin/propuestas.json` y se leen en
   como propuesta, que W43-2 (Open Graph) sigue confirmándose como ya implementada en `vascular.html` y
   `lipedema.html` (7 etiquetas `og:` cada una), igual que la semana pasada; sigue en `propuesta` porque no
   me corresponde marcarla `hecha`. Aviso a Laura: nota en GitHub con etiqueta `propuestas`.
+- **2026-11-23 · 2 propuestas nuevas (W48-1, W48-2) + 2 propuestas caducadas (W43-1, W43-2).** Repetí las
+  5 búsquedas objetivo en Google: Seravena sigue sin aparecer en ninguna; el panorama fue el mismo de
+  siempre, dominado por Doctoralia (listados de cirujanos vasculares y flebólogos independientes en
+  Medellín, varios con consultorio en El Poblado o El Tesoro) y Centrolab para eco doppler venoso; no
+  encontré un competidor nuevo que no hubiera visto ya en semanas anteriores. Antes de proponer leí
+  `mapa-palabras.md` (sigue con los datos del 7-nov, sin `seguimiento-busquedas.py` todavía) y la sección
+  "Semana del 23-nov-2026" de `registro-seo-semanal.md` (cifras agregadas, sin tabla por palabra clave de
+  Colombia todavía) y comprobé en el código el estado de las 8 propuestas pendientes (W43-1 títulos
+  largos, W43-2 Open Graph, W44-1 flebólogo en vascular.html, W44-2 lastmod del sitemap, W45-1 Dr. Puerta
+  Rojas en páginas vasculares, W45-2 'El Poblado', W46-1 insuficiencia-venosa.html cediéndole posición a
+  escleroterapia, W46-2 priceRange, W47-1 aggregateRating, W47-2 horario/openingHours): ninguna completa,
+  pero varias con avance real que anoto aquí sin que cuente como propuesta nueva: W43-2 (Open Graph) quedó
+  del todo hecha esta semana (ya las 7 páginas que pedía tienen las 7 etiquetas `og:`); W45-1 (Dr. Puerta
+  Rojas) pasó de 0 a 2 de las 5 páginas vasculares (`vascular.html` y `varices-medellin.html` ya lo
+  nombran y enlazan); W44-1 (flebólogo) y W46-1 (enlace a escleroterapia) avanzaron a medias: el cuerpo de
+  `vascular.html` ya dice "flebólogo en Medellín" y el paso "Plan a tu medida" de `insuficiencia-venosa.html`
+  ya enlaza a `escleroterapia-medellin`, pero en ambos casos falta la parte que pedía el título de la
+  propuesta (el H2 y la meta description en un caso, la pregunta de precios y la meta `keywords` en el
+  otro). W43-1 (títulos largos) solo avanzó en `sobre.html` (ya corregido); los otros 5 títulos, incluido
+  el de `eco-doppler-venoso-medellin.html` que cambió de texto pero sigue en 64 caracteres, siguen sin
+  corregirse. W43-1 y W43-2 llevan 35 días en `propuesta` (más de un mes), así que las marqué `caducada`
+  con una nota cada una: W43-2 porque parece enteramente hecha y solo falta que Laura la confirme, W43-1
+  porque sigue pendiente en 5 de 6 páginas. Buscando huecos nuevos y verificables con grep encontré dos,
+  ninguno repetido con lo pendiente: (1) `vascular.html` y `varices-medellin.html` ya tienen, desde
+  agosto, una sección entera sobre qué es un flebólogo, pero ninguna de sus 16 preguntas frecuentes
+  combinadas (7 y 9) usa la palabra 'flebólogo' ni en el `qa-card` visible ni en el `FAQPage`, pese a ser
+  una de las 5 búsquedas objetivo — de ahí salió W48-1; (2) la fila 13 de `mapa-palabras.md` ("médico
+  vascular Medellín → /vascular") dice textualmente que la única aparición de esa búsqueda en Colombia en
+  90 días cayó "en un artículo" del blog, no en `/vascular`; confirmé con grep que `vascular.html` solo
+  menciona 'médico vascular' dentro de una pregunta frecuente sin la palabra 'Medellín' cerca, y que su
+  meta description tampoco la tiene — de ahí salió W48-2. Aviso a Laura: nota en GitHub con etiqueta
+  `propuestas`.
 - **2026-11-16 · 2 propuestas nuevas (W47-1, W47-2) + 1 propuesta caducada (W42-2).** Repetí las 5
   búsquedas objetivo: Seravena sigue sin aparecer en ninguna; esta semana casi no salió competencia local
   nueva ni de siempre, los resultados fueron sobre todo literatura médica, tesis y Doctoralia (apareció,

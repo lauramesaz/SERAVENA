@@ -1,6 +1,32 @@
 {
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-23",
   "propuestas": [
+    {
+      "id": "2026-W48-1",
+      "fecha": "2026-11-23",
+      "titulo": "Añadir la pregunta '¿Qué es un flebólogo?' al FAQ de vascular.html y varices-medellin.html, con 'Medellín' en la pregunta",
+      "categoria": "Contenido",
+      "que": "En `vascular.html` y `varices-medellin.html`, añadir una pregunta frecuente nueva —tanto en el bloque visible `qa-card` como en el JSON-LD `FAQPage` de cada página, palabra por palabra en los dos sitios— con el texto '¿Qué es un flebólogo y qué hace en Medellín?'. La respuesta no se inventa: se resume del párrafo que ya existe en la sección 'Flebólogo en Medellín' de cada página (vascular.html, línea 446; varices-medellin.html, línea 356), con un enlace a `contacto.html` o a `dr-jose-david-puerta-rojas` igual que las demás preguntas de esas páginas. No hace falta tocar el resto de las preguntas ni el diseño.",
+      "porque": "Las dos páginas ya tienen, desde la propuesta W35-2 (24-ago, hecha), una sección H2 entera dedicada a explicar qué es un flebólogo, pero comprobé hoy con grep que ninguna de las dos usa ese contenido como pregunta frecuente: el FAQ de `vascular.html` tiene 7 preguntas y el de `varices-medellin.html` tiene 9, y ninguna de las 16, en ninguna de las dos páginas, contiene la palabra 'flebólogo'. 'Flebólogo Medellín' es una de las 5 búsquedas objetivo de la misión, y el propio manual de SEO del equipo (`_agente-blog/INSTRUCCIONES.md`, §3) explica para qué sirve esto: 'Preguntas frecuentes obligatorias... Es lo que hace que Google muestre las preguntas desplegables debajo de tu resultado'. Hoy esa oportunidad está servida en el cuerpo de la página pero no se usa en el único formato que activa esa pregunta desplegable en el resultado de búsqueda.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Comprobación directa en el código: que las dos páginas tengan una pregunta con la palabra 'flebólogo', igual en el `qa-card` visible y en el `FAQPage` (hoy, 0 de 16 preguntas combinadas la tienen). Si Search Console está conectado, vigilar en 4-6 semanas si alguna de las dos empieza a recibir impresiones para 'flebólogo Medellín' (hoy ninguna aparece, lo confirmé repitiendo la búsqueda esta semana).",
+      "estado": "propuesta"
+    },
+    {
+      "id": "2026-W48-2",
+      "fecha": "2026-11-23",
+      "titulo": "Poner la frase 'médico vascular en Medellín' en vascular.html: hoy la única aparición de esa búsqueda en Search Console cae en un artículo del blog, no en su página dueña",
+      "categoria": "Técnico",
+      "que": "En `vascular.html`: (1) reescribir la meta description (hoy: 'Tratamiento de várices e insuficiencia venosa en Medellín, sin cirugía y de forma ambulatoria, con diagnóstico por eco doppler en Seravena.', 139 caracteres, por debajo incluso del mínimo de 140 que pide el propio manual) para que incluya la frase 'médico vascular en Medellín', sin superar 160 caracteres. (2) Cambiar el texto de la pregunta frecuente que ya existe —tanto en el `qa-card` visible (línea 308) como en el JSON-LD `FAQPage` (línea 160)— de '¿Necesito un cirujano vascular o un médico vascular?' a '¿Necesito un cirujano vascular o un médico vascular en Medellín?', sin tocar la respuesta.",
+      "porque": "El `mapa-palabras.md` (fila 13, datos de Search Console Colombia leídos el 7-nov-2026) dice: 'médico vascular Medellín → /vascular: \"medico vascular\" 1 apar., pos. 76, en un artículo'. Es decir, la única vez que esa búsqueda trajo a Seravena en 90 días, la que apareció fue `blog/medico-vascular-o-cirujano-colombia.html` —un artículo escrito para Colombia en general, no para Medellín— y no `/vascular`, la página que el propio mapa de palabras designa como dueña de esa búsqueda. Comprobé hoy con grep por qué: en `vascular.html`, 'médico vascular' solo aparece dentro de una pregunta frecuente ('¿Necesito un cirujano vascular o un médico vascular?'), sin la palabra 'Medellín' en ningún punto cercano, y la meta description de la página tampoco la menciona. La página dueña no está reclamando, con esas palabras juntas, la búsqueda que le corresponde.",
+      "esfuerzo": "bajo",
+      "impacto": "medio",
+      "quien": "Claude",
+      "como_se_mide": "Comprobación directa: que 'médico vascular' y 'Medellín' aparezcan juntos en la meta description y en la pregunta frecuente de `vascular.html` (hoy, en ningún punto). Si Search Console sigue conectado, revisar en 2-3 meses si la próxima aparición de 'médico vascular' en Colombia cae en `/vascular` en vez de en el artículo del blog.",
+      "estado": "propuesta"
+    },
     {
       "id": "2026-W47-1",
       "fecha": "2026-11-16",
@@ -110,26 +136,30 @@
       "fecha": "2026-10-19",
       "titulo": "Corregir los 6 títulos de páginas raíz que superan el límite de 60 caracteres, empezando por la página de eco doppler",
       "categoria": "Técnico",
+      "estado": "caducada",
+      "caducada_el": "2026-11-23",
+      "nota_caducidad": "Avance parcial, sigue sin terminarse: medí hoy los 6 títulos de nuevo. `sobre.html` ya quedó corregido (49 caracteres, dentro del límite). Los otros 5 siguen fuera: `profesionales.html` sigue en 76 (el peor, sin cambios), `guia-lipedema-medicos.html` y `test-lipedema.html` siguen en 64, `lipedema-colombia.html` pasó de 62 a 63 (prácticamente igual). `eco-doppler-venoso-medellin.html` cambió de texto (ahora 'Eco doppler venoso en Medellín: sin remisión ni ayuno | Seravena') pero sigue en 64 caracteres, la misma página prioritaria de esta propuesta. Lleva 35 días en `propuesta` sin aprobarse; caduca el plazo de repetirla, no la idea: quedan 5 títulos por acortar.",
       "que": "Acortar el `<title>` (y sincronizar `og:title` donde exista) de 6 páginas de la raíz que hoy superan el límite de 60 caracteres que exige el propio manual (`_agente-blog/INSTRUCCIONES.md`, §3), manteniendo la keyword principal de cada una: `profesionales.html` (76 caracteres: 'Para médicos: refiere un paciente con lipedema o várices | Seravena Medellín', el peor de todo el sitio), `eco-doppler-venoso-medellin.html` (64: 'Eco doppler venoso en Medellín: qué detecta y cómo es | Seravena'), `guia-lipedema-medicos.html` (64), `test-lipedema.html` (64), `sobre.html` (63) y `lipedema-colombia.html` (62). Priorizar `eco-doppler-venoso-medellin.html` primero porque es, de las 6, la única página construida para una de las 5 búsquedas objetivo de la misión.",
       "porque": "Medí hoy con un script los caracteres reales del `<title>` de las 20 páginas de la raíz (no cuento a ojo ni con `${#variable}` de bash, que falla con tildes): 6 superan el límite de 60 caracteres que el manual exige para que Google no trunque el título en el resultado de búsqueda. El caso más grave, `profesionales.html` con 76 caracteres, no es una de las 5 búsquedas objetivo, pero `eco-doppler-venoso-medellin.html` con 64 caracteres sí lo es: es justo la página creada el 24-sep para competir por 'eco doppler venoso Medellín', y hoy, repitiendo la búsqueda, Seravena sigue sin aparecer entre los resultados. Un título truncado corta a veces la keyword o el nombre de la marca a mitad de palabra, justo en la página donde eso más pesa.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Volver a medir los caracteres del `<title>` de las 6 páginas (deben quedar en 60 o menos sin perder la keyword principal) justo después del cambio. A las 4-8 semanas, si Search Console está conectado, revisar si cambia el CTR de 'eco doppler venoso Medellín' en particular.",
-      "estado": "propuesta"
+      "como_se_mide": "Volver a medir los caracteres del `<title>` de las 6 páginas (deben quedar en 60 o menos sin perder la keyword principal) justo después del cambio. A las 4-8 semanas, si Search Console está conectado, revisar si cambia el CTR de 'eco doppler venoso Medellín' en particular."
     },
     {
       "id": "2026-W43-2",
       "fecha": "2026-10-19",
       "titulo": "Añadir las etiquetas Open Graph que faltan en vascular.html, lipedema.html y el resto de páginas raíz sin vista previa al compartir",
       "categoria": "Técnico",
+      "estado": "caducada",
+      "caducada_el": "2026-11-23",
+      "nota_caducidad": "Parece ya hecha por completo: conté hoy las etiquetas `og:` de las 7 páginas que pedía esta propuesta (`vascular.html`, `lipedema.html`, `contacto.html`, `preguntas.html`, `proceso.html`, `profesionales.html`, `index.html`) y las 7 tienen hoy 7 etiquetas `og:` cada una (la semana pasada ya se había confirmado el avance en `contacto.html`, `preguntas.html`, `proceso.html` y `profesionales.html`; esta semana se suman `vascular.html`, `lipedema.html` e `index.html`). Recomiendo que Laura lo confirme y la pase a `hecha`. Caduca el plazo de repetirla, no queda nada pendiente que yo pueda ver.",
       "que": "Añadir el bloque completo de etiquetas Open Graph (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `og:image`, `og:image:alt`, `og:locale`) a `vascular.html` y `lipedema.html` —las dos páginas pilar de cada línea de negocio, hoy con cero etiquetas `og:`— y también a `contacto.html`, `preguntas.html`, `proceso.html` y `profesionales.html`. Completar además las que le faltan a `index.html`, que hoy solo tiene `og:title` y `og:description` de las ocho. Replicar exactamente el mismo bloque que ya existe en `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html` e `insuficiencia-venosa.html`.",
       "porque": "Conté hoy las etiquetas `og:` de las 20 páginas de la raíz: `vascular.html` y `lipedema.html` —las dos páginas de servicio más importantes del sitio, cada una cabeza de su línea de negocio— tienen 0, igual que `contacto.html`, `preguntas.html`, `proceso.html`, `profesionales.html` y `aliados.html`; `index.html` tiene solo 2 de las 8 habituales (le faltan `og:image`, `og:url`, `og:type`, `og:locale`, `og:site_name`). En cambio, `varices-medellin.html`, `escleroterapia-medellin.html`, `eco-doppler-venoso-medellin.html`, `insuficiencia-venosa.html`, `sobre.html`, `test-lipedema.html`, `lipedema-colombia.html` y `guia-lipedema-medicos.html` sí tienen las 7-8 completas, y comprobé que los 85 artículos del blog también las tienen todas, sin excepción. Es decir, el hueco es específico de las páginas de servicio más antiguas de la raíz, justo las dos que más se comparten: en Colombia el canal dominante para recomendar una clínica es reenviar el enlace por WhatsApp, y sin estas etiquetas ese enlace llega sin título, sin imagen y sin descripción, solo una URL pelada, mientras que las páginas nuevas de tratamiento sí llegan con la tarjeta completa.",
       "esfuerzo": "bajo",
       "impacto": "medio",
       "quien": "Claude",
-      "como_se_mide": "Pegar la URL de `vascular.html` y `lipedema.html` en un depurador de vista previa (o compartirla por WhatsApp de prueba) y comprobar que aparece título, descripción e imagen. Indirecto a 4-6 semanas: si hay Analytics conectado, vigilar si sube el tráfico referido desde WhatsApp/redes a esas dos páginas frente a las semanas anteriores.",
-      "estado": "propuesta"
+      "como_se_mide": "Pegar la URL de `vascular.html` y `lipedema.html` en un depurador de vista previa (o compartirla por WhatsApp de prueba) y comprobar que aparece título, descripción e imagen. Indirecto a 4-6 semanas: si hay Analytics conectado, vigilar si sube el tráfico referido desde WhatsApp/redes a esas dos páginas frente a las semanas anteriores."
     },
     {
       "id": "2026-W42-1",
