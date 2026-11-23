@@ -1,0 +1,15 @@
+#!/bin/sh
+# Si se publica el cotizador, le pone una versión nueva para que los navegadores
+# carguen la última sin cambiar el link (www.clinicaseravena.com/cotizador).
+if git diff --cached --name-only | grep -qx 'cotizador.html'; then
+  V=$(date +%Y%m%d-%H%M%S)
+  python3 - "$V" <<'PY'
+import re, sys
+v = sys.argv[1]; p = "cotizador.html"
+s = open(p, encoding="utf-8").read()
+s2 = re.sub(r'var V = "[^"]*"; // VERSION-COTIZADOR', 'var V = "%s"; // VERSION-COTIZADOR' % v, s, count=1)
+open(p, "w", encoding="utf-8").write(s2)
+PY
+  echo "$V" > cotizador-version.txt
+  git add cotizador.html cotizador-version.txt
+fi
