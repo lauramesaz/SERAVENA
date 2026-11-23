@@ -51,8 +51,16 @@ médico las volvió a abrir de forma independiente (ver abajo).
   JSON-LD FAQPage quedaron idénticos, que `reviewedBy` sigue en la organización (no está en
   `revisados-medico.md`) y que las URLs de las 2 fuentes son idénticas entre el bloque "Fuentes" visible y el
   `citation` del JSON-LD.
-**Publicado:** sí (ver commit de hoy, push a main). **200 verificado:** pendiente de confirmar tras el
-despliegue de GitHub Pages (ver aviso).
+**Publicado:** sí (commit 4a3f489, push a main). **200 verificado:** sí —
+`https://www.clinicaseravena.com/blog/varices-cirugia-o-sin-cirugia` respondió HTTP 200 tras el despliegue
+de GitHub Pages.
+
+**humanización del día (23-nov-2026):** se humanizó `compresion-para-lipedema.html`, el único `[pendiente]`
+de `humanizados.md` (su protección "no tocar antes del 23-nov-2026" vencía justo hoy). Nota: ~6/10 → 9/10
+(detalle completo en `humanizados.md`). Verificador médico: **APROBADO**, confirmó que el fondo quedó
+idéntico. Publicado en el mismo commit 4a3f489; `https://www.clinicaseravena.com/blog/compresion-para-lipedema`
+respondió HTTP 200. **Aviso para Laura: la cola de `humanizados.md` vuelve a quedar en 0 `[pendiente]`**
+hasta que se añadan más artículos a la lista.
 
 **mejora: medias-compresion-colombia-comprar (22-nov-2026, domingo = día de mejora):**
 Hoy tocaba día de mejora por el ritmo semanal (domingo). La cola de `temas.md` ("Cola con búsquedas reales
