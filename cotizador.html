@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261124-082731"; // VERSION-COTIZADOR
+  var V = "20261124-085314"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -79,7 +79,16 @@ body.paciente .pasos{display:none}
 .dock .atras:hover{background:var(--piedra)}
 .dock .cual{padding:0 12px;font-size:13px;color:var(--muted);white-space:nowrap}
 .dock .vi{display:flex;align-items:center;gap:6px;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:600;background:var(--arena);white-space:nowrap}
-.dock .vi svg{width:14px;height:14px}
+.dock .vi svg{width:14px;height:14px;transition:transform .25s}
+.dock .vi .vi-tot{font-variant-numeric:tabular-nums;padding-left:8px;border-left:1px solid rgba(26,26,26,.18);margin-left:2px}
+.dock .vi.arriba svg{transform:rotate(180deg)}
+.dock .vi.late .vi-tot{animation:late .5s ease}
+@keyframes late{40%{color:var(--camel,#9D8051)}}
+/* 24-nov: resumen del paso 3 se toca para corregir; aviso si falta programa */
+.resu .fr.ir{cursor:pointer;border-radius:8px;transition:background .2s}
+.resu .fr.ir:hover{background:var(--piedra);margin:0 -10px;padding-left:10px;padding-right:10px}
+.resu .fr.ir:hover b::after{content:" · cambiar";font-weight:500;font-size:12px;color:var(--muted)}
+.progs.falta .prog{border-color:var(--error);animation:late .5s ease}
 .dock .sig{display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--pardo);color:#fff;font-size:14.5px;font-weight:700;white-space:nowrap}
 .dock .sig svg{width:16px;height:16px}
 
@@ -326,7 +335,7 @@ body.paciente .fila.precio-libre.on .dtx{display:block}
   .fila{height:auto}.fila>div{padding:9px 0}
   .num{min-width:74px}.num .un{font-size:11px}
   .dos{grid-template-columns:1fr}
-  .dock .cual{display:none}.dock .vi{padding:12px 14px}.dock .vi .t{display:none}.dock .atras{padding:12px 12px}.dock .sig{padding:12px 18px}
+  .dock .cual{display:none}.dock .vi{padding:12px 14px}.dock .vi .t{display:none}.dock .vi .vi-tot{border:0;padding-left:0;margin-left:0}.dock .atras{padding:12px 12px}.dock .sig{padding:12px 18px}
   .franja{border-radius:20px}
 }
 
@@ -571,7 +580,7 @@ body:not(.comercial) #abrir-ingreso{display:none!important}
 <div class="dock" id="dock">
   <button type="button" class="atras" id="backBtn">Atrás</button>
   <span class="cual" id="cual"></span>
-  <button type="button" class="vi" id="vi" aria-label="Ver la inversión"><span class="t">Ver la inversión</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+  <button type="button" class="vi" id="vi" aria-label="Ver la inversión"><span class="t">Ver la inversión</span><b class="vi-tot" id="viTot"></b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
   <button type="button" class="sig" id="nextBtn"><span id="nextTx">Siguiente</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   <button type="button" class="sig" id="pacDesc" hidden>Descargar mi cotización</button>
 </div>
@@ -1524,10 +1533,10 @@ function pintarResumen(s){
   [["#nombre3", "#nombre"], ["#cel3", "#contacto"]].forEach(([a, b]) => { if (document.activeElement !== $(a)) $(a).value = $(b).value; });
   $("#fr-nombre3").classList.toggle("falta", !s.nombre);
   $("#resu").innerHTML = `
-    <div class="fr"><span>Programa</span><b>${esc($("#s2eb").textContent)}</b></div>
-    <div class="fr"><span>Incluye</span><b>${esc(cif) || "—"}</b></div>
-    <div class="fr"><span>Forma de pago</span><b>${CUOTAS ? esc(textoPlan(s.precio, true)) : "Valor inicial " + fmt(anticipoDe(s.precio))}</b></div>
-    <div class="fr"><span>Inversión total</span><b class="tot">${fmt(s.precio)}</b></div>`;
+    <div class="fr ir" data-ir="1" title="Toca para cambiar"><span>Programa</span><b>${esc($("#s2eb").textContent)}</b></div>
+    <div class="fr ir" data-ir="2" title="Toca para cambiar"><span>Incluye</span><b>${esc(cif) || "—"}</b></div>
+    <div class="fr ir" data-ir="inv" title="Toca para cambiar"><span>Forma de pago</span><b>${CUOTAS ? esc(textoPlan(s.precio, true)) : "Valor inicial " + fmt(anticipoDe(s.precio))}</b></div>
+    <div class="fr ir" data-ir="inv" title="Toca para cambiar"><span>Inversión total</span><b class="tot">${fmt(s.precio)}</b></div>`;
 }
 function calcular(){
   const s = leer();
@@ -1541,15 +1550,17 @@ function calcular(){
   $("#abrir-cuotas").classList.toggle("activo", INICIAL != null);
   $("#campo-dur").hidden = !P().duracion && !$("#duracion").value;
   if (S.step === 3) pintarResumen(s);
+  const vt = $("#viTot"), nt = fmt(s.precio);
+  if (vt.textContent !== nt){ vt.textContent = nt; if (lastTotal != null){ $("#vi").classList.remove("late"); void $("#vi").offsetWidth; $("#vi").classList.add("late"); } }
   lastTotal = s.precio;
   return s;
 }
 
 /* ---- pasos ---- */
-const PASOS = [{ t: "Programa", sig: "Siguiente: armar el plan" }, { t: "Plan", sig: "Siguiente: enviar" }, { t: "Enviar", sig: "" }];
+const PASOS = [{ t: "Programa", sig: "Siguiente: armar el plan", corto: "Armar el plan" }, { t: "Plan", sig: "Siguiente: enviar", corto: "Enviar" }, { t: "Enviar", sig: "", corto: "" }];
 function irA(n){
   if (MODO === "paciente") n = 2;
-  if (n > 1 && !S.elegido){ aviso("Primero elige un programa", true); n = 1; }
+  if (n > 1 && !S.elegido){ aviso("Primero elige un programa", true); n = 1; const g = $("#progs"); g.classList.remove("falta"); void g.offsetWidth; g.classList.add("falta"); }
   S.step = n;
   $("#pasos").innerHTML = PASOS.map((p, i) => { const k = i + 1, c = k === n ? "ahora" : k < n ? "hecho" : "";
     return `<button type="button" class="pb ${c}" data-go="${k}" ${k === n ? 'aria-current="step"' : ""}><span class="n">${k < n ? CK : k}</span>${p.t}</button>`; }).join("");
@@ -1557,11 +1568,12 @@ function irA(n){
   const pac = MODO === "paciente";
   $("#backBtn").hidden = n === 1 || pac;
   $("#nextBtn").hidden = n === 3 || pac;
-  $("#nextTx").textContent = PASOS[n - 1].sig;
+  $("#nextTx").textContent = innerWidth < 430 ? PASOS[n - 1].corto : PASOS[n - 1].sig; // celular: texto corto para que quepa el precio
   $("#vi").hidden = n !== 2;
   $("#cual").hidden = n === 2 || pac; $("#cual").textContent = `Paso ${n} de 3`;
   $("#pacDesc").hidden = !pac;
   window.scrollTo({ top: 0 });
+  if (MODO !== "paciente" && !irA.desdeHist){ const st = { paso: n }; (history.state && history.state.paso && history.state.paso !== n) ? history.pushState(st, "") : history.replaceState(st, ""); }
   calcular(); ajustarAlto();
   if (n === 1 && MODO === "doctor" && !$("#nombre").value) setTimeout(() => $("#nombre").focus({ preventScroll: true }), 250);
 }
@@ -1575,7 +1587,8 @@ function elegirProg(id){
   const fam = PROGRAMAS[id].familia;
   const mismo = S.elegido && (id === PROG || (fam && fam === P().familia));
   if (!mismo && !cambiarPrograma(id)) return;
-  S.elegido = true; renderProgs(); renderVars();
+  S.elegido = true; $("#progs").classList.remove("falta"); renderProgs(); renderVars();
+  if (MODO === "doctor" && S.step === 1 && !$("#nombre").value.trim()) setTimeout(() => { const n = $("#nombre"); n.focus({ preventScroll: true }); if (n.getBoundingClientRect().bottom > innerHeight - 90) n.scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" }); }, 120);
 }
 function elegirVar(k){
   if (k !== PROG && !cambiarPrograma(k)) return;
@@ -1587,6 +1600,8 @@ document.addEventListener("click", e => {
   const pr = e.target.closest(".prog"); if (pr) return elegirProg(pr.dataset.prog);
   const va = e.target.closest(".var[data-v]"); if (va) return elegirVar(va.dataset.v);
   const pb = e.target.closest(".pb[data-go]"); if (pb) return irA(+pb.dataset.go);
+  const ir = e.target.closest(".fr.ir[data-ir]");
+  if (ir && MODO !== "paciente"){ const d = ir.dataset.ir; if (d === "inv"){ irA(2); setTimeout(() => $("#inversion").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" }), 80); } else irA(+d); return; }
   if (e.target.closest("#incChip")){ S.incOpen = !S.incOpen; renderInc(); return; }
   const dp = e.target.closest("button[data-p]");
   if (dp){ $("#descuento").value = dp.dataset.p === "0" ? "" : dp.dataset.p; calcular(); return; }
@@ -1595,7 +1610,12 @@ document.addEventListener("click", e => {
 });
 $("#desc-libre").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d.,]/g, ""); $("#descuento").value = e.target.value; calcular(); });
 $("#nextBtn").onclick = next; $("#backBtn").onclick = prev;
-$("#vi").onclick = () => $("#inversion").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" });
+$("#vi").onclick = () => { if ($("#vi").classList.contains("arriba")) window.scrollTo({ top: 0, behavior: REDUCE ? "auto" : "smooth" }); else $("#inversion").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth" }); };
+/* 24-nov: cuando ya se ve la inversión, el botón sube al plan */
+if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => {
+  const up = e.isIntersecting; $("#vi").classList.toggle("arriba", up);
+  $("#vi .t").textContent = up ? "Volver al plan" : "Ver la inversión"; $("#vi").setAttribute("aria-label", up ? "Volver al plan" : "Ver la inversión");
+}), { threshold: .35 }).observe($("#inversion"));
 $("#pacDesc").onclick = () => $("#descargar").click();
 $("#restaurar").onclick = () => { if (confirm("¿Volver al plan original de " + P().nombre + "?")) cargarPlantilla(); };
 $("#nota-med").addEventListener("input", e => { const t = e.target; t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; });
@@ -1865,6 +1885,8 @@ function ponerModo(){
   lastTotal = null; irA(S.step);
 }
 window.addEventListener("hashchange", () => location.reload());
+/* 24-nov: el botón "atrás" del navegador o del celular vuelve al paso anterior en vez de salirse del cotizador */
+window.addEventListener("popstate", e => { const p = e.state && e.state.paso; if (!p || MODO === "paciente") return; irA.desdeHist = true; try { irA(p); } finally { irA.desdeHist = false; } });
 
 $("#nueva").onclick = () => {
   if (location.hash){ if (confirm("¿Empezar una cotización nueva?")) location.href = location.pathname; return; }
