@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261124-085314"; // VERSION-COTIZADOR
+  var V = "20261124-085830"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -36,7 +36,7 @@
    Solo colores del manual: piedra, arena y pardo; camel apenas de detalle. Mucho aire a los lados. */
 :root{--piedra:#F9F9F8;--arena:#EDE2D0;--arena-2:#F4EDE2;--pardo:#1A1A1A;--muted:#706A61;--line:#E8E3DA;--top:64px;--fila-h:44px;
   --black:#1D1D1F;--ink:#1A1A1A;--ease:cubic-bezier(.3,.7,.2,1);--spring:cubic-bezier(.2,1.35,.35,1);
-  --marfil:#F6F1E8;--blanco:#FFFDF9;--linea:#E6DCCB;--texto:#1F1B14;--tenue:#7A6E5A;--choco:#4B412D;--camel:#9D8051;--camel-osc:#806733;--error:#A23B3B;color-scheme:light}
+  --marfil:#F6F1E8;--blanco:#FFFDF9;--linea:#E6DCCB;--texto:#1F1B14;--tenue:#7A6E5A;--choco:#4B412D;--camel:#9D8051;--camel-osc:#806733;--error:#A23B3B;--verde:#3E7A55;--verde-suave:#E7F0E9;color-scheme:light}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:16px;line-height:1.45;color:var(--pardo);background:var(--piedra);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -130,6 +130,22 @@ body.paciente .pasos{display:none}
 .campo input::placeholder{color:#bdb5a8;font-weight:500}
 .campo select{border:0;outline:0;background:transparent;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;cursor:pointer;padding-right:4px}
 .campo.error{border-color:var(--error)}
+/* 24-nov Laura: toques verdes pequeños = "listo / bien / siguiente" */
+.pb.hecho .n{background:var(--verde);border-color:var(--verde);color:#fff}
+.prog{position:relative}
+.prog.sel::after{content:"";position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat;animation:pop .35s var(--spring)}
+.campo{position:relative}
+.campo.ok{border-color:#cfe0d3}
+.campo.ok::after{content:"";position:absolute;top:12px;right:12px;width:16px;height:16px;border-radius:50%;background:var(--verde) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/9px no-repeat;animation:pop .35s var(--spring)}
+.dock .sig.listo svg{background:var(--verde);border-radius:50%;padding:3px;width:22px;height:22px;margin-right:-6px;transition:background .3s}
+#aviso:not(.mal){background:var(--verde)}
+.dock .vi.late .vi-tot{animation:lateV .6s ease}
+@keyframes lateV{40%{color:var(--verde)}}
+.inc-zone .et{color:var(--verde)}
+.inc-chip{background:var(--verde-suave);color:var(--verde)}
+.resu .fr-in.ok span::after{content:" ✓";color:var(--verde);font-weight:700}
+.campo.ok input{padding-right:22px}
+
 .especialista{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px;font-size:14px}
 .especialista .ini{width:34px;height:34px;border-radius:50%;background:var(--arena);display:grid;place-items:center;font-size:12.5px;font-weight:700;flex:none}
 .especialista b{font-weight:600}
@@ -1538,6 +1554,17 @@ function pintarResumen(s){
     <div class="fr ir" data-ir="inv" title="Toca para cambiar"><span>Forma de pago</span><b>${CUOTAS ? esc(textoPlan(s.precio, true)) : "Valor inicial " + fmt(anticipoDe(s.precio))}</b></div>
     <div class="fr ir" data-ir="inv" title="Toca para cambiar"><span>Inversión total</span><b class="tot">${fmt(s.precio)}</b></div>`;
 }
+/* 24-nov: verde = dato completo / listo para seguir */
+function marcarListo(s){
+  const ok = (sel, v) => { const c = $(sel).closest(".campo"); if (c) c.classList.toggle("ok", v && !c.classList.contains("error")); };
+  ok("#nombre", s.nombre.length >= 3);
+  ok("#contacto", s.contacto.replace(/\D/g, "").length >= 10);
+  ok("#num-id", s.numId.replace(/\D/g, "").length >= 5);
+  $("#fr-nombre3").classList.toggle("ok", s.nombre.length >= 3);
+  $("#cel3").closest(".fr-in").classList.toggle("ok", s.contacto.replace(/\D/g, "").length >= 10);
+  const listo = MODO !== "paciente" && ((S.step === 1 && S.elegido && s.nombre.length >= 3) || (S.step === 2 && s.items.some(x => !x.interno && x.n)));
+  $("#nextBtn").classList.toggle("listo", listo);
+}
 function calcular(){
   const s = leer();
   pintarItems();
@@ -1550,6 +1577,7 @@ function calcular(){
   $("#abrir-cuotas").classList.toggle("activo", INICIAL != null);
   $("#campo-dur").hidden = !P().duracion && !$("#duracion").value;
   if (S.step === 3) pintarResumen(s);
+  marcarListo(s);
   const vt = $("#viTot"), nt = fmt(s.precio);
   if (vt.textContent !== nt){ vt.textContent = nt; if (lastTotal != null){ $("#vi").classList.remove("late"); void $("#vi").offsetWidth; $("#vi").classList.add("late"); } }
   lastTotal = s.precio;
@@ -1587,7 +1615,7 @@ function elegirProg(id){
   const fam = PROGRAMAS[id].familia;
   const mismo = S.elegido && (id === PROG || (fam && fam === P().familia));
   if (!mismo && !cambiarPrograma(id)) return;
-  S.elegido = true; $("#progs").classList.remove("falta"); renderProgs(); renderVars();
+  S.elegido = true; $("#progs").classList.remove("falta"); renderProgs(); renderVars(); calcular();
   if (MODO === "doctor" && S.step === 1 && !$("#nombre").value.trim()) setTimeout(() => { const n = $("#nombre"); n.focus({ preventScroll: true }); if (n.getBoundingClientRect().bottom > innerHeight - 90) n.scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" }); }, 120);
 }
 function elegirVar(k){
