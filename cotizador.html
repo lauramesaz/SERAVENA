@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261123-174918"; // VERSION-COTIZADOR
+  var V = "20261124-081053"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -734,7 +734,8 @@ const PROGRAMAS = {
     nombre: "Lipedema", titulo: "Programa de manejo de lipedema", precio: 8952381, duracion: "3 meses",
     pagos: ["Cuenta de ahorros Bancolombia: 60900006450", "Cuenta de ahorros Davivienda: 0550031800056199", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
     plan: { ecografia: 1, psicologia: 2, nutriologa: 2, deportologia: 2, nutricionista: 2, interna: 2, general: 12,
-            tirzepatida: [5, 370000], enfermeria: ["A demanda", 60000], medias: 1, aparatologia: 20, drenaje: 6 },
+            tirzepatida: [5, 370000], enfermeria: ["A demanda", 60000], medias: 1, aparatologia: [26, 30000], drenaje: 6 },
+            /* 24-nov Laura: lipedema = 26 sesiones de aparatología (antes 20). Mismo costo total (26 × 30.000 = 20 × 39.000) → mismo precio. Los links viejos (sin v) se pasan de 20 a 26 al abrir. */
   },
   obesidad: {
     foto: "assets/media/silk-flowers.webp", frase: "Manejo médico del peso · 3 meses",
@@ -1761,7 +1762,7 @@ $("#compartir-pdf").onclick = async () => {
 /* ---- la cotización viaja guardada dentro del link ---- */
 function empacar(){
   const d = {
-    p: PROG, i: ITEMS().map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
+    v: 2, p: PROG, i: ITEMS().map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
     cu: CUOTAS, ini: INICIAL, pm: $("#manual-v").value, pmn: $("#manual-nota").value,
     n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
@@ -1776,7 +1777,9 @@ function desempacar(txt){
 function cargar(d){
   ponerPrograma(d.p in PROGRAMAS ? d.p : "lipedema");
   const items = ITEMS(); S.elegido = true;
+  const apaN = (CATALOGO.find(c => c.id === "aparatologia") || {}).n;
   (d.i || []).forEach(([q, on, lock, pu], k) => { const x = items[k]; if (!x) return;
+    if (!d.v && PROG === "lipedema" && x.dataset.n === apaN && /^\d+([.,]\d+)?$/.test(String(q).trim())) q = String(Math.round(mult(q) * 39000 / 30000 * 100) / 100); // link de antes del 24-nov: 20 sesiones a 39.000 = 26 a 30.000
     if (pu && x.classList.contains("precio-libre")){ x.dataset.u = pu; x.querySelector(".it-precio").value = Number(pu).toLocaleString("es-CO"); }
     x.querySelector(".it-q").value = q; x.querySelector(".check").checked = !!on; x.classList.toggle("apagado", !on); x.classList.toggle("bloqueado", !!lock); });
   const ce = crioEl(); if (ce){ ce.dataset.zonas = d.cz || ""; pintarCrioTile(ce); }
