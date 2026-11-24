@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261124-081053"; // VERSION-COTIZADOR
+  var V = "20261124-082731"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -57,7 +57,8 @@ svg{display:block}
 /* ---------- arriba: logo y pasos ---------- */
 .top{position:sticky;top:0;z-index:20;height:var(--top);background:rgba(249,249,248,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .top .marco{height:100%;display:flex;align-items:center;justify-content:center}
-.top .logo{position:absolute;left:clamp(24px,7vw,120px);height:19px}
+.top .logo-btn{position:absolute;left:clamp(24px,7vw,120px);display:flex;align-items:center;cursor:pointer}
+.top .logo{display:block;height:19px}.top .logo-btn .logo{transition:opacity .2s}.top .logo-btn:hover .logo{opacity:.6}.top .logo-btn:focus-visible .logo{outline:2px solid #9D8051;outline-offset:6px;border-radius:2px}
 .pasos{display:flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
 .pb{display:flex;align-items:center;gap:9px;padding:7px 16px 7px 7px;border-radius:999px;font-size:14px;font-weight:600;color:var(--muted);transition:background .25s,color .25s}
 .pb .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:700;background:var(--piedra);border:1px solid var(--line)}
@@ -314,7 +315,7 @@ body.paciente .fila.precio-libre.on .dtx{display:block}
 }
 /* celular */
 @media (max-width:760px){
-  .top .logo{display:none}
+  .top .logo-btn{display:none}
   .pb{padding:6px 12px 6px 6px;font-size:13px}
   .alto{padding-bottom:120px}
   .progs{grid-template-columns:1fr 1fr}
@@ -491,7 +492,7 @@ body:not(.comercial) #abrir-ingreso{display:none!important}
 </div>
 
 
-<header class="top"><div class="marco"><img class="logo" src="assets/wordmark-pardo.png" alt="Seravena"><nav class="pasos" id="pasos" aria-label="Pasos"></nav></div></header>
+<header class="top"><div class="marco"><a class="logo-btn" id="logo-inicio" href="#" title="Volver al inicio" aria-label="Seravena · volver al inicio"><img class="logo" src="assets/wordmark-pardo.png" alt="Seravena"></a><nav class="pasos" id="pasos" aria-label="Pasos"></nav></div></header>
 <div class="marco"><div class="franja oculto" id="franja"></div></div>
 
 <main id="stage">
@@ -1874,6 +1875,9 @@ $("#nueva").onclick = () => {
   CUOTAS = 0; INICIAL = null; S.elegido = false;
   ponerPrograma("lipedema"); irA(1);
 };
+
+/* 24-nov Laura: el logo vuelve al inicio (paso 1) sin borrar lo que ya se escribió */
+$("#logo-inicio").onclick = e => { e.preventDefault(); if (MODO !== "paciente") irA(1); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
 ponerModo();
 
