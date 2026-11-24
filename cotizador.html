@@ -2,6 +2,22 @@
 <html lang="es-CO">
 <head>
 <meta charset="utf-8">
+<script>
+/* LINK FIJO: www.clinicaseravena.com/cotizador
+   Al abrir, mira si hay una versión más nueva publicada (cotizador-version.txt) y, si la hay,
+   se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
+   La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
+(function(){
+  var V = "20261123-174918"; // VERSION-COTIZADOR
+  var u = new URL(location.href), ya = u.searchParams.has("_");
+  if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
+  if (ya || !window.fetch) return;
+  fetch("/cotizador-version.txt?t=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(t){ t = t.trim(); if (t && t !== V) location.replace(location.pathname + "?_=" + Date.now() + location.hash); })
+    .catch(function(){});
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Arma tu programa · Seravena</title>
