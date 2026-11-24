@@ -3,6 +3,64 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: drenaje-linfatico-medellin (24-nov-2026, martes = día de mejora):**
+Hoy tocaba día de mejora por el ritmo semanal (martes). Confirmé además que la cola de `temas.md`
+("Cola con búsquedas reales de Colombia") tiene 0 `[pendiente]` (sus 4 filas están `[publicado]`) y que
+la sección 4 de `mapa-palabras.md` ("Búsquedas sin página dueña") también está vacía, así que de todas
+formas tocaba mejora. Recorrí el "Banco de mejoras" de `mapa-palabras.md` (sección 5) de arriba abajo:
+`medico-vascular-o-cirujano-colombia`, `medias-compresion-colombia-comprar`, `eco-doppler-paso-a-paso`,
+`ejercicios-circulacion-casa`, `picor-piernas-circulacion`, `trombosis-venosa-senales`,
+`cuidados-despues-escleroterapia` y `varices-cirugia-o-sin-cirugia` ya están "hecho"; `eco-doppler-venoso-que-es`
+sigue bloqueado hasta el 28-nov; `calambres-piernas-noche` (dateModified 2026-11-08, 16 días),
+`varices-eps-o-particular` y `medias-compresion-embarazo` (ambos 2026-11-09, 15 días) no llegan a los 21 días
+exigidos; `flebitis-superficial-sintomas` y `ulceras-venosas-piernas` siguen reservados para después de
+humanizarlos. Elegí `drenaje-linfatico-medellin` (dateModified 2026-11-02 = 22 días, "se puede desde
+23-nov" ya vencido —su protección de título en `registro-seo-semanal.md` era "no tocar antes del 23-nov-2026"—,
+sin fecha de "no tocar" vigente para hoy, no es una redirección, y la cola de `humanizados.md` para
+este chequeo se trata más abajo).
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: "Standard of care for lipedema in the United States" (Herbst KL, Kahn LA, Iker E, et al.,
+*Phlebology*, 2021, PMC8652358) y "A Scoping Review of Available Tools in Measurement of the Effectiveness
+of Conservative Treatment in Lipoedema" (Czerwińska M, Teodorczyk J, Hansdorfer-Korzon R, *International
+Journal of Environmental Research and Public Health*, 2022, PMC9222339); (2) enlace nuevo desde el primer
+párrafo del cuerpo a `../lipedema` (texto: "manejo de lipedema en Medellín"); (3) nueva pregunta frecuente
+"¿Quién hace drenaje linfático en Medellín?" que usa con naturalidad la búsqueda de Colombia que el banco
+señalaba sin atender ("quien hace drenaje linfatico", "especialista en drenaje linfático"), repetida palabra
+por palabra en el `post-faq` visible y en el JSON-LD `FAQPage`; (4) `dateModified` → 2026-11-24 y `lastmod`
+del sitemap actualizado (`datePublished` 2026-10-05 sin tocar). El artículo no está en `revisados-medico.md`:
+`reviewedBy` sigue siendo la organización. Comprobé a mano que `../lipedema` apunta a un archivo que existe
+en el repositorio (`revisar-enlaces.py` todavía no existe).
+**Búsquedas web hechas (3, con WebSearch):** 1) "manual lymphatic drainage lipedema evidence systematic
+review"; 2) "complex decongestive therapy lipedema guideline lymphedema contraindications"; 3) "lipedema S2k
+guideline German Society manual lymphatic drainage recommendation".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- "Standard of care for lipedema in the United States" (PMC8652358) — abierta y confirma: documento de
+  consenso del US Standard of Care Committee (Delphi/GRADE), real e indexado en PubMed Central. Respalda que
+  el drenaje linfático manual es parte de un programa terapéutico conservador individualizado junto con
+  compresión, ejercicio y cuidado de la piel, y que la evaluación/aplicación debe estar a cargo de un
+  terapeuta certificado en linfedema (CLT), coordinado con el médico tratante.
+- "A Scoping Review..." (PMC9222339) — abierta y confirma: revisión indexada en PMC (IJERPH, 2022). Describe
+  explícitamente la terapia descongestiva compleja (CDT) como drenaje linfático manual + compresión +
+  ejercicio + cuidado de la piel, respaldando esa parte de la afirmación del artículo.
+Ninguna fuente de blog, foro ni Wikipedia; ninguna de la propia Seravena.
+**Policía humanizador (1c):** HUMANO (9/10). Revisó solo las piezas nuevas (enlace del primer párrafo, FAQ
+nueva, sección Fuentes); corrigió una frase larga con punto y coma que repetía un patrón ya multado varias
+veces (notas-humanizador.md), sin tocar enlace, keyword ni ningún dato médico.
+**Verificador médico (2):** APROBADO. Confirmó las 2 fuentes abiertas, que la FAQ nueva no promete resultados
+ni da indicación personalizada, que ningún dato médico/post-note se tocó, que el enlace nuevo es coherente,
+y que `reviewedBy` sigue en la organización (el slug no está en `revisados-medico.md`).
+**Publicación:** commit en esta misma ejecución; pendiente verificar HTTP 200 tras el despliegue de GitHub
+Pages (se deja constancia en el aviso del día).
+
+**humanización del día (24-nov-2026):** la cola de `humanizados.md` llevaba desde el 23-nov en 0
+`[pendiente]` (avisado ese día) y nunca se repuso con los artículos publicados después. Comparé
+`blog/*.html` contra las entradas del archivo y encontré **49 artículos ya publicados que nunca entraron
+a esta cola**; los añadí como `[pendiente]`, ordenados por `datePublished` (el más viejo primero). El primero,
+`ejercicio-para-varices.html`, tiene protección "no tocar antes del 14-dic-2026" en `registro-seo-semanal.md`
+(se le añadió una pregunta frecuente el 23-nov), así que lo salté. El siguiente, `lipedema-y-trabajo.html`
+(publicado 2026-09-25, sin protección vigente), es el elegido para la limpieza de hoy. Detalle completo de
+la reescritura en `humanizados.md`.
+
 **mejora: varices-cirugia-o-sin-cirugia (23-nov-2026, lunes = día de artículo nuevo, pero sin tema):**
 Hoy era lunes (toca artículo nuevo), pero la cola de `temas.md` ("Cola con búsquedas reales de Colombia")
 tiene 0 `[pendiente]` (sus 4 filas están `[publicado]`) y la sección 4 de `mapa-palabras.md` ("Búsquedas sin
