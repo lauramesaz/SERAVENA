@@ -3,6 +3,77 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: senales-lipedema-primer-contacto (25-nov-2026, miércoles = día de artículo nuevo, pero sin tema):**
+Hoy era miércoles (día de artículo nuevo), pero la cola de `temas.md` ("Cola con búsquedas reales de
+Colombia") tiene sus 3 filas en `[publicado]`, 0 `[pendiente]`, y la sección 4 de `mapa-palabras.md`
+("Búsquedas sin página dueña") sigue vacía desde el 16-nov. Por regla, eso hace que hoy sea día de mejora.
+Recorrí el "Banco de mejoras" (sección 5 de `mapa-palabras.md`) de arriba abajo: `medico-vascular-o-cirujano-colombia`,
+`medias-compresion-colombia-comprar`, `eco-doppler-paso-a-paso`, `ejercicios-circulacion-casa`,
+`picor-piernas-circulacion`, `trombosis-venosa-senales`, `cuidados-despues-escleroterapia` y
+`drenaje-linfatico-medellin` ya están "hecho"; `eco-doppler-venoso-que-es` sigue bloqueado hasta el 28-nov;
+`calambres-piernas-noche` (dateModified 2026-11-08 = 17 días), `varices-eps-o-particular` y
+`medias-compresion-embarazo` (ambos 2026-11-09 = 16 días) y `varices-cirugia-o-sin-cirugia` (2026-11-23 = 2
+días) no llegan a los 21 días exigidos; `flebitis-superficial-sintomas` y `ulceras-venosas-piernas` siguen
+reservados para después de humanizarlos. **Ninguna fila del Banco cumplía las 4 condiciones hoy.**
+Caí entonces al criterio de respaldo de INSTRUCCIONES.md §4b punto 1: "el artículo con más apariciones en
+Colombia según el último registro de `registro-seo-semanal.md` que cumpla lo mismo". Ese archivo no tiene
+una tabla de apariciones por página filtrada a Colombia (solo cifras globales y, para competidores, un
+análisis con país=Colombia que no es de páginas propias), así que usé la mejor aproximación disponible:
+recorrí `blog/*.html` buscando `dateModified` ≤ 2026-11-04 (21+ días) que no fueran redirecciones ni
+estuvieran en tablas "no tocar" vigentes, y entre esos elegí el de más impresiones sostenidas en los
+informes semanales (228-288 impresiones en 4 semanas distintas, siempre en posición floja ~57-59):
+`senales-lipedema-primer-contacto` (dateModified 2026-11-04 = exactamente 21 días; ya humanizado ese mismo
+día, no está entre los 3 primeros `[pendiente]` de `humanizados.md`). Dejo nota para Laura/revisión de los
+lunes: convendría que `seguimiento-busquedas.py` o una columna de apariciones-por-página-en-Colombia en
+`registro-seo-semanal.md` cubran este caso, porque hoy no hay un dato limpio de "apariciones en Colombia
+por artículo" fuera del Banco de mejoras.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: "Lymphedema vs lipedema: Similar but different" (Lomeli LD, Makin V, Bartholomew JR,
+Burguera B., *Cleveland Clinic Journal of Medicine*, 2024) y "Standard of care for lipedema in the United
+States" (Herbst KL et al., *Phlebology*, 2021, PMC8652358); (2) enlace nuevo desde el primer párrafo del
+cuerpo a `../profesionales` (texto: "la sección de Seravena para profesionales de la salud"); (3)
+`dateModified` → 2026-11-25 y `lastmod` del sitemap actualizado (`datePublished` 2026-09-07 sin tocar). No
+encontré, dentro de los datos disponibles, una "búsqueda de Colombia sin atender" específica y documentada
+para este artículo (no viene del Banco), así que no inventé ninguna ni forcé una frase de búsqueda: me
+ceñí a Fuentes + enlace a página de servicio, que es lo que sí pude respaldar con datos reales. El artículo
+no está en `revisados-medico.md`: `reviewedBy` sigue siendo la organización. Comprobé a mano que los 17
+enlaces internos del artículo (incluido el nuevo a `../profesionales`) apuntan a archivos que existen en
+el repositorio (`revisar-enlaces.py` todavía no existe).
+**Búsquedas web hechas (3, con WebSearch):** 1) "lipedema diagnosis clinical criteria symmetric
+distribution pain palpation diagnostic delay years guideline"; 2) "lipedema vs lymphedema Stemmer sign
+differentiation review PubMed"; 3) "'standard of care for lipedema' Herbst diagnosis primary care
+physicians".
+**Fuentes que el Verificador médico abrió una por una (WebFetch) y lo que confirmó:**
+- "Lymphedema vs lipedema: Similar but different" (ccjm.org/content/91/7/425) — abierta y confirma:
+  revisión de *Cleveland Clinic Journal of Medicine* (2024), real. Respalda la distribución simétrica del
+  lipedema, el dolor a la palpación, la mala respuesta a dieta/ejercicio/cirugía bariátrica, y el signo de
+  Stemmer negativo en lipedema frente a positivo en linfedema — todo ya afirmado en el artículo, sin dato
+  nuevo.
+- "Standard of care for lipedema in the United States" (PMC8652358) — abierta y confirma: consenso del US
+  Standard of Care Committee (*Phlebology*, 2021), real e indexado en PubMed Central. Respalda que el
+  diagnóstico es clínico, sin biomarcador específico, que se confunde con obesidad o linfedema, y que el
+  retraso diagnóstico puede ser de años o décadas — todo ya afirmado en el artículo.
+Ninguna fuente de blog, foro ni Wikipedia; ninguna de la propia Seravena.
+**Policía humanizador (1c):** no hizo falta reescritura de forma adicional: las 2 piezas nuevas (enlace del
+primer párrafo, sección Fuentes) siguen el formato ya usado en el resto del blog; 0 huellas de IA
+introducidas, sin tocar keyword, enlaces existentes ni ningún dato médico.
+**Verificador médico (2):** APROBADO. Confirmó las 2 fuentes abiertas, que el enlace nuevo a
+`../profesionales` no es una promesa de resultado ni un dato nuevo, que el post-note, el post-faq y su
+JSON-LD FAQPage, los 4 enlaces del "Sigue leyendo" y la firma quedaron idénticos, y que `reviewedBy` sigue
+en la organización (el slug no está en `revisados-medico.md`).
+**Publicación:** commit en esta misma ejecución; pendiente verificar HTTP 200 tras el despliegue de GitHub
+Pages (se deja constancia en el aviso del día).
+
+**humanización del día (25-nov-2026):** el primer `[pendiente]` de `humanizados.md` era
+`ejercicio-para-varices.html`, pero tiene protección "no tocar antes del 14-dic-2026" en
+`registro-seo-semanal.md` (se le añadió una pregunta frecuente el 23-nov-2026), así que lo salté y lo
+anoté en su línea. El siguiente `[pendiente]`, `tabaco-alcohol-circulacion.html` (publicado 2026-09-26, sin
+protección vigente: sus únicas tablas "no tocar" son la del 26-oct y la del 23-nov, ambas ya vencidas), es
+el elegido para la limpieza de hoy. Detalle completo de la reescritura (antes ~7/10 → después 9/10,
+Verificador médico APROBADO) en `humanizados.md`. Quedan 47 artículos `[pendiente]` en la cola tras este.
+
+---
+
 **mejora: drenaje-linfatico-medellin (24-nov-2026, martes = día de mejora):**
 Hoy tocaba día de mejora por el ritmo semanal (martes). Confirmé además que la cola de `temas.md`
 ("Cola con búsquedas reales de Colombia") tiene 0 `[pendiente]` (sus 4 filas están `[publicado]`) y que
