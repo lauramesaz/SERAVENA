@@ -1286,3 +1286,76 @@ incoherencias, el perfil de Doctoralia del médico lleva 5 semanas igual (sin en
 reseñas) y el dominio viejo sigue aparcado sin hacer nada. Lo único que sigue pendiente de que
 alguien lo revise con sus propios ojos: Google Maps y Bing Places (este agente no puede leerlos) y,
 si procede, completar el perfil de Doctoralia del médico con el enlace a la web.
+
+---
+
+## Semana del 2026-11-25
+
+· Sitios/fuentes revisados: 7 (las 3 búsquedas objetivo en Google — "várices Medellín", "flebólogo
+Medellín", "eco doppler venoso Medellín" —, búsqueda general de "Seravena" Medellín lipedema várices
+y de "Seravena" excluyendo el propio dominio, perfil de Doctoralia del médico vía lectura directa,
+dominio viejo `seravena.com.co` vía lectura directa, Instagram @seravena_clinica por búsqueda,
+prensa local — El Colombiano, Vivir en El Poblado, Minuto30 — buscando cobertura de lipedema en
+2026) + confirmación en git de que no hubo ningún envío nuevo desde el 18-nov + verificación con
+`grep` de la dirección (25 páginas) y el teléfono (129 coincidencias) en todo el sitio `.html`
+· Seravena aparece en: 1 (Doctoralia, perfil del médico — sin cambio frente al 14-oct)
+
+### Sigue el régimen de vigilancia: 11 mensajes acumulados, ninguno enviado
+
+Confirmé en el historial de git que entre el 18-nov y hoy no hubo ningún commit nuevo a
+`kit-backlinks.md`: los 11 mensajes acumulados siguen exactamente igual, sin que ninguno se haya
+enviado. Sigue aplicando la regla del manual (7-nov): con 10 o más mensajes listos, esta semana
+toca vigilar, no redactar.
+
+### Nombre/dirección/teléfono: sin incoherencias
+
+Revisé con `grep` las 25 páginas del sitio que mencionan la dirección: las 25, sin excepción, usan
+**Calle 2 Sur #46-159, Torre Médica Salud Vegas, consultorio 1316**. El teléfono aparece 129 veces
+en el sitio, siempre como **+57 305 208 8204** o **+573052088204** (el mismo número, con o sin
+espacios). Nada que corregir.
+
+### Vigilancia de lo que ya existe (punto 6 del manual)
+
+- **Doctoralia, perfil del médico** (doctoralia.co/perfil/jose-david-puerta-rojas) — leí la página
+  directamente hoy. Sin cambios frente al 18-nov: sigue sin enlace a clinicaseravena.com, sigue sin
+  servicios ni precios cargados, sigue sin ninguna reseña ("Pronto se publicarán opiniones") y sigue
+  sin teléfono ni correo visibles en el perfil. Da la dirección correcta y menciona a Seravena como
+  nombre del consultorio. Van ya 6 semanas (14-oct a hoy) sin que nadie entre con la cuenta del
+  médico a completarlo.
+- **Dominio viejo `seravena.com.co`** — leí la página directamente hoy. Sigue igual que semanas
+  anteriores: dominio aparcado en Hostinger, con publicidad del propio proveedor y sin ningún
+  contenido de la clínica ni redirección a clinicaseravena.com. Vence el 19-feb-2027.
+- **Instagram @seravena_clinica** — sigue sin aparecer por búsqueda (`site:instagram.com`) desde
+  este entorno. Limitación de búsqueda ya conocida, no confirmación de que la cuenta no exista.
+- **Google Maps y Bing Places** — no reintenté la lectura directa esta semana porque ya está
+  confirmado en semanas anteriores que ambos se renderizan con JavaScript y no dan contenido legible
+  para este agente. Sigue siendo la revisión de dos minutos que solo Laura puede hacer abriendo
+  Google Maps y Bing de verdad.
+
+### Dónde debería estar Seravena y sigue sin estar
+
+Repetí las 3 búsquedas objetivo: dominan los mismos de siempre (Doctoralia con varios cirujanos
+vasculares individuales, Centrolab, investigación académica de la Universidad de Antioquia), sin
+ningún nombre nuevo frente a lo ya registrado en semanas anteriores. No encontré ninguna nota de
+prensa nueva de 2026 sobre lipedema escrita desde Medellín en El Colombiano, Vivir en El Poblado ni
+Minuto30 (lo que apareció fue cobertura internacional general y un estudio académico de la
+Universidad de Antioquia, sin relación con Medellín en particular ni con Seravena). La búsqueda de
+"Seravena" fuera del propio dominio solo devolvió el perfil de Doctoralia y los propios issues de
+este repositorio de GitHub (que son públicos pero no son una mención externa real).
+
+### Esta semana no encontré ninguna oportunidad nueva de enlace ni ninguna mención sin enlace
+
+Séptima semana seguida sin nada genuinamente nuevo en el terreno de descubrimiento (desde el
+21-oct). No redacto mensajes nuevos: ni hay 11 mensajes acumulados que piden vigilar en vez de
+redactar, ni esta semana apareció algo que justificara romper esa regla.
+
+· Mensajes listos para enviar: 0 esta semana (11 mensajes de semanas anteriores siguen pendientes
+de envío — ver semanas anteriores y `kit-backlinks.md`)
+
+### Para Laura, en una línea
+
+Séptima semana sin cambios de fondo: los 11 mensajes siguen listos y sin enviar, la web sigue sin
+incoherencias, el perfil de Doctoralia del médico lleva 6 semanas igual (sin enlace, servicios ni
+reseñas) y el dominio viejo sigue aparcado. No hay nada nuevo que requiera tu atención esta semana;
+lo de siempre sigue en pie cuando tengas tiempo: enviar o descartar los 11 mensajes, y si quieres,
+completar el perfil de Doctoralia del médico.
