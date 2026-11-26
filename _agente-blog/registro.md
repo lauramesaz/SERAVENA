@@ -3,6 +3,65 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: varices-en-el-embarazo (26-nov-2026, jueves = día de mejora):**
+Recorrí el "Banco de mejoras" (sección 5 de `mapa-palabras.md`) de arriba abajo: `medico-vascular-o-cirujano-colombia`,
+`medias-compresion-colombia-comprar`, `eco-doppler-paso-a-paso`, `ejercicios-circulacion-casa`,
+`picor-piernas-circulacion`, `trombosis-venosa-senales`, `cuidados-despues-escleroterapia` y
+`drenaje-linfatico-medellin` siguen "hecho"; `eco-doppler-venoso-que-es` sigue bloqueado hasta el 28-nov;
+`calambres-piernas-noche` (dateModified 2026-11-08 = 18 días), `varices-eps-o-particular` y
+`medias-compresion-embarazo` (ambos 2026-11-09 = 17 días) y `varices-cirugia-o-sin-cirugia` (2026-11-23 = 3
+días) no llegan a los 21 días exigidos; `flebitis-superficial-sintomas` (humanizado 2026-11-11, 15 días) y
+`ulceras-venosas-piernas` (humanizado 2026-11-10, 16 días) ya se humanizaron pero tampoco llegan a 21 días.
+**Ninguna fila del Banco cumplía las 4 condiciones hoy.**
+Caí al criterio de respaldo de `INSTRUCCIONES.md` §4b punto 1 ("el artículo con más apariciones en Colombia
+según el último registro de `registro-seo-semanal.md` que cumpla lo mismo"), igual que hizo el orquestador
+de ayer (25-nov) para `senales-lipedema-primer-contacto`. Revisé el top10 de páginas de las semanas del
+23-nov, 16-nov y 9-nov en `registro-seo-semanal.md`: todos los artículos con apariciones documentadas
+(`flebitis-en-el-brazo` 618, `anticonceptivos-y-varices` 445, `manchas-tobillos-causas` 291,
+`medias-compresion-embarazo` 272, `cuidados-despues-escleroterapia` 262, `senales-lipedema-primer-contacto`
+228 pero modificado ayer mismo, `precio-tratamiento-varices-colombia` 123, `piernas-cansadas-causas` y
+`aranitas-vasculares-piernas` por datos de semanas anteriores) tienen `dateModified` de menos de 21 días
+(todos entre el 7 y el 25-nov): la propia actividad diaria de las últimas 3 semanas ya tocó a todos los
+artículos con apariciones en Colombia documentadas. `registro-seo-semanal.md` no tiene una tabla de
+apariciones por página filtrada a Colombia, solo los top10 globales citados arriba, así que no hay un dato
+más fino disponible. Ante la falta de un dato que distinga entre los artículos restantes, usé como
+desempate razonable el artículo con `dateModified` MÁS ANTIGUO de todo el blog (el más atrasado para que
+Google lo vuelva a rastrear, y el que lleva más tiempo sin ninguna revisión de ningún tipo): recorrí
+`blog/*.html` buscando `dateModified` ≤ 2026-11-05 (21+ días), sin ser redirección, sin fecha de "no tocar"
+vigente y fuera de los 3 primeros `[pendiente]` de `humanizados.md` (`ejercicio-para-varices`,
+`diabetes-circulacion-piernas` y `lipedema-y-sueno`, que por eso quedaron descartados de esta lista aunque
+cumplieran lo demás). El más antiguo de todos fue `varices-en-el-embarazo` (dateModified 2026-09-29 = 58
+días, ya humanizado desde esa misma fecha, datePublished 2026-08-02).
+Dejo la misma nota para Laura/revisión de los lunes que dejó el orquestador de ayer: convendría que
+`seguimiento-busquedas.py` o una columna de apariciones-por-página-en-Colombia en `registro-seo-semanal.md`
+resuelvan este vacío de datos, porque ya son 2 días seguidos (25 y 26-nov) sin un dato limpio de
+"apariciones en Colombia por artículo" fuera del Banco de mejoras.
+**Qué se hizo:** (1) nueva sección "Fuentes" (3 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: "Varicose Veins in Pregnancy" (Cleveland Clinic, 2026,
+https://my.clevelandclinic.org/health/diseases/23331-varicose-veins-in-pregnancy), "Vulvar Varicosities"
+(Cleveland Clinic, 2024, https://my.clevelandclinic.org/health/diseases/22127-vulvar-varicosities) y
+"Understanding Your Risk for Blood Clots with Pregnancy" (CDC, 2024,
+https://www.cdc.gov/blood-clots/risk-factors/pregnancy.html); (2) enlace nuevo desde el primer párrafo del
+cuerpo a `../varices-medellin` (texto: "valoración de várices en Medellín"); (3) `dateModified` →
+2026-11-26 y `lastmod` del sitemap actualizado (`datePublished` 2026-08-02 sin tocar). Igual que ayer, no
+encontré, dentro de los datos disponibles, una "búsqueda de Colombia sin atender" específica y documentada
+para este artículo (no viene del Banco), así que no inventé ninguna ni forcé una frase de búsqueda: me
+ceñí a Fuentes + enlace a página de servicio, que sí pude respaldar con datos reales. El artículo no está
+en `revisados-medico.md`: `reviewedBy` sigue siendo la organización. Comprobé a mano que los 8 enlaces
+internos del cuerpo (varices-hereditarias-genetica, escleroterapia-que-es, ../varices-medellin [×2],
+../vascular, medias-compresion-embarazo, piernas-hinchadas-cuando-preocuparse, piernas-cansadas-causas,
+anticonceptivos-y-varices, varices-y-menopausia, medias-compresion-posparto) apuntan a archivos que existen
+en el repositorio. 3 búsquedas web hechas (WebSearch, vía subagente) para encontrar las fuentes; se
+descartaron 2 URLs de mayoclinic.org que devolvieron HTTP 403 al verificarlas y 1 fuente de MedlinePlus
+que no mencionaba el embarazo explícitamente, quedándome solo con las 3 fuentes que sí pude abrir y
+confirmar palabra por palabra. Policía humanizador: **HUMANO (9/10)**, sin cambios de forma necesarios (la
+frase nueva del primer párrafo quedó separada con punto de la oración anterior, sin el vicio de
+coma+conector multado el 11-12, 11-15, 11-21, 11-22 y 11-24). Verificador médico: **APROBADO** — abrió las
+3 fuentes y confirmó que respaldan lo que el artículo afirma (con matices menores de paráfrasis, sin
+afectar la prudencia ni la veracidad); confirmó que el post-note, el post-faq/JSON-LD FAQPage, los
+enlaces, la firma y datePublished quedaron idénticos; sin cifras de plata; sin promesa de cura ni
+indicación personalizada.
+
 **mejora: senales-lipedema-primer-contacto (25-nov-2026, miércoles = día de artículo nuevo, pero sin tema):**
 Hoy era miércoles (día de artículo nuevo), pero la cola de `temas.md` ("Cola con búsquedas reales de
 Colombia") tiene sus 3 filas en `[publicado]`, 0 `[pendiente]`, y la sección 4 de `mapa-palabras.md`
