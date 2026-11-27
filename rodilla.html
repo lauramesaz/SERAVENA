@@ -522,6 +522,9 @@
 
     const d = { content_name: 'Rodilla', content_category: 'Ortopedia', lead_score: lead.puntaje };
     fbq('track', 'Lead', d, { eventID: 'lead-' + lead.id });
+    // Meta bloquea el evento estándar "Lead" en salud (27-nov: 0 Lead vs 19 filas reales).
+    // Este evento propio, sin datos sensibles, es el que mide y optimiza la campaña.
+    fbq('trackCustom', 'FormularioEnviado', {}, { eventID: 'fe-' + lead.id });
     if (lead.puntaje === 'A') fbq('trackCustom', 'LeadCalificado', d, { eventID: 'lc-' + lead.id });
     ga('event', 'generate_lead', { test: 'rodilla', puntaje: lead.puntaje });
 
