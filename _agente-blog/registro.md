@@ -3,6 +3,43 @@
 Registro de todo lo que publica el agente. La rutina semanal de análisis añade aquí
 las métricas de SEO (impresiones, clics, posición) cuando Search Console esté conectado.
 
+**mejora: eco-doppler-venoso-que-es (28-nov-2026, sábado = día de mejora):**
+Tomado del "Banco de mejoras" (sección 5 de `mapa-palabras.md`): era la primera fila sin marcar "hecho"
+que cumplía las 4 condiciones hoy (dateModified 2026-11-07 = 21 días exactos; sin fecha de "no tocar"
+vigente en `registro-seo-semanal.md`; no está entre los 3 primeros `[pendiente]` de `humanizados.md`;
+no es redirección), y además su columna "Se puede desde" decía literalmente "28-nov".
+**Búsqueda de Colombia:** el nombre largo de la orden médica, "ecografía doppler de vasos venosos de
+miembros inferiores" (unas 10 apariciones en Colombia), que el artículo no explicaba.
+**Qué se hizo:** (1) nueva sección "Fuentes" (2 referencias) con el mismo `citation` en el JSON-LD
+`MedicalWebPage`: "Venous Ultrasound" (RadiologyInfo.org, 2026,
+https://www.radiologyinfo.org/en/info/venousus) y "Doppler Ultrasound Exam of an Arm or Leg"
+(MedlinePlus/NIH, 2026, https://medlineplus.gov/ency/article/003775.htm); (2) párrafo nuevo en el
+cuerpo (sección "¿Qué es el eco doppler venoso?") explicando que ese nombre largo es el mismo examen;
+(3) pregunta frecuente nueva "¿La ecografía doppler de vasos venosos de miembros inferiores es lo
+mismo que el eco doppler venoso?" en el `post-faq` visible y en el JSON-LD `FAQPage`, idéntica palabra
+por palabra en los dos sitios. El artículo ya tenía enlace desde el primer párrafo a
+`../eco-doppler-venoso-medellin` (su página que vende), así que no hizo falta añadir otro. Sin cifras
+de precio. `dateModified` (2026-11-28) y `lastmod` del sitemap actualizados; `datePublished`
+(2026-07-31) intacto. `reviewedBy` sigue siendo la organización (el slug no está en
+`revisados-medico.md`). `revisar-enlaces.py` todavía no existe: no se añadió ningún enlace interno
+nuevo que requiriera comprobación.
+**Búsquedas web (mínimo 3):** "ecografía doppler de vasos venosos de miembros inferiores nombre
+examen" (confirmó que es sinónimo de "eco-doppler de miembros inferiores" en literatura médica en
+español); "MedlinePlus Doppler ultrasound exam leg venous"; "RadiologyInfo.org Ultrasound Vascular
+venous doppler duplex".
+**Subagentes:**
+- Policía humanizador (1c): veredicto HUMANO 9/10 (antes 7/10). Corrigió una repetición de forma —
+  "es el mismo examen que..." aparecía dos veces en serie (cuerpo y FAQ) — dejando la respuesta de la
+  FAQ directa en "Sí." sin la coletilla repetida. No tocó ningún dato médico. Multa anotada en
+  `notas-humanizador.md`.
+- Verificador médico (2): veredicto **APROBADO**. Abrió las 2 fuentes: "Venous Ultrasound"
+  (RadiologyInfo.org) confirma que el ultrasonido venoso detecta trombosis venosa profunda y
+  reflujo/insuficiencia venosa sin radiación; "Doppler Ultrasound Exam of an Arm or Leg" (MedlinePlus)
+  confirma lo mismo (DVT, insuficiencia venosa, reflujo). Confirmó que la aclaración de nomenclatura no
+  añade ningún dato clínico nuevo, que no hay cifras de precio y que `reviewedBy` sigue en la
+  organización.
+**Git:** commit y push a `main` (ver detalle de publicación abajo).
+
 **mejora: varices-en-el-embarazo (26-nov-2026, jueves = día de mejora):**
 Recorrí el "Banco de mejoras" (sección 5 de `mapa-palabras.md`) de arriba abajo: `medico-vascular-o-cirujano-colombia`,
 `medias-compresion-colombia-comprar`, `eco-doppler-paso-a-paso`, `ejercicios-circulacion-casa`,
