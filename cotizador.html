@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261128-113238"; // VERSION-COTIZADOR
+  var V = "20261128-114855"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -700,9 +700,9 @@ const CATALOGO = [
   { id: "deportologia",  n: "Deportología", u: 200000, e: "🏃‍♀️", t: "Deportología", d: "Ejercicio seguro y a tu medida" },
   { id: "interna",       n: "Medicina interna (vascular)", u: 200000, e: "🩺", t: "Medicina interna", d: "Valoración con el especialista vascular" },
   { id: "general",       n: "Medicina general / seguimiento semanal", u: 25000, e: "📋", t: "Seguimiento semanal", d: "Medicina general, semana a semana" },
-  /* 28-nov Laura: cada ampolla de tirzepatida le cuesta a la clínica 300.000 (costoReal). "u" se deja igual para que el PRECIO a la paciente no cambie
-     (ni en cotizaciones nuevas ni en links viejos); costoReal solo corrige "Lo que cuesta / Le queda a Seravena" del correo. */
-  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 400000, costoReal: 300000, e: "💉", t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
+  /* 28-nov Laura: cada ampolla de tirzepatida le cuesta a la clínica 300.000 (antes 400.000; lipedema 370.000) y la paciente paga menos con el MISMO margen.
+     costoReal corrige el costo del correo en los links viejos (v < 3), que abren con su costo y precio de antes. */
+  { id: "tirzepatida",   n: "Medicamento: Tirzepatida 2,5 mg semanal", u: 300000, costoReal: 300000, e: "💉", t: "Medicamento", d: "Tirzepatida 2,5 mg, una vez por semana" },
   { id: "enfermeria",    n: "Acompañamiento de enfermería", u: 50000, e: "👩‍⚕️", t: "Enfermería", d: "Acompañamiento cuando lo necesites" },
   { id: "medias",        n: "Medias de compresión", u: 370000, e: "🧦", t: "Medias de compresión", d: "Para el día a día" },
   { id: "aparatologia",  n: "Aparatología: Dermatens, onda de choque y presoterapia (según recomendación médica semana a semana)", u: COSTO_APARATOLOGIA, e: "⚡", t: "Aparatología", d: "Dermatens, onda de choque y presoterapia · algunas sesiones se hacen con fisioterapia, según la necesidad médica de cada paciente", sub: "Algunas con fisioterapia, según necesidad médica" },
@@ -759,15 +759,16 @@ const CATALOGO = [
 const PROGRAMAS = {
   lipedema: {
     foto: "assets/media/band-veins.webp", frase: "Manejo integral · 3 meses",
-    nombre: "Lipedema", titulo: "Programa de manejo de lipedema", precio: 8952381, duracion: "3 meses",
+    nombre: "Lipedema", titulo: "Programa de manejo de lipedema", precio: 8952381 * 5120000 / 5470000, duracion: "3 meses",
     pagos: ["Cuenta de ahorros Bancolombia: 60900006450", "Cuenta de ahorros Davivienda: 0550031800056199", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
     plan: { ecografia: 1, psicologia: 2, nutriologa: 2, deportologia: 2, nutricionista: 2, interna: 2, general: 12,
-            tirzepatida: [5, 370000], enfermeria: ["A demanda", 60000], medias: 1, aparatologia: [26, 30000], drenaje: 6 },
+            tirzepatida: 5, enfermeria: ["A demanda", 60000], medias: 1, aparatologia: [26, 30000], drenaje: 6 },
+            /* 28-nov: ampolla a 300.000 → precio 8.952.381 × 5.120.000 / 5.470.000 = 8.379.560 (mismo margen) */
             /* 24-nov Laura: lipedema = 26 sesiones de aparatología (antes 20). Mismo costo total (26 × 30.000 = 20 × 39.000) → mismo precio. Los links viejos (sin v) se pasan de 20 a 26 al abrir. */
   },
   obesidad: {
     foto: "assets/media/silk-flowers.webp", frase: "Manejo médico del peso · 3 meses",
-    nombre: "Obesidad", titulo: "Paquete de manejo de obesidad", precio: 7883333, duracion: "3 meses",
+    nombre: "Obesidad", titulo: "Paquete de manejo de obesidad", precio: 7883333 * 3840000 / 4440000, /* 28-nov: antes 7.883.333 → 6.818.018; ampolla a 300.000 con el mismo margen exacto */ duracion: "3 meses",
     pagos: ["Cuenta de ahorros Bancolombia: 25900002589", "Link de pago: 5% adicional", "Datáfono: 5% adicional"],
     plan: { ecografia: 1, psicologia: 2, nutriologa: 2, nutricionista: 2, deportologia: 2, interna: 2, general: 12,
             tirzepatida: 6, enfermeria: 1 },
@@ -1816,9 +1817,10 @@ $("#compartir-pdf").onclick = async () => {
 
 
 /* ---- la cotización viaja guardada dentro del link ---- */
+const TIRZ_HOY = 300000, TIRZ_ANTES = { obesidad: 400000, lipedema: 370000 };
 function empacar(){
   const d = {
-    v: 2, p: PROG, i: ITEMS().map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
+    v: 3, p: PROG, tu: (() => { const t = ITEMS().find(x => x.dataset.id === "tirzepatida"), u = t ? Number(t.dataset.u) : 0; return u && u !== TIRZ_HOY ? u : undefined; })(), i: ITEMS().map(x => [x.querySelector(".it-q").value, x.querySelector(".check").checked ? 1 : 0, x.classList.contains("bloqueado") ? 1 : 0, x.classList.contains("precio-libre") ? Number(x.dataset.u) || 0 : 0]),
     cu: CUOTAS, ini: INICIAL, pm: $("#manual-v").value, pmn: $("#manual-nota").value,
     n: $("#nombre").value, c: $("#contacto").value, t: $("#tipo-id").value, id: $("#num-id").value,
     e: $("#esp").value, es: $("#espec").value, du: $("#duracion").value, de: $("#descuento").value,
@@ -1833,6 +1835,9 @@ function desempacar(txt){
 function cargar(d){
   ponerPrograma(d.p in PROGRAMAS ? d.p : "lipedema");
   const items = ITEMS(); S.elegido = true;
+  /* 28-nov: las cotizaciones mandadas antes de bajar la ampolla conservan su precio (ampolla a 400.000 en obesidad, 370.000 en lipedema) */
+  const tuViejo = d.tu || ((d.v || 0) < 3 ? TIRZ_ANTES[PROG] : 0), tzEl = items.find(x => x.dataset.id === "tirzepatida");
+  if (tuViejo && tzEl) tzEl.dataset.u = tuViejo;
   const apaN = (CATALOGO.find(c => c.id === "aparatologia") || {}).n;
   (d.i || []).forEach(([q, on, lock, pu], k) => { const x = items[k]; if (!x) return;
     if (!d.v && PROG === "lipedema" && x.dataset.n === apaN && /^\d+([.,]\d+)?$/.test(String(q).trim())) q = String(Math.round(mult(q) * 39000 / 30000 * 100) / 100); // link de antes del 24-nov: 20 sesiones a 39.000 = 26 a 30.000
