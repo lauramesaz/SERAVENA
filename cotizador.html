@@ -8,7 +8,7 @@
    se recarga sola UNA vez saltándose la memoria del navegador. Así nunca hace falta cambiar el link.
    La versión la actualiza solo el gancho de git (.githooks/pre-commit) cada vez que se publica el cotizador. */
 (function(){
-  var V = "20261124-085830"; // VERSION-COTIZADOR
+  var V = "20261128-112936"; // VERSION-COTIZADOR
   var u = new URL(location.href), ya = u.searchParams.has("_");
   if (u.search){ u.searchParams.delete("_"); u.searchParams.delete("v"); history.replaceState(null, "", u.pathname + u.search + location.hash); }
   if (ya || !window.fetch) return;
@@ -1384,7 +1384,9 @@ function leer(){
     const zonas = cat && cat.id === CRIO ? zonasDe(x) : null, sesZ = cat && cat.id === CRIO ? sesZonas(x.dataset.zonas) : null;
     return { id: cat ? cat.id : "", n, q, u, zonas, sesZ, nota: nt ? nt.value.trim() : "", costo, valor: costo * f, on: x.querySelector(".check").checked && mult(q) > 0, interno: !!x.dataset.interno, el: x };
   });
-  const sel = items.filter(x => x.on && (x.n || x.u));
+  const sel0 = items.filter(x => x.on && (x.n || x.u));
+  /* 28-nov Laura: los costos internos ocultos (ecografía, drenaje, consultorio) solo cuentan si hay algún servicio visible marcado; con todo en cero el total es $0 */
+  const sel = sel0.some(x => !x.interno) ? sel0 : [];
   const costo = sel.reduce((s, x) => s + x.costo, 0);
   const lista = Math.round(costo * f);
   const pct = Math.min(100, Math.max(0, parseFloat(String($("#descuento").value).replace(",", ".")) || 0));
